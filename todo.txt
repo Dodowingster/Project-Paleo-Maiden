@@ -1,0 +1,46 @@
+starting point - uni
+fixed map - non linear movement
+not really a loop, but there will be ways to go back to uni
+
+24 turns in one year/round
+each turn
+	roll dice
+	choose path but must go based on number rolled
+	land on a space
+		- fight space
+		- event space
+
+
+what is constant:
+- map
+- turn count (let player set this? but have a standard)
+- year count
+- starting decks for each char
+
+
+what can players choose
+- starting char
+- path taken
+- shop items
+- card selected
+- camping
+
+
+what is rng
+- card selection
+- card battling
+- dice roll
+- map spaces 
+- current turn's event
+	- sparring sessions (zako/mob fight)
+	- shop
+	- rest
+	- rival
+	- random event
+
+
+- what type of fun (IMPORTANT):
+	1) support your fav chars (like uma musume/tamagotchi)
+	2) gambling
+	3) satisfaction from things working out - combos
+	
