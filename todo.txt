@@ -41,7 +41,8 @@ what is rng
 
 
 Card Game Deets:
-starting deck: 9 cards
+maximum cards in a deck is 15 (subject to change)
+starting deck: 9 cards 
 initial cards (red as example):
 - atk - 3 dmg x3
 - def - block 2 dmg x3
