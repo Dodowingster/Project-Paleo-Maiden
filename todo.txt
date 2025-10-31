@@ -1,3 +1,4 @@
+Board Game Deets:
 starting point - uni
 fixed map - non linear movement
 not really a loop, but there will be ways to go back to uni
@@ -37,6 +38,27 @@ what is rng
 	- rest
 	- rival
 	- random event
+
+
+Card Game Deets:
+starting deck: 9 cards
+initial cards (red as example):
+- atk - 3 dmg x3
+- def - block 2 dmg x3
+- class specific cards
+	- power up - +1 power this turn x1
+	- damage over time - enemy takes 1 dmg every turn x1
+	- hit harder - 5 dmg x1
+
+who moves first?
+- determine using dice roll - for every turn instead of only turn 1
+
+- general algo for AI - both player and enemy:
+	- prioritizes by color number
+	- generics are lowest priority
+
+- run simulation until one dies
+
 
 
 - what type of fun (IMPORTANT):
