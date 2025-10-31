@@ -97,3 +97,44 @@ The system is a **Hybrid Automated Turn-Based** system designed to be quick, dec
 | **🔵 Blue** | **Defense & Consistency.** | **Arcane Ward:** Starts every combat with a **+2 Arcane Shield**. | **Scholarly Insight:** Chooses from **4 Reward Cards** instead of 3 after any spar win. |
 | **🟢 Green** | **Speed & Precision.** | **First Strike:** Applies a **+3 bonus** to their first attack card played in combat. | **Double Time:** Can **reject the free card** from the Campsite to gain an **extra dice roll** upon completion of the rest. |
 | **🟡 Yellow** | **Durability & Damage Reduction.** | **Natural Resilience:** Passive **-1 damage reduction** from all incoming attacks. | **Strategic Insight:** After any spar win, the player can **reshuffle the presented Reward Cards** and draw a new set of 3/4 random cards from the pool. |
+
+---
+
+## VI. Core Gameplay Loop & Player Agency
+
+This section breaks down the turn-by-turn gameplay loop and distinguishes between fixed game elements, player choices, and random variables.
+
+### A. Turn Structure (24 Turns per Year)
+
+| Step | Action | Detail |
+| :--- | :--- | :--- |
+| **1. Roll Dice** | The player initiates a dice roll to determine movement range. | This action costs **1 Turn**. |
+| **2. Choose Path** | The player moves their Champion token on the map. | Movement must equal the number rolled on the dice. |
+| **3. Land on Space** | The Champion lands on a map space, triggering an event. | Events can include Sparring Sessions, Dojos, Hot Springs, etc. |
+
+### B. Game Variables
+
+| Element Type | Description | Examples |
+| :--- | :--- | :--- |
+| **Constants** | Core rules and structures that are fixed for every playthrough. | • Fixed World Map Layout<br>• 3-Year Course Structure<br>• Standard 24 Turns per Year<br>• Predetermined Starting Decks for each Champion |
+| **Player Choices** | Key decisions the player makes to influence the outcome of the run. | • Selecting the starting Champion<br>• Choosing a path after a dice roll<br>• Purchasing items from the Dojo/Hot Spring<br>• Selecting a Reward Card after a victory<br>• Deciding when to use the Campsite to rest |
+| **Random (RNG)** | Elements of chance that introduce unpredictability and replayability. | • Dice Roll result (1-6)<br>• Card options presented in post-combat Rewards<br>• Card draw order during combat<br>• Specific events on certain map spaces |
+
+### C. Initial Card Game Concepts
+
+| Mechanic | Initial Concept |
+| :--- | :--- |
+| **Deck Size** | Start with a 9-card deck; maximum deck size of 15. |
+| **Starting Deck (Example)** | **3x** Basic Attack (3 Dmg), **3x** Basic Defense (2 Block), **3x** Discipline-specific cards (e.g., Power Up, DoT, Heavy Hit). |
+| **Turn Order** | A dice roll at the start of each combat turn determines who acts first. |
+| **AI Logic** | The AI prioritizes playing cards based on a color/synergy hierarchy, with generic cards being the lowest priority. |
+| **Combat Resolution** | Combat is simulated automatically turn-by-turn until one combatant's P-Magic is depleted. |
+
+### D. Core Pillars of Fun
+
+| Pillar | Description |
+| :--- | :--- |
+| **1. Nurturing** | Supporting and developing a favorite character, similar to a virtual pet or raising simulator (e.g., *Tamagotchi*, *Uma Musume*). |
+| **2. Risk/Reward** | Experiencing the thrill of chance through dice rolls and random card draws, embracing a "gambling" feel. |
+| **3. Satisfaction** | The deep satisfaction that comes from seeing a well-planned strategy, deck synergy, or a lucky combo work out perfectly. |
+
