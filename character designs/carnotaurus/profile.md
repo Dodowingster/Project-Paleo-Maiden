@@ -44,7 +44,7 @@ Sastrei Taurus is a Paleo-Maiden affiliated with the **Apex League (Carni Dorm)*
 | Stage | Vocation Title | Fused Trait Disciplines |
 | :--- | :--- | :--- |
 | **Base** | Kinetic Boxer | Agility (Core) |
-| **Final** | Boxing Magus | Agility + Stamina/Arcane Precision |
+| **Hybrid** | Boxing Magus | Agility + Stamina/Arcane Precision |
 
 > *The Boxing Magus style fuses Taurus's raw **Agility** with a stable flow of P-Magic (Stamina/Arcane Precision) to deliver powerful, consistent strikes that maintain momentum without depleting her small reserves.*
 
