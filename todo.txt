@@ -10,6 +10,9 @@ each turn
 	land on a space
 		- fight space
 		- event space
+		- rest space (checkpoint)
+			- respawn here and -1 turn on faint
+			- health value restored to full?
 
 
 what is constant:
@@ -25,13 +28,15 @@ what can players choose
 - shop items
 - card selected
 - camping
+	- limited number, replenished after finishing a loop
+	- health value restored discuss later
 
 
 what is rng
 - card selection
 - card battling
 - dice roll
-- map spaces 
+- map spaces (rng with rules)
 - current turn's event
 	- sparring sessions (zako/mob fight)
 	- shop
