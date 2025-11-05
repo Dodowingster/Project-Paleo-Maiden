@@ -48,6 +48,8 @@ what is rng
 Card Game Deets:
 maximum cards in a deck is 15 (subject to change)
 starting deck: 9 cards 
+Each cards cost Mana
+Amount of Mana is determined by your mana guage
 initial cards (red as example):
 - atk - 3 dmg x3
 - def - block 2 dmg x3
@@ -58,14 +60,21 @@ initial cards (red as example):
 
 who moves first?
 - determine using dice roll - for every turn instead of only turn 1
+- larger dice roll means you go first (roll 6, oppoent roll 5, you go first)
+- value of dice face can change base on events on board [not final]
+- can increase or decrease dice face (6 on dice becomes 7, 6 on dice becomes 5) [not final]
 
 - general algo for AI - both player and enemy:
+	- largest mana cost card always go first 
 	- prioritizes by color number
 	- generics are lowest priority
 
+
 - run simulation until one dies
 
-
+Strategy(future)
+-different strategy you can choose before a battle
+-depend on what strategy you choose, different cards will be prioritized to be played 
 
 - what type of fun (IMPORTANT):
 	1) support your fav chars (like uma musume/tamagotchi)
