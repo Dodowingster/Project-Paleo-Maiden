@@ -109,7 +109,7 @@ This section breaks down the turn-by-turn gameplay loop and distinguishes betwee
 | Step | Action | Detail |
 | :--- | :--- | :--- |
 | **1. Roll Dice** | The player initiates a dice roll to determine movement range. | This action costs **1 Turn**. |
-| **2. Choose Path** | The player moves their Champion token on the map. | Movement must equal the number rolled on the dice. |
+| **2. Choose Path** | The player moves their Champion token on the map. | Movement must equal the number rolled on the dice. The map is non-linear, but there are ways to return to the start. |
 | **3. Land on Space** | The Champion lands on a map space, triggering an event. | Events can include Sparring Sessions, Dojos, Hot Springs, etc. |
 
 ### B. Game Variables
@@ -117,17 +117,17 @@ This section breaks down the turn-by-turn gameplay loop and distinguishes betwee
 | Element Type | Description | Examples |
 | :--- | :--- | :--- |
 | **Constants** | Core rules and structures that are fixed for every playthrough. | • Fixed World Map Layout<br>• 3-Year Course Structure<br>• Standard 24 Turns per Year<br>• Predetermined Starting Decks for each Champion |
-| **Player Choices** | Key decisions the player makes to influence the outcome of the run. | • Selecting the starting Champion<br>• Choosing a path after a dice roll<br>• Purchasing items from the Dojo/Hot Spring<br>• Selecting a Reward Card after a victory<br>• Deciding when to use the Campsite to rest |
-| **Random (RNG)** | Elements of chance that introduce unpredictability and replayability. | • Dice Roll result (1-6)<br>• Card options presented in post-combat Rewards<br>• Card draw order during combat<br>• Specific events on certain map spaces |
+| **Player Choices** | Key decisions the player makes to influence the outcome of the run. | • Selecting the starting Champion<br>• Choosing a path after a dice roll<br>• Purchasing items from the Dojo/Hot Spring<br>• Selecting a Reward Card after a victory<br>• Deciding when to use the Campsite to rest (limited uses) |
+| **Random (RNG)** | Elements of chance that introduce unpredictability and replayability. | • Dice Roll result (1-6)<br>• Card options presented in post-combat Rewards<br>• Card draw order during combat<br>• Specific events on certain map spaces (e.g., rival encounters, shops, sparring) |
 
 ### C. Initial Card Game Concepts
 
 | Mechanic | Initial Concept |
 | :--- | :--- |
 | **Deck Size** | Start with a 9-card deck; maximum deck size of 15. |
-| **Starting Deck (Example)** | **3x** Basic Attack (3 Dmg), **3x** Basic Defense (2 Block), **3x** Discipline-specific cards (e.g., Power Up, DoT, Heavy Hit). |
-| **Turn Order** | A dice roll at the start of each combat turn determines who acts first. |
-| **AI Logic** | The AI prioritizes playing cards based on a color/synergy hierarchy, with generic cards being the lowest priority. |
+| **Starting Deck (Red Example)** | **3x** Attack (3 Dmg), **3x** Guard (2 Block), **1x** Power Up (+1 power this turn), **1x** Damage Over Time, **1x** Heavy Hit (5 Dmg). |
+| **Turn Order** | A dice roll at the start of each combat turn determines who acts first. A higher roll goes first. |
+| **AI Logic** | The AI prioritizes playing cards based on a hierarchy: highest mana cost first, then by color, with generic cards being the lowest priority. |
 | **Combat Resolution** | Combat is simulated automatically turn-by-turn until one combatant's P-Magic is depleted. |
 
 ### D. Core Pillars of Fun
@@ -137,4 +137,3 @@ This section breaks down the turn-by-turn gameplay loop and distinguishes betwee
 | **1. Nurturing** | Supporting and developing a favorite character, similar to a virtual pet or raising simulator (e.g., *Tamagotchi*, *Uma Musume*). |
 | **2. Risk/Reward** | Experiencing the thrill of chance through dice rolls and random card draws, embracing a "gambling" feel. |
 | **3. Satisfaction** | The deep satisfaction that comes from seeing a well-planned strategy, deck synergy, or a lucky combo work out perfectly. |
-
