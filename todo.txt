@@ -81,3 +81,14 @@ Strategy(future)
 	2) gambling
 	3) satisfaction from things working out - combos
 	
+-Tournament Related
+	- Tournaments serves as the Rival Arc which explores each Paleo-Maidens individually which is the main story highlight
+	- During the deck building (world map & exploration), each potential rivals will be introduced in event spaces at random
+	- In the tournamnent, players will be available to enlist their paleo-maiden inside the bracket among the 4 main rivals (subject to change)
+	but the bracket seed is completely random so each run does not guarantee story events. This is to ensure players that multiple playthrough for a single paleo-Maiden
+	is required to experience the full character arc/story
+
+-Combat Log
+	- Nice to have combat log that reports what is going on during combat
+	- The combat log should be written and flavoured as if its from a commentator narrating the fight
+	- Potentially, we can also use Fighting game terms for fun and making the game easy to be disucssed among players later in the future.

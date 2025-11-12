@@ -43,6 +43,16 @@ The tournament utilizes a double-elimination bracket, rewarding a single loss re
 | **Losers Bracket** | The path to securing Top 8 qualification after one previous loss. | **Career Ends.** The Paleo Maiden is immediately disqualified. |
 | **Achievement** | **Comeback Specialist:** Winning the League after dropping into and winning through the Losers Bracket. | Unlocks a special achievement/reward. |
 
+### 3. Rival Arcs & Narrative Progression
+
+The League Championships serve as the primary vehicle for narrative progression, framed as **Rival Arcs** that explore the personal stories of each Paleo Maiden.
+
+| Feature | Description |
+| :--- | :--- |
+| **Rival Introductions** | During world map exploration, potential rivals are introduced through random events, setting the stage for the high-stakes encounters in the final tournament. |
+| **Randomized Brackets** | The bracket seeding for the 16 competitors is **completely random** in each run. This ensures that each tournament playthrough is unique and unpredictable. |
+| **Narrative Replayability** | Because players are not guaranteed to face specific rivals, multiple playthroughs are encouraged to experience a Champion's full character arc and unlock all unique story events. |
+
 ### Job Evolution (Optional Mastery)
 
 **Job Evolution** is an entirely optional system of specialization that provides powerful **passive stat buffs** (e.g., +Max P-Magic, +Damage Multiplier). It is achieved by meeting specific card counts for color combinations.
@@ -85,6 +95,7 @@ The system is a **Hybrid Automated Turn-Based** system designed to be quick, dec
 | **Turn Flow** | **Draw 5 Cards.** AI automatically selects and plays **1 to 3** cards (prioritizing synergy/defense). Played cards are discarded; **unplayed cards are retained** for the next turn's strategy. |
 | **Card Types** | **Discipline Cards** (Generic utility/buffs, for Job Evolution count) **AND Species-Specific Cards** (Rare, powerful effects tied to specific defeated rivals). |
 | **Perfect Victory** | Winning a spar without losing any P-Magic grants a bonus (e.g., Red Class gets an extra card). |
+| **Commentated Combat Log** | A live combat log narrates the fight with the flavor and energy of a sports commentator, using fighting game terminology to make the action exciting and easy for players to discuss. |
 
 ---
 
