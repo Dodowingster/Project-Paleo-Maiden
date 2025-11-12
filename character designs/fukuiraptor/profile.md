@@ -19,6 +19,9 @@ Kitadani Fukui is an intense, honorable, and deeply disciplined Paleo Maiden. Wh
 
 Her life is dedicated to the pursuit of the **Flawless Draw**—a single, instantaneous strike that ends the fight decisively and cleanly. She is not a cold fighter, but her extreme focus on **P-Magic Purity** often makes her appear cold and intimidating to those around her, as she radiates an aura of unwavering resolve. Her true goal is to prove that **mastery and honor** always surpass brute force and luck.
 
+However, due to her obssessiveness towards the purity of her own P-Magic concentration, she often has a strong distaste towards negative associted things such as curse words or
+anything that she believes would taint her P-Magic- leading to her being overly protective towards her P-Magic hygiene and takes extreme measures to keep it "pure".
+
 | Attribute | Detail |
 | :--- | :--- |
 | **Strengths** | Breathing, Discipline, Doing Laundry |
@@ -27,6 +30,7 @@ Her life is dedicated to the pursuit of the **Flawless Draw**—a single, instan
 | **Height** | 170cm (5'7") |
 | **Weight** | 68kg (150 lbs) |
 | **Phone Wallpaper** | A photo of a single, flawless Sakura bloom. |
+| **Hygience Care** | She would take extremely long time taking a shower or cleaning herself after any activives. | 
 | **Titles** | The Honorable Robber, The Sakura Steel |
 | **Birthdate** | May 13th |
 | **Birthplace** | Fukui Prefecture, Japan |
@@ -74,4 +78,4 @@ Her life is dedicated to the pursuit of the **Flawless Draw**—a single, instan
 * Her fighting animations feature a scattering of **Sakura petals**, symbolizing the **brief, beautiful, and decisive nature** of her *Iai* draw (a classic Bushidō metaphor).
 * Her physical appearance and attire are designed to make her look like a standard, agile **Katana master** (Dromaeosaurid), but her immensely powerful and deliberate attacks surprise rivals with the **cleaving force of a Megaraptoran/Nōdachi**.
 * The ritual of purifying her P-Magic after a fight is done with a traditional **Japanese breathing exercise** (Kokyū-hō) that focuses her energy flow.
-* Her birthdate (May 13th) is a direct numerical reference to the year of her discovery in the **K*itadani Formation (1994)**. The number 13 is derived from summing the last two digits of the year ($9+4=13$). The month (May) is chosen to symbolize the **traditional Spring season** associated with the delicate yet powerful Sakura motif.
+* Her birthdate (May 13th) is a direct numerical reference to the year of her discovery in the **Kitadani Formation (1994)**. The number 13 is derived from summing the last two digits of the year ($9+4=13$). The month (May) is chosen to symbolize the **traditional Spring season** associated with the delicate yet powerful Sakura motif.
