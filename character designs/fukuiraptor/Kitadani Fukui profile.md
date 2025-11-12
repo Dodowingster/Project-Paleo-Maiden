@@ -19,8 +19,7 @@ Kitadani Fukui is an intense, honorable, and deeply disciplined Paleo Maiden. Wh
 
 Her life is dedicated to the pursuit of the **Flawless Draw**—a single, instantaneous strike that ends the fight decisively and cleanly. She is not a cold fighter, but her extreme focus on **P-Magic Purity** often makes her appear cold and intimidating to those around her, as she radiates an aura of unwavering resolve. Her true goal is to prove that **mastery and honor** always surpass brute force and luck.
 
-However, due to her obssessiveness towards the purity of her own P-Magic concentration, she often has a strong distaste towards negative associted things such as curse words or
-anything that she believes would taint her P-Magic- leading to her being overly protective towards her P-Magic hygiene and takes extreme measures to keep it "pure".
+However, due to her obssessiveness towards the purity of her own P-Magic concentration, she often has a strong distaste towards negative associted things such as curse words or anything that she believes would taint her P-Magic- leading to her being overly protective towards her hygience and takes extreme measures to keep it "pure".
 
 | Attribute | Detail |
 | :--- | :--- |
@@ -30,12 +29,12 @@ anything that she believes would taint her P-Magic- leading to her being overly 
 | **Height** | 170cm (5'7") |
 | **Weight** | 68kg (150 lbs) |
 | **Phone Wallpaper** | A photo of a single, flawless Sakura bloom. |
-| **Hygience Care** | She would take extremely long time taking a shower or cleaning herself after any activives. | 
+| **Hygience Obsession** | She would take extremely long time taking a shower or cleaning herself after any activives. | 
 | **Titles** | The Honorable Robber, The Sakura Steel |
 | **Birthdate** | May 13th |
 | **Birthplace** | Fukui Prefecture, Japan |
-| **Likes** | Silence, Traditional Tea, Perfect Form |
-| **Dislikes** | Stalling, Dishonorable Tactics |
+| **Likes** | Silence, Soaps, Perfect Form |
+| **Dislikes** | Stalling, Dishonorable Tactics, Awful Smell |
 
 ---
 
@@ -52,7 +51,7 @@ anything that she believes would taint her P-Magic- leading to her being overly 
 
 | Stage | Vocation Title | Fused Trait Disciplines |
 | :--- | :--- | :--- |
-| **Base** | Iai Blade Master | **Blue** (Patience/Precision) |
+| **Base** | Iai Blade Master | **Blue** |
 | **Final** | Shogunate Swordsman | **Blue** (Patience) + **Red** (Raw Power) |
 
 ---
