@@ -13,7 +13,7 @@
 
 ## Profile/Background
 
-Sastrei Taurus is a Paleo-Maiden affiliated with the **Apex League (Carni Dorm)**, but she is an ideological rebel within it. Unlike her peers, she was born with a **less abundant P-Magic pool** and lower innate **Stamina**. This forced her to reject the Carni philosophy of overwhelming **Brute Force**. Instead, she committed to mastering **Agility and Precision**, which are the core traits of the rival **Bulwark League (Herbi Dorm)**'s philosophy. She views the reliance of other Carni champions on their massive P-Magic reserves as lazy. She is a dedicated **Lone Wolf** who trains obsessively to prove that technique can surpass inherited power.
+Sastrei Taurus is a Paleo-Maiden affiliated with the **Apex League (Carni Dorm)**, but she is an ideological rebel within it. Unlike her peers, she was born with a **less abundant P-Magic pool** and lower innate **Stamina**. This forced her to reject the Carni philosophy of overwhelming **Brute Force**. Instead, she committed to mastering **Agility and Precision**, which are the core traits of the rival **Bulwark League (Herbi Dorm)**'s philosophy. She is a dedicated **Lone Wolf** who trains obsessively to prove that technique can surpass inherited power.
 
 | Attribute | Detail |
 | :--- | :--- |
@@ -21,7 +21,7 @@ Sastrei Taurus is a Paleo-Maiden affiliated with the **Apex League (Carni Dorm)*
 | **Weakness** | Compliments |
 | **Tail** | When frustrated, she will pressure the ground with her tail silently. |
 | **Height** | 178cm (5'10") |
-| **Weight** | 57kg (126 lbs) |
+| **Weight** | 64kg (141 lbs) |
 | **Phone Wallpaper** | A photo of her and Amarga when they were little | 
 | **Max Sprint Speed** | 72 km/h (45 mph) | 
 | **Titles** | Kinetic Brawler, Rogue of El Secreto, Rebellious Speedster |
