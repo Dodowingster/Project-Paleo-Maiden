@@ -25,7 +25,7 @@ However, due to her obssessiveness towards the purity of her own P-Magic concent
 | :--- | :--- |
 | **Strengths** | Breathing, Discipline, Doing Laundry |
 | **Weakness** | Modern Devices |
-| **Unique Habit/Trait** | **Ritualistic Purist:** Obsessively cleanses her P-Magic after every fight to "purge" any contamination |
+| **Tail** | She scrubs her tail alot and would get very offended if someone touches it and deem it to be unhygenic. |
 | **Height** | 170cm (5'7") |
 | **Weight** | 68kg (150 lbs) |
 | **Phone Wallpaper** | A photo of a single, flawless Sakura bloom. |
@@ -42,9 +42,7 @@ However, due to her obssessiveness towards the purity of her own P-Magic concent
 
 | Character | Relationship Type | Nature of Conflict/Bond |
 | :--- | :--- | :--- |
-| **[Character Name]** | [e.g., Thematic Rival, Childhood Friend] | [Describe the nature of their bond or rivalry.] |
-| **[Character Name]** | [e.g., Political Opponent, Family Rivalry] | [Describe the nature of their bond or rivalry.] |
-
+| **Ostromm Utahra** | **Ideological Rival** | Fukui values P-Magic purity and honor above all. Utahra is a pragmatist who focuses on effectiveness, even using tactics Fukui deems "dishonorable," like sabotaging an opponent's P-Magic. Their conflict is a battle of principle vs. pragmatism. |
 ---
 
 ## Vocation Evolution(s)
@@ -60,8 +58,8 @@ However, due to her obssessiveness towards the purity of her own P-Magic concent
 
 | Vocation | Core Trait | Signature Move |
 | :--- | :--- | :--- |
-| **[Base Vocation]** | [Describe the core principle of their fighting style at this stage.] | **[Signature Move Name]:** [Describe the move and its effect.] |
-| **[Evolved Vocation]** | [Describe how their fighting style has evolved with the new discipline.] | **[Signature Move Name]:** [Describe the new or enhanced signature move.] |
+| **Iai Blade Master** | **Deceptive Power:** Her style mimics the speed and precision of *Iaijutsu*. She uses a katana with a two-handed grip, focusing on perfect form and patience. Opponents mistake her stance for that of a swift, light-damage fighter, but each draw is a surprisingly powerful slash meant to end the exchange decisively. | **Sakura's First Bloom:** A defensive stance that culminates in a swift, clean katana draw. If she blocks an attack while in this stance, the counter-attack is a single, devastatingly powerful slash that deals significantly increased damage, rewarding a perfect read. |
+| **Shogunate Swordsman** | **The Flawless Cleave:** Fusing her Blue discipline with Red's raw power, her style becomes relentlessly proactive. She now embodies the "Nōdachi in a katana's form," using her speed to create openings for single, overwhelming slashes that carry the full, cleaving force of a Megaraptoran's claw. | **Kitadani Cleaver:** Kitadani channels all her P-Magic into a single, unblockable draw-slash. The move has a long charge time but is executed with blinding speed. Its damage scales with the amount of P-Magic stored, capable of ending a fight with one pure, perfect, and overwhelmingly powerful strike. |
 
 ---
 
