@@ -17,7 +17,7 @@
 
 Ostromm Utahra is the fierce and commanding leader of the **"Cedar Mountain Group,"** a small, tight-knit group of Paleo Maidens. On the surface, Utahra is the intimidating, rigid leader. She projects an aura of unshakeable confidence and strength because she believes it's what her friends needs to see.
 
-Despite her intimidating presence, she has a surprising soft spot. Following a particularly demoralizing clash with her ideological rival, **Fragilis Allosa**—whose species holds a prestigious title that Utahra covets—she begins to question her pack's strength. She is later found by a 10-year-old elementary school boy. 
+Despite her intimidating presence, she has a surprising soft spot. Following a particularly demoralizing clash with her ideological rival, **Fragilis Allosa**—who holds a prestigious title that Utahra covets—she begins to question her own strength. She is later found by a 10-year-old elementary school boy. 
 
 The boy admires Ostromm Utahra and seeing his hero feeling defeated, he offers earnest words of encouragement, reminding her that her strength and leadership inspire him and many others. He explains that it's okay for two great champions to coexist. This encounter reaffirms her resolve, transforming her internal motivation from a simple quest for dominance into a deeply personal promise to her biggest fan: to earn a place of honor without needing to erase another's.
 
@@ -25,11 +25,11 @@ The boy admires Ostromm Utahra and seeing his hero feeling defeated, he offers e
 | :--- | :--- |
 | **Strengths** | Leadership, Intimidation |
 | **Weakness** | Children, Overly sentimental |
-| **Tail** |  |
+| **Tail** | She uses a specific brand to clean her featherly tail |
 | **Height** | 174cm (5'8.5") |
 | **Weight** | 66kg (145 lbs) |
 | **Phone Wallpaper** | A crayon drawing of her, gifted by Kenyon. |
-| **Habit/Trait** | Taps her finger on the table when thinking deeply about something. Similarly, she would do the same but with her sickle during combat. |
+| **Fidgeter** | Taps her finger on the table when thinking deeply about something. Similarly, she would do the same but with her sickle during combat. |
 | **Titles** | Predator of Utah |
 | **Birthdate** | February 18th |
 | **Birthplace** | Utah, North America |
@@ -64,7 +64,6 @@ The boy admires Ostromm Utahra and seeing his hero feeling defeated, he offers e
 | Vocation | Core Trait | Signature Move |
 | :--- | :--- | :--- |
 | **Inquisitor** | **Reaping Judgment:** Utahra's style is aggressive and domineering. She uses her scythe in wide, powerful arcs to control space and break an opponent's stance. Her attacks are heavy and deliberate, designed to punish any defensive lapse with overwhelming force, embodying the raw power of the largest raptor. | **Ostromm Gaze:** Utahra marks a target, making them "Judged." Her next attack against the Judged target ignores a portion of their block/defense and deals bonus damage, representing a focused, punishing strike. |
-| **Alpha Executioner** | **The Relentless Hunt:** Fusing Red's power with Green's speed, her style becomes a terrifying blur of motion. She now fights alongside spectral images of her pack, using their phantom strikes to create openings and overwhelm the opponent's senses before delivering the final, decisive blow herself. | **Cedar Mountain Fury:** Utahra summons spectral claws of her pack to pin the opponent in place. She then dashes forward with blinding speed, executing a single, unblockable scythe slash that deals massive damage, scaling with the number of consecutive hits landed during the fight. |
 
 ---
 
