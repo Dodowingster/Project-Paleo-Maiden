@@ -19,11 +19,11 @@
 | :--- | :--- |
 | **Strengths** | |
 | **Weakness** | |
-| **Unique Habit/Trait** | |
+| **Tail** | |
 | **Height** | |
 | **Weight** | |
 | **Phone Wallpaper** | |
-| **Max Sprint Speed** | |
+| **Unique Habit/Traits** | |
 | **Titles** | |
 | **Birthdate** | |
 | **Birthplace** | |
