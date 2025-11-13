@@ -6,7 +6,7 @@
 | :--- | :--- |
 | **Theme & Setting** | **Anthropomorphic Paleo Maidens University.** The game takes place across a single World Map that represents all three prehistoric eras (Triassic, Jurassic, Cretaceous) combined into an academic timeline. |
 | **Primary Goal** | Win the **Paleo-Maiden Championship (PMC)** at the end of the Cretaceous Year (Year 3). |
-| **Magic System** | **Paleo-Magic (P-Magic):** The source of power and literally the Champion's **Health Pool** in combat. When P-Magic reaches zero, the run ends. |
+| **Magic System** | **Paleo-Magic (P-Magic):** The source of power and literally the Champion's **Health Pool** in combat. When P-Magic reaches zero, the fight ends. |
 | **Player Role** | The player is a **Mentor/Coach** who selects a Paleo Maiden Champion (e.g., Tyran Rex, Sastrei Taurus) and guides them through the **3-Year Course**. |
 | **Progression Basis** | **3-Year University Course (6 Semesters/72 weeks).** Each year ends with a high-stakes **League Championship** that dictates qualification for the next year. |
 
