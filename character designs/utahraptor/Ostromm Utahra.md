@@ -17,7 +17,9 @@
 
 Ostromm Utahra is the fierce and commanding leader of the **"Cedar Mountain Group,"** a small, tight-knit group of Paleo Maidens. On the surface, Utahra is the intimidating, rigid leader. She projects an aura of unshakeable confidence and strength because she believes it's what her friends needs to see.
 
-Despite her intimidating presence, she has a surprising soft spot. Following a particularly demoralizing clash with her ideological rival, **Fragilis Allosa**—whose species holds a prestigious title that Utahra covets—she begins to question her pack's strength. She is later found by her young sponsor, a 10-year-old boy named **Kenyon Roberts**. Seeing his hero feeling defeated, Kenyon offers earnest words of encouragement, reminding her that her strength and leadership inspire him and many others. He explains that it's okay for two great champions to coexist. This encounter reaffirms her resolve, transforming her internal motivation from a simple quest for dominance into a deeply personal promise to her biggest fan: to earn a place of honor without needing to erase another's.
+Despite her intimidating presence, she has a surprising soft spot. Following a particularly demoralizing clash with her ideological rival, **Fragilis Allosa**—whose species holds a prestigious title that Utahra covets—she begins to question her pack's strength. She is later found by a 10-year-old elementary school boy. 
+
+The boy admires Ostromm Utahra and seeing his hero feeling defeated, he offers earnest words of encouragement, reminding her that her strength and leadership inspire him and many others. He explains that it's okay for two great champions to coexist. This encounter reaffirms her resolve, transforming her internal motivation from a simple quest for dominance into a deeply personal promise to her biggest fan: to earn a place of honor without needing to erase another's.
 
 | Attribute | Detail |
 | :--- | :--- |
