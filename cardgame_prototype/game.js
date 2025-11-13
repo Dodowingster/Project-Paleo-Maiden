@@ -92,12 +92,12 @@ function updateUI(info){
 		}
 	}
 
-	const pAHand = document.getElementById('pA_hand'); pAHand.innerHTML='';
-	for(const c of p1.hand.cards) { pAHand.appendChild(makeCardEl(c)); }
-	adjustCardScale(pAHand, p1.hand.cards.length);
-	const pBHand = document.getElementById('pB_hand'); pBHand.innerHTML='';
-	for(const c of p2.hand.cards) { pBHand.appendChild(makeCardEl(c)); }
-	adjustCardScale(pBHand, p2.hand.cards.length);
+	// const pAHand = document.getElementById('pA_hand'); pAHand.innerHTML='';
+	// for(const c of p1.hand.cards) { pAHand.appendChild(makeCardEl(c)); }
+	// adjustCardScale(pAHand, p1.hand.cards.length);
+	// const pBHand = document.getElementById('pB_hand'); pBHand.innerHTML='';
+	// for(const c of p2.hand.cards) { pBHand.appendChild(makeCardEl(c)); }
+	// adjustCardScale(pBHand, p2.hand.cards.length);
 
 	// Render hand-before if provided in info
 	const pAHandBefore = document.getElementById('pA_hand_before');
@@ -140,7 +140,7 @@ function updateUI(info){
 	document.getElementById('turnCounter').textContent = `Turn: ${turn}`;
 
 	// Render played cards from the provided info if present
-	if (info && (info.playedA || info.playedB)) {
+	if (info && info.playedA) {
 		const pAplayedContainer = document.createElement('div');
 		pAplayedContainer.id = 'pA_played';
 		const labelA = document.createElement('div'); labelA.className = 'muted'; labelA.textContent = 'Played this turn:';
@@ -149,7 +149,9 @@ function updateUI(info){
 		for (const c of (info.playedA || [])) cardsA.appendChild(makeCardEl(c));
 		pAplayedContainer.appendChild(cardsA);
 		document.getElementById('playerA').appendChild(pAplayedContainer);
+	}
 
+	if (info && info.playedB){
 		const pBplayedContainer = document.createElement('div');
 		pBplayedContainer.id = 'pB_played';
 		const labelB = document.createElement('div'); labelB.className = 'muted'; labelB.textContent = 'Played this turn:';
@@ -164,12 +166,31 @@ function updateUI(info){
 function startGame(){
 	document.getElementById('log').textContent = '';
 	turn = 0;
+	
+	// Get deck sizes from input fields
+	const p1DeckSize = parseInt(document.getElementById('pA_configDeck').value, 10) || 20; // Default to 20 if empty or invalid
+	const p2DeckSize = parseInt(document.getElementById('pB_configDeck').value, 10) || 20; // Default to 20 if empty or invalid
+
+	// Get other config values from input fields, with defaults
+	const p1Name = document.getElementById('pA_configName').value || 'Alice';
+    const p1HP = parseInt(document.getElementById('pA_configHP').value, 10) || 30;
+    const p1ManaPool = parseInt(document.getElementById('pA_configManaPool').value, 10) || 3;
+    const p1HandTurn = parseInt(document.getElementById('pA_configHandTurn').value, 10) || 3;
+    const p1HandMax = parseInt(document.getElementById('pA_configHandMax').value, 10) || 10;
+
+    const p2Name = document.getElementById('pB_configName').value || 'Bob';
+    const p2HP = parseInt(document.getElementById('pB_configHP').value, 10) || 30;
+    const p2ManaPool = parseInt(document.getElementById('pB_configManaPool').value, 10) || 3;
+    const p2HandTurn = parseInt(document.getElementById('pB_configHandTurn').value, 10) || 3;
+    const p2HandMax = parseInt(document.getElementById('pB_configHandMax').value, 10) || 10;
+
 	const templates = makeTemplates();
-	const deckSize = 20;
-	const p1Deck = new Deck(makeDeckFromTemplates(templates, deckSize));
-	const p2Deck = new Deck(makeDeckFromTemplates(templates, deckSize));
-	p1 = new Character({ name: 'Alice', maxMana: 3, deck: p1Deck });
-	p2 = new Character({ name: 'Bob', maxMana: 3, deck: p2Deck });
+	const p1Deck = new Deck(makeDeckFromTemplates(templates, p1DeckSize));
+	const p2Deck = new Deck(makeDeckFromTemplates(templates, p2DeckSize));
+
+	// Use the config values when creating the character
+	p1 = new Character({ name: p1Name, health: p1HP, maxMana: p1ManaPool, handMax: p1HandMax, handTurn: p1HandTurn, deck: p1Deck });
+	p2 = new Character({ name: p2Name, health: p2HP, maxMana: p2ManaPool, handMax: p2HandMax, handTurn: p2HandTurn, deck: p2Deck });
 	p1.deck.shuffle(); p2.deck.shuffle();
 	updateUI();
 	document.getElementById('nextBtn').disabled = false;
@@ -180,29 +201,21 @@ function nextTurn(){
 	if (!p1 || !p2) return;
 	// prevent double-clicking while a turn is running
 	document.getElementById('nextBtn').disabled = true;
+	let winnerName = '';
 	turn++;
 	try {
+		console.log(`\n--- Running turn ${turn} ---`);
 		// Prepare the turn (restore mana and draw) and show the hand-before-play
 		const startRes = startTurn(p1, p2);
 		updateUI({ beforeA: startRes.beforeA, beforeB: startRes.beforeB });
-		console.log(`\n--- Running turn ${turn} ---`);
 		// Now run the play phase; pass false so runTurn does not call startTurn again
-		const result = runTurn(p1, p2, false) || {};
-		// Preserve the before-hand from startRes so UI keeps the drawn view
-		result.beforeA = startRes.beforeA;
-		result.beforeB = startRes.beforeB;
-		updateUI(result);
-		// If a character reached 0 HP, end the game in the UI
-		if (p1.health === 0 || p2.health === 0) {
-			let msg;
-			if (p1.health === 0 && p2.health === 0) msg = 'Both players have fallen — draw';
-			else if (p1.health === 0) msg = `${p2.name} wins!`;
-			else msg = `${p1.name} wins!`;
-			console.log(msg);
-			document.getElementById('nextBtn').disabled = true;
-		} else {
-			// re-enable button after turn completes
-			document.getElementById('nextBtn').disabled = false;
+		const result = runTurn(p1, p2) || {};
+		updateUI({ playedA: result.played, beforeA: startRes.beforeA, beforeB: startRes.beforeB });
+		winnerName = checkHP_0(p1, p2, false);
+		if (!winnerName){
+			const result2 = runTurn(p2, p1) || {};
+			updateUI({ playedA: result.played, playedB: result2.played, beforeA: startRes.beforeA, beforeB: startRes.beforeB });
+			checkHP_0(p1, p2, true);
 		}
 	} catch (err) {
 		console.error(err);
@@ -211,10 +224,38 @@ function nextTurn(){
 	}
 }
 
+function checkHP_0(p1, p2, turnEnd = false){
+	// If a character reached 0 HP, end the game in the UI
+	let msg;
+	let winnerName = '';
+	if (p1.health === 0 || p2.health === 0) {
+		
+		if (p1.health === 0 && p2.health === 0) {
+			msg = 'Both players have fallen — draw';
+			winnerName = 'Draw';
+		}
+		else if (p1.health === 0) {
+			msg = `${p2.name} wins!`;
+			winnerName = p2.name;
+		}
+		else {
+			msg = `${p1.name} wins!`;
+			winnerName = p1.name;
+		}
+		console.log(msg);
+		document.getElementById('nextBtn').disabled = true;
+	} else {
+		// re-enable button after turn completes
+		if (turnEnd) document.getElementById('nextBtn').disabled = false;
+	}
+
+	return winnerName;
+}
+
 function resetGame(){
 	location.reload();
 }
 
 document.getElementById('startBtn').addEventListener('click', startGame);
 document.getElementById('nextBtn').addEventListener('click', nextTurn);
-document.getElementById('resetBtn').addEventListener('click', resetGame);
+// document.getElementById('resetBtn').addEventListener('click', resetGame);

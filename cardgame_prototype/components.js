@@ -56,23 +56,42 @@ class DiscardPile {
 
 // Hand holds a player's cards and can draw from its associated deck
 class Hand {
-    constructor({ maxNo = 10, turnNo = 3, deck = null } = {}) {
+    constructor({ maxNo = 10, turnNo = 3 } = {}) {
         this.maxNo = maxNo;
         this.turnNo = turnNo;
         this.cards = [];
-        this.deck = deck;
     }
 
-    // Draw up to numDraw cards from the associated deck (default 3), stopping if hand reaches maxNo
-    draw() {
-        if (!this.deck) throw new Error('Hand has no deck to draw from');
+    draw(deck, numDraw){
+        if (!deck) throw new Error('Hand has no deck to draw from');
         const drawn = [];
-        for (let i = 0; i < this.turnNo && this.cards.length < this.maxNo; i++) {
-            const c = this.deck.drawCard();
+        for (let i = 0; i < numDraw && this.cards.length < this.maxNo; i++) {
+            const c = deck.drawCard();
             if (!c) break;
             this.cards.push(c);
             drawn.push(c);
         }
+        return drawn;
+    }
+
+    // Draw cards up to a target hand size, handling deck reshuffling from a discard pile.
+    drawUpTo(deck, discardPile) {
+        const want = Math.min(this.turnNo, this.maxNo) - this.size();
+        if (want <= 0) return [];
+
+        let drawn = this.draw(deck, want);
+        const stillWant = Math.min(this.turnNo, this.maxNo) - this.size();
+
+        // If we still need more cards, the deck is empty, and the discard pile has cards,
+        // then reshuffle the discard pile into the deck and try drawing again.
+        if (stillWant > 0 && deck && deck.size() === 0 && discardPile && discardPile.cardList.length > 0) {
+            console.log(`Insufficient deck: returning discard to deck and shuffling`);
+            discardPile.returnToDeck(deck);
+            deck.shuffle();
+            const drawn2 = this.draw(deck, stillWant);
+            drawn = drawn.concat(drawn2);
+        }
+
         return drawn;
     }
 
@@ -100,9 +119,9 @@ class Hand {
 
 class Character {
     // deckArg may be a Deck instance (arrays are no longer accepted)
-    constructor({ health = 30, mana = 3, maxMana = 3, name = null, deck: deckArg = null, handMax = 10, handTurn = 3 } = {}) {
+    constructor({ health = 30, maxMana = 3, name = null, deck: deckArg = null, handMax = 10, handTurn = 3 } = {}) {
         this.health = health;
-        this.mana = mana;
+        this.mana = maxMana;
         this.maxMana = maxMana;
         this.name = name;
 
@@ -258,35 +277,15 @@ const shuffleArray = (arr) => {
 };
 
 // startTurn: prepare players for a turn (restore mana and draw up to their hand size)
-function startTurn(playerA, playerB, targetHandSize = 3) {
+function startTurn(playerA, playerB) {
     // restore mana
     playerA.restoreMana();
     playerB.restoreMana();
 
     console.log(`${playerA.name} and ${playerB.name} mana restored to ${playerA.mana}/${playerA.maxMana} and ${playerB.mana}/${playerB.maxMana}`);
 
-    // both draw up to targetHandSize (or reach their hand max). Handle deck refill if needed.
-    function drawUpTo(player) {
-        const want = Math.min(targetHandSize, player.hand.maxNo) - player.hand.size();
-        if (want <= 0) return [];
-        const drawn = player.hand.draw(want);
-        // if we still want more and deck is empty but discard has cards, refill once and draw remaining
-        if (player.hand.size() < Math.min(targetHandSize, player.hand.maxNo)) {
-            if (player.deck.size() === 0 && player.discard.cardList.length > 0) {
-                console.log(`${player.name} has insufficient deck: returning discard to deck and shuffling`);
-                player.discard.returnToDeck(player.deck);
-                player.deck.shuffle();
-                player.hand.draw(Math.min(targetHandSize, player.hand.maxNo) - player.hand.size());
-            } else if (player.deck.size() === 0 && player.discard.cardList.length === 0) {
-                // Explicit guard/log when a draw attempt fails due to empty deck and empty discard
-                console.log(`${player.name} attempted to draw ${want} card(s) but no cards available (deck and discard are empty).`);
-            }
-        }
-        return drawn;
-    }
-
-    const drawnA = drawUpTo(playerA);
-    const drawnB = drawUpTo(playerB);
+    const drawnA = playerA.hand.drawUpTo(playerA.deck, playerA.discard);
+    const drawnB = playerB.hand.drawUpTo(playerB.deck, playerB.discard);
 
     // Capture the hands as they are immediately after drawing (this is the "before play" view)
     const beforeA = playerA.hand.cards.slice();
@@ -299,18 +298,11 @@ function startTurn(playerA, playerB, targetHandSize = 3) {
 }
 
 // runTurn: play cards and handle end-of-turn discarding. startTurn should be called before runTurn
-function runTurn(playerA, playerB, performStart = true) {
+function runTurn(playerA, playerB) {
     // Ensure the turn is prepared; call startTurn to restore mana/draw and capture pre-play hands
     let beforeA, beforeB;
-    if (performStart) {
-        const res = startTurn(playerA, playerB);
-        beforeA = res.beforeA;
-        beforeB = res.beforeB;
-    } else {
-        // caller already ran startTurn; snapshot current hands as 'before'
-        beforeA = playerA.hand.cards.slice();
-        beforeB = playerB.hand.cards.slice();
-    }
+    beforeA = playerA.hand.cards.slice();
+    beforeB = playerB.hand.cards.slice();
 
     // Helper to play as many cards as possible in random order, recording played cards
     function playAllPossible(player, opponent, playedList) {
@@ -360,6 +352,54 @@ function runTurn(playerA, playerB, performStart = true) {
     return { playedA, playedB, beforeA, beforeB };
 }
 
+function runTurn(player, target) {
+    // Ensure the turn is prepared; call startTurn to restore mana/draw and capture pre-play hands
+    let before = player.hand.cards.slice();
+
+    // Helper to play as many cards as possible in random order, recording played cards
+    function playAllPossible(player, opponent, playedList) {
+        let progress = true;
+        while (progress) {
+            const playable = player.hand.cards.filter(c => player.canPlay(c));
+            if (playable.length === 0) break;
+            shuffleArray(playable);
+            progress = false;
+            for (const card of playable) {
+                if (player.canPlay(card)) {
+                    try {
+                        player.playCard(card, opponent);
+                        playedList.push(card);
+                    } catch (e) {
+                        // ignore and continue
+                    }
+                    progress = true;
+                }
+            }
+        }
+    }
+
+    const played = [];
+
+    playAllPossible(player, target, played);
+
+    // Log details of cards played this turn
+    const describeCard = (c) => `Card(name=${c.name||'<anon>'}, mana=${c.manaCost}, color=${c.color}, effects=${Array.isArray(c.effects)?c.effects.length:0})`;
+    console.log(`${player.name} played: ${played.map(describeCard).join(' || ') || '<none>'}`);
+
+    // Discard remaining cards in hand at end of turn
+    function discardHand(player) {
+        while (player.hand.cards.length) {
+            const c = player.hand.cards.shift();
+            player.discard.add(c);
+        }
+    }
+
+    discardHand(player);
+
+    // Return played lists and the pre-play hands so callers (UI) can show them
+    return { played, before };
+}
+
 // Expose library for Node (require) and attach to globalThis for browser usage
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
@@ -369,7 +409,6 @@ if (typeof module !== 'undefined' && module.exports) {
         Character,
         Card,
         Effect,
-        SimpleEffect,
         DamageEffect,
         HealEffect,
         startTurn,
@@ -386,7 +425,6 @@ if (typeof globalThis !== 'undefined') {
     globalThis.Character = Character;
     globalThis.Card = Card;
     globalThis.Effect = Effect;
-    globalThis.SimpleEffect = SimpleEffect;
     globalThis.DamageEffect = DamageEffect;
     globalThis.HealEffect = HealEffect;
     globalThis.startTurn = startTurn;

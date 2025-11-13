@@ -2,23 +2,23 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>Sneak - Cardgame Demo</title>
+	<title>Card Game Prototype</title>
 	<style>
 		body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; padding: 20px; }
 		/* layout: players on the left, log on the right */
 		.layout { display: flex; gap: 20px; align-items: flex-start; }
 		.left { flex: 1; min-width: 300px; }
 		.right { width: 420px; }
-	.players { display: flex; gap: 20px; }
-	/* Make player boxes wider so a hand of cards fits on one line */
-	.player { border: 1px solid #ccc; padding: 12px; min-width: 460px; max-width: 720px; border-radius: 6px; }
-	.controls { margin: 12px 0; display:flex; gap:8px; align-items:center; }
+		.players { display: flex; gap: 20px; }
+		/* Make player boxes wider so a hand of cards fits on one line */
+		.player { border: 1px solid #ccc; padding: 12px; min-width: 460px; max-width: 720px; border-radius: 6px; }
+		.controls { margin: 12px 0; display:flex; gap:8px; align-items:center; }
 		.log { height: 640px; overflow: auto; border: 1px solid #ddd; padding: 8px; background:#fafafa; white-space: pre-wrap; font-family: monospace; }
 		button { padding: 8px 12px; margin-right: 8px; }
 		.muted { color: #666; font-size: 0.9em }
 
 		/* Card visuals */
-	.cards { display: flex; gap: 8px; flex-wrap: nowrap; margin-top: 8px; overflow-x: auto; }
+		.cards { display: flex; gap: 8px; flex-wrap: nowrap; margin-top: 8px; overflow-x: auto; }
 		.card { width: 100px; height: 140px; border-radius: 6px; border: 1px solid #888; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.08); padding: 6px; display: flex; flex-direction: column; justify-content: space-between; }
 
 		/* When there are many cards, .cards.scaled will reduce card sizes via --card-scale */
@@ -44,56 +44,91 @@
 <body>
 	<h1>Card Game Prototype</h1>
 
+	<h2>Player 1 Config:</h2>
+	<div id="pA_config" class="controls">
+		<label for="pA_configName">Name:</label>
+		<input id="pA_configName" type="text" value="Alice">
+		<label for="pA_configHP">HP:</label>
+		<input id="pA_configHP" type="number" value="30">
+		<label for="pA_configManaPool">Mana Pool:</label>
+		<input id="pA_configManaPool" type="number" value="3">
+		<label for="pA_configDeck">Deck Size:</label>
+		<input id="pA_configDeck" type="number" value="20">
+		<label for="pA_configHandTurn">Draw/Turn:</label>
+		<input id="pA_configHandTurn" type="number" value="3">
+		<label for="pA_configHandMax">Hand Max:</label>
+		<input id="pA_configHandMax" type="number" value="10">
+	</div>
+
+	<h2>Player 2 Config:</h2>
+	<div id="pB_config" class="controls">
+		<label for="pB_configName">Name:</label>
+		<input id="pB_configName" type="text" value="Bob">
+		<label for="pB_configHP">HP:</label>
+		<input id="pB_configHP" type="number" value="30">
+		<label for="pB_configManaPool">Mana Pool:</label>
+		<input id="pB_configManaPool" type="number" value="3">
+		<label for="pB_configDeck">Deck Size:</label>
+		<input id="pB_configDeck" type="number" value="20">
+		<label for="pB_configHandTurn">Draw/Turn:</label>
+		<input id="pB_configHandTurn" type="number" value="3">
+		<label for="pB_configHandMax">Hand Max:</label>
+		<input id="pB_configHandMax" type="number" value="10">
+	</div>
+
+
+
+	<div class="controls">
+		<button id="startBtn">Start</button>
+		<button id="nextBtn" disabled>Next Turn</button>
+		<!-- <button id="resetBtn">Reset</button> -->
+		<span id="turnCounter" style="margin-left:12px">Turn: 0</span>
+	</div>
+
 	<div class="layout">
 		<div class="left">
 			<div class="players">
-		<div id="playerA" class="player">
-			<h3 id="pA_name">Player A</h3>
-			<div id="pA_stats">HP: -  Mana: -  Deck: -  Hand: -  Discard: -</div>
-			<div class="piles">
-				<div class="pile">
-					<div class="muted">Deck</div>
-					<div class="count" id="pA_deck_count">-</div>
+				<div id="playerA" class="player">
+					<h3 id="pA_name">Player A</h3>
+					<div id="pA_stats">HP: -  Mana: -  Deck: -  Hand: -  Discard: -</div>
+					<div class="piles">
+						<div class="pile">
+							<div class="muted">Deck</div>
+							<div class="count" id="pA_deck_count">-</div>
+						</div>
+						<div class="pile">
+							<div class="muted">Discard</div>
+							<div class="count" id="pA_discard_count">-</div>
+						</div>
+					</div>
+					<div id="pA_hand_before_label" class="muted" style="margin-top:6px; display:none">Hand (before play):</div>
+					<div id="pA_hand_before" class="cards" style="display:none"></div>
+					<div id="pA_hand" class="cards"></div>
 				</div>
-				<div class="pile">
-					<div class="muted">Discard</div>
-					<div class="count" id="pA_discard_count">-</div>
-				</div>
-			</div>
-			<div id="pA_hand_before_label" class="muted" style="margin-top:6px; display:none">Hand (before play):</div>
-			<div id="pA_hand_before" class="cards" style="display:none"></div>
-			<div id="pA_hand" class="cards"></div>
-		</div>
 
-		<div id="playerB" class="player">
-			<h3 id="pB_name">Player B</h3>
-			<div id="pB_stats">HP: -  Mana: -  Deck: -  Hand: -  Discard: -</div>
-			<div class="piles">
-				<div class="pile">
-					<div class="muted">Deck</div>
-					<div class="count" id="pB_deck_count">-</div>
-				</div>
-				<div class="pile">
-					<div class="muted">Discard</div>
-					<div class="count" id="pB_discard_count">-</div>
+				<div id="playerB" class="player">
+					<h3 id="pB_name">Player B</h3>
+					<div id="pB_stats">HP: -  Mana: -  Deck: -  Hand: -  Discard: -</div>
+					<div class="piles">
+						<div class="pile">
+							<div class="muted">Deck</div>
+							<div class="count" id="pB_deck_count">-</div>
+						</div>
+						<div class="pile">
+							<div class="muted">Discard</div>
+							<div class="count" id="pB_discard_count">-</div>
+						</div>
+					</div>
+					<div id="pB_hand_before_label" class="muted" style="margin-top:6px; display:none">Hand (before play):</div>
+					<div id="pB_hand_before" class="cards" style="display:none"></div>
+					<div id="pB_hand" class="cards"></div>
 				</div>
 			</div>
-			<div id="pB_hand_before_label" class="muted" style="margin-top:6px; display:none">Hand (before play):</div>
-			<div id="pB_hand_before" class="cards" style="display:none"></div>
-			<div id="pB_hand" class="cards"></div>
-		</div>
-	    </div>
 
         
 		</div>
 
 		<div class="right">
-			<div class="controls">
-				<button id="startBtn">Start</button>
-				<button id="nextBtn" disabled>Next Turn</button>
-				<button id="resetBtn">Reset</button>
-				<span id="turnCounter" style="margin-left:12px">Turn: 0</span>
-			</div>
 			<div class="log" id="log"></div>
 		</div>
 	</div>
