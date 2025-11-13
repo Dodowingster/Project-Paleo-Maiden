@@ -25,6 +25,7 @@ Crucially, Tyran is **oblivious** to the fear she inspires. She views her loud, 
 | :--- | :--- |
 | **Strengths** | Absolute Brute Force, Unmatched Stamina, Unintentional Deterrence |
 | **Weakness** | Extreme Arrogance, Complete Obliviousness to her reputation |
+| **Tail** | Due to its long and bulky nature, she often sits on her own tail as a cushion. |
 | **Height** | 193 cm (6'4") |
 | **Weight** | 95 kg (209 lbs) |
 | **Phone Wallpaper** | Her daily schedule (meticulously planned, despite her chaotic personality) |
