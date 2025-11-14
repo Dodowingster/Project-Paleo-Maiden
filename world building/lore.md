@@ -175,13 +175,13 @@ It was then discovered that, some Paleo Maidens have a higher tendency to spar a
 
 With the Institute's foundation established, it was **Anning** (*An homage to [Mary Anning](https://en.wikipedia.org/wiki/Mary_Anning)*) who championed the hiring of a formal faculty of lecturers. Having been a brilliant, self-taught paleontologist who was often excluded by the academic elite of her time, she argued passionately that the Paleo Maidens needed more than just combat training. She insisted on a full university curriculum, believing that true strength came from understanding oneself and the world. It was her belief that with a proper education in science, history, and philosophy, the Maidens could become true leaders and authors of their own destiny, not just powerful tools to be wielded by others. Her advocacy led to the robust academic program that defines the Stratum Institute today.
 
-The academic year is divided into two distinct six-month periods to balance practical experience with academic and mental preparation:
+A Maiden's career at the Stratum Institute spans a total of four years, meticulously structured to balance intense fieldwork with periods of academic study, rest, and reflection:
 
-*   **The Preparatory Campus Semester (First 6 Months):** A Maiden's journey begins with an intensive on-campus period of study and planning. In game terms, this is the 'home screen' or hub where the player manages their Maiden, reviews their collection, and prepares for the long journey ahead.
+*   **Preparatory Campus Semester (4 Months):** A Maiden's journey begins with an intensive on-campus period of study and planning. In game terms, this is the 'home screen' or hub where the player manages their Maiden, reviews their collection, and prepares for the long journey ahead.
 
-*   **The Great Expedition (3 Years):** This is the "world tour" itself—the core gameplay run where Maidens and their lecturers travel across the Primeval Continents for three consecutive years. Each year is represented by a 24-turn journey on the game board, culminating in an end-of-year league championship (Triassic, Jurassic, and Cretaceous).
+*   **The Great Expedition (3 Years):** This is the "world tour" itself—the core gameplay run where Maidens and their lecturers travel across the Primeval Continents. The expedition is divided into three 12-month journeys, each represented by a 24-turn campaign on the game board that culminates in a league championship (Triassic, Jurassic, and Cretaceous). Between each grueling year, Maidens return to the Institute for a crucial **2-Month Semester Break** to recuperate, reflect on their progress, and prepare for the challenges ahead.
 
-*   **The Post-Expedition Campus Semester (Final 6 Months):** After completing the three-year expedition, Maidens return to the institute for a final semester of reflection, advanced studies, and preparation for their professional careers in the Apex or Bulwark leagues.
+*   **Post-Expedition Campus Semester (4 Months):** After completing the three-year expedition, Maidens return to the institute for a final semester of reflection, advanced studies, and preparation for their professional careers in the Apex or Bulwark leagues.
 
 ## The Paleo Maiden Union and the Paleo World Championship
 
