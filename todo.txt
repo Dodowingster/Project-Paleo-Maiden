@@ -92,3 +92,11 @@ Strategy(future)
 	- Nice to have combat log that reports what is going on during combat
 	- The combat log should be written and flavoured as if its from a commentator narrating the fight
 	- Potentially, we can also use Fighting game terms for fun and making the game easy to be disucssed among players later in the future.
+
+-Dice as a stat while cards are modifiers
+
+there are 4 dice
+attk die 
+def die
+speed die
+mana die 
