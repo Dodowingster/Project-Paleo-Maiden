@@ -36,7 +36,7 @@ Sastrei Taurus is a Paleo-Maiden affiliated with the **Apex League (Carni Dorm)*
 | :--- | :--- | :--- |
 | **Berniss Iguan** (Iguanodon) | **Thematic Rival** | They share the goal of **fighting against arbitrary limits** (species expectations). Their rivalry is a clash of methods: Agility vs. Power. |
 | **Caza Amarga** (Amargasaurus) | **Childhood Friend/Academic Rival**. | Amarga dotes and worries on her and treats her like a little sister which seem liked it annoys Taurus but she actually does not mind and used to her. |
-| **Tyran Rex** (Tyrannosaurus) | **Political Opponent** | Sastrei views Tyran's overwhelming **Brute Force** style as the symbol of the flawed, inherited power structure she is fighting against. |
+| **Tyran Rex** (Tyrannosaurus) | **Respected Figure** | Sastrei deeply respects Tyran as the ultimate embodiment of raw power. Far from a political opponent, she views Tyran as the final benchmark to overcome. She is not afraid to challenge her, believing that a duel is the only way to prove that her hard-won technique can triumph over inherited might. |
 | **Nevesi Pycnonemo** (Pycnonemosaurus) | **Family Rivalry** | Being both from the same Abeli Family origins, Taurus often be seen bickering with Pycnonemo flaunting her superiority over Taurus. |
 
 ## Vocation Evolution(s)
