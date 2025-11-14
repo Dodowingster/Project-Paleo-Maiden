@@ -12,6 +12,7 @@
     -   [Lifespan](#lifespan)
     -   [Family Clades](#family-clades)
     -   [Paleo-Magic (P-Magic)](#paleo-magic-p-magic)
+    -   [Retirement and the Second Life](#retirement-and-the-second-life)
     -   [Paleo Arts and Magic Discplines](#paleo-arts-and-magic-discplines)
 2.  [Origin of the Stratum Institute, University of Paleo Maidens](#origin-of-the-stratum-institute-university-of-paleo-maidens)
     -   [Founding and Philosophy](#founding-and-philosophy)
@@ -43,9 +44,7 @@ This longevity has profound social and psychological effects. A Maiden will outl
 
 ### Family Clades
 
-Beyond their individual species, Paleo Maidens are also categorized into broader **Family Clades**, which reflect their shared paleontological ancestry. These groupings, such as the swift **Dromaeosauridae** (the "raptors"), the powerful **Abelisauridae**, or the immense **Titanosauria**, often hint at shared physical traits or predispositions. For instance, Maidens from the same clade might share similar body types, innate talents, or even a natural affinity for certain fighting styles.
-
-These shared lineages are a significant part of a Maiden's identity and can foster deep bonds of camaraderie or, just as often, intense family rivalries. A Maiden's clade provides a sense of belonging but can also create a set of expectations to either live up to or, for some, to rebel against. The broadest of these divisions are the two great orders: the **Ornithischian** and **Saurischian** clades, which form the foundational divide in Paleo Maiden society and are reflected in the dormitory structure of the Stratum Institute.
+Beyond direct lineage, Maidens are categorized into broader **Family Clades** based on shared paleontological ancestry. These groupings, like the **Abelisauridae** or **Dromaeosauridae**, are not based on immediate family ties but on deep, instinctual connections. This shared ancestry can foster camaraderie or, just as often, intense rivalries between different branches of the same ancient family tree. The broadest of these divisions are the two great orders: the **Ornithischian** and **Saurischian** clades, which form the foundational divide in Paleo Maiden society.
 ```
 Dinosauria/
 ├── Saurischian_Clans/
@@ -111,6 +110,24 @@ Dinosauria/
             ├── Ceratopsia_Clan/ (Horned Faces)
             └── Pachycephalosauria_Clan/ (Dome-Heads)
 ```
+
+### Lineage and Legacy Naming
+
+A Paleo Maiden's name is a direct reflection of her identity, lineage, and generational status. While each Maiden is the unique, active representative of her species for her generation, the mantle can be passed down, creating powerful dynasties with names that echo through history. This legacy naming system applies specifically to lineages where both mother and daughter are Paleo Maidens. It does not apply if a Maiden is born to a human mother, who would retain her own name.
+
+*   **Active Maiden (Current Generation):** The name is derived from her scientific classification: `[Species Name] [Genus Name]`.
+    *   *Example:* The current *Carnotaurus sastrei* Maiden is **Sastrei Taurus**.
+
+*   **Direct Predecessor (Mother):** Upon retirement, the previous generation's Maiden adopts an honorific title using her **Family Clade**: `[Family Name] [Genus Name]`.
+    *   *Example:* Sastrei's mother, the previous *Carnotaurus*, is known as **Abeli Taurus**, named for the **Abelisauridae** family. This title signifies her status as a respected elder of her clan.
+
+*   **Ancestral Lineage (Grandmothers & Beyond):** The names of even earlier ancestors ascend the paleontological hierarchy, using the names of larger and more ancient clades. This creates a legendary lineage that stretches back through time.
+    *   *Grandmother:* **Cerato Taurus** (from the *Ceratosauria* infraorder).
+    *   *Great-Grandmother:* **Thero Taurus** (from the *Theropoda* suborder).
+    *   *Progenitor:* **Sauris Taurus** (from the *Saurischia* order).
+
+This system establishes a clear hierarchy of legacy, where an ancestor's name reflects their historical significance and how foundational they were to their entire lineage.
+
 ### Paleo-Magic (P-Magic)
 
 Paleo-Magic (P-Magic) is the manifestation of a Maiden's primal energy and serves as their direct **Health Pool** in combat. This system is what allows for high-stakes competition without the risk of fatal injury. Attacks deplete an opponent's P-Magic reserve rather than causing physical harm. A Maiden is defeated when her P-Magic reaches zero, resulting in a state of complete exhaustion that may cause her to lose focus or faint. Since every Maiden is born with a different P-Magic capacity, their innate durability and combat style can vary significantly.
