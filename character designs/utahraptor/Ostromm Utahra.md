@@ -24,11 +24,11 @@ The boy admires Ostromm Utahra and seeing his hero feeling defeated, he offers e
 | Attribute | Detail |
 | :--- | :--- |
 | **Strengths** | Leadership, Intimidation |
-| **Weakness** | Children, Overly sentimental |
+| **Weakness** | Overly sentimental |
 | **Tail** | She uses a specific brand to clean her featherly tail |
 | **Height** | 174cm (5'8.5") |
 | **Weight** | 66kg (145 lbs) |
-| **Phone Wallpaper** | A crayon drawing of her, gifted by Kenyon. |
+| **Phone Wallpaper** | A crayon drawing of her, gifted by the 10 year old boy. |
 | **Fidgeter** | Taps her finger on the table when thinking deeply about something. Similarly, she would do the same but with her sickle during combat. |
 | **Titles** | Predator of Utah |
 | **Birthdate** | February 18th |
