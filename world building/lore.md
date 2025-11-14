@@ -8,6 +8,7 @@
 ## Table of Contents
 1.  [The Paleo Maidens](#the-paleo-maidens)
     -   [Origins](#origins)
+    -   [The First Maidens: Sauris and Ornith](#the-first-maidens-sauris-and-ornith)
     -   [Characteristics and Lifestyle](#characteristics-and-lifestyle)
     -   [Lifespan](#lifespan)
     -   [Family Clades](#family-clades)
@@ -30,8 +31,18 @@
 
 ### Origins
 
-The Paleo Maidens are living $\text{Deinos}$ Manifestations, an ancient, primal energy forged at the dawn of time. Their existence is a miracle of genetic regression; they can emerge unpredictably as offspring from any human pairing, or they may be born through a union between a human and a Maiden
+The Paleo Maidens are living $\text{Deinos}$ Manifestations, their existence a miracle of genetic regression tied to an ancient, primal energy. This energy first manifested in two legendary progenitors, from whom all Maidens descend. Today, new Maidens can emerge unpredictably as offspring from any human pairing, or they may be born through a union between a human and a Maiden, continuing the legacy of the First.
  
+### The First Maidens: Sauris and Ornith
+
+According to the oldest histories, all Paleo Maidens trace their lineage back to two semi-mythical figures: **Sauris** and **Ornith**. They were not goddesses, but the first to manifest the primal energy of Deinos, becoming the ancestors of the two great orders that define Maiden society.
+
+*   **Sauris, the First Predator:** The progenitor of the **Saurischian** clans. Her legacy is one of power, ambition, and predatory instinct. She is the archetypal ancestor of theropods and sauropods, and her spirit is said to live on in every Maiden who seeks victory through overwhelming force or immense scale.
+
+*   **Ornith, the First Defender:** The progenitor of the **Ornithischian** clans. Her legacy is one of resilience, community, and unyielding defense. She is the archetypal ancestor of the armored, horned, and herding dinosaurs, and her spirit endures in every Maiden who triumphs through strategy, endurance, and protecting others.
+
+The fundamental differences between Sauris and Ornith created a natural, eternal rivalry that is now inherited by all their descendants. This is the true origin of the deep-seated divide between the Saurischian and Ornithischian clans. It is important to note that a legendary ancestor like **Sauris Taurus** is named in *homage* to the great progenitor, a title signifying her place at the peak of her lineage, and is not to be confused with the original Sauris herself.
+
 ### Characteristics and Lifestyle
 
 A defining characteristic of a Paleo Maiden is the powerful, primal instinct that courses through them—a strong desire to fight, compete, and test their strength. However, this instinct does not dictate their destiny. While many are drawn to the glory of the competitive leagues, it is just as common for Maidens to channel their unique drive into other pursuits. They integrate fully into society, becoming scientists, artists, doctors, and leaders, contributing to the world in countless ways that have nothing to do with combat. For these Maidens, their inner fire becomes a source of passion and ambition in their chosen careers.
@@ -44,7 +55,7 @@ This longevity has profound social and psychological effects. A Maiden will outl
 
 ### Family Clades
 
-Beyond direct lineage, Maidens are categorized into broader **Family Clades** based on shared paleontological ancestry. These groupings, like the **Abelisauridae** or **Dromaeosauridae**, are not based on immediate family ties but on deep, instinctual connections. This shared ancestry can foster camaraderie or, just as often, intense rivalries between different branches of the same ancient family tree. The broadest of these divisions are the two great orders: the **Ornithischian** and **Saurischian** clades, which form the foundational divide in Paleo Maiden society.
+Beyond direct lineage, Maidens are categorized into broader **Family Clades** based on shared paleontological ancestry. These groupings, like the **Abelisauridae** or **Dromaeosauridae**, are not based on immediate family ties but on deep, instinctual connections. This shared ancestry can foster camaraderie or, just as often, intense rivalries between different branches of the same ancient family tree. The broadest of these divisions are the two great orders—the **Saurischian** and **Ornithischian** clades—which represent the two primary lineages descending directly from the legendary progenitors, **Sauris** and **Ornith**. This ancestral split is the ultimate source of the foundational divide in Paleo Maiden society.
 ```
 Dinosauria/
 ├── Saurischian_Clans/
