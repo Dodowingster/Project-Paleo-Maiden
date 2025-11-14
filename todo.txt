@@ -96,7 +96,9 @@ Strategy(future)
 -Dice as a stat while cards are modifiers
 
 there are 4 dice
-attk die 
-def die
-speed die
-mana die 
+attk die (modifier)
+def die (modifier)
+speed die (the only benefit is get to reach more space faster during exploration, initiative roll maybe?)
+mana die (set your mana pool)
+
+other dices gain advantage on other aspects than the exploration as speed
