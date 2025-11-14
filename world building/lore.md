@@ -30,6 +30,76 @@ Due to the primal energy that defines their existence, Paleo Maidens possess a g
  
 This longevity has profound social and psychological effects. A Maiden will outlive her human parents, friends, and potentially even her own human-born children, leading to a unique and sometimes solitary perspective on the world. This extended life gives them ample time to master their abilities, but it also carries the weight of accumulated loss and memory, a burden that institutions like Stratum help them learn to manage. While they are not immortal, their natural lifespan far exceeds that of a normal human.
 
+### Family Clades
+
+Beyond their individual species, Paleo Maidens are also categorized into broader **Family Clades**, which reflect their shared paleontological ancestry. These groupings, such as the swift **Dromaeosauridae** (the "raptors"), the powerful **Abelisauridae**, or the immense **Titanosauria**, often hint at shared physical traits or predispositions. For instance, Maidens from the same clade might share similar body types, innate talents, or even a natural affinity for certain fighting styles.
+
+These shared lineages are a significant part of a Maiden's identity and can foster deep bonds of camaraderie or, just as often, intense family rivalries. A Maiden's clade provides a sense of belonging but can also create a set of expectations to either live up to or, for some, to rebel against. The broadest of these divisions are the two great orders: the **Ornithischian** and **Saurischian** clades, which form the foundational divide in Paleo Maiden society and are reflected in the dormitory structure of the Stratum Institute.
+```
+Dinosauria/
+├── Saurischian_Clans/
+│   │
+│   └── Theropoda/ (Bipedal Carnivores)
+│   │   │
+│   │   ├── Ceratosauria/ (Horned & Crested Theropods)
+│   │   │   │
+│   │   │   └── Abelisauridae_Clan/ (Southern Hemisphere Powerhouses)
+│   │   │       ├── Sastrei_Taurus (Carnotaurus)
+│   │   │       └── Nevesi_Pycnonemo (Pycnonemosaurus)
+│   │   │
+│   │   └── Tetanurae/ ("Stiff Tails" - Advanced Theropods)
+│   │       ├── Megalosauroidea/ (Primitive Giants & Specialists)
+│   │       │   │
+│   │       │   └── Spinosauridae_Clan/ (Semi-Aquatic Hunters)
+│   │       │       └── Aegypti_Spino (Spinosaurus)
+│   │       │
+│   │       ├── Carnosauria/ (Large-Bodied Hunters)
+│   │       │   │
+│   │       │   └── Allosauroidea_Clan/
+│   │       │       ├── Allosauridae_Family/
+│   │       │       │   └── Fragilis_Allosa (Allosaurus) 
+│   │       │       │
+│   │       │       └── Megaraptora_Clan/ (Hand-Claw Specialists)
+│   │       │           └── Kitadani_Fukui (Fukuiraptor)
+│   │       │
+│   │       └── Coelurosauria/ (Feathered & Bird-like Theropods)
+│   │           │
+│   │           ├── Tyrannosauroidea_Clan/ (Apex Predators - Bite Force)
+│   │           │   └── Tyran_Rex (Tyrannosaurus)
+│   │           │
+│   │           └── Maniraptora/ ("Hand Snatchers" - Advanced Claws & Feathers)
+│   │               │
+│   │               └── Dromaeosauridae_Clan/ ("Raptors" - Agility & Claws)
+│   │                   └── Ostromm_Utahra (Utahraptor)
+│   │
+│   └── Sauropodomorpha/ (Long-Necks & Giants)
+│       │
+│       └── Neosauropoda/ ("New Sauropods")
+│           │
+│           ├── Diplodocoidea_Clan/ (Whip-Tails & Unique Spines)
+│           │   └── Caza_Amarga (Amargasaurus)
+│           │
+│           └── Macronaria/ ("Large Nostrils" - High-Browsing Giants)
+│               │
+│               └── Titanosauria_Clan/ (Immense & Armored Sauropods)
+│
+└── Ornithischian_Clans/
+    │
+    ├── Thyreophora/ (Armored Dinosaurs)
+    │   ├── Stegosauria_Clan/ (Plates & Spikes)
+    │   └── Ankylosauria_Clan/ (Clubs & Body Armor)
+    │
+    └── Cerapoda/ (Beaked Dinosaurs)
+        │
+        ├── Ornithopoda/ (Bipedal Herbivores - "Duck-bills")
+        │   │
+        │   └── Iguanodontia_Clan/ (Thumb-Spike Specialists)
+        │       └── Berniss_Iguan (Iguanodon) 
+        │
+        └── Marginocephalia/ (Frilled & Domed Heads)
+            ├── Ceratopsia_Clan/ (Horned Faces)
+            └── Pachycephalosauria_Clan/ (Dome-Heads)
+```
 ### Paleo-Magic (P-Magic)
 
 Paleo-Magic (P-Magic) is the manifestation of a Maiden's primal energy and serves as their direct **Health Pool** in combat. This system is what allows for high-stakes competition without the risk of fatal injury. Attacks deplete an opponent's P-Magic reserve rather than causing physical harm. A Maiden is defeated when her P-Magic reaches zero, resulting in a state of complete exhaustion that may cause her to lose focus or faint. Since every Maiden is born with a different P-Magic capacity, their innate durability and combat style can vary significantly.
