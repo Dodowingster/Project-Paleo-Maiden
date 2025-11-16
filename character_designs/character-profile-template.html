@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- TODO: Replace with Character Name -->
+    <title>[Character Name] - Character Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Lato', sans-serif;
+            --color-text: #4d443a; /* Dark, earthy brown */
+            --color-heading: #3a3228; /* Even darker brown for headings */
+            --color-background: #fdf6e3; /* Parchment paper */
+            --color-accent: #8b4513; /* Saddle brown, for links/accents */
+            --color-border: #d2b48c; /* Tan, for borders */
+            --color-table-bg: rgba(245, 245, 220, 0.5); /* Faint beige */
+            --color-table-header: #e0d6c3;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            margin: 0;
+            padding: 2rem 1rem;
+            line-height: 1.7;
+        }
+
+        .profile-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.4);
+            border: 1px solid var(--color-border);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 2rem 3rem;
+        }
+
+        h1 {
+            font-family: var(--font-heading);
+            text-align: center;
+            color: var(--color-heading);
+            font-size: 3rem;
+            margin-top: 0;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 0.5em;
+            margin-bottom: 0.8em;
+        }
+
+        h2 {
+            font-family: var(--font-heading);
+            color: var(--color-heading);
+            font-size: 2.2rem;
+            border-bottom: 1px solid var(--color-table-header);
+            padding-bottom: 0.4em;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        blockquote {
+            font-family: var(--font-heading);
+            font-size: 1.2em;
+            font-style: italic;
+            text-align: center;
+            max-width: 80%;
+            border: none;
+            margin: 1rem auto;
+            padding: 0;
+            color: var(--color-text);
+        }
+
+        blockquote footer {
+            font-style: normal;
+            font-size: 1rem;
+            color: #7d6f5f;
+        }
+
+        p {
+            margin-bottom: 1.2em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-size: 0.95em;
+            background-color: var(--color-table-bg);
+            border: 1px solid var(--color-border);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        thead th {
+            background-color: var(--color-table-header);
+            font-weight: 600;
+            color: var(--color-heading);
+        }
+
+        tbody tr:hover {
+            background-color: rgba(210, 180, 140, 0.3); /* Faint tan on hover */
+        }
+
+        td:first-child {
+            font-weight: bold;
+            color: var(--color-heading);
+            width: 30%;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 1.5em;
+        }
+
+        li {
+            margin-bottom: 0.75em;
+        }
+
+        strong {
+            font-weight: 700;
+            color: var(--color-heading);
+        }
+
+        .infobox {
+            float: right;
+            width: 280px;
+            margin: 0.5rem 0 1rem 2rem;
+            padding: 1rem;
+            border: 1px solid var(--color-border);
+            background-color: var(--color-table-bg);
+            font-size: 0.9em;
+        }
+
+        .infobox figure {
+            margin: 0;
+            padding: 0;
+        }
+
+        .infobox img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .infobox figcaption {
+            text-align: center;
+            font-style: italic;
+            font-family: var(--font-heading);
+            color: var(--color-heading);
+        }
+
+        .breadcrumb {
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: var(--color-accent);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--color-accent);
+        }
+
+        /* --- Responsive Design for Mobile --- */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.5rem;
+                line-height: 1.6;
+            }
+
+            .profile-container {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .infobox {
+                float: none;
+                width: auto;
+                margin: 2rem auto;
+                max-width: 320px; /* Prevents it from being too wide on tablets */
+            }
+
+            /* Make tables more readable on small screens */
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            tr {
+                border: 1px solid var(--color-border);
+                margin-bottom: 1rem;
+            }
+
+            td {
+                border: none;
+                border-bottom: 1px solid #eee;
+                /* For the 'Profile/Background' table which has no header */
+                border-top: 1px solid var(--color-border);
+                position: relative;
+                padding-left: 45%; /* Make space for the label */
+                width: auto;
+                white-space: normal;
+                text-align: right; /* Align content to the right, opposite the label */
+            }
+
+            /* Add the label before each cell */
+            td::before {
+                content: attr(data-label); /* Use the data-label attribute we'll add via JS */
+                position: absolute;
+                left: 10px;
+                width: 40%;
+                padding-right: 10px;
+                white-space: normal;
+                text-align: left;
+                font-weight: bold;
+                color: var(--color-heading);
+            }
+
+            td:last-child {
+                border-bottom: 0;
+            }
+
+            /* For key-value tables without a header, hide the first cell on mobile */
+            .key-value-table td:first-child {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="profile-container">
+        <!-- TODO: Replace with Character Name -->
+        <h1>[Character Name]</h1>
+
+        <nav class="breadcrumb">
+            <!-- This path assumes the file will be in a subdirectory like /character-designs/carnotaurus/ -->
+            <a href="../../index.html">&larr; Back to Home</a>
+        </nav>
+
+        <section id="counterpart-details">
+            <h2>Real Life Counterpart Details</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Species</strong></td>
+                        <!-- TODO: Fill in Species Details -->
+                        <td><em>[Genus species]</em> (Meaning: <strong>"[Meaning]"</strong>)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Era</strong></td>
+                        <!-- TODO: Fill in Era -->
+                        <td>[Era]</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Key Features</strong></td>
+                        <!-- TODO: Fill in Key Features -->
+                        <td>[Key features of the real-life dinosaur.]</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lore Reflection</strong></td>
+                        <!-- TODO: Fill in Lore Reflection -->
+                        <td>[How the real-life features are reflected in the character's design, personality, or abilities.]</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <aside class="infobox">
+                <blockquote>
+                    <!-- TODO: Add a character quote -->
+                    <p>"[Character Quote]"</p>
+                </blockquote>
+                <figure>
+                    <!-- TODO: Update image path and alt text -->
+                    <img src="path/to/character-image.png" alt="Character illustration of [Character Name]">
+                    <figcaption>
+                        <!-- TODO: Update character name and artist credit -->
+                        [Character Name] by <strong>[Artist Name]</strong>
+                    </figcaption>
+                </figure>
+        </aside>
+
+        <section id="profile">
+            <h2>Profile/Background</h2>
+            <!-- TODO: Write the character's background and personality here. -->
+            <p>
+                [Character's main description, personality, and place in the world.]
+            </p>
+            <table class="key-value-table">
+                <tbody>
+                    <!-- TODO: Fill in all the character details below -->
+                    <tr><td><strong>Strengths</strong></td><td>[Strengths]</td></tr>
+                    <tr><td><strong>Weakness</strong></td><td>[Weakness]</td></tr>
+                    <tr><td><strong>Tail</strong></td><td>[A unique habit or trait related to their tail.]</td></tr>
+                    <tr><td><strong>Height</strong></td><td>[Height]</td></tr>
+                    <tr><td><strong>Weight</strong></td><td>[Weight]</td></tr>
+                    <tr><td><strong>Phone Wallpaper</strong></td><td>[A fun detail about their phone wallpaper.]</td></tr>
+                    <tr><td><strong>Unique Traits/Habits</strong></td><td>[Various Facts]</td></tr>
+                    <tr><td><strong>Titles</strong></td><td>[Titles or nicknames.]</td></tr>
+                    <tr><td><strong>Birthdate</strong></td><td>[Birthdate]</td></tr>
+                    <tr><td><strong>Birthplace</strong></td><td>[Birthplace]</td></tr>
+                    <tr><td><strong>Likes</strong></td><td>[Likes]</td></tr>
+                    <tr><td><strong>Dislikes</strong></td><td>[Dislikes]</td></tr>
+                </tbody>
+            </table> 
+        </section>
+
+        <!-- Optional Section: If you have an initial sketch, fill this out. Otherwise, you can remove it. -->
+        <section id="initial-sketch">
+            <h2>Initial Sketch</h2>
+            <figure style="margin: 0; text-align: center;">
+                <!-- TODO: Update image path and alt text -->
+                <img src="path/to/initial-concept.png" alt="Initial concept for [Character Name]" style="max-width: 100%; height: auto; border: 1px solid var(--color-border);">
+                <figcaption style="margin-top: 1rem; font-style: italic; color: var(--color-text);">
+                    <!-- TODO: Update character name and artist credit -->
+                    Initial concept for [Character Name] by <strong>[Artist Name]</strong>
+                </figcaption>
+            </figure>
+        </section>
+
+        <section id="relationships">
+            <h2>Relationships (Friends/Rivals)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Character</th>
+                        <th>Relationship Type</th>
+                        <th>Nature of Conflict/Bond</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- TODO: Add relationship rows. Duplicate the 'tr' block for each relationship. -->
+                    <tr>
+                        <td><strong>[Character Name]</strong> (<strong>[Species]</strong>)</td>
+                        <td><strong>[Relationship Type]</strong></td>
+                        <td>[Description of their relationship.]</td>
+                    </tr>
+                    <!-- Example Row to copy:
+                    <tr>
+                        <td><strong>Character B</strong> (<strong>Species B</strong>)</td>
+                        <td><strong>Rival</strong></td>
+                        <td>A description of their rivalry.</td>
+                    </tr>
+                    -->
+                </tbody>
+            </table>
+        </section>
+
+        <section id="vocation">
+            <h2>Vocation Evolution(s)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Stage</th>
+                        <th>Vocation Title</th>
+                        <th>Fused Trait Disciplines</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- TODO: Fill in Vocation details. Add or remove rows as needed. -->
+                    <tr>
+                        <td><strong>Base</strong></td>
+                        <td>[Base Vocation Title]</td>
+                        <td>[Core Discipline]</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hybrid</strong></td>
+                        <td>[Hybrid Vocation Title]</td>
+                        <td>[Core Discipline] + [Secondary Discipline]</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Optional: Add a quote or description for the vocation -->
+            <blockquote>
+                <p style="text-align: left; max-width: 100%; font-style: normal;"><em>[Description of the character's unique vocation or fighting style philosophy.]</em></p>
+            </blockquote>
+        </section>
+
+        <section id="fighting-style">
+            <h2>Fighting Style</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Vocation</th>
+                        <th>Core Trait</th>
+                        <th>Signature Move</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- TODO: Fill in Fighting Style details. Duplicate the 'tr' block for each vocation. -->
+                    <tr>
+                        <td><strong>[Vocation Title]</strong></td>
+                        <td><strong>[Core Trait]:</strong> [Description of the trait and how it's used.]</td>
+                        <td><strong>[Signature Move Name]:</strong> [Description of the move.]</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="motivation">
+            <h2>Motivation and Goals</h2>
+            <ul>
+                <!-- TODO: List the character's motivations. -->
+                <li><strong>Primary Goal:</strong> [The character's main, external goal.]</li>
+                <li><strong>Internal Goal:</strong> [The character's personal, internal motivation.]</li>
+            </ul>
+        </section>
+
+        <section id="trivia">
+            <h2>Trivia</h2>
+            <ul>
+                <!-- TODO: Add interesting trivia points. Duplicate the 'li' for each point. -->
+                <li>[Fun fact about the character.]</li>
+                <li>[Another fun fact, perhaps relating to their real-life counterpart or design inspirations.]</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <script>
+        // This script adds data-labels to table cells for the responsive CSS to use.
+        document.addEventListener('DOMContentLoaded', function() {
+            const tables = document.querySelectorAll('table');
+            tables.forEach(table => {
+                // Get headers
+                const headers = [];
+                const hasThead = table.querySelector('thead');
+
+                if (hasThead) {
+                    table.querySelectorAll('thead th').forEach(header => {
+                    headers.push(header.textContent);
+                    });
+                }
+
+                // Add data-label attribute to each cell in the body
+                table.querySelectorAll('tbody tr').forEach(row => {
+                    if (hasThead) {
+                        row.querySelectorAll('td').forEach((cell, index) => {
+                            cell.setAttribute('data-label', headers[index]);
+                        });
+                    } else {
+                        // Handle key-value tables without a header
+                        const label = row.cells[0] ? row.cells[0].textContent : '';
+                        const valueCell = row.cells[1];
+                        if (valueCell) valueCell.setAttribute('data-label', label);
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
