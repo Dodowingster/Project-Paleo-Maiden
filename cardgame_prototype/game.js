@@ -189,8 +189,8 @@ function startGame(){
 	const p2Deck = new Deck(makeDeckFromTemplates(templates, p2DeckSize));
 
 	// Use the config values when creating the character
-	p1 = new Character({ name: p1Name, health: p1HP, maxMana: p1ManaPool, handMax: p1HandMax, handTurn: p1HandTurn, deck: p1Deck });
-	p2 = new Character({ name: p2Name, health: p2HP, maxMana: p2ManaPool, handMax: p2HandMax, handTurn: p2HandTurn, deck: p2Deck });
+	p1 = new Character({ name: p1Name, health: p1HP, maxMana: p1ManaPool, handMax: p1HandMax, handTurn: p1HandTurn, deck: p1Deck, speedDice: new Dice() });
+	p2 = new Character({ name: p2Name, health: p2HP, maxMana: p2ManaPool, handMax: p2HandMax, handTurn: p2HandTurn, deck: p2Deck, speedDice: new Dice() });
 	p1.deck.shuffle(); p2.deck.shuffle();
 	updateUI();
 	document.getElementById('nextBtn').disabled = false;
@@ -209,18 +209,41 @@ function nextTurn(){
 		const startRes = startTurn(p1, p2);
 		updateUI({ beforeA: startRes.beforeA, beforeB: startRes.beforeB });
 		// Now run the play phase; pass false so runTurn does not call startTurn again
-		const result = runTurn(p1, p2) || {};
-		updateUI({ playedA: result.played, beforeA: startRes.beforeA, beforeB: startRes.beforeB });
+		console.log('Rolling speed check to see who goes first.');
+		is_p1_faster = isP1Faster(p1, p2, 0);
+		firstPlayer = p1;
+		secondPlayer = p2;
+		if (!is_p1_faster){
+			firstPlayer = p2;
+			secondPlayer = p1;
+		}
+		console.log(firstPlayer.name + ' goes first.');
+		const result = runTurn(firstPlayer, secondPlayer) || {};
+		updateUI({ playedA: is_p1_faster ? result.played : [], playedB: is_p1_faster ? [] : result.played, beforeA: startRes.beforeA, beforeB: startRes.beforeB });
 		winnerName = checkHP_0(p1, p2, false);
 		if (!winnerName){
-			const result2 = runTurn(p2, p1) || {};
-			updateUI({ playedA: result.played, playedB: result2.played, beforeA: startRes.beforeA, beforeB: startRes.beforeB });
+			console.log(secondPlayer.name + ' goes second.');
+			const result2 = runTurn(secondPlayer, firstPlayer) || {};
+			updateUI({ playedA: is_p1_faster ? result.played : result2.played, playedB: is_p1_faster ? result2.played : result.played, beforeA: startRes.beforeA, beforeB: startRes.beforeB });
 			checkHP_0(p1, p2, true);
 		}
 	} catch (err) {
 		console.error(err);
 		console.log('An error occurred running the turn; Next Turn re-enabled.');
 		document.getElementById('nextBtn').disabled = false;
+	}
+}
+
+function isP1Faster(p1, p2, iteration = 0){
+	p1Spd = p1.speedDice.roll();
+	p2Spd = p2.speedDice.roll();
+	if (p1Spd == p2Spd){
+		return isP1Faster(p1, p2, iteration + 1)
+	}
+	else{
+		console.log('p1Spd: ' + p1Spd.toString());
+		console.log('p2Spd: ' + p2Spd.toString());
+		return p1Spd > p2Spd;
 	}
 }
 
