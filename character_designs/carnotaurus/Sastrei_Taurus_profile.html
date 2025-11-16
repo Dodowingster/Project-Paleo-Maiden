@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sastrei - Character Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Lato', sans-serif;
+            --color-text: #4d443a; /* Dark, earthy brown */
+            --color-heading: #3a3228; /* Even darker brown for headings */
+            --color-background: #fdf6e3; /* Parchment paper */
+            --color-accent: #8b4513; /* Saddle brown, for links/accents */
+            --color-border: #d2b48c; /* Tan, for borders */
+            --color-table-bg: rgba(245, 245, 220, 0.5); /* Faint beige */
+            --color-table-header: #e0d6c3;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            margin: 0;
+            padding: 2rem 1rem;
+            line-height: 1.7;
+        }
+
+        .profile-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.4);
+            border: 1px solid var(--color-border);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 2rem 3rem;
+        }
+
+        h1 {
+            font-family: var(--font-heading);
+            text-align: center;
+            color: var(--color-heading);
+            font-size: 3rem;
+            margin-top: 0;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 0.5em;
+            margin-bottom: 0.8em;
+        }
+
+        h2 {
+            font-family: var(--font-heading);
+            color: var(--color-heading);
+            font-size: 2.2rem;
+            border-bottom: 1px solid var(--color-table-header);
+            padding-bottom: 0.4em;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        blockquote {
+            font-family: var(--font-heading);
+            font-size: 1.2em;
+            font-style: italic;
+            text-align: center;
+            max-width: 80%;
+            border: none;
+            margin: 1rem auto;
+            padding: 0;
+            color: var(--color-text);
+        }
+
+        blockquote footer {
+            font-style: normal;
+            font-size: 1rem;
+            color: #7d6f5f;
+        }
+
+        p {
+            margin-bottom: 1.2em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-size: 0.95em;
+            background-color: var(--color-table-bg);
+            border: 1px solid var(--color-border);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        thead th {
+            background-color: var(--color-table-header);
+            font-weight: 600;
+            color: var(--color-heading);
+        }
+
+        tbody tr:hover {
+            background-color: rgba(210, 180, 140, 0.3); /* Faint tan on hover */
+        }
+
+        td:first-child {
+            font-weight: bold;
+            color: var(--color-heading);
+            width: 30%;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 1.5em;
+        }
+
+        li {
+            margin-bottom: 0.75em;
+        }
+
+        strong {
+            font-weight: 700;
+            color: var(--color-heading);
+        }
+
+        .infobox {
+            float: right;
+            width: 280px;
+            margin: 0.5rem 0 1rem 2rem;
+            padding: 1rem;
+            border: 1px solid var(--color-border);
+            background-color: var(--color-table-bg);
+            font-size: 0.9em;
+        }
+
+        .infobox figure {
+            margin: 0;
+            padding: 0;
+        }
+
+        .infobox img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .infobox figcaption {
+            text-align: center;
+            font-style: italic;
+            font-family: var(--font-heading);
+            color: var(--color-heading);
+        }
+
+        .breadcrumb {
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: var(--color-accent);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--color-accent);
+        }
+
+        /* --- Responsive Design for Mobile --- */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.5rem;
+                line-height: 1.6;
+            }
+
+            .profile-container {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .infobox {
+                float: none;
+                width: auto;
+                margin: 2rem auto;
+                max-width: 320px; /* Prevents it from being too wide on tablets */
+            }
+
+            /* Make tables more readable on small screens */
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            tr {
+                border: 1px solid var(--color-border);
+                margin-bottom: 1rem;
+            }
+
+            td {
+                border: none;
+                border-bottom: 1px solid #eee;
+                /* For the 'Profile/Background' table which has no header */
+                border-top: 1px solid var(--color-border);
+                position: relative;
+                padding-left: 45%; /* Make space for the label */
+                width: auto;
+                white-space: normal;
+                text-align: right; /* Align content to the right, opposite the label */
+            }
+
+            /* Add the label before each cell */
+            td::before {
+                content: attr(data-label); /* Use the data-label attribute we'll add via JS */
+                position: absolute;
+                left: 10px;
+                width: 40%;
+                padding-right: 10px;
+                white-space: normal;
+                text-align: left;
+                font-weight: bold;
+                color: var(--color-heading);
+            }
+
+            td:last-child {
+                border-bottom: 0;
+            }
+
+            /* For key-value tables without a header, hide the first cell on mobile */
+            .key-value-table td:first-child {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="profile-container">
+        <h1>Sastrei Taurus</h1>
+
+        <nav class="breadcrumb">
+            <a href="../../index.html">&larr; Back to Home</a>
+        </nav>
+
+        <section id="counterpart-details">
+            <h2>Real Life Counterpart Details</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Species</strong></td>
+                        <td><em>Carnotaurus sastrei</em> (Meaning: <strong>"Meat-Eating Bull"</strong>)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Era</strong></td>
+                        <td>Late Cretaceous</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Key Features</strong></td>
+                        <td>Highly distinct, prominent horns above the eyes, extremely short arms, and one of the fastest large theropods due to highly muscular legs.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lore Reflection</strong></td>
+                        <td>Her <strong>Agility</strong> focus, her signature <strong>uppercut/horn attack</strong> move, and her small, muscular build.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <aside class="infobox">
+                <blockquote>
+                    <p>"Underestimate me and you'll regret it"</p>
+                </blockquote>
+                <figure>
+                    <img src="sastreitaurus.png" alt="Character illustration of Sastrei Taurus">
+                    <figcaption>Sastrei Taurus by <strong>Johndoormat</strong></figcaption>
+                </figure>
+        </aside>
+
+        <section id="profile">
+            <h2>Profile/Background</h2>
+            <p>
+                Sastrei Taurus is a Paleo-Maiden affiliated with the <strong>Apex League (Carni Dorm)</strong>, but she is an ideological rebel within it. Unlike her peers, she was born with a <strong>less abundant P-Magic pool</strong> and lower innate <strong>Stamina</strong>. This forced her to reject the Carni philosophy of overwhelming <strong>Brute Force</strong>. Instead, she committed to mastering <strong>Agility and Precision</strong>, which are the core traits of the rival <strong>Bulwark League (Herbi Dorm)</strong>'s philosophy. She is a dedicated <strong>Lone Wolf</strong> who trains obsessively to prove that technique can surpass inherited power.
+            </p>
+            <table class="key-value-table">
+                <tbody>
+                    <tr><td><strong>Strengths</strong></td><td>Sprinting, Headbutts</td></tr>
+                    <tr><td><strong>Weakness</strong></td><td>Compliments</td></tr>
+                    <tr><td><strong>Tail</strong></td><td>When frustrated, she will pressure the ground with her tail silently.</td></tr>
+                    <tr><td><strong>Height</strong></td><td>178cm (5'10")</td></tr>
+                    <tr><td><strong>Weight</strong></td><td>64kg (141 lbs)</td></tr>
+                    <tr><td><strong>Phone Wallpaper</strong></td><td>A photo of her and Amarga when they were little</td></tr>
+                    <tr><td><strong>Max Sprint Speed</strong></td><td>72 km/h (45 mph)</td></tr>
+                    <tr><td><strong>Titles</strong></td><td>Kinetic Brawler, Rogue of El Secreto, Rebellious Speedster</td></tr>
+                    <tr><td><strong>Birthdate</strong></td><td>April 27th</td></tr>
+                    <tr><td><strong>Birthplace</strong></td><td>Argentina</td></tr>
+                    <tr><td><strong>Likes</strong></td><td>Listening to Rap, Meat, Hoodies</td></tr>
+                    <tr><td><strong>Dislikes</strong></td><td>Loud Conversation, Nevesi Pycnonemo</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="initial-sketch">
+            <h2>Initial Sketch</h2>
+            <figure style="margin: 0; text-align: center;">
+                <img src="initial_concept.png" alt="Character illustration of Sastrei Taurus" style="max-width: 100%; height: auto; border: 1px solid var(--color-border);">
+                <figcaption style="margin-top: 1rem; font-style: italic; color: var(--color-text);">
+                    Sastrei Taurus initial concept and design by <strong>Dodowingster</strong>
+                </figcaption>
+            </figure>
+        </section>
+
+        <section id="relationships">
+            <h2>Relationships (Friends/Rivals)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Character</th>
+                        <th>Relationship Type</th>
+                        <th>Nature of Conflict/Bond</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td><strong>Berniss Iguan</strong> (<strong>Iguanodon</strong>)</td>
+                        <td><strong><strong>Thematic Rival</strong></strong></td>
+                        <td>They share the goal of <strong>fighting against arbitrary limits</strong> (species expectations). Their rivalry is a clash of methods: Agility vs. Power.</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Caza Amarga</strong> (<strong>Amargasaurus</strong>)</td>
+                        <td><strong><strong>Childhood Friend/Academic Rival</strong>.</strong></td>
+                        <td>Amarga dotes and worries on her and treats her like a little sister which seem liked it annoys Taurus but she actually does not mind and used to her.</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Tyran Rex</strong> (<strong>Tyrannosaurus</strong>)</td>
+                        <td><strong><strong>Respected Figure</strong></strong></td>
+                        <td>Sastrei deeply respects Tyran as the ultimate embodiment of raw power. Far from a political opponent, she views Tyran as the final benchmark to overcome. She is not afraid to challenge her, believing that a duel is the only way to prove that her hard-won technique can triumph over inherited might.</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Nevesi Pycnonemo</strong> (<strong>Pycnonemosaurus</strong>)</td>
+                        <td><strong><strong>Family Rivalry</strong></strong></td>
+                        <td>Being both from the same Abeli Family origins, Taurus often be seen bickering with Pycnonemo flaunting her superiority over Taurus.</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+
+        <section id="vocation">
+            <h2>Vocation Evolution(s)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Stage</th>
+                        <th>Vocation Title</th>
+                        <th>Fused Trait Disciplines</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td><strong><strong>Base</strong></strong></td>
+                        <td><strong>Kinetic Boxer</strong></td>
+                        <td><strong>Agility (Core)</strong></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong><strong>Hybrid</strong></strong></td>
+                        <td><strong>Boxing Magus</strong></td>
+                        <td><strong>Agility + Stamina/Arcane Precision</strong></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            <blockquote>
+                <p style="text-align: left; max-width: 100%; font-style: normal;"><em>The Boxing Magus style fuses Taurus's raw <strong>Agility</strong> with a stable flow of P-Magic (Stamina/Arcane Precision) to deliver powerful, consistent strikes that maintain momentum without depleting her small reserves.</em></p>
+            </blockquote>
+        </section>
+
+        <section id="fighting-style">
+            <h2>Fighting Style</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Vocation</th>
+                        <th>Core Trait</th>
+                        <th>Signature Move</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td><strong><strong>Kinetic Boxer</strong></strong></td>
+                        <td><strong><strong>Agility &amp; Precision:</strong> Her style is built around constant movement, evading damage, and landing quick, successive strikes where they matter most.</strong></td>
+                        <td><strong>Sastrei Carnage:</strong> A multi-hit flurry of punches culminating in a devastating uppercut. This move commits her limited P-Magic pool for a high-risk, decisive finish.</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong><strong>Boxing Magus</strong></strong></td>
+                        <td><strong><strong>Arcane-Enhanced Agility:</strong> Uses P-Magic for extended-range <strong>Flicker Jabs</strong> to taunt and bait opponents, while also focusing P-Magic into her feet for enhanced <strong>Speed and Agility</strong>.</strong></td>
+                        <td><strong>Storming Blitz:</strong> A rapid flurry of flicker jabs while weaving side-to-side to maximize the area of hits, culminating in a final powerful corckscrew.</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+
+        <section id="motivation">
+            <h2>Motivation and Goals</h2>
+            <ul>
+                
+                <li><strong>Primary Goal:</strong> To win the <strong>Paleo-Maiden Championship (PMC)</strong> and secure the most prestigious post-graduation contract.</li>
+                
+                <li><strong>Internal Goal:</strong> To achieve a style so flawless that she is never forced to rely on a large P-Magic pool for survival.</li>
+                
+            </ul>
+        </section>
+
+        <section id="trivia">
+            <h2>Trivia</h2>
+            <ul>
+                
+                <li>Her combat heels force her into an aggressive, forward-leaning stance, embodying the <strong>Theropod's digitigrade</strong> gait and maximizing the momentum of her strikes.</li>
+                
+                <li>Her childhood friendship with Caza Amarga (Amargasaurus) is a nod to real-life paleontology; the fossil remains of both the Carnotaurus and the Amargasaurus were found during the same expedition in Argentina, symbolizing their shared origins.</li>
+                
+                <li>Her birthdate (27th April) is a direct reference to when her irl counterpart was found which is the year 1984. The day (27) is a numerical reference to the 1984 discovery year ($19 + 8 = 27$) of her real-life counterpart.</li>
+                
+                <li>A lot of her moveset, animations, fighting style and design are inspired by fighting game characters that belong in the same archetype: boxing. Which are Ed from Street Fighter, Akihiko Sanada from Persona 4 Arena Ultimax and Makoto Nanaya from Blazblue.</li>
+                
+                <li>The fierce Family Rivalry with Nevesi Pycnonemo (Pycnonemosaurus) is rooted in paleogeography. Pycnonemosaurus (found in the northern region of South America) is a potentially larger Abelisaurid than Carnotaurus (found in the south), creating a lore conflict between Sastrei's Agility and Nevesi's inherited Brute Force/Size within their own family line.</li>
+                
+            </ul>
+        </section>
+
+    </main>
+
+    <script>
+        // This script adds data-labels to table cells for the responsive CSS to use.
+        document.addEventListener('DOMContentLoaded', function() {
+            const tables = document.querySelectorAll('table');
+            tables.forEach(table => {
+                // Get headers
+                const headers = [];
+                const hasThead = table.querySelector('thead');
+
+                if (hasThead) {
+                    table.querySelectorAll('thead th').forEach(header => {
+                    headers.push(header.textContent);
+                    });
+                }
+
+                // Add data-label attribute to each cell in the body
+                table.querySelectorAll('tbody tr').forEach(row => {
+                    if (hasThead) {
+                        row.querySelectorAll('td').forEach((cell, index) => {
+                            cell.setAttribute('data-label', headers[index]);
+                        });
+                    } else {
+                        // Handle key-value tables without a header
+                        const label = row.cells[0] ? row.cells[0].textContent : '';
+                        const valueCell = row.cells[1];
+                        if (valueCell) valueCell.setAttribute('data-label', label);
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
