@@ -1,0 +1,162 @@
+/* --- Base & Typography --- */
+
+:root {
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'Lato', sans-serif;
+    --color-text: #4d443a; /* Dark, earthy brown */
+    --color-heading: #3a3228; /* Even darker brown for headings */
+    --color-background: #fdf6e3; /* Parchment paper */
+    --color-accent: #8b4513; /* Saddle brown, for links/accents */
+    --color-border: #d2b48c; /* Tan, for borders */
+    --color-code-bg: #f5f5dc; /* Beige, for code blocks */
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.7;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    margin: 0;
+    padding: 2rem 1rem;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--color-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: 2em;
+    margin-bottom: 0.8em;
+}
+
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 0;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.5em;
+}
+
+h2 {
+    font-size: 2.2rem;
+    border-bottom: 1px solid #e0d6c3;
+    padding-bottom: 0.3em;
+}
+
+h3 {
+    font-size: 1.6rem;
+}
+
+p {
+    margin-bottom: 1.2em;
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--color-accent);
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+    color: var(--color-heading);
+}
+
+strong {
+    font-weight: 700;
+    color: var(--color-heading);
+}
+
+em {
+    font-style: italic;
+}
+
+/* --- Layout & Structure --- */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 2rem 3rem;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--color-border), rgba(0, 0, 0, 0));
+    margin: 4rem 0;
+}
+
+/* --- Specific Elements --- */
+
+header blockquote {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-style: italic;
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 80%;
+    border: none;
+    padding: 0;
+}
+
+header blockquote footer {
+    font-style: normal;
+    font-size: 1rem;
+    margin-top: 0.5em;
+    color: #7d6f5f;
+}
+
+ul, ol {
+    padding-left: 1.5em;
+}
+
+li {
+    margin-bottom: 0.75em;
+}
+
+/* Table of Contents */
+#toc {
+    background-color: rgba(245, 245, 220, 0.5); /* Faint beige */
+    border: 1px solid #e0d6c3;
+    padding: 1.5rem 2rem;
+    border-radius: 4px;
+}
+
+#toc h2 {
+    margin-top: 0;
+    border-bottom: none;
+}
+
+#toc ul {
+    padding-left: 1.2em;
+    list-style-type: circle;
+}
+
+/* Code and Preformatted Text */
+code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--color-code-bg);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-size: 0.9em;
+    color: var(--color-heading);
+}
+
+.family-tree pre {
+    background-color: var(--color-code-bg);
+    border: 1px solid var(--color-border);
+    padding: 1.5em;
+    overflow-x: auto;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    border-radius: 4px;
+}
+
+.family-tree code {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+}
