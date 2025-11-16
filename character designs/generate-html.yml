@@ -1,0 +1,37 @@
+name: Generate HTML from Markdown
+
+on:
+  push:
+    branches:
+      - main # Or your default branch
+
+jobs:
+  build-and-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10' # Specify your Python version
+
+      - name- Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install markdown
+
+      - name: Run HTML generation script
+        run: python generate_profiles.py
+
+      - name: Commit and push if there are changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "docs: auto-generate character profile HTML"
+          branch: main # Or your default branch
+          file_pattern: "character designs/**/*.html" # Only commit HTML files in the character designs folder
+          commit_user_name: "GitHub Actions Bot"
+          commit_user_email: "actions@github.com"
+          commit_author: "GitHub Actions Bot <actions@github.com>"

@@ -20,7 +20,7 @@ body {
 }
 
 /* Typography */
-h1, h2 {
+h1, h2, h3 {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 700;
     color: #2c3e50;
@@ -40,6 +40,11 @@ h2 {
     font-size: 2em;
 }
 
+h3 {
+    font-size: 1.6em;
+    border-bottom: 1px solid #eee;
+}
+
 p {
     margin-bottom: 1em;
 }
@@ -56,57 +61,25 @@ blockquote {
     color: #555;
 }
 
-blockquote footer {
-    font-style: normal;
-    font-size: 0.8em;
-    margin-top: 10px;
-    color: #777;
-}
-
-/* Divider */
-.divider {
-    border: 0;
-    height: 1px;
-    background-color: #ddd;
-    margin: 40px 0;
-}
-
-/* Navigation Links */
-.navigation-links ul {
-    list-style-type: disc;
-    padding-left: 20px;
-}
-
-.navigation-links a {
-    color: #2980b9;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.navigation-links a:hover {
-    text-decoration: underline;
-}
-
-/* Breadcrumb/Back link for sub-pages */
-.breadcrumb {
-    margin-bottom: 20px;
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
     font-size: 0.9em;
 }
 
-.breadcrumb a {
-    color: #2980b9;
-    text-decoration: none;
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f8f9fa;
     font-weight: bold;
 }
 
-.breadcrumb a:hover {
-    text-decoration: underline;
-}
-
-/* Character sub-list on homepage */
-.character-list {
-    list-style-type: circle;
-    margin-top: 8px;
-    padding-left: 25px;
-    font-size: 0.95em;
+tbody tr:nth-of-type(even) {
+    background-color: #f8f9fa;
 }
