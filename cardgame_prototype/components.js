@@ -312,59 +312,26 @@ function startTurn(playerA, playerB) {
 }
 
 // runTurn: play cards and handle end-of-turn discarding. startTurn should be called before runTurn
-// function runTurn(playerA, playerB) {
-//     // Ensure the turn is prepared; call startTurn to restore mana/draw and capture pre-play hands
-//     let beforeA, beforeB;
-//     beforeA = playerA.hand.cards.slice();
-//     beforeB = playerB.hand.cards.slice();
 
-//     // Helper to play as many cards as possible in random order, recording played cards
-//     function playAllPossible(player, opponent, playedList) {
-//         let progress = true;
-//         while (progress) {
-//             const playable = player.hand.cards.filter(c => player.canPlay(c));
-//             if (playable.length === 0) break;
-//             shuffleArray(playable);
-//             progress = false;
-//             for (const card of playable) {
-//                 if (player.canPlay(card)) {
-//                     try {
-//                         player.playCard(card, opponent);
-//                         playedList.push(card);
-//                     } catch (e) {
-//                         // ignore and continue
-//                     }
-//                     progress = true;
-//                 }
-//             }
-//         }
-//     }
+function playCardInTurn(player, target){
+    let before = player.hands.cards.slice();
+    playedList = [];
 
-//     const playedA = [];
-//     const playedB = [];
+    const playable = player.hand.cards.filter(c => player.canPlay(c));
+    if (playable.length > 0){
+        try{
+            player.playCard(card, target);
+            playedList.push(card);
+        }
+        catch (e) {
+            // ignore and continue
+        }
+    } 
 
-//     playAllPossible(playerA, playerB, playedA);
-//     playAllPossible(playerB, playerA, playedB);
+    return { player, target, playedList }
 
-//     // Log details of cards played this turn
-//     const describeCard = (c) => `Card(name=${c.name||'<anon>'}, mana=${c.manaCost}, color=${c.color}, effects=${Array.isArray(c.effects)?c.effects.length:0})`;
-//     console.log(`${playerA.name} played: ${playedA.map(describeCard).join(' || ') || '<none>'}`);
-//     console.log(`${playerB.name} played: ${playedB.map(describeCard).join(' || ') || '<none>'}`);
 
-//     // Discard remaining cards in hand at end of turn
-//     function discardHand(player) {
-//         while (player.hand.cards.length) {
-//             const c = player.hand.cards.shift();
-//             player.discard.add(c);
-//         }
-//     }
-
-//     discardHand(playerA);
-//     discardHand(playerB);
-
-//     // Return played lists and the pre-play hands so callers (UI) can show them
-//     return { playedA, playedB, beforeA, beforeB };
-// }
+}
 
 function runTurn(player, target) {
     // Ensure the turn is prepared; call startTurn to restore mana/draw and capture pre-play hands

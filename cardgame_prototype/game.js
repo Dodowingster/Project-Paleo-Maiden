@@ -193,14 +193,14 @@ function startGame(){
 	p2 = new Character({ name: p2Name, health: p2HP, maxMana: p2ManaPool, handMax: p2HandMax, handTurn: p2HandTurn, deck: p2Deck, speedDice: new Dice() });
 	p1.deck.shuffle(); p2.deck.shuffle();
 	updateUI();
-	document.getElementById('nextBtn').disabled = false;
+	document.getElementById('nextTurnRunBtn').disabled = false;
 	console.log('Game started. Click Next Turn to advance.');
 }
 
 function nextTurn(){
 	if (!p1 || !p2) return;
 	// prevent double-clicking while a turn is running
-	document.getElementById('nextBtn').disabled = true;
+	document.getElementById('nextTurnRunBtn').disabled = true;
 	let winnerName = '';
 	turn++;
 	try {
@@ -230,7 +230,7 @@ function nextTurn(){
 	} catch (err) {
 		console.error(err);
 		console.log('An error occurred running the turn; Next Turn re-enabled.');
-		document.getElementById('nextBtn').disabled = false;
+		document.getElementById('nextTurnRunBtn').disabled = false;
 	}
 }
 
@@ -266,10 +266,10 @@ function checkHP_0(p1, p2, turnEnd = false){
 			winnerName = p1.name;
 		}
 		console.log(msg);
-		document.getElementById('nextBtn').disabled = true;
+		document.getElementById('nextTurnRunBtn').disabled = true;
 	} else {
 		// re-enable button after turn completes
-		if (turnEnd) document.getElementById('nextBtn').disabled = false;
+		if (turnEnd) document.getElementById('nextTurnRunBtn').disabled = false;
 	}
 
 	return winnerName;
@@ -280,5 +280,5 @@ function resetGame(){
 }
 
 document.getElementById('startBtn').addEventListener('click', startGame);
-document.getElementById('nextBtn').addEventListener('click', nextTurn);
+document.getElementById('nextTurnRunBtn').addEventListener('click', nextTurn);
 // document.getElementById('resetBtn').addEventListener('click', resetGame);
