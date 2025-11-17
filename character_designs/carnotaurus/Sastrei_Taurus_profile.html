@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sastrei - Character Profile</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Lato:wght@400;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --font-heading: 'Cormorant Garamond', serif;
             --font-body: 'Lato', sans-serif;
-            --color-text: #4d443a; /* Dark, earthy brown */
-            --color-heading: #3a3228; /* Even darker brown for headings */
-            --color-background: #fdf6e3; /* Parchment paper */
-            --color-accent: #8b4513; /* Saddle brown, for links/accents */
-            --color-border: #d2b48c; /* Tan, for borders */
-            --color-table-bg: rgba(245, 245, 220, 0.5); /* Faint beige */
+            --color-text: #4d443a;
+            /* Dark, earthy brown */
+            --color-heading: #3a3228;
+            /* Even darker brown for headings */
+            --color-background: #fdf6e3;
+            /* Parchment paper */
+            --color-accent: #8b4513;
+            /* Saddle brown, for links/accents */
+            --color-border: #d2b48c;
+            /* Tan, for borders */
+            --color-table-bg: rgba(245, 245, 220, 0.5);
+            /* Faint beige */
             --color-table-header: #e0d6c3;
+            --icon-size: 1em;
+            /* For social icons */
         }
 
         body {
@@ -90,7 +101,8 @@
             border: 1px solid var(--color-border);
         }
 
-        th, td {
+        th,
+        td {
             padding: 12px 15px;
             text-align: left;
             border-bottom: 1px solid var(--color-border);
@@ -103,7 +115,8 @@
         }
 
         tbody tr:hover {
-            background-color: rgba(210, 180, 140, 0.3); /* Faint tan on hover */
+            background-color: rgba(210, 180, 140, 0.3);
+            /* Faint tan on hover */
         }
 
         td:first-child {
@@ -166,6 +179,24 @@
             border-bottom: 1px dotted var(--color-accent);
         }
 
+        /* --- Icon Styling --- */
+        .artist-link {
+            color: var(--color-heading);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--color-heading);
+        }
+
+        .artist-link:hover {
+            border-bottom-style: solid;
+        }
+
+        .social-icon {
+            width: var(--icon-size);
+            height: var(--icon-size);
+            vertical-align: -0.125em;
+            /* Aligns icon nicely with text */
+        }
+
         /* --- Responsive Design for Mobile --- */
         @media (max-width: 768px) {
             body {
@@ -189,11 +220,17 @@
                 float: none;
                 width: auto;
                 margin: 2rem auto;
-                max-width: 320px; /* Prevents it from being too wide on tablets */
+                max-width: 320px;
+                /* Prevents it from being too wide on tablets */
             }
 
             /* Make tables more readable on small screens */
-            table, thead, tbody, th, td, tr {
+            table,
+            thead,
+            tbody,
+            th,
+            td,
+            tr {
                 display: block;
             }
 
@@ -214,15 +251,18 @@
                 /* For the 'Profile/Background' table which has no header */
                 border-top: 1px solid var(--color-border);
                 position: relative;
-                padding-left: 45%; /* Make space for the label */
+                padding-left: 45%;
+                /* Make space for the label */
                 width: auto;
                 white-space: normal;
-                text-align: right; /* Align content to the right, opposite the label */
+                text-align: right;
+                /* Align content to the right, opposite the label */
             }
 
             /* Add the label before each cell */
             td::before {
-                content: attr(data-label); /* Use the data-label attribute we'll add via JS */
+                content: attr(data-label);
+                /* Use the data-label attribute we'll add via JS */
                 position: absolute;
                 left: 10px;
                 width: 40%;
@@ -244,6 +284,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <main class="profile-container">
@@ -273,55 +314,113 @@
                     </tr>
                     <tr>
                         <td><strong>Key Features</strong></td>
-                        <td>Highly distinct, prominent horns above the eyes, extremely short arms, and one of the fastest large theropods due to highly muscular legs.</td>
+                        <td>Highly distinct, prominent horns above the eyes, extremely short arms, and one of the
+                            fastest large theropods due to highly muscular legs.</td>
                     </tr>
                     <tr>
                         <td><strong>Lore Reflection</strong></td>
-                        <td>Her <strong>Agility</strong> focus, her signature <strong>uppercut/horn attack</strong> move, and her small, muscular build.</td>
+                        <td>Her <strong>Agility</strong> focus, her signature <strong>uppercut/horn attack</strong>
+                            move, and her small, muscular build.</td>
                     </tr>
                 </tbody>
             </table>
         </section>
 
         <aside class="infobox">
-                <blockquote>
-                    <p>"Underestimate me and you'll regret it"</p>
-                </blockquote>
-                <figure>
-                    <img src="sastreitaurus.png" alt="Character illustration of Sastrei Taurus">
-                    <figcaption>Sastrei Taurus by <strong>Johndoormat</strong></figcaption>
-                </figure>
+            <blockquote>
+                <p>"Underestimate me and you'll regret it"</p>
+            </blockquote>
+            <figure>
+                <img src="sastreitaurus.png" alt="Character illustration of Sastrei Taurus">
+                <figcaption>Sastrei Taurus by <a href="https://x.com/johndoormap" target="_blank"
+                        rel="noopener noreferrer" class="artist-link"><strong>Johndoormat</strong> <svg
+                            class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
+                            fill="currentColor">
+                            <path
+                                d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-1.612 1.855-1.157.026-.023.027L3.23 13.48h1.34l6.6-7.567L12.35 5.1h-1.355Z" />
+                        </svg></a></figcaption>
+            </figure>
         </aside>
 
         <section id="profile">
             <h2>Profile/Background</h2>
             <p>
-                Sastrei Taurus is a Paleo-Maiden affiliated with the <strong>Apex League (Carni Dorm)</strong>, but she is an ideological rebel within it. Unlike her peers, she was born with a <strong>less abundant P-Magic pool</strong> and lower innate <strong>Stamina</strong>. This forced her to reject the Carni philosophy of overwhelming <strong>Brute Force</strong>. Instead, she committed to mastering <strong>Agility and Precision</strong>, which are the core traits of the rival <strong>Bulwark League (Herbi Dorm)</strong>'s philosophy. She is a dedicated <strong>Lone Wolf</strong> who trains obsessively to prove that technique can surpass inherited power.
+                Sastrei Taurus is a Paleo-Maiden affiliated with the <strong>Apex League (Carni Dorm)</strong>, but she
+                is an ideological rebel within it. Unlike her peers, she was born with a <strong>less abundant P-Magic
+                    pool</strong> and lower innate <strong>Stamina</strong>. This forced her to reject the Carni
+                philosophy of overwhelming <strong>Brute Force</strong>. Instead, she committed to mastering
+                <strong>Agility and Precision</strong>, which are the core traits of the rival <strong>Bulwark League
+                    (Herbi Dorm)</strong>'s philosophy. She is a dedicated <strong>Lone Wolf</strong> who trains
+                obsessively to prove that technique can surpass inherited power.
             </p>
             <table class="key-value-table">
                 <tbody>
-                    <tr><td><strong>Strengths</strong></td><td>Sprinting, Headbutts</td></tr>
-                    <tr><td><strong>Weakness</strong></td><td>Compliments</td></tr>
-                    <tr><td><strong>Tail</strong></td><td>When frustrated, she will pressure the ground with her tail silently.</td></tr>
-                    <tr><td><strong>Height</strong></td><td>178cm (5'10")</td></tr>
-                    <tr><td><strong>Weight</strong></td><td>64kg (141 lbs)</td></tr>
-                    <tr><td><strong>Phone Wallpaper</strong></td><td>A photo of her and Amarga when they were little</td></tr>
-                    <tr><td><strong>Max Sprint Speed</strong></td><td>72 km/h (45 mph)</td></tr>
-                    <tr><td><strong>Titles</strong></td><td>Kinetic Brawler, Rogue of El Secreto, Rebellious Speedster</td></tr>
-                    <tr><td><strong>Birthdate</strong></td><td>April 27th</td></tr>
-                    <tr><td><strong>Birthplace</strong></td><td>Argentina</td></tr>
-                    <tr><td><strong>Likes</strong></td><td>Listening to Rap, Meat, Hoodies</td></tr>
-                    <tr><td><strong>Dislikes</strong></td><td>Loud Conversation, Nevesi Pycnonemo</td></tr>
+                    <tr>
+                        <td><strong>Strengths</strong></td>
+                        <td>Sprinting, Headbutts</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Weakness</strong></td>
+                        <td>Compliments</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tail</strong></td>
+                        <td>When frustrated, she will pressure the ground with her tail silently.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Height</strong></td>
+                        <td>178cm (5'10")</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Weight</strong></td>
+                        <td>64kg (141 lbs)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Phone Wallpaper</strong></td>
+                        <td>A photo of her and Amarga when they were little</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Max Sprint Speed</strong></td>
+                        <td>72 km/h (45 mph)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Titles</strong></td>
+                        <td>Kinetic Brawler, Rogue of El Secreto, Rebellious Speedster</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Birthdate</strong></td>
+                        <td>April 27th</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Birthplace</strong></td>
+                        <td>Argentina</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Likes</strong></td>
+                        <td>Listening to Rap, Meat, Hoodies</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dislikes</strong></td>
+                        <td>Loud Conversation, Nevesi Pycnonemo</td>
+                    </tr>
                 </tbody>
             </table>
         </section>
 
         <section id="initial-sketch">
-            <h2>Initial Sketch</h2>
+            <h2>Initial Concept</h2>
             <figure style="margin: 0; text-align: center;">
-                <img src="initial_concept.png" alt="Character illustration of Sastrei Taurus" style="max-width: 100%; height: auto; border: 1px solid var(--color-border);">
+                <img src="initial_concept.png" alt="Character illustration of Sastrei Taurus"
+                    style="max-width: 100%; height: auto; border: 1px solid var(--color-border);">
                 <figcaption style="margin-top: 1rem; font-style: italic; color: var(--color-text);">
-                    Sastrei Taurus initial concept and design by <strong>Dodowingster</strong>
+                    Sastrei Taurus initial concept and design by <a href="https://dodowingster.github.io/Portfolio/"
+                        target="_blank" rel="noopener noreferrer" class="artist-link"><strong>Dodowingster</strong> <svg
+                            class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
+                            fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21-.15.46-.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                            </path>
+                        </svg></a>
                 </figcaption>
             </figure>
         </section>
@@ -337,31 +436,37 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+
                     <tr>
                         <td><strong>Berniss Iguan</strong> (<strong>Iguanodon</strong>)</td>
                         <td><strong><strong>Thematic Rival</strong></strong></td>
-                        <td>They share the goal of <strong>fighting against arbitrary limits</strong> (species expectations). Their rivalry is a clash of methods: Agility vs. Power.</td>
+                        <td>They share the goal of <strong>fighting against arbitrary limits</strong> (species
+                            expectations). Their rivalry is a clash of methods: Agility vs. Power.</td>
                     </tr>
-                    
+
                     <tr>
                         <td><strong>Caza Amarga</strong> (<strong>Amargasaurus</strong>)</td>
                         <td><strong><strong>Childhood Friend/Academic Rival</strong>.</strong></td>
-                        <td>Amarga dotes and worries on her and treats her like a little sister which seem liked it annoys Taurus but she actually does not mind and used to her.</td>
+                        <td>Amarga dotes and worries on her and treats her like a little sister which seem liked it
+                            annoys Taurus but she actually does not mind and used to her.</td>
                     </tr>
-                    
+
                     <tr>
                         <td><strong>Tyran Rex</strong> (<strong>Tyrannosaurus</strong>)</td>
                         <td><strong><strong>Respected Figure</strong></strong></td>
-                        <td>Sastrei deeply respects Tyran as the ultimate embodiment of raw power. Far from a political opponent, she views Tyran as the final benchmark to overcome. She is not afraid to challenge her, believing that a duel is the only way to prove that her hard-won technique can triumph over inherited might.</td>
+                        <td>Sastrei deeply respects Tyran as the ultimate embodiment of raw power. Far from a political
+                            opponent, she views Tyran as the final benchmark to overcome. She is not afraid to challenge
+                            her, believing that a duel is the only way to prove that her hard-won technique can triumph
+                            over inherited might.</td>
                     </tr>
-                    
+
                     <tr>
                         <td><strong>Nevesi Pycnonemo</strong> (<strong>Pycnonemosaurus</strong>)</td>
                         <td><strong><strong>Family Rivalry</strong></strong></td>
-                        <td>Being both from the same Abeli Family origins, Taurus often be seen bickering with Pycnonemo flaunting her superiority over Taurus.</td>
+                        <td>Being both from the same Abeli Family origins, Taurus often be seen bickering with Pycnonemo
+                            flaunting her superiority over Taurus.</td>
                     </tr>
-                    
+
                 </tbody>
             </table>
         </section>
@@ -377,23 +482,26 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+
                     <tr>
                         <td><strong><strong>Base</strong></strong></td>
                         <td><strong>Kinetic Boxer</strong></td>
                         <td><strong>Agility (Core)</strong></td>
                     </tr>
-                    
+
                     <tr>
                         <td><strong><strong>Hybrid</strong></strong></td>
                         <td><strong>Boxing Magus</strong></td>
                         <td><strong>Agility + Stamina/Arcane Precision</strong></td>
                     </tr>
-                    
+
                 </tbody>
             </table>
             <blockquote>
-                <p style="text-align: left; max-width: 100%; font-style: normal;"><em>The Boxing Magus style fuses Taurus's raw <strong>Agility</strong> with a stable flow of P-Magic (Stamina/Arcane Precision) to deliver powerful, consistent strikes that maintain momentum without depleting her small reserves.</em></p>
+                <p style="text-align: left; max-width: 100%; font-style: normal;"><em>The Boxing Magus style fuses
+                        Taurus's raw <strong>Agility</strong> with a stable flow of P-Magic (Stamina/Arcane Precision)
+                        to deliver powerful, consistent strikes that maintain momentum without depleting her small
+                        reserves.</em></p>
             </blockquote>
         </section>
 
@@ -408,19 +516,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+
                     <tr>
                         <td><strong><strong>Kinetic Boxer</strong></strong></td>
-                        <td><strong><strong>Agility &amp; Precision:</strong> Her style is built around constant movement, evading damage, and landing quick, successive strikes where they matter most.</strong></td>
-                        <td><strong>Sastrei Carnage:</strong> A multi-hit flurry of punches culminating in a devastating uppercut. This move commits her limited P-Magic pool for a high-risk, decisive finish.</td>
+                        <td><strong><strong>Agility &amp; Precision:</strong> Her style is built around constant
+                                movement, evading damage, and landing quick, successive strikes where they matter
+                                most.</strong></td>
+                        <td><strong>Sastrei Carnage:</strong> A multi-hit flurry of punches culminating in a devastating
+                            uppercut. This move commits her limited P-Magic pool for a high-risk, decisive finish.</td>
                     </tr>
-                    
+
                     <tr>
                         <td><strong><strong>Boxing Magus</strong></strong></td>
-                        <td><strong><strong>Arcane-Enhanced Agility:</strong> Uses P-Magic for extended-range <strong>Flicker Jabs</strong> to taunt and bait opponents, while also focusing P-Magic into her feet for enhanced <strong>Speed and Agility</strong>.</strong></td>
-                        <td><strong>Storming Blitz:</strong> A rapid flurry of flicker jabs while weaving side-to-side to maximize the area of hits, culminating in a final powerful corckscrew.</td>
+                        <td><strong><strong>Arcane-Enhanced Agility:</strong> Uses P-Magic for extended-range
+                                <strong>Flicker Jabs</strong> to taunt and bait opponents, while also focusing P-Magic
+                                into her feet for enhanced <strong>Speed and Agility</strong>.</strong></td>
+                        <td><strong>Storming Blitz:</strong> A rapid flurry of flicker jabs while weaving side-to-side
+                            to maximize the area of hits, culminating in a final powerful corckscrew.</td>
                     </tr>
-                    
+
                 </tbody>
             </table>
         </section>
@@ -428,28 +542,41 @@
         <section id="motivation">
             <h2>Motivation and Goals</h2>
             <ul>
-                
-                <li><strong>Primary Goal:</strong> To win the <strong>Paleo-Maiden Championship (PMC)</strong> and secure the most prestigious post-graduation contract.</li>
-                
-                <li><strong>Internal Goal:</strong> To achieve a style so flawless that she is never forced to rely on a large P-Magic pool for survival.</li>
-                
+
+                <li><strong>Primary Goal:</strong> To win the <strong>Paleo-Maiden Championship (PMC)</strong> and
+                    secure the most prestigious post-graduation contract.</li>
+
+                <li><strong>Internal Goal:</strong> To achieve a style so flawless that she is never forced to rely on a
+                    large P-Magic pool for survival.</li>
+
             </ul>
         </section>
 
         <section id="trivia">
             <h2>Trivia</h2>
             <ul>
-                
-                <li>Her combat heels force her into an aggressive, forward-leaning stance, embodying the <strong>Theropod's digitigrade</strong> gait and maximizing the momentum of her strikes.</li>
-                
-                <li>Her childhood friendship with Caza Amarga (Amargasaurus) is a nod to real-life paleontology; the fossil remains of both the Carnotaurus and the Amargasaurus were found during the same expedition in Argentina, symbolizing their shared origins.</li>
-                
-                <li>Her birthdate (27th April) is a direct reference to when her irl counterpart was found which is the year 1984. The day (27) is a numerical reference to the 1984 discovery year (19 + 8 = 27) of her real-life counterpart.</li>
-                
-                <li>A lot of her moveset, animations, fighting style and design are inspired by fighting game characters that belong in the same archetype: boxing. Which are Ed from Street Fighter, Akihiko Sanada from Persona 4 Arena Ultimax and Makoto Nanaya from Blazblue.</li>
-                
-                <li>The fierce Family Rivalry with Nevesi Pycnonemo (Pycnonemosaurus) is rooted in paleogeography. Pycnonemosaurus (found in the northern region of South America) is a potentially larger Abelisaurid than Carnotaurus (found in the south), creating a lore conflict between Sastrei's Agility and Nevesi's inherited Brute Force/Size within their own family line.</li>
-                
+
+                <li>Her combat heels force her into an aggressive, forward-leaning stance, embodying the
+                    <strong>Theropod's digitigrade</strong> gait and maximizing the momentum of her strikes.
+                </li>
+
+                <li>Her childhood friendship with Caza Amarga (Amargasaurus) is a nod to real-life paleontology; the
+                    fossil remains of both the Carnotaurus and the Amargasaurus were found during the same expedition in
+                    Argentina, symbolizing their shared origins.</li>
+
+                <li>Her birthdate (27th April) is a direct reference to when her irl counterpart was found which is the
+                    year 1984. The day (27) is a numerical reference to the 1984 discovery year (19 + 8 = 27) of her
+                    real-life counterpart.</li>
+
+                <li>A lot of her moveset, animations, fighting style and design are inspired by fighting game characters
+                    that belong in the same archetype: boxing. Which are Ed from Street Fighter, Akihiko Sanada from
+                    Persona 4 Arena Ultimax and Makoto Nanaya from Blazblue.</li>
+
+                <li>The fierce Family Rivalry with Nevesi Pycnonemo (Pycnonemosaurus) is rooted in paleogeography.
+                    Pycnonemosaurus (found in the northern region of South America) is a potentially larger Abelisaurid
+                    than Carnotaurus (found in the south), creating a lore conflict between Sastrei's Agility and
+                    Nevesi's inherited Brute Force/Size within their own family line.</li>
+
             </ul>
         </section>
 
@@ -457,7 +584,7 @@
 
     <script>
         // This script adds data-labels to table cells for the responsive CSS to use.
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const tables = document.querySelectorAll('table');
             tables.forEach(table => {
                 // Get headers
@@ -466,7 +593,7 @@
 
                 if (hasThead) {
                     table.querySelectorAll('thead th').forEach(header => {
-                    headers.push(header.textContent);
+                        headers.push(header.textContent);
                     });
                 }
 
@@ -488,4 +615,5 @@
     </script>
 
 </body>
+
 </html>
