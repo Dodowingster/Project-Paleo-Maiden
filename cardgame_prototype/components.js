@@ -302,6 +302,8 @@ class GameStateManager {
             playedA: [],
             playedB: [],
         };
+
+        this.advance();
     }
 
     advance() {
@@ -359,7 +361,6 @@ class GameStateManager {
                 this.previousState = GameStates.GAME_OVER;
                 break;
         }
-        console.log('');
     }
 }
 

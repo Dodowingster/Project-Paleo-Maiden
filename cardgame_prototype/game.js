@@ -139,9 +139,7 @@ function updateUI(){
 	document.getElementById('pA_played')?.remove();
 	document.getElementById('pB_played')?.remove();
 	const turn = gameStateManager ? gameStateManager.turn : 0;
-	const currentGameState = gameStateManager ? gameStateManager.currentState : 'Error';
 	document.getElementById('turnCounter').textContent = `Turn: ${turn}`;
-	document.getElementById('gameStateDisplayCurrent').textContent = `Current State: ${currentGameState}`;
 
 	// Render played cards from the provided info if present
 	if (gameStateManager && gameStateManager.turnData.playedA.length > 0) {
@@ -165,6 +163,14 @@ function updateUI(){
 		pBplayedContainer.appendChild(cardsB);
 		document.getElementById('playerB').appendChild(pBplayedContainer);
 	}
+
+	// Manage button states based on game state
+	const isGameOver = gameStateManager && gameStateManager.currentState === GameStates.GAME_OVER;
+	const isNewTurn = gameStateManager && (gameStateManager.currentState === GameStates.START_TURN || gameStateManager.currentState === GameStates.GAME_START);
+	const runFullTurnBtn = document.getElementById('runFullTurnBtn');
+	const advanceStateBtn = document.getElementById('advanceStateBtn');
+	if (runFullTurnBtn) runFullTurnBtn.disabled = isGameOver || !isNewTurn;
+	if (advanceStateBtn) advanceStateBtn.disabled = isGameOver;
 }
 
 function startGame(){
@@ -198,8 +204,6 @@ function startGame(){
 
 	p1.deck.shuffle(); p2.deck.shuffle();
 	updateUI();
-	document.getElementById('runFullTurnBtn').disabled = false;
-	document.getElementById('advanceStateBtn').disabled = false;
 	console.log('Game started. Click Next Turn to advance.');
 }
 
@@ -207,19 +211,16 @@ function handleAdvanceStateClick() {
 	if (!gameStateManager) return;
 
 	// Disable both buttons to prevent rapid clicks or conflicting actions
-	document.getElementById('runFullTurnBtn').disabled = true;
-	document.getElementById('advanceStateBtn').disabled = true;
 
 	try {
+		console.log('');
+		console.log(`Current state: ${gameStateManager.currentState}`);
 		gameStateManager.advance();
-		console.log(`Advanced to state: ${gameStateManager.currentState}`);
 		updateUI();
 		checkWinner(); // This will re-enable buttons if not game over
 	} catch (err) {
 		console.error(err);
 		console.log('An error occurred advancing state; buttons re-enabled.');
-		document.getElementById('runFullTurnBtn').disabled = false;
-		document.getElementById('advanceStateBtn').disabled = false;
 	}
 }
 
@@ -230,8 +231,6 @@ function handleRunFullTurnClick(){
 
 	if (!gameStateManager) return;
 	// prevent double-clicking while a turn is running
-	document.getElementById('runFullTurnBtn').disabled = true;
-	document.getElementById('advanceStateBtn').disabled = true; // Disable single step too
 
 	try {
 		// On first click, advance from start to pre-turn
@@ -262,8 +261,6 @@ function handleRunFullTurnClick(){
 	} catch (err) {
 		console.error(err);
 		console.log('An error occurred running the turn; Next Turn re-enabled.');
-		document.getElementById('runFullTurnBtn').disabled = false;
-		document.getElementById('advanceStateBtn').disabled = false;
 	}
 }
 function checkWinner() {
@@ -282,12 +279,7 @@ function checkWinner() {
 			msg = `${p1.name} wins!`;
 		}
 		console.log(msg);
-		document.getElementById('runFullTurnBtn').disabled = true;
-		document.getElementById('advanceStateBtn').disabled = true;
-	} else {
-		// re-enable button after turn completes
-		document.getElementById('runFullTurnBtn').disabled = false;
-		document.getElementById('advanceStateBtn').disabled = false;
+		updateUI(); // Final UI update to reflect game over and disable buttons
 	}
 }
 
