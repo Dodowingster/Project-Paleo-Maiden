@@ -197,7 +197,23 @@ function startGame(){
 	console.log('Game started. Click Next Turn to advance.');
 }
 
-function nextTurn(){
+function drawCardsStartTurn(){
+	if (!p1 || !p2) return;
+	document.getElementById('nextTurnRunBtn').disabled = true;
+	turn++;
+	try{
+		const startRes = startTurn(p1, p2);
+		updateUI({ beforeA: startRes.beforeA, beforeB: startRes.beforeB });
+	}
+	catch (err) {
+		console.error(err);
+		// console.log('An error occurred running the turn; Next Turn re-enabled.');
+		// document.getElementById('nextTurnRunBtn').disabled = false;
+	}
+
+}
+
+function runFullTurn(){
 	if (!p1 || !p2) return;
 	// prevent double-clicking while a turn is running
 	document.getElementById('nextTurnRunBtn').disabled = true;
@@ -217,10 +233,12 @@ function nextTurn(){
 			firstPlayer = p2;
 			secondPlayer = p1;
 		}
+
 		console.log(firstPlayer.name + ' goes first.');
 		const result = runTurn(firstPlayer, secondPlayer) || {};
 		updateUI({ playedA: is_p1_faster ? result.played : [], playedB: is_p1_faster ? [] : result.played, beforeA: startRes.beforeA, beforeB: startRes.beforeB });
 		winnerName = checkHP_0(p1, p2, false);
+
 		if (!winnerName){
 			console.log(secondPlayer.name + ' goes second.');
 			const result2 = runTurn(secondPlayer, firstPlayer) || {};
@@ -280,5 +298,5 @@ function resetGame(){
 }
 
 document.getElementById('startBtn').addEventListener('click', startGame);
-document.getElementById('nextTurnRunBtn').addEventListener('click', nextTurn);
+document.getElementById('nextTurnRunBtn').addEventListener('click', runFullTurn);
 // document.getElementById('resetBtn').addEventListener('click', resetGame);

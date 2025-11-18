@@ -329,8 +329,6 @@ function playCardInTurn(player, target){
     } 
 
     return { player, target, playedList }
-
-
 }
 
 function runTurn(player, target) {
