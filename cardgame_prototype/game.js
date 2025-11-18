@@ -12,7 +12,7 @@
 })();
 
 // Demo driver
-let p1, p2, turn = 0;
+let gameStateManager;
 
 function makeTemplates(){
 	return [
@@ -36,8 +36,10 @@ function makeDeckFromTemplates(templates, count){
 	return out;
 }
 
-function updateUI(info){
-	if (!p1 || !p2) return;
+function updateUI(){
+	if (!gameStateManager || !gameStateManager.playerA || !gameStateManager.playerB) return;
+	const p1 = gameStateManager.playerA;
+	const p2 = gameStateManager.playerB;
 	document.getElementById('pA_name').textContent = p1.name;
 	document.getElementById('pB_name').textContent = p2.name;
 	document.getElementById('pA_stats').textContent = `HP: ${p1.health}  Mana: ${p1.mana}/${p1.maxMana}  Deck: ${p1.deck.size()}  Hand: ${p1.hand.size()}  Discard: ${p1.discard.cardList.length}`;
@@ -104,23 +106,23 @@ function updateUI(info){
 	const pAHandBeforeLabel = document.getElementById('pA_hand_before_label');
 	const pBHandBefore = document.getElementById('pB_hand_before');
 	const pBHandBeforeLabel = document.getElementById('pB_hand_before_label');
-	if (info && info.beforeA) {
+	if (gameStateManager && gameStateManager.turnData.beforeA.length > 0) {
 		pAHandBefore.style.display = '';
 		pAHandBeforeLabel.style.display = '';
 		pAHandBefore.innerHTML = '';
-		for (const c of info.beforeA) pAHandBefore.appendChild(makeCardEl(c));
-		adjustCardScale(pAHandBefore, info.beforeA.length);
+		for (const c of gameStateManager.turnData.beforeA) pAHandBefore.appendChild(makeCardEl(c));
+		adjustCardScale(pAHandBefore, gameStateManager.turnData.beforeA.length);
 	} else {
 		pAHandBefore.style.display = 'none';
 		pAHandBeforeLabel.style.display = 'none';
 		pAHandBefore.innerHTML = '';
 	}
-	if (info && info.beforeB) {
+	if (gameStateManager && gameStateManager.turnData.beforeB.length > 0) {
 		pBHandBefore.style.display = '';
 		pBHandBeforeLabel.style.display = '';
 		pBHandBefore.innerHTML = '';
-		for (const c of info.beforeB) pBHandBefore.appendChild(makeCardEl(c));
-		adjustCardScale(pBHandBefore, info.beforeB.length);
+		for (const c of gameStateManager.turnData.beforeB) pBHandBefore.appendChild(makeCardEl(c));
+		adjustCardScale(pBHandBefore, gameStateManager.turnData.beforeB.length);
 	} else {
 		pBHandBefore.style.display = 'none';
 		pBHandBeforeLabel.style.display = 'none';
@@ -136,28 +138,30 @@ function updateUI(info){
 	// Clear previous played display
 	document.getElementById('pA_played')?.remove();
 	document.getElementById('pB_played')?.remove();
+	const turn = gameStateManager ? gameStateManager.turn : 0;
+	const currentGameState = gameStateManager ? gameStateManager.currentState : 'Error';
 	document.getElementById('turnCounter').textContent = `Turn: ${turn}`;
-	document.getElementById('turnCounter').textContent = `Turn: ${turn}`;
+	document.getElementById('gameStateDisplayCurrent').textContent = `Current State: ${currentGameState}`;
 
 	// Render played cards from the provided info if present
-	if (info && info.playedA) {
+	if (gameStateManager && gameStateManager.turnData.playedA.length > 0) {
 		const pAplayedContainer = document.createElement('div');
 		pAplayedContainer.id = 'pA_played';
 		const labelA = document.createElement('div'); labelA.className = 'muted'; labelA.textContent = 'Played this turn:';
 		pAplayedContainer.appendChild(labelA);
 		const cardsA = document.createElement('div'); cardsA.className = 'cards';
-		for (const c of (info.playedA || [])) cardsA.appendChild(makeCardEl(c));
+		for (const c of gameStateManager.turnData.playedA) cardsA.appendChild(makeCardEl(c));
 		pAplayedContainer.appendChild(cardsA);
 		document.getElementById('playerA').appendChild(pAplayedContainer);
 	}
 
-	if (info && info.playedB){
+	if (gameStateManager && gameStateManager.turnData.playedB.length > 0){
 		const pBplayedContainer = document.createElement('div');
 		pBplayedContainer.id = 'pB_played';
 		const labelB = document.createElement('div'); labelB.className = 'muted'; labelB.textContent = 'Played this turn:';
 		pBplayedContainer.appendChild(labelB);
 		const cardsB = document.createElement('div'); cardsB.className = 'cards';
-		for (const c of (info.playedB || [])) cardsB.appendChild(makeCardEl(c));
+		for (const c of gameStateManager.turnData.playedB) cardsB.appendChild(makeCardEl(c));
 		pBplayedContainer.appendChild(cardsB);
 		document.getElementById('playerB').appendChild(pBplayedContainer);
 	}
@@ -165,7 +169,6 @@ function updateUI(info){
 
 function startGame(){
 	document.getElementById('log').textContent = '';
-	turn = 0;
 	
 	// Get deck sizes from input fields
 	const p1DeckSize = parseInt(document.getElementById('pA_configDeck').value, 10) || 20; // Default to 20 if empty or invalid
@@ -189,108 +192,103 @@ function startGame(){
 	const p2Deck = new Deck(makeDeckFromTemplates(templates, p2DeckSize));
 
 	// Use the config values when creating the character
-	p1 = new Character({ name: p1Name, health: p1HP, maxMana: p1ManaPool, handMax: p1HandMax, handTurn: p1HandTurn, deck: p1Deck, speedDice: new Dice() });
-	p2 = new Character({ name: p2Name, health: p2HP, maxMana: p2ManaPool, handMax: p2HandMax, handTurn: p2HandTurn, deck: p2Deck, speedDice: new Dice() });
+	const p1 = new Character({ name: p1Name, health: p1HP, maxMana: p1ManaPool, handMax: p1HandMax, handTurn: p1HandTurn, deck: p1Deck, speedDice: new Dice() });
+	const p2 = new Character({ name: p2Name, health: p2HP, maxMana: p2ManaPool, handMax: p2HandMax, handTurn: p2HandTurn, deck: p2Deck, speedDice: new Dice() });
+	gameStateManager = new GameStateManager(p1, p2);
+
 	p1.deck.shuffle(); p2.deck.shuffle();
 	updateUI();
-	document.getElementById('nextTurnRunBtn').disabled = false;
+	document.getElementById('runFullTurnBtn').disabled = false;
+	document.getElementById('advanceStateBtn').disabled = false;
 	console.log('Game started. Click Next Turn to advance.');
 }
 
-function drawCardsStartTurn(){
-	if (!p1 || !p2) return;
-	document.getElementById('nextTurnRunBtn').disabled = true;
-	turn++;
-	try{
-		const startRes = startTurn(p1, p2);
-		updateUI({ beforeA: startRes.beforeA, beforeB: startRes.beforeB });
-	}
-	catch (err) {
-		console.error(err);
-		// console.log('An error occurred running the turn; Next Turn re-enabled.');
-		// document.getElementById('nextTurnRunBtn').disabled = false;
-	}
+function handleAdvanceStateClick() {
+	if (!gameStateManager) return;
 
+	// Disable both buttons to prevent rapid clicks or conflicting actions
+	document.getElementById('runFullTurnBtn').disabled = true;
+	document.getElementById('advanceStateBtn').disabled = true;
+
+	try {
+		gameStateManager.advance();
+		console.log(`Advanced to state: ${gameStateManager.currentState}`);
+		updateUI();
+		checkWinner(); // This will re-enable buttons if not game over
+	} catch (err) {
+		console.error(err);
+		console.log('An error occurred advancing state; buttons re-enabled.');
+		document.getElementById('runFullTurnBtn').disabled = false;
+		document.getElementById('advanceStateBtn').disabled = false;
+	}
 }
 
-function runFullTurn(){
-	if (!p1 || !p2) return;
+function handleRunFullTurnClick(){
+	// The existing runFullTurn logic
+	// This function will now call gameStateManager.advance() multiple times
+	// to complete a full turn cycle.
+
+	if (!gameStateManager) return;
 	// prevent double-clicking while a turn is running
-	document.getElementById('nextTurnRunBtn').disabled = true;
-	let winnerName = '';
-	turn++;
+	document.getElementById('runFullTurnBtn').disabled = true;
+	document.getElementById('advanceStateBtn').disabled = true; // Disable single step too
+
 	try {
-		console.log(`\n--- Running turn ${turn} ---`);
-		// Prepare the turn (restore mana and draw) and show the hand-before-play
-		const startRes = startTurn(p1, p2);
-		updateUI({ beforeA: startRes.beforeA, beforeB: startRes.beforeB });
-		// Now run the play phase; pass false so runTurn does not call startTurn again
-		console.log('Rolling speed check to see who goes first.');
-		is_p1_faster = isP1Faster(p1, p2, 0);
-		firstPlayer = p1;
-		secondPlayer = p2;
-		if (!is_p1_faster){
-			firstPlayer = p2;
-			secondPlayer = p1;
+		// On first click, advance from start to pre-turn
+		if (gameStateManager.currentState === GameStates.GAME_START) {
+			gameStateManager.advance();
 		}
 
-		console.log(firstPlayer.name + ' goes first.');
-		const result = runTurn(firstPlayer, secondPlayer) || {};
-		updateUI({ playedA: is_p1_faster ? result.played : [], playedB: is_p1_faster ? [] : result.played, beforeA: startRes.beforeA, beforeB: startRes.beforeB });
-		winnerName = checkHP_0(p1, p2, false);
+		// START_TURN: Advances turn counter, restores mana, draws cards, and determines who is faster.
+		gameStateManager.advance(); // -> FIRST_PLAY
+		console.log(`\n--- Running turn ${gameStateManager.turn} ---`);
+		console.log(`${gameStateManager.activePlayer.name} goes first.`);
+		updateUI();
 
-		if (!winnerName){
-			console.log(secondPlayer.name + ' goes second.');
-			const result2 = runTurn(secondPlayer, firstPlayer) || {};
-			updateUI({ playedA: is_p1_faster ? result.played : result2.played, playedB: is_p1_faster ? result2.played : result.played, beforeA: startRes.beforeA, beforeB: startRes.beforeB });
-			checkHP_0(p1, p2, true);
+		// FIRST_PLAY: The active player plays their turn.
+		gameStateManager.advance(); // -> SECOND_PLAY or GAME_OVER
+		updateUI();
+
+		// If the game isn't over, proceed to the second player's turn.
+		if (gameStateManager.currentState === GameStates.SECOND_PLAY) {
+			console.log(`${gameStateManager.inactivePlayer.name} goes second.`);
+			gameStateManager.advance(); // -> START_TURN or GAME_OVER
+			updateUI();
 		}
+
+		// Check for a winner and update UI accordingly
+		checkWinner();
+
 	} catch (err) {
 		console.error(err);
 		console.log('An error occurred running the turn; Next Turn re-enabled.');
-		document.getElementById('nextTurnRunBtn').disabled = false;
+		document.getElementById('runFullTurnBtn').disabled = false;
+		document.getElementById('advanceStateBtn').disabled = false;
 	}
 }
-
-function isP1Faster(p1, p2, iteration = 0){
-	p1Spd = p1.speedDice.roll();
-	p2Spd = p2.speedDice.roll();
-	if (p1Spd == p2Spd){
-		return isP1Faster(p1, p2, iteration + 1)
-	}
-	else{
-		console.log('p1Spd: ' + p1Spd.toString());
-		console.log('p2Spd: ' + p2Spd.toString());
-		return p1Spd > p2Spd;
-	}
-}
-
-function checkHP_0(p1, p2, turnEnd = false){
+function checkWinner() {
 	// If a character reached 0 HP, end the game in the UI
-	let msg;
-	let winnerName = '';
-	if (p1.health === 0 || p2.health === 0) {
-		
+	const p1 = gameStateManager.playerA;
+	const p2 = gameStateManager.playerB;
+	if (gameStateManager.currentState === GameStates.GAME_OVER) {
+		let msg;
 		if (p1.health === 0 && p2.health === 0) {
 			msg = 'Both players have fallen — draw';
-			winnerName = 'Draw';
 		}
 		else if (p1.health === 0) {
 			msg = `${p2.name} wins!`;
-			winnerName = p2.name;
 		}
 		else {
 			msg = `${p1.name} wins!`;
-			winnerName = p1.name;
 		}
 		console.log(msg);
-		document.getElementById('nextTurnRunBtn').disabled = true;
+		document.getElementById('runFullTurnBtn').disabled = true;
+		document.getElementById('advanceStateBtn').disabled = true;
 	} else {
 		// re-enable button after turn completes
-		if (turnEnd) document.getElementById('nextTurnRunBtn').disabled = false;
+		document.getElementById('runFullTurnBtn').disabled = false;
+		document.getElementById('advanceStateBtn').disabled = false;
 	}
-
-	return winnerName;
 }
 
 function resetGame(){
@@ -298,5 +296,5 @@ function resetGame(){
 }
 
 document.getElementById('startBtn').addEventListener('click', startGame);
-document.getElementById('nextTurnRunBtn').addEventListener('click', runFullTurn);
-// document.getElementById('resetBtn').addEventListener('click', resetGame);
+document.getElementById('runFullTurnBtn').addEventListener('click', handleRunFullTurnClick);
+document.getElementById('advanceStateBtn').addEventListener('click', handleAdvanceStateClick);

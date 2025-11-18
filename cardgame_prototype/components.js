@@ -280,7 +280,88 @@ class Dice {
     }
 }
 
+const GameStates = {
+    GAME_START: 'GameStart',
+    START_TURN: 'StartTurn',
+    FIRST_PLAY: 'FirstPlay',
+    SECOND_PLAY: 'SecondPlay',
+    GAME_OVER: 'GameOver',
+};
 
+class GameStateManager {
+    constructor(playerA, playerB) {
+        this.playerA = playerA;
+        this.playerB = playerB;
+        this.turn = 0;
+        this.currentState = GameStates.GAME_START;
+        this.activePlayer = null;
+        this.inactivePlayer = null;
+        this.turnData = {
+            beforeA: [],
+            beforeB: [],
+            playedA: [],
+            playedB: [],
+        };
+    }
+
+    advance() {
+        switch (this.currentState) {
+            case GameStates.GAME_START:
+                this.currentState = GameStates.START_TURN;
+                break;
+
+            case GameStates.START_TURN:
+                this.turn++;
+                const startRes = startTurn(this.playerA, this.playerB);
+
+                this.turnData = {
+                    beforeA: startRes.beforeA,
+                    beforeB: startRes.beforeB,
+                    playedA: [],
+                    playedB: [],
+                };
+
+                // Determine who goes first
+                const rollA = this.playerA.speedDice.roll();
+                const rollB = this.playerB.speedDice.roll();
+
+                if (rollA >= rollB) {
+                    this.activePlayer = this.playerA;
+                    this.inactivePlayer = this.playerB;
+                } else {
+                    this.activePlayer = this.playerB;
+                    this.inactivePlayer = this.playerA;
+                }
+                this.currentState = GameStates.FIRST_PLAY;
+                break;
+
+            case GameStates.FIRST_PLAY:
+                const result1 = runTurn(this.activePlayer, this.inactivePlayer);
+                if (this.activePlayer === this.playerA) {
+                    this.turnData.playedA = result1.played;
+                } else {
+                    this.turnData.playedB = result1.played;
+                }
+                this.currentState = (this.inactivePlayer.health <= 0) ? GameStates.GAME_OVER : GameStates.SECOND_PLAY;
+                break;
+
+            case GameStates.SECOND_PLAY:
+                const result2 = runTurn(this.inactivePlayer, this.activePlayer);
+                if (this.inactivePlayer === this.playerA) {
+                    this.turnData.playedA = result2.played;
+                } else {
+                    this.turnData.playedB = result2.played;
+                }
+                this.currentState = (this.activePlayer.health <= 0) ? GameStates.GAME_OVER : GameStates.START_TURN;
+                break;
+
+            case GameStates.GAME_OVER:
+                this.previousState = GameStates.GAME_OVER;
+                break;
+        }
+        console.log('');
+    }
+}
 
 // Example usage:
 const shuffleArray = (arr) => {
@@ -311,59 +392,65 @@ function startTurn(playerA, playerB) {
     return { beforeA, beforeB };
 }
 
-// runTurn: play cards and handle end-of-turn discarding. startTurn should be called before runTurn
-
-function playCardInTurn(player, target){
-    let before = player.hands.cards.slice();
-    playedList = [];
-
+// playSingleCard: selects and plays the best single card from a player's hand.
+// Returns an object with the played card and a boolean indicating if more cards can be played.
+function playSingleCard(player, target) {
     const playable = player.hand.cards.filter(c => player.canPlay(c));
-    if (playable.length > 0){
-        try{
-            player.playCard(card, target);
-            playedList.push(card);
-        }
-        catch (e) {
-            // ignore and continue
-        }
-    } 
 
-    return { player, target, playedList }
+    if (playable.length === 0) {
+        return { playedCard: null, canPlayMore: false };
+    }
+
+    // AI Logic: Prioritize highest mana cost, then color (red > colourless)
+    playable.sort((a, b) => {
+        // 1. Higher mana cost first
+        if (b.manaCost !== a.manaCost) {
+            return b.manaCost - a.manaCost;
+        }
+        // 2. Color priority: 'red' > 'colourless'
+        if (a.color === 'red' && b.color === 'colourless') {
+            return -1;
+        }
+        if (a.color === 'colourless' && b.color === 'red') {
+            return 1;
+        }
+        return 0;
+    });
+
+    const cardToPlay = playable[0];
+
+    try {
+        player.playCard(cardToPlay, target);
+        console.log(`${player.name} played: Card(name=${cardToPlay.name||'<anon>'}, mana=${cardToPlay.manaCost}, color=${cardToPlay.color})`);
+    } catch (e) {
+        console.error(`Error playing card ${cardToPlay.name}:`, e);
+        // If a card fails to play, we might still be able to play others.
+        const stillPlayable = player.hand.cards.some(c => player.canPlay(c));
+        return { playedCard: null, canPlayMore: stillPlayable };
+    }
+
+    // Check if any more cards can be played after this one
+    const canPlayMore = player.hand.cards.some(c => player.canPlay(c));
+
+    return { playedCard: cardToPlay, canPlayMore };
 }
 
 function runTurn(player, target) {
     // Ensure the turn is prepared; call startTurn to restore mana/draw and capture pre-play hands
-    let before = player.hand.cards.slice();
+    const before = player.hand.cards.slice();
+    const played = [];
+    let canPlay = true;
 
-    // Helper to play as many cards as possible in random order, recording played cards
-    function playAllPossible(player, opponent, playedList) {
-        let progress = true;
-        while (progress) {
-            const playable = player.hand.cards.filter(c => player.canPlay(c));
-            if (playable.length === 0) break;
-            shuffleArray(playable);
-            progress = false;
-            for (const card of playable) {
-                if (player.canPlay(card)) {
-                    try {
-                        player.playCard(card, opponent);
-                        playedList.push(card);
-                    } catch (e) {
-                        // ignore and continue
-                    }
-                    progress = true;
-                }
-            }
+    while(canPlay) {
+        const result = playSingleCard(player, target);
+        if (result.playedCard) {
+            played.push(result.playedCard);
         }
+        canPlay = result.canPlayMore;
     }
 
-    const played = [];
-
-    playAllPossible(player, target, played);
-
     // Log details of cards played this turn
-    const describeCard = (c) => `Card(name=${c.name||'<anon>'}, mana=${c.manaCost}, color=${c.color}, effects=${Array.isArray(c.effects)?c.effects.length:0})`;
-    console.log(`${player.name} played: ${played.map(describeCard).join(' || ') || '<none>'}`);
+    console.log(`${player.name}'s turn ended. Total cards played: ${played.length}`);
 
     // Discard remaining cards in hand at end of turn
     function discardHand(player) {
@@ -390,6 +477,9 @@ if (typeof module !== 'undefined' && module.exports) {
         Effect,
         DamageEffect,
         HealEffect,
+        GameStates,
+        GameStateManager,
+        playSingleCard,
         startTurn,
         runTurn,
         shuffleArray
@@ -406,6 +496,9 @@ if (typeof globalThis !== 'undefined') {
     globalThis.Effect = Effect;
     globalThis.DamageEffect = DamageEffect;
     globalThis.HealEffect = HealEffect;
+    globalThis.GameStates = GameStates;
+    globalThis.GameStateManager = GameStateManager;
+    globalThis.playSingleCard = playSingleCard;
     globalThis.startTurn = startTurn;
     globalThis.runTurn = runTurn;
     globalThis.shuffleArray = shuffleArray;
