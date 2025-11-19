@@ -14,24 +14,16 @@
 // Demo driver
 let gameStateManager;
 
-function makeTemplates(){
-	return [
-		{ name: 'Strike', manaCost: 1, effects: () => [new DamageEffect(2)], color: 'red' },
-		{ name: 'Slash', manaCost: 2, effects: () => [new DamageEffect(3)], color: 'red' },
-		{ name: 'Minor Heal', manaCost: 1, effects: () => [ new HealEffect(1, 'caster') ], color: 'colourless' },
-		{ name: 'Fireblast', manaCost: 3, effects: () => [new DamageEffect(6)], color: 'red' },
-		{ name: 'Jab', manaCost: 1, effects: () => [new DamageEffect(1)], color: 'red' },
-		{ name: 'Smash', manaCost: 2, effects: () => [new DamageEffect(4)], color: 'red' },
-		{ name: 'Second Wind', manaCost: 1, effects: () => [ new HealEffect(2, 'caster') ], color: 'colourless' },
-		{ name: 'Crush', manaCost: 2, effects: () => [new DamageEffect(3)], color: 'red' },
-	];
-}
-
-function makeDeckFromTemplates(templates, count){
+// Creates a deck of Card instances from a list of card names.
+function makeDeckFromNames(deckNameList) {
 	const out = [];
-	for(let i=0;i<count;i++){
-		const t = templates[Math.floor(Math.random()*templates.length)];
-		out.push(new Card({ name: t.name, manaCost: t.manaCost, effects: t.effects(), color: t.color }));
+	for (const cardName of deckNameList) {
+		const template = globalThis.cardCollection.find(c => c.name === cardName);
+		if (template) {
+			out.push(new Card({ name: template.name, manaCost: template.manaCost, effects: template.effects(), color: template.color }));
+		} else {
+			console.warn(`Card template not found for name: ${cardName}`);
+		}
 	}
 	return out;
 }
@@ -201,10 +193,6 @@ function updateUI(){
 function startGame(){
 	document.getElementById('log').textContent = '';
 	
-	// Get deck sizes from input fields
-	const p1DeckSize = parseInt(document.getElementById('pA_configDeck').value, 10) || 20; // Default to 20 if empty or invalid
-	const p2DeckSize = parseInt(document.getElementById('pB_configDeck').value, 10) || 20; // Default to 20 if empty or invalid
-
 	// Get other config values from input fields, with defaults
 	const p1Name = document.getElementById('pA_configName').value || 'Alice';
     const p1HP = parseInt(document.getElementById('pA_configHP').value, 10) || 30;
@@ -218,9 +206,8 @@ function startGame(){
     const p2HandTurn = parseInt(document.getElementById('pB_configHandTurn').value, 10) || 3;
     const p2HandMax = parseInt(document.getElementById('pB_configHandMax').value, 10) || 10;
 
-	const templates = makeTemplates();
-	const p1Deck = new Deck(makeDeckFromTemplates(templates, p1DeckSize));
-	const p2Deck = new Deck(makeDeckFromTemplates(templates, p2DeckSize));
+	const p1Deck = new Deck(makeDeckFromNames(globalThis.playerDecks.starterDeckA));
+	const p2Deck = new Deck(makeDeckFromNames(globalThis.playerDecks.starterDeckB));
 
 	// Use the config values when creating the character
 	const p1 = new Character({ name: p1Name, health: p1HP, maxMana: p1ManaPool, handMax: p1HandMax, handTurn: p1HandTurn, deck: p1Deck, speedDice: new Dice() });
