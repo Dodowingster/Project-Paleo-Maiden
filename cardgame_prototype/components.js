@@ -407,6 +407,7 @@ function playSingleCard(player, target) {
     }
 
     // AI Logic: Prioritize highest mana cost, then color (red > colourless)
+    // negative 
     playable.sort((a, b) => {
         // 1. Higher mana cost first
         if (b.manaCost !== a.manaCost) {

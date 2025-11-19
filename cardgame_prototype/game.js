@@ -139,7 +139,9 @@ function updateUI(){
 	document.getElementById('pA_played')?.remove();
 	document.getElementById('pB_played')?.remove();
 	const turn = gameStateManager ? gameStateManager.turn : 0;
+	const state = gameStateManager ? gameStateManager.currentState : null;
 	document.getElementById('turnCounter').textContent = `Turn: ${turn}`;
+	document.getElementById('state').textContent = `Next State: ${state}`;
 
 	// Render played cards from the provided info if present
 	if (gameStateManager && gameStateManager.turnData.playedA.length > 0) {
