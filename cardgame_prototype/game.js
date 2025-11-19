@@ -169,8 +169,22 @@ function updateUI(){
 	const isNewTurn = gameStateManager && (gameStateManager.currentState === GameStates.START_TURN || gameStateManager.currentState === GameStates.GAME_START);
 	const runFullTurnBtn = document.getElementById('runFullTurnBtn');
 	const advanceStateBtn = document.getElementById('advanceStateBtn');
+	const playCardBtn = document.getElementById('playCardBtn');
+
 	if (runFullTurnBtn) runFullTurnBtn.disabled = isGameOver || !isNewTurn;
 	if (advanceStateBtn) advanceStateBtn.disabled = isGameOver;
+
+	// Enable "Play Card" button logic
+	if (playCardBtn) {
+		let canPlay = false;
+		if (!isGameOver && (gameStateManager.currentState === GameStates.FIRST_PLAY || gameStateManager.currentState === GameStates.SECOND_PLAY)) {
+			const currentPlayer = (gameStateManager.currentState === GameStates.FIRST_PLAY) ? gameStateManager.activePlayer : gameStateManager.inactivePlayer;
+			if (currentPlayer.hand.cards.some(c => currentPlayer.canPlay(c))) {
+				canPlay = true;
+			}
+		}
+		playCardBtn.disabled = !canPlay;
+	}
 }
 
 function startGame(){
@@ -263,6 +277,35 @@ function handleRunFullTurnClick(){
 		console.log('An error occurred running the turn; Next Turn re-enabled.');
 	}
 }
+
+function handlePlayCardClick() {
+	if (!gameStateManager) return;
+
+	const state = gameStateManager.currentState;
+	if (state !== GameStates.FIRST_PLAY && state !== GameStates.SECOND_PLAY) {
+		console.log('Cannot play card: not in a valid play state.');
+		return;
+	}
+
+	const currentPlayer = (state === GameStates.FIRST_PLAY) ? gameStateManager.activePlayer : gameStateManager.inactivePlayer;
+	const currentTarget = (state === GameStates.FIRST_PLAY) ? gameStateManager.inactivePlayer : gameStateManager.activePlayer;
+
+	const { playedCard } = playSingleCard(currentPlayer, currentTarget);
+
+	if (playedCard) {
+		// Add the played card to the turn data for UI rendering
+		if (currentPlayer === gameStateManager.playerA) {
+			gameStateManager.turnData.playedA.push(playedCard);
+		} else {
+			gameStateManager.turnData.playedB.push(playedCard);
+		}
+	}
+
+	updateUI();
+	checkWinner();
+}
+
+
 function checkWinner() {
 	// If a character reached 0 HP, end the game in the UI
 	const p1 = gameStateManager.playerA;
@@ -290,3 +333,4 @@ function resetGame(){
 document.getElementById('startBtn').addEventListener('click', startGame);
 document.getElementById('runFullTurnBtn').addEventListener('click', handleRunFullTurnClick);
 document.getElementById('advanceStateBtn').addEventListener('click', handleAdvanceStateClick);
+document.getElementById('playCardBtn').addEventListener('click', handlePlayCardClick);

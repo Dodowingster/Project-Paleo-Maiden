@@ -338,20 +338,24 @@ class GameStateManager {
                 break;
 
             case GameStates.FIRST_PLAY:
-                const result1 = runTurn(this.activePlayer, this.inactivePlayer);
+                const result1 = runTurn(this.activePlayer, this.inactivePlayer, this);
                 if (this.activePlayer === this.playerA) {
+                    // this.turnData.playedA = this.turnData.playedA.concat(result1.played);
                     this.turnData.playedA = result1.played;
                 } else {
+                    // this.turnData.playedB = this.turnData.playedB.concat(result1.played);
                     this.turnData.playedB = result1.played;
                 }
                 this.currentState = (this.inactivePlayer.health <= 0) ? GameStates.GAME_OVER : GameStates.SECOND_PLAY;
                 break;
 
             case GameStates.SECOND_PLAY:
-                const result2 = runTurn(this.inactivePlayer, this.activePlayer);
+                const result2 = runTurn(this.inactivePlayer, this.activePlayer, this);
                 if (this.inactivePlayer === this.playerA) {
+                    // this.turnData.playedA = this.turnData.playedA.concat(result2.played);
                     this.turnData.playedA = result2.played;
                 } else {
+                    // this.turnData.playedB = this.turnData.playedB.concat(result2.played);
                     this.turnData.playedB = result2.played;
                 }
                 this.currentState = (this.activePlayer.health <= 0) ? GameStates.GAME_OVER : GameStates.START_TURN;
@@ -436,10 +440,10 @@ function playSingleCard(player, target) {
     return { playedCard: cardToPlay, canPlayMore };
 }
 
-function runTurn(player, target) {
+function runTurn(player, target, gameStateManager) {
     // Ensure the turn is prepared; call startTurn to restore mana/draw and capture pre-play hands
     const before = player.hand.cards.slice();
-    const played = [];
+    const played = player === gameStateManager.playerA ? gameStateManager.turnData.playedA : gameStateManager.turnData.playedB;
     let canPlay = true;
 
     while(canPlay) {
