@@ -20,7 +20,7 @@ function makeDeckFromNames(deckNameList) {
 	for (const cardName of deckNameList) {
 		const template = globalThis.cardCollection.find(c => c.name === cardName);
 		if (template) {
-			out.push(new Card({ name: template.name, manaCost: template.manaCost, effects: template.effects(), color: template.color }));
+			out.push(new Card({ name: template.name, manaCost: template.manaCost, effects: template.effects, color: template.color }));
 		} else {
 			console.warn(`Card template not found for name: ${cardName}`);
 		}

@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<nav class="breadcrumb">
+		<a href="../index.html">&larr; Back to Home</a>
+		<span style="padding: 0 8px;">/</span>
+		<a href="./index.html">Card Game Prototype</a>
+	</nav>
+	<title>Deck Browser - Card Game Prototype</title>
+	<link rel="stylesheet" href="../style.css">
+	<style>
+		body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; padding: 20px; }
+		.controls { margin: 12px 0; display:flex; gap:8px; align-items:center; }
+		select { padding: 8px 12px; }
+		.cards { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; max-width: 630px; }
+		.card { width: 100px; height: 140px; border-radius: 6px; border: 1px solid #888; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.08); padding: 6px; display: flex; flex-direction: column; justify-content: space-between; }
+		.card-red { border-color: #c33; background: linear-gradient(180deg,#fff6f6,#fff); }
+		.card-colourless { border-color: #666; background: linear-gradient(180deg,#f9f9fb,#fff); }
+		.card .title { font-weight: 700; font-size: 0.95em }
+		.card .meta { font-size: 0.8em; color: #333 }
+	</style>
+</head>
+<body>
+	<h1>Deck Browser</h1>
+
+	<div class="controls">
+		<label for="deckSelector">Choose a deck to view:</label>
+		<select id="deckSelector">
+			<option value="">-- Select a Deck --</option>
+		</select>
+	</div>
+
+	<div id="cardDisplay" class="cards">
+		<!-- Cards will be displayed here by JavaScript -->
+	</div>
+
+	<!-- Load game data and logic -->
+	<script src="components.js"></script>
+	<script src="data/card_collection.js"></script>
+	<script src="data/deck_data.js"></script>
+	<script src="deck_browser.js"></script>
+	
+</body>
+</html>
