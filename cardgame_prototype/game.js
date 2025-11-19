@@ -182,21 +182,6 @@ function updateUI(){
 	const runFullTurnBtn = document.getElementById('runFullTurnBtn');
 	const advanceStateBtn = document.getElementById('advanceStateBtn');
 
-	// // Change "Advance State" button text to "End Play" when no more cards can be played
-    // if (advanceStateBtn) {
-    //     let canPlay = false;
-    //     if (!isGameOver && (gameStateManager.currentState === GameStates.FIRST_PLAY || gameStateManager.currentState === GameStates.SECOND_PLAY)) {
-    //         const currentPlayer = (gameStateManager.currentState === GameStates.FIRST_PLAY) ? gameStateManager.activePlayer : gameStateManager.inactivePlayer;
-    //         canPlay = currentPlayer.hand.cards.some(c => currentPlayer.canPlay(c));
-    //     }
-    //     if (!canPlay && (gameStateManager.currentState === GameStates.FIRST_PLAY || gameStateManager.currentState === GameStates.SECOND_PLAY)) {
-    //         advanceStateBtn.textContent = 'End Play';
-    //     } else {
-    //         advanceStateBtn.textContent = 'Advance State';
-    //     }
-    // }
-	// const playCardBtn = document.getElementById('playCardBtn');
-
 	if (runFullTurnBtn) runFullTurnBtn.disabled = isGameOver || !isNewTurn;
 	if (advanceStateBtn) advanceStateBtn.disabled = isGameOver;
 
