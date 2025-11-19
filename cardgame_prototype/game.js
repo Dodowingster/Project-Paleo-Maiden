@@ -36,6 +36,17 @@ function makeDeckFromTemplates(templates, count){
 	return out;
 }
 
+function updateStateUI(overrideState = null){
+	if (overrideState){
+		document.getElementById('state').textContent = `Current State: ${overrideState}`;
+	}
+	else{
+		const state = gameStateManager ? gameStateManager.currentState : null;
+		document.getElementById('state').textContent = `Current State: ${state}`;
+	}
+	
+}
+
 function updateUI(){
 	if (!gameStateManager || !gameStateManager.playerA || !gameStateManager.playerB) return;
 	const p1 = gameStateManager.playerA;
@@ -139,9 +150,8 @@ function updateUI(){
 	document.getElementById('pA_played')?.remove();
 	document.getElementById('pB_played')?.remove();
 	const turn = gameStateManager ? gameStateManager.turn : 0;
-	const state = gameStateManager ? gameStateManager.currentState : null;
 	document.getElementById('turnCounter').textContent = `Turn: ${turn}`;
-	document.getElementById('state').textContent = `Next State: ${state}`;
+	
 
 	// Render played cards from the provided info if present
 	if (gameStateManager && gameStateManager.turnData.playedA.length > 0) {
@@ -171,7 +181,21 @@ function updateUI(){
 	const isNewTurn = gameStateManager && (gameStateManager.currentState === GameStates.START_TURN || gameStateManager.currentState === GameStates.GAME_START);
 	const runFullTurnBtn = document.getElementById('runFullTurnBtn');
 	const advanceStateBtn = document.getElementById('advanceStateBtn');
-	const playCardBtn = document.getElementById('playCardBtn');
+
+	// // Change "Advance State" button text to "End Play" when no more cards can be played
+    // if (advanceStateBtn) {
+    //     let canPlay = false;
+    //     if (!isGameOver && (gameStateManager.currentState === GameStates.FIRST_PLAY || gameStateManager.currentState === GameStates.SECOND_PLAY)) {
+    //         const currentPlayer = (gameStateManager.currentState === GameStates.FIRST_PLAY) ? gameStateManager.activePlayer : gameStateManager.inactivePlayer;
+    //         canPlay = currentPlayer.hand.cards.some(c => currentPlayer.canPlay(c));
+    //     }
+    //     if (!canPlay && (gameStateManager.currentState === GameStates.FIRST_PLAY || gameStateManager.currentState === GameStates.SECOND_PLAY)) {
+    //         advanceStateBtn.textContent = 'End Play';
+    //     } else {
+    //         advanceStateBtn.textContent = 'Advance State';
+    //     }
+    // }
+	// const playCardBtn = document.getElementById('playCardBtn');
 
 	if (runFullTurnBtn) runFullTurnBtn.disabled = isGameOver || !isNewTurn;
 	if (advanceStateBtn) advanceStateBtn.disabled = isGameOver;
@@ -231,6 +255,7 @@ function handleAdvanceStateClick() {
 	try {
 		console.log('');
 		console.log(`Current state: ${gameStateManager.currentState}`);
+		updateStateUI();
 		gameStateManager.advance();
 		updateUI();
 		checkWinner(); // This will re-enable buttons if not game over
@@ -289,10 +314,12 @@ function handlePlayCardClick() {
 		return;
 	}
 
+	updateStateUI();
+
 	const currentPlayer = (state === GameStates.FIRST_PLAY) ? gameStateManager.activePlayer : gameStateManager.inactivePlayer;
 	const currentTarget = (state === GameStates.FIRST_PLAY) ? gameStateManager.inactivePlayer : gameStateManager.activePlayer;
 
-	const { playedCard } = playSingleCard(currentPlayer, currentTarget);
+	const { playedCard, canPlayMore } = playSingleCard(currentPlayer, currentTarget);
 
 	if (playedCard) {
 		// Add the played card to the turn data for UI rendering
@@ -301,6 +328,11 @@ function handlePlayCardClick() {
 		} else {
 			gameStateManager.turnData.playedB.push(playedCard);
 		}
+	}
+
+	if (!canPlayMore){
+		gameStateManager.advance();
+		updateStateUI('End Play');
 	}
 
 	updateUI();
