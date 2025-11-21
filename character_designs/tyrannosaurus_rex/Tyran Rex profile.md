@@ -33,8 +33,8 @@ Crucially, Tyran is **oblivious** to the fear she inspires. She views her loud, 
 | **Titles** | Apex Monarch, Cretacous Overlord (Used by others only out of fearful formality) |
 | **Birthdate** | October 5th |
 | **Birthplace** | Montana, North America |
-| **Likes** | Mentoring Juniors (via terrifyingly harsh training), Maps, Fighting |
-| **Dislikes** | Mondays, Inefficient Training, Students who "waste their potential" |
+| **Likes** | Mentoring Juniors (but the juniors are frightened by her, of course she's oblivious about it), Maps, Fighting |
+| **Dislikes** | Mondays |
 
 ---
 
@@ -44,7 +44,7 @@ Crucially, Tyran is **oblivious** to the fear she inspires. She views her loud, 
 | :--- | :--- | :--- |
 | **Aegypt Spino** (Spinosaurus) | **Rival** | Tyran sees Spino as a worthy adversary and respects her intellect and Arcane Stamina. Their competition is focused on who has the superior strategy—pure force (Tyran) or careful control (Spino). |
 | **Horri Tricera** (Triceratops) | **Vice President/Rival** | Tyran respects Tricera as the immovable object leading the Bulwark League. On the battlefield, Tyran's competitive persona taunts Horri to fight aggressively, viewing it as a way to push her rival to her maximum potential. |
-| **Sastrei Taurus** (Carnotaurus) | **Friend** | Tyran sees Taurus as someone with maximum potential. She actively encourages Taurus to be dominant in the Apex League, despite Taurus's choice of Agility. |
+| **Sastrei Taurus** (Carnotaurus) | **Friend** | Tyran sees Taurus as someone with maximum potential. She actively encourages Taurus to be dominant in the Apex League, despite Taurus's choice of Agility over Power. |
 
 ---
 
