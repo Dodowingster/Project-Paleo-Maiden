@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tyran Rex - Character Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Lato:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Lato', sans-serif;
+            --color-text: #4d443a;
+            /* Dark, earthy brown */
+            --color-heading: #3a3228;
+            /* Even darker brown for headings */
+            --color-background: #fdf6e3;
+            /* Parchment paper */
+            --color-accent: #8b4513;
+            /* Saddle brown, for links/accents */
+            --color-border: #d2b48c;
+            /* Tan, for borders */
+            --color-table-bg: rgba(245, 245, 220, 0.5);
+            /* Faint beige */
+            --color-table-header: #e0d6c3;
+            --icon-size: 1em;
+            /* For social icons */
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            margin: 0;
+            padding: 2rem 1rem;
+            line-height: 1.7;
+        }
+
+        .profile-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.4);
+            border: 1px solid var(--color-border);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 2rem 3rem;
+        }
+
+        h1 {
+            font-family: var(--font-heading);
+            text-align: center;
+            color: var(--color-heading);
+            font-size: 3rem;
+            margin-top: 0;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 0.5em;
+            margin-bottom: 0.8em;
+        }
+
+        h2 {
+            font-family: var(--font-heading);
+            color: var(--color-heading);
+            font-size: 2.2rem;
+            border-bottom: 1px solid var(--color-table-header);
+            padding-bottom: 0.4em;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        blockquote {
+            font-family: var(--font-heading);
+            font-size: 1.2em;
+            font-style: italic;
+            text-align: center;
+            max-width: 80%;
+            border: none;
+            margin: 1rem auto;
+            padding: 0;
+            color: var(--color-text);
+        }
+
+        blockquote footer {
+            font-style: normal;
+            font-size: 1rem;
+            color: #7d6f5f;
+        }
+
+        p {
+            margin-bottom: 1.2em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-size: 0.95em;
+            background-color: var(--color-table-bg);
+            border: 1px solid var(--color-border);
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        thead th {
+            background-color: var(--color-table-header);
+            font-weight: 600;
+            color: var(--color-heading);
+        }
+
+        tbody tr:hover {
+            background-color: rgba(210, 180, 140, 0.3);
+            /* Faint tan on hover */
+        }
+
+        td:first-child {
+            font-weight: bold;
+            color: var(--color-heading);
+            width: 30%;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 1.5em;
+        }
+
+        li {
+            margin-bottom: 0.75em;
+        }
+
+        strong {
+            font-weight: 700;
+            color: var(--color-heading);
+        }
+
+        .infobox {
+            float: right;
+            width: 280px;
+            margin: 0.5rem 0 1rem 2rem;
+            padding: 1rem;
+            border: 1px solid var(--color-border);
+            background-color: var(--color-table-bg);
+            font-size: 0.9em;
+        }
+
+        .infobox figure {
+            margin: 0;
+            padding: 0;
+        }
+
+        .infobox img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .infobox figcaption {
+            text-align: center;
+            font-style: italic;
+            font-family: var(--font-heading);
+            color: var(--color-heading);
+        }
+
+        .breadcrumb {
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: var(--color-accent);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--color-accent);
+        }
+
+        /* --- Icon Styling --- */
+        .artist-link {
+            color: var(--color-heading);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--color-heading);
+        }
+
+        .artist-link:hover {
+            border-bottom-style: solid;
+        }
+
+        .social-icon {
+            width: var(--icon-size);
+            height: var(--icon-size);
+            vertical-align: -0.125em;
+            /* Aligns icon nicely with text */
+        }
+
+        /* --- Responsive Design for Mobile --- */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.5rem;
+                line-height: 1.6;
+            }
+
+            .profile-container {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .infobox {
+                float: none;
+                width: auto;
+                margin: 2rem auto;
+                max-width: 320px;
+                /* Prevents it from being too wide on tablets */
+            }
+
+            /* Make tables more readable on small screens */
+            table,
+            thead,
+            tbody,
+            th,
+            td,
+            tr {
+                display: block;
+            }
+
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            tr {
+                border: 1px solid var(--color-border);
+                margin-bottom: 1rem;
+            }
+
+            td {
+                border: none;
+                border-bottom: 1px solid #eee;
+                /* For the 'Profile/Background' table which has no header */
+                border-top: 1px solid var(--color-border);
+                position: relative;
+                padding-left: 45%;
+                /* Make space for the label */
+                width: auto;
+                white-space: normal;
+                text-align: right;
+                /* Align content to the right, opposite the label */
+            }
+
+            /* Add the label before each cell */
+            td::before {
+                content: attr(data-label);
+                /* Use the data-label attribute we'll add via JS */
+                position: absolute;
+                left: 10px;
+                width: 40%;
+                padding-right: 10px;
+                white-space: normal;
+                text-align: left;
+                font-weight: bold;
+                color: var(--color-heading);
+            }
+
+            td:last-child {
+                border-bottom: 0;
+            }
+
+            /* For key-value tables without a header, hide the first cell on mobile */
+            .key-value-table td:first-child {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="profile-container">
+        <h1>Tyran Rex</h1>
+
+        <nav class="breadcrumb">
+            <a href="../../index.html">&larr; Back to Home</a>
+        </nav>
+
+        <section id="counterpart-details">
+            <h2>Real Life Counterpart Details</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Species</strong></td>
+                        <td><em>Tyrannosaurus rex</em> (Meaning: <strong>"Tyrant Lizard King"</strong>)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Era</strong></td>
+                        <td>Late Cretaceous</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Key Features</strong></td>
+                        <td>Massive size, crushing bite force, thick muscular tail for counterbalance, and
+                            disproportionately small forelimbs.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lore Reflection</strong></td>
+                        <td>Her absolute <strong>Brute Force</strong> and <strong>Stamina</strong> focus, her supreme
+                            authority (The King), and her use of crushing, overwhelming power in combat. Her P-Magic
+                            Greatsword compensates for the short reach of her small arms.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <aside class="infobox">
+            <blockquote>
+                <p>"Be proud that you are to lose against me. A commendable feat."</p>
+                <footer>― Tyran Rex</footer>
+            </blockquote>
+            <figure>
+                <img src="tyranrex.png" alt="Character illustration of Tyran Rex">
+                <figcaption>Tyran Rex by <a href="https://x.com/johndoormap" target="_blank" rel="noopener noreferrer"
+                        class="artist-link"><strong>Johndoormat</strong> <svg class="social-icon"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+                            <path
+                                d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-1.612 1.855-1.157.026-.023.027L3.23 13.48h1.34l6.6-7.567L12.35 5.1h-1.355Z" />
+                        </svg></a></figcaption>
+            </figure>
+        </aside>
+
+        <section id="profile">
+            <h2>Profile/Background</h2>
+            <p>
+                Tyran Rex is the <strong>President of the Student Council</strong> and the leader of the <strong>Apex
+                    League (Carni Dorm)</strong>.
+            </p>
+            <p>
+                Her political appointment is a <strong>gamble by the Headmaster</strong>, who recognized her raw,
+                unparalleled potential despite her <strong>chaotic past as the "Apex of the Underworld"—a notorious
+                    delinquent</strong> who dominated underground fighting and training arenas. She was given the
+                presidency not for her diplomacy, but to force her destructive energy into a legitimate, high-stakes
+                challenge.
+            </p>
+            <p>
+                Crucially, Tyran is <strong>oblivious</strong> to the fear she inspires. She views her loud, demanding
+                demeanor as necessary leadership, and her boasts as <strong>motivational declarations</strong> designed
+                to push others to her level of strength. She believes students <em>respect</em> her methods, failing
+                to realize they comply out of sheer <strong>terror</strong> stemming from rumors of her brutal
+                delinquent history.
+            </p>
+            <table class="key-value-table">
+                <tbody>
+                    <tr>
+                        <td><strong>Strengths</strong></td>
+                        <td>Absolute Brute Force, Unmatched Stamina, Unintentional Deterrence</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Weakness</strong></td>
+                        <td>Extreme Arrogance, Complete Obliviousness to her reputation</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tail</strong></td>
+                        <td>Due to its long and bulky nature, she often sits on her own tail as a cushion.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Height</strong></td>
+                        <td>193 cm (6'4")</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Weight</strong></td>
+                        <td>95 kg (209 lbs)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Phone Wallpaper</strong></td>
+                        <td>Her daily schedule (meticulously planned, despite her chaotic personality)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Favourite Meal</strong></td>
+                        <td>Burgers</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Titles</strong></td>
+                        <td>Apex Monarch, Cretacous Overlord (Used by others only out of fearful formality)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Birthdate</strong></td>
+                        <td>October 5th</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Birthplace</strong></td>
+                        <td>Montana, North America</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Likes</strong></td>
+                        <td>Mentoring Juniors (via terrifyingly harsh training), Maps, Fighting</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dislikes</strong></td>
+                        <td>Mondays, Inefficient Training, Students who "waste their potential"</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="initial-sketch">
+            <h2>Initial Concept</h2>
+            <figure style="margin: 0; text-align: center;">
+                <img src="initail_concept.png" alt="Character illustration of Tyran Rex"
+                    style="max-width: 100%; height: auto; border: 1px solid var(--color-border);">
+                <figcaption style="margin-top: 1rem; font-style: italic; color: var(--color-text);">
+                    Tyran Rex initial concept and design by <a href="https://dodowingster.github.io/Portfolio/"
+                        target="_blank" rel="noopener noreferrer" class="artist-link"><strong>Dodowingster</strong> <svg
+                            class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
+                            fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21-.15.46-.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                            </path>
+                        </svg></a>
+                </figcaption>
+            </figure>
+        </section>
+
+        <section id="relationships">
+            <h2>Relationships (Friends/Rivals)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Character</th>
+                        <th>Relationship Type</th>
+                        <th>Nature of Conflict/Bond</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Aegypt Spino</strong> (Spinosaurus)</td>
+                        <td><strong>Rival</strong></td>
+                        <td>Tyran sees Spino as a worthy adversary and respects her intellect and Arcane Stamina. Their
+                            competition is focused on who has the superior strategy—pure force (Tyran) or careful
+                            control (Spino).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Horri Tricera</strong> (Triceratops)</td>
+                        <td><strong>Vice President/Rival</strong></td>
+                        <td>Tyran respects Tricera as the immovable object leading the Bulwark League. On the
+                            battlefield, Tyran's competitive persona taunts Horri to fight aggressively, viewing it as a
+                            way to push her rival to her maximum potential.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sastrei Taurus</strong> (Carnotaurus)</td>
+                        <td><strong>Friend</strong></td>
+                        <td>Tyran sees Taurus as someone with maximum potential. She actively encourages Taurus to be
+                            dominant in the Apex League, despite Taurus's choice of Agility.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="vocation">
+            <h2>Vocation Evolution(s)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Stage</th>
+                        <th>Vocation Title</th>
+                        <th>Fused Trait Disciplines</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Base</strong></td>
+                        <td><strong>Warrior</strong></td>
+                        <td><strong>Brute (Core)</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hybrid</strong></td>
+                        <td><strong>Battlemage</strong></td>
+                        <td><strong>Brute + Stamina</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="fighting-style">
+            <h2>Fighting Style</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Vocation</th>
+                        <th>Core Trait</th>
+                        <th>Signature Move</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Warrior</strong></td>
+                        <td><strong>Crushing Impact:</strong> Every attack focuses on overwhelming force and dealing
+                            massive single-hit damage, leveraging her high <strong>Stamina</strong> pool.</td>
+                        <td><strong>Tyrant Divider:</strong> A vertical sword slash launched from a ground drag ablazed,
+                            ending in a crushing downward impalement that bypasses defense into a massive explosion.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="motivation">
+            <h2>Motivation and Goals</h2>
+            <ul>
+                <li><strong>Primary Goal:</strong> To win the PMC by a commanding, record-breaking margin, thereby
+                    solidifying her undisputed authority over the entire student body (in her mind, this is leadership
+                    by example).</li>
+                <li><strong>Internal Goal:</strong> Believes in herself to inspire others as great fighters for future
+                    generations.</li>
+            </ul>
+        </section>
+
+        <section id="trivia">
+            <h2>Trivia</h2>
+            <ul>
+                <li>Her signature move, Tyrant Divider, is an allegory for the T. rex's incredible bite force. The move
+                    doesn't rely on speed or finesse; it relies on overwhelming, crushing impact that ignores weak
+                    defenses.</li>
+                <li>Her birthdate, the 5th of October is a special day for Palaeontology, as it marks the anniversary
+                    of the first description and naming of Tyrannosaurus rex, in 1905.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <script>
+        // This script adds data-labels to table cells for the responsive CSS to use.
+        document.addEventListener('DOMContentLoaded', function () {
+            const tables = document.querySelectorAll('table');
+            tables.forEach(table => {
+                // Get headers
+                const headers = [];
+                const hasThead = table.querySelector('thead');
+
+                if (hasThead) {
+                    table.querySelectorAll('thead th').forEach(header => {
+                        headers.push(header.textContent);
+                    });
+                }
+
+                // Add data-label attribute to each cell in the body
+                table.querySelectorAll('tbody tr').forEach(row => {
+                    if (hasThead) {
+                        row.querySelectorAll('td').forEach((cell, index) => {
+                            cell.setAttribute('data-label', headers[index]);
+                        });
+                    } else {
+                        // Handle key-value tables without a header
+                        const label = row.cells[0] ? row.cells[0].textContent : '';
+                        const valueCell = row.cells[1];
+                        if (valueCell) valueCell.setAttribute('data-label', label);
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
