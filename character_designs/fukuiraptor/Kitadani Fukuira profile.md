@@ -1,12 +1,12 @@
 > "The true measure of a strike is its purity, not its noise. Now, draw your blade with honor."
 
-― Kitadani Fukui
+― Kitadani Fukuira
 
 ## Real Life Counterpart Details
 
 | Attribute | Detail |
 | :--- | :--- |
-| **Species** | *Fukuiraptor kitadaniensis* (Meaning: "**Robber** from Kitadani, Fukui") |
+| **Species** | *Fukuiraraptor kitadaniensis* (Meaning: "**Robber** from Kitadani, Fukuira") |
 | **Era** | Early Cretaceous |
 | **Key Features** | Classified as an Allosauroid **Megaraptoran**. Defined by **immensely powerful, enlarged, and curved claws on its forelimbs (hands)**, not its feet. |
 | **Lore Reflection** | Her discipline-focused, two-handed **Katana** mastery is treated as a sacred extension of her powerful forelimb claws. Her strikes look quick like a Katana draw, but hit with the **cleaving force of a heavy weapon**. |
@@ -15,7 +15,7 @@
 
 ## Profile/Background
 
-Kitadani Fukui is an intense, honorable, and deeply disciplined Paleo Maiden. While not officially affiliated with a specific league's philosophy (she considers herself a student of the **Bushidō** tradition).
+Kitadani Fukuira is an intense, honorable, and deeply disciplined Paleo Maiden. While not officially affiliated with a specific league's philosophy (she considers herself a student of the **Bushidō** tradition).
 
 Her life is dedicated to the pursuit of the **Flawless Draw**—a single, instantaneous strike that ends the fight decisively and cleanly. She is not a cold fighter, but her extreme focus on **P-Magic Purity** often makes her appear cold and intimidating to those around her, as she radiates an aura of unwavering resolve. Her true goal is to prove that **mastery and honor** always surpass brute force and luck.
 
@@ -23,9 +23,9 @@ However, due to her obssessiveness towards the purity of her own P-Magic concent
 
 | Attribute | Detail |
 | :--- | :--- |
-| **Strengths** | Breathing, Discipline, Doing Laundry |
+| **Strengths** | Optimal Breathing, Discipline, Crab Cuisines |
 | **Weakness** | Modern Devices |
-| **Tail** | She scrubs her tail alot and would get very offended if someone touches it and deem it to be unhygenic. |
+| **Tail** | Did you know? When she goes to sleep, her tail will never leave the side of the bed. |
 | **Height** | 170cm (5'7") |
 | **Weight** | 68kg (150 lbs) |
 | **Phone Wallpaper** | A photo of a single, flawless Sakura bloom. |
@@ -33,7 +33,7 @@ However, due to her obssessiveness towards the purity of her own P-Magic concent
 | **Titles** | The Honorable Robber, The Sakura Steel |
 | **Birthdate** | May 13th |
 | **Birthplace** | Fukui Prefecture, Japan |
-| **Likes** | Silence, Soaps, Perfect Form |
+| **Likes** | Silence, Crabs, Meditating |
 | **Dislikes** | Stalling, Dishonorable Tactics, Awful Smell |
 
 ---
@@ -42,7 +42,7 @@ However, due to her obssessiveness towards the purity of her own P-Magic concent
 
 | Character | Relationship Type | Nature of Conflict/Bond |
 | :--- | :--- | :--- |
-| **Ostromm Utahra** | **Ideological Rival** | Fukui values P-Magic purity and honor above all. Utahra is a pragmatist who focuses on effectiveness, even using tactics Fukui deems "dishonorable," like sabotaging an opponent's P-Magic. Their conflict is a battle of principle vs. pragmatism. |
+| **Ostromm Utahra** | **Ideological Rival** | Fukuira values P-Magic purity and honor above all. Utahra is a pragmatist who focuses on effectiveness, even using tactics Fukuira deems "dishonorable," like sabotaging an opponent's P-Magic. Their conflict is a battle of principle vs. pragmatism. |
 ---
 
 ## Vocation Evolution(s)
@@ -50,7 +50,7 @@ However, due to her obssessiveness towards the purity of her own P-Magic concent
 | Stage | Vocation Title | Fused Trait Disciplines |
 | :--- | :--- | :--- |
 | **Base** | Iai Blade Master | **Blue** |
-| **Final** | Shogunate Swordsman | **Blue** (Patience) + **Red** (Raw Power) |
+| **Final** | Shogunate Swordsman | **Blue** (Focus) + **Red** (Power) |
 
 ---
 
@@ -58,8 +58,7 @@ However, due to her obssessiveness towards the purity of her own P-Magic concent
 
 | Vocation | Core Trait | Signature Move |
 | :--- | :--- | :--- |
-| **Iai Blade Master** | **Deceptive Power:** Her style mimics the speed and precision of *Iaijutsu*. She uses a katana with a two-handed grip, focusing on perfect form and patience. Opponents mistake her stance for that of a swift, light-damage fighter, but each draw is a surprisingly powerful slash meant to end the exchange decisively. | **Sakura's First Bloom:** A defensive stance that culminates in a swift, clean katana draw. If she blocks an attack while in this stance, the counter-attack is a single, devastatingly powerful slash that deals significantly increased damage, rewarding a perfect read. |
-| **Shogunate Swordsman** | **The Flawless Cleave:** Fusing her Blue discipline with Red's raw power, her style becomes relentlessly proactive. She now embodies the "Nōdachi in a katana's form," using her speed to create openings for single, overwhelming slashes that carry the full, cleaving force of a Megaraptoran's claw. | **Kitadani Cleaver:** Kitadani channels all her P-Magic into a single, unblockable draw-slash. The move has a long charge time but is executed with blinding speed. Its damage scales with the amount of P-Magic stored, capable of ending a fight with one pure, perfect, and overwhelmingly powerful strike. |
+| **Iai Blade Master** | **Deceptive Power:** Her style mimics the speed and precision of *Iaijutsu*. She uses a katana with a two-handed grip, focusing on perfect form and patience. Opponents mistake her stance for that of a swift, light-damage fighter, but each draw is a surprisingly powerful slash meant to end the exchange decisively. | **Kime-Dachi, Senkō Sen!:** Fukuira focuses and prioritizes her breathing posture as she draws her katana, in a flash she strikes a myriad of strikes afore sheathing her blade from her back- unleashing 1000 slashes aftermath to her opponent. |
 
 ---
 
