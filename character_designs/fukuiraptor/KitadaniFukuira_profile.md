@@ -29,7 +29,7 @@ However, due to her obssessiveness towards the purity of her own P-Magic concent
 | **Height** | 170cm (5'7") |
 | **Weight** | 68kg (150 lbs) |
 | **Phone Wallpaper** | A photo of a single, flawless Sakura bloom. |
-| **Hygience Obsession** | She would take extremely long time taking a shower or cleaning herself after any activives. | 
+| **Hygience Obsession** | She would take extremely long time taking a shower or cleaning herself after any activities. | 
 | **Titles** | The Honorable Robber, The Sakura Steel |
 | **Birthdate** | May 13th |
 | **Birthplace** | Fukui Prefecture, Japan |
