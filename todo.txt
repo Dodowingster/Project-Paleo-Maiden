@@ -30,6 +30,8 @@ what can players choose
 - camping
 	- limited number, replenished after finishing a loop
 	- health value restored discuss later
+	- recreation for character bonding (maybe unlock moveset?)
+	- exacavation (getting items that would help in guaranteeing spaces)
 
 
 what is rng
@@ -81,12 +83,13 @@ Strategy(future)
 	2) gambling
 	3) satisfaction from things working out - combos
 	
--Tournament Related
+-Tournament and Rivals Related
 	- Tournaments serves as the Rival Arc which explores each Paleo-Maidens individually which is the main story highlight
 	- During the deck building (world map & exploration), each potential rivals will be introduced in event spaces at random
 	- In the tournamnent, players will be available to enlist their paleo-maiden inside the bracket among the 4 main rivals (subject to change)
-	but the bracket seed is completely random so each run does not guarantee story events. This is to ensure players that multiple playthrough for a single paleo-Maiden
+	but the bracket seed is affected by branching player choice that may lock them out from certain rivals. This is to ensure players that multiple playthrough for a single paleo-Maiden
 	is required to experience the full character arc/story
+	- The Rival Characters are the main dating sim characters where we treat each rival are treated as character routes.
 
 -Combat Log
 	- Nice to have combat log that reports what is going on during combat
