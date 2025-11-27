@@ -4,11 +4,11 @@
 
 | Aspect | Description |
 | :--- | :--- |
-| **Theme & Setting** | **Anthropomorphic Paleo Maidens University.** The game takes place across a single World Map that represents all three prehistoric eras (Triassic, Jurassic, Cretaceous) combined into an academic timeline. |
-| **Primary Goal** | Win the **Paleo-Maiden Championship (PMC)** at the end of the Cretaceous Year (Year 3). |
-| **Magic System** | **Paleo-Magic (P-Magic):** The source of power and literally the Champion's **Health Pool** in combat. When P-Magic reaches zero, the fight ends. |
-| **Player Role** | The player is a **Mentor/Coach** who selects a Paleo Maiden Champion (e.g., Tyran Rex, Sastrei Taurus) and guides them through the **3-Year Course**. |
-| **Progression Basis** | **3-Year University Course (6 Semesters/72 weeks).** Each year ends with a high-stakes **League Championship** that dictates qualification for the next year. |
+| **Theme & Setting** | **Anthropomorphic Paleo Maidens University.** The game takes place on the **Primeval Continents**, vast, primordial landscapes that serve as sacred training grounds for the Stratum Institute. |
+| **Primary Goal** | Win the **Paleo World Championship (World Cup)** at the end of the third-year Cretaceous League. |
+| **Magic System** | **Paleo-Magic (P-Magic):** The manifestation of a Maiden's primal energy, serving as their **Health Pool**. Attacks deplete P-Magic by inflicting the intense neurological *sensation* of injury, leading to exhaustion and defeat without causing physical harm. |
+| **Player Role** | The player is a **Lecturer** at the Stratum Institute, acting as a mentor who selects a Paleo Maiden Champion and guides them through their academic and competitive journey. |
+| **Progression Basis** | The core gameplay is the **3-Year Great Expedition**, a "world tour" across the Primeval Continents. Each year is a 24-turn campaign that culminates in a high-stakes League Championship. |
 
 ---
 
@@ -150,3 +150,31 @@ This section breaks down the turn-by-turn gameplay loop and distinguishes betwee
 | **1. Nurturing** | Supporting and developing a favorite character, similar to a virtual pet or raising simulator (e.g., *Tamagotchi*, *Uma Musume*). |
 | **2. Risk/Reward** | Experiencing the thrill of chance through dice rolls and random card draws, embracing a "gambling" feel. |
 | **3. Satisfaction** | The deep satisfaction that comes from seeing a well-planned strategy, deck synergy, or a lucky combo work out perfectly. |
+
+---
+
+## VII. Combat Philosophy & Design Inspiration
+
+To ensure a cohesive experience, the combat system's design is guided by a clear philosophical model inspired by games like ***Digimon World Championship***. This approach emphasizes the player's role as a mentor and strategist, making preparation the core gameplay and the battle its thrilling, automated payoff.
+
+### A. The "Coach/Trainer" Combat Model
+
+The combat system is intentionally hands-off during the fight itself. The player's interaction is focused entirely on the strategic decisions made *before* the battle begins.
+
+| Phase | Player Role & Action |
+| :--- | :--- |
+| **1. Preparation Phase** | **The Lecturer's Core Gameplay.** The player guides their Maiden through the 24-turn expedition, making critical choices about which **Techniques** to acquire, when to rest, and which rivals to interact with. This culminates in setting the **Active Loadout** before a tournament. |
+| **2. Combat Phase** | **The Automated Spectacle.** The battle unfolds automatically based on the Maiden's preparation, her equipped techniques, and a degree of RNG. The player becomes an invested spectator, watching to see if their strategy was successful. |
+
+### B. Alignment with Existing Game Design
+
+This combat philosophy is not a new direction but rather a formalization of the game's existing strengths, creating perfect synergy between the lore, mechanics, and desired "fun factors."
+
+| Core Design Element | How the "Coach/Trainer" Model Aligns |
+| :--- | :--- |
+| **Player Role as Lecturer** | This model is the ultimate expression of being a mentor. The player's skill is tested through their teaching and preparation (the Expedition), not their reflexes. The battle is the Maiden's "final exam." |
+| **Pillar 1: Nurturing** | By making combat automated, the gameplay focus shifts entirely to the **Great Expedition** phase. The joy comes from carefully developing your Maiden over time, making this pillar the central activity. |
+| **Pillar 2: Risk/Reward** | The moment the automated battle begins is the ultimate "gambling" moment. The player has placed their strategic "bet" through 24 turns of training; the fight is the thrilling spin of the wheel to see the outcome. |
+| **Pillar 3: Satisfaction** | Victory feels deeply earned, as it validates the player's long-term strategy and coaching ability. Seeing a specific technique you chose turn the tide of battle provides immense satisfaction. |
+| **Equipment Loadout System** | This system becomes the player's primary tool for expressing strategy. The choice of which 5 techniques to equip is the most critical decision, acting as the "playbook" for the upcoming automated fight. |
+| **"Shonen Tournament" Theme** | This model perfectly captures the feeling of a coach watching anxiously from the stands. The **Commentated Combat Log** enhances this by turning the automated fight into an exciting spectator sport. |
