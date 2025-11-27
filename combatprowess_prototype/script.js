@@ -1289,7 +1289,7 @@ function enableTouchDragAndDrop() {
         while (element && !element.draggable) {
             element = element.parentElement;
         }
-        return null;
+        return element;
     }
 
     /**

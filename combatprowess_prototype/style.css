@@ -417,7 +417,7 @@ h3 {
 }
 
 .technique-item {
-    padding: 10px;
+    padding: 10px 10px 10px 8px;
     border: 1px solid var(--color-border);
     border-radius: 4px;
     margin-bottom: 5px;
@@ -1023,7 +1023,6 @@ h3 {
     #combat-prowess {
         width: 48%;
         /* Two columns side-by-side */
-        min-width: 320px;
     }
 
     #details-panel {
@@ -1098,5 +1097,63 @@ h3 {
     #tactical-order-buttons {
         flex-direction: column;
         gap: 0.5rem;
+    }
+}
+
+/* Extra Small Screens / Mobile S (<= 400px) */
+@media (max-width: 400px) {
+    body {
+        padding: 5px;
+        font-size: 0.9rem;
+        /* Reduce base font size */
+    }
+
+    .clipboard-paper {
+        padding: 25px 10px;
+        /* Reduce horizontal padding */
+        margin: 20px auto;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+        /* Make main headings smaller */
+    }
+
+    #details-content h3 {
+        font-size: 1.2rem;
+        /* Make detail headings smaller */
+    }
+
+    #character-list {
+        gap: 5px;
+        /* Reduce gap between character cards */
+    }
+
+    .character-card {
+        padding: 5px;
+    }
+
+    .character-card img {
+        width: 60px;
+        /* Make character images smaller */
+        height: 60px;
+    }
+
+    .character-name {
+        font-size: 0.9rem;
+    }
+
+    .filter-btn {
+        padding: 4px 8px;
+        /* Make filter buttons more compact */
+        font-size: 0.8rem;
+    }
+
+    /* Allow labels in the details panel to stack on very small screens */
+    #details-content p strong {
+        min-width: unset;
+        display: block;
+        /* Make label take its own line */
+        margin-bottom: 2px;
     }
 }
