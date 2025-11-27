@@ -1276,114 +1276,123 @@ document.addEventListener('DOMContentLoaded', () => {
  * @license: MIT
  */
 function enableTouchDragAndDrop() {
-    // A map of touch events to their corresponding mouse events
-    const eventMap = {
-        touchstart: 'mousedown',
-        touchmove: 'mousemove',
-        touchend: 'mouseup'
-    };
-
-    // The element currently being dragged
-    let lastTouch = null;
-    let draggedElement = null;
+    let draggedEl = null;
+    let ghostEl = null;
+    let currentDropTarget = null;
 
     /**
-     * Checks if an element is a valid drag-and-drop target.
-     * @param {Event} event - The touch event.
+     * Finds the closest draggable parent element.
+     * @param {HTMLElement} element The element to start searching from.
      * @returns {HTMLElement|null} The draggable element or null.
      */
-    function getDraggableElement(event) {
-        let element = event.target;
-        while (element) {
-            if (element.draggable) {
-                return element;
-            }
+    function getDraggable(element) {
+        while (element && !element.draggable) {
             element = element.parentElement;
         }
         return null;
     }
 
     /**
-     * Creates and dispatches a simulated mouse event from a touch event.
-     * @param {Event} originalEvent - The original touch event.
-     * @param {string} type - The type of mouse event to create (e.g., 'mousedown').
-     * @param {HTMLElement} target - The element to dispatch the event on.
+     * Creates a visual clone of the dragged element that follows the touch.
+     * @param {HTMLElement} originalEl The element being dragged.
      */
-    function dispatchMouseEvent(originalEvent, type, target) {
-        const touch = originalEvent.changedTouches[0];
-        const simulatedEvent = new MouseEvent(type, {
-            bubbles: true,
-            cancelable: true,
-            view: window,
-            detail: 1,
-            screenX: touch.screenX,
-            screenY: touch.screenY,
-            clientX: touch.clientX,
-            clientY: touch.clientY,
-            ctrlKey: false,
-            altKey: false,
-            shiftKey: false,
-            metaKey: false,
-            button: 0,
-            relatedTarget: null
-        });
-        target.dispatchEvent(simulatedEvent);
+    function createGhost(originalEl) {
+        ghostEl = originalEl.cloneNode(true);
+        ghostEl.style.position = 'fixed';
+        ghostEl.style.zIndex = '9999';
+        ghostEl.style.pointerEvents = 'none'; // The ghost should not intercept touch events
+        ghostEl.style.opacity = '0.7';
+        ghostEl.style.width = `${originalEl.offsetWidth}px`;
+        ghostEl.style.height = `${originalEl.offsetHeight}px`;
+        document.body.appendChild(ghostEl);
     }
 
-    /**
-     * Handles the start of a touch event.
-     * @param {Event} event - The touchstart event.
-     */
-    function onTouchStart(event) {
-        const element = getDraggableElement(event);
-        if (element) {
-            // Prevent default touch behavior like scrolling
-            event.preventDefault();
-            lastTouch = event;
-            draggedElement = element;
-            // Dispatch a mousedown event to trigger the dragstart logic
-            dispatchMouseEvent(event, 'mousedown', element);
+    function onTouchStart(e) {
+        draggedEl = getDraggable(e.target);
+        if (draggedEl) {
+            e.preventDefault(); // Prevent scrolling while dragging
+
+            // Simulate dragstart
+            draggedEl.dispatchEvent(new CustomEvent('dragstart', { bubbles: true }));
+
+            createGhost(draggedEl);
+            moveGhost(e.touches[0]);
+
+            // Hide the original element
+            draggedEl.style.display = 'none';
         }
     }
 
-    /**
-     * Handles the movement of a touch.
-     * @param {Event} event - The touchmove event.
-     */
-    function onTouchMove(event) {
-        if (lastTouch && draggedElement) {
-            event.preventDefault();
-            // Dispatch a mousemove event to trigger dragover/dragenter/dragleave
-            dispatchMouseEvent(event, 'mousemove', document.elementFromPoint(event.touches[0].clientX, event.touches[0].clientY));
-            lastTouch = event;
-        }
-    }
+    function onTouchMove(e) {
+        if (draggedEl && ghostEl) {
+            e.preventDefault();
+            moveGhost(e.touches[0]);
 
-    /**
-     * Handles the end of a touch event.
-     * @param {Event} event - The touchend event.
-     */
-    function onTouchEnd(event) {
-        if (lastTouch && draggedElement) {
-            event.preventDefault();
-            // Find the element under the touch point
-            const dropTarget = document.elementFromPoint(lastTouch.changedTouches[0].clientX, lastTouch.changedTouches[0].clientY);
-            if (dropTarget) {
-                // Dispatch a mouseup event to trigger the drop logic
-                dispatchMouseEvent(lastTouch, 'mouseup', dropTarget);
+            // Temporarily hide the ghost to find the element underneath
+            ghostEl.style.display = 'none';
+            const newTarget = document.elementFromPoint(e.touches[0].clientX, e.touches[0].clientY);
+            ghostEl.style.display = 'block';
+
+            if (newTarget !== currentDropTarget) {
+                // Simulate dragleave on the old target
+                if (currentDropTarget) {
+                    currentDropTarget.dispatchEvent(new CustomEvent('dragleave', { bubbles: true }));
+                }
+                // Simulate dragenter on the new target
+                if (newTarget) {
+                    newTarget.dispatchEvent(new CustomEvent('dragenter', { bubbles: true }));
+                }
+                currentDropTarget = newTarget;
             }
-            lastTouch = null;
-            draggedElement = null;
         }
     }
 
-    // Add event listeners to the document
+    function onTouchEnd(e) {
+        if (draggedEl) {
+            e.preventDefault();
+
+            // Simulate drop on the final target
+            if (currentDropTarget) {
+                // The `drop` event needs a reference to the dragged element.
+                // We can't use the real event system, so we attach it to the custom event.
+                const dropEvent = new CustomEvent('drop', { bubbles: true });
+                dropEvent.target = currentDropTarget; // Ensure the target is correct
+                currentDropTarget.dispatchEvent(dropEvent);
+                currentDropTarget.dispatchEvent(new CustomEvent('dragleave', { bubbles: true })); // Clean up hover state
+            }
+
+            // Simulate dragend
+            draggedEl.dispatchEvent(new CustomEvent('dragend', { bubbles: true }));
+
+            // Cleanup
+            if (ghostEl) {
+                document.body.removeChild(ghostEl);
+            }
+            // The dragend handler in your main script will make the original visible again.
+            draggedEl = null;
+            ghostEl = null;
+            currentDropTarget = null;
+        }
+    }
+
+    /**
+     * Moves the ghost element to the touch position.
+     * @param {Touch} touch The touch object from the event.
+     */
+    function moveGhost(touch) {
+        // Center the ghost on the touch point
+        const x = touch.clientX - ghostEl.offsetWidth / 2;
+        const y = touch.clientY - ghostEl.offsetHeight / 2;
+        ghostEl.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    // Add passive: false to allow preventDefault()
     document.addEventListener('touchstart', onTouchStart, { passive: false });
     document.addEventListener('touchmove', onTouchMove, { passive: false });
     document.addEventListener('touchend', onTouchEnd, { passive: false });
     document.addEventListener('touchcancel', onTouchEnd, { passive: false });
 
-    console.log('Touch drag-and-drop enabled.');
+    console.log('Manual touch drag-and-drop enabled.');
 }
 
 // Initialize the polyfill when the DOM is ready
