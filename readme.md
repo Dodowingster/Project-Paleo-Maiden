@@ -94,7 +94,8 @@ The system is a **Hybrid Automated Turn-Based** system designed to be quick, dec
 | Mechanic | Detail |
 | :--- | :--- |
 | **Technique Collection** | The player collects **Combat Techniques** from map events. There is no limit to the number of techniques they can own. |
-| **Active Loadout** | Before a series of fights (like a tournament), the player equips **up to 5 Techniques** into their Active Loadout. This loadout defines their fighting style for the upcoming bouts. |
+| **Active Loadout & Orders** | Before a match, the player equips **up to 5 Techniques** into their Active Loadout and selects **one Tactical Order**. This combination of techniques and strategy defines their game plan. |
+| **Tactical Orders** | A high-level instruction (e.g., "All-Out Blitz," "Patient Counter") that influences the AI's technique selection priority during the automated battle, adding a layer of strategic direction. |
 | **Turn Flow** | On each combatant's turn, the system automatically selects and uses **one** of their equipped techniques. The selection can be random or follow a simple, pre-set priority. |
 | **Technique Types** | **Discipline Techniques** (Generic utility/buffs) **AND Species-Specific Techniques** (Rare, powerful effects tied to specific defeated rivals). |
 | **Initiative** | At the start of each combat turn, both combatants roll a die. The higher roll acts first for that turn. This keeps the turn order dynamic and unpredictable. |
