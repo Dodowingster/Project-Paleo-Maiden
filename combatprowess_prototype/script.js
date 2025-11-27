@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const characterListEl = document.getElementById('character-list');
     const BASE_PALEO_SLOTS = 5;
     const tacticalOrderButtons = document.querySelectorAll('.tactical-order-btn');
+    const combatProwessPanel = document.getElementById('combat-prowess');
     const BASE_SECRET_SLOTS = 2;
 
     // By embedding the data directly, we avoid CORS errors when running the file locally.
@@ -215,7 +216,8 @@ document.addEventListener('DOMContentLoaded', () => {
             "discipline": "Focus",
             "tags": [
                 "Buff",
-                "Heal"
+                "Heal",
+                "Concentration"
             ],
             "cooldown": 22,
             "activation": "distance_to_opponent > 3lengths",
@@ -456,11 +458,18 @@ document.addEventListener('DOMContentLoaded', () => {
     let characterLoadouts = {}; // To store loadouts for each character
     let currentTacticalOrder = 'Balanced'; // Default order
 
+    // --- Create a single tooltip element to be reused ---
+    const skillTooltip = document.createElement('div');
+    skillTooltip.className = 'skill-tooltip';
+    document.body.appendChild(skillTooltip);
+
     // Load techniques from the embedded data
     techniques = PALEOARTS_DATA;
     createCharacterList();
     createFilterBar();
     initializeTacticalOrders();
+    createClearLoadoutButton();
+
     // Select the first character by default
     selectCharacter(CHARACTERS[0]);
 
@@ -483,6 +492,47 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    function createClearLoadoutButton() {
+        const header = combatProwessPanel.querySelector('h2');
+        const clearButton = document.createElement('button');
+        clearButton.id = 'clear-loadout-btn';
+        clearButton.textContent = 'Clear Loadout';
+        clearButton.title = 'Return all equipped arts to the list';
+
+        // Insert the button right after the 'Combat Prowess' heading
+        header.insertAdjacentElement('afterend', clearButton);
+
+        clearButton.addEventListener('click', () => {
+            const paleoArtsItems = [...paleoArtsSlots.children];
+            const secretArtsItems = [...secretArtsSlots.children].filter(item => !item.classList.contains('innate'));
+            const itemsToClear = [...paleoArtsItems, ...secretArtsItems];
+
+            if (itemsToClear.length === 0) return; // Do nothing if there's nothing to clear
+
+            // Apply the disintegration animation to each item
+            itemsToClear.forEach((item, index) => {
+                item.classList.add('disintegrating');
+                // Add a slight delay for a staggered, more chaotic effect
+                item.style.animationDelay = `${index * 40}ms`;
+            });
+
+            // Wait for the last animation to finish before removing the elements
+            const lastItem = itemsToClear[itemsToClear.length - 1];
+            lastItem.addEventListener('animationend', () => {
+                // Now, remove all the cleared items from the DOM
+                itemsToClear.forEach(item => {
+                    if (item.parentElement) {
+                        item.parentElement.removeChild(item);
+                    }
+                });
+
+                // Refresh the technique list and update the job/slot counts
+                populateTechniqueList(techniques);
+                updateJobEvolution();
+            }, { once: true });
+        });
+    }
+
     function createFilterBar() {
         const listContainer = document.getElementById('technique-list-container');
         const filterContainer = document.createElement('div');
@@ -495,7 +545,13 @@ document.addEventListener('DOMContentLoaded', () => {
             button.textContent = discipline;
             button.dataset.filter = discipline;
             button.className = `filter-btn ${discipline}`;
-            button.addEventListener('click', () => filterTechniques(discipline));
+            button.addEventListener('click', (e) => {
+                // Remove active class from all filter buttons
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                // Add active class to the clicked button
+                e.currentTarget.classList.add('active');
+                filterTechniques(discipline)
+            });
             filterContainer.appendChild(button);
         });
 
@@ -503,16 +559,33 @@ document.addEventListener('DOMContentLoaded', () => {
         listContainer.insertBefore(filterContainer, techniqueList);
     }
 
+    // Set 'All' as active by default
+    document.querySelector('.filter-btn.All').classList.add('active');
+
     function filterTechniques(discipline) {
-        let filteredTechniques;
-        if (discipline === 'All') {
-            filteredTechniques = techniques;
-        } else {
-            // Filter works if the discipline is the only one OR is included in an array
-            filteredTechniques = techniques.filter(tech =>
-                tech.discipline === discipline || (Array.isArray(tech.discipline) && tech.discipline.includes(discipline)));
-        }
-        populateTechniqueList(filteredTechniques);
+        // Start the fade-out animation
+        techniqueList.classList.add('list-fade-out');
+
+        techniqueList.addEventListener('animationend', function handleFadeOut() {
+            // Clean up the listener
+            techniqueList.removeEventListener('animationend', handleFadeOut);
+
+            // Filter the techniques
+            let filteredTechniques;
+            if (discipline === 'All') {
+                filteredTechniques = techniques;
+            } else {
+                filteredTechniques = techniques.filter(tech =>
+                    tech.discipline === discipline || (Array.isArray(tech.discipline) && tech.discipline.includes(discipline))
+                );
+            }
+
+            // Repopulate the list with new content
+            populateTechniqueList(filteredTechniques);
+
+            // Start the fade-in animation
+            techniqueList.classList.replace('list-fade-out', 'list-fade-in');
+        }, { once: true });
     }
 
     function populateTechniqueList(techsToDisplay) {
@@ -550,6 +623,20 @@ document.addEventListener('DOMContentLoaded', () => {
         item.draggable = true;
         item.dataset.techName = tech.name;
 
+        // Add stars for Secret and Ancient Arts
+        if (tech.type === 'Secret Art' || tech.type === 'Ancient Art') {
+            const starsContainer = document.createElement('div');
+            starsContainer.className = 'art-stars';
+            const starCount = tech.type === 'Ancient Art' ? 3 : 2;
+            starsContainer.setAttribute('data-star-count', starCount);
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('span');
+                star.textContent = '★';
+                starsContainer.appendChild(star);
+            }
+            item.appendChild(starsContainer);
+        }
+
         // Special styling for hybrid arts based on their disciplines
         if (Array.isArray(tech.discipline) && tech.discipline.length === 2) {
             // Sort to ensure class is consistent (e.g., flow-focus is same as focus-flow)
@@ -562,6 +649,10 @@ document.addEventListener('DOMContentLoaded', () => {
         item.addEventListener('click', () => showDetails(tech));
         item.addEventListener('dragstart', handleDragStart);
         item.addEventListener('dragend', handleDragEnd);
+        // --- Tooltip Listeners ---
+        item.addEventListener('mouseenter', (e) => handleShowTooltip(e, tech));
+        item.addEventListener('mousemove', handleMoveTooltip);
+        item.addEventListener('mouseleave', handleHideTooltip);
 
         return item;
     }
@@ -640,6 +731,17 @@ document.addEventListener('DOMContentLoaded', () => {
             item.classList.add('innate');
             // Add to the start of the list for consistency
             secretArtsSlots.prepend(item);
+
+            // --- Animate the newly added innate art ---
+            const disciplineColor = `var(--color-${innateArt.discipline.toLowerCase()})`;
+            item.style.setProperty('--glow-color', disciplineColor);
+            item.style.animation = 'art-glow-pulse 0.8s ease-in-out';
+
+            // Clean up the animation styles after it finishes
+            item.addEventListener('animationend', () => {
+                item.style.animation = '';
+                item.style.removeProperty('--glow-color');
+            }, { once: true });
         }
 
         populateTechniqueList(techniques);
@@ -693,10 +795,24 @@ document.addEventListener('DOMContentLoaded', () => {
             // Add a class to the activation block based on the current order
             const orderClass = `order-${currentTacticalOrder.toLowerCase()}`;
 
+            // SVG Icons
+            const stopwatchIcon = `<svg class="details-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 1H14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+            const flagIcon = `<svg class="details-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 15C4 15 5 14 8 14C11 14 13 16 16 16C19 16 20 15 20 15V3C20 3 19 4 16 4C13 4 11 2 8 2C5 2 4 3 4 3V15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 22V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
             const activationHtml = activationText
-                ? `<div class="activation-details ${orderClass}"><p><strong>Activation (${currentTacticalOrder}):</strong><br> ${activationText}</p></div>`
+                ? `<div class="activation-details ${orderClass}"><p><strong>${flagIcon} Activation (${currentTacticalOrder}):</strong><br> ${activationText}</p></div>`
                 : '';
+
+            // --- Title Glow for Rare Arts ---
+            let titleClass = '';
+            let titleStyle = '';
+            if (tech.type === 'Secret Art' || tech.type === 'Ancient Art') {
+                titleClass = 'glowing-title';
+                // Use the first discipline for the glow color in case of hybrids
+                const discipline = Array.isArray(tech.discipline) ? tech.discipline[0] : tech.discipline;
+                const disciplineColor = `var(--color-${discipline.toLowerCase()})`;
+                titleStyle = `style="--glow-color: ${disciplineColor}"`;
+            }
 
             const chainActivationHtml = tech.chain_requirements && tech.chain_requirements.length > 0
                 ? `<p><strong class="info-block">Guaranteed Activation:</strong> This technique is guaranteed to activate after using techniques with the following tags: ${tech.chain_requirements.map(tag =>
@@ -710,15 +826,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 }</p>`
                 : '';
 
-            const cooldownHtml = tech.cooldown
-                ? `<p><strong>Cooldown:</strong> ${tech.cooldown}s</p>`
-                : '';
+            // --- Colored Discipline Text ---
+            const disciplines = Array.isArray(tech.discipline) ? tech.discipline : [tech.discipline];
+            const disciplineHtml = disciplines.map(d => {
+                const colorVar = `var(--color-${d.toLowerCase()})`;
+                return `<span style="color: ${colorVar}; font-weight: bold;">${d}</span>`;
+            }).join(' / ');
+
+            // Display as: [icon] 40s
+            const cooldownHtml = tech.cooldown ? `<strong>Cooldown:</strong>\t${stopwatchIcon}${tech.cooldown}s` : '';
 
             // 3. Update the innerHTML with the new technique details
             detailsContent.innerHTML = `
-            <h3>${tech.name}</h3>
+            <h3 class="${titleClass}" ${titleStyle}>${tech.name}</h3>
             <p><strong>Type:</strong> ${tech.type}</p>
-            <p><strong>Discipline:</strong> ${Array.isArray(tech.discipline) ? tech.discipline.join(' / ') : tech.discipline}</p>
+            <p><strong>Discipline:</strong> ${disciplineHtml}</p>
             ${cooldownHtml}
             ${tagsHtml}
             <p><strong class="info-block">Description:</strong> ${tech.description}</p>
@@ -740,6 +862,61 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             setTimeout(() => { isDetailsUpdating = false; }, 300); // Match animation duration
         }, { once: true }); // {once: true} is a safer way to ensure the listener is auto-removed
+    }
+
+    // --- Tooltip Handlers ---
+    function handleShowTooltip(e, tech) {
+        const TAG_COLORS = {
+            'Attack': '#dc3545', 'Stun': '#dc3545', 'Heavy': '#dc3545',
+            'Movement': '#28a745', 'Dodge': '#28a745', 'Swift': '#28a745',
+            'Buff': '#007bff', 'Concentration': '#007bff', 'Projectile': '#007bff',
+            'Defense': '#ffc107', 'Heal': '#ffc107', 'Parry': '#ffc107',
+            'Chain': '#17a2b8', 'Snapback': '#17a2b8', 'Crumple': '#17a2b8', 'Fatal': '#17a2b8'
+        };
+
+        const tagsHtml = tech.tags && tech.tags.length > 0
+            ? `<div class="skill-tooltip-tags"><strong>Tags:</strong> ${tech.tags.map(tag =>
+                `<span style="color: ${TAG_COLORS[tag] || 'inherit'}; font-weight: bold;">${tag}</span>`
+            ).join(', ')}</div>`
+            : '';
+
+        const effectHtml = tech.effect
+            ? `<div class="skill-tooltip-effect"><strong>Effect:</strong> ${tech.effect}</div>`
+            : '';
+
+        skillTooltip.innerHTML = `${tagsHtml}${effectHtml}`;
+
+        // If there's no content, don't show the tooltip
+        if (!tagsHtml && !effectHtml) return;
+
+        handleMoveTooltip(e); // Position it initially
+        skillTooltip.classList.add('visible');
+    }
+
+    function handleMoveTooltip(e) {
+        // Use pageX/pageY to get coordinates relative to the document,
+        // which accounts for page scrolling.
+        const offsetX = 0;
+        const offsetY = -1500;
+        let x = e.pageX + offsetX;
+        let y = e.pageY + offsetY;
+
+        // Check if the tooltip goes off the right edge of the viewport.
+        // window.innerWidth is the viewport width, window.scrollX is the horizontal scroll position.
+        if (x + skillTooltip.offsetWidth > window.innerWidth + window.scrollX) {
+            x = e.pageX - skillTooltip.offsetWidth - offsetX;
+        }
+
+        // Check if the tooltip goes off the bottom edge of the viewport.
+        if (y + skillTooltip.offsetHeight > window.innerHeight + window.scrollY) {
+            y = e.pageY - skillTooltip.offsetHeight - offsetY;
+        }
+
+        skillTooltip.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    function handleHideTooltip() {
+        skillTooltip.classList.remove('visible');
     }
 
     // Drag and Drop Handlers
@@ -809,20 +986,32 @@ document.addEventListener('DOMContentLoaded', () => {
             const maxSlots = parseInt(dropZone.dataset.maxSlots, 10);
             const currentSlots = dropZone.children.length;
 
+            // A drop is valid if the tech type matches and there's space,
+            // OR if we are just moving an item between slots (which doesn't add to the count).
             if (tech.type === slotType && currentSlots < maxSlots) {
-                // If item came from another slot, just move it
+                // Valid drop: Add the item to the new slot.
                 if (draggedItem.parentElement !== techniqueList) {
                     draggedItem.parentElement.removeChild(draggedItem);
                 }
                 dropZone.appendChild(draggedItem);
+
+                // Add a "pop" animation to the newly slotted item
+                draggedItem.classList.add('item-slotted-animation');
+                // Remove the class after the animation finishes to allow it to be re-triggered
+                draggedItem.addEventListener('animationend', () => {
+                    draggedItem.classList.remove('item-slotted-animation');
+                }, { once: true });
+
                 updateJobEvolution();
             } else {
-                // Invalid drop (wrong type or full slot)
-                draggedItem.style.display = 'block';
+                // Invalid drop: Flash the slot red to give feedback.
+                dropZone.classList.add('invalid-drop');
+                setTimeout(() => {
+                    dropZone.classList.remove('invalid-drop');
+                }, 400); // Duration must match the CSS animation
             }
         }
-        draggedItem.style.display = 'block'; // Always show the item after drop attempt
-        draggedItem = null;
+        // The handleDragEnd function will handle making the item visible again and clearing draggedItem.
     }
 
     function handleListDrop(e) {
@@ -833,12 +1022,22 @@ document.addEventListener('DOMContentLoaded', () => {
         // If the item came from a slot, move it back to the list
         if (draggedItem.parentElement !== techniqueList) {
             draggedItem.parentElement.removeChild(draggedItem);
-            techniqueList.appendChild(draggedItem);
+            // The list needs to be repopulated to ensure correct sorting and filtering
+            populateTechniqueList(techniques);
             updateJobEvolution();
-        }
 
-        draggedItem.style.display = 'block';
-        draggedItem = null;
+            // Find the returned item in the newly populated list and scroll to it
+            const returnedItem = techniqueList.querySelector(`[data-tech-name="${draggedItem.dataset.techName}"]`);
+            if (returnedItem) {
+                returnedItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+                // Add a flash effect to make it easy to spot
+                returnedItem.classList.add('item-returned-flash');
+                setTimeout(() => {
+                    returnedItem.classList.remove('item-returned-flash');
+                }, 700); // Duration must match the CSS animation
+            }
+        }
     }
 
     // Add listeners to slot containers
@@ -857,10 +1056,20 @@ document.addEventListener('DOMContentLoaded', () => {
     listContainer.addEventListener('drop', handleListDrop);
 
     function updateJobEvolution() {
-        const equippedTechs = [...paleoArtsSlots.children, ...secretArtsSlots.children, ...hybridArtContainer.querySelector('ul').children];
+        // --- JOB EVOLUTION LOGIC --- //
+        // Paleo Arts and the character's Innate Secret Art contribute to job evolution.
+        // Other manually-equipped Secret Arts and Ancient Arts do not.
+        const equippedPaleoArts = [...paleoArtsSlots.children];
+        const innateSecretArt = secretArtsSlots.querySelector('.innate');
+
+        const contributingTechs = [...equippedPaleoArts];
+        if (innateSecretArt) {
+            contributingTechs.push(innateSecretArt);
+        }
+
         const disciplineCounts = { Brute: 0, Focus: 0, Flow: 0, Control: 0 };
 
-        equippedTechs.forEach(item => {
+        contributingTechs.forEach(item => {
             const techName = item.dataset.techName;
             const tech = techniques.find(t => t.name === techName);
             if (tech) {
@@ -883,10 +1092,10 @@ document.addEventListener('DOMContentLoaded', () => {
             { name: "Hybrid Pirate", character: "Aegypt Spino", req: { "Focus": 4, "Control": 2 }, bonusSlots: { "Paleo Art": 1, "Secret Art": 0 } },
 
             // --- Character-Specific Single Disciplines ---
-            { name: "Kinetic Boxer", character: "Sastrei Taurus", req: { "Flow": 5 }, bonusSlots: { "Paleo Art": 2, "Secret Art": 0 } },
-            { name: "Tyrant King", character: "Tyran Rex", req: { "Brute": 5 }, bonusSlots: { "Paleo Art": 2, "Secret Art": 0 } },
-            { name: "Iai Master", character: "Kitadani Fukuira", req: { "Focus": 5 }, bonusSlots: { "Paleo Art": 2, "Secret Art": 0 } },
-            { name: "River Hunter", character: "Aegypt Spino", req: { "Focus": 5 }, bonusSlots: { "Paleo Art": 2, "Secret Art": 0 } },
+            { name: "Kinetic Boxer", character: "Sastrei Taurus", req: { "Flow": 5 }, bonusSlots: { "Paleo Art": 0, "Secret Art": 1 } },
+            { name: "Tyrant King", character: "Tyran Rex", req: { "Brute": 5 }, bonusSlots: { "Paleo Art": 0, "Secret Art": 1 } },
+            { name: "Iai Master", character: "Kitadani Fukuira", req: { "Focus": 5 }, bonusSlots: { "Paleo Art": 0, "Secret Art": 1 } },
+            { name: "River Hunter", character: "Aegypt Spino", req: { "Focus": 5 }, bonusSlots: { "Paleo Art": 0, "Secret Art": 1 } },
 
             // --- Generic Hybrid Disciplines ---
             { name: "Rogue Hunter", req: { "Flow": 3, "Focus": 2 }, bonusSlots: { "Paleo Art": 1, "Secret Art": 0 } },
@@ -899,10 +1108,10 @@ document.addEventListener('DOMContentLoaded', () => {
             { name: "Chronomancer", req: { "Control": 3, "Flow": 2 }, bonusSlots: { "Paleo Art": 1, "Secret Art": 0 } },
 
             // --- Generic Single Disciplines ---
-            { name: "Barbarian", req: { "Brute": 5 }, bonusSlots: { "Paleo Art": 1, "Secret Art": 0 } },
-            { name: "Guardian", req: { "Focus": 5 }, bonusSlots: { "Paleo Art": 1, "Secret Art": 0 } },
-            { name: "Striker", req: { "Flow": 5 }, bonusSlots: { "Paleo Art": 1, "Secret Art": 0 } },
-            { name: "Aegis", req: { "Control": 5 }, bonusSlots: { "Paleo Art": 1, "Secret Art": 0 } },
+            { name: "Barbarian", req: { "Brute": 5 }, bonusSlots: { "Paleo Art": 0, "Secret Art": 1 } },
+            { name: "Guardian", req: { "Focus": 5 }, bonusSlots: { "Paleo Art": 0, "Secret Art": 1 } },
+            { name: "Striker", req: { "Flow": 5 }, bonusSlots: { "Paleo Art": 0, "Secret Art": 1 } },
+            { name: "Aegis", req: { "Control": 5 }, bonusSlots: { "Paleo Art": 0, "Secret Art": 1 } },
         ];
 
         let currentJob = { name: "Maiden", bonusSlots: { "Paleo Art": 0, "Secret Art": 0 } };
@@ -934,6 +1143,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const selectedCharacterCard = document.querySelector(`.character-card[data-char-name="${selectedCharacter.name}"]`);
         if (selectedCharacterCard) {
             const jobTitleP = selectedCharacterCard.querySelector('.character-job-title');
+            // Get the previous job name to check for changes
+            const previousJobName = jobTitleP.textContent;
+
+            // Set the new job name
             jobTitleP.textContent = currentJob.name;
 
             // Apply dynamic gradient styling to the character card's job title
@@ -943,17 +1156,41 @@ document.addEventListener('DOMContentLoaded', () => {
             jobTitleP.classList.toggle('job-active', jobColors.length > 0);
             jobTitleP.style.backgroundImage = jobColors.length > 0 ? `linear-gradient(135deg, ${jobColors.join(', ')})` : 'none';
 
-            // Add tooltip for bonus slots
+            // --- Animate the card if a new job is unlocked ---
+            if (currentJob.name !== previousJobName && currentJob.name !== 'Maiden') {
+                selectedCharacterCard.classList.add('job-unlocked-animation');
+
+                // Remove the animation class after it finishes to allow it to be re-triggered
+                selectedCharacterCard.addEventListener('animationend', () => {
+                    selectedCharacterCard.classList.remove('job-unlocked-animation');
+                }, { once: true });
+            }
+
+
+            // Create or update the custom tooltip element
+            let tooltipEl = jobTitleP.querySelector('.job-tooltip');
+            if (!tooltipEl) {
+                tooltipEl = document.createElement('span');
+                tooltipEl.className = 'job-tooltip';
+                jobTitleP.appendChild(tooltipEl);
+            }
+
+            // A simple SVG for a "bonus" icon (a star)
+            const bonusIconSvg = `<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -0.125em; margin-right: 4px;"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
+
+            // Set tooltip text for bonus slots
             const paleoBonus = currentJob.bonusSlots['Paleo Art'] || 0;
             const secretBonus = currentJob.bonusSlots['Secret Art'] || 0;
-            let bonusText = "Bonus: None";
+            let bonusHtml = `${bonusIconSvg}Bonus: None`;
+
             if (paleoBonus > 0 || secretBonus > 0) {
                 const parts = [];
-                if (paleoBonus > 0) parts.push(`+${paleoBonus} Paleo Art Slot(s)`);
-                if (secretBonus > 0) parts.push(`+${secretBonus} Secret Art Slot(s)`);
-                bonusText = `Bonus: ${parts.join(', ')}`;
+                if (paleoBonus > 0) parts.push(`+${paleoBonus} Paleo Art`);
+                if (secretBonus > 0) parts.push(`+${secretBonus} Secret Art`);
+                bonusHtml = `${bonusIconSvg}Bonus: ${parts.join(', ')}`;
             }
-            jobTitleP.title = bonusText;
+            tooltipEl.innerHTML = bonusHtml;
+            jobTitleP.removeAttribute('title'); // Remove the old browser tooltip
         }
 
         // Update slot counts based on job bonus
@@ -999,6 +1236,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     item.draggable = false; // Job-granted art cannot be moved
                     item.classList.add('innate'); // Style it like an innate art
                     hybridArtSlot.appendChild(item);
+
+                    // --- Animate the newly added ancient art ---
+                    const firstDiscipline = Array.isArray(skillData.discipline) ? skillData.discipline[0] : skillData.discipline;
+                    const disciplineColor = `var(--color-${firstDiscipline.toLowerCase()})`;
+                    item.style.setProperty('--glow-color', disciplineColor);
+                    item.style.animation = 'art-glow-pulse 0.8s ease-in-out';
+                    item.addEventListener('animationend', () => {
+                        item.style.animation = '';
+                        item.style.removeProperty('--glow-color');
+                    }, { once: true });
+
                     hasActiveAncientArt = true;
                 }
             }

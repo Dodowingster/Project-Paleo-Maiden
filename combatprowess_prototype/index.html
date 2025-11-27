@@ -18,64 +18,70 @@
     <nav class="breadcrumb">
         <a href="../index.html">&larr; Back to Home</a>
     </nav>
-    <div id="character-selection-panel" class="panel">
-        <h2>Select Your Champion Maiden</h2>
-        <div id="character-list">
-            <!-- Character portraits will be loaded here by JS -->
-        </div>
-    </div>
 
-    <div id="tactical-order-panel" class="panel">
-        <h2>Tactical Order</h2>
-        <p>Set the general approach for your Maiden in combat. This can affect the activation of certain techniques.</p>
-        <div id="tactical-order-buttons">
-            <button class="tactical-order-btn" data-order="Offensive">All-Out Blitz</button>
-            <button class="tactical-order-btn active" data-order="Balanced">Balanced</button>
-            <button class="tactical-order-btn" data-order="Defensive">Patient Counter</button>
-        </div>
-    </div>
+    <main class="clipboard-paper">
+        <div class="paperclip"></div>
 
-    <div class="container">
-        <!-- Panel 1: All available techniques -->
-        <div id="technique-list-container" class="panel">
-            <h2>Available Techniques</h2>
-            <ul id="technique-list">
-                <!-- Techniques will be loaded here by JS -->
-            </ul>
+        <div id="character-selection-panel" class="panel">
+            <h2>Champion Maiden</h2>
+            <div id="character-list">
+                <!-- Character portraits will be loaded here by JS -->
+            </div>
         </div>
 
-        <!-- Panel 2: Combat Prowess Loadout -->
-        <div id="combat-prowess" class="panel">
-            <h2>Combat Prowess</h2>
+        <div id="tactical-order-panel" class="panel">
+            <h2>Tactical Order</h2>
+            <p>Set the general approach for your Maiden in combat. This can affect the activation of certain techniques.
+            </p>
+            <div id="tactical-order-buttons">
+                <button class="tactical-order-btn" data-order="Offensive">All-Out Blitz</button>
+                <button class="tactical-order-btn active" data-order="Balanced">Balanced</button>
+                <button class="tactical-order-btn" data-order="Defensive">Patient Counter</button>
+            </div>
+        </div>
 
-            <div id="hybrid-art-container" class="slot-section" style="display: none;">
-                <h3>Ancient Art</h3>
-                <ul id="hybrid-art-slot" class="slot-container" data-slot-type="Ancient Art" data-max-slots="1">
-                    <!-- Hybrid art will be injected here -->
+        <div class="container">
+            <!-- Panel 1: All available techniques -->
+            <div id="technique-list-container" class="panel">
+                <h2>Available Techniques</h2>
+                <ul id="technique-list">
+                    <!-- Techniques will be loaded here by JS -->
                 </ul>
             </div>
 
-            <h3>Secret Arts (Reserve)</h3>
-            <div id="secret-arts-slots" class="slot-container" data-slot-type="Secret Art" data-max-slots="2">
-                <!-- Equipped Secret Arts will go here -->
+            <!-- Panel 2: Combat Prowess Loadout -->
+            <div id="combat-prowess" class="panel">
+                <h2>Combat Prowess</h2>
+
+                <div id="hybrid-art-container" class="slot-section" style="display: none;">
+                    <h3>Ancient Art</h3>
+                    <ul id="hybrid-art-slot" class="slot-container" data-slot-type="Ancient Art" data-max-slots="1">
+                        <!-- Hybrid art will be injected here -->
+                    </ul>
+                </div>
+
+                <h3>Secret Arts (Reserve)</h3>
+                <div id="secret-arts-slots" class="slot-container" data-slot-type="Secret Art" data-max-slots="2">
+                    <!-- Equipped Secret Arts will go here -->
+                </div>
+
+                <h3>Paleo Arts (Active)</h3>
+                <div id="paleo-arts-slots" class="slot-container" data-slot-type="Paleo Art" data-max-slots="5">
+                    <!-- Equipped Paleo Arts will go here -->
+                </div>
+
+
             </div>
 
-            <h3>Paleo Arts (Active)</h3>
-            <div id="paleo-arts-slots" class="slot-container" data-slot-type="Paleo Art" data-max-slots="5">
-                <!-- Equipped Paleo Arts will go here -->
+            <!-- Panel 3: Technique Details -->
+            <div id="details-panel" class="panel">
+                <h2>Technique Details</h2>
+                <div id="details-content">
+                    <p>Click on a technique to see its details.</p>
+                </div>
             </div>
-
-
         </div>
-
-        <!-- Panel 3: Technique Details -->
-        <div id="details-panel" class="panel">
-            <h2>Technique Details</h2>
-            <div id="details-content">
-                <p>Click on a technique to see its details.</p>
-            </div>
-        </div>
-    </div>
+    </main>
 
     <script src="script.js"></script>
 
