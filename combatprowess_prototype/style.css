@@ -65,6 +65,8 @@ body {
 .character-card.selected {
     border-color: var(--color-accent);
     background-color: var(--color-hover-bg);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .character-card:hover:not(.selected) {
@@ -108,6 +110,7 @@ body {
     color: white;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    animation: slideInUp 0.4s ease-out;
 }
 
 /* --- Main Container --- */
@@ -341,12 +344,43 @@ h3 {
 
 /* --- Activation Details Block --- */
 .activation-details {
-    background-color: rgba(194, 8, 122, 0.03);
+    background-color: rgba(108, 117, 125, 0.05);
+    /* Default/Balanced background */
     border: 1px solid var(--color-border);
-    border-left: 4px solid rgba(0, 0, 0, 0.2);
+    border-left: 4px solid #00ff95;
+    /* Default/Balanced border color */
     border-radius: 4px;
     padding: 0.75rem 1rem;
     margin-top: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.activation-details.order-offensive {
+    border-left-color: var(--color-brute);
+    background-color: rgba(192, 57, 43, 0.05);
+}
+
+.activation-details.order-defensive {
+    border-left-color: var(--color-focus);
+    background-color: rgba(41, 128, 185, 0.05);
+}
+
+/* Tactical Order Button Styling */
+.tactical-order-btn.active[data-order="Offensive"] {
+    background-color: #f5485a;
+    /* Brute/Attack Red */
+    color: white;
+}
+
+.tactical-order-btn.active[data-order="Defensive"] {
+    background-color: #7bbbff;
+    /* Focus/Buff Blue */
+    color: white;
+}
+
+/* The default 'active' style can be for Balanced or a general highlight */
+.tactical-order-btn.active {
+    border-color: #ffd34e;
 }
 
 .activation-details p {
@@ -385,9 +419,16 @@ h3 {
     transition: all 0.2s ease-in-out;
 }
 
-.tactical-order-btn:hover,
+.tactical-order-btn:hover {
+    background-color: #90ee90;
+    /* lightgreen */
+    color: var(--color-heading);
+    border-color: #27ae60;
+    /* var(--color-flow) */
+}
+
 .tactical-order-btn.active {
-    background-color: var(--color-accent);
+    background-color: #e38541;
     color: white;
     border-color: var(--color-accent);
 }
@@ -484,6 +525,19 @@ h3 {
 
 .details-fade-out {
     animation: fadeOut 0.3s ease-in forwards;
+}
+
+/* Keyframes for the job title animation */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* This class will hide the content while it's being updated */

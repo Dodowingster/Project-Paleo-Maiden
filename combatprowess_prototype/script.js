@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Attack",
                 "Snapback"
             ],
+            "cooldown": 10,
             "activation": "distance_to_opponent <= 0lengths",
             "description": "A straightforward, powerful blow that can push the opponent back",
             "effect": "Strikes the opponent for moderate damage and pushes them back 2 lengths."
@@ -64,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "tags": [
                 "Movement"
             ],
+            "cooldown": 6,
             "activation": "distance_to_opponent > 2lengths",
             "description": "Rushes towards the opponent to close the gap quickly.",
             "effect": "Moderately increases movement speed for this turn."
@@ -76,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Attack",
                 "Stun"
             ],
+            "cooldown": 12,
             "activation": "distance_to_opponent <= 0lengths",
             "description": "Blunt strike that stuns the opponent for a short duration.",
             "effect": "Slightly stuns the opponent, leaving them wide open for follow-up attacks."
@@ -88,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Concentration",
                 "Buff"
             ],
+            "cooldown": 18,
             "activation": "distance_to_opponent > 2lengths OR tactical_order == 'Defensive' OR tactical_order == 'Balanced'",
             "description": "A state of intense concentration that riles up the crowd",
             "effect": "Next Paelo/Secret Art gains Significantly increased damage."
@@ -101,6 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Defense",
                 "Parry"
             ],
+            "cooldown": 15,
             "activation": "activation_chance == 70% WHEN opponent_attacks",
             "description": "Tank a hit and retaliate with a powerful counterattack.",
             "effect": "Upon successfully blocking an attack, immediately counter with a strong strike that deals moderate damage."
@@ -114,7 +119,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Attack",
                 "Heavy"
             ],
-            "activation": "match_time > 10 seconds OR distance_to_opponent > 2lengths",
+            "cooldown": 40,
+            "activation": "match_time > 10 seconds OR distance_to_opponent > 2 lengths",
+            "activation_offensive": "match_time > 5 seconds OR distance_to_opponent > 1 length",
+            "activation_defensive": "match_time > 20 seconds OR opponent_is_attacking",
             "description": "Tyran Rex's Signtaure Secret Art. Drags the sword and rush for a devasting upward slash.",
             "effect": "Greatly reduces opponent's health."
         },
@@ -128,6 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Heavy"
             ],
             "jobRequirement": "Tyrant King",
+            "cooldown": 50,
             "characterRequirement": "Tyran Rex",
             "activation": "Requires 'Tyrant King' Vocation. Activates when distance_to_opponent <= 0 lengths.",
             "description": "Tyrant King Exclusive. A devastating charge that culminates in a massive overhead slash, cleaving through defenses with overwhelming power.",
@@ -143,6 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Heavy"
             ],
             "jobRequirement": "Mystic Spearhand",
+            "cooldown": 55,
             "characterRequirement": "Tyran Rex",
             "activation": "Requires 'Mystic Spearhand' Vocation. Activates when distance_to_opponent >= 2 lengths AND match_time > 10 seconds.",
             "description": "Mystic Spearhand Exclusive. Channels P-Magic into a spear thrust that pierces through multiple dimensions, striking the opponent from afar with unerring accuracy and devastating force.",
@@ -155,6 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Projectile",
                 "Attack"
             ],
+            "cooldown": 9,
             "activation": "distance_to_opponent > 2lengths",
             "description": "Unleashes a focused energy blast towards the opponent.",
             "effect": "Deals moderate damage from a distance."
@@ -168,6 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Attack",
                 "Snapback"
             ],
+            "cooldown": 12,
             "activation": "opponent_attacks WITHIN 1lengths",
             "description": "A precise strike that anticipates and counters the opponent's move.",
             "effect": "If timed correctly, parries the incoming attack and counterattacks for moderate damage, pushing the opponent back 1 length."
@@ -179,6 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "tags": [
                 "Defense"
             ],
+            "cooldown": 7,
             "activation": "always_available",
             "description": "A solid defensive stance to weather an incoming blow.",
             "effect": "Reduces incoming damage from the next hit."
@@ -191,6 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Defense",
                 "Buff"
             ],
+            "cooldown": 20,
             "activation": "tactical_order == 'Defensive'",
             "description": "Summon a barrier of P-Magic to absorb damage.",
             "effect": "Grants a temporary shield that absorbs a moderate amount of damage. Lasts until broken."
@@ -203,6 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Buff",
                 "Heal"
             ],
+            "cooldown": 22,
             "activation": "distance_to_opponent > 3lengths",
             "description": "Center your mind to mend your focus.",
             "effect": "Recovers a small amount of P-Magic (Health) over a short duration and increases next Paleo/Secret Art damage slightly."
@@ -216,7 +231,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Defense",
                 "Attack"
             ],
-            "activation": "match_time > 10 seconds AND distance_to_opponent > 2lengths OR activation_chance == 80% AND area_effect == 'Water' || environment == 'Rainy'",
+            "cooldown": 45,
+            "activation": "match_time > 10 seconds AND distance_to_opponent > 2 lengths OR (activation_chance == 80% AND (area_effect == 'Water' OR environment == 'Rainy'))",
+            "activation_offensive": "distance_to_opponent > 1 length OR (activation_chance == 90% AND (area_effect == 'Water' OR environment == 'Rainy'))",
+            "activation_defensive": "opponent_is_attacking AND distance_to_opponent > 2 lengths OR (activation_chance == 70% AND (area_effect == 'Water' OR environment == 'Rainy'))",
             "description": "Aegypt Spino's Signtaure Secret Art. Pierce the opponent with a swift strike from a distance.",
             "effect": "Greatly reduces opponent's health and Defense for a short duration."
         },
@@ -229,12 +247,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Chain",
                 "Heavy"
             ],
+            "cooldown": 60,
             "chain_requirements": [
                 "Concentration",
                 "Heavy",
                 "Defense"
             ],
-            "activation": "Has a low chance to activate randomly when conditions are not met.",
+            "activation": "Has a low chance to activate randomly when chain conditions are not met.",
+            "activation_offensive": "Has a slightly higher chance to activate randomly when chain conditions are not met.",
+            "activation_defensive": "Will not activate randomly. Only activates via chain requirements.",
             "description": "Kitadani Fukuira's Signature Secret Art. After achieving a state of perfect focus, unleash a flurry of 1000 slashes in a single, blindingly fast draw.",
             "effect": "Deals massive, unavoidable damage to the opponent."
         },
@@ -251,6 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "chain_requirements": [
                 "Dodge"
             ],
+            "cooldown": 8,
             "activation": "distance_to_opponent <= 1lengths",
             "description": "A single forward advancing attack to close the distance.",
             "effect": "Closes the gap and deals slighlty more damage. Crumples the opponents if they whiffed an attack."
@@ -264,6 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Dodge",
                 "Chain"
             ],
+            "cooldown": 10,
             "activation": "50% chance when opponent is attacking within 1 length",
             "description": "Weave backwards to evade an incoming attack by 1 length.",
             "effect": "Chain: Has a 90% chance to immediately activate an 'Attack' technique from a Paleo Art slot after successful dodge."
@@ -277,6 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Swift",
                 "Movement",
             ],
+            "cooldown": 9,
             "activation": "distance_to_opponent <= 1length",
             "description": "Jump forward swiftly to strike the opponent.",
             "effect": "Deals moderate damage with increased speed."
@@ -290,6 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Movement",
                 "Chain"
             ],
+            "cooldown": 14,
             "activation": "distance_to_opponent > 2lengths",
             "description": "Rush forward swiftly to close the distance by 2 lengths.",
             "effect": "Chain: Has a 90% chance to immediately activate an 'Attack' technique from a Paleo Art slot after successful dodge."
@@ -301,6 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "tags": [
                 "Movement"
             ],
+            "cooldown": 5,
             "activation": "always_available",
             "description": "A sudden dash to reposition or evade.",
             "effect": "Performs a short, quick dash. Briefly increases evasion chance."
@@ -315,7 +341,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Swift",
                 "Heavy"
             ],
-            "activation": "match_time > 10 seconds AND distance_to_opponent <= 0lengths",
+            "cooldown": 35,
+            "activation": "match_time > 10 seconds AND distance_to_opponent <= 0 lengths",
+            "activation_offensive": "match_time > 5 seconds AND distance_to_opponent <= 1 length",
+            "activation_defensive": "health < 50% AND distance_to_opponent <= 0 lengths",
             "description": "Sastrei Taurus's Signature Secret Art. A multi-hit flurry of punches culminating in a devastating uppercut.",
             "effect": "Deals devastatingly high damage."
         },
@@ -330,6 +359,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Heavy"
             ],
             "jobRequirement": "Boxing Magus",
+            "cooldown": 50,
             "characterRequirement": "Sastrei Taurus",
             "activation": "Requires 'Boxing Magus' Vocation. Activates when distance_to_opponent <= 0 lengths.",
             "description": "Boxing Magus Exclusive. A catastrophic initial blow sends the opponent flying, then engages Light-Speed Pursuit, chasing them down from multiple vectors with impossible velocity, culminating in a powerful, screen-shattering uppercut.",
@@ -343,6 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Defense",
                 "Buff"
             ],
+            "cooldown": 25,
             "activation": "tactical_order == 'Defensive'",
             "description": "Harden the body to become as resilient as rock.",
             "effect": "Temporarily reduces all incoming damage by a small amount."
@@ -354,6 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "tags": [
                 "Buff"
             ],
+            "cooldown": 16,
             "activation": "distance_to_opponent <= 2lengths",
             "description": "Goad the opponent into making a reckless move.",
             "effect": "Forces the opponent to use only attack-based moves on their next turn, lowering their defense."
@@ -367,6 +399,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Heavy",
                 "Crumple"
             ],
+            "cooldown": 18,
             "activation": "distance_to_opponent <= 1length",
             "description": "A powerful strike aimed at breaking through defenses.",
             "effect": "Deals heavy damage and has a chance to crumple the opponent, leaving them vulnerable."
@@ -379,6 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Buff",
                 "Stun"
             ],
+            "cooldown": 15,
             "activation": "distance_to_opponent <= 1length",
             "description": "A deafening roar that disorients the foe.",
             "effect": "Chain: Has a 70% chance to immediately activate a 'Snapback' technique from any Art slot after successful use."
@@ -391,6 +425,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Defense",
                 "Parry",
             ],
+            "cooldown": 14,
             "activation": "activation_chance == 60% WHEN opponent_attacks within 0 lengths",
             "description": "A sturdy, low stance designed to trip up and immobilize fast-moving attackers.",
             "effect": "Upon successful block, the opponent is briefly Bound (cannot use Movement skills) for their next turn."
@@ -405,7 +440,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Parry",
                 "Defense"
             ],
+            "cooldown": 40,
             "activation": "match_time > 10 seconds AND activation_chance == 100% WHEN opponent_attacks",
+            "activation_offensive": "match_time > 5 seconds AND activation_chance == 80% WHEN opponent_attacks",
+            "activation_defensive": "activation_chance == 100% WHEN opponent_attacks",
             "description": "Caza Amarga's Signature Secret Art. A defensive maneuver that parries an incoming attack and retaliates with a crushing counterstrike.",
             "effect": "Greatly reduces opponent's health upon successful parry."
         }
@@ -414,6 +452,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let techniques = [];
     let selectedCharacter = null;
     let draggedItem = null;
+    let currentlyDisplayedTech = null; // To keep track of the tech in the details panel
     let characterLoadouts = {}; // To store loadouts for each character
     let currentTacticalOrder = 'Balanced'; // Default order
 
@@ -434,6 +473,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 button.classList.add('active');
                 // Update the state
                 currentTacticalOrder = button.dataset.order;
+
+                // If a technique's details are currently being shown, refresh them
+                if (currentlyDisplayedTech) {
+                    showDetails(currentlyDisplayedTech, false); // Pass true to skip animation
+                    showDetails(currentlyDisplayedTech); // Refresh details with animation
+                }
             });
         });
     }
@@ -602,12 +647,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     let isDetailsUpdating = false; // Flag to prevent animation conflicts
-    function showDetails(tech) {
+    function showDetails(tech, skipAnimation = false) {
+        if (isDetailsUpdating && !skipAnimation) return; // Don't start a new animation if one is running
         if (isDetailsUpdating) return; // Don't start a new animation if one is running
         isDetailsUpdating = true;
+        currentlyDisplayedTech = tech; // Store the currently displayed tech
 
         // 1. Start the fade-out animation
         detailsContent.classList.remove('details-fade-in');
+        detailsContent.classList.remove('details-fade-in'); // Always remove fade-in
         detailsContent.classList.add('details-fade-out');
 
         // 2. Wait for the fade-out to finish, then update content and fade in
@@ -635,8 +683,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Chain': '#17a2b8', 'Snapback': '#17a2b8', 'Crumple': '#17a2b8', 'Fatal': '#17a2b8'
             };
 
-            const activationHtml = tech.activation
-                ? `<div class="activation-details"><p><strong>Activation:</strong><br> ${tech.activation}</p></div>`
+            // --- Tactical Order Logic ---
+            let activationText = tech.activation; // Default to balanced
+            if (currentTacticalOrder === 'Offensive' && tech.activation_offensive) {
+                activationText = tech.activation_offensive;
+            } else if (currentTacticalOrder === 'Defensive' && tech.activation_defensive) {
+                activationText = tech.activation_defensive;
+            }
+            // Add a class to the activation block based on the current order
+            const orderClass = `order-${currentTacticalOrder.toLowerCase()}`;
+
+
+            const activationHtml = activationText
+                ? `<div class="activation-details ${orderClass}"><p><strong>Activation (${currentTacticalOrder}):</strong><br> ${activationText}</p></div>`
                 : '';
 
             const chainActivationHtml = tech.chain_requirements && tech.chain_requirements.length > 0
@@ -651,11 +710,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 }</p>`
                 : '';
 
+            const cooldownHtml = tech.cooldown
+                ? `<p><strong>Cooldown:</strong> ${tech.cooldown}s</p>`
+                : '';
+
             // 3. Update the innerHTML with the new technique details
             detailsContent.innerHTML = `
             <h3>${tech.name}</h3>
             <p><strong>Type:</strong> ${tech.type}</p>
             <p><strong>Discipline:</strong> ${Array.isArray(tech.discipline) ? tech.discipline.join(' / ') : tech.discipline}</p>
+            ${cooldownHtml}
             ${tagsHtml}
             <p><strong class="info-block">Description:</strong> ${tech.description}</p>
             ${activationHtml}
@@ -668,7 +732,13 @@ document.addEventListener('DOMContentLoaded', () => {
             detailsContent.classList.add('details-fade-in');
 
             // Reset the flag after a short delay to allow the new animation to start
-            setTimeout(() => { isDetailsUpdating = false; }, 50);
+            setTimeout(() => { isDetailsUpdating = false; }, skipAnimation ? 0 : 50);
+
+            // If skipping animation, immediately remove animation classes
+            if (skipAnimation) {
+                detailsContent.classList.remove('details-fade-in', 'details-fade-out');
+            }
+            setTimeout(() => { isDetailsUpdating = false; }, 300); // Match animation duration
         }, { once: true }); // {once: true} is a safer way to ensure the listener is auto-removed
     }
 
