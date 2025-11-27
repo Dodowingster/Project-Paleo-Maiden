@@ -52,6 +52,7 @@ The League Championships serve as the primary vehicle for narrative progression,
 | **Rival Introductions** | During world map exploration, potential rivals are introduced through random events, setting the stage for the high-stakes encounters in the final tournament. |
 | **Randomized Brackets** | The bracket seeding for the 16 competitors is **completely random** in each run. This ensures that each tournament playthrough is unique and unpredictable. |
 | **Narrative Replayability** | Because players are not guaranteed to face specific rivals, multiple playthroughs are encouraged to experience a Champion's full character arc and unlock all unique story events. |
+| **Rival Gifts & Bonds** | During map events, rivals may offer gifts (e.g., unique healing items, temporary stat boosts) or trigger deeper conversations. Positive outcomes can strengthen the bond, unlocking unique dialogue and even special "Bond Cards" for the deck. |
 
 ### Job Evolution (Optional Mastery)
 
@@ -74,6 +75,7 @@ Movement is governed by a **Dice Roll**, with players using **Paleo-Focus** to s
 | **Sparring Session** | **Combat & Primary Card Gain** | Win to gain **Fossil Funds** and a choice of **Reward Cards** (weighted by the opponent's class/species). |
 | **Dojo** | **Guaranteed Card Acquisition** | Spend **Fossil Funds** to purchase specific, color-coded **Discipline Cards** or expensive **Specialized Species Cards**. |
 | **Hot Spring** | **P-Magic Maintenance** | Spend **Fossil Funds** to buy **species-specific Curative Food Items** (with expiration timers) for small, immediate P-Magic recovery. |
+| **Heart-to-Heart** | **Relationship Building** | Spend **1 Turn** to trigger a narrative event with a chosen Rival. Success in dialogue can yield powerful, temporary buffs or unique "Bond Cards." |
 | **Academic Milestone** | **Mandatory Career Check** | **Permanent, high-difficulty Sparring Session** (must be won to qualify for the League Exam). |
 
 ---
@@ -87,15 +89,17 @@ Movement is governed by a **Dice Roll**, with players using **Paleo-Focus** to s
 
 ## IV. Combat System
 
-The system is a **Hybrid Automated Turn-Based** system designed to be quick, decisive, and driven by player-built deck synergy.
+The system is a **Hybrid Automated Turn-Based** system designed to be quick, decisive, and driven by the player's strategic preparation. It is centered around a player-defined **Equipment Loadout** rather than a traditional card deck.
 
 | Mechanic | Detail |
 | :--- | :--- |
-| **Deck Size** | **15-Card Maximum** (Base deck starts at 5-7 cards). A small size ensures high consistency and fast cycling. |
-| **Turn Flow** | **Draw 5 Cards.** AI automatically selects and plays **1 to 3** cards (prioritizing synergy/defense). Played cards are discarded; **unplayed cards are retained** for the next turn's strategy. |
-| **Card Types** | **Discipline Cards** (Generic utility/buffs, for Job Evolution count) **AND Species-Specific Cards** (Rare, powerful effects tied to specific defeated rivals). |
+| **Technique Collection** | The player collects **Combat Techniques** from map events. There is no limit to the number of techniques they can own. |
+| **Active Loadout** | Before a series of fights (like a tournament), the player equips **up to 5 Techniques** into their Active Loadout. This loadout defines their fighting style for the upcoming bouts. |
+| **Turn Flow** | On each combatant's turn, the system automatically selects and uses **one** of their equipped techniques. The selection can be random or follow a simple, pre-set priority. |
+| **Technique Types** | **Discipline Techniques** (Generic utility/buffs) **AND Species-Specific Techniques** (Rare, powerful effects tied to specific defeated rivals). |
+| **Initiative** | At the start of each combat turn, both combatants roll a die. The higher roll acts first for that turn. This keeps the turn order dynamic and unpredictable. |
 | **Perfect Victory** | Winning a spar without losing any P-Magic grants a bonus (e.g., Red Class gets an extra card). |
-| **Commentated Combat Log** | A live combat log narrates the fight with the flavor and energy of a sports commentator, using fighting game terminology to make the action exciting and easy for players to discuss. |
+| **Commentated Combat Log** | A live combat log narrates the fight with the flavor and energy of a sports commentator. It uses fighting game terminology (e.g., "punish," "combo," "whiff") to make the automated action exciting and easy for players to follow and discuss. |
 
 ---
 
@@ -133,13 +137,11 @@ This section breaks down the turn-by-turn gameplay loop and distinguishes betwee
 
 ### C. Initial Card Game Concepts
 
-| Mechanic | Initial Concept |
-| :--- | :--- |
-| **Deck Size** | Start with a 9-card deck; maximum deck size of 15. |
-| **Starting Deck (Red Example)** | **3x** Attack (3 Dmg), **3x** Guard (2 Block), **1x** Power Up (+1 power this turn), **1x** Damage Over Time, **1x** Heavy Hit (5 Dmg). |
-| **Turn Order** | A dice roll at the start of each combat turn determines who acts first. A higher roll goes first. |
-| **AI Logic** | The AI prioritizes playing cards based on a hierarchy: highest mana cost first, then by color, with generic cards being the lowest priority. |
-| **Combat Resolution** | Combat is simulated automatically turn-by-turn until one combatant's P-Magic is depleted. |
+This section is deprecated in favor of the **Equipment Loadout** system described in Section IV. The core ideas of collecting abilities and preparing for fights are retained, but the implementation is simplified to focus on a loadout of equipped techniques rather than a deck of cards.
+
+*   **Starting Loadout (Red Example):** A Red discipline champion might start with the techniques: `Basic Strike` (3 Dmg), `Guard` (2 Block), and `Power Up` (+1 power this turn).
+*   **AI Logic:** The AI's logic is now much simpler: on its turn, it activates one of its equipped techniques based on a straightforward priority (e.g., use a healing move if HP is low, otherwise use a random damage move).
+*   **Combat Resolution:** Combat is simulated automatically turn-by-turn until one combatant's P-Magic is depleted.
 
 ### D. Core Pillars of Fun
 
