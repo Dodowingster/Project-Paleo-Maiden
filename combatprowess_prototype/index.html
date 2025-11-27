@@ -24,6 +24,17 @@
             <!-- Character portraits will be loaded here by JS -->
         </div>
     </div>
+
+    <div id="tactical-order-panel" class="panel">
+        <h2>Tactical Order</h2>
+        <p>Set the general approach for your Maiden in combat. This can affect the activation of certain techniques.</p>
+        <div id="tactical-order-buttons">
+            <button class="tactical-order-btn" data-order="Offensive">Commando</button>
+            <button class="tactical-order-btn active" data-order="Balanced">Equilibrium</button>
+            <button class="tactical-order-btn" data-order="Defensive">Sentinel</button>
+        </div>
+    </div>
+
     <div class="container">
         <!-- Panel 1: All available techniques -->
         <div id="technique-list-container" class="panel">
@@ -38,7 +49,7 @@
             <h2>Combat Prowess</h2>
 
             <div id="hybrid-art-container" class="slot-section" style="display: none;">
-                <h4>Ancient Art</h4>
+                <h3>Ancient Art</h3>
                 <ul id="hybrid-art-slot" class="slot-container" data-slot-type="Ancient Art" data-max-slots="1">
                     <!-- Hybrid art will be injected here -->
                 </ul>

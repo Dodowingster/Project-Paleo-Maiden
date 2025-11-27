@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const detailsContent = document.getElementById('details-content');
     const characterListEl = document.getElementById('character-list');
     const BASE_PALEO_SLOTS = 5;
+    const tacticalOrderButtons = document.querySelectorAll('.tactical-order-btn');
     const BASE_SECRET_SLOTS = 2;
 
     // By embedding the data directly, we avoid CORS errors when running the file locally.
@@ -414,13 +415,28 @@ document.addEventListener('DOMContentLoaded', () => {
     let selectedCharacter = null;
     let draggedItem = null;
     let characterLoadouts = {}; // To store loadouts for each character
+    let currentTacticalOrder = 'Balanced'; // Default order
 
     // Load techniques from the embedded data
     techniques = PALEOARTS_DATA;
     createCharacterList();
     createFilterBar();
+    initializeTacticalOrders();
     // Select the first character by default
     selectCharacter(CHARACTERS[0]);
+
+    function initializeTacticalOrders() {
+        tacticalOrderButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                tacticalOrderButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to the clicked one
+                button.classList.add('active');
+                // Update the state
+                currentTacticalOrder = button.dataset.order;
+            });
+        });
+    }
 
     function createFilterBar() {
         const listContainer = document.getElementById('technique-list-container');
@@ -620,7 +636,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             const activationHtml = tech.activation
-                ? `<p><strong>Activation:</strong> ${tech.activation}</p>`
+                ? `<div class="activation-details"><p><strong>Activation:</strong><br> ${tech.activation}</p></div>`
                 : '';
 
             const chainActivationHtml = tech.chain_requirements && tech.chain_requirements.length > 0
@@ -642,8 +658,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <p><strong>Discipline:</strong> ${Array.isArray(tech.discipline) ? tech.discipline.join(' / ') : tech.discipline}</p>
             ${tagsHtml}
             <p><strong class="info-block">Description:</strong> ${tech.description}</p>
+            ${activationHtml}
             ${chainActivationHtml}
-            ${activationHtml.replace('<strong>', '<strong class="info-block">')}
             <p><strong class="info-block">Effect:</strong> ${tech.effect}</p>
             `;
 

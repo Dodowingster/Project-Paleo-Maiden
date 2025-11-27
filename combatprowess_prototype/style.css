@@ -339,6 +339,59 @@ h3 {
     color: var(--color-heading);
 }
 
+/* --- Activation Details Block --- */
+.activation-details {
+    background-color: rgba(194, 8, 122, 0.03);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+    margin-top: 1rem;
+}
+
+.activation-details p {
+    margin: 0;
+    /* Reset margin for paragraphs inside this block */
+}
+
+/* --- Tactical Order Panel --- */
+#tactical-order-panel {
+    width: 100%;
+    max-width: 1070px;
+    text-align: center;
+}
+
+#tactical-order-panel p {
+    margin-top: -10px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    color: var(--color-text);
+}
+
+#tactical-order-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.tactical-order-btn {
+    padding: 0.6rem 1.2rem;
+    border: 2px solid var(--color-border);
+    background-color: transparent;
+    color: var(--color-text);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+}
+
+.tactical-order-btn:hover,
+.tactical-order-btn.active {
+    background-color: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent);
+}
+
 #filter-bar {
     display: flex;
     gap: 0.5rem;
