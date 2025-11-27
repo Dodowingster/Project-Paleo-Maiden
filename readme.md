@@ -52,11 +52,11 @@ The League Championships serve as the primary vehicle for narrative progression,
 | **Rival Introductions** | During world map exploration, potential rivals are introduced through random events, setting the stage for the high-stakes encounters in the final tournament. |
 | **Randomized Brackets** | The bracket seeding for the 16 competitors is **completely random** in each run. This ensures that each tournament playthrough is unique and unpredictable. |
 | **Narrative Replayability** | Because players are not guaranteed to face specific rivals, multiple playthroughs are encouraged to experience a Champion's full character arc and unlock all unique story events. |
-| **Rival Gifts & Bonds** | During map events, rivals may offer gifts (e.g., unique healing items, temporary stat boosts) or trigger deeper conversations. Positive outcomes can strengthen the bond, unlocking unique dialogue and even special "Bond Cards" for the deck. |
+| **Rival Gifts & Bonds** | During map events, rivals may offer gifts (e.g., unique healing items, temporary stat boosts) or trigger deeper conversations. Positive outcomes can strengthen the bond, unlocking unique dialogue and even special **"Bond Techniques"** for the loadout. |
 
 ### Job Evolution (Optional Mastery)
 
-**Job Evolution** is an entirely optional system of specialization that provides powerful **passive stat buffs** (e.g., +Max P-Magic, +Damage Multiplier). It is achieved by meeting specific card counts for color combinations.
+**Job Evolution** is an entirely optional system of specialization that provides powerful **passive stat buffs** (e.g., +Max P-Magic, +Damage Multiplier). It is achieved by meeting specific **Technique** counts for color combinations.
 
 | Example Path | Discipline Focus | Resulting Job Title |
 | :--- | :--- | :--- |
@@ -72,17 +72,17 @@ Movement is governed by a **Dice Roll**, with players using **Paleo-Focus** to s
 
 | Space Name | Core Function | Action/Event Triggered |
 | :--- | :--- | :--- |
-| **Sparring Session** | **Combat & Primary Card Gain** | Win to gain **Fossil Funds** and a choice of **Reward Cards** (weighted by the opponent's class/species). |
-| **Dojo** | **Guaranteed Card Acquisition** | Spend **Fossil Funds** to purchase specific, color-coded **Discipline Cards** or expensive **Specialized Species Cards**. |
+| **Sparring Session** | **Combat & Primary Technique Gain** | Win to gain **Fossil Funds** and a choice of **Reward Techniques** (weighted by the opponent's class/species). |
+| **Dojo** | **Guaranteed Technique Acquisition** | Spend **Fossil Funds** to purchase specific, color-coded **Discipline Techniques** or expensive **Specialized Species Techniques**. |
 | **Hot Spring** | **P-Magic Maintenance** | Spend **Fossil Funds** to buy **species-specific Curative Food Items** (with expiration timers) for small, immediate P-Magic recovery. |
-| **Heart-to-Heart** | **Relationship Building** | Spend **1 Turn** to trigger a narrative event with a chosen Rival. Success in dialogue can yield powerful, temporary buffs or unique "Bond Cards." |
+| **Heart-to-Heart** | **Relationship Building** | Spend **1 Turn** to trigger a narrative event with a chosen Rival. Success in dialogue can yield powerful, temporary buffs or unique **"Bond Techniques."** |
 | **Academic Milestone** | **Mandatory Career Check** | **Permanent, high-difficulty Sparring Session** (must be won to qualify for the League Exam). |
 
 ---
 
 | Mechanic | Detail | **Unique Green Class Integration** |
 | :--- | :--- | :--- |
-| **Campsite (Rest)** | Available via **Menu/UI** on any turn. **Cost:** 1 Turn. **Benefit:** Major P-Magic Recovery (75% HP) **PLUS** one random Discipline Card of the Champion's base color. | **Double Time:** Green can **reject the random card gain** to receive an **extra dice roll** for immediate movement after resting, sacrificing passive learning for aggressive flow. |
+| **Campsite (Rest)** | Available via **Menu/UI** on any turn. **Cost:** 1 Turn. **Benefit:** Major P-Magic Recovery (75% HP) **PLUS** one random Discipline Technique of the Champion's base color. | **Double Time:** Green can **reject the random technique gain** to receive an **extra dice roll** for immediate movement after resting, sacrificing passive learning for aggressive flow. |
 | **League Exam** | **Automatic Trigger** when **all Academic Milestones for the Year are cleared**. | The final boss tournament for the Year, required for qualification. |
 
 ---
@@ -98,7 +98,7 @@ The system is a **Hybrid Automated Turn-Based** system designed to be quick, dec
 | **Turn Flow** | On each combatant's turn, the system automatically selects and uses **one** of their equipped techniques. The selection can be random or follow a simple, pre-set priority. |
 | **Technique Types** | **Discipline Techniques** (Generic utility/buffs) **AND Species-Specific Techniques** (Rare, powerful effects tied to specific defeated rivals). |
 | **Initiative** | At the start of each combat turn, both combatants roll a die. The higher roll acts first for that turn. This keeps the turn order dynamic and unpredictable. |
-| **Perfect Victory** | Winning a spar without losing any P-Magic grants a bonus (e.g., Red Class gets an extra card). |
+| **Perfect Victory** | Winning a spar without losing any P-Magic grants a bonus (e.g., extra Fossil Funds, a temporary buff). |
 | **Commentated Combat Log** | A live combat log narrates the fight with the flavor and energy of a sports commentator. It uses fighting game terminology (e.g., "punish," "combo," "whiff") to make the automated action exciting and easy for players to follow and discuss. |
 
 ---
@@ -108,10 +108,10 @@ The system is a **Hybrid Automated Turn-Based** system designed to be quick, dec
 
 | Color/Discipline | Combat Focus | Unique Passive Combat Ability | Unique Board/Flow Ability |
 | :--- | :--- | :--- | :--- |
-| **🔴 Red** | **Raw Power & Scaling Damage.** | **Power Surge:** Applies **+1 damage** to all attacks for each turn that passes in combat (resets after fight). | **Killing Streak:** Draw an extra card after **3 consecutive wins** in Sparring/Milestones. |
-| **🔵 Blue** | **Defense & Consistency.** | **Arcane Ward:** Starts every combat with a **+2 Arcane Shield**. | **Scholarly Insight:** Chooses from **4 Reward Cards** instead of 3 after any spar win. |
-| **🟢 Green** | **Speed & Precision.** | **First Strike:** Applies a **+3 bonus** to their first attack card played in combat. | **Double Time:** Can **reject the free card** from the Campsite to gain an **extra dice roll** upon completion of the rest. |
-| **🟡 Yellow** | **Durability & Damage Reduction.** | **Natural Resilience:** Passive **-1 damage reduction** from all incoming attacks. | **Strategic Insight:** After any spar win, the player can **reshuffle the presented Reward Cards** and draw a new set of 3/4 random cards from the pool. |
+| **🔴 Red** | **Raw Power & Scaling Damage.** | **Power Surge:** Applies **+1 damage** to all attacks for each turn that passes in combat (resets after fight). | **Killing Streak:** After **3 consecutive wins**, gain a choice of one bonus "Spoils of Victory" common technique. |
+| **🔵 Blue** | **Defense & Consistency.** | **Arcane Ward:** Starts every combat with a **+2 Arcane Shield**. | **Scholarly Insight:** Chooses from **4 Reward Techniques** instead of 3 after any spar win. |
+| **🟢 Green** | **Speed & Precision.** | **First Strike:** Applies a **+3 bonus** to their first attack technique used in combat. | **Double Time:** Can **reject the free technique** from the Campsite to gain an **extra dice roll** upon completion of the rest. |
+| **🟡 Yellow** | **Durability & Damage Reduction.** | **Natural Resilience:** Passive **-1 damage reduction** from all incoming attacks. | **Strategic Insight:** After any spar win, the player can **reshuffle the presented Reward Techniques** and draw a new set of 3/4 random techniques from the pool. |
 
 ---
 
@@ -131,17 +131,17 @@ This section breaks down the turn-by-turn gameplay loop and distinguishes betwee
 
 | Element Type | Description | Examples |
 | :--- | :--- | :--- |
-| **Constants** | Core rules and structures that are fixed for every playthrough. | • Fixed World Map Layout<br>• 3-Year Course Structure<br>• Standard 24 Turns per Year<br>• Predetermined Starting Decks for each Champion |
-| **Player Choices** | Key decisions the player makes to influence the outcome of the run. | • Selecting the starting Champion<br>• Choosing a path after a dice roll<br>• Purchasing items from the Dojo/Hot Spring<br>• Selecting a Reward Card after a victory<br>• Deciding when to use the Campsite to rest (limited uses) |
-| **Random (RNG)** | Elements of chance that introduce unpredictability and replayability. | • Dice Roll result (1-6)<br>• Card options presented in post-combat Rewards<br>• Card draw order during combat<br>• Specific events on certain map spaces (e.g., rival encounters, shops, sparring) |
+| **Constants** | Core rules and structures that are fixed for every playthrough. | • Fixed World Map Layout<br>• 3-Year Course Structure<br>• Standard 24 Turns per Year<br>• Predetermined Starting **Loadouts** for each Champion |
+| **Player Choices** | Key decisions the player makes to influence the outcome of the run. | • Selecting the starting Champion<br>• Choosing a path after a dice roll<br>• Purchasing items from the Dojo/Hot Spring<br>• Selecting a Reward **Technique** after a victory<br>• Deciding when to use the Campsite to rest (limited uses) |
+| **Random (RNG)** | Elements of chance that introduce unpredictability and replayability. | • Dice Roll result (1-6)<br>• **Technique** options presented in post-combat Rewards<br>• **Technique activation order** during combat<br>• Specific events on certain map spaces (e.g., rival encounters, shops, sparring) |
 
-### C. Initial Card Game Concepts
+### ~~C. Initial Card Game Concepts~~
 
-This section is deprecated in favor of the **Equipment Loadout** system described in Section IV. The core ideas of collecting abilities and preparing for fights are retained, but the implementation is simplified to focus on a loadout of equipped techniques rather than a deck of cards.
+~~This section is deprecated in favor of the **Equipment Loadout** system described in Section IV. The core ideas of collecting abilities and preparing for fights are retained, but the implementation is simplified to focus on a loadout of equipped techniques rather than a deck of cards.~~
 
-*   **Starting Loadout (Red Example):** A Red discipline champion might start with the techniques: `Basic Strike` (3 Dmg), `Guard` (2 Block), and `Power Up` (+1 power this turn).
-*   **AI Logic:** The AI's logic is now much simpler: on its turn, it activates one of its equipped techniques based on a straightforward priority (e.g., use a healing move if HP is low, otherwise use a random damage move).
-*   **Combat Resolution:** Combat is simulated automatically turn-by-turn until one combatant's P-Magic is depleted.
+*   ~~**Starting Loadout (Red Example):** A Red discipline champion might start with the techniques: `Basic Strike` (3 Dmg), `Guard` (2 Block), and `Power Up` (+1 power this turn).~~
+*   ~~**AI Logic:** The AI's logic is now much simpler: on its turn, it activates one of its equipped techniques based on a straightforward priority (e.g., use a healing move if HP is low, otherwise use a random damage move).~~
+*   ~~**Combat Resolution:** Combat is simulated automatically turn-by-turn until one combatant's P-Magic is depleted.~~
 
 ### D. Core Pillars of Fun
 
