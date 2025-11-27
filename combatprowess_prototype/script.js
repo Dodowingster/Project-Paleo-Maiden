@@ -1266,3 +1266,125 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial call to set the headers correctly
     updateJobEvolution();
 });
+
+/**
+ * A lightweight polyfill for enabling HTML5 drag-and-drop on touch devices.
+ *
+ * This script listens for touch events and dispatches corresponding mouse events
+ * to make drag-and-drop work seamlessly on mobile.
+ *
+ * @license: MIT
+ */
+function enableTouchDragAndDrop() {
+    // A map of touch events to their corresponding mouse events
+    const eventMap = {
+        touchstart: 'mousedown',
+        touchmove: 'mousemove',
+        touchend: 'mouseup'
+    };
+
+    // The element currently being dragged
+    let lastTouch = null;
+    let draggedElement = null;
+
+    /**
+     * Checks if an element is a valid drag-and-drop target.
+     * @param {Event} event - The touch event.
+     * @returns {HTMLElement|null} The draggable element or null.
+     */
+    function getDraggableElement(event) {
+        let element = event.target;
+        while (element) {
+            if (element.draggable) {
+                return element;
+            }
+            element = element.parentElement;
+        }
+        return null;
+    }
+
+    /**
+     * Creates and dispatches a simulated mouse event from a touch event.
+     * @param {Event} originalEvent - The original touch event.
+     * @param {string} type - The type of mouse event to create (e.g., 'mousedown').
+     * @param {HTMLElement} target - The element to dispatch the event on.
+     */
+    function dispatchMouseEvent(originalEvent, type, target) {
+        const touch = originalEvent.changedTouches[0];
+        const simulatedEvent = new MouseEvent(type, {
+            bubbles: true,
+            cancelable: true,
+            view: window,
+            detail: 1,
+            screenX: touch.screenX,
+            screenY: touch.screenY,
+            clientX: touch.clientX,
+            clientY: touch.clientY,
+            ctrlKey: false,
+            altKey: false,
+            shiftKey: false,
+            metaKey: false,
+            button: 0,
+            relatedTarget: null
+        });
+        target.dispatchEvent(simulatedEvent);
+    }
+
+    /**
+     * Handles the start of a touch event.
+     * @param {Event} event - The touchstart event.
+     */
+    function onTouchStart(event) {
+        const element = getDraggableElement(event);
+        if (element) {
+            // Prevent default touch behavior like scrolling
+            event.preventDefault();
+            lastTouch = event;
+            draggedElement = element;
+            // Dispatch a mousedown event to trigger the dragstart logic
+            dispatchMouseEvent(event, 'mousedown', element);
+        }
+    }
+
+    /**
+     * Handles the movement of a touch.
+     * @param {Event} event - The touchmove event.
+     */
+    function onTouchMove(event) {
+        if (lastTouch && draggedElement) {
+            event.preventDefault();
+            // Dispatch a mousemove event to trigger dragover/dragenter/dragleave
+            dispatchMouseEvent(event, 'mousemove', document.elementFromPoint(event.touches[0].clientX, event.touches[0].clientY));
+            lastTouch = event;
+        }
+    }
+
+    /**
+     * Handles the end of a touch event.
+     * @param {Event} event - The touchend event.
+     */
+    function onTouchEnd(event) {
+        if (lastTouch && draggedElement) {
+            event.preventDefault();
+            // Find the element under the touch point
+            const dropTarget = document.elementFromPoint(lastTouch.changedTouches[0].clientX, lastTouch.changedTouches[0].clientY);
+            if (dropTarget) {
+                // Dispatch a mouseup event to trigger the drop logic
+                dispatchMouseEvent(lastTouch, 'mouseup', dropTarget);
+            }
+            lastTouch = null;
+            draggedElement = null;
+        }
+    }
+
+    // Add event listeners to the document
+    document.addEventListener('touchstart', onTouchStart, { passive: false });
+    document.addEventListener('touchmove', onTouchMove, { passive: false });
+    document.addEventListener('touchend', onTouchEnd, { passive: false });
+    document.addEventListener('touchcancel', onTouchEnd, { passive: false });
+
+    console.log('Touch drag-and-drop enabled.');
+}
+
+// Initialize the polyfill when the DOM is ready
+document.addEventListener('DOMContentLoaded', enableTouchDragAndDrop);
