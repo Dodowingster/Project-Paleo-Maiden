@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paleo-Maiden Championship: GDD</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Lato:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="gdd.css">
+
+</head>
+
+<body>
+    <div class="profile-container">
+        <nav class="breadcrumb">
+            <!-- This path assumes the file will be in a subdirectory like /character-designs/carnotaurus/ -->
+            <a href="../index.html">&larr; Back to Home</a>
+        </nav>
+
+        <h1>Paleo-Maiden Championship: Game Design Documentation</h1>
+
+        <nav class="main-nav" aria-labelledby="nav-heading">
+            <h2 id="nav-heading">Table of Contents</h2>
+            <ul>
+                <li><a href="#i-lore--world-building">Lore &amp; World-Building</a></li>
+                <li><a href="#ii-core-progression--high-stakes-qualification">Core Progression &amp; High-Stakes
+                        Qualification</a>
+                    <ul>
+                        <li><a href="#-final-league-championship-structure-16-competitors">Final League Championship
+                                Structure</a></li>
+                        <li><a href="#job-evolution-optional-mastery">Job Evolution (Optional Mastery)</a></li>
+                    </ul>
+                </li>
+                <li><a href="#iii-world-map-spaces--mechanics">World Map Spaces &amp; Mechanics</a></li>
+                <li><a href="#iv-combat-system">Combat System</a>
+                    <ul>
+                        <li><a href="#a-technique-synergy--combos">Technique Synergy &amp; Combos</a></li>
+                        <li><a href="#b-arena-biomes--affinities">Arena Biomes &amp; Affinities</a></li>
+                    </ul>
+                </li>
+                <li><a href="#v-finalized-class-disciplines">Finalized Class Disciplines</a></li>
+                <li><a href="#vi-core-gameplay-loop--player-agency">Core Gameplay Loop &amp; Player Agency</a>
+                    <ul>
+                        <li><a href="#a-turn-structure-24-turns-per-year">Turn Structure</a></li>
+                        <li><a href="#b-game-variables">Game Variables</a></li>
+                        <li><a href="#c-core-pillars-of-fun">Core Pillars of Fun</a></li>
+                    </ul>
+                </li>
+                <li><a href="#vii-combat-philosophy--design-inspiration">Combat Philosophy &amp; Design Inspiration</a>
+                    <ul>
+                        <li><a href="#a-the-coach-trainer-combat-model">The "Coach/Trainer" Combat Model</a></li>
+                        <li><a href="#b-abstracted-training-capabilities-over-stats">Abstracted Training: "Capabilities
+                                over
+                                Stats"</a></li>
+                        <li><a href="#c-alignment-with-existing-game-design">Alignment with Existing Game Design</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#viii-design-evolution-summary-tldr">Design Evolution Summary (tl;dr)</a></li>
+            </ul>
+        </nav>
+        <h2 id="i-lore--world-building">I. Lore &amp; World-Building</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Aspect</th>
+                    <th style="text-align: left;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;"><strong>Theme &amp; Setting</strong></td>
+                    <td style="text-align: left;"><strong>Anthropomorphic Paleo Maidens University.</strong> The game
+                        takes place on the <strong>Primeval Continents</strong>, vast, primordial landscapes that serve
+                        as sacred training grounds for the Stratum Institute.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Primary Goal</strong></td>
+                    <td style="text-align: left;">Win the <strong>Paleo World Championship (World Cup)</strong> at the
+                        end of the third-year Cretaceous League.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Magic System</strong></td>
+                    <td style="text-align: left;"><strong>Paleo-Magic (P-Magic):</strong> The manifestation of a
+                        Maiden's primal energy, serving as their <strong>Health Pool</strong>. Attacks deplete P-Magic
+                        by inflicting the intense neurological <em>sensation</em> of injury, leading to exhaustion and
+                        defeat without causing physical harm.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Player Role</strong></td>
+                    <td style="text-align: left;">The player is a <strong>Lecturer</strong> at the Stratum Institute,
+                        acting as a mentor who selects a Paleo Maiden Champion and guides them through their academic
+                        and competitive journey.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Progression Basis</strong></td>
+                    <td style="text-align: left;">The core gameplay is the <strong>3-Year Great Expedition</strong>, a
+                        "world tour" across the Primeval Continents. Each year is a 24-turn campaign that culminates in
+                        a high-stakes League Championship.</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 id="ii-core-progression--high-stakes-qualification">II. Core Progression &amp; High-Stakes Qualification
+        </h2>
+        <p>The run structure is defined by three escalating leagues. <strong>Failure to qualify ends the run
+                immediately.</strong></p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">League (Year)</th>
+                    <th style="text-align: left;">Geographic Scope</th>
+                    <th style="text-align: left;">Qualification Requirement</th>
+                    <th style="text-align: left;">Consequence of Failure</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;"><strong>Triassic League</strong> (Year 1)</td>
+                    <td style="text-align: left;"><strong>Pangaea</strong> (Initial Map)</td>
+                    <td style="text-align: left;"><strong>Win or Reach Top 8 out of 16 competitors</strong> in the Final
+                        Tournament.</td>
+                    <td style="text-align: left;"><strong>Career Ends.</strong></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Jurassic League</strong> (Year 2)</td>
+                    <td style="text-align: left;"><strong>Laurasia &amp; Gondwana</strong> (Map Expanded)</td>
+                    <td style="text-align: left;"><strong>Win or Reach Top 8 out of 16 competitors</strong> in the Final
+                        Tournament.</td>
+                    <td style="text-align: left;"><strong>Career Ends.</strong></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Cretaceous League</strong> (Year 3)</td>
+                    <td style="text-align: left;"><strong>Global Arena</strong> (Full Map)</td>
+                    <td style="text-align: left;"><strong>Win the Paleo-Magic Championship</strong> (Finals).</td>
+                    <td style="text-align: left;"><strong>Career Ends.</strong></td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 id="-final-league-championship-structure-16-competitors">🏆 Final League Championship Structure (16
+            Competitors)</h2>
+        <p>The end-of-year <strong>League Championships</strong> are high-stakes, <strong>double-elimination
+                tournaments</strong>. The preparation rules enforce the strategic importance of sustained durability.
+        </p>
+        <h3 id="a-match-preparation-rules-final-p-magic-condition">A. Match Preparation Rules (Final P-Magic Condition)
+        </h3>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Match</th>
+                    <th style="text-align: left;">P-Magic Condition Rule</th>
+                    <th style="text-align: left;">Strategic Impact</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;"><strong>First Bout</strong> (Round 1)</td>
+                    <td style="text-align: left;">The Champion begins the first bout with their <strong>P-Magic Pool
+                            exactly as it was</strong> when the League Exam was triggered.</td>
+                    <td style="text-align: left;">Maintains the tension of the <strong>24-Turn Cycle</strong>, forcing
+                        the player to spend final turns on healing to avoid starting the tournament at a massive
+                        disadvantage.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Subsequent Bouts</strong> (Rounds 2+)</td>
+                    <td style="text-align: left;">The Champion's <strong>P-Magic Pool is partially recovered</strong>,
+                        setting it to <strong>50% of Max P-Magic</strong> before the start of the next match.</td>
+                    <td style="text-align: left;">Forces the Champion to demonstrate sustained durability. Champions
+                        with low starting P-Magic (like Blue) must now use defensive/healing cards throughout the
+                        tournament to survive successive rounds.</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 id="b-tournament-flow-double-elimination">B. Tournament Flow (Double Elimination)</h3>
+        <p>The tournament utilizes a double-elimination bracket, rewarding a single loss recovery.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Bracket Path</th>
+                    <th style="text-align: left;">Goal</th>
+                    <th style="text-align: left;">Consequence of Loss</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;"><strong>Winners Bracket</strong></td>
+                    <td style="text-align: left;">The path to the Championship without a single loss.</td>
+                    <td style="text-align: left;"><strong>Drops to the Losers Bracket.</strong> Still has one chance for
+                        qualification.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Losers Bracket</strong></td>
+                    <td style="text-align: left;">The path to securing Top 8 qualification after one previous loss.</td>
+                    <td style="text-align: left;"><strong>Career Ends.</strong> The Paleo Maiden is immediately
+                        disqualified.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Achievement</strong></td>
+                    <td style="text-align: left;"><strong>Comeback Specialist:</strong> Winning the League after
+                        dropping into and winning through the Losers Bracket.</td>
+                    <td style="text-align: left;">Unlocks a special achievement/reward.</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 id="c-rival-arcs--narrative-progression">C. Rival Arcs &amp; Narrative Progression</h3>
+        <p>The League Championships serve as the primary vehicle for narrative progression, framed as <strong>Rival
+                Arcs</strong> that explore the personal stories of each Paleo Maiden.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Feature</th>
+                    <th style="text-align: left;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;"><strong>Rival Introductions</strong></td>
+                    <td style="text-align: left;">During world map exploration, potential rivals are introduced through
+                        random events, setting the stage for the high-stakes encounters in the final tournament.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Randomized Brackets</strong></td>
+                    <td style="text-align: left;">The bracket seeding for the 16 competitors is <strong>completely
+                            random</strong> in each run. This ensures that each tournament playthrough is unique and
+                        unpredictable.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Narrative Replayability</strong></td>
+                    <td style="text-align: left;">Because players are not guaranteed to face specific rivals, multiple
+                        playthroughs are encouraged to experience a Champion's full character arc and unlock all unique
+                        story events.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Rival Gifts &amp; Bonds</strong></td>
+                    <td style="text-align: left;">During map events, rivals may offer gifts (e.g., unique healing items,
+                        temporary stat boosts) or trigger deeper conversations. Positive outcomes can strengthen the
+                        bond, unlocking unique dialogue and even special <strong>"Bond Techniques"</strong> for the
+                        loadout.</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 id="job-evolution-optional-mastery">Job Evolution (Optional Mastery)</h3>
+        <p><strong>Job Evolution</strong> is an entirely optional system of specialization that expands a Maiden's
+            <strong>Combat Prowess</strong>. It is achieved by meeting specific <strong>Technique</strong> counts for
+            color combinations, and its primary reward is unlocking additional slots for Paleo Arts and Secret Arts.
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Example Path</th>
+                    <th style="text-align: left;">Discipline Focus</th>
+                    <th style="text-align: left;">Resulting Job Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;"><strong>Single-Discipline</strong> (e.g., 10 Red Techniques)</td>
+                    <td style="text-align: left;">Raw Power</td>
+                    <td style="text-align: left;"><strong>Barbarian Tyran Rex</strong> (+1 Paleo Art Slot)</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Hybrid Discipline</strong> (e.g., 7 Red + 7 Blue)</td>
+                    <td style="text-align: left;">Power &amp; Defense</td>
+                    <td style="text-align: left;"><strong>Mystic Spearhand Tyran Rex</strong> (+1 Paleo Art, +1 Secret
+                        Art Slot)</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Hybrid Discipline</strong> (e.g., 7 Green + 7 Blue)</td>
+                    <td style="text-align: left;">Speed &amp; Magic</td>
+                    <td style="text-align: left;"><strong>Boxing Magus Sastrei Taurus</strong> (+2 Paleo Art Slots)</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 id="iii-world-map-spaces--mechanics">III. World Map Spaces &amp; Mechanics</h2>
+        <p>Movement is governed by a <strong>Dice Roll</strong>, with players using <strong>Paleo-Focus</strong> to
+            strategically control their landing spot. Each action costs a turn and players are given <strong>24 turns
+                per year</strong>.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Space Name</th>
+                    <th style="text-align: left;">Core Function</th>
+                    <th style="text-align: left;">Action/Event Triggered</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;"><strong>Sparring Session</strong></td>
+                    <td style="text-align: left;"><strong>Combat &amp; Primary Technique Gain</strong></td>
+                    <td style="text-align: left;">Win to gain <strong>Fossil Funds</strong> and a choice of
+                        <strong>Reward Techniques</strong> (weighted by the opponent's class/species).
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Dojo</strong></td>
+                    <td style="text-align: left;"><strong>Guaranteed Technique Acquisition</strong></td>
+                    <td style="text-align: left;">Spend <strong>Fossil Funds</strong> to purchase specific, color-coded
+                        <strong>Discipline Techniques</strong> or expensive <strong>Specialized Species
+                            Techniques</strong>.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Hot Spring</strong></td>
+                    <td style="text-align: left;"><strong>P-Magic Maintenance</strong></td>
+                    <td style="text-align: left;">Spend <strong>Fossil Funds</strong> to buy <strong>species-specific
+                            Curative Food Items</strong> (with expiration timers) for small, immediate P-Magic recovery.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Heart-to-Heart</strong></td>
+                    <td style="text-align: left;"><strong>Relationship Building</strong></td>
+                    <td style="text-align: left;">Spend <strong>1 Turn</strong> to trigger a narrative event with a
+                        chosen Rival. Success in dialogue can yield powerful, temporary buffs or unique <strong>"Bond
+                            Techniques."</strong></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Academic Milestone</strong></td>
+                    <td style="text-align: left;"><strong>Mandatory Career Check</strong></td>
+                    <td style="text-align: left;"><strong>Permanent, high-difficulty Sparring Session</strong> (must be
+                        won to qualify for the League Exam).</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Mechanic</th>
+                    <th style="text-align: left;">Detail</th>
+                    <th style="text-align: left;"><strong>Unique Green Class Integration</strong></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;"><strong>Campsite (Rest)</strong></td>
+                    <td style="text-align: left;">Available via <strong>Menu/UI</strong> on any turn.
+                        <strong>Cost:</strong> 1 Turn. <strong>Benefit:</strong> Major P-Magic Recovery (75% HP)
+                        <strong>PLUS</strong> one random Discipline Technique of the Champion's base color.
+                    </td>
+                    <td style="text-align: left;"><strong>Double Time:</strong> Green can <strong>reject the random
+                            technique gain</strong> to receive an <strong>extra dice roll</strong> for immediate
+                        movement after resting, sacrificing passive learning for aggressive flow.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>League Exam</strong></td>
+                    <td style="text-align: left;"><strong>Automatic Trigger</strong> when <strong>all Academic
+                            Milestones for the Year are cleared</strong>.</td>
+                    <td style="text-align: left;">The final boss tournament for the Year, required for qualification.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="iv-combat-system">IV. Combat System</h2>
+        <p>The system is a <strong>Hybrid Automated Real-Time</strong> system designed to be fast, fluid, and driven by
+            the player's strategic preparation. It is centered around a player-defined <strong>Combat Prowess</strong>
+            rather than a traditional card deck.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Mechanic</th>
+                    <th style="text-align: left;">Detail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;"><strong>Technique Collection</strong></td>
+                    <td style="text-align: left;">The player collects <strong>Paleo Arts</strong> from map events. There
+                        is no limit to the number of techniques they can own. Defeating strong rivals grant Stronger
+                        Paleo Arts and also higher chance to get <strong>Secret Arts</strong></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Combat Prowess</strong></td>
+                    <td style="text-align: left;">Before a match, the player prepares their strategy by equipping
+                        techniques into their <strong>Combat Prowess</strong>. The base consists of <strong>5 Paleo Arts
+                            (Active)</strong> and <strong>2 Secret Arts (Reserve)</strong>, with more slots unlockable
+                        via Job Evolution.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Paleo Arts (Active)</strong></td>
+                    <td style="text-align: left;">The core of the game plan. In real-time combat, the AI automatically
+                        uses these techniques as they come off their individual <strong>cooldowns</strong>.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Secret Arts (Reserve)</strong></td>
+                    <td style="text-align: left;">Holds techniques that are not used in the normal turn-by-turn
+                        rotation. Their purpose is to fulfill the requirements for <strong>Catalyst Combos</strong> and
+                        to be activated by <strong>Chain Properties</strong>, allowing for complex synergies without
+                        clogging the main loadout.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Tactical Orders</strong></td>
+                    <td style="text-align: left;">A high-level instruction (e.g., "All-Out Blitz," "Patient Counter")
+                        that influences the AI's selection priority when multiple Paleo Arts are off cooldown
+                        simultaneously.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Technique Types</strong></td>
+                    <td style="text-align: left;"><strong>Discipline Techniques</strong> (Generic utility/buffs)
+                        <strong>AND Species-Specific Techniques</strong> (Rare, powerful effects tied to specific
+                        defeated rivals).
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Arena Affinity</strong></td>
+                    <td style="text-align: left;">The battle arena's biome can influence combat. Maidens with a natural
+                        affinity for the environment may have specific Paleo/Secret Arts boosted, increasing their
+                        effects and/or activation chance when fighting on their home turf.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Perfect Victory</strong></td>
+                    <td style="text-align: left;">Winning a spar without losing any P-Magic grants a bonus (e.g., extra
+                        Fossil Funds, a temporary buff).</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Commentated Combat Log</strong></td>
+                    <td style="text-align: left;">A live combat log narrates the fight with the flavor and energy of a
+                        sports commentator. It uses fighting game terminology (e.g., "punish," "combo," "whiff") to make
+                        the automated action exciting and easy for players to follow and discuss.</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 id="a-technique-synergy--combos">A. Technique Synergy &amp; Combos</h3>
+        <p>To capture the feel of fighting game combos and reward deep strategic planning, certain techniques can
+            interact with each other to produce powerful effects. This encourages players to think about their
+            <strong>Combat Prowess</strong> not just as a list of moves, but as a potential engine for combos.
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Synergy Type</th>
+                    <th style="text-align: left;">Description &amp; Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;"><strong>Catalyst Combos</strong></td>
+                    <td style="text-align: left;"><strong>Strategic Preparation.</strong> A "Catalyst" technique in a
+                        <strong>Paleo Art</strong> slot transforms into a powerful combo move if its required
+                        "ingredient" techniques are equipped in the <strong>Secret Arts</strong> slots. <br>
+                        <em>Example:</em> Placing <code>[Catalyst: Predator's Focus]</code> in a Paleo Art slot and
+                        <code>Claw Slash</code> + <code>Charging Pounce</code> in Secret Arts slots unlocks
+                        <strong><code>Raptor's Fury</code></strong>.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Chain Properties</strong></td>
+                    <td style="text-align: left;"><strong>Dynamic Execution.</strong> A technique in a <strong>Paleo
+                            Art</strong> slot with a "Chain" property has a chance to immediately trigger a compatible
+                        technique from either the Paleo Arts or <strong>Secret Arts</strong> slots. <br>
+                        <em>Example:</em> <code>Iai Stance</code> can now "Chain" into a powerful 'Strike' technique
+                        you've placed in a Secret Art slot specifically for this purpose.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>This system translates the "combo input" of a fighting game into the strategic preparation phase, creating
+            deep satisfaction when a player's carefully crafted <strong>Combat Prowess</strong> unleashes a unique and
+            powerful combo in the heat of battle.</p>
+        <h3 id="b-arena-biomes--affinities">B. Arena Biomes &amp; Affinities</h3>
+        <p>The location of a battle is a critical strategic factor. Each tournament match takes place in a specific
+            biome on the Primeval Continents, and Maidens whose ancestry is tied to that environment gain a significant
+            "home field advantage."</p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Arena Biome</th>
+                    <th style="text-align: left;">Description &amp; Affinity Effect</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;"><strong>Lush Floodplain</strong></td>
+                    <td style="text-align: left;">A swampy delta crisscrossed by deep rivers. <strong>Affinity:</strong>
+                        Boosts the effects and activation chance of water-based or semi-aquatic Paleo/Secret Arts. For
+                        example, <strong>Aegypt Spino's</strong> "River Hunter" Secret Art becomes significantly more
+                        potent.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Volcanic Field</strong></td>
+                    <td style="text-align: left;">An unstable landscape of magma flows and ash clouds.
+                        <strong>Affinity:</strong> Boosts the damage of <strong>Red (Power)</strong> discipline
+                        techniques. Fire-based Secret Arts have their cooldowns moderately reduced.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Dense Cycad Forest</strong></td>
+                    <td style="text-align: left;">A tight, claustrophobic jungle limiting long sightlines.
+                        <strong>Affinity:</strong> Increases the activation chance of "Chain" properties for
+                        ambush-style Maidens (e.g., <strong>Dromaeosauridae Clan</strong>).
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Arid Desert</strong></td>
+                    <td style="text-align: left;">A vast, sun-scorched wasteland with little cover.
+                        <strong>Affinity:</strong> Boosts the effectiveness of defensive and restorative <strong>Yellow
+                            (Control)</strong> discipline techniques.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Open Fern Prairie</strong></td>
+                    <td style="text-align: left;">A wide-open plain ideal for large-scale movement.
+                        <strong>Affinity:</strong> Reduces the cooldowns on movement-based and wide-arc Paleo Arts,
+                        benefiting large Maidens like sauropods.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="v-finalized-class-disciplines">V. Finalized Class Disciplines</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Color/Discipline</th>
+                    <th style="text-align: left;">Combat Focus</th>
+                    <th style="text-align: left;">Unique Passive Combat Ability</th>
+                    <th style="text-align: left;">Unique Board/Flow Ability</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;"><strong>🔴 Red</strong></td>
+                    <td style="text-align: left;"><strong>Raw Power &amp; Scaling Damage.</strong></td>
+                    <td style="text-align: left;"><strong>Power Surge:</strong> Applies <strong>+1 damage</strong> to
+                        all attacks for each turn that passes in combat (resets after fight).</td>
+                    <td style="text-align: left;"><strong>Killing Streak:</strong> After <strong>3 consecutive
+                            wins</strong>, gain a choice of one bonus "Spoils of Victory" common technique.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>🔵 Blue</strong></td>
+                    <td style="text-align: left;"><strong>Defense &amp; Consistency.</strong></td>
+                    <td style="text-align: left;"><strong>Arcane Ward:</strong> Starts every combat with a <strong>+2
+                            Arcane Shield</strong>.</td>
+                    <td style="text-align: left;"><strong>Scholarly Insight:</strong> Chooses from <strong>4 Reward
+                            Techniques</strong> instead of 3 after any spar win.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>🟢 Green</strong></td>
+                    <td style="text-align: left;"><strong>Speed &amp; Precision.</strong></td>
+                    <td style="text-align: left;"><strong>First Strike:</strong> Applies a <strong>+3 bonus</strong> to
+                        their first attack technique used in combat.</td>
+                    <td style="text-align: left;"><strong>Double Time:</strong> Can <strong>reject the free
+                            technique</strong> from the Campsite to gain an <strong>extra dice roll</strong> upon
+                        completion of the rest.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>🟡 Yellow</strong></td>
+                    <td style="text-align: left;"><strong>Durability &amp; Damage Reduction.</strong></td>
+                    <td style="text-align: left;"><strong>Natural Resilience:</strong> Passive <strong>-1 damage
+                            reduction</strong> from all incoming attacks.</td>
+                    <td style="text-align: left;"><strong>Strategic Insight:</strong> After any spar win, the player can
+                        <strong>reshuffle the presented Reward Techniques</strong> and draw a new set of 3/4 random
+                        techniques from the pool.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="vi-core-gameplay-loop--player-agency">VI. Core Gameplay Loop &amp; Player Agency</h2>
+        <p>This section breaks down the turn-by-turn gameplay loop and distinguishes between fixed game elements, player
+            choices, and random variables.</p>
+        <h3 id="a-turn-structure-24-turns-per-year">A. Turn Structure (24 Turns per Year)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Step</th>
+                    <th style="text-align: left;">Action</th>
+                    <th style="text-align: left;">Detail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;"><strong>1. Roll Dice</strong></td>
+                    <td style="text-align: left;">The player initiates a dice roll to determine movement range.</td>
+                    <td style="text-align: left;">This action costs <strong>1 Turn</strong>.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>2. Choose Path</strong></td>
+                    <td style="text-align: left;">The player moves their Champion token on the map.</td>
+                    <td style="text-align: left;">Movement must equal the number rolled on the dice. The map is
+                        non-linear, but there are ways to return to the start.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>3. Land on Space</strong></td>
+                    <td style="text-align: left;">The Champion lands on a map space, triggering an event.</td>
+                    <td style="text-align: left;">Events can include Sparring Sessions, Dojos, Hot Springs, etc.</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 id="b-game-variables">B. Game Variables</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Element Type</th>
+                    <th style="text-align: left;">Description</th>
+                    <th style="text-align: left;">Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;"><strong>Constants</strong></td>
+                    <td style="text-align: left;">Core rules and structures that are fixed for every playthrough.</td>
+                    <td style="text-align: left;">• Fixed World Map Layout<br>• 3-Year Course Structure<br>• Standard 24
+                        Turns per Year<br>• Predetermined Starting <strong>Loadouts</strong> for each Champion</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Player Choices</strong></td>
+                    <td style="text-align: left;">Key decisions the player makes to influence the outcome of the run.
+                    </td>
+                    <td style="text-align: left;">• Selecting the starting Champion<br>• Choosing a path after a dice
+                        roll<br>• Purchasing items from the Dojo/Hot Spring<br>• Selecting a Reward
+                        <strong>Technique</strong> after a victory<br>• Deciding when to use the Campsite to rest
+                        (limited uses)
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Random (RNG)</strong></td>
+                    <td style="text-align: left;">Elements of chance that introduce unpredictability and replayability.
+                    </td>
+                    <td style="text-align: left;">• Dice Roll result (1-6)<br>• <strong>Technique</strong> options
+                        presented in post-combat Rewards<br>• <strong>Arena Biome</strong> for tournament matches<br>•
+                        Specific events on certain map spaces (e.g., rival encounters, shops, sparring)</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 id="c-core-pillars-of-fun">C. Core Pillars of Fun</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Pillar</th>
+                    <th style="text-align: left;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;"><strong>1. Nurturing</strong></td>
+                    <td style="text-align: left;">Supporting and developing a favorite character, similar to a virtual
+                        pet or raising simulator (e.g., <em>Tamagotchi</em>, <em>Uma Musume</em>).</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>2. Risk/Reward</strong></td>
+                    <td style="text-align: left;">Experiencing the thrill of chance through dice rolls and random card
+                        draws, embracing a "gambling" feel.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>3. Satisfaction</strong></td>
+                    <td style="text-align: left;">The deep satisfaction that comes from seeing a well-planned strategy,
+                        deck synergy, or a lucky combo work out perfectly.</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 id="d-deprecated-concepts">D. Deprecated Concepts</h3>
+        <p><del><strong>Initial Card Game Concepts:</strong> This section is deprecated in favor of the <strong>Combat
+                    Prowess</strong> system described in Section IV. The core ideas of collecting abilities and
+                preparing
+                for fights are retained, but the implementation is simplified to focus on a loadout of equipped
+                techniques
+                rather than a deck of cards.</del></p>
+        <ul>
+            <li><del><strong>Starting Loadout (Red Example):</strong> A Red discipline champion might start with the
+                    techniques: <code>Basic Strike</code> (3 Dmg), <code>Guard</code> (2 Block), and
+                    <code>Power Up</code>
+                    (+1 power this turn).</del></li>
+            <li><del><strong>AI Logic:</strong> The AI's logic is now much simpler: on its turn, it activates one of its
+                    equipped techniques based on a straightforward priority (e.g., use a healing move if HP is low,
+                    otherwise use a random damage move).</del></li>
+            <li><del><strong>Combat Resolution:</strong> Combat is simulated automatically turn-by-turn until one
+                    combatant's P-Magic is depleted.</del></li>
+        </ul>
+
+        <h2 id="vii-combat-philosophy--design-inspiration">VII. Combat Philosophy &amp; Design Inspiration</h2>
+        <p>To ensure a cohesive experience, the combat system's design is guided by a clear philosophical model inspired
+            by games like <strong><em>Digimon World Championship</em></strong>. This approach emphasizes the player's
+            role as a mentor and strategist, making preparation the core gameplay and the battle its thrilling,
+            automated payoff.</p>
+        <h3 id="a-the-coach-trainer-combat-model">A. The "Coach/Trainer" Combat Model</h3>
+        <p>The combat system is intentionally hands-off during the fight itself. The player's interaction is focused
+            entirely on the strategic decisions made <em>before</em> the battle begins.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Phase</th>
+                    <th style="text-align: left;">Player Role &amp; Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;"><strong>1. Preparation Phase</strong></td>
+                    <td style="text-align: left;"><strong>The Lecturer's Core Gameplay.</strong> The player guides their
+                        Maiden through the 24-turn expedition, making critical choices about which
+                        <strong>Techniques</strong> to acquire, when to rest, and which rivals to interact with. This
+                        culminates in setting the <strong>Combat Prowess</strong> before a tournament.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>2. Combat Phase</strong></td>
+                    <td style="text-align: left;"><strong>The Automated Spectacle.</strong> The battle unfolds
+                        automatically based on the Maiden's preparation, her equipped techniques, and a degree of RNG.
+                        The player becomes an invested spectator, watching to see if their strategy was successful.</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 id="b-abstracted-training-capabilities-over-stats">B. Abstracted Training: "Capabilities over Stats"</h3>
+        <p>Following the "train -&gt; compete" loop of its inspirations, this game abstracts the concept of "training
+            stats." Instead of increasing numerical values (e.g., STR, DEF), the player "trains" their Maiden by
+            expanding her <strong>strategic capabilities</strong>.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Traditional Training Sim</th>
+                    <th style="text-align: left;">Paleo-Maiden Championship Equivalent</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;"><strong>Training Stats (e.g., +10 Speed)</strong></td>
+                    <td style="text-align: left;"><strong>Acquiring Techniques.</strong> Landing on a "Sparring Session"
+                        space and gaining a new <code>Flowing Strikes</code> technique makes the Maiden qualitatively
+                        faster and better at maintaining tempo.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Reaching Stat Thresholds</strong></td>
+                    <td style="text-align: left;"><strong>Achieving Job Evolution.</strong> Collecting a specific number
+                        of colored techniques (e.g., 5 Red, 5 Blue) unlocks a new "Job" with powerful passive buffs,
+                        serving as a long-term training goal.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Equipping Support Cards</strong></td>
+                    <td style="text-align: left;"><strong>Building Rival Bonds.</strong> Engaging in "Heart-to-Heart"
+                        events and strengthening relationships rewards the player with unique and powerful "Bond
+                        Techniques."</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>This approach ensures the feeling of growth and progression is central to the experience, but keeps the focus
+            on strategic choices and narrative development rather than numerical micromanagement.</p>
+        <h3 id="c-alignment-with-existing-game-design">C. Alignment with Existing Game Design</h3>
+        <p>This combat philosophy is not a new direction but rather a formalization of the game's existing strengths,
+            creating perfect synergy between the lore, mechanics, and desired "fun factors."</p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Core Design Element</th>
+                    <th style="text-align: left;">How the "Coach/Trainer" Model Aligns</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;"><strong>Player Role as Lecturer</strong></td>
+                    <td style="text-align: left;">This model is the ultimate expression of being a mentor. The player's
+                        skill is tested through their teaching and preparation (the Expedition), not their reflexes. The
+                        battle is the Maiden's "final exam."</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Pillar 1: Nurturing</strong></td>
+                    <td style="text-align: left;">By making combat automated, the gameplay focus shifts entirely to the
+                        <strong>Great Expedition</strong> phase. The joy comes from carefully developing your Maiden
+                        over time, making this pillar the central activity.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Pillar 2: Risk/Reward</strong></td>
+                    <td style="text-align: left;">The moment the automated battle begins is the ultimate "gambling"
+                        moment. The player has placed their strategic "bet" through 24 turns of training; the fight is
+                        the thrilling spin of the wheel to see the outcome.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Pillar 3: Satisfaction</strong></td>
+                    <td style="text-align: left;">Victory feels deeply earned, as it validates the player's long-term
+                        strategy and coaching ability. Seeing a specific technique you chose turn the tide of battle
+                        provides immense satisfaction.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Combat Prowess System</strong></td>
+                    <td style="text-align: left;">This system becomes the player's primary tool for expressing strategy.
+                        The choice of which techniques to equip in the <strong>Paleo Arts</strong> and <strong>Secret
+                            Arts</strong> is the most critical decision, acting as the "playbook" for the upcoming
+                        automated fight.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>"Shonen Tournament" Theme</strong></td>
+                    <td style="text-align: left;">This model perfectly captures the feeling of a coach watching
+                        anxiously from the stands. The <strong>Commentated Combat Log</strong> enhances this by turning
+                        the automated fight into an exciting spectator sport.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="viii-design-evolution-summary-tldr">VIII. Design Evolution Summary (tl;dr)</h2>
+        <p>This section provides a quick summary of the key changes from the initial "Card Game" concept to the current
+            "Combat Prowess" system, clarifying the design's evolution.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Feature</th>
+                    <th style="text-align: left;">Initial Card Game Concept</th>
+                    <th style="text-align: left;">Current "Combat Prowess" System</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;"><strong>Core Collectible</strong></td>
+                    <td style="text-align: left;">Cards in a deck.</td>
+                    <td style="text-align: left;"><strong>Techniques</strong> (Paleo Arts &amp; Secret Arts).</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Player Preparation</strong></td>
+                    <td style="text-align: left;">Building a 15-card deck.</td>
+                    <td style="text-align: left;">Equipping a <strong>Combat Prowess</strong> (5 Paleo Arts + 2-3 Secret
+                        Arts).</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Combat Interaction</strong></td>
+                    <td style="text-align: left;">Intended manual card play or complex AI choosing from a hand.</td>
+                    <td style="text-align: left;">Fully <strong>automated real-time simulation</strong> based on the
+                        prepared Combat Prowess.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Resource System</strong></td>
+                    <td style="text-align: left;">Mana costs for cards.</td>
+                    <td style="text-align: left;"><strong>No in-combat resource costs</strong> for techniques.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Core RNG</strong></td>
+                    <td style="text-align: left;">Drawing cards from the deck each turn.</td>
+                    <td style="text-align: left;">The slight variations in <strong>cooldown timers</strong> and AI
+                        priority choices.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Strategic Focus</strong></td>
+                    <td style="text-align: left;">Deck consistency and cycling.</td>
+                    <td style="text-align: left;">Crafting a synergistic <strong>loadout with combos</strong> and
+                        adapting the strategy to the opponent and the <strong>arena</strong>.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
