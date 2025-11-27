@@ -1,0 +1,446 @@
+:root {
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'Lato', sans-serif;
+    --color-text: #4d443a;
+    /* Dark, earthy brown */
+    --color-heading: #3a3228;
+    /* Even darker brown for headings */
+    --color-background: #fdf6e3;
+    /* Parchment paper */
+    --color-accent: #8b4513;
+    /* Saddle brown, for links/accents */
+    --color-border: #d2b48c;
+    /* Tan, for borders */
+    --color-panel-bg: rgba(255, 255, 255, 0.4);
+    --color-panel-border: #d2b48c;
+    --color-hover-bg: rgba(210, 180, 140, 0.3);
+
+    /* Discipline Colors */
+    --color-brute: #c0392b;
+    --color-focus: #2980b9;
+    --color-flow: #27ae60;
+    --color-control: #f39c12;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    /* Changed to a column layout to stack the character panel on top */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* --- Character Selection --- */
+#character-selection-panel {
+    width: 100%;
+    max-width: 1070px;
+    /* Match the width of the container below */
+}
+
+/* Center the heading inside the character selection panel */
+#character-selection-panel h2 {
+    text-align: center;
+}
+
+#character-list {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.character-card {
+    border: 3px solid transparent;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.character-card.selected {
+    border-color: var(--color-accent);
+    background-color: var(--color-hover-bg);
+}
+
+.character-card:hover:not(.selected) {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px);
+}
+
+.character-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: var(--color-border);
+    /* Placeholder color */
+    object-fit: cover;
+    margin-bottom: 5px;
+}
+
+.character-name {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--color-heading);
+}
+
+.character-job-title {
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin: 5px 0 0 0;
+    padding: 3px 8px;
+    border-radius: 12px;
+    background-color: #e0d6c3;
+    /* Default background */
+    color: var(--color-text);
+    display: inline-block;
+    /* Allows padding and background */
+    transition: all 0.3s ease-in-out;
+    min-height: 1em;
+    /* Prevents layout shift when empty */
+}
+
+.character-job-title.job-active {
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Main Container --- */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.panel {
+    background-color: var(--color-panel-bg);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    border: 1px solid var(--color-panel-border);
+}
+
+h2,
+h3 {
+    font-family: var(--font-heading);
+    color: var(--color-heading);
+    margin-top: 0;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.4em;
+}
+
+/* Technique List */
+#technique-list-container {
+    width: 300px;
+    /* Make the container itself have a max height relative to the screen */
+    max-height: 50vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#technique-list {
+    list-style-type: none;
+    padding: 0;
+    /* Allow the list to grow and scroll within the flex container */
+    overflow-y: auto;
+    flex-grow: 1;
+    /* Allows the list to fill the available space in the container */
+}
+
+.technique-item {
+    padding: 10px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    margin-bottom: 5px;
+    cursor: grab;
+    background-color: rgba(245, 245, 220, 0.5);
+}
+
+.technique-item.innate {
+    cursor: not-allowed;
+    background-color: rgba(233, 236, 239, 0.5);
+    font-style: italic;
+}
+
+.technique-item:hover {
+    background-color: var(--color-hover-bg);
+}
+
+/* --- Secret Art Styling --- */
+.technique-item.secret-art {
+    font-weight: bold;
+    box-shadow: 0 0 6px rgba(255, 215, 0, 0.6);
+    /* A subtle gold glow */
+    position: relative;
+    /* Needed for pseudo-elements if you add them later */
+}
+
+/* Red Secret Art */
+.technique-item.secret-art.Brute {
+    background-color: rgba(192, 57, 43, 0.1);
+    /* Lighter red */
+    color: var(--color-brute);
+}
+
+/* Blue Secret Art */
+.technique-item.secret-art.Focus {
+    background-color: rgba(41, 128, 185, 0.1);
+    /* Lighter blue */
+    color: var(--color-focus);
+}
+
+/* Green Secret Art */
+.technique-item.secret-art.Flow {
+    background-color: rgba(39, 174, 96, 0.1);
+    /* Lighter green */
+    color: var(--color-flow);
+}
+
+/* Yellow Secret Art */
+.technique-item.secret-art.Control {
+    background-color: rgba(243, 156, 18, 0.1);
+    /* Lighter yellow */
+    color: var(--color-control);
+}
+
+.technique-item.Brute {
+    border-left: 5px solid var(--color-brute);
+}
+
+.technique-item.Focus {
+    border-left: 5px solid var(--color-focus);
+}
+
+.technique-item.Flow {
+    border-left: 5px solid var(--color-flow);
+}
+
+.technique-item.Control {
+    border-left: 5px solid var(--color-control);
+}
+
+/* --- Hybrid Art Styling --- */
+.technique-item.ancient-art {
+    font-weight: bold;
+    /* A gradient glow combining gold and silver */
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.5), 0 0 12px rgba(192, 192, 192, 0.5);
+}
+
+/* Generic rule for any hybrid with two disciplines */
+.technique-item.hybrid-flow-focus,
+.technique-item.hybrid-brute-focus {
+    /* A gradient border to show the two disciplines */
+    border-left-width: 5px;
+}
+
+/* Specific gradient for Brute (Red) and Focus (Blue) */
+.technique-item.hybrid-brute-focus {
+    border-image: linear-gradient(to bottom, var(--color-brute), var(--color-focus)) 1;
+}
+
+.technique-item.hybrid-flow-focus {
+    border-image: linear-gradient(to bottom, var(--color-flow), var(--color-focus)) 1;
+}
+
+/* Combat Prowess */
+#combat-prowess {
+    width: 350px;
+}
+
+.slot-container {
+    padding: 10px;
+    border: 2px dashed var(--color-border);
+    border-radius: 4px;
+    min-height: 50px;
+    margin-bottom: 10px;
+}
+
+.slot-container.drag-over {
+    border-color: var(--color-heading);
+    background-color: var(--color-hover-bg);
+}
+
+/* Details Panel */
+#details-panel {
+    width: 320px;
+    /* Make the panel stick to the top when scrolling */
+    position: sticky;
+    top: 20px;
+}
+
+/* --- Job Evolution Status --- */
+#job-evolution-status {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: rgba(245, 245, 220, 0.5);
+    background-image: none;
+    /* Reset any inline styles */
+    border-radius: 6px;
+    border: 1px solid var(--color-border);
+    transition: background-image 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+/* When a job is active, make the text white for contrast */
+#job-evolution-status.job-active,
+#job-evolution-status.job-active h3,
+#job-evolution-status.job-active p strong {
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+#job-evolution-status h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    border-bottom: 1px solid var(--color-border);
+    /* This will be overridden by the text color change */
+}
+
+/* --- Technique Details Styles --- */
+#details-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-heading);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.5rem;
+}
+
+#details-content p {
+    margin: 0.75rem 0;
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+/* Style for the key-value pairs like Type, Discipline */
+#details-content p strong {
+    color: var(--color-heading);
+    display: inline-block;
+    min-width: 90px;
+    /* Align the text that follows */
+}
+
+/* Special styling for the main info blocks */
+#details-content p:has(strong[class="info-block"]) {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+}
+
+#details-content .info-block {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    color: #111;
+    color: var(--color-heading);
+}
+
+#filter-bar {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.filter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.filter-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Discipline Colors --- */
+
+/* 'All' button style */
+.filter-btn.All {
+    background-color: #6c757d;
+    /* A neutral gray */
+}
+
+/* Red discipline */
+.filter-btn.Brute {
+    background-color: var(--color-brute);
+}
+
+/* Blue discipline */
+.filter-btn.Focus {
+    background-color: var(--color-focus);
+}
+
+/* Green discipline */
+.filter-btn.Flow {
+    background-color: var(--color-flow);
+}
+
+/* Yellow discipline */
+.filter-btn.Control {
+    background-color: var(--color-control);
+}
+
+/* --- Animation for Technique Details Panel --- */
+
+/* Keyframes define the animation steps */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+        /* Start slightly below */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+        /* End slightly above */
+    }
+}
+
+/* Classes to trigger the animations */
+.details-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+.details-fade-out {
+    animation: fadeOut 0.3s ease-in forwards;
+}
+
+/* This class will hide the content while it's being updated */
+#details-content.is-updating {
+    opacity: 0;
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--color-accent);
+    transition: color 0.2s ease-in-out;
+}

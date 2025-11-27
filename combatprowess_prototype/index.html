@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combat Prowess Prototype</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Lato:wght@400;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <nav class="breadcrumb">
+        <a href="../index.html">&larr; Back to Home</a>
+    </nav>
+    <div id="character-selection-panel" class="panel">
+        <h2>Select Your Champion Maiden</h2>
+        <div id="character-list">
+            <!-- Character portraits will be loaded here by JS -->
+        </div>
+    </div>
+    <div class="container">
+        <!-- Panel 1: All available techniques -->
+        <div id="technique-list-container" class="panel">
+            <h2>Available Techniques</h2>
+            <ul id="technique-list">
+                <!-- Techniques will be loaded here by JS -->
+            </ul>
+        </div>
+
+        <!-- Panel 2: Combat Prowess Loadout -->
+        <div id="combat-prowess" class="panel">
+            <h2>Combat Prowess</h2>
+
+            <div id="hybrid-art-container" class="slot-section" style="display: none;">
+                <h4>Ancient Art</h4>
+                <ul id="hybrid-art-slot" class="slot-container" data-slot-type="Ancient Art" data-max-slots="1">
+                    <!-- Hybrid art will be injected here -->
+                </ul>
+            </div>
+
+            <h3>Secret Arts (Reserve)</h3>
+            <div id="secret-arts-slots" class="slot-container" data-slot-type="Secret Art" data-max-slots="2">
+                <!-- Equipped Secret Arts will go here -->
+            </div>
+
+            <h3>Paleo Arts (Active)</h3>
+            <div id="paleo-arts-slots" class="slot-container" data-slot-type="Paleo Art" data-max-slots="5">
+                <!-- Equipped Paleo Arts will go here -->
+            </div>
+
+
+        </div>
+
+        <!-- Panel 3: Technique Details -->
+        <div id="details-panel" class="panel">
+            <h2>Technique Details</h2>
+            <div id="details-content">
+                <p>Click on a technique to see its details.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
