@@ -1,5 +1,25 @@
 # 🦖 Paleo-Maiden Championship: Game Design Documentation
 
+## Table of Contents
+1.  [Lore & World-Building](#i-lore--world-building)
+2.  [Core Progression & High-Stakes Qualification](#ii-core-progression--high-stakes-qualification)
+    -   [Final League Championship Structure](#-final-league-championship-structure-16-competitors)
+    -   [Job Evolution (Optional Mastery)](#job-evolution-optional-mastery)
+3.  [World Map Spaces & Mechanics](#iii-world-map-spaces--mechanics)
+4.  [Combat System](#iv-combat-system)
+    -   [Technique Synergy & Combos](#a-technique-synergy--combos)
+    -   [Arena Biomes & Affinities](#b-arena-biomes--affinities)
+5.  [Finalized Class Disciplines](#v-finalized-class-disciplines)
+6.  [Core Gameplay Loop & Player Agency](#vi-core-gameplay-loop--player-agency)
+    -   [Turn Structure](#a-turn-structure-24-turns-per-year)
+    -   [Game Variables](#b-game-variables)
+    -   [Core Pillars of Fun](#c-core-pillars-of-fun)
+7.  [Combat Philosophy & Design Inspiration](#vii-combat-philosophy--design-inspiration)
+    -   [The "Coach/Trainer" Combat Model](#a-the-coach-trainer-combat-model)
+    -   [Abstracted Training: "Capabilities over Stats"](#b-abstracted-training-capabilities-over-stats)
+    -   [Alignment with Existing Game Design](#c-alignment-with-existing-game-design)
+8.  [Design Evolution Summary (tl;dr)](#viii-design-evolution-summary-tldr)
+
 ## I. Lore & World-Building
 
 | Aspect | Description |
@@ -24,16 +44,16 @@ The run structure is defined by three escalating leagues. **Failure to qualify e
 
 ## 🏆 Final League Championship Structure (16 Competitors)
 
-The end-of-year **League Championships** are high-stakes, **double-elimination tournaments** featuring 16 competitors. The preparation rules enforce the strategic importance of sustained durability.
+The end-of-year **League Championships** are high-stakes, **double-elimination tournaments**. The preparation rules enforce the strategic importance of sustained durability.
 
-### 1. Match Preparation Rules (Final P-Magic Condition)
+### A. Match Preparation Rules (Final P-Magic Condition)
 
 | Match | P-Magic Condition Rule | Strategic Impact |
 | :--- | :--- | :--- |
 | **First Bout** (Round 1) | The Champion begins the first bout with their **P-Magic Pool exactly as it was** when the League Exam was triggered. | Maintains the tension of the **24-Turn Cycle**, forcing the player to spend final turns on healing to avoid starting the tournament at a massive disadvantage. |
 | **Subsequent Bouts** (Rounds 2+) | The Champion's **P-Magic Pool is partially recovered**, setting it to **50% of Max P-Magic** before the start of the next match. | Forces the Champion to demonstrate sustained durability. Champions with low starting P-Magic (like Blue) must now use defensive/healing cards throughout the tournament to survive successive rounds. |
 
-### 2. Tournament Flow (Double Elimination)
+### B. Tournament Flow (Double Elimination)
 
 The tournament utilizes a double-elimination bracket, rewarding a single loss recovery.
 
@@ -43,7 +63,7 @@ The tournament utilizes a double-elimination bracket, rewarding a single loss re
 | **Losers Bracket** | The path to securing Top 8 qualification after one previous loss. | **Career Ends.** The Paleo Maiden is immediately disqualified. |
 | **Achievement** | **Comeback Specialist:** Winning the League after dropping into and winning through the Losers Bracket. | Unlocks a special achievement/reward. |
 
-### 3. Rival Arcs & Narrative Progression
+### C. Rival Arcs & Narrative Progression
 
 The League Championships serve as the primary vehicle for narrative progression, framed as **Rival Arcs** that explore the personal stories of each Paleo Maiden.
 
@@ -56,13 +76,13 @@ The League Championships serve as the primary vehicle for narrative progression,
 
 ### Job Evolution (Optional Mastery)
 
-**Job Evolution** is an entirely optional system of specialization that provides powerful **passive stat buffs** (e.g., +Max P-Magic, +Damage Multiplier). It is achieved by meeting specific **Technique** counts for color combinations.
+**Job Evolution** is an entirely optional system of specialization that expands a Maiden's **Combat Prowess**. It is achieved by meeting specific **Technique** counts for color combinations, and its primary reward is unlocking additional slots for Paleo Arts and Secret Arts.
 
 | Example Path | Discipline Focus | Resulting Job Title |
 | :--- | :--- | :--- |
-| **Single-Discipline** (e.g., Full Red Deck) | Raw Power | **Barbarian Tyran Rex** |
-| **Hybrid Discipline** (e.g., Red + Blue Deck) | Power & Defense | **Mystic Spearhand Tyran Rex** |
-| **Hybrid Discipline** (e.g., Green + Blue Deck) | Speed & Magic | **Boxing Magus Abeli Taurus** |
+| **Single-Discipline** (e.g., 10 Red Techniques) | Raw Power | **Barbarian Tyran Rex** (+1 Paleo Art Slot) |
+| **Hybrid Discipline** (e.g., 7 Red + 7 Blue) | Power & Defense | **Mystic Spearhand Tyran Rex** (+1 Paleo Art, +1 Secret Art Slot) |
+| **Hybrid Discipline** (e.g., 7 Green + 7 Blue) | Speed & Magic | **Boxing Magus Sastrei Taurus** (+2 Paleo Art Slots) |
 
 ---
 
@@ -89,18 +109,42 @@ Movement is governed by a **Dice Roll**, with players using **Paleo-Focus** to s
 
 ## IV. Combat System
 
-The system is a **Hybrid Automated Turn-Based** system designed to be quick, decisive, and driven by the player's strategic preparation. It is centered around a player-defined **Equipment Loadout** rather than a traditional card deck.
+The system is a **Hybrid Automated Real-Time** system designed to be fast, fluid, and driven by the player's strategic preparation. It is centered around a player-defined **Combat Prowess** rather than a traditional card deck.
 
 | Mechanic | Detail |
 | :--- | :--- |
-| **Technique Collection** | The player collects **Combat Techniques** from map events. There is no limit to the number of techniques they can own. |
-| **Active Loadout & Orders** | Before a match, the player equips **up to 5 Techniques** into their Active Loadout and selects **one Tactical Order**. This combination of techniques and strategy defines their game plan. |
-| **Tactical Orders** | A high-level instruction (e.g., "All-Out Blitz," "Patient Counter") that influences the AI's technique selection priority during the automated battle, adding a layer of strategic direction. |
-| **Turn Flow** | On each combatant's turn, the system automatically selects and uses **one** of their equipped techniques. The selection can be random or follow a simple, pre-set priority. |
+| **Technique Collection** | The player collects **Paleo Arts** from map events. There is no limit to the number of techniques they can own. Defeating strong rivals grant Stronger Paleo Arts and also higher chance to get **Secret Arts** |
+| **Combat Prowess** | Before a match, the player prepares their strategy by equipping techniques into their **Combat Prowess**. The base consists of **5 Paleo Arts (Active)** and **2 Secret Arts (Reserve)**, with more slots unlockable via Job Evolution. |
+| **Paleo Arts (Active)** | The core of the game plan. In real-time combat, the AI automatically uses these techniques as they come off their individual **cooldowns**. |
+| **Secret Arts (Reserve)** | Holds techniques that are not used in the normal turn-by-turn rotation. Their purpose is to fulfill the requirements for **Catalyst Combos** and to be activated by **Chain Properties**, allowing for complex synergies without clogging the main loadout. |
+| **Tactical Orders** | A high-level instruction (e.g., "All-Out Blitz," "Patient Counter") that influences the AI's selection priority when multiple Paleo Arts are off cooldown simultaneously. |
 | **Technique Types** | **Discipline Techniques** (Generic utility/buffs) **AND Species-Specific Techniques** (Rare, powerful effects tied to specific defeated rivals). |
-| **Initiative** | At the start of each combat turn, both combatants roll a die. The higher roll acts first for that turn. This keeps the turn order dynamic and unpredictable. |
+| **Arena Affinity** | The battle arena's biome can influence combat. Maidens with a natural affinity for the environment may have specific Paleo/Secret Arts boosted, increasing their effects and/or activation chance when fighting on their home turf. |
 | **Perfect Victory** | Winning a spar without losing any P-Magic grants a bonus (e.g., extra Fossil Funds, a temporary buff). |
 | **Commentated Combat Log** | A live combat log narrates the fight with the flavor and energy of a sports commentator. It uses fighting game terminology (e.g., "punish," "combo," "whiff") to make the automated action exciting and easy for players to follow and discuss. |
+
+### A. Technique Synergy & Combos
+
+To capture the feel of fighting game combos and reward deep strategic planning, certain techniques can interact with each other to produce powerful effects. This encourages players to think about their **Combat Prowess** not just as a list of moves, but as a potential engine for combos.
+
+| Synergy Type | Description & Example |
+| :--- | :--- |
+| **Catalyst Combos** | **Strategic Preparation.** A "Catalyst" technique in a **Paleo Art** slot transforms into a powerful combo move if its required "ingredient" techniques are equipped in the **Secret Arts** slots. <br> *Example:* Placing `[Catalyst: Predator's Focus]` in a Paleo Art slot and `Claw Slash` + `Charging Pounce` in Secret Arts slots unlocks **`Raptor's Fury`**. |
+| **Chain Properties** | **Dynamic Execution.** A technique in a **Paleo Art** slot with a "Chain" property has a chance to immediately trigger a compatible technique from either the Paleo Arts or **Secret Arts** slots. <br> *Example:* `Iai Stance` can now "Chain" into a powerful 'Strike' technique you've placed in a Secret Art slot specifically for this purpose. |
+
+This system translates the "combo input" of a fighting game into the strategic preparation phase, creating deep satisfaction when a player's carefully crafted **Combat Prowess** unleashes a unique and powerful combo in the heat of battle.
+
+### B. Arena Biomes & Affinities
+
+The location of a battle is a critical strategic factor. Each tournament match takes place in a specific biome on the Primeval Continents, and Maidens whose ancestry is tied to that environment gain a significant "home field advantage."
+
+| Arena Biome | Description & Affinity Effect |
+| :--- | :--- |
+| **Lush Floodplain** | A swampy delta crisscrossed by deep rivers. **Affinity:** Boosts the effects and activation chance of water-based or semi-aquatic Paleo/Secret Arts. For example, **Aegypt Spino's** "River Hunter" Secret Art becomes significantly more potent. |
+| **Volcanic Field** | An unstable landscape of magma flows and ash clouds. **Affinity:** Boosts the damage of **Red (Power)** discipline techniques. Fire-based Secret Arts have their cooldowns moderately reduced. |
+| **Dense Cycad Forest** | A tight, claustrophobic jungle limiting long sightlines. **Affinity:** Increases the activation chance of "Chain" properties for ambush-style Maidens (e.g., **Dromaeosauridae Clan**). |
+| **Arid Desert** | A vast, sun-scorched wasteland with little cover. **Affinity:** Boosts the effectiveness of defensive and restorative **Yellow (Control)** discipline techniques. |
+| **Open Fern Prairie** | A wide-open plain ideal for large-scale movement. **Affinity:** Reduces the cooldowns on movement-based and wide-arc Paleo Arts, benefiting large Maidens like sauropods. |
 
 ---
 
@@ -134,23 +178,23 @@ This section breaks down the turn-by-turn gameplay loop and distinguishes betwee
 | :--- | :--- | :--- |
 | **Constants** | Core rules and structures that are fixed for every playthrough. | • Fixed World Map Layout<br>• 3-Year Course Structure<br>• Standard 24 Turns per Year<br>• Predetermined Starting **Loadouts** for each Champion |
 | **Player Choices** | Key decisions the player makes to influence the outcome of the run. | • Selecting the starting Champion<br>• Choosing a path after a dice roll<br>• Purchasing items from the Dojo/Hot Spring<br>• Selecting a Reward **Technique** after a victory<br>• Deciding when to use the Campsite to rest (limited uses) |
-| **Random (RNG)** | Elements of chance that introduce unpredictability and replayability. | • Dice Roll result (1-6)<br>• **Technique** options presented in post-combat Rewards<br>• **Technique activation order** during combat<br>• Specific events on certain map spaces (e.g., rival encounters, shops, sparring) |
+| **Random (RNG)** | Elements of chance that introduce unpredictability and replayability. | • Dice Roll result (1-6)<br>• **Technique** options presented in post-combat Rewards<br>• **Arena Biome** for tournament matches<br>• Specific events on certain map spaces (e.g., rival encounters, shops, sparring) |
 
-### ~~C. Initial Card Game Concepts~~
-
-~~This section is deprecated in favor of the **Equipment Loadout** system described in Section IV. The core ideas of collecting abilities and preparing for fights are retained, but the implementation is simplified to focus on a loadout of equipped techniques rather than a deck of cards.~~
-
-*   ~~**Starting Loadout (Red Example):** A Red discipline champion might start with the techniques: `Basic Strike` (3 Dmg), `Guard` (2 Block), and `Power Up` (+1 power this turn).~~
-*   ~~**AI Logic:** The AI's logic is now much simpler: on its turn, it activates one of its equipped techniques based on a straightforward priority (e.g., use a healing move if HP is low, otherwise use a random damage move).~~
-*   ~~**Combat Resolution:** Combat is simulated automatically turn-by-turn until one combatant's P-Magic is depleted.~~
-
-### D. Core Pillars of Fun
+### C. Core Pillars of Fun
 
 | Pillar | Description |
 | :--- | :--- |
 | **1. Nurturing** | Supporting and developing a favorite character, similar to a virtual pet or raising simulator (e.g., *Tamagotchi*, *Uma Musume*). |
 | **2. Risk/Reward** | Experiencing the thrill of chance through dice rolls and random card draws, embracing a "gambling" feel. |
 | **3. Satisfaction** | The deep satisfaction that comes from seeing a well-planned strategy, deck synergy, or a lucky combo work out perfectly. |
+
+### D. Deprecated Concepts
+
+~~**Initial Card Game Concepts:** This section is deprecated in favor of the **Combat Prowess** system described in Section IV. The core ideas of collecting abilities and preparing for fights are retained, but the implementation is simplified to focus on a loadout of equipped techniques rather than a deck of cards.~~
+
+*   ~~**Starting Loadout (Red Example):** A Red discipline champion might start with the techniques: `Basic Strike` (3 Dmg), `Guard` (2 Block), and `Power Up` (+1 power this turn).~~
+*   ~~**AI Logic:** The AI's logic is now much simpler: on its turn, it activates one of its equipped techniques based on a straightforward priority (e.g., use a healing move if HP is low, otherwise use a random damage move).~~
+*   ~~**Combat Resolution:** Combat is simulated automatically turn-by-turn until one combatant's P-Magic is depleted.~~
 
 ---
 
@@ -164,10 +208,22 @@ The combat system is intentionally hands-off during the fight itself. The player
 
 | Phase | Player Role & Action |
 | :--- | :--- |
-| **1. Preparation Phase** | **The Lecturer's Core Gameplay.** The player guides their Maiden through the 24-turn expedition, making critical choices about which **Techniques** to acquire, when to rest, and which rivals to interact with. This culminates in setting the **Active Loadout** before a tournament. |
+| **1. Preparation Phase** | **The Lecturer's Core Gameplay.** The player guides their Maiden through the 24-turn expedition, making critical choices about which **Techniques** to acquire, when to rest, and which rivals to interact with. This culminates in setting the **Combat Prowess** before a tournament. |
 | **2. Combat Phase** | **The Automated Spectacle.** The battle unfolds automatically based on the Maiden's preparation, her equipped techniques, and a degree of RNG. The player becomes an invested spectator, watching to see if their strategy was successful. |
 
-### B. Alignment with Existing Game Design
+### B. Abstracted Training: "Capabilities over Stats"
+
+Following the "train -> compete" loop of its inspirations, this game abstracts the concept of "training stats." Instead of increasing numerical values (e.g., STR, DEF), the player "trains" their Maiden by expanding her **strategic capabilities**.
+
+| Traditional Training Sim | Paleo-Maiden Championship Equivalent |
+| :--- | :--- |
+| **Training Stats (e.g., +10 Speed)** | **Acquiring Techniques.** Landing on a "Sparring Session" space and gaining a new `Flowing Strikes` technique makes the Maiden qualitatively faster and better at maintaining tempo. |
+| **Reaching Stat Thresholds** | **Achieving Job Evolution.** Collecting a specific number of colored techniques (e.g., 5 Red, 5 Blue) unlocks a new "Job" with powerful passive buffs, serving as a long-term training goal. |
+| **Equipping Support Cards** | **Building Rival Bonds.** Engaging in "Heart-to-Heart" events and strengthening relationships rewards the player with unique and powerful "Bond Techniques." |
+
+This approach ensures the feeling of growth and progression is central to the experience, but keeps the focus on strategic choices and narrative development rather than numerical micromanagement.
+
+### C. Alignment with Existing Game Design
 
 This combat philosophy is not a new direction but rather a formalization of the game's existing strengths, creating perfect synergy between the lore, mechanics, and desired "fun factors."
 
@@ -177,5 +233,20 @@ This combat philosophy is not a new direction but rather a formalization of the 
 | **Pillar 1: Nurturing** | By making combat automated, the gameplay focus shifts entirely to the **Great Expedition** phase. The joy comes from carefully developing your Maiden over time, making this pillar the central activity. |
 | **Pillar 2: Risk/Reward** | The moment the automated battle begins is the ultimate "gambling" moment. The player has placed their strategic "bet" through 24 turns of training; the fight is the thrilling spin of the wheel to see the outcome. |
 | **Pillar 3: Satisfaction** | Victory feels deeply earned, as it validates the player's long-term strategy and coaching ability. Seeing a specific technique you chose turn the tide of battle provides immense satisfaction. |
-| **Equipment Loadout System** | This system becomes the player's primary tool for expressing strategy. The choice of which 5 techniques to equip is the most critical decision, acting as the "playbook" for the upcoming automated fight. |
+| **Combat Prowess System** | This system becomes the player's primary tool for expressing strategy. The choice of which techniques to equip in the **Paleo Arts** and **Secret Arts** is the most critical decision, acting as the "playbook" for the upcoming automated fight. |
 | **"Shonen Tournament" Theme** | This model perfectly captures the feeling of a coach watching anxiously from the stands. The **Commentated Combat Log** enhances this by turning the automated fight into an exciting spectator sport. |
+
+---
+
+## VIII. Design Evolution Summary (tl;dr)
+
+This section provides a quick summary of the key changes from the initial "Card Game" concept to the current "Combat Prowess" system, clarifying the design's evolution.
+
+| Feature | Initial Card Game Concept | Current "Combat Prowess" System |
+| :--- | :--- | :--- |
+| **Core Collectible** | Cards in a deck. | **Techniques** (Paleo Arts & Secret Arts). |
+| **Player Preparation** | Building a 15-card deck. | Equipping a **Combat Prowess** (5 Paleo Arts + 2-3 Secret Arts). |
+| **Combat Interaction** | Intended manual card play or complex AI choosing from a hand. | Fully **automated real-time simulation** based on the prepared Combat Prowess. |
+| **Resource System** | Mana costs for cards. | **No in-combat resource costs** for techniques. |
+| **Core RNG** | Drawing cards from the deck each turn. | The slight variations in **cooldown timers** and AI priority choices. |
+| **Strategic Focus** | Deck consistency and cycling. | Crafting a synergistic **loadout with combos** and adapting the strategy to the opponent and the **arena**. |
