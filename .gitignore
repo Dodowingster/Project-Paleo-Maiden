@@ -1,3 +1,5 @@
 *\.kra
 *\.kra~
 *\.DS_Store
+*\.ipynb
+project_methodology.md
