@@ -145,7 +145,7 @@ Movement is governed by a **Dice Roll**, with players using **Paleo-Focus** to s
 
 | Action | Effect |
 | :--- | :--- |
-| **Train** | Guaranteed gain of a new common **Technique** and uncommon colored **Techniques**. |
+| **Train** | Guaranteed gain of a new common **Technique** and a smaller chance for an uncommon colored **Techniques**. |
 | **Forage** | Primarily yields **Ingredients** and **Navigation Items** (e.g., dice modifiers), with a small chance to find a biome-specific **Technique**. Depletes P-Magic. |
 | **Cook** | Use collected **Ingredients** to create recipes that restore P-Magic and build a stronger relationship with your Maiden. |
 | **Barter** | **(Free Action)** Place an order by trading away unwanted ingredients. The requested ingredients will be delivered at the start of the player's next turn. |
@@ -178,7 +178,7 @@ The system is a **Hybrid Automated Real-Time** system designed to be fast, fluid
 | Mechanic | Detail |
 | :--- | :--- |
 | **Technique Collection** | The player collects **Paleo Arts** from map events. There is no limit to the number of techniques they can own. Defeating strong rivals grant Stronger Paleo Arts and also higher chance to get **Secret Arts** |
-| **Combat Prowess** | Before a match, the player prepares their strategy by equipping techniques into their **Combat Prowess**. The base consists of **5 Paleo Arts (Active)** and **2 Secret Arts (Reserve)**, with more slots unlockable via Job Evolution. |
+| **Combat Prowess** | Before a match, the player prepares their strategy by equipping techniques into their **Combat Prowess**. The base consists of **`BASE_PALEO_SLOTS = 5` (Active)** and **`BASE_SECRET_SLOTS = 2` (Reserve)**, with more slots unlockable via Job Evolution. |
 | **Paleo Arts (Active)** | The core of the game plan. In real-time combat, the AI automatically uses these techniques as they come off their individual **cooldowns**. |
 | **Secret Arts (Reserve)** | Holds techniques that are not used in the normal turn-by-turn rotation. Their purpose is to fulfill the requirements for **Catalyst Combos** and to be activated by **Chain Properties**, allowing for complex synergies without clogging the main loadout. |
 | **Tactical Orders** | A high-level instruction (e.g., "All-Out Blitz," "Patient Counter") that influences the AI's selection priority when multiple Paleo Arts are off cooldown simultaneously. |
@@ -217,10 +217,10 @@ The location of a battle is a critical strategic factor. Each tournament match t
 
 | Color/Discipline | Combat Focus | Unique Passive Combat Ability | Unique Board/Flow Ability |
 | :--- | :--- | :--- | :--- |
-| **🔴 Red** | **Raw Power & Scaling Damage.** | **Power Surge:** Applies **+1 damage** to all attacks for each turn that passes in combat (resets after fight). | **Killing Streak:** After **3 consecutive wins**, gain a choice of one bonus "Spoils of Victory" common technique. |
-| **🔵 Blue** | **Defense & Consistency.** | **Arcane Ward:** Starts every combat with a **+2 Arcane Shield**. | **Scholarly Insight:** Chooses from **4 Reward Techniques** instead of 3 after any spar win. |
-| **🟢 Green** | **Speed & Precision.** | **First Strike:** Applies a **+3 bonus** to their first attack technique used in combat. | **Double Time:** Can **reject the free technique** from the Campsite to gain an **extra dice roll** upon completion of the rest. |
-| **🟡 Yellow** | **Durability & Damage Reduction.** | **Natural Resilience:** Passive **-1 damage reduction** from all incoming attacks. | **Expert Excavator:** When using the **Forage** action at a camp, has a higher chance to find rare or biome-exclusive techniques. |
+| **🔴 Red** | **Brute:** Raw Power & Scaling Damage. | **Power Surge:** Applies **+1 damage** to all attacks for each turn that passes in combat (resets after fight). | **Killing Streak:** After **3 consecutive wins**, gain a choice of one bonus "Spoils of Victory" common technique. |
+| **🔵 Blue** | **Focus:** Defense, Precision & Consistency. | **Arcane Ward:** Starts every combat with a **+2 Arcane Shield**. | **Scholarly Insight:** Chooses from **4 Reward Techniques** instead of 3 after any spar win. |
+| **🟢 Green** | **Flow:** Speed & Momentum. | **First Strike:** Applies a **+3 bonus** to their first attack technique used in combat. | **Double Time:** Can **reject the free technique** from the Campsite to gain an **extra dice roll** upon completion of the rest. |
+| **🟡 Yellow** | **Control:** Durability & Damage Reduction. | **Natural Resilience:** Passive **-1 damage reduction** from all incoming attacks. | **Strategic Insight:** After any spar win, the player can **reshuffle the presented Reward Techniques** and draw a new set of 3/4 random techniques from the pool. |
 
 ---
 
@@ -234,14 +234,14 @@ This section breaks down the turn-by-turn gameplay loop and distinguishes betwee
 | :--- | :--- | :--- |
 | **1. Roll Dice** | The player initiates a dice roll to determine movement range. | This action costs **1 Turn**. |
 | **2. Choose Path** | The player moves their Champion token on the map. | Movement must equal the number rolled on the dice. The map is non-linear, but there are ways to return to the start. |
-| **3. Land on Space** | The Champion lands on a map space, triggering an event. | Events can include Sparring Sessions, Dojos, Hot Springs, etc. |
+| **3. Land on Space** | The Champion lands on a map space, triggering an event. | Events can include **Wilderness**, **Crossroads**, **Academic Milestones**, or **Title Matches**. |
 
 ### B. Game Variables
 
 | Element Type | Description | Examples |
 | :--- | :--- | :--- |
 | **Constants** | Core rules and structures that are fixed for every playthrough. | • Fixed World Map Layout<br>• 3-Year Course Structure<br>• Standard 24 Turns per Year<br>• Predetermined Starting **Loadouts** for each Champion |
-| **Player Choices** | Key decisions the player makes to influence the outcome of the run. | • Selecting the starting Champion<br>• Choosing a path after a dice roll<br>• Purchasing items from the Dojo/Hot Spring<br>• Selecting a Reward **Technique** after a victory<br>• Deciding when to use the Campsite to rest (limited uses) |
+| **Player Choices** | Key decisions the player makes to influence the outcome of the run. | • Selecting the starting Champion.<br>• Building the **Combat Prowess** by equipping Paleo & Secret Arts.<br>• Setting the **Tactical Order** (Offensive, Defensive, Balanced) before a match.<br>• Choosing a path on the world map after a dice roll.<br>• Selecting a Reward **Technique** after a sparring victory.<br>• Deciding when to use ingredients to Cook and rest. |
 | **Random (RNG)** | Elements of chance that introduce unpredictability and replayability. | • Dice Roll result (1-6)<br>• **Technique** options presented in post-combat Rewards<br>• **Arena Biome** for tournament matches<br>• Specific events on certain map spaces (e.g., rival encounters, shops, sparring) |
 
 ### C. Core Pillars of Fun
