@@ -26,46 +26,6 @@
 
         <h1>Paleo-Maiden Championship: Game Design Documentation</h1>
 
-        <nav class="main-nav" aria-labelledby="nav-heading">
-            <h2 id="nav-heading">Table of Contents</h2>
-            <ul>
-                <li><a href="#i-lore--world-building">Lore &amp; World-Building</a></li>
-                <li><a href="#ii-core-progression--high-stakes-qualification">Core Progression &amp; High-Stakes
-                        Qualification</a>
-                    <ul>
-                        <li><a href="#-final-league-championship-structure-16-competitors">Final League Championship
-                                Structure</a></li>
-                        <li><a href="#job-evolution-optional-mastery">Job Evolution (Optional Mastery)</a></li>
-                    </ul>
-                </li>
-                <li><a href="#iii-world-map-spaces--mechanics">World Map Spaces &amp; Mechanics</a></li>
-                <li><a href="#iv-combat-system">Combat System</a>
-                    <ul>
-                        <li><a href="#a-technique-synergy--combos">Technique Synergy &amp; Combos</a></li>
-                        <li><a href="#b-arena-biomes--affinities">Arena Biomes &amp; Affinities</a></li>
-                    </ul>
-                </li>
-                <li><a href="#v-finalized-class-disciplines">Finalized Class Disciplines</a></li>
-                <li><a href="#vi-core-gameplay-loop--player-agency">Core Gameplay Loop &amp; Player Agency</a>
-                    <ul>
-                        <li><a href="#a-turn-structure-24-turns-per-year">Turn Structure</a></li>
-                        <li><a href="#b-game-variables">Game Variables</a></li>
-                        <li><a href="#c-core-pillars-of-fun">Core Pillars of Fun</a></li>
-                    </ul>
-                </li>
-                <li><a href="#vii-combat-philosophy--design-inspiration">Combat Philosophy &amp; Design Inspiration</a>
-                    <ul>
-                        <li><a href="#a-the-coach-trainer-combat-model">The "Coach/Trainer" Combat Model</a></li>
-                        <li><a href="#b-abstracted-training-capabilities-over-stats">Abstracted Training: "Capabilities
-                                over
-                                Stats"</a></li>
-                        <li><a href="#c-alignment-with-existing-game-design">Alignment with Existing Game Design</a>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="#viii-design-evolution-summary-tldr">Design Evolution Summary (tl;dr)</a></li>
-            </ul>
-        </nav>
         <h2 id="i-lore--world-building">I. Lore &amp; World-Building</h2>
         <table>
             <thead>
@@ -245,35 +205,173 @@
                 </tr>
             </tbody>
         </table>
-        <h3 id="job-evolution-optional-mastery">Job Evolution (Optional Mastery)</h3>
-        <p><strong>Job Evolution</strong> is an entirely optional system of specialization that expands a Maiden's
-            <strong>Combat Prowess</strong>. It is achieved by meeting specific <strong>Technique</strong> counts for
-            color combinations, and its primary reward is unlocking additional slots for Paleo Arts and Secret Arts.
-        </p>
+        <h3 id="d-rival-spotlight-system-narrative-through-mechanics">D. Rival Spotlight System: Narrative Through
+            Mechanics</h3>
+        <p>To ensure that a single playthrough feels like part of a larger, interconnected world, rivals are spotlighted
+            through two key systems. These mechanics make rivals feel like significant parts of your Maiden's journey,
+            encouraging players to become invested in their stories and potentially play as them in the future.</p>
         <table>
             <thead>
                 <tr>
-                    <th style="text-align: left;">Example Path</th>
-                    <th style="text-align: left;">Discipline Focus</th>
-                    <th style="text-align: left;">Resulting Job Title</th>
+                    <th style="text-align: left;">System</th>
+                    <th style="text-align: left;">Description &amp; Narrative Impact</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td style="text-align: left;"><strong>Single-Discipline</strong> (e.g., 10 Red Techniques)</td>
-                    <td style="text-align: left;">Raw Power</td>
-                    <td style="text-align: left;"><strong>Barbarian Tyran Rex</strong> (+1 Paleo Art Slot)</td>
+                    <td style="text-align: left;"><strong>1. Heart-to-Heart Events &amp; Bond Techniques</strong></td>
+                    <td style="text-align: left;">Landing on a <strong>Heart-to-Heart</strong> space triggers a deep
+                        narrative event with a rival, revealing their motivations, fears, and backstory. Success in
+                        these conversations doesn't just improve relations; it can reward the player with a unique
+                        <strong>"Bond Technique."</strong><br><br><em>This technique is a move inspired by the rival's
+                            philosophy, allowing your Maiden to adopt a piece of their style. For example, the
+                            aggressive Sastrei Taurus might learn the <code>Unyielding Stance</code> Bond Technique from
+                            the defensive Caza Amarga, a tangible representation of their friendship and Sastrei's
+                            growth.</em>
+                    </td>
                 </tr>
                 <tr>
-                    <td style="text-align: left;"><strong>Hybrid Discipline</strong> (e.g., 7 Red + 7 Blue)</td>
-                    <td style="text-align: left;">Power &amp; Defense</td>
-                    <td style="text-align: left;"><strong>Mystic Spearhand Tyran Rex</strong> (+1 Paleo Art, +1 Secret
-                        Art Slot)</td>
+                    <td style="text-align: left;"><strong>2. Sparring Sessions &amp; Rival's Legacy
+                            Techniques</strong></td>
+                    <td style="text-align: left;">Rivals are formidable opponents with full <strong>Combat
+                            Prowess</strong> loadouts and distinct strategies. Defeating them requires careful use of
+                        <strong>Tactical Orders</strong> and a well-planned build. The rewards for these high-stakes
+                        duels are significant:<br>
+                        <ul>
+                            <li><strong>On Victory:</strong> The player is offered a choice of <strong>three</strong>
+                                Reward Techniques, with a guaranteed higher rarity and a small chance for the Rival's
+                                own <strong>Secret Art</strong> to appear as the ultimate prize.</li>
+                            <li><strong>On Defeat:</strong> The player receives only <strong>one</strong> choice of a
+                                <strong>lower-rarity</strong> Technique as a consolation prize.
+                            </li>
+                        </ul><em>This system makes fighting a Rival a high-risk, high-reward event that is core to
+                            building a powerful moveset.</em>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 id="job-evolution-optional-mastery">Job Evolution (Optional Mastery)</h3>
+        <p><strong>Job Evolution</strong> is an entirely optional system of specialization that expands a Maiden's
+            <strong>Combat Prowess</strong>. It is divided into two tiers:
+        </p>
+        <ul>
+            <li><strong>Single-Discipline Jobs:</strong> Achieved by equipping a sufficient number of techniques from a
+                single discipline.</li>
+            <li><strong>Hybrid-Discipline Jobs:</strong> The pinnacle of mastery. Achieved by both equipping a specific
+                mix of techniques AND winning specific <strong>Titles</strong> from seasonal Title Matches.</li>
+        </ul>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Job Type</th>
+                    <th style="text-align: left;">Example Job</th>
+                    <th style="text-align: left;">Requirement</th>
+                    <th style="text-align: left;">Bonus</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;"><strong>Single Discipline (Character-Specific)</strong></td>
+                    <td style="text-align: left;">Tyrant King (Tyran Rex)</td>
+                    <td style="text-align: left;">5 Brute Techniques</td>
+                    <td style="text-align: left;">+1 Secret Art Slot, Unlocks <strong>Ancient Art</strong></td>
                 </tr>
                 <tr>
-                    <td style="text-align: left;"><strong>Hybrid Discipline</strong> (e.g., 7 Green + 7 Blue)</td>
-                    <td style="text-align: left;">Speed &amp; Magic</td>
-                    <td style="text-align: left;"><strong>Boxing Magus Sastrei Taurus</strong> (+2 Paleo Art Slots)</td>
+                    <td style="text-align: left;"><strong>Hybrid Discipline (Character-Specific)</strong></td>
+                    <td style="text-align: left;">Mystic Spearhand (Tyran Rex)</td>
+                    <td style="text-align: left;">4 Brute + 2 Focus Techniques<br><strong>+ Win "The Stalwart" &amp;
+                            "The
+                            Vanguard" Titles</strong></td>
+                    <td style="text-align: left;">+1 Paleo Art Slot, Unlocks <strong>Ancient Art</strong></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Single Discipline (Generic)</strong></td>
+                    <td style="text-align: left;">Barbarian</td>
+                    <td style="text-align: left;">5 Brute Techniques</td>
+                    <td style="text-align: left;">+1 Secret Art Slot</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Hybrid Discipline (Generic)</strong></td>
+                    <td style="text-align: left;">Gladiator</td>
+                    <td style="text-align: left;">3 Brute + 2 Control Techniques<br><strong>+ Win "The Bulwark"
+                            Title</strong></td>
+                    <td style="text-align: left;">+1 Paleo Art Slot</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><em>Note: Character-specific jobs take priority over generic ones if requirements for both are met. The job
+                system is determined by the techniques equipped in the <strong>Paleo Arts</strong> slots plus the
+                character's <strong>innate Secret Art</strong>.</em></p>
+        <h3 id="e-seasonal-title-matches-unlocking-hybrid-vocations">E. Seasonal Title Matches: Unlocking Hybrid
+            Vocations</h3>
+        <p>To add a layer of prestige and challenge, certain map spaces will periodically host <strong>Seasonal Title
+                Matches</strong>. These are optional, high-difficulty tournaments that appear on the calendar at
+            specific times of the year (e.g., the "Spring Bloom Invitational" in early February). Winning these events
+            is the only way to earn the <strong>Titles</strong> required for unlocking advanced Hybrid Vocations.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Event Feature</th>
+                    <th style="text-align: left;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;"><strong>Appearance</strong></td>
+                    <td style="text-align: left;">Appears on a specific map space for a limited duration (e.g., for 4
+                        turns). The player must travel to that space to participate.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Entry Requirement</strong></td>
+                    <td style="text-align: left;">May require a significant <strong>Fossil Fund</strong> entry fee or
+                        a minimum number of tournament wins, ensuring only worthy challengers can compete.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Reward</strong></td>
+                    <td style="text-align: left;">A unique, permanent <strong>Title</strong> for the champion (e.g.,
+                        "The Stalwart"), a large sum of Fossil Funds, and a choice of rare techniques.</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>These matches are themed and offer unique titles that reflect the specific challenge they present. A Maiden
+            can hold multiple titles, and collecting the correct combination is key to unlocking her full potential.
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Title Match Name</th>
+                    <th style="text-align: left;">Appears</th>
+                    <th style="text-align: left;">Challenge Focus</th>
+                    <th style="text-align: left;">Title Awarded</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;"><strong>The Meat-Lover's Classic</strong></td>
+                    <td style="text-align: left;">Early January</td>
+                    <td style="text-align: left;">A tournament exclusively for carnivore-class Maidens.</td>
+                    <td style="text-align: left;">"The Meat-Eater"</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Sprinter's Ace Invitational</strong></td>
+                    <td style="text-align: left;">Mid-March</td>
+                    <td style="text-align: left;">A high-speed tournament where only <strong>Flow (Green)</strong>
+                        techniques are allowed.</td>
+                    <td style="text-align: left;">"Fast and Furious"</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>The Stalwart Summit</strong></td>
+                    <td style="text-align: left;">Late June</td>
+                    <td style="text-align: left;">A defensive gauntlet where victory is earned by outlasting powerful
+                        opponents.</td>
+                    <td style="text-align: left;">"The Stalwart"</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Vanguard's Valor</strong></td>
+                    <td style="text-align: left;">Early September</td>
+                    <td style="text-align: left;">An offensive free-for-all that rewards aggressive, high-damage
+                        strategies.</td>
+                    <td style="text-align: left;">"The Vanguard"</td>
                 </tr>
             </tbody>
         </table>
@@ -293,9 +391,9 @@
                 <tr>
                     <td style="text-align: left;"><strong>Sparring Session</strong></td>
                     <td style="text-align: left;"><strong>Combat &amp; Primary Technique Gain</strong></td>
-                    <td style="text-align: left;">Win to gain <strong>Fossil Funds</strong> and a choice of
-                        <strong>Reward Techniques</strong> (weighted by the opponent's class/species).
-                    </td>
+                    <td style="text-align: left;">Triggers a fight. Can be against a generic "Zako" Maiden with a
+                        simple loadout, or a named <strong>Rival</strong> with a full, complex Combat Prowess. Rewards
+                        vary drastically based on the opponent and outcome (see Rival Spotlight System).</td>
                 </tr>
                 <tr>
                     <td style="text-align: left;"><strong>Dojo</strong></td>
@@ -378,9 +476,11 @@
                 <tr>
                     <td style="text-align: left;"><strong>Combat Prowess</strong></td>
                     <td style="text-align: left;">Before a match, the player prepares their strategy by equipping
-                        techniques into their <strong>Combat Prowess</strong>. The base consists of <strong>5 Paleo Arts
-                            (Active)</strong> and <strong>2 Secret Arts (Reserve)</strong>, with more slots unlockable
-                        via Job Evolution.</td>
+                        techniques into their <strong>Combat Prowess</strong>. The base consists of
+                        <strong><code>BASE_PALEO_SLOTS = 5</code> (Active)</strong> and
+                        <strong><code>BASE_SECRET_SLOTS = 2</code> (Reserve)</strong>, with more slots unlockable via
+                        Job Evolution.
+                    </td>
                 </tr>
                 <tr>
                     <td style="text-align: left;"><strong>Paleo Arts (Active)</strong></td>
@@ -513,6 +613,73 @@
             </tbody>
         </table>
 
+        <h3 id="c-technique-classification-and-acquisition">C. Technique Classification and Acquisition</h3>
+        <p>To support a deep and replayable "Capabilities over Stats" progression system, the vast library of Paleo
+            Arts is categorized by rarity, source, and function. This structure ensures that players are constantly
+            discovering new strategic tools throughout their journey.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Technique Category</th>
+                    <th style="text-align: left;">Description &amp; Function</th>
+                    <th style="text-align: left;">Primary Acquisition Method</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;"><strong>Common Discipline Techniques</strong></td>
+                    <td style="text-align: left;">The bread-and-butter of any loadout. These are generic, color-coded
+                        utility moves that form the foundation of a strategy.<br><em>Examples: <code>Minor Power
+                                Boost</code> (Red), <code>Basic Guard</code> (Blue), <code>Quick Step</code> (Green),
+                            <code>Reinforce</code> (Yellow).</em></td>
+                    <td style="text-align: left;">Common rewards from <strong>Sparring Sessions</strong>; purchasable at
+                        the <strong>Dojo</strong>.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Species-Specific Techniques</strong></td>
+                    <td style="text-align: left;">Uncommon techniques that reflect a Maiden's unique paleontological
+                        ancestry, often serving as their signature moves. These are the "legacy" techniques that define
+                        a rival's fighting style.<br><em>Examples: <code>Kinetic Uppercut</code> (Sastrei Taurus),
+                            <code>Tyrant's Roar</code> (Tyran Rex), <code>Spinal Shards</code> (Caza Amarga).</em>
+                    </td>
+                    <td style="text-align: left;">Rare reward choice after defeating a specific rival in a
+                        <strong>Sparring
+                            Session</strong> or <strong>Tournament Match</strong>.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Secret Arts</strong></td>
+                    <td style="text-align: left;">Very rare and powerful techniques, often with unique properties like
+                        <strong>"Catalyst"</strong> or <strong>"Chain."</strong> These are the cornerstones of advanced
+                        combos and build-defining synergies.<br><em>Example: <code>[Catalyst: Predator's
+                                Focus]</code>, <code>Iai Stance [Chain]</code>.</em>
+                    </td>
+                    <td style="text-align: left;">Very low chance from defeating powerful rivals; potential reward from
+                        <strong>Academic Milestones</strong>.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Bond Techniques</strong></td>
+                    <td style="text-align: left;">Unique techniques acquired through narrative progression. These cannot
+                        be found randomly and represent the trust built between your Maiden and a rival.<br><em>Example:
+                            A successful <strong>Heart-to-Heart</strong> with Berniss Iguan might grant Sastrei Taurus
+                            the <code>Unyielding Spirit</code> technique, a powerful defensive move inspired by
+                            Berniss's
+                            philosophy.</em></td>
+                    <td style="text-align: left;">Guaranteed reward from specific, successful <strong>Heart-to-Heart
+                            Events</strong>.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Ancient Arts</strong></td>
+                    <td style="text-align: left;">The most powerful and exclusive techniques in the game. These are not
+                        found randomly but are <strong>automatically granted</strong> upon achieving a specific, often
+                        character-exclusive, <strong>Job Evolution</strong>.<br><em>Example: Achieving the "Tyrant
+                            King" job with Tyran Rex unlocks the <code>Deinos Reaper</code> Ancient Art.</em></td>
+                    <td style="text-align: left;">Unlocked by fulfilling <strong>Job Evolution</strong> requirements.
+                </tr>
+            </tbody>
+        </table>
+
         <h2 id="v-finalized-class-disciplines">V. Finalized Class Disciplines</h2>
         <table>
             <thead>
@@ -526,7 +693,7 @@
             <tbody>
                 <tr>
                     <td style="text-align: left;"><strong>🔴 Red</strong></td>
-                    <td style="text-align: left;"><strong>Raw Power &amp; Scaling Damage.</strong></td>
+                    <td style="text-align: left;"><strong>Brute:</strong> Raw Power &amp; Scaling Damage.</td>
                     <td style="text-align: left;"><strong>Power Surge:</strong> Applies <strong>+1 damage</strong> to
                         all attacks for each turn that passes in combat (resets after fight).</td>
                     <td style="text-align: left;"><strong>Killing Streak:</strong> After <strong>3 consecutive
@@ -534,7 +701,7 @@
                 </tr>
                 <tr>
                     <td style="text-align: left;"><strong>🔵 Blue</strong></td>
-                    <td style="text-align: left;"><strong>Defense &amp; Consistency.</strong></td>
+                    <td style="text-align: left;"><strong>Focus:</strong> Defense, Precision &amp; Consistency.</td>
                     <td style="text-align: left;"><strong>Arcane Ward:</strong> Starts every combat with a <strong>+2
                             Arcane Shield</strong>.</td>
                     <td style="text-align: left;"><strong>Scholarly Insight:</strong> Chooses from <strong>4 Reward
@@ -542,7 +709,7 @@
                 </tr>
                 <tr>
                     <td style="text-align: left;"><strong>🟢 Green</strong></td>
-                    <td style="text-align: left;"><strong>Speed &amp; Precision.</strong></td>
+                    <td style="text-align: left;"><strong>Flow:</strong> Speed &amp; Momentum.</td>
                     <td style="text-align: left;"><strong>First Strike:</strong> Applies a <strong>+3 bonus</strong> to
                         their first attack technique used in combat.</td>
                     <td style="text-align: left;"><strong>Double Time:</strong> Can <strong>reject the free
@@ -551,7 +718,7 @@
                 </tr>
                 <tr>
                     <td style="text-align: left;"><strong>🟡 Yellow</strong></td>
-                    <td style="text-align: left;"><strong>Durability &amp; Damage Reduction.</strong></td>
+                    <td style="text-align: left;"><strong>Control:</strong> Durability &amp; Damage Reduction.</td>
                     <td style="text-align: left;"><strong>Natural Resilience:</strong> Passive <strong>-1 damage
                             reduction</strong> from all incoming attacks.</td>
                     <td style="text-align: left;"><strong>Strategic Insight:</strong> After any spar win, the player can
@@ -613,11 +780,12 @@
                     <td style="text-align: left;"><strong>Player Choices</strong></td>
                     <td style="text-align: left;">Key decisions the player makes to influence the outcome of the run.
                     </td>
-                    <td style="text-align: left;">• Selecting the starting Champion<br>• Choosing a path after a dice
-                        roll<br>• Purchasing items from the Dojo/Hot Spring<br>• Selecting a Reward
-                        <strong>Technique</strong> after a victory<br>• Deciding when to use the Campsite to rest
-                        (limited uses)
-                    </td>
+                    <td style="text-align: left;">• Selecting the starting Champion.<br>• Building the <strong>Combat
+                            Prowess</strong> by equipping Paleo &amp; Secret Arts.<br>• Setting the <strong>Tactical
+                            Order</strong> (Offensive, Defensive, Balanced) before a match.<br>• Choosing a path on the
+                        world map after a dice roll.<br>• Purchasing techniques or items from the Dojo/Hot
+                        Spring.<br>• Selecting a Reward <strong>Technique</strong> after a sparring victory.<br>•
+                        Deciding when to use the Campsite to rest.</td>
                 </tr>
                 <tr>
                     <td style="text-align: left;"><strong>Random (RNG)</strong></td>
@@ -840,6 +1008,57 @@
                 </tr>
             </tbody>
         </table>
+        <nav class="main-nav" aria-labelledby="nav-heading">
+            <h2 id="nav-heading-2">Back to Top</h2>
+            <ul>
+                <li><a href="#i-lore--world-building">Return to Table of Contents</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="floating-toc-container">
+        <button id="toc-toggle-btn">☰ Table of Contents</button>
+        <nav class="main-nav" aria-labelledby="nav-heading">
+            <h2 id="nav-heading">Table of Contents</h2>
+            <ul>
+                <li><a href="#i-lore--world-building">Lore &amp; World-Building</a></li>
+                <li><a href="#ii-core-progression--high-stakes-qualification">Core Progression &amp; High-Stakes
+                        Qualification</a></li>
+                <ul>
+                    <li><a href="#-final-league-championship-structure-16-competitors">League Championship
+                            Structure</a></li>
+                    <li><a href="#c-rival-arcs--narrative-progression">Rival Arcs &amp; Narrative</a></li>
+                    <li><a href="#d-rival-spotlight-system-narrative-through-mechanics">Rival Spotlight System</a></li>
+                    <li><a href="#job-evolution-optional-mastery">Job Evolution (Optional Mastery)</a></li>
+                    <li><a href="#e-seasonal-title-matches-unlocking-hybrid-vocations">Seasonal Title Matches</a>
+                    </li>
+                </ul>
+                <li><a href="#iii-world-map-spaces--mechanics">World Map Spaces &amp; Mechanics</a></li>
+                <li><a href="#iv-combat-system">Combat System</a>
+                    <ul>
+                        <li><a href="#a-technique-synergy--combos">Technique Synergy &amp; Combos</a></li>
+                        <li><a href="#b-arena-biomes--affinities">Arena Biomes &amp; Affinities</a></li>
+                        <li><a href="#c-technique-classification-and-acquisition">Technique Classification</a></li>
+                    </ul>
+                </li>
+                <li><a href="#v-finalized-class-disciplines">Finalized Class Disciplines</a></li>
+                <li><a href="#vi-core-gameplay-loop--player-agency">Core Gameplay Loop &amp; Player Agency</a>
+                    <ul>
+                        <li><a href="#a-turn-structure-24-turns-per-year">Turn Structure</a></li>
+                        <li><a href="#b-game-variables">Player Choices &amp; RNG</a></li>
+                        <li><a href="#c-core-pillars-of-fun">Core Pillars of Fun</a></li>
+                    </ul>
+                </li>
+                <li><a href="#vii-combat-philosophy--design-inspiration">Combat Philosophy &amp; Design Inspiration</a>
+                    <ul>
+                        <li><a href="#a-the-coach-trainer-combat-model">The "Coach/Trainer" Combat Model</a></li>
+                        <li><a href="#b-abstracted-training-capabilities-over-stats">Capabilities over Stats</a></li>
+                        <li><a href="#c-alignment-with-existing-game-design">Alignment with Pillars of Fun</a></li>
+                    </ul>
+                </li>
+                <li><a href="#viii-design-evolution-summary-tldr">Design Evolution Summary (tl;dr)</a></li>
+            </ul>
+        </nav>
     </div>
 
     <div class="volume-control-container">
@@ -855,6 +1074,7 @@
     </div>
 
     <script src="../js/music-player.js"></script>
+    <script src="gdd.js"></script>
 
 </body>
 

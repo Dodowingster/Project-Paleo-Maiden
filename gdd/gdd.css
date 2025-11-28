@@ -320,3 +320,63 @@ a {
     border-bottom: 1px dotted var(--color-accent);
     transition: color 0.2s ease-in-out;
 }
+
+/* --- Floating Table of Contents --- */
+#floating-toc-container {
+    position: fixed;
+    bottom: 60px;
+    /* Position it above the music player */
+    left: 20px;
+    z-index: 1000;
+    /* Ensure it's on top of other content */
+}
+
+#toc-toggle-btn {
+    padding: 10px 20px;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--color-background);
+    background-color: var(--color-heading);
+    border: 1px solid var(--color-accent);
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease-in-out;
+}
+
+#toc-toggle-btn:hover {
+    background-color: var(--color-accent);
+    transform: translateY(-2px);
+}
+
+/* Style the nav panel when it's part of the floating container */
+#floating-toc-container .main-nav {
+    /* Hide by default */
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(10px);
+
+    /* Positioning and Sizing */
+    position: absolute;
+    bottom: 100%;
+    /* Position it directly above the button */
+    margin-bottom: 10px;
+    width: 350px;
+    max-height: 60vh;
+    overflow-y: auto;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+/* When the container is active, show the nav panel */
+#floating-toc-container.active .main-nav {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Custom scrollbar for the floating ToC */
+#floating-toc-container .main-nav {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent) var(--color-background);
+}
