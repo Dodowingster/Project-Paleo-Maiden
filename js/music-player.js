@@ -71,8 +71,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', (e) => {
-                e.preventDefault(); // Stop immediate navigation
-                fadeOutAudioAndNavigate(link.href);
+                // Only apply the fade-out for links that navigate away from the page.
+                // Ignore in-page anchor links (that start with '#').
+                if (link.getAttribute('href') && !link.getAttribute('href').startsWith('#')) {
+                    e.preventDefault(); // Stop immediate navigation
+                    fadeOutAudioAndNavigate(link.href);
+                }
             });
         });
     }
