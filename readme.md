@@ -1,18 +1,23 @@
 # 🦖 Paleo-Maiden Championship: Game Design Documentation
 
 ## Table of Contents
+
 1.  [Lore & World-Building](#i-lore--world-building)
 2.  [Core Progression & High-Stakes Qualification](#ii-core-progression--high-stakes-qualification)
     -   [Final League Championship Structure](#-final-league-championship-structure-16-competitors)
+    -   [Rival Arcs & Narrative Progression](#c-rival-arcs--narrative-progression)
+    -   [Rival Spotlight System](#d-rival-spotlight-system-narrative-through-mechanics)
     -   [Job Evolution (Optional Mastery)](#job-evolution-optional-mastery)
+    -   [Seasonal Title Matches](#e-seasonal-title-matches-unlocking-hybrid-vocations)
 3.  [World Map Spaces & Mechanics](#iii-world-map-spaces--mechanics)
 4.  [Combat System](#iv-combat-system)
     -   [Technique Synergy & Combos](#a-technique-synergy--combos)
     -   [Arena Biomes & Affinities](#b-arena-biomes--affinities)
+    -   [Technique Classification](#c-technique-classification-and-acquisition)
 5.  [Finalized Class Disciplines](#v-finalized-class-disciplines)
 6.  [Core Gameplay Loop & Player Agency](#vi-core-gameplay-loop--player-agency)
     -   [Turn Structure](#a-turn-structure-24-turns-per-year)
-    -   [Game Variables](#b-game-variables)
+    -   [Player Choices & RNG](#b-game-variables)
     -   [Core Pillars of Fun](#c-core-pillars-of-fun)
 7.  [Combat Philosophy & Design Inspiration](#vii-combat-philosophy--design-inspiration)
     -   [The "Coach/Trainer" Combat Model](#a-the-coach-trainer-combat-model)
