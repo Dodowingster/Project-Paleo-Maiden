@@ -4,12 +4,14 @@
 
 1.  [Lore & World-Building](#i-lore--world-building)
 2.  [Core Progression & High-Stakes Qualification](#ii-core-progression--high-stakes-qualification)
-    -   [Final League Championship Structure](#-final-league-championship-structure-16-competitors)
+    -   [Final League Championship Structure (16 Competitors)](#-final-league-championship-structure-16-competitors)
     -   [Rival Arcs & Narrative Progression](#c-rival-arcs--narrative-progression)
-    -   [Rival Spotlight System](#d-rival-spotlight-system-narrative-through-mechanics)
+    -   [Rival Spotlight System: Narrative Through Mechanics](#d-rival-spotlight-system-narrative-through-mechanics)
     -   [Job Evolution (Optional Mastery)](#job-evolution-optional-mastery)
-    -   [Seasonal Title Matches](#e-seasonal-title-matches-unlocking-hybrid-vocations)
+    -   [Seasonal Title Matches: Unlocking Hybrid Vocations](#e-seasonal-title-matches-unlocking-hybrid-vocations)
 3.  [World Map Spaces & Mechanics](#iii-world-map-spaces--mechanics)
+    -   [Expedition Camp Actions (Wilderness Space)](#expedition-camp-actions-wilderness-space)
+    -   [Title Matches Mechanic (Stadium Facilities Space)](#title-matches-mechanic-stadium-facilities-space)
 4.  [Combat System](#iv-combat-system)
     -   [Technique Synergy & Combos](#a-technique-synergy--combos)
     -   [Arena Biomes & Affinities](#b-arena-biomes--affinities)
@@ -17,7 +19,7 @@
 5.  [Finalized Class Disciplines](#v-finalized-class-disciplines)
 6.  [Core Gameplay Loop & Player Agency](#vi-core-gameplay-loop--player-agency)
     -   [Turn Structure](#a-turn-structure-24-turns-per-year)
-    -   [Player Choices & RNG](#b-game-variables)
+    -   [Game Variables](#b-game-variables)
     -   [Core Pillars of Fun](#c-core-pillars-of-fun)
 7.  [Combat Philosophy & Design Inspiration](#vii-combat-philosophy--design-inspiration)
     -   [The "Coach/Trainer" Combat Model](#a-the-coach-trainer-combat-model)
@@ -77,21 +79,57 @@ The League Championships serve as the primary vehicle for narrative progression,
 | **Rival Introductions** | During world map exploration, potential rivals are introduced through random events, setting the stage for the high-stakes encounters in the final tournament. |
 | **Randomized Brackets** | The bracket seeding for the 16 competitors is **completely random** in each run. This ensures that each tournament playthrough is unique and unpredictable. |
 | **Narrative Replayability** | Because players are not guaranteed to face specific rivals, multiple playthroughs are encouraged to experience a Champion's full character arc and unlock all unique story events. |
-| **Rival Gifts & Bonds** | During map events, rivals may offer gifts (e.g., unique healing items, temporary stat boosts) or trigger deeper conversations. Positive outcomes can strengthen the bond, unlocking unique dialogue and even special **"Bond Techniques"** for the loadout. |
+| **Rival Gifts & Bonds** | During map events, rivals may offer gifts (e.g., dice modifiers, ingredients) or trigger deeper conversations. Positive outcomes can strengthen the bond, unlocking unique dialogue and even special Paleo Arts. |
+
+### D. Rival Spotlight System: Narrative Through Mechanics
+
+To ensure that a single playthrough feels like part of a larger, interconnected world, rivals are spotlighted through two key systems. These mechanics make rivals feel like significant parts of your Maiden's journey, encouraging players to become invested in their stories and potentially play as them in the future.
+
+| System | Description & Narrative Impact |
+| :--- | :--- |
+| **1. Crossroad Events** | By chance encountering a **Crossroad** space triggers a deep narrative event with a rival, revealing their motivations, fears, and backstory. Success in either sparring or interact wit them rewards with Paleo Arts corresponding from that rival's discipline; it can reward the player with a unique. This technique is a move inspired by the rival's philosophy, allowing your Maiden to adopt a piece of their style. For example, the aggressive Sastrei Taurus might learn the `Unyielding Stance` Paleo Art from the defensive Caza Amarga, a tangible representation of their friendship and Sastrei's growth. |
+| **2. Sparring Sessions & Rival's Legacy Techniques** | Rivals are formidable opponents with full **Combat Prowess** loadouts and distinct strategies. Defeating them requires careful use of **Tactical Orders** and a well-planned build. The rewards for these high-stakes duels are significant:<br> * **On Victory:** The player is offered a choice of **three** Reward Techniques, with a guaranteed higher rarity and a small chance for the Rival's own **Secret Art** to appear as the ultimate prize. <br> * **On Defeat:** The player receives only **one** choice of a **lower-rarity** Technique as a consolation prize. <br> *This system makes fighting a Rival a high-risk, high-reward event that is core to building a powerful moveset.* |
 
 ### Job Evolution (Optional Mastery)
 
-**Job Evolution** is an entirely optional system of specialization that expands a Maiden's **Combat Prowess**. It is achieved by meeting specific **Technique** counts for color combinations, and its primary reward is unlocking additional slots for Paleo Arts and Secret Arts.
+**Job Evolution** is an entirely optional system of specialization that expands a Maiden's **Combat Prowess**. It is divided into two tiers:
 
-| Example Path | Discipline Focus | Resulting Job Title |
-| :--- | :--- | :--- |
-| **Single-Discipline** (e.g., 10 Red Techniques) | Raw Power | **Barbarian Tyran Rex** (+1 Paleo Art Slot) |
-| **Hybrid Discipline** (e.g., 7 Red + 7 Blue) | Power & Defense | **Mystic Spearhand Tyran Rex** (+1 Paleo Art, +1 Secret Art Slot) |
-| **Hybrid Discipline** (e.g., 7 Green + 7 Blue) | Speed & Magic | **Boxing Magus Sastrei Taurus** (+2 Paleo Art Slots) |
+*   **Single-Discipline Jobs:** Achieved by equipping a sufficient number of techniques from a single discipline.
+*   **Hybrid-Discipline Jobs:** The pinnacle of mastery. Achieved by both equipping a specific mix of techniques AND winning specific **Titles** from seasonal Title Matches.
+
+| Job Type | Example Job | Requirement | Bonus |
+| :--- | :--- | :--- | :--- |
+| **Single Discipline (Character-Specific)** | Tyrant King (Tyran Rex) | 5 Brute Techniques | +1 Secret Art Slot, Unlocks **Ancient Art** |
+| **Hybrid Discipline (Character-Specific)** | Mystic Spearhand (Tyran Rex) | 4 Brute + 2 Focus Techniques<br>**+ Win "The Stalwart" & "The Vanguard" Titles** | +1 Paleo Art Slot, Unlocks **Ancient Art** |
+| **Single Discipline (Generic)** | Barbarian | 5 Brute Techniques | +1 Secret Art Slot |
+| **Hybrid Discipline (Generic)** | Gladiator | 3 Brute + 2 Control Techniques<br>**+ Win "The Bulwark" Title** | +1 Paleo Art Slot |
+
+*Note: Character-specific jobs take priority over generic ones if requirements for both are met. The job system is determined by the techniques equipped in the **Paleo Arts** slots plus the character's **innate Secret Art**.*
+
+### E. Seasonal Title Matches: Unlocking Hybrid Vocations
+
+To add a layer of prestige and challenge, certain map spaces will periodically host **Seasonal Title Matches**. These are optional, high-difficulty tournaments that appear on the calendar at specific times of the year (e.g., the "Spring Bloom Invitational" in early February). Winning these events is the only way to earn the **Titles** required for unlocking advanced Hybrid Vocations.
+
+| Event Feature | Description |
+| :--- | :--- |
+| **Appearance** | Appears on a specific map space for a limited duration (e.g., for 4 turns). The player must travel to that space to participate. |
+| **Entry Requirement** | Depends on the Title Match requirements that is running. |
+| **Reward** | A unique, permanent **Title** for the champion (e.g., "The Stalwart"), and a choice of rare techniques. |
+
+These matches are themed and offer unique titles that reflect the specific challenge they present. A Maiden can hold multiple titles, and collecting the correct combination is key to unlocking her full potential.
+
+| Title Match Name | Appears | Challenge Focus | Title Awarded |
+| :--- | :--- | :--- | :--- |
+| **The Meat-Lover's Classic** | Early January | A tournament exclusively for carnivore-class Maidens. | "The Meat-Eater" |
+| **Sprinter's Ace Invitational** | Mid-March | A high-speed tournament where only **Flow (Green)** techniques are allowed. | "Fast and Furious" |
+| **The Stalwart Summit** | Late June | A defensive gauntlet where victory is earned by outlasting powerful opponents. | "The Stalwart" |
+| **Vanguard's Valor** | Early September | An offensive free-for-all that rewards aggressive, high-damage strategies. | "The Vanguard" |
 
 ---
 
 ## III. World Map Spaces & Mechanics
+
+Movement is governed by a **Dice Roll**. Each action costs a turn, and players are given **24 turns per year**.
 
 Movement is governed by a **Dice Roll**, with players using **Paleo-Focus** to strategically control their landing spot. Each action costs a turn and players are given **24 turns per year**.
 
@@ -143,9 +181,10 @@ The system is a **Hybrid Automated Real-Time** system designed to be fast, fluid
 | **Combat Prowess** | Before a match, the player prepares their strategy by equipping techniques into their **Combat Prowess**. The base consists of **5 Paleo Arts (Active)** and **2 Secret Arts (Reserve)**, with more slots unlockable via Job Evolution. |
 | **Paleo Arts (Active)** | The core of the game plan. In real-time combat, the AI automatically uses these techniques as they come off their individual **cooldowns**. |
 | **Secret Arts (Reserve)** | Holds techniques that are not used in the normal turn-by-turn rotation. Their purpose is to fulfill the requirements for **Catalyst Combos** and to be activated by **Chain Properties**, allowing for complex synergies without clogging the main loadout. |
+| **Tactical Orders** | A high-level instruction (e.g., "All-Out Blitz," "Patient Counter") that influences the AI's selection priority when multiple Paleo Arts are off cooldown simultaneously. |
 | **Technique Types** | **Discipline Techniques** (Generic utility/buffs) **AND Species-Specific Techniques** (Rare, powerful effects tied to specific defeated rivals). |
 | **Arena Affinity** | The battle arena's biome can influence combat. Maidens with a natural affinity for the environment may have specific Paleo/Secret Arts boosted, increasing their effects and/or activation chance when fighting on their home turf. |
-| **Perfect Victory** | Winning a spar without losing any P-Magic grants a bonus (e.g., extra Fossil Funds, a temporary buff). |
+| **Perfect Victory** | Winning a spar without losing any P-Magic grants a bonus Technique choice. |
 | **Commentated Combat Log** | A live combat log narrates the fight with the flavor and energy of a sports commentator. It uses fighting game terminology (e.g., "punish," "combo," "whiff") to make the automated action exciting and easy for players to follow and discuss. |
 
 ### A. Technique Synergy & Combos
