@@ -22,6 +22,7 @@ body {
     color: var(--color-text);
     margin: 0;
     padding: 2rem 1rem;
+    animation: pageFadeIn 0.5s ease-in-out;
 }
 
 h1,
@@ -138,4 +139,31 @@ blockquote footer {
 .main-nav ul ul {
     margin-top: 0.5em;
     list-style-type: '❧';
+}
+
+/* --- Page Transition Animations --- */
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* --- Responsive Design for Mobile --- */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+        line-height: 1.6;
+    }
+
+    .container {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
 }

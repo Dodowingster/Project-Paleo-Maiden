@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Combat Prowess Prototype</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/music_styling.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -15,15 +16,30 @@
 </head>
 
 <body>
+    <audio id="bg-music" src="src/battlesetting.mp3" autoplay loop></audio>
+
     <nav class="breadcrumb">
         <a href="../index.html">&larr; Back to Home</a>
     </nav>
+
+    <div class="volume-control-container">
+        <div class="now-playing-container">
+            <span id="now-playing" class="now-playing-text">Now Playing: Jump Ultimate Stars OST - Battle
+                Settings</span>
+        </div>
+        <div class="volume-controls">
+            <button id="play-pause-btn" class="control-btn">❚❚</button>
+            <button id="mute-btn" class="control-btn">🔊</button>
+            <span class="volume-label">Music Volume</span>
+            <input type="range" id="volume-slider" min="0" max="100" value="50">
+        </div>
+    </div>
 
     <main class="clipboard-paper">
         <div class="paperclip"></div>
 
         <div id="character-selection-panel" class="panel">
-            <h2>Champion Maiden</h2>
+            <h2><strong>δεινό</strong>. <em>One's terror is the root of everyone's awe.</em></h2>
             <div id="character-list">
                 <!-- Character portraits will be loaded here by JS -->
             </div>
@@ -83,7 +99,8 @@
         </div>
     </main>
 
-    <script src="script.js"></script>
+    <script src="../js/music-player.js"></script>
+    <script src="script.js"></script> <!-- Keep for page-specific JS -->
 
 </body>
 

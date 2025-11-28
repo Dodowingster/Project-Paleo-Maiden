@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paleo-Maiden Championship: GDD</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="../css/music_styling.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Lato:wght@400;700&display=swap"
@@ -15,6 +16,8 @@
 </head>
 
 <body>
+    <audio id="bg-music" src="../src/sailon.mp3" autoplay loop></audio>
+
     <div class="profile-container">
         <nav class="breadcrumb">
             <!-- This path assumes the file will be in a subdirectory like /character-designs/carnotaurus/ -->
@@ -838,6 +841,22 @@
             </tbody>
         </table>
     </div>
+
+    <div class="volume-control-container">
+        <div class="now-playing-container">
+            <span id="now-playing" class="now-playing-text">Now Playing: Jump Ultimate Stars OST - Sail On</span>
+        </div>
+        <div class="volume-controls">
+            <button id="play-pause-btn" class="control-btn">❚❚</button>
+            <button id="mute-btn" class="control-btn">🔊</button>
+            <span class="volume-label">Music Volume</span>
+            <input type="range" id="volume-slider" min="0" max="100" value="30">
+        </div>
+    </div>
+
+    <script src="../js/music-player.js"></script>
+
 </body>
+
 
 </html>

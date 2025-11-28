@@ -30,6 +30,7 @@ body {
     color: var(--color-text);
     padding: 20px;
     line-height: 1.6;
+    animation: pageFadeIn 0.5s ease-in-out;
 }
 
 /* --- Breadcrumb Navigation Button --- */
@@ -515,6 +516,21 @@ h3 {
 
 .technique-item.hybrid-flow-focus {
     border-image: linear-gradient(to bottom, var(--color-flow), var(--color-focus)) 1;
+}
+
+/* Style for hybrid ancient arts in the list */
+.technique-item.hybrid-ancient-art {
+    /* Base class for hybrid ancient arts, animation is applied on specific classes */
+    animation: gradient-shift 4s linear infinite;
+    background-size: 200% auto;
+}
+
+.technique-item.hybrid-ancient-art.hybrid-brute-focus {
+    border-image: linear-gradient(45deg, var(--color-brute), var(--color-focus), var(--color-brute)) 1;
+}
+
+.technique-item.hybrid-ancient-art.hybrid-flow-focus {
+    border-image: linear-gradient(45deg, var(--color-flow), var(--color-focus), var(--color-flow)) 1;
 }
 
 /* Combat Prowess */
@@ -1155,5 +1171,39 @@ h3 {
         display: block;
         /* Make label take its own line */
         margin-bottom: 2px;
+    }
+}
+
+@keyframes rainbow-shift {
+    0% {
+        background-position: 0% 0%;
+        filter: hue-rotate(0deg);
+    }
+
+    100% {
+        background-position: 200% 0%;
+        filter: hue-rotate(360deg);
+    }
+}
+
+/* Reusable class for animated text (like details title) */
+.animated-gradient-text {
+    background: linear-gradient(90deg, var(--color-brute), var(--color-focus), var(--color-flow), var(--color-control), var(--color-brute));
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: rainbow-shift 4s linear infinite;
+}
+
+
+/* New animation for specific color gradients */
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
     }
 }

@@ -3,12 +3,18 @@
 :root {
     --font-heading: 'Cormorant Garamond', serif;
     --font-body: 'Lato', sans-serif;
-    --color-text: #4d443a; /* Dark, earthy brown */
-    --color-heading: #3a3228; /* Even darker brown for headings */
-    --color-background: #fdf6e3; /* Parchment paper */
-    --color-accent: #8b4513; /* Saddle brown, for links/accents */
-    --color-border: #d2b48c; /* Tan, for borders */
-    --color-code-bg: #f5f5dc; /* Beige, for code blocks */
+    --color-text: #4d443a;
+    /* Dark, earthy brown */
+    --color-heading: #3a3228;
+    /* Even darker brown for headings */
+    --color-background: #fdf6e3;
+    /* Parchment paper */
+    --color-accent: #8b4513;
+    /* Saddle brown, for links/accents */
+    --color-border: #d2b48c;
+    /* Tan, for borders */
+    --color-code-bg: #f5f5dc;
+    /* Beige, for code blocks */
 }
 
 body {
@@ -18,9 +24,13 @@ body {
     background-color: var(--color-background);
     margin: 0;
     padding: 2rem 1rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    /* Added for readability */
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: var(--font-heading);
     color: var(--color-heading);
     font-weight: 700;
@@ -76,10 +86,15 @@ em {
 .container {
     max-width: 800px;
     margin: 0 auto;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(253, 246, 227, 0.9);
+    /* Increased opacity from 0.4 to 0.9 */
     padding: 2rem 3rem;
     border: 1px solid var(--color-border);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(2px);
+    /* Adds a subtle blur to the background behind the container */
+    -webkit-backdrop-filter: blur(2px);
+    /* For Safari support */
 }
 
 .divider {
@@ -109,7 +124,8 @@ header blockquote footer {
     color: #7d6f5f;
 }
 
-ul, ol {
+ul,
+ol {
     padding-left: 1.5em;
 }
 
@@ -119,7 +135,8 @@ li {
 
 /* Table of Contents */
 #toc {
-    background-color: rgba(245, 245, 220, 0.5); /* Faint beige */
+    background-color: rgba(245, 245, 220, 0.5);
+    /* Faint beige */
     border: 1px solid #e0d6c3;
     padding: 1.5rem 2rem;
     border-radius: 4px;
@@ -159,4 +176,27 @@ code {
     background: none;
     padding: 0;
     border-radius: 0;
+}
+
+#bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    object-fit: fill;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(209, 161, 107, 0.5);
+    z-index: -99;
 }

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Paleo Maiden - Home</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/music_styling.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -14,6 +15,8 @@
 </head>
 
 <body>
+    <audio id="bg-music" src="src/colliseum.mp3" autoplay loop></audio>
+
     <main class="container">
         <header>
             <h1>Project Paleo Maiden</h1>
@@ -59,6 +62,21 @@
             </ul>
         </nav>
     </main>
+
+    <div class="volume-control-container">
+        <div class="now-playing-container">
+            <span id="now-playing" class="now-playing-text">Now Playing: Jump Ultimate Stars OST - Colliseum</span>
+        </div>
+        <div class="volume-controls">
+            <button id="play-pause-btn" class="control-btn">❚❚</button>
+            <button id="mute-btn" class="control-btn">🔊</button>
+            <span class="volume-label">Music Volume</span>
+            <input type="range" id="volume-slider" min="0" max="100" value="50">
+        </div>
+    </div>
+
+    <script src="js/music-player.js"></script>
+    <script src="script.js"></script> <!-- Keep for any page-specific JS -->
 </body>
 
 </html>

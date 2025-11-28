@@ -8,6 +8,7 @@
     <title>[Character Name] - Character Profile</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../../css/music_styling.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Lato:wght@400;700&display=swap"
         rel="stylesheet">
@@ -16,15 +17,16 @@
 </head>
 
 <body>
+    <audio id="bg-music" src="../src/deckmake.mp3" autoplay loop></audio>
 
     <main class="profile-container">
-        <!-- TODO: Replace with Character Name -->
-        <h1>[Character Name]</h1>
 
         <nav class="breadcrumb">
             <!-- This path assumes the file will be in a subdirectory like /character-designs/carnotaurus/ -->
             <a href="../../index.html">&larr; Back to Home</a>
         </nav>
+        <!-- TODO: Replace with Character Name -->
+        <h1>[Character Name]</h1>
 
         <section id="counterpart-details">
             <h2>Real Life Counterpart Details</h2>
@@ -283,6 +285,20 @@
         });
     </script>
 
+    <div class="volume-control-container">
+        <div class="now-playing-container">
+            <span id="now-playing" class="now-playing-text">Now Playing: Jump Ultimate Stars OST - Deck
+                Customization</span>
+        </div>
+        <div class="volume-controls">
+            <button id="play-pause-btn" class="control-btn">❚❚</button>
+            <button id="mute-btn" class="control-btn">🔊</button>
+            <span class="volume-label">Music Volume</span>
+            <input type="range" id="volume-slider" min="0" max="100" value="70">
+        </div>
+    </div>
+
+    <script src="../../js/music-player.js"></script>
 </body>
 
 </html>

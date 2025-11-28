@@ -640,6 +640,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // Special styling for hybrid arts based on their disciplines
         if (Array.isArray(tech.discipline) && tech.discipline.length === 2) {
             // Sort to ensure class is consistent (e.g., flow-focus is same as focus-flow)
+            // Apply special animation for hybrid Ancient Arts
+            if (tech.type === 'Ancient Art') {
+                item.classList.add('hybrid-ancient-art');
+            }
+
             const sortedDisciplines = [...tech.discipline].sort();
             const hybridClass = `hybrid-${sortedDisciplines[0].toLowerCase()}-${sortedDisciplines[1].toLowerCase()}`;
             item.classList.add(hybridClass);
@@ -807,7 +812,11 @@ document.addEventListener('DOMContentLoaded', () => {
             let titleClass = '';
             let titleStyle = '';
             if (tech.type === 'Secret Art' || tech.type === 'Ancient Art') {
-                titleClass = 'glowing-title';
+                if (Array.isArray(tech.discipline) && tech.discipline.length > 1) {
+                    titleClass = 'animated-gradient-text';
+                } else {
+                    titleClass = 'glowing-title';
+                }
                 // Use the first discipline for the glow color in case of hybrids
                 const discipline = Array.isArray(tech.discipline) ? tech.discipline[0] : tech.discipline;
                 const disciplineColor = `var(--color-${discipline.toLowerCase()})`;
@@ -1154,7 +1163,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const jobColors = jobDisciplines.map(disc => DISCIPLINE_COLORS[disc]);
 
             jobTitleP.classList.toggle('job-active', jobColors.length > 0);
-            jobTitleP.style.backgroundImage = jobColors.length > 0 ? `linear-gradient(135deg, ${jobColors.join(', ')})` : 'none';
+
+            if (jobColors.length > 1) {
+                // Create a gradient that cycles back to the start color for a smooth loop
+                const gradient = `linear-gradient(90deg, ${jobColors.join(', ')}, ${jobColors[0]})`;
+                jobTitleP.style.background = gradient;
+                jobTitleP.style.backgroundSize = '200% auto'; // Double size for shifting
+
+                // Use the gradient-shift animation for all hybrid jobs
+                jobTitleP.style.animation = `gradient-shift 4s linear infinite`;
+
+            } else {
+                jobTitleP.style.backgroundImage = jobColors.length > 0 ? `linear-gradient(135deg, ${jobColors.join(', ')})` : 'none';
+                jobTitleP.style.animation = 'none'; // Remove animation if not hybrid
+            }
 
             // --- Animate the card if a new job is unlocked ---
             if (currentJob.name !== previousJobName && currentJob.name !== 'Maiden') {

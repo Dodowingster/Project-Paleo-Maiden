@@ -1,0 +1,190 @@
+/* --- Manuscript-Themed Volume Slider Styles --- */
+.volume-control-container {
+    position: fixed;
+    bottom: 15px;
+    right: 20px;
+    background-color: #f3e9d2;
+    /* Parchment color */
+    padding: 8px 15px;
+    border: 1px solid #c6bba8;
+    border-radius: 3px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: 'Cormorant Garamond', serif;
+    z-index: 100;
+}
+
+.volume-control-container span {
+    margin-right: 15px;
+    font-weight: 700;
+    font-size: 1.1em;
+    color: #5c4033;
+    /* Dark brown ink color */
+}
+
+.now-playing-container {
+    width: 100%;
+    /* Take full width of the parent */
+    overflow: hidden;
+    /* Hide the text that goes outside */
+    white-space: nowrap;
+    /* Prevent text from wrapping to a new line */
+    margin-bottom: 5px;
+    color: #7a5436;
+    /* Slightly lighter brown */
+}
+
+.now-playing-text {
+    font-size: 0.9em !important;
+    font-style: italic;
+    font-weight: 400 !important;
+    display: inline-block;
+    /* Required for animation */
+    padding-left: 100%;
+    /* Start the text off-screen to the right */
+    animation: marquee 15s linear infinite;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.volume-controls {
+    display: flex;
+    align-items: center;
+}
+
+/* Style for the slider track */
+input[type=range] {
+    -webkit-appearance: none;
+    width: 150px;
+    background: transparent;
+}
+
+input[type=range]:focus {
+    outline: none;
+    /* Removes the focus outline */
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    background: #8a6c4c;
+    /* A mid-brown color */
+    border-radius: 2px;
+    border: 1px solid #5c4033;
+}
+
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    background: #8a6c4c;
+    border-radius: 2px;
+    border: 1px solid #5c4033;
+}
+
+/* Style for the slider thumb */
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 22px;
+    width: 10px;
+    background: #5c4033;
+    /* Dark brown ink color */
+    border: 1px solid #3d2b22;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-top: -10px;
+    /* Center thumb on the track */
+}
+
+input[type=range]::-moz-range-thumb {
+    height: 22px;
+    width: 10px;
+    background: #5c4033;
+    border: 1px solid #3d2b22;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+/* --- Additions for Music Control Buttons --- */
+.control-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.4em;
+    color: #5c4033;
+    /* Dark brown ink color */
+    padding: 0 5px;
+    line-height: 1;
+    margin-bottom: 2px;
+    /* Aligns icons better with the text */
+}
+
+.control-btn:hover {
+    color: #c0392b;
+    /* A reddish color for contrast on hover */
+}
+
+.volume-label {
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+/* --- Page Transition Animations --- */
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pageFadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+/* --- Responsive Design for Mobile --- */
+@media (max-width: 768px) {
+    .volume-control-container {
+        /* Span the full width at the bottom */
+        width: 100%;
+        bottom: 0;
+        right: 0;
+        left: 0;
+
+        /* Adjust padding and remove border-radius for a full-width bar */
+        padding: 10px;
+        border-radius: 0;
+        box-sizing: border-box;
+        /* Ensures padding is included in the width */
+        align-items: center;
+        /* Center all content */
+    }
+
+    .now-playing-container {
+        text-align: center;
+    }
+
+    .control-btn {
+        font-size: 1.6em;
+        /* Make buttons slightly larger for easier tapping */
+    }
+}

@@ -53,7 +53,7 @@ Sastrei Taurus is a Paleo-Maiden affiliated with the **Apex League (Carni Dorm)*
 | Vocation | Core Trait | Signature Move |
 | :--- | :--- | :--- |
 | **Kinetic Boxer** | **Agility & Precision:** Her style is built around constant movement, evading damage, and landing quick, successive strikes where they matter most. | **Sastrei Carnage:** A multi-hit flurry of punches culminating in a devastating uppercut. This move commits her limited P-Magic pool for a high-risk, decisive finish. |
-| **Boxing Magus** | **Arcane-Enhanced Agility:** Uses P-Magic for extended-range **Flicker Jabs** to taunt and bait opponents, while also focusing P-Magic into her feet for enhanced **Speed and Agility**. | **Storming Blitz:** A rapid flurry of flicker jabs while weaving side-to-side to maximize the area of hits, culminating in a final powerful corckscrew. |
+| **Boxing Magus** | **Arcane-Enhanced Agility:** Uses P-Magic for extended-range **Flicker Jabs** to taunt and bait opponents, while also focusing P-Magic into her feet for enhanced **Speed and Agility**. | **Dicrae Hellion:**  A catastrophic initial blow sends the opponent flying, then engages Light-Speed Pursuit, chasing them down from multiple vectors with impossible velocity, culminating in a powerful, screen-shattering uppercut. |
 
 ## Motivation and Goals
 
