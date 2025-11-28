@@ -97,20 +97,41 @@ Movement is governed by a **Dice Roll**, with players using **Paleo-Focus** to s
 
 | Space Name | Core Function | Action/Event Triggered |
 | :--- | :--- | :--- |
-| **Sparring Session** | **Combat & Primary Technique Gain** | Win to gain **Fossil Funds** and a choice of **Reward Techniques** (weighted by the opponent's class/species). |
-| **Dojo** | **Guaranteed Technique Acquisition** | Spend **Fossil Funds** to purchase specific, color-coded **Discipline Techniques** or expensive **Specialized Species Techniques**. |
-| **Hot Spring** | **P-Magic Maintenance** | Spend **Fossil Funds** to buy **species-specific Curative Food Items** (with expiration timers) for small, immediate P-Magic recovery. |
-| **Heart-to-Heart** | **Relationship Building** | Spend **1 Turn** to trigger a narrative event with a chosen Rival. Success in dialogue can yield powerful, temporary buffs or unique **"Bond Techniques."** |
-| **Academic Milestone** | **Mandatory Career Check** | **Permanent, high-difficulty Sparring Session** (must be won to qualify for the League Exam). |
-
+| **Wilderness** | **Resource Management, Recovery & Relationship Building** | Automatically triggers the **Expedition Camp**, where the player chooses from several actions. This costs **1 Turn**. |
+| **Crossroads** | **Rival Encounter & Relationship Building** | A chance encounter with another Maiden and their Lecturer. The player chooses to either **Interact (Free Action)** for a brief narrative event that rewards a random Paleo Art related to the Rival, or **Challenge (Free Action)** to initiate a friendly Sparring Session. Winning the spar yields a choice of higher-rarity Paleo Arts. |
+| **Academic Milestone** | **Mandatory Career Check** | A high-difficulty **Sparring Session** against a predetermined rival or powerful opponent. Must be won to qualify for the League Exam. |
+| **Title Match** | **High-Stakes Combat & Reward** | Permanent **Stadium Facilities** on the map that occupy a large **2x2 grid area (4 spaces)**, making them easier to access. Landing on any of these spaces allows the player to challenge one of three **Title Aspirants** vying for that stadium's title. One of these will be the **Apex Aspirant**, the most difficult challenge. See the "Title Matches Mechanic" section for details. |
 ---
 
-| Mechanic | Detail | **Unique Green Class Integration** |
+### Expedition Camp Actions (Wilderness Space)
+
+| Action | Effect |
+| :--- | :--- |
+| **Train** | Guaranteed gain of a new common **Technique** and uncommon colored **Techniques**. |
+| **Forage** | Primarily yields **Ingredients** and **Navigation Items** (e.g., dice modifiers), with a small chance to find a biome-specific **Technique**. Depletes P-Magic. |
+| **Cook** | Use collected **Ingredients** to create recipes that restore P-Magic and build a stronger relationship with your Maiden. |
+| **Barter** | **(Free Action)** Place an order by trading away unwanted ingredients. The requested ingredients will be delivered at the start of the player's next turn. |
+
+|---
+
+### Title Matches Mechanic (Stadium Facilities Space)
+
+Each stadium features three **Title Aspirants** competing for that location's title. One is the **Apex Aspirant**—the thematic favorite and toughest challenge (e.g., **Tyran Rex** at the "Meat-Lover Stakes").
+
+| Opponent Tier | Difficulty | Reward for Winning |
 | :--- | :--- | :--- |
-| **Campsite (Rest)** | Available via **Menu/UI** on any turn. **Cost:** 1 Turn. **Benefit:** Major P-Magic Recovery (75% HP) **PLUS** one random Discipline Technique of the Champion's base color. | **Double Time:** Green can **reject the random technique gain** to receive an **extra dice roll** for immediate movement after resting, sacrificing passive learning for aggressive flow. |
-| **League Exam** | **Automatic Trigger** when **all Academic Milestones for the Year are cleared**. | The final boss tournament for the Year, required for qualification. |
+| **The Apex Aspirant** | Very High | Choose one of three rewards: a unique **Badge**, a prestigious **Title**, or a choice between that Maiden's unique **Secret Art** and two high-rarity **Paleo Arts** of their primary discipline. |
+| **A Rival Aspirant** | High | Choose one of three high-rarity **Paleo Arts** of that Maiden's primary discipline with a small chance for that Maiden's unique **Secret Art** |
+
+| Mechanic | Detail | 
+| :--- | :--- |
+| **Badges** | Prestigious trophies won from defeating an **Apex Aspirant** in a Title Match. During random map events, the player may encounter a Professor and their Paleo Maiden partner. Possessing a Badge prompts a **free Sparring Session** challenge. Winning this spar grants powerful Techniques, but accepting with low P-Magic is risky. |
+| **Titles** | Prestigious, cosmetic honorifics won from defeating an **Apex Aspirant** in a Title Match. These are displayed next to a Maiden's name in tournaments and combat logs to signify their accomplishments. |
+| **League Exam** | **Automatic Trigger** when **all Academic Milestones for the Year are cleared**. |
 
 ---
+
+*__Deprecated Mechanics:__ The old `Campsite (Rest)`, `Hot Spring`, `Trading Post`, and `Dojo` spaces have been deprecated, along with the `Fossil Funds` currency. Their functions are now integrated into the `Expedition Camp` and `Title Match` systems.*
 
 ## IV. Combat System
 
@@ -122,7 +143,6 @@ The system is a **Hybrid Automated Real-Time** system designed to be fast, fluid
 | **Combat Prowess** | Before a match, the player prepares their strategy by equipping techniques into their **Combat Prowess**. The base consists of **5 Paleo Arts (Active)** and **2 Secret Arts (Reserve)**, with more slots unlockable via Job Evolution. |
 | **Paleo Arts (Active)** | The core of the game plan. In real-time combat, the AI automatically uses these techniques as they come off their individual **cooldowns**. |
 | **Secret Arts (Reserve)** | Holds techniques that are not used in the normal turn-by-turn rotation. Their purpose is to fulfill the requirements for **Catalyst Combos** and to be activated by **Chain Properties**, allowing for complex synergies without clogging the main loadout. |
-| **Tactical Orders** | A high-level instruction (e.g., "All-Out Blitz," "Patient Counter") that influences the AI's selection priority when multiple Paleo Arts are off cooldown simultaneously. |
 | **Technique Types** | **Discipline Techniques** (Generic utility/buffs) **AND Species-Specific Techniques** (Rare, powerful effects tied to specific defeated rivals). |
 | **Arena Affinity** | The battle arena's biome can influence combat. Maidens with a natural affinity for the environment may have specific Paleo/Secret Arts boosted, increasing their effects and/or activation chance when fighting on their home turf. |
 | **Perfect Victory** | Winning a spar without losing any P-Magic grants a bonus (e.g., extra Fossil Funds, a temporary buff). |
@@ -161,7 +181,7 @@ The location of a battle is a critical strategic factor. Each tournament match t
 | **🔴 Red** | **Raw Power & Scaling Damage.** | **Power Surge:** Applies **+1 damage** to all attacks for each turn that passes in combat (resets after fight). | **Killing Streak:** After **3 consecutive wins**, gain a choice of one bonus "Spoils of Victory" common technique. |
 | **🔵 Blue** | **Defense & Consistency.** | **Arcane Ward:** Starts every combat with a **+2 Arcane Shield**. | **Scholarly Insight:** Chooses from **4 Reward Techniques** instead of 3 after any spar win. |
 | **🟢 Green** | **Speed & Precision.** | **First Strike:** Applies a **+3 bonus** to their first attack technique used in combat. | **Double Time:** Can **reject the free technique** from the Campsite to gain an **extra dice roll** upon completion of the rest. |
-| **🟡 Yellow** | **Durability & Damage Reduction.** | **Natural Resilience:** Passive **-1 damage reduction** from all incoming attacks. | **Strategic Insight:** After any spar win, the player can **reshuffle the presented Reward Techniques** and draw a new set of 3/4 random techniques from the pool. |
+| **🟡 Yellow** | **Durability & Damage Reduction.** | **Natural Resilience:** Passive **-1 damage reduction** from all incoming attacks. | **Expert Excavator:** When using the **Forage** action at a camp, has a higher chance to find rare or biome-exclusive techniques. |
 
 ---
 
@@ -224,7 +244,7 @@ Following the "train -> compete" loop of its inspirations, this game abstracts t
 | :--- | :--- |
 | **Training Stats (e.g., +10 Speed)** | **Acquiring Techniques.** Landing on a "Sparring Session" space and gaining a new `Flowing Strikes` technique makes the Maiden qualitatively faster and better at maintaining tempo. |
 | **Reaching Stat Thresholds** | **Achieving Job Evolution.** Collecting a specific number of colored techniques (e.g., 5 Red, 5 Blue) unlocks a new "Job" with powerful passive buffs, serving as a long-term training goal. |
-| **Equipping Support Cards** | **Building Rival Bonds.** Engaging in "Heart-to-Heart" events and strengthening relationships rewards the player with unique and powerful "Bond Techniques." |
+| **Equipping Support Cards** | **Building Rival Bonds.** Engaging in "Crossroads" events and strengthening relationships rewards the player with unique and powerful Paleo Arts. |
 
 This approach ensures the feeling of growth and progression is central to the experience, but keeps the focus on strategic choices and narrative development rather than numerical micromanagement.
 
