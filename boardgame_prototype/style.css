@@ -140,14 +140,29 @@ h3 {
 
 #game-board {
     position: relative;
-    background-image: url('./src/primevalcontinent.png');
-    background-size: cover;
-    background-position: center;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     aspect-ratio: 2.38;
     /* Matches the image aspect ratio */
     width: 100%;
+    overflow: hidden;
+    /* Ensures the ::before pseudo-element respects the border-radius */
+}
+
+#game-board::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./src/primevalcontinent.png');
+    background-size: cover;
+    background-position: center;
+    /* The filter creates a pencil-sketch on old parchment effect. */
+    /* filter: grayscale(1) sepia(0.7) contrast(1.5) brightness(0.9); */
+    z-index: 0;
+    /* Places the background behind the game elements */
 }
 
 /* --- Connections Layer --- */
@@ -162,7 +177,7 @@ h3 {
 }
 
 #connections-layer line {
-    stroke: rgba(58, 50, 40, 0.6);
+    stroke: rgb(0, 153, 255);
     /* Dark brown, semi-transparent */
 }
 

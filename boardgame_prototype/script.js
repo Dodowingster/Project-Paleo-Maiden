@@ -409,7 +409,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 line.setAttribute('y1', startPos.top);
                 line.setAttribute('x2', endPos.left);
                 line.setAttribute('y2', endPos.top);
-                line.setAttribute('stroke', 'rgba(255, 255, 255, 0.91)');
+                line.setAttribute('stroke', 'rgba(255, 255, 255, 1)');
                 line.setAttribute('stroke-width', '2');
                 line.setAttribute('marker-end', 'url(#arrowhead)');
                 svgLayer.appendChild(line);
@@ -802,19 +802,19 @@ document.addEventListener('DOMContentLoaded', () => {
                         costMessage = `Training in a harsh biome (${currentBiome}) was draining`;
                     }
 
-                    if (playerState.currentPMagic > pMagicCost) {
+                    if (playerState.currentPMagic > 0) {
                         playerState.currentPMagic -= pMagicCost;
                         const learnedDiscipline = playerState.mainDiscipline; // Always learn the main discipline
                         playerState.techniques[learnedDiscipline]++;
                         logMessage(`${costMessage}, costing ${pMagicCost} P-Magic. Learned a <span class="text-${learnedDiscipline}">${learnedDiscipline}</span> technique!`, 'reward');
                     } else {
-                        let errorMsg = `Not enough P-Magic to train in the ${currentBiome}. You need ${pMagicCost}.`;
-                        if (affinity.advantage.includes(currentBiome)) {
-                            errorMsg = `Even with an advantage, you lack the ${pMagicCost} P-Magic to train.`;
-                        } else if (affinity.disadvantage.includes(currentBiome)) {
-                            errorMsg = `This biome is too harsh. You need ${pMagicCost} P-Magic to train here.`;
-                        }
-                        logMessage(errorMsg, 'error');
+                        logMessage("You don't have any P-Magic left to train.", 'error');
+                        // let errorMsg = `Not enough P-Magic to train in the ${currentBiome}. You need ${pMagicCost}.`;
+                        // if (affinity.advantage.includes(currentBiome)) {
+                        //     errorMsg = `Even with an advantage, you lack the ${pMagicCost} P-Magic to train.`;
+                        // } else if (affinity.disadvantage.includes(currentBiome)) {
+                        //     errorMsg = `This biome is too harsh. You need ${pMagicCost} P-Magic to train here.`;
+                        // }
                     }
                     break;
                 }
@@ -834,48 +834,48 @@ document.addEventListener('DOMContentLoaded', () => {
                         techniqueFindChance = 0.50; // High reward (50% chance)
                     }
 
-                    playerState.currentPMagic -= pMagicCost;
+                    if (playerState.currentPMagic > 0) {
+                        playerState.currentPMagic -= pMagicCost;
 
-                    let ingredientsFound;
-                    switch (currentBiome) {
-                        case 'Forest':
-                        case 'Coastal':
-                        case 'Plains':
-                            ingredientsFound = Math.floor(Math.random() * 3) + 2; // Bountiful: 2-4 ingredients
-                            break;
-                        case 'Desert':
-                        case 'Tundra':
-                        case 'Volcanic':
-                        case 'Mountain':
-                            ingredientsFound = Math.floor(Math.random() * 2) + 1; // Sparse: 1-2 ingredients
-                            break;
-                        default:
-                            ingredientsFound = Math.floor(Math.random() * 3) + 1; // Standard: 1-3 ingredients
-                    }
-
-                    playerState.ingredients += ingredientsFound;
-                    let forageMessage = `Foraging in the ${currentBiome} cost ${pMagicCost} P-Magic and yielded ${ingredientsFound} ingredients.`;
-
-                    // Add a 20% chance to find a biome-specific technique
-                    if (Math.random() < techniqueFindChance) {
-                        const biomeTechniqueMap = {
-                            'Volcanic': 'brute',
-                            'Mountain': 'brute',
-                            'Coastal': 'focus',
-                            'Tundra': 'focus',
-                            'Plains': 'flow',
-                            'Forest': 'flow',
-                            'Desert': 'control',
-                        };
-
-                        const foundTechnique = biomeTechniqueMap[currentBiome];
-                        if (foundTechnique) {
-                            playerState.techniques[foundTechnique]++;
-                            forageMessage += `\nYou also learned a <span class="text-${foundTechnique}">${foundTechnique}</span> technique!`;
+                        let ingredientsFound;
+                        switch (currentBiome) {
+                            case 'Forest':
+                            case 'Coastal':
+                            case 'Plains':
+                                ingredientsFound = Math.floor(Math.random() * 3) + 2; // Bountiful: 2-4 ingredients
+                                break;
+                            case 'Desert':
+                            case 'Tundra':
+                            case 'Volcanic':
+                            case 'Mountain':
+                                ingredientsFound = Math.floor(Math.random() * 2) + 1; // Sparse: 1-2 ingredients
+                                break;
+                            default:
+                                ingredientsFound = Math.floor(Math.random() * 3) + 1; // Standard: 1-3 ingredients
                         }
-                    }
 
-                    logMessage(forageMessage, 'reward');
+                        playerState.ingredients += ingredientsFound;
+                        let forageMessage = `Foraging in the ${currentBiome} cost ${pMagicCost} P-Magic and yielded ${ingredientsFound} ingredients.`;
+
+                        // Add a chance to find a biome-specific technique
+                        if (Math.random() < techniqueFindChance) {
+                            const biomeTechniqueMap = {
+                                'Volcanic': 'brute', 'Mountain': 'brute',
+                                'Coastal': 'focus', 'Tundra': 'focus',
+                                'Plains': 'flow', 'Forest': 'flow',
+                                'Desert': 'control',
+                            };
+
+                            const foundTechnique = biomeTechniqueMap[currentBiome];
+                            if (foundTechnique) {
+                                playerState.techniques[foundTechnique]++;
+                                forageMessage += `\nYou also learned a <span class="text-${foundTechnique}">${foundTechnique}</span> technique!`;
+                            }
+                        }
+                        logMessage(forageMessage, 'reward');
+                    } else {
+                        logMessage("You don't have any P-Magic left to forage.", 'error');
+                    }
                     break;
                 }
             case 'cook':
@@ -970,6 +970,12 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        if (playerState.currentPMagic <= 0) {
+            handleExhaustion();
+            // Don't proceed with the roll
+            return;
+        }
+
         rollDiceBtn.disabled = true;
         diceResultDisplay.classList.add('rolling');
 
@@ -999,6 +1005,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const pathToTake = movablePaths.get(destinationId);
         animateTokenAlongPath(pathToTake);
+    }
+
+    function handleExhaustion() {
+        logMessage("You've run out of P-Magic and collapsed from exhaustion!", 'error');
+
+        let affinityLoss;
+        let pMagicRecovery;
+
+        if (playerState.ingredients <= 0) {
+            // Harsher penalty for having no ingredients
+            affinityLoss = 20;
+            pMagicRecovery = 5;
+            logMessage("With no ingredients for a proper meal, the rest is fitful and stressful.", 'error');
+        } else {
+            // Standard penalty
+            affinityLoss = 10;
+            pMagicRecovery = 15;
+        }
+
+        // Affinity decrease
+        playerState.currentAffinity = Math.max(0, playerState.currentAffinity - affinityLoss);
+
+        // P-Magic recovery
+        playerState.currentPMagic = Math.min(playerState.maxPMagic, playerState.currentPMagic + pMagicRecovery);
+
+        logMessage(`The ordeal was stressful. You lose <span class="text-danger">${affinityLoss} Affinity</span>.`, 'error');
+        logMessage(`You manage to get some rest, recovering <span class="text-pmagic">${pMagicRecovery} P-Magic</span>, but lose a turn.`, 'reward');
+
+        updateStatusUI();
+        endTurn();
     }
 
     function endTurn() {
