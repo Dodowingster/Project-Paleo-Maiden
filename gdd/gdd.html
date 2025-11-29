@@ -302,6 +302,60 @@
         <p><em>Note: Character-specific jobs take priority over generic ones if requirements for both are met. The job
                 system is determined by the techniques equipped in the <strong>Paleo Arts</strong> slots plus the
                 character's <strong>innate Secret Art</strong>.</em></p>
+
+        <h3 id="player-resources">Player Resources</h3>
+        <p>The player manages two primary resources for their Maiden: Paleo-Magic (P-Magic) and Affinity. These
+            resources represent the Maiden's physical readiness and mental/emotional state, respectively.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Resource</th>
+                    <th style="text-align: left;">Description &amp; Function</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;"><strong>Paleo-Magic (P-Magic)</strong></td>
+                    <td style="text-align: left;">Represents the Maiden's health and stamina. It is depleted in combat
+                        and by performing strenuous actions like <strong>Train</strong> and <strong>Forage</strong>. It
+                        can be restored by <strong>Cooking</strong>. If P-Magic reaches zero in combat, the Maiden is
+                        defeated.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Affinity</strong></td>
+                    <td style="text-align: left;">Represents the bond, trust, and morale between the Lecturer (player)
+                        and their Maiden. It is a measure of their relationship, built through care and positive
+                        interaction.</td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>Gaining, Losing, and Using Affinity</h4>
+        <p>A strong bond is crucial for unlocking a Maiden's true potential, but that bond can also be strained.
+            Affinity is a dynamic resource that reflects the player's choices.</p>
+        <ul>
+            <li><strong>Gaining Affinity:</strong> Affinity is gained through positive reinforcement and shared success.
+                This includes winning fights, positive interactions during <strong>Crossroads</strong> events, and
+                nurturing actions like <strong>Cooking</strong> a favorite meal.</li>
+            <li><strong>Losing Affinity:</strong> Affinity can be lost through poor performance or misjudging the
+                Maiden's preferences.
+                <ul>
+                    <li>Losing a fight has a chance to decrease Affinity, reflecting disappointment.</li>
+                    <li>Serving a recipe the Maiden dislikes during the <strong>Cook</strong> action will decrease
+                        Affinity.</li>
+                </ul>
+            </li>
+            <li><strong>Using Affinity:</strong> High Affinity serves as a
+                gatekeeper for critical narrative and mechanical moments. High Affinity may be required to:
+                <ul>
+                    <li>Unlock unique, heartfelt narrative scenes that delve into a Maiden's backstory.</li>
+                    <li>Trigger special one-on-one training events that grant powerful, unique Paleo Arts.</li>
+                    <li>Gain a "second wind" in a tough tournament match, providing a small P-Magic recovery or a
+                        temporary buff when the odds are against you.</li>
+                    <li>Boosts skill activation rate during combat.</li>
+                </ul>
+            </li>
+        </ul>
+
         <h3 id="e-seasonal-title-matches-unlocking-hybrid-vocations">E. Seasonal Title Matches: Unlocking Hybrid
             Vocations</h3>
         <p>To add a layer of prestige and challenge, certain map spaces will periodically host <strong>Seasonal Title
@@ -375,9 +429,6 @@
             </tbody>
         </table>
         <h2 id="iii-world-map-spaces--mechanics">III. World Map Spaces &amp; Mechanics</h2>
-        <p>Movement is governed by a <strong>Dice Roll</strong>. Each action costs a turn, and players are given
-            <strong>24 turns per year</strong>.
-        </p>
         <p>Movement is governed by a <strong>Dice Roll</strong>, with players using <strong>Paleo-Focus</strong> to
             strategically control their landing spot. Each action costs a turn and players are given <strong>24 turns
                 per year</strong>.</p>
@@ -392,20 +443,20 @@
             <tbody>
                 <tr>
                     <td style="text-align: left;"><strong>Wilderness</strong></td>
-                    <td style="text-align: left;"><strong>Resource Management, Recovery &amp; Relationship
-                            Building</strong></td>
-                    <td style="text-align: left;">Automatically triggers the <strong>Expedition Camp</strong>, where the
-                        player chooses from several actions. This costs <strong>1 Turn</strong>.</td>
+                    <td style="text-align: left;"><strong>Resource Management &amp; Chance Encounters</strong></td>
+                    <td style="text-align: left;">Landing on a Wilderness space costs <strong>1 Turn</strong> and
+                        automatically triggers the <strong>Expedition Camp</strong>. However, there is a small chance
+                        that a <strong>Crossroads Event</strong> will occur first. If the player chooses not to spar
+                        during the event, they will proceed to the Expedition Camp actions as normal.</td>
                 </tr>
                 <tr>
                     <td style="text-align: left;"><strong>Crossroads</strong></td>
-                    <td style="text-align: left;"><strong>Rival Encounter & Relationship Building</strong></td>
-                    <td style="text-align: left;">A chance encounter with another Maiden and their Lecturer. The player
-                        chooses to either <strong>Interact (Free Action)</strong> for a brief narrative event that
-                        rewards a random
-                        Paleo Art related to the Rival, or <strong>Challenge (Free Action)</strong> to initiate a
-                        friendly Sparring
-                        Session. Winning the spar yields a choice of higher-rarity Paleo Arts.</td>
+                    <td style="text-align: left;"><strong>Guaranteed Rival Encounter</strong></td>
+                    <td style="text-align: left;">Triggers a <strong>Crossroads Event</strong>, a guaranteed encounter
+                        with another Maiden. The player chooses to either <strong>Interact (Free Action)</strong> for a
+                        narrative event and a Paleo Art reward, or <strong>Challenge (Free Action)</strong> to initiate
+                        a Sparring Session. If the player interacts, they then proceed to the <strong>Expedition
+                            Camp</strong> actions.</td>
                 </tr>
                 <tr>
                     <td style="text-align: left;"><strong>Academic Milestone</strong></td>
@@ -416,7 +467,8 @@
                 <tr>
                     <td style="text-align: left;"><strong>Title Match</strong></td>
                     <td style="text-align: left;"><strong>High-Stakes Combat &amp; Reward</strong></td>
-                    <td style="text-align: left;">Permanent <strong>Stadium Facilities</strong> on the map that occupy a
+                    <td style="text-align: left;">Permanent <strong>Stadium Facilities</strong> on the map that MAY
+                        occupy a
                         large <strong>2x2 grid area (4 spaces)</strong>, making them easier to access. Landing on any
                         of these spaces allows the player to challenge one of three <strong>Title Aspirants</strong>
                         vying for that stadium's title. One of these will be the <strong>Apex Aspirant</strong>, the
@@ -435,29 +487,105 @@
             <tbody>
                 <tr>
                     <td style="text-align: left;"><strong>Train</strong></td>
-                    <td style="text-align: left;">Guaranteed gain of a new common <strong>Technique</strong> and a
-                        smaller chance for an uncommon colored <strong>Techniques</strong>.</td>
+                    <td style="text-align: left;">Gain a new <strong>Technique</strong> of your Maiden's primary
+                        discipline at the cost of P-Magic. The cost is determined by the biome of the current space. See
+                        "Biome Affinity for Training" below for details.</td>
                 </tr>
                 <tr>
                     <td style="text-align: left;"><strong>Forage</strong></td>
-                    <td style="text-align: left;">Primarily yields <strong>Ingredients</strong> and <strong>Navigation
-                            Items</strong> (e.g., dice modifiers), with a small chance to find a biome-specific
-                        <strong>Technique</strong>. Depletes P-Magic.
+                    <td style="text-align: left;">Costs P-Magic to find <strong>Ingredients</strong>, with a chance to
+                        also learn a biome-specific <strong>Technique</strong>. The costs and rewards are determined by
+                        the biome:<br>
+                        <ul>
+                            <li><strong>Bountiful Biomes (Forest, Coastal, Plains):</strong> Costs 10 P-Magic. Yields
+                                2-4 Ingredients with a 20% chance to find a Technique.</li>
+                            <li><strong>Harsh Biomes (Volcanic, Mountain, Tundra, Desert):</strong> Costs 20 P-Magic.
+                                Yields 1-2 Ingredients with a 50% chance to find a Technique.</li>
+                        </ul>
                     </td>
                 </tr>
                 <tr>
                     <td style="text-align: left;"><strong>Cook</strong></td>
                     <td style="text-align: left;">Use collected <strong>Ingredients</strong> to create recipes that
-                        restore P-Magic and build a stronger relationship with your Maiden.</td>
+                        restore P-Magic and build Affinity. Different recipes will require different ingredients and
+                        yield varying effects. A basic meal, for example, might cost 2 ingredients to restore 25
+                        P-Magic and 5 Affinity.</td>
                 </tr>
                 <tr>
                     <td style="text-align: left;"><strong>Barter</strong></td>
                     <td style="text-align: left;"><strong>(Free Action)</strong> Place an order by trading away unwanted
                         ingredients. The requested ingredients will be delivered at the start of the player's next turn.
-                    </td>
+                        This is crucial for completing specific, powerful recipes when missing a key component.</td>
                 </tr>
             </tbody>
         </table>
+        <h4 id="biome-affinity-for-training">Biome Affinity for Training</h4>
+        <p>The P-Magic cost of the <strong>Train</strong> action is influenced by the biome of the Wilderness space,
+            adding a strategic layer to pathing. Each discipline has biomes where training is more or less efficient.
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Condition</th>
+                    <th style="text-align: left;">P-Magic Cost</th>
+                    <th style="text-align: left;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;"><strong>Advantage Biome</strong></td>
+                    <td style="text-align: left;">3 P-Magic</td>
+                    <td style="text-align: left;">Training in a biome that aligns with the Maiden's nature is highly
+                        efficient.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Neutral Biome</strong></td>
+                    <td style="text-align: left;">7 P-Magic</td>
+                    <td style="text-align: left;">The standard cost for training in a non-aligned biome.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>Disadvantage Biome</strong></td>
+                    <td style="text-align: left;">12 P-Magic</td>
+                    <td style="text-align: left;">Training in a harsh or opposing biome is draining and requires more
+                        energy.</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>The specific biome advantages and disadvantages for each discipline are as follows:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Discipline</th>
+                    <th style="text-align: left;">Advantage Biomes (Efficient Training)</th>
+                    <th style="text-align: left;">Disadvantage Biomes (Draining Training)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;"><strong>🔴 Brute</strong></td>
+                    <td style="text-align: left;">Volcanic, Mountain</td>
+                    <td style="text-align: left;">Tundra, Coastal</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>🔵 Focus</strong></td>
+                    <td style="text-align: left;">Coastal, Tundra</td>
+                    <td style="text-align: left;">Volcanic, Desert</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>🟢 Flow</strong></td>
+                    <td style="text-align: left;">Plains, Forest</td>
+                    <td style="text-align: left;">Mountain, Volcanic</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><strong>🟡 Control</strong></td>
+                    <td style="text-align: left;">Desert, Mountain</td>
+                    <td style="text-align: left;">Forest, Plains</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
         <h3 id="title-matches-mechanic-stadium-facilities-space">Title Matches Mechanic (Stadium Facilities Space)</h3>
         <p>Each stadium features three <strong>Title Aspirants</strong> competing for that location's title. One is the
             <strong>Apex Aspirant</strong>—the thematic favorite and toughest challenge (e.g., <strong>Tyran
@@ -476,9 +604,9 @@
                 <tr>
                     <td style="text-align: left;"><strong>The Apex Aspirant</strong></td>
                     <td style="text-align: left;">Very High</td>
-                    <td style="text-align: left;">Choose one of three rewards: a unique <strong>Badge</strong>, a
-                        prestigious <strong>Title</strong>, or a choice between that Maiden's unique <strong>Secret
-                            Art</strong> and two high-rarity <strong>Paleo Arts</strong> of their primary discipline.
+                    <td style="text-align: left;">A choice between that Maiden's unique <strong>Secret Art</strong> and
+                        two
+                        high-rarity <strong>Paleo Art</strong> of their primary discipline.
                     </td>
                 </tr>
                 <tr>
@@ -1095,11 +1223,13 @@
                     <li><a href="#d-rival-spotlight-system-narrative-through-mechanics">Rival Spotlight System</a></li>
                     <li><a href="#job-evolution-optional-mastery">Job Evolution (Optional Mastery)</a></li>
                     <li><a href="#e-seasonal-title-matches-unlocking-hybrid-vocations">Seasonal Title Matches</a>
+                    <li><a href="#player-resources">Player Resources</a>
                     </li>
                 </ul>
                 <li><a href="#iii-world-map-spaces--mechanics">World Map Spaces &amp; Mechanics</a>
                     <ul>
                         <li><a href="#expedition-camp-actions-wilderness-space">Expedition Camp Actions</a></li>
+                        <li><a href="#biome-affinity-for-training">Biome Affinity (Training)</a></li>
                         <li><a href="#title-matches-mechanic-stadium-facilities-space">Title Matches Mechanic</a></li>
                     </ul>
                 </li>
