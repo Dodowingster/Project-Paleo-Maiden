@@ -9,6 +9,7 @@
     -   [Rival Spotlight System: Narrative Through Mechanics](#d-rival-spotlight-system-narrative-through-mechanics)
     -   [Job Evolution (Optional Mastery)](#job-evolution-optional-mastery)
     -   [Seasonal Title Matches: Unlocking Hybrid Vocations](#e-seasonal-title-matches-unlocking-hybrid-vocations)
+    -   [Player Resources](#player-resources)
 3.  [World Map Spaces & Mechanics](#iii-world-map-spaces--mechanics)
     -   [Expedition Camp Actions (Wilderness Space)](#expedition-camp-actions-wilderness-space)
     -   [Title Matches Mechanic (Stadium Facilities Space)](#title-matches-mechanic-stadium-facilities-space)
@@ -106,6 +107,31 @@ To ensure that a single playthrough feels like part of a larger, interconnected 
 
 *Note: Character-specific jobs take priority over generic ones if requirements for both are met. The job system is determined by the techniques equipped in the **Paleo Arts** slots plus the character's **innate Secret Art**.*
 
+### Player Resources
+
+The player manages two primary resources for their Maiden: Paleo-Magic (P-Magic) and Affinity.
+
+| Resource | Description & Function |
+| :--- | :--- |
+| **Paleo-Magic (P-Magic)** | Represents the Maiden's health and stamina. It is depleted in combat and by performing actions like **Train** and **Forage**. It can be restored by **Cooking**. |
+| **Affinity** | Represents the bond, trust, and morale between the Lecturer (player) and their Maiden. It is a measure of their relationship, built through care and positive interaction. |
+
+#### Gaining and Using Affinity
+
+A strong bond is crucial for unlocking a Maiden's true potential, but that bond can also be strained.
+
+*   **Gaining Affinity:** Affinity is gained through positive reinforcement and shared success. This includes winning fights, positive interactions during **Crossroads** events, and nurturing actions like **Cooking** a favorite meal.
+*   **Losing Affinity:** Affinity can be lost through poor performance or misjudging the Maiden's preferences.
+    *   Losing a fight has a chance to decrease Affinity.
+    *   Serving a recipe the Maiden dislikes will decrease Affinity.
+*   **Using Affinity:** High Affinity serves as a gatekeeper for critical moments. It is required to:
+    *   Unlock unique, heartfelt narrative scenes.
+    *   Trigger special one-on-one training events that grant powerful Paleo Arts.
+    *   Gain a "second wind" in a tough tournament match, providing a small P-Magic recovery or a temporary buff.
+    *   Boosts skill activation rate during combat.
+
+---
+
 ### E. Seasonal Title Matches: Unlocking Hybrid Vocations
 
 To add a layer of prestige and challenge, certain map spaces will periodically host **Seasonal Title Matches**. These are optional, high-difficulty tournaments that appear on the calendar at specific times of the year (e.g., the "Spring Bloom Invitational" in early February). Winning these events is the only way to earn the **Titles** required for unlocking advanced Hybrid Vocations.
@@ -135,30 +161,55 @@ Movement is governed by a **Dice Roll**, with players using **Paleo-Focus** to s
 
 | Space Name | Core Function | Action/Event Triggered |
 | :--- | :--- | :--- |
-| **Wilderness** | **Resource Management, Recovery & Relationship Building** | Automatically triggers the **Expedition Camp**, where the player chooses from several actions. This costs **1 Turn**. |
-| **Crossroads** | **Rival Encounter & Relationship Building** | A chance encounter with another Maiden and their Lecturer. The player chooses to either **Interact (Free Action)** for a brief narrative event that rewards a random Paleo Art related to the Rival, or **Challenge (Free Action)** to initiate a friendly Sparring Session. Winning the spar yields a choice of higher-rarity Paleo Arts. |
+| **Wilderness** | **Resource Management & Chance Encounters** | Landing on a Wilderness space costs **1 Turn** and automatically triggers the **Expedition Camp**. However, there is a small chance that a **Crossroads Event** will occur first. If the player chooses not to spar during the event, they will proceed to the Expedition Camp actions as normal. |
+| **Crossroads** | **Guaranteed Rival Encounter** | Triggers a **Crossroads Event**, a guaranteed encounter with another Maiden. The player chooses to either **Interact (Free Action)** for a narrative event and a Paleo Art reward, or **Challenge (Free Action)** to initiate a Sparring Session. If the player interacts, they then proceed to the **Expedition Camp** actions. |
 | **Academic Milestone** | **Mandatory Career Check** | A high-difficulty **Sparring Session** against a predetermined rival or powerful opponent. Must be won to qualify for the League Exam. |
-| **Title Match** | **High-Stakes Combat & Reward** | Permanent **Stadium Facilities** on the map that occupy a large **2x2 grid area (4 spaces)**, making them easier to access. Landing on any of these spaces allows the player to challenge one of three **Title Aspirants** vying for that stadium's title. One of these will be the **Apex Aspirant**, the most difficult challenge. See the "Title Matches Mechanic" section for details. |
+| **Title Match** | **High-Stakes Combat & Reward** | Permanent **Stadium Facilities** on the map that MAY occupy a large **2x2 grid area (4 spaces)**, making them easier to access. Landing on any of these spaces allows the player to challenge one of three **Title Aspirants** vying for that stadium's title. One of these will be the **Apex Aspirant**, the most difficult challenge. See the "Title Matches Mechanic" section for details. |
 ---
 
 ### Expedition Camp Actions (Wilderness Space)
 
 | Action | Effect |
 | :--- | :--- |
-| **Train** | Guaranteed gain of a new common **Technique** and a smaller chance for an uncommon colored **Techniques**. |
-| **Forage** | Primarily yields **Ingredients** and **Navigation Items** (e.g., dice modifiers), with a small chance to find a biome-specific **Technique**. Depletes P-Magic. |
-| **Cook** | Use collected **Ingredients** to create recipes that restore P-Magic and build a stronger relationship with your Maiden. |
-| **Barter** | **(Free Action)** Place an order by trading away unwanted ingredients. The requested ingredients will be delivered at the start of the player's next turn. |
+| **Train** | Gain a new **Technique** of your Maiden's primary discipline at the cost of P-Magic. The cost is determined by the biome of the current space (see "Biome Affinity for Training" below). |
+| **Forage** | Costs P-Magic to find **Ingredients**, with a chance to also learn a biome-specific **Technique**. The costs and rewards are determined by the biome:<br>- **Bountiful Biomes (Forest, Coastal, Plains):** Costs 10 P-Magic. Yields 2-4 Ingredients with a 20% chance to find a Technique.<br>- **Harsh Biomes (Volcanic, Mountain, Tundra, Desert):** Costs 20 P-Magic. Yields 1-2 Ingredients with a 50% chance to find a Technique. |
+| **Cook** | Use collected **Ingredients** to create recipes that restore P-Magic and build Affinity. Different recipes will require different ingredients and yield varying effects. A basic meal, for example, might cost 2 ingredients to restore 25 P-Magic and 5 Affinity. |
+| **Barter** | **(Free Action)** Place an order by trading away unwanted ingredients. The requested ingredients will be delivered at the start of the player's next turn. This is crucial for completing specific, powerful recipes when missing a key component. |
 
 |---
 
+#### Biome Affinity for Training
+
+The P-Magic cost of the **Train** action is influenced by the biome of the Wilderness space, adding a strategic layer to pathing. Each discipline has biomes where training is more or less efficient.
+
+| Condition | P-Magic Cost | Description |
+| :--- | :--- | :--- |
+| **Advantage Biome** | 3 P-Magic | Training in a biome that aligns with the Maiden's nature is highly efficient. |
+| **Neutral Biome** | 7 P-Magic | The standard cost for training in a non-aligned biome. |
+| **Disadvantage Biome** | 12 P-Magic | Training in a harsh or opposing biome is draining and requires more energy. |
+
+*Example: A **Brute** (Red) discipline Maiden will find it much cheaper to train in **Volcanic** or **Mountain** biomes, but more expensive in **Tundra** or **Coastal** areas.*
+
+The specific biome advantages and disadvantages for each discipline are as follows:
+
+| Discipline | Advantage Biomes (Efficient Training) | Disadvantage Biomes (Draining Training) |
+| :--- | :--- | :--- |
+| **🔴 Brute** | Volcanic, Mountain | Tundra, Coastal |
+| **🔵 Focus** | Coastal, Tundra | Volcanic, Desert |
+| **🟢 Flow** | Plains, Forest | Mountain, Volcanic |
+| **🟡 Control** | Desert, Mountain | Forest, Plains |
+
+---
+
 ### Title Matches Mechanic (Stadium Facilities Space)
+
+---
 
 Each stadium features three **Title Aspirants** competing for that location's title. One is the **Apex Aspirant**—the thematic favorite and toughest challenge (e.g., **Tyran Rex** at the "Meat-Lover Stakes").
 
 | Opponent Tier | Difficulty | Reward for Winning |
 | :--- | :--- | :--- |
-| **The Apex Aspirant** | Very High | Choose one of three rewards: a unique **Badge**, a prestigious **Title**, or a choice between that Maiden's unique **Secret Art** and two high-rarity **Paleo Arts** of their primary discipline. |
+| **The Apex Aspirant** | Very High | A choice between that Maiden's unique **Secret Art** and two high-rarity **Paleo Arts** of their primary discipline. |
 | **A Rival Aspirant** | High | Choose one of three high-rarity **Paleo Arts** of that Maiden's primary discipline with a small chance for that Maiden's unique **Secret Art** |
 
 | Mechanic | Detail | 
