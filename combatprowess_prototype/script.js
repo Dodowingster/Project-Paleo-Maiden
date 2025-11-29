@@ -471,7 +471,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createClearLoadoutButton();
 
     // Select the first character by default
-    selectCharacter(CHARACTERS[0]);
+    selectCharacter(CHARACTERS[2]);
 
     function initializeTacticalOrders() {
         tacticalOrderButtons.forEach(button => {
