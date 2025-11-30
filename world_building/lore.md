@@ -165,9 +165,11 @@ The interplay between these disciplines forms the foundation of Paleo Maiden com
 
 ### Founding and Philosophy
 
-**Dr. Owen** (*An homage to [Sir Richard Owen](https://en.wikipedia.org/wiki/Richard_Owen)*) is the founder of the **Stratum Insitute**, a university housing multiple Paleo Maidens to help them train and hone their skills as Paleo Champions. Dr. Owen discovered that the Paleo Maidens have an innate instinct to fight resulting in his inscription that classify these Paleo Maidens as **δεινό**: *One's terror is the root of everyone's fear*, it is named as the Owen Inscription.
+**Dr. Owen** (*An homage to [Sir Richard Owen](https://en.wikipedia.org/wiki/Richard_Owen)*) is the founder of the **Stratum Institute**, a one-of-a-kind mobile university designed to travel the world's oceans. Built as a colossal, self-sufficient vessel, the Institute was conceived as the only way to properly bridge the Modern World with the Primeval Continents, allowing it to serve as a global hub for Paleo Maidens. Dr. Owen discovered that the Paleo Maidens have an innate instinct to fight resulting in his inscription that classify these Paleo Maidens as **δεινό**: *One's terror is the root of everyone's fear*, it is named as the Owen Inscription.
 
 However, **Dr. Gideon** (*An homage to [Dr. Gideon Mantell](https://en.wikipedia.org/wiki/Gideon_Mantell)*) sees the Paleo Maidens' innate instinct for combat as something to be inspired about. He was inspired after seeing a **Ornistishian Family** origin-Paleo Maiden, whom protected him from thugs- to which he proposed for the Paleo Maidens to inspire others and allow them to influence others with their prowess and special abilities. He would then propose the University to have the **Herbi Dorm**, initially dormitories for all Paleo Maidens. Dr Gideon later reinterpreted the Owen Inscription of **Deinos** as "**δεινό**. *One's terror is the root of everyone's awe*" 
+
+> For a detailed look at the Institute's design, facilities, and life aboard the vessel, see **[The Stratum Institute: A World on the Waves](./stratum_institute.md)**.
 
 ### Structure and Curriculum
 
