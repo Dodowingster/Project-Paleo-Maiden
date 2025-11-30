@@ -105,3 +105,10 @@ speed die (the only benefit is get to reach more space faster during exploration
 mana die (set your mana pool)
 
 other dices gain advantage on other aspects than the exploration as speed
+
+
+
+THE POST CARD GAME REMOVAL IDEAS:
+- KEEP THE 4 STATS, but keep it hidden
+- techniques have set stat additions, getting dupes upgrade your techniques + stats
+- stats buffs on techniques only matter if you equip them
