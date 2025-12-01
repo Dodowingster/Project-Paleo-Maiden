@@ -9,7 +9,7 @@
 | **Species** | *Amargasaurus cazaui* (Meaning: "La Amarga Lizard") |
 | **Era** | Early Cretaceous |
 | **Key Features** | A smaller sauropod known for two parallel rows of tall, prominent spines along its neck and back. It possessed a long, whip-like tail. |
-| **Lore Reflection** | Her signature **crested Tonfas** are inspired by the iconic neck spines. Her defensive, counter-based fighting style and caring personality reflect her herbivorous nature. |
+| **Lore Reflection** | Her signature **Mangual** (a two-handed flail), with a spiked head reminiscent of her neck spines, reflects her heritage. Her defensive, counter-based fighting style and caring personality reflect her herbivorous nature. |
 
 ## Profile/Background
 
@@ -47,7 +47,7 @@ Caza Amarga is a Paleo-Maiden from the prestigious **Dicraeosauridae** family, a
 
 | Vocation | Core Trait | Signature Move |
 | :--- | :--- | :--- |
-| **Fortress Sentinel** | **Counter-Offensive Precision:** Amarga uses P-Magic to predict enemy movements, allowing for perfect blocks that flow seamlessly into powerful counter-strikes with her Tonfas. | **La Amarga Retribution:** After a successful block, Amarga channels P-Magic into her Tonfas and unleashes a devastating, multi-hit counter-attack that shatters an opponent's momentum. |
+| **Fortress Sentinel** | **Counter-Offensive Precision:** Amarga uses P-Magic to predict enemy movements, allowing for perfect blocks that flow seamlessly into powerful counter-strikes with her Mangual. | **La Amarga Retribution:** After a successful block, Amarga channels P-Magic into her Mangual and unleashes a devastating, multi-hit counter-attack that shatters an opponent's momentum. |
 
 ## Motivation and Goals
 
@@ -57,5 +57,5 @@ Caza Amarga is a Paleo-Maiden from the prestigious **Dicraeosauridae** family, a
 ## Trivia
 
 * Her childhood friendship with Sastrei Taurus (Carnotaurus) is a nod to real-life paleontology; the fossil remains of both the Amargasaurus and the Carnotaurus were found during the same expedition in Argentina, symbolizing their shared origins.
-* Her family name, **Dicrae**, is derived from the **Dicraeosauridae** family her species belongs to. This family is known for its distinctive spinal formations, a trait Amarga is both proud of and burdened by.
+* Her family name, **Dicrae**, is derived from the **Dicraeosauridae** family her species belongs to. This family is known for its distinctive spinal formations, a trait Amarga is both proud of and burdened b\y.
 * Her rivalry with other sauropods like Ajax Apato (Apatosaurus) reflects the paleontological distinctions between the Diplodocidae and Dicraeosauridae families within the larger Diplodocoidea superfamily.
