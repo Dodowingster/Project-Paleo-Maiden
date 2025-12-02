@@ -1,4 +1,4 @@
-*"I am more than a Dicrae, I AM CAZA AMARGA!"*
+*"Am I cut out for this?"*
 
 ― Caza Amarga
 
@@ -41,13 +41,13 @@ Caza Amarga is a Paleo-Maiden from the prestigious **Dicraeosauridae** family, a
 
 | Stage | Vocation Title | Fused Trait Disciplines |
 | :--- | :--- | :--- |
-| **Base** | Fortress Sentinel | Control (Core) |
+| **Base** | Trickster | Control (Core) |
 
 ## Fighting Style
 
 | Vocation | Core Trait | Signature Move |
 | :--- | :--- | :--- |
-| **Fortress Sentinel** | **Counter-Offensive Precision:** Amarga uses P-Magic to predict enemy movements, allowing for perfect blocks that flow seamlessly into powerful counter-strikes with her Mangual. | **La Amarga Retribution:** After a successful block, Amarga channels P-Magic into her Mangual and unleashes a devastating, multi-hit counter-attack that shatters an opponent's momentum. |
+| **Dicrae** | **Counter-Offensive Precision:** Amarga uses P-Magic to predict enemy movements, allowing for perfect blocks that flow seamlessly into powerful counter-strikes with her Mangual. | **Double Trouble:** After a successful block, Amarga channels P-Magic into her Mangual and unleashes a devastating, multi-hit counter-attack that shatters an opponent's momentum. |
 
 ## Motivation and Goals
 
