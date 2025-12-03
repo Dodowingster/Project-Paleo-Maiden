@@ -42,8 +42,8 @@ Crucially, Tyran is **oblivious** to the fear she inspires. She views her loud, 
 
 | Character | Relationship Type | Nature of Conflict/Bond |
 | :--- | :--- | :--- |
-| **Aegypt Spino** (Spinosaurus) | **Rival** | Tyran sees Spino as a worthy adversary and respects her intellect and Arcane Stamina. Their competition is focused on who has the superior strategy—pure force (Tyran) or careful control (Spino). |
-| **Horri Tricera** (Triceratops) | **Vice President/Rival** | Tyran respects Tricera as the immovable object leading the Bulwark League. On the battlefield, Tyran's competitive persona taunts Horri to fight aggressively, viewing it as a way to push her rival to her maximum potential. |
+| **Aegypt Spino** (Spinosaurus) | **Rival** | Tyran sees Spino as a worthy adversary and respects her intellect and Arcane Stamina. |
+| **Horri Tricera** (Triceratops) | **Vice President/Rival** | Tyran respects Tricera and depends on her for most of the Student Council Affairs. On the battlefield though is a completely different story where each tries their hardest to out perform the other- having fun while doing so. |
 | **Sastrei Taurus** (Carnotaurus) | **Friend** | Tyran sees Taurus as someone with maximum potential. She actively encourages Taurus to be dominant in the Apex League, despite Taurus's choice of Agility over Power. |
 
 ---
