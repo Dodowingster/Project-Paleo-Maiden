@@ -1,16 +1,19 @@
 extends Node
-class_name TickTracker
+class_name TimeTracker
 
-@export var tickInSeconds: float = 0.2
+@export var ticksPerSecond: int = 60
 var tickCount: int = 0
 var timeBeforeNextTick: float = 0
+var timer: float = 0
 
 func _ready() -> void:
 	tickCount = 0
-	timeBeforeNextTick = tickInSeconds
+	timeBeforeNextTick = 1/ticksPerSecond
+	timer = 0
 
 func _process(delta: float) -> void:
+	timer += delta
 	timeBeforeNextTick -= delta
 	if timeBeforeNextTick <= 0:
 		tickCount += 1
-		timeBeforeNextTick = tickInSeconds - timeBeforeNextTick
+		timeBeforeNextTick = 1/ticksPerSecond - timeBeforeNextTick

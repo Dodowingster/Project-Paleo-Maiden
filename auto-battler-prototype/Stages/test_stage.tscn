@@ -1,46 +1,65 @@
-[gd_scene load_steps=4 format=3 uid="uid://cp47aajkwulg7"]
+[gd_scene load_steps=5 format=3 uid="uid://cp47aajkwulg7"]
 
-[ext_resource type="Script" uid="uid://dggc1tw4nmkkk" path="res://Mechanics/tick_tracker.gd" id="1_7in27"]
-[ext_resource type="Script" uid="uid://c51us734jurpc" path="res://UI/tick_value.gd" id="2_nmfya"]
+[ext_resource type="Script" uid="uid://dggc1tw4nmkkk" path="res://Mechanics/time_tracker.gd" id="1_7in27"]
+[ext_resource type="Script" uid="uid://c51us734jurpc" path="res://UI/debug_ui.gd" id="2_nmfya"]
+[ext_resource type="PackedScene" uid="uid://c0n8jl8cb30ey" path="res://Characters/character.tscn" id="3_k5qsb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhvwd"]
 size = Vector2(962, 32)
 
 [node name="stage" type="Node2D"]
 
-[node name="TickTracker" type="Node" parent="."]
+[node name="TimeTracker" type="Node" parent="."]
 script = ExtResource("1_7in27")
-tickInSeconds = 1.0
 
-[node name="UI" type="Control" parent="."]
+[node name="UI" type="Control" parent="." node_paths=PackedStringArray("tickTracker", "tickLabelValue", "timerLabelValue")]
 custom_minimum_size = Vector2(800, 600)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 800.0
 offset_bottom = 600.0
+script = ExtResource("2_nmfya")
+tickTracker = NodePath("../TimeTracker")
+tickLabelValue = NodePath("VBoxContainer/Tick/TickValue")
+timerLabelValue = NodePath("VBoxContainer/Timer/TimerValue")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TickLabel" type="Label" parent="UI/HBoxContainer"]
+[node name="Tick" type="HBoxContainer" parent="UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="TickLabel" type="Label" parent="UI/VBoxContainer/Tick"]
 layout_mode = 2
 text = "Tick:"
 
-[node name="TickValue" type="Label" parent="UI/HBoxContainer" node_paths=PackedStringArray("tickTracker")]
+[node name="TickValue" type="Label" parent="UI/VBoxContainer/Tick"]
 layout_mode = 2
 text = "0"
-script = ExtResource("2_nmfya")
-tickTracker = NodePath("../../../TickTracker")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Timer" type="HBoxContainer" parent="UI/VBoxContainer"]
+layout_mode = 2
 
-[node name="GroundCollision" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="TimerLabel" type="Label" parent="UI/VBoxContainer/Timer"]
+layout_mode = 2
+text = "Timer: "
+
+[node name="TimerValue" type="Label" parent="UI/VBoxContainer/Timer"]
+layout_mode = 2
+text = "0.000s"
+
+[node name="Ground" type="StaticBody2D" parent="."]
+
+[node name="GroundCollision" type="CollisionShape2D" parent="Ground"]
 position = Vector2(416, 400)
 shape = SubResource("RectangleShape2D_vhvwd")
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+[node name="Polygon2D" type="Polygon2D" parent="Ground"]
 position = Vector2(0, 128)
 color = Color(9.0004505e-06, 0.7094359, 0.117693074, 1)
 polygon = PackedVector2Array(0, 256, 800, 256, 800, 320, 0, 320)
+
+[node name="Character1" parent="." instance=ExtResource("3_k5qsb")]
+position = Vector2(216, 168)
