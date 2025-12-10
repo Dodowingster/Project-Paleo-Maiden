@@ -17,10 +17,11 @@ process_mode = 1
 
 [node name="DataTracker" type="Node" parent="Runner" node_paths=PackedStringArray("char1", "char2")]
 script = ExtResource("1_7in27")
+ticksPerSecond = 30
 char1 = NodePath("../Character1")
 char2 = NodePath("../Character2")
 
-[node name="UI" type="Control" parent="Runner" node_paths=PackedStringArray("dataTracker", "tickLabelValue", "timerLabelValue", "distanceLabelValue")]
+[node name="UI" type="Control" parent="Runner" node_paths=PackedStringArray("dataTracker", "tickLabelValue", "timerLabelValue", "distanceLabelValue", "P1", "P1ActionGoalValueLabelValue", "P1ActionGoalTotalLabelValue", "P2", "P2ActionGoalValueLabelValue", "P2ActionGoalTotalLabelValue")]
 custom_minimum_size = Vector2(800, 600)
 layout_mode = 3
 anchors_preset = 0
@@ -28,47 +29,101 @@ offset_right = 800.0
 offset_bottom = 600.0
 script = ExtResource("2_nmfya")
 dataTracker = NodePath("../DataTracker")
-tickLabelValue = NodePath("VBoxContainer/Tick/TickValue")
-timerLabelValue = NodePath("VBoxContainer/Timer/TimerValue")
-distanceLabelValue = NodePath("VBoxContainer/Distance/DistanceValue")
+tickLabelValue = NodePath("HBoxContainer/StageUI/Tick/TickValue")
+timerLabelValue = NodePath("HBoxContainer/StageUI/Timer/TimerValue")
+distanceLabelValue = NodePath("HBoxContainer/StageUI/Distance/DistanceValue")
+P1 = NodePath("../Character1")
+P1ActionGoalValueLabelValue = NodePath("HBoxContainer/P1UI/ActionGoal/ActionGoalValue")
+P1ActionGoalTotalLabelValue = NodePath("HBoxContainer/P1UI/ActionGoal/ActionGoalTotal")
+P2 = NodePath("../Character2")
+P2ActionGoalValueLabelValue = NodePath("HBoxContainer/P2UI/ActionGoal/ActionGoalValue")
+P2ActionGoalTotalLabelValue = NodePath("HBoxContainer/P2UI/ActionGoal/ActionGoalTotal")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Runner/UI"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Runner/UI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 77.0
+grow_horizontal = 2
 
-[node name="Tick" type="HBoxContainer" parent="Runner/UI/VBoxContainer"]
+[node name="P1UI" type="VBoxContainer" parent="Runner/UI/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ActionGoal" type="HBoxContainer" parent="Runner/UI/HBoxContainer/P1UI"]
 layout_mode = 2
 
-[node name="TickLabel" type="Label" parent="Runner/UI/VBoxContainer/Tick"]
+[node name="ActionGoalLabel" type="Label" parent="Runner/UI/HBoxContainer/P1UI/ActionGoal"]
+layout_mode = 2
+text = "Action Goal: "
+
+[node name="ActionGoalValue" type="Label" parent="Runner/UI/HBoxContainer/P1UI/ActionGoal"]
+layout_mode = 2
+text = "0"
+
+[node name="ActionGoalTotal" type="Label" parent="Runner/UI/HBoxContainer/P1UI/ActionGoal"]
+layout_mode = 2
+text = "/ 0"
+
+[node name="StageUI" type="VBoxContainer" parent="Runner/UI/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Tick" type="HBoxContainer" parent="Runner/UI/HBoxContainer/StageUI"]
+layout_mode = 2
+alignment = 1
+
+[node name="TickLabel" type="Label" parent="Runner/UI/HBoxContainer/StageUI/Tick"]
 layout_mode = 2
 text = "Tick:"
 
-[node name="TickValue" type="Label" parent="Runner/UI/VBoxContainer/Tick"]
+[node name="TickValue" type="Label" parent="Runner/UI/HBoxContainer/StageUI/Tick"]
 layout_mode = 2
 text = "0"
 
-[node name="Timer" type="HBoxContainer" parent="Runner/UI/VBoxContainer"]
+[node name="Timer" type="HBoxContainer" parent="Runner/UI/HBoxContainer/StageUI"]
 layout_mode = 2
+alignment = 1
 
-[node name="TimerLabel" type="Label" parent="Runner/UI/VBoxContainer/Timer"]
+[node name="TimerLabel" type="Label" parent="Runner/UI/HBoxContainer/StageUI/Timer"]
 layout_mode = 2
 text = "Timer: "
 
-[node name="TimerValue" type="Label" parent="Runner/UI/VBoxContainer/Timer"]
+[node name="TimerValue" type="Label" parent="Runner/UI/HBoxContainer/StageUI/Timer"]
 layout_mode = 2
 text = "0.000s"
 
-[node name="Distance" type="HBoxContainer" parent="Runner/UI/VBoxContainer"]
+[node name="Distance" type="HBoxContainer" parent="Runner/UI/HBoxContainer/StageUI"]
 layout_mode = 2
+alignment = 1
 
-[node name="DistanceLabel" type="Label" parent="Runner/UI/VBoxContainer/Distance"]
+[node name="DistanceLabel" type="Label" parent="Runner/UI/HBoxContainer/StageUI/Distance"]
 layout_mode = 2
 text = "Distance: "
 
-[node name="DistanceValue" type="Label" parent="Runner/UI/VBoxContainer/Distance"]
+[node name="DistanceValue" type="Label" parent="Runner/UI/HBoxContainer/StageUI/Distance"]
 layout_mode = 2
 text = "0"
+
+[node name="P2UI" type="VBoxContainer" parent="Runner/UI/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ActionGoal" type="HBoxContainer" parent="Runner/UI/HBoxContainer/P2UI"]
+layout_mode = 2
+alignment = 2
+
+[node name="ActionGoalLabel" type="Label" parent="Runner/UI/HBoxContainer/P2UI/ActionGoal"]
+layout_mode = 2
+text = "Action Goal: "
+
+[node name="ActionGoalValue" type="Label" parent="Runner/UI/HBoxContainer/P2UI/ActionGoal"]
+layout_mode = 2
+text = "0"
+
+[node name="ActionGoalTotal" type="Label" parent="Runner/UI/HBoxContainer/P2UI/ActionGoal"]
+layout_mode = 2
+text = "/ 0"
 
 [node name="Ground" type="StaticBody2D" parent="Runner"]
 
@@ -82,8 +137,8 @@ color = Color(9.0004505e-06, 0.7094359, 0.117693074, 1)
 polygon = PackedVector2Array(0, 256, 800, 256, 800, 320, 0, 320)
 
 [node name="Character1" parent="Runner" instance=ExtResource("3_k5qsb")]
-position = Vector2(216, 168)
+position = Vector2(88, 280)
 
 [node name="Character2" parent="Runner" instance=ExtResource("3_k5qsb")]
-position = Vector2(552, 168)
+position = Vector2(704, 280)
 startFacingRight = false

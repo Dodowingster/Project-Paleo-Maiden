@@ -7,6 +7,7 @@ var animList : PackedStringArray = []
 
 func _ready():
 	animList = animPlayer.get_animation_list()
+	owner.connect("changeState", on_change_state_signal_received)
 
 
 func enter():
@@ -24,3 +25,9 @@ func update(_delta: float):
 
 func physics_update(_delta: float):
 	pass
+
+func on_change_state_signal_received(newState: String):
+	if newState == "moveForward":
+		transition.emit(self, "MoveForward")
+	elif newState == "baseAttack":
+		transition.emit(self, "BaseAttack")

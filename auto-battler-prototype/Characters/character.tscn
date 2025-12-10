@@ -1,13 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://c0n8jl8cb30ey"]
+[gd_scene load_steps=21 format=3 uid="uid://c0n8jl8cb30ey"]
 
 [ext_resource type="Script" uid="uid://f081btviug4u" path="res://Characters/character.gd" id="1_acr0g"]
 [ext_resource type="Script" uid="uid://colufoqxh8nwm" path="res://Characters/side_tracker.gd" id="2_3mn46"]
 [ext_resource type="Texture2D" uid="uid://bt8isuoep80x2" path="res://Characters/placeholder_sprites/A_CinqEastDon/idle.png" id="2_ticvp"]
 [ext_resource type="Texture2D" uid="uid://b5cw13jdyrsdy" path="res://Characters/placeholder_sprites/A_CinqEastDon/move.png" id="3_ywvfl"]
 [ext_resource type="Script" uid="uid://whbif5ykrdmj" path="res://Mechanics/state_machine.gd" id="4_dk5p5"]
+[ext_resource type="Texture2D" uid="uid://d8w1dyrx7odk" path="res://Characters/placeholder_sprites/A_CinqEastDon/skill1_1(skill3_1).png" id="4_gase8"]
 [ext_resource type="Script" uid="uid://bibnpqp5otcvs" path="res://Characters/States/state_idle.gd" id="5_d1l3k"]
+[ext_resource type="Texture2D" uid="uid://dvujho1j2gdyn" path="res://Characters/placeholder_sprites/A_CinqEastDon/skill1_2.png" id="5_gydv5"]
 [ext_resource type="Script" uid="uid://85tmkwtqblw3" path="res://Characters/States/state_movefwd.gd" id="6_2esnv"]
+[ext_resource type="Texture2D" uid="uid://8qr2krrkh2tq" path="res://Characters/placeholder_sprites/A_CinqEastDon/skill1_3.png" id="6_07r0d"]
 [ext_resource type="Script" uid="uid://sv5uv45x0dmh" path="res://Characters/States/state_movebkwd.gd" id="7_bvy42"]
+[ext_resource type="Texture2D" uid="uid://bvg7spa5iptuk" path="res://Characters/placeholder_sprites/A_CinqEastDon/skill1_4.png" id="7_ta2xa"]
+[ext_resource type="Texture2D" uid="uid://b4f2lrmtbsaho" path="res://Characters/placeholder_sprites/A_CinqEastDon/skill1_5.png" id="8_hct78"]
+[ext_resource type="Script" uid="uid://bfib7jjd33vor" path="res://Characters/States/state_baseatk.gd" id="9_sh1xl"]
 
 [sub_resource type="Animation" id="Animation_ywvfl"]
 length = 0.001
@@ -22,6 +28,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("2_ticvp")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SideTracker/Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_bvy42"]
@@ -41,6 +59,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("2_ticvp")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SideTracker/Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_sh1xl"]
 resource_name = "moveforward"
@@ -59,10 +89,51 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("3_ywvfl")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SideTracker/Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 8)]
+}
+
+[sub_resource type="Animation" id="Animation_gydv5"]
+resource_name = "baseattack"
+length = 0.66667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SideTracker/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.46666673, 0.5666666, 0.6333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("4_gase8"), ExtResource("5_gydv5"), ExtResource("6_07r0d"), ExtResource("7_ta2xa"), ExtResource("8_hct78")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SideTracker/Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 4), Vector2(0, 12), Vector2(0, 6)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ywvfl"]
 _data = {
 &"RESET": SubResource("Animation_ywvfl"),
+&"baseattack": SubResource("Animation_gydv5"),
 &"idle": SubResource("Animation_bvy42"),
 &"moveforward": SubResource("Animation_sh1xl")
 }
@@ -91,6 +162,7 @@ texture = ExtResource("2_ticvp")
 shape = SubResource("RectangleShape2D_acr0g")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initialState")]
+unique_name_in_owner = true
 script = ExtResource("4_dk5p5")
 initialState = NodePath("Idle")
 
@@ -102,3 +174,8 @@ script = ExtResource("6_2esnv")
 
 [node name="MoveBackward" type="Node" parent="StateMachine"]
 script = ExtResource("7_bvy42")
+
+[node name="BaseAttack" type="Node" parent="StateMachine"]
+script = ExtResource("9_sh1xl")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/BaseAttack" method="_on_animation_player_animation_finished"]
