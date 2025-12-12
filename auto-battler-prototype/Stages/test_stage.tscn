@@ -140,7 +140,10 @@ polygon = PackedVector2Array(0, 256, 800, 256, 800, 320, 0, 320)
 
 [node name="Character1" parent="Runner" instance=ExtResource("3_k5qsb")]
 position = Vector2(88, 280)
+speed = 6.0
 
 [node name="Character2" parent="Runner" instance=ExtResource("3_k5qsb")]
 position = Vector2(704, 280)
+characterName = "P2"
 startFacingRight = false
+speed = 6.0

@@ -3,7 +3,7 @@ extends CharacterBody2D
 signal changeState(newState: String)
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 2
-
+@export var characterName : String = "P1"
 @export var atk: int = 5
 @export var def: int = 5
 @export var spd: int = 5
@@ -23,6 +23,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 2
 @export var actionGoalTotal: int = 300
 var currentActionGoal: int = 0
 
+@onready var hitstun : float = 0
+@onready var hitknockbackX : float = 0
+@onready var hitknockbackY : float = 0
+
 func _ready() -> void:
 	%SideTracker.set_facing_direction(startFacingRight)
 	GlobalValues.connect("updateDataToChar", _on_tick)
@@ -30,17 +34,23 @@ func _ready() -> void:
 func set_char_velocity(_delta:float):
 	if not is_on_floor():
 		velocity.y += gravity * _delta
+	#if hitknockbackX != 0:
+		#velocity.x = hitknockbackX
+		#hitknockbackX = 0
+		#hitknockbackY = 0
 
 func _on_tick(rcvDistance: float, rcvTickCount: int):
 	distance = rcvDistance
 	tickCount = rcvTickCount
-	#currentActionGoal += sta
-	var rng_roll: int = randi() % (rngRollMax + 1) + rngRollMin
-	currentActionGoal += rng_roll
+	if %StateMachine.currentState is not StateHitstun:
+		#currentActionGoal += sta
+		var rng_roll: int = randi() % (rngRollMax + 1) + rngRollMin
+		currentActionGoal += rng_roll
 	
 	if currentActionGoal >= actionGoalTotal:
-		changeState.emit("baseAttack")
-		currentActionGoal = 0
+		if %StateMachine.currentState is not StateHitstun:
+			changeState.emit("baseAttack")
+			currentActionGoal = 0
 	else:
 		if distance > distanceThreshold:
 			if !(%StateMachine.currentState is StateMoveFwd):
@@ -48,4 +58,32 @@ func _on_tick(rcvDistance: float, rcvTickCount: int):
 		else:
 			if !(%StateMachine.currentState is StateIdle):
 				changeState.emit("idle")
+
+func get_hit(hitbox: HitBox, _hurtbox: Hurtbox):
+	var parent = hitbox.owner
+	if parent != self:
+		print("Attack detected, parent = " + parent.characterName + " dmg = " + str(hitbox.damage) + ", groupname = " + hitbox.groupName)
+		
+		hitstun = hitbox.hitstun
+		hitknockbackX = hitbox.knockbackX * %SideTracker.side
+		hitknockbackY = hitbox.knockbackY
+		#
+		#Hitvfx.showHit.emit(hitbox, hurtbox)
+		#
+		var chosenHitState = "Hitstun"
+		#if abs(hitknockbackX) < abs(hitknockbackY)/2:
+			#tumble = true
+			#if hitknockbackY < 0:
+				#chosenHitState = "EnemyHitUp"
+			#elif hitknockbackY > 0:
+				#chosenHitState = "EnemyHitDown"
+		#elif abs(hitknockbackX) > abs(hitknockbackY)/2:
+			#tumble = true
+			#chosenHitState = "EnemyHitAway"
+			#if hitknockbackX > 0:
+				#flip_char("left")
+			#elif hitknockbackX < 0:
+				#flip_char("right")
+		#
+		%StateMachine.on_child_transition($StateMachine.currentState, chosenHitState)
 	
