@@ -7,7 +7,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 2
 @export var atk: int = 5
 @export var def: int = 5
 @export var spd: int = 5
-@export var sta: int = 5
+@export var sta: int = 10
+@export var rngRollMin: int = 1
+@export var rngRollMax: int = 10
 
 @export var strategy: GlobalValues.STRATEGY
 @export var startFacingRight: bool = true
@@ -18,7 +20,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 2
 @export var distanceThreshold: int = 80
 @export var speed: float = 3.0
 
-@export var actionGoalTotal: int = 600
+@export var actionGoalTotal: int = 300
 var currentActionGoal: int = 0
 
 func _ready() -> void:
@@ -32,7 +34,9 @@ func set_char_velocity(_delta:float):
 func _on_tick(rcvDistance: float, rcvTickCount: int):
 	distance = rcvDistance
 	tickCount = rcvTickCount
-	currentActionGoal += sta
+	#currentActionGoal += sta
+	var rng_roll: int = randi() % (rngRollMax + 1) + rngRollMin
+	currentActionGoal += rng_roll
 	
 	if currentActionGoal >= actionGoalTotal:
 		changeState.emit("baseAttack")
