@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c0n8jl8cb30ey"]
+[gd_scene load_steps=25 format=3 uid="uid://c0n8jl8cb30ey"]
 
 [ext_resource type="Script" uid="uid://f081btviug4u" path="res://Characters/character.gd" id="1_acr0g"]
 [ext_resource type="Script" uid="uid://colufoqxh8nwm" path="res://Characters/side_tracker.gd" id="2_3mn46"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b4f2lrmtbsaho" path="res://Characters/placeholder_sprites/A_CinqEastDon/skill1_5.png" id="8_hct78"]
 [ext_resource type="Script" uid="uid://bfib7jjd33vor" path="res://Characters/States/state_baseatk.gd" id="9_sh1xl"]
 [ext_resource type="Texture2D" uid="uid://bu0cubdglsyeb" path="res://Characters/placeholder_sprites/A_CinqEastDon/dmg.png" id="9_tsap4"]
+[ext_resource type="Script" uid="uid://71l6nk5830yo" path="res://Mechanics/hitbox.gd" id="11_6wv34"]
 
 [sub_resource type="Animation" id="Animation_ywvfl"]
 length = 0.001
@@ -69,6 +70,22 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [Vector2(0, 4), Vector2(0, 12), Vector2(0, 6)]
+}
+
+[sub_resource type="Animation" id="Animation_hct78"]
+resource_name = "hit"
+length = 0.03333667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SideTracker/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_tsap4")]
 }
 
 [sub_resource type="Animation" id="Animation_bvy42"]
@@ -131,22 +148,6 @@ tracks/1/keys = {
 "values": [Vector2(0, 8)]
 }
 
-[sub_resource type="Animation" id="Animation_hct78"]
-resource_name = "hit"
-length = 0.03333667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SideTracker/Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("9_tsap4")]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ywvfl"]
 _data = {
 &"RESET": SubResource("Animation_ywvfl"),
@@ -155,6 +156,8 @@ _data = {
 &"idle": SubResource("Animation_bvy42"),
 &"moveforward": SubResource("Animation_sh1xl")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsap4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_acr0g"]
 size = Vector2(48, 128)
@@ -177,6 +180,16 @@ script = ExtResource("2_3mn46")
 [node name="Sprite" type="Sprite2D" parent="SideTracker"]
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_ticvp")
+
+[node name="BaseAtkHitbox" type="Area2D" parent="SideTracker" node_paths=PackedStringArray("hitboxArea")]
+script = ExtResource("11_6wv34")
+hitboxArea = NodePath("BaseAtkHitboxShape")
+
+[node name="BaseAtkHitboxShape" type="CollisionShape2D" parent="SideTracker/BaseAtkHitbox"]
+position = Vector2(55, -8)
+shape = SubResource("RectangleShape2D_tsap4")
+disabled = true
+debug_color = Color(0.7, 0, 0, 0.41960785)
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_acr0g")
