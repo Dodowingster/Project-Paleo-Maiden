@@ -50,7 +50,7 @@ func _on_tick(rcvDistance: float, rcvTickCount: int):
 		currentActionGoal += rng_roll
 	
 	if currentActionGoal >= actionGoalTotal:
-		if %StateMachine.currentState is not StateHitstun:
+		if distance <= distanceThreshold && %StateMachine.currentState is not StateHitstun:
 			changeState.emit("baseAttack")
 			currentActionGoal = 0
 	else:
