@@ -138,12 +138,14 @@ position = Vector2(0, 128)
 color = Color(9.0004505e-06, 0.7094359, 0.117693074, 1)
 polygon = PackedVector2Array(0, 256, 800, 256, 800, 320, 0, 320)
 
-[node name="Character1" parent="Runner" instance=ExtResource("3_k5qsb")]
+[node name="Character1" parent="Runner" node_paths=PackedStringArray("opponent") instance=ExtResource("3_k5qsb")]
 position = Vector2(88, 280)
 speed = 6.0
+opponent = NodePath("../Character2")
 
-[node name="Character2" parent="Runner" instance=ExtResource("3_k5qsb")]
+[node name="Character2" parent="Runner" node_paths=PackedStringArray("opponent") instance=ExtResource("3_k5qsb")]
 position = Vector2(704, 280)
 characterName = "P2"
 startFacingRight = false
 speed = 6.0
+opponent = NodePath("../Character1")

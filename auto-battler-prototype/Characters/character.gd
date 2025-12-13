@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 signal changeState(newState: String)
-signal broadcastAtk(signalOwner: CharacterBody2D)
+signal broadcastAtk()
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 2
 @export var characterName : String = "P1"
@@ -28,9 +28,13 @@ var currentActionGoal: int = 0
 @onready var hitknockbackX : float = 0.000
 @onready var hitknockbackY : float = 0.000
 
+@export var opponent : CharacterBody2D
+
 func _ready() -> void:
 	%SideTracker.set_facing_direction(startFacingRight)
 	GlobalValues.connect("updateDataToChar", _on_tick)
+	if opponent != null:
+		opponent.connect("broadcastAtk", on_atk_signal_rcvd)
 
 func set_char_velocity(_delta:float):
 	if not is_on_floor():
@@ -53,7 +57,7 @@ func _on_tick(rcvDistance: float, rcvTickCount: int):
 	if currentActionGoal >= actionGoalTotal:
 		if distance <= distanceThreshold && %StateMachine.currentState is not StateHitstun:
 			changeState.emit("baseAttack")
-			broadcastAtk.emit(self)
+			broadcastAtk.emit()
 			currentActionGoal = 0
 	else:
 		if distance > distanceThreshold && %StateMachine.currentState is not StateHitstun:
@@ -90,4 +94,9 @@ func get_hit(hitbox: HitBox, _hurtbox: Hurtbox):
 				#flip_char("right")
 		#
 		%StateMachine.on_child_transition($StateMachine.currentState, chosenHitState)
+	
+func on_atk_signal_rcvd():
+	pass
+	#if %StateMachine.currentState is not StateHitstun && %StateMachine.currentState is not StateBaseAtk:
+		#changeState.emit("moveBackward")
 	
