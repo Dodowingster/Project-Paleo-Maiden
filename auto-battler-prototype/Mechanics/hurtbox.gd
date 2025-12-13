@@ -13,7 +13,7 @@ func _init() -> void:
 
 func _ready() -> void:
 	connect("area_entered", _on_area_entered)
-	connect("area_exited", _on_area_exited)
+	#connect("area_exited", _on_area_exited)
 	
 func _physics_process(delta):
 	if lastGroupCollision != "" and lastGroupHitCooldown > 0:
@@ -32,8 +32,8 @@ func _on_area_entered(hitbox: HitBox) -> void:
 				if lastGroupCollision == hitbox.groupName:
 					if lastGroupHitCooldown > 0:
 						allowHit = false
-				else:
-					lastGroupHitCooldown <= 0
+				#else:
+					#lastGroupHitCooldown <= 0
 				if lastGroupHitCooldown <= 0:
 					lastGroupCollision = hitbox.groupName
 					lastGroupHitCooldown = lastGroupHitCooldownDefault
@@ -41,6 +41,6 @@ func _on_area_entered(hitbox: HitBox) -> void:
 				print(lastGroupCollision)
 				owner.get_hit(hitbox, self);
 
-func _on_area_exited(hitbox: HitBox) -> void:
-	#lastGroupCollision = ""
-	pass
+#func _on_area_exited(hitbox: HitBox) -> void:
+	##lastGroupCollision = ""
+	#pass

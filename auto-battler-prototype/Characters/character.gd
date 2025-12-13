@@ -24,8 +24,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 2
 var currentActionGoal: int = 0
 
 @onready var hitstun : float = 0
-@onready var hitknockbackX : float = 0
-@onready var hitknockbackY : float = 0
+@onready var hitknockbackX : float = 0.000
+@onready var hitknockbackY : float = 0.000
 
 func _ready() -> void:
 	%SideTracker.set_facing_direction(startFacingRight)
@@ -33,11 +33,13 @@ func _ready() -> void:
 
 func set_char_velocity(_delta:float):
 	if not is_on_floor():
-		velocity.y += gravity * _delta
-	#if hitknockbackX != 0:
-		#velocity.x = hitknockbackX
-		#hitknockbackX = 0
-		#hitknockbackY = 0
+		velocity.y += gravity
+	if hitknockbackX != 0:
+		velocity.x = hitknockbackX
+		hitknockbackX = 0.000
+		hitknockbackY = 0.000
+	else:
+		velocity.x = lerp(velocity.x, 0.000, 0.250)
 
 func _on_tick(rcvDistance: float, rcvTickCount: int):
 	distance = rcvDistance
@@ -52,7 +54,7 @@ func _on_tick(rcvDistance: float, rcvTickCount: int):
 			changeState.emit("baseAttack")
 			currentActionGoal = 0
 	else:
-		if distance > distanceThreshold:
+		if distance > distanceThreshold && %StateMachine.currentState is not StateHitstun:
 			if !(%StateMachine.currentState is StateMoveFwd):
 				changeState.emit("moveForward")
 		else:
@@ -65,7 +67,7 @@ func get_hit(hitbox: HitBox, _hurtbox: Hurtbox):
 		print("Attack detected, parent = " + parent.characterName + " dmg = " + str(hitbox.damage) + ", groupname = " + hitbox.groupName)
 		
 		hitstun = hitbox.hitstun
-		hitknockbackX = hitbox.knockbackX * %SideTracker.side
+		hitknockbackX = hitbox.knockbackX * %SideTracker.side * -1
 		hitknockbackY = hitbox.knockbackY
 		#
 		#Hitvfx.showHit.emit(hitbox, hurtbox)
