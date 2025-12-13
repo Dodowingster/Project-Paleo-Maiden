@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal changeState(newState: String)
+signal broadcastAtk(signalOwner: CharacterBody2D)
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 2
 @export var characterName : String = "P1"
@@ -52,6 +53,7 @@ func _on_tick(rcvDistance: float, rcvTickCount: int):
 	if currentActionGoal >= actionGoalTotal:
 		if distance <= distanceThreshold && %StateMachine.currentState is not StateHitstun:
 			changeState.emit("baseAttack")
+			broadcastAtk.emit(self)
 			currentActionGoal = 0
 	else:
 		if distance > distanceThreshold && %StateMachine.currentState is not StateHitstun:

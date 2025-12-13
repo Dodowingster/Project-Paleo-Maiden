@@ -27,3 +27,4 @@ func _process(delta: float) -> void:
 
 func get_distance_between_chars():
 	return abs(char2.position.x - char1.position.x)
+		

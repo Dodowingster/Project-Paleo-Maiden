@@ -5,16 +5,21 @@ class_name StateHitstun
 @onready var animPlayer : AnimationPlayer = %AnimationPlayer
 var animList : PackedStringArray = []
 var lastTick : int = 0
+var initialDistance : float = 0
 
 func _ready():
 	animList = animPlayer.get_animation_list()
 
 func enter():
+	initialDistance = owner.distance
 	if "hitstun" in animList:
 		animPlayer.play("hitstun")
 
 
 func exit():
+	var finalDistance : float = owner.distance
+	var knockbackDistance : float = finalDistance - initialDistance
+	print("Knockback distance: " + str(knockbackDistance))
 	animPlayer.stop()
 
 
