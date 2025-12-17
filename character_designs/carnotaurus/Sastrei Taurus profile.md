@@ -20,7 +20,7 @@ Sastrei Taurus is a Paleo-Maiden affiliated with the **Apex League (Carni Dorm)*
 | **Strengths** | Sprinting, Headbutts |
 | **Weakness** | Compliments |
 | **Tail** | When frustrated, she will pressure the ground with her tail silently. |
-| **Height** | 178cm (5'10") |
+| **Height** | 178cm (5'8") |
 | **Weight** | 64kg (141 lbs) |
 | **Phone Wallpaper** | A photo of her and Amarga when they were little | 
 | **Max Sprint Speed** | 72 km/h (45 mph) | 

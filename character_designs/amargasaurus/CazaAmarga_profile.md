@@ -20,7 +20,7 @@ Caza Amarga is a Paleo-Maiden from the prestigious **Dicraeosauridae** family, a
 | **Strengths** | Patience, Hair Styling |
 | **Weakness** | Overthinks under pressure, Vulnerable to taunts about her lineage |
 | **Tail** | Long and slender; she often grabs far items with her tail. |
-| **Height** | 185cm (6'1") |
+| **Height** | 175cm (5'7") |
 | **Weight** | 75kg (165 lbs) |
 | **Phone Wallpaper** | A photo of her and Sastrei when they were little |
 | **Natural Floater** | She's great at stayig afloat on water |
