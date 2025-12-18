@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cp47aajkwulg7"]
+[gd_scene load_steps=9 format=3 uid="uid://cp47aajkwulg7"]
 
 [ext_resource type="Script" uid="uid://crlglabortqf2" path="res://Stages/test_stage.gd" id="1_3gimc"]
 [ext_resource type="Script" uid="uid://dggc1tw4nmkkk" path="res://Mechanics/data_tracker.gd" id="1_7in27"]
 [ext_resource type="Script" uid="uid://c51us734jurpc" path="res://UI/debug_ui.gd" id="2_nmfya"]
+[ext_resource type="Texture2D" uid="uid://dlkjbch0cfhkn" path="res://Stages/assets/dirtfield.png" id="3_hmbi7"]
 [ext_resource type="PackedScene" uid="uid://c0n8jl8cb30ey" path="res://Characters/character.tscn" id="3_k5qsb"]
+[ext_resource type="Texture2D" uid="uid://cs52kxor2xbar" path="res://Stages/assets/cliff.png" id="4_2ge0f"]
+[ext_resource type="Texture2D" uid="uid://blbopcclgjkff" path="res://Characters/placeholder_sprites/Tyran_Rex/tyran_rex_beeg-idle.png" id="7_2ge0f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhvwd"]
 size = Vector2(962, 32)
@@ -20,6 +23,16 @@ script = ExtResource("1_7in27")
 ticksPerSecond = 30
 char1 = NodePath("../Character1")
 char2 = NodePath("../Character2")
+
+[node name="DirtFieldReal" type="Sprite2D" parent="Runner"]
+position = Vector2(440, 195)
+scale = Vector2(1, 0.5972973)
+texture = ExtResource("3_hmbi7")
+
+[node name="Cliff" type="Sprite2D" parent="Runner"]
+position = Vector2(440, 392)
+scale = Vector2(1, 0.9972973)
+texture = ExtResource("4_2ge0f")
 
 [node name="UI" type="Control" parent="Runner" node_paths=PackedStringArray("dataTracker", "tickLabelValue", "timerLabelValue", "distanceLabelValue", "P1", "P1ActionGoalValueLabelValue", "P1ActionGoalTotalLabelValue", "P2", "P2ActionGoalValueLabelValue", "P2ActionGoalTotalLabelValue")]
 custom_minimum_size = Vector2(800, 600)
@@ -130,13 +143,19 @@ collision_layer = 16
 collision_mask = 16
 
 [node name="GroundCollision" type="CollisionShape2D" parent="Runner/Ground"]
-position = Vector2(416, 400)
+position = Vector2(416, 368)
 shape = SubResource("RectangleShape2D_vhvwd")
 
 [node name="Polygon2D" type="Polygon2D" parent="Runner/Ground"]
+visible = false
 position = Vector2(0, 128)
 color = Color(9.0004505e-06, 0.7094359, 0.117693074, 1)
 polygon = PackedVector2Array(0, 256, 800, 256, 800, 320, 0, 320)
+
+[node name="Tyran" type="Sprite2D" parent="Runner"]
+visible = false
+position = Vector2(400, 192)
+texture = ExtResource("7_2ge0f")
 
 [node name="Character1" parent="Runner" node_paths=PackedStringArray("opponent") instance=ExtResource("3_k5qsb")]
 position = Vector2(88, 280)

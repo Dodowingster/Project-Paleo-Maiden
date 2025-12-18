@@ -25,6 +25,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 2
 
 @export var actionGoalTotal: int = 300
 var currentActionGoal: int = 0
+var opponentIsAttacking: bool = false
 
 @onready var hitstun : float = 0
 @onready var hitknockbackX : float = 0.000
@@ -58,11 +59,13 @@ func _on_tick(rcvDistance: float, rcvTickCount: int):
 		currentActionGoal += rng_roll
 	
 	if currentActionGoal >= actionGoalTotal:
-		#if distance <= distanceThreshold && %StateMachine.currentState is not StateHitstun:
+		if distance <= distanceThreshold && %StateMachine.currentState is not StateHitstun:
+			broadcastWillAtk.emit(true)
 			#changeState.emit("baseAttack")
 			#broadcastAtkStart.emit()
 			#currentActionGoal = 0
-		broadcastWillAtk.emit(true)
+		else:
+			broadcastWillAtk.emit(false)
 	else:
 		#if distance > distanceThreshold && %StateMachine.currentState is not StateHitstun:
 			#if !(%StateMachine.currentState is StateMoveFwd):
@@ -100,10 +103,12 @@ func get_hit(hitbox: HitBox, _hurtbox: Hurtbox):
 				#flip_char("right")
 		#
 		%StateMachine.on_child_transition($StateMachine.currentState, chosenHitState)
+		opponentIsAttacking = false
 	
 func decide_action(oppWillAtk: bool):
 	var decision = ""
 	if oppWillAtk:
+		opponentIsAttacking = true
 		if currentActionGoal >= actionGoalTotal:
 			if distance <= distanceThreshold && %StateMachine.currentState is not StateHitstun:
 				decision = "baseAttack"
@@ -117,21 +122,28 @@ func decide_action(oppWillAtk: bool):
 				decision = "baseAttack"
 				currentActionGoal = 0
 		else:
-			if distance > distanceThreshold && %StateMachine.currentState is not StateHitstun:
-				if !(%StateMachine.currentState is StateMoveFwd):
-					decision = "moveForward"
-			else:
-				if !(%StateMachine.currentState is StateIdle):
-					decision = "idle"
+			if !opponentIsAttacking:
+				if distance > distanceThreshold && %StateMachine.currentState is not StateHitstun:
+					if !(%StateMachine.currentState is StateMoveFwd):
+						decision = "moveForward"
+				else:
+					if !(%StateMachine.currentState is StateIdle):
+						decision = "idle"
 	if characterName == "P1":
-		print(characterName + " action: " + decision)
+		#print(characterName + " action: " + decision)
+		print("Opponent is Attacking: " + str(opponentIsAttacking))
 	if decision != "":
 		changeState.emit(decision)
 	
 
 func on_atk_active_end_signal_rcvd():
+	opponentIsAttacking = false
+	if characterName == "P1":
+		print("Atk signal received: opponentIsAttacking set to false")
 	if %StateMachine.currentState is StateMoveBkwd:
 		%StateMachine.on_child_transition($StateMachine.currentState, "Idle")
 	
 func broadcast_atk_active_end():
 	broadcastAtkActiveEnd.emit()
+	opponentIsAttacking = false
+	
