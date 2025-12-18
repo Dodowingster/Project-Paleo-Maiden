@@ -102,21 +102,31 @@ func get_hit(hitbox: HitBox, _hurtbox: Hurtbox):
 		%StateMachine.on_child_transition($StateMachine.currentState, chosenHitState)
 	
 func decide_action(oppWillAtk: bool):
+	var decision = ""
 	if oppWillAtk:
-		if %StateMachine.currentState is not StateHitstun && %StateMachine.currentState is not StateBaseAtk:
-			changeState.emit("moveBackward")
+		if currentActionGoal >= actionGoalTotal:
+			if distance <= distanceThreshold && %StateMachine.currentState is not StateHitstun:
+				decision = "baseAttack"
+				currentActionGoal = 0
+		else:
+			if %StateMachine.currentState is not StateHitstun && %StateMachine.currentState is not StateBaseAtk:
+				decision = "moveBackward"
 	else:
 		if currentActionGoal >= actionGoalTotal:
 			if distance <= distanceThreshold && %StateMachine.currentState is not StateHitstun:
-				changeState.emit("baseAttack")
+				decision = "baseAttack"
 				currentActionGoal = 0
 		else:
 			if distance > distanceThreshold && %StateMachine.currentState is not StateHitstun:
 				if !(%StateMachine.currentState is StateMoveFwd):
-					changeState.emit("moveForward")
+					decision = "moveForward"
 			else:
 				if !(%StateMachine.currentState is StateIdle):
-					changeState.emit("idle")
+					decision = "idle"
+	if characterName == "P1":
+		print(characterName + " action: " + decision)
+	if decision != "":
+		changeState.emit(decision)
 	
 
 func on_atk_active_end_signal_rcvd():
