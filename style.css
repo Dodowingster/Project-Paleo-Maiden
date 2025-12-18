@@ -152,6 +152,16 @@ blockquote footer {
     }
 }
 
+@keyframes pageFadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
 /* --- Responsive Design for Mobile --- */
 @media (max-width: 768px) {
     body {
