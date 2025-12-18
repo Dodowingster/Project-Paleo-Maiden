@@ -118,9 +118,14 @@ func decide_action(oppWillAtk: bool):
 				decision = "moveBackward"
 	else:
 		if currentActionGoal >= actionGoalTotal:
-			if distance <= distanceThreshold && %StateMachine.currentState is not StateHitstun:
-				decision = "baseAttack"
-				currentActionGoal = 0
+			if %StateMachine.currentState is not StateHitstun:
+				if distance <= distanceThreshold:
+					decision = "baseAttack"
+					currentActionGoal = 0
+				else:
+					if !(%StateMachine.currentState is StateMoveFwd):
+						decision = "moveForward"
+				
 		else:
 			if !opponentIsAttacking:
 				if distance > distanceThreshold && %StateMachine.currentState is not StateHitstun:
@@ -129,17 +134,17 @@ func decide_action(oppWillAtk: bool):
 				else:
 					if !(%StateMachine.currentState is StateIdle):
 						decision = "idle"
-	if characterName == "P1":
+	#if characterName == "P1":
 		#print(characterName + " action: " + decision)
-		print("Opponent is Attacking: " + str(opponentIsAttacking))
+		#print("Opponent is Attacking: " + str(opponentIsAttacking))
 	if decision != "":
 		changeState.emit(decision)
 	
 
 func on_atk_active_end_signal_rcvd():
 	opponentIsAttacking = false
-	if characterName == "P1":
-		print("Atk signal received: opponentIsAttacking set to false")
+	#if characterName == "P1":
+		#print("Atk signal received: opponentIsAttacking set to false")
 	if %StateMachine.currentState is StateMoveBkwd:
 		%StateMachine.on_child_transition($StateMachine.currentState, "Idle")
 	
