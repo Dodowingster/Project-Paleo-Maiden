@@ -79,5 +79,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+
+        // --- BFCACHE (BACK/FORWARD CACHE) HANDLING ---
+        // Reset page state if it's loaded from the back/forward cache
+        window.addEventListener('pageshow', (event) => {
+            if (event.persisted) {
+                document.body.style.animation = ''; // Remove the fade-out animation
+            }
+        });
     }
 });
