@@ -20,18 +20,6 @@
 [ext_resource type="Script" uid="uid://chhf2t5cm2eg4" path="res://Characters/States/state_blockstun.gd" id="15_0xudx"]
 [ext_resource type="Script" uid="uid://bqw1eo83vcp4r" path="res://Characters/States/state_hitstun.gd" id="18_ix8sw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsap4"]
-size = Vector2(60, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xudx"]
-size = Vector2(48, 128)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ix8sw"]
-size = Vector2(40, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_acr0g"]
-size = Vector2(48, 128)
-
 [sub_resource type="Animation" id="Animation_ywvfl"]
 length = 0.001
 tracks/0/type = "value"
@@ -92,11 +80,11 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.001),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false, true]
+"values": [true, true]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
-tracks/5/enabled = true
+tracks/5/enabled = false
 tracks/5/path = NodePath("SideTracker/CharacterHurtbox/BaseAtkHurtbox1Shape:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
@@ -148,7 +136,7 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/path = NodePath("SideTracker/CharacterHurtbox/BaseAtkHurtbox1Shape:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
@@ -199,7 +187,7 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id="Animation_ap31n"]
 resource_name = "blockstun"
-length = 0.03333667
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -215,8 +203,9 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_hct78"]
 resource_name = "hit"
-length = 0.03333667
+length = 0.016668335
 loop_mode = 1
+step = 0.016666668
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -267,7 +256,7 @@ tracks/3/keys = {
 }
 tracks/4/type = "value"
 tracks/4/imported = false
-tracks/4/enabled = true
+tracks/4/enabled = false
 tracks/4/path = NodePath("SideTracker/CharacterHurtbox/BaseAtkHurtbox1Shape:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
@@ -280,7 +269,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_bvy42"]
 resource_name = "idle"
-length = 0.016668335
+length = 0.001
 loop_mode = 1
 step = 0.016666668
 tracks/0/type = "value"
@@ -304,13 +293,61 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SideTracker/BaseAtkHitbox/BaseAtkHitboxShape:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SideTracker/BaseAtkHitbox/BaseAtkHitboxShape:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SideTracker/CharacterHurtbox/BaseAtkHurtbox1Shape:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = false
+tracks/5/path = NodePath("SideTracker/CharacterHurtbox/BaseAtkHurtbox1Shape:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_7l2v5"]
 resource_name = "movebackward"
-length = 0.03333667
+length = 0.001
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -339,7 +376,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_sh1xl"]
 resource_name = "moveforward"
-length = 0.016668335
+length = 0.001
 loop_mode = 1
 step = 0.016666668
 tracks/0/type = "value"
@@ -363,7 +400,7 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector2(0, 8)]
 }
 
@@ -378,10 +415,28 @@ _data = {
 &"moveforward": SubResource("Animation_sh1xl")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsap4"]
+size = Vector2(60, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xudx"]
+size = Vector2(48, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ix8sw"]
+size = Vector2(40, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_acr0g"]
+size = Vector2(48, 128)
+
 [node name="Character" type="CharacterBody2D"]
 collision_layer = 16
 collision_mask = 16
 script = ExtResource("1_acr0g")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_ywvfl")
+}
 
 [node name="SideTracker" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -419,9 +474,9 @@ shape = SubResource("RectangleShape2D_0xudx")
 debug_color = Color(0, 0.6, 0, 0.41960785)
 
 [node name="BaseAtkHurtbox1Shape" type="CollisionShape2D" parent="SideTracker/CharacterHurtbox"]
-visible = false
 position = Vector2(40, -4)
 shape = SubResource("RectangleShape2D_ix8sw")
+disabled = true
 debug_color = Color(0, 0.6, 0, 0.41960785)
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
@@ -449,11 +504,5 @@ script = ExtResource("7_bvy42")
 
 [node name="BaseAttack" type="Node" parent="StateMachine"]
 script = ExtResource("9_sh1xl")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_ywvfl")
-}
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/BaseAttack" method="_on_animation_player_animation_finished"]
