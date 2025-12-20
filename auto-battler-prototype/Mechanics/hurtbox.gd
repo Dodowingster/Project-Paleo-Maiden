@@ -1,8 +1,6 @@
 class_name Hurtbox
 extends Area2D
 
-@export var hurtboxArea : CollisionShape2D
-
 @onready var lastGroupCollision = ""
 @onready var lastGroupHitCooldownDefault = 0.1
 @onready var lastGroupHitCooldown = 0
@@ -18,6 +16,13 @@ func _ready() -> void:
 func _physics_process(delta):
 	if lastGroupCollision != "" and lastGroupHitCooldown > 0:
 		lastGroupHitCooldown -= delta
+	#var areas: Array[Area2D] = get_overlapping_areas()
+	#if areas.size() > 0:
+		#print("Checking coordinates for " + str(areas))
+		#for area in areas:
+			#if area.owner != owner:
+				#print("Hitbox: " + str(area.global_position))
+				#print("Hurtbox: " + str(self.global_position))
 	
 func _on_area_entered(hitbox: HitBox) -> void:
 	if hitbox == null:

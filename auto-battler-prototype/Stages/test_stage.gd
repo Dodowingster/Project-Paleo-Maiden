@@ -2,7 +2,7 @@ extends Node2D
 
 var frame_forward_pressed : bool = false
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if get_tree().paused:
 		if frame_forward_pressed:
 			get_tree().paused = false

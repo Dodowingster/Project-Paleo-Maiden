@@ -8,6 +8,7 @@ extends Area2D
 @export var knockbackY = 0
 @export var blockbackX = 0
 @export var blockbackY = 0
+@export var hitstopFrames = 0
 @export var hitboxArea : CollisionShape2D
 @export var isMultiHit = false
 

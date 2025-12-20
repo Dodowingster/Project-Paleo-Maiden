@@ -24,6 +24,7 @@ func _physics_process(delta):
 	if currentState:
 		currentState.physics_update(delta)
 	owner.move_and_slide()
+			
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

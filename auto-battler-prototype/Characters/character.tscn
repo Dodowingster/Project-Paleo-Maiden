@@ -80,11 +80,11 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.001),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false, true]
+"values": [true, true]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
-tracks/5/enabled = true
+tracks/5/enabled = false
 tracks/5/path = NodePath("SideTracker/CharacterHurtbox/BaseAtkHurtbox1Shape:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
@@ -136,7 +136,7 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/path = NodePath("SideTracker/CharacterHurtbox/BaseAtkHurtbox1Shape:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
@@ -185,10 +185,27 @@ tracks/6/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_ap31n"]
+resource_name = "blockstun"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SideTracker/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_ix8sw")]
+}
+
 [sub_resource type="Animation" id="Animation_hct78"]
 resource_name = "hit"
-length = 0.03333667
+length = 0.016668335
 loop_mode = 1
+step = 0.016666668
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -239,7 +256,7 @@ tracks/3/keys = {
 }
 tracks/4/type = "value"
 tracks/4/imported = false
-tracks/4/enabled = true
+tracks/4/enabled = false
 tracks/4/path = NodePath("SideTracker/CharacterHurtbox/BaseAtkHurtbox1Shape:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
@@ -252,7 +269,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_bvy42"]
 resource_name = "idle"
-length = 0.016668335
+length = 0.001
 loop_mode = 1
 step = 0.016666668
 tracks/0/type = "value"
@@ -276,13 +293,61 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SideTracker/BaseAtkHitbox/BaseAtkHitboxShape:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SideTracker/BaseAtkHitbox/BaseAtkHitboxShape:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SideTracker/CharacterHurtbox/BaseAtkHurtbox1Shape:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = false
+tracks/5/path = NodePath("SideTracker/CharacterHurtbox/BaseAtkHurtbox1Shape:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_7l2v5"]
 resource_name = "movebackward"
-length = 0.03333667
+length = 0.001
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -311,7 +376,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_sh1xl"]
 resource_name = "moveforward"
-length = 0.016668335
+length = 0.001
 loop_mode = 1
 step = 0.016666668
 tracks/0/type = "value"
@@ -335,24 +400,8 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 8)]
-}
-
-[sub_resource type="Animation" id="Animation_ap31n"]
-resource_name = "blockstun"
-length = 0.03333667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SideTracker/Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("9_ix8sw")]
+"values": [Vector2(0, 8)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ywvfl"]
@@ -404,6 +453,7 @@ hitstun = 0.5
 blockstun = 0.4
 knockbackX = 1500
 blockbackX = 600
+hitstopFrames = 5
 hitboxArea = NodePath("BaseAtkHitboxShape")
 
 [node name="BaseAtkHitboxShape" type="CollisionShape2D" parent="SideTracker/BaseAtkHitbox"]
@@ -413,20 +463,19 @@ shape = SubResource("RectangleShape2D_tsap4")
 disabled = true
 debug_color = Color(0.7, 0, 0, 0.41960785)
 
-[node name="CharacterHurtbox" type="Area2D" parent="SideTracker" node_paths=PackedStringArray("hurtboxArea")]
+[node name="CharacterHurtbox" type="Area2D" parent="SideTracker"]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("12_ap31n")
-hurtboxArea = NodePath("HurtboxShape")
 
 [node name="HurtboxShape" type="CollisionShape2D" parent="SideTracker/CharacterHurtbox"]
 shape = SubResource("RectangleShape2D_0xudx")
 debug_color = Color(0, 0.6, 0, 0.41960785)
 
 [node name="BaseAtkHurtbox1Shape" type="CollisionShape2D" parent="SideTracker/CharacterHurtbox"]
-visible = false
 position = Vector2(40, -4)
 shape = SubResource("RectangleShape2D_ix8sw")
+disabled = true
 debug_color = Color(0, 0.6, 0, 0.41960785)
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
