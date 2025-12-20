@@ -394,6 +394,7 @@ unique_name_in_owner = true
 script = ExtResource("2_3mn46")
 
 [node name="Sprite" type="Sprite2D" parent="SideTracker"]
+unique_name_in_owner = true
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_ticvp")
 
