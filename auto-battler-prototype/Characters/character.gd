@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Character
 
 signal changeState(newState: String)
 #signal broadcastAtkStart()
@@ -6,13 +7,18 @@ signal broadcastAtkActiveEnd()
 signal broadcastWillAtk(willAtk: bool)
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 2
+## Mainly for debugging and identification
 @export var characterName : String = "P1"
-@export var atk: int = 5
-@export var def: int = 5
-@export var spd: int = 5
-@export var sta: int = 10
-@export var rngRollMin: int = 1
-@export var rngRollMax: int = 10
+## Base stat to calculate attack damage from
+@export var atk: int = 5   # currently unused
+## Base stat to calculate damage taken
+@export var def: int = 5   # currently unused
+## Determines general move speed (in pixels I think?)
+@export var spd: int = 5   
+## Minimum stamina roll to add to action goal
+@export var minSta: int = 1   
+## Maximum stamina roll to add to action goal
+@export var maxSta: int = 10   
 
 @export var strategy: GlobalValues.STRATEGY
 @export var startFacingRight: bool = true
@@ -20,9 +26,14 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 2
 @onready var distance: float = 0
 @onready var tickCount: int = 0
 
+## Determines the maximum distance between characters to trigger their attack logic (for AGGRESSIVE strategy)
 @export var distanceThreshold: int = 80
-@export var speed: float = 3.0
+## Modifies base forward movement speed
+@export var forwardSpdMult: float = 1.0
+## Modifies base backward movement speed
+@export var backwardSpdMult: float = 0.5
 
+## Determines number of action goal points needed to perform an attack
 @export var actionGoalTotal: int = 300
 var currentActionGoal: int = 0
 var opponentIsAttacking: bool = false
@@ -31,6 +42,7 @@ var opponentIsAttacking: bool = false
 @onready var hitknockbackX : float = 0.000
 @onready var hitknockbackY : float = 0.000
 
+## Set opponent character here
 @export var opponent : CharacterBody2D
 
 func _ready() -> void:
@@ -55,7 +67,7 @@ func _on_tick(rcvDistance: float, rcvTickCount: int):
 	tickCount = rcvTickCount
 	if %StateMachine.currentState is not StateHitstun:
 		#currentActionGoal += sta
-		var rng_roll: int = randi() % (rngRollMax + 1) + rngRollMin
+		var rng_roll: int = randi() % (maxSta + 1) + minSta
 		currentActionGoal += rng_roll
 	
 	if currentActionGoal >= actionGoalTotal:

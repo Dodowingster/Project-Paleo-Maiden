@@ -27,7 +27,7 @@ func update(_delta: float):
 func physics_update(_delta: float):
 	if lastTick != owner.tickCount:
 		lastTick = owner.tickCount
-		owner.position.x -= owner.speed/2 * %SideTracker.side
+		owner.position.x -= owner.spd * owner.backwardSpdMult * %SideTracker.side
 
 
 func on_change_state_signal_received(newState: String):

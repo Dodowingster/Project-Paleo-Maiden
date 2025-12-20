@@ -159,12 +159,10 @@ texture = ExtResource("7_2ge0f")
 
 [node name="Character1" parent="Runner" node_paths=PackedStringArray("opponent") instance=ExtResource("3_k5qsb")]
 position = Vector2(88, 280)
-speed = 6.0
 opponent = NodePath("../Character2")
 
 [node name="Character2" parent="Runner" node_paths=PackedStringArray("opponent") instance=ExtResource("3_k5qsb")]
 position = Vector2(704, 280)
 characterName = "P2"
 startFacingRight = false
-speed = 6.0
 opponent = NodePath("../Character1")
