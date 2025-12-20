@@ -3,8 +3,11 @@ extends Area2D
 
 @export var damage = 10
 @export var hitstun : float = 0.15
+@export var blockstun : float = 0.12
 @export var knockbackX = 0
 @export var knockbackY = 0
+@export var blockbackX = 0
+@export var blockbackY = 0
 @export var hitboxArea : CollisionShape2D
 @export var isMultiHit = false
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c0n8jl8cb30ey"]
+[gd_scene load_steps=32 format=3 uid="uid://c0n8jl8cb30ey"]
 
 [ext_resource type="Script" uid="uid://f081btviug4u" path="res://Characters/character.gd" id="1_acr0g"]
 [ext_resource type="Script" uid="uid://colufoqxh8nwm" path="res://Characters/side_tracker.gd" id="2_3mn46"]
@@ -11,11 +11,13 @@
 [ext_resource type="Script" uid="uid://85tmkwtqblw3" path="res://Characters/States/state_movefwd.gd" id="6_2esnv"]
 [ext_resource type="Texture2D" uid="uid://8qr2krrkh2tq" path="res://Characters/placeholder_sprites/A_CinqEastDon/skill1_3.png" id="6_07r0d"]
 [ext_resource type="Script" uid="uid://sv5uv45x0dmh" path="res://Characters/States/state_movebkwd.gd" id="7_bvy42"]
+[ext_resource type="Texture2D" uid="uid://75dbqv6tmq44" path="res://Characters/placeholder_sprites/A_CinqEastDon/gud.png" id="9_ix8sw"]
 [ext_resource type="Script" uid="uid://bfib7jjd33vor" path="res://Characters/States/state_baseatk.gd" id="9_sh1xl"]
 [ext_resource type="Texture2D" uid="uid://bu0cubdglsyeb" path="res://Characters/placeholder_sprites/A_CinqEastDon/dmg.png" id="9_tsap4"]
 [ext_resource type="Texture2D" uid="uid://cwttcmk8a3t3k" path="res://Characters/placeholder_sprites/A_CinqEastDon/miss #1561.png" id="10_0xudx"]
 [ext_resource type="Script" uid="uid://71l6nk5830yo" path="res://Mechanics/hitbox.gd" id="11_6wv34"]
 [ext_resource type="Script" uid="uid://cuqyr28ih435l" path="res://Mechanics/hurtbox.gd" id="12_ap31n"]
+[ext_resource type="Script" uid="uid://chhf2t5cm2eg4" path="res://Characters/States/state_blockstun.gd" id="15_0xudx"]
 [ext_resource type="Script" uid="uid://bqw1eo83vcp4r" path="res://Characters/States/state_hitstun.gd" id="18_ix8sw"]
 
 [sub_resource type="Animation" id="Animation_ywvfl"]
@@ -337,10 +339,27 @@ tracks/1/keys = {
 "values": [Vector2(0, 8)]
 }
 
+[sub_resource type="Animation" id="Animation_ap31n"]
+resource_name = "blockstun"
+length = 0.03333667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SideTracker/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_ix8sw")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ywvfl"]
 _data = {
 &"RESET": SubResource("Animation_ywvfl"),
 &"baseattack": SubResource("Animation_gydv5"),
+&"blockstun": SubResource("Animation_ap31n"),
 &"hitstun": SubResource("Animation_hct78"),
 &"idle": SubResource("Animation_bvy42"),
 &"movebackward": SubResource("Animation_7l2v5"),
@@ -382,7 +401,9 @@ collision_layer = 0
 collision_mask = 0
 script = ExtResource("11_6wv34")
 hitstun = 0.5
+blockstun = 0.4
 knockbackX = 1500
+blockbackX = 600
 hitboxArea = NodePath("BaseAtkHitboxShape")
 
 [node name="BaseAtkHitboxShape" type="CollisionShape2D" parent="SideTracker/BaseAtkHitbox"]
@@ -418,6 +439,9 @@ initialState = NodePath("Idle")
 
 [node name="Hitstun" type="Node" parent="StateMachine"]
 script = ExtResource("18_ix8sw")
+
+[node name="Blockstun" type="Node" parent="StateMachine"]
+script = ExtResource("15_0xudx")
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("5_d1l3k")

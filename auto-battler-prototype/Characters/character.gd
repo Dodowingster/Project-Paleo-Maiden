@@ -90,14 +90,22 @@ func get_hit(hitbox: HitBox, _hurtbox: Hurtbox):
 	var parent = hitbox.owner
 	if parent != self:
 		print("Attack detected, parent = " + parent.characterName + " dmg = " + str(hitbox.damage) + ", groupname = " + hitbox.groupName)
+		var chosenHitState = "Hitstun"
 		
-		hitstun = hitbox.hitstun
-		hitknockbackX = hitbox.knockbackX * %SideTracker.side * -1
-		hitknockbackY = hitbox.knockbackY
+		if %StateMachine.currentState is StateMoveBkwd or %StateMachine.currentState is StateBlockstun:
+			chosenHitState = "Blockstun"
+			hitstun = hitbox.blockstun
+			hitknockbackX = hitbox.blockbackX * %SideTracker.side * -1
+			hitknockbackY = hitbox.blockbackY
+		else:
+			hitstun = hitbox.hitstun
+			hitknockbackX = hitbox.knockbackX * %SideTracker.side * -1
+			hitknockbackY = hitbox.knockbackY
+			#GlobalValues.frameFreeze(0.1, 1)
 		#
 		#Hitvfx.showHit.emit(hitbox, hurtbox)
 		#
-		var chosenHitState = "Hitstun"
+		
 		#if abs(hitknockbackX) < abs(hitknockbackY)/2:
 			#tumble = true
 			#if hitknockbackY < 0:
