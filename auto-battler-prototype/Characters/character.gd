@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
 signal changeState(newState: String)
-signal broadcastAtkStart()
+#signal broadcastAtkStart()
 signal broadcastAtkActiveEnd()
+signal broadcastWillAtk(willAtk: bool)
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 2
 @export var characterName : String = "P1"
@@ -24,6 +25,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 2
 
 @export var actionGoalTotal: int = 300
 var currentActionGoal: int = 0
+var opponentIsAttacking: bool = false
 
 @onready var hitstun : float = 0
 @onready var hitknockbackX : float = 0.000
@@ -35,7 +37,7 @@ func _ready() -> void:
 	%SideTracker.set_facing_direction(startFacingRight)
 	GlobalValues.connect("updateDataToChar", _on_tick)
 	if opponent != null:
-		opponent.connect("broadcastAtkStart", on_atk_signal_rcvd)
+		opponent.connect("broadcastWillAtk", decide_action)
 		opponent.connect("broadcastAtkActiveEnd", on_atk_active_end_signal_rcvd)
 
 func set_char_velocity(_delta:float):
@@ -58,16 +60,21 @@ func _on_tick(rcvDistance: float, rcvTickCount: int):
 	
 	if currentActionGoal >= actionGoalTotal:
 		if distance <= distanceThreshold && %StateMachine.currentState is not StateHitstun:
-			changeState.emit("baseAttack")
-			broadcastAtkStart.emit()
-			currentActionGoal = 0
-	else:
-		if distance > distanceThreshold && %StateMachine.currentState is not StateHitstun:
-			if !(%StateMachine.currentState is StateMoveFwd):
-				changeState.emit("moveForward")
+			broadcastWillAtk.emit(true)
+			#changeState.emit("baseAttack")
+			#broadcastAtkStart.emit()
+			#currentActionGoal = 0
 		else:
-			if !(%StateMachine.currentState is StateIdle):
-				changeState.emit("idle")
+			broadcastWillAtk.emit(false)
+	else:
+		#if distance > distanceThreshold && %StateMachine.currentState is not StateHitstun:
+			#if !(%StateMachine.currentState is StateMoveFwd):
+				#changeState.emit("moveForward")
+		#else:
+			#if !(%StateMachine.currentState is StateIdle):
+				#changeState.emit("idle")
+		broadcastWillAtk.emit(false)
+	
 
 func get_hit(hitbox: HitBox, _hurtbox: Hurtbox):
 	var parent = hitbox.owner
@@ -96,16 +103,52 @@ func get_hit(hitbox: HitBox, _hurtbox: Hurtbox):
 				#flip_char("right")
 		#
 		%StateMachine.on_child_transition($StateMachine.currentState, chosenHitState)
+		opponentIsAttacking = false
 	
-func on_atk_signal_rcvd():
-	pass
-	#if %StateMachine.currentState is not StateHitstun && %StateMachine.currentState is not StateBaseAtk:
-		#changeState.emit("moveBackward")
+func decide_action(oppWillAtk: bool):
+	var decision = ""
+	if oppWillAtk:
+		opponentIsAttacking = true
+		if currentActionGoal >= actionGoalTotal:
+			if distance <= distanceThreshold && %StateMachine.currentState is not StateHitstun:
+				decision = "baseAttack"
+				currentActionGoal = 0
+		else:
+			if %StateMachine.currentState is not StateHitstun && %StateMachine.currentState is not StateBaseAtk:
+				decision = "moveBackward"
+	else:
+		if currentActionGoal >= actionGoalTotal:
+			if %StateMachine.currentState is not StateHitstun:
+				if distance <= distanceThreshold:
+					decision = "baseAttack"
+					currentActionGoal = 0
+				else:
+					if !(%StateMachine.currentState is StateMoveFwd):
+						decision = "moveForward"
+				
+		else:
+			if !opponentIsAttacking:
+				if distance > distanceThreshold && %StateMachine.currentState is not StateHitstun:
+					if !(%StateMachine.currentState is StateMoveFwd):
+						decision = "moveForward"
+				else:
+					if !(%StateMachine.currentState is StateIdle):
+						decision = "idle"
+	#if characterName == "P1":
+		#print(characterName + " action: " + decision)
+		#print("Opponent is Attacking: " + str(opponentIsAttacking))
+	if decision != "":
+		changeState.emit(decision)
+	
 
 func on_atk_active_end_signal_rcvd():
-	pass
-	#if %StateMachine.currentState is StateMoveBkwd:
-		#%StateMachine.on_child_transition($StateMachine.currentState, "Idle")
+	opponentIsAttacking = false
+	#if characterName == "P1":
+		#print("Atk signal received: opponentIsAttacking set to false")
+	if %StateMachine.currentState is StateMoveBkwd:
+		%StateMachine.on_child_transition($StateMachine.currentState, "Idle")
 	
 func broadcast_atk_active_end():
 	broadcastAtkActiveEnd.emit()
+	opponentIsAttacking = false
+	
