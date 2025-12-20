@@ -416,7 +416,6 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tsap4"]
-size = Vector2(60, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xudx"]
 size = Vector2(48, 128)
