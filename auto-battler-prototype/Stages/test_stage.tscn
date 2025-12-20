@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cp47aajkwulg7"]
+[gd_scene load_steps=9 format=3 uid="uid://cp47aajkwulg7"]
 
 [ext_resource type="Script" uid="uid://crlglabortqf2" path="res://Stages/test_stage.gd" id="1_3gimc"]
 [ext_resource type="Script" uid="uid://dggc1tw4nmkkk" path="res://Mechanics/data_tracker.gd" id="1_7in27"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://c0n8jl8cb30ey" path="res://Characters/character.tscn" id="3_k5qsb"]
 [ext_resource type="Texture2D" uid="uid://cs52kxor2xbar" path="res://Stages/assets/cliff.png" id="4_2ge0f"]
 [ext_resource type="Texture2D" uid="uid://bw3vi8afoxpmr" path="res://Characters/placeholder_sprites/Tyran_Rex/tyran_rex-idle.png" id="6_2ge0f"]
-[ext_resource type="Texture2D" uid="uid://blbopcclgjkff" path="res://Characters/placeholder_sprites/Tyran_Rex/tyran_rex_beeg-idle.png" id="7_2ge0f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhvwd"]
 size = Vector2(962, 32)
@@ -157,16 +156,12 @@ color = Color(9.0004505e-06, 0.7094359, 0.117693074, 1)
 polygon = PackedVector2Array(0, 256, 800, 256, 800, 320, 0, 320)
 
 [node name="Tyran" type="Sprite2D" parent="Runner"]
+visible = false
 modulate = Color(0.85814106, 0.85814106, 0.85814106, 1)
 texture_filter = 1
 position = Vector2(312, 192)
 scale = Vector2(2, 2)
 texture = ExtResource("6_2ge0f")
-
-[node name="Tyran2" type="Sprite2D" parent="Runner"]
-modulate = Color(0.85814106, 0.85814106, 0.85814106, 1)
-position = Vector2(472, 208)
-texture = ExtResource("7_2ge0f")
 
 [node name="Character1" parent="Runner" node_paths=PackedStringArray("opponent") instance=ExtResource("3_k5qsb")]
 position = Vector2(88, 280)
