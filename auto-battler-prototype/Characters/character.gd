@@ -45,6 +45,10 @@ var opponentIsAttacking: bool = false
 ## Set opponent character here
 @export var opponent : CharacterBody2D
 
+var hitstop_frames: int = 0
+var stored_velocity: Vector2 = Vector2.ZERO
+var was_in_hitstop: bool = false
+
 func _ready() -> void:
 	%SideTracker.set_facing_direction(startFacingRight)
 	GlobalValues.connect("updateDataToChar", _on_tick)
@@ -98,10 +102,11 @@ func get_hit(hitbox: HitBox, _hurtbox: Hurtbox):
 			hitknockbackX = hitbox.blockbackX * %SideTracker.side * -1
 			hitknockbackY = hitbox.blockbackY
 		else:
+			hitstop_frames = max(hitstop_frames, hitbox.hitstopFrames)
+			hitbox.owner.hitstop_frames = max(hitbox.owner.hitstop_frames, hitbox.hitstopFrames)
 			hitstun = hitbox.hitstun
 			hitknockbackX = hitbox.knockbackX * %SideTracker.side * -1
 			hitknockbackY = hitbox.knockbackY
-			#GlobalValues.frameFreeze(0.1, 1)
 		#
 		#Hitvfx.showHit.emit(hitbox, hurtbox)
 		#

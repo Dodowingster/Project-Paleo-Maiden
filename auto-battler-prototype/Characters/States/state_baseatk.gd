@@ -20,11 +20,22 @@ func exit():
 
 
 func update(_delta: float):
-	pass
+	if owner.hitstop_frames > 0:
+		owner.hitstop_frames -= 1
 
 
 func physics_update(_delta: float):
-	pass
+	if owner.hitstop_frames > 0:
+		if not owner.was_in_hitstop:
+			owner.stored_velocity = owner.velocity
+			owner.was_in_hitstop = true
+			animPlayer.speed_scale = 0
+		owner.velocity = Vector2.ZERO
+	else:
+		if owner.was_in_hitstop:
+			owner.velocity = owner.stored_velocity
+			owner.was_in_hitstop = false
+			animPlayer.speed_scale = 1
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

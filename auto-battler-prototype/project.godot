@@ -13,6 +13,7 @@ config_version=5
 config/name="AutoBattler Prototype"
 run/main_scene="uid://cp47aajkwulg7"
 config/features=PackedStringArray("4.5", "Mobile")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]
@@ -23,8 +24,7 @@ GlobalValues="*res://Mechanics/global_values.gd"
 
 window/size/viewport_width=800
 window/size/viewport_height=600
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/mode="viewport"
 
 [input]
 
