@@ -24,24 +24,18 @@ func exit():
 
 
 func update(_delta: float):
+	#if lastTick != owner.tickCount:
+		#lastTick = owner.tickCount
 	var chosenState = ""
 	owner.hitstun -= _delta
+	#var currentHitStun = owner.hitstun
 	if owner.hitstun < 0:
 		owner.hitstun = 0
 		chosenState = "Idle"
 	
-	transition.emit(self, chosenState)
+	if chosenState != "":
+		transition.emit(self, chosenState)
 
 
 func physics_update(_delta: float):
 	pass
-	#if lastTick != owner.tickCount:
-		#lastTick = owner.tickCount
-		#owner.position.x += owner.speed * %SideTracker.side
-
-#func on_change_state_signal_received(newState: String):
-	#if newState == "idle":
-		#pass
-	#if newState == "idle":
-		#print("Change State to Idle")
-		#transition.emit(self, "Idle")

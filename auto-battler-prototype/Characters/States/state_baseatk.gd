@@ -10,6 +10,7 @@ func _ready():
 	animList = animPlayer.get_animation_list()
 
 func enter():
+	owner.currentActionGoal = 0
 	if "baseattack" in animList:
 		animPlayer.play("baseattack")
 
@@ -24,16 +25,6 @@ func update(_delta: float):
 
 func physics_update(_delta: float):
 	pass
-	#if lastTick != owner.tickCount:
-		#lastTick = owner.tickCount
-		#owner.position.x += owner.speed * %SideTracker.side
-
-#func on_change_state_signal_received(newState: String):
-	#if newState == "idle":
-		#pass
-	#if newState == "idle":
-		#print("Change State to Idle")
-		#transition.emit(self, "Idle")
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
