@@ -1,4 +1,4 @@
-> "There's a plenty of fish in the sea, and I aim to catch the biggest one."
+> "The world's a big ocean, and I'm the storm that's gonna rock the boat!"
 
 ― Aegypt Spino
 
@@ -9,30 +9,30 @@
 | **Species** | *Spinosaurus aegyptiacus* (Meaning: "Egyptian Spine Lizard") |
 | **Era** | Late Cretaceous |
 | **Key Features** | Long, crocodile-like snout with conical teeth; a prominent neural spine sail; paddle-like tail and dense bones for aquatic life. A specialized, semi-aquatic predator. |
-| **Lore Reflection** | Her fighting style is a mix of piercing attacks and battlefield control. She wields a P-Magic palm axe, a weapon with a hook-like shape inspired by ancient Egyptian weapons like the Khopesh, reflecting her geographic origins. Her entire identity is built around being misunderstood, reflecting the scientific community's evolving understanding of her species. |
+| **Lore Reflection** | Her fighting style is a chaotic mix of swashbuckling strikes and unpredictable maneuvers. She wields a massive **Anchor-Axe**, a heavy weapon that she swings with surprising grace. Her pirate persona is a direct nod to the 'shifting sands' of her species' scientific history—constantly changing, never quite fitting into one category (terrestrial or aquatic?), making her a perpetual outsider seeking a crew. |
 
 ---
 
 ## Profile/Background
 
-Aegypt Spino is the Head of the **Stratum Institute's Fishing Club** and a prominent member of the **Apex League (Carni Dorm)**. Outwardly, she is prideful and confident, presenting herself as a jack of all trades who has an answer for every situation. This persona, however, is a carefully constructed shield. Internally, Spino suffers from a profound **identity crisis**.
+Aegypt Spino is a flamboyant and boisterous **transfer student** who immediately declared herself the "Captain" of the Stratum Institute's waterways. Dressed in modified pirate regalia, she presents herself as a worldly adventurer who has sailed the most dangerous seas of the Primeval Continents. She is obsessed with **fame and popularity**, constantly regaling anyone who will listen (and many who won't) with exaggerated tales of her exploits to build her legend.
 
-Spino feels she lacks a core specialty. Unlike Tyran's pure power or Sastrei's pure speed, her abilities are multifaceted and adaptable, leaving her feeling like a "jack-of-all-trades, master of none."
+However, this loud persona masks a deep-seated **anxiety of authenticity**. She has embellished and rewritten her own backstory so many times to please others that she has lost track of what is true. She fears her entire identity is a house of cards that could collapse if anyone looks too closely, leaving her unsure if she is the legendary captain she claims to be, or just a fraud.
 
 | Attribute | Detail |
 | :--- | :--- |
-| **Strengths** | Adaptability, Environmental Awareness |
-| **Weakness** | Indecisiveness |
+| **Strengths** | Charisma, Unpredictability |
+| **Weakness** | Insecurity (Imposter Syndrome) |
 | **Tail** | Sways it slowly and rhythmically when deep in thought, like a rudder in the water. |
 | **Height** | 188 cm (6'2") |
 | **Weight** | 79 kg (174 lbs) |
-| **Phone Wallpaper** | A Picture of her holding up her biggest game in Fishing. |
-| **Unique Habit/Traits** | She holds the record as the fastest swimmer in the Insititute. |
-| **Titles** | River Hunter, Tyrant of the Shallows |
+| **Phone Wallpaper** | A selfie of her posing on a "ship" (actually just a large rock in a river). |
+| **Unique Habit/Traits** | She holds the record as the best Fisherman in the institute. |
+| **Titles** | The River Corsair, Queen of the Seven Streams |
 | **Birthdate** | December 19th |
 | **Birthplace** | Bahariya Oasis, Egypt |
-| **Likes** | Fishing, Quiet places, Seafood |
-| **Dislikes** | Loud noises, War Movies, Dry heat |
+| **Likes** | Treasure Maps, Tall Tales, Seafood |
+| **Dislikes** | Being ignored, War Movies, Dry heat |
 
 ---
 
@@ -40,7 +40,7 @@ Spino feels she lacks a core specialty. Unlike Tyran's pure power or Sastrei's p
 
 | Character | Relationship Type | Nature of Conflict/Bond |
 | :--- | :--- | :--- |
-| **Tyran Rex** | **Ideological Foil / Rival** | Spino views Tyran with a complex mix of disdain and envy. She scoffs at Tyran's brutish, one-dimensional power, yet secretly envies her absolute certainty of self. To Spino, Tyran represents everything she lacks: a clear, undisputed identity. Their rivalry is Brains vs. Brawn, but also a clash between crippling self-doubt and supreme self-confidence. |
+| **Tyran Rex** | **The Queen vs. The Rebel** | Spino views Tyran as the ultimate symbol of the "establishment"—popular, defined, and accepted. She challenges Tyran not just to win, but to disrupt the status quo. Tyran finds Spino's pirate antics annoying, while Spino is desperate to prove that a "freak" like her can outshine the Queen of Dinosaurs. |
 
 ---
 
@@ -48,7 +48,7 @@ Spino feels she lacks a core specialty. Unlike Tyran's pure power or Sastrei's p
 
 | Stage | Vocation Title | Fused Trait Disciplines |
 | :--- | :--- | :--- |
-| **Base** | Medjay | Focus (Core) |
+| **Base** | Swashbuckler | Focus (Core) |
 
 ---
 
@@ -56,22 +56,20 @@ Spino feels she lacks a core specialty. Unlike Tyran's pure power or Sastrei's p
 
 | Vocation | Core Trait | Signature Move |
 | :--- | :--- | :--- |
-| **Medjay** | **Offensive Control:** As a Medjay, her style is that of an elite protector and hunter. She uses her palm axe—shaped like an ancient *khopesh*—to hook and control opponents, dictating the flow of battle through relentless, calculated offense rather than waiting for a counter. | **Nahr Vortex:** Spino spins her palm axe upwards like a helicopter blade, gathering ambient P-Magic to generate an explosive vortex. The resulting tornado pulls in nearby opponents, dealing continuous damage and leaving them vulnerable. |
+| **Swashbuckler** | **Opportunistic Aggression:** As a Swashbuckler, Spino fights dirty. She uses the environment to her advantage, kicking up sand or water to blind foes before hooking them with her Anchor-Axe. She doesn't fight for honor; she fights for the spotlight. | **Give no quarter!:** Spino sends her opponent flying with an uppercut from her Anchor-Axe, focuses herself to conjure a gigantic pirate ship, then fires her cannons straight toward her enemy. While the cannon fire is traversing onward, Spino jumps over to her opponent high in the sky and strikes them down with her anchor-axe straight into the cannons' trajectory, causing a massive explosion. |
 
 ---
 
 ## Motivation and Goals
 
-* **Primary Goal:** To win the Paleo-Maiden Championship by proving that she is one of the most versatilie Paleo Maiden that nobody has witnessed and champion herself as one of a kind Paleo Maiden among her generation.
-* **Internal Goal:** To finally discover and define her own, true specialty. She believes that by defeating the ultimate specialist, Tyran Rex, she can prove her "master of none" adaptability is a strength in itself, and thus forge her own identity.
+* **Primary Goal:** To become the most famous Paleo Maiden in history. She believes that if she wins the Championship, her name will be etched in stone forever, never to be rewritten or forgotten again.
+* **Internal Goal:** To bridge the gap between her tall tales and reality. With the Lecturer's help, she aims to turn her fabrications into genuine feats, proving that she can live up to the legend she created.
 
 ---
 
 ## Trivia
 
 * Her birthdate, December 19th, is a reference to the year (1912) that paleontologist Ernst Stromer began his famed Egyptian expedition where the first *Spinosaurus* fossils were discovered.
-* Her rivalry with Tyran Rex is a direct homage to the famous "Spinosaurus vs. T-Rex" debate among paleontological fans. Her fighting style, which focuses on neutralizing a single, powerful opponent, is tailor-made to counter Tyran.
-* Her passion for fishing is a direct reflection of her species' real-world status as a piscivore (fish-eater). Her use of a palm axe, however, is a nod to her Egyptian heritage, taking inspiration from the hooked shape of ancient weapons like the Khopesh.
-* Her internal identity crisis is a direct parallel to the real-world scientific debate over *Spinosaurus*'s lifestyle, which has shifted from terrestrial, to quadrupedal, to semi-aquatic over the decades.
-* Her titles "The River Dragon" and "Apex Tactician" have been removed from the profile to better reflect her internal struggle and make her less defined.
-* Her profound hatred of war movies is a reference to the historical fact that the original, most complete *Spinosaurus* fossils were destroyed during a World War II bombing raid on Munich in 1944. This event fuels her character's feeling that her identity was stolen by the senselessness of war.
+* Her habit of constantly rewriting her own backstory is a meta-commentary on the **"Spinosaurus Identity Crisis"** in paleontology. Just as scientists have drastically rewritten the Spinosaurus's description over decades (bipedal vs. quadrupedal vs. aquatic), Spino constantly edits her own life story, leading to her confusion about what is "canon."
+* Her "adventure stories" are often 50% truth and 50% fabrication, reflecting the fragmentary nature of Spinosaurus fossils.
+* Her profound hatred of war movies is a reference to the historical fact that the original, most complete *Spinosaurus* fossils were destroyed during a World War II bombing raid on Munich in 1944. This event fuels her fear of being "erased" from history.
