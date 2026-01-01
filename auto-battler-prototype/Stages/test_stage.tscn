@@ -42,7 +42,7 @@ texture = ExtResource("4_2ge0f")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Runner"]
 
-[node name="UI" type="Control" parent="Runner/CanvasLayer" node_paths=PackedStringArray("dataTracker", "tickLabelValue", "timerLabelValue", "distanceLabelValue", "P1", "P1ActionGoalValueLabelValue", "P1ActionGoalTotalLabelValue", "P2", "P2ActionGoalValueLabelValue", "P2ActionGoalTotalLabelValue")]
+[node name="UI" type="Control" parent="Runner/CanvasLayer" node_paths=PackedStringArray("dataTracker", "tickLabelValue", "timerLabelValue", "distanceLabelValue", "P1", "P1ActionGoalValueLabelValue", "P1ActionGoalTotalLabelValue", "P1HealthValue", "P1HealthTotal", "P2", "P2ActionGoalValueLabelValue", "P2ActionGoalTotalLabelValue", "P2HealthValue", "P2HealthTotal")]
 custom_minimum_size = Vector2(800, 600)
 layout_mode = 3
 anchors_preset = 0
@@ -56,9 +56,13 @@ distanceLabelValue = NodePath("PanelContainer/HBoxContainer/StageUI/Distance/Dis
 P1 = NodePath("../../Character1")
 P1ActionGoalValueLabelValue = NodePath("PanelContainer/HBoxContainer/P1UI/ActionGoal/ActionGoalValue")
 P1ActionGoalTotalLabelValue = NodePath("PanelContainer/HBoxContainer/P1UI/ActionGoal/ActionGoalTotal")
+P1HealthValue = NodePath("PanelContainer/HBoxContainer/P1UI/HP/HealthValue")
+P1HealthTotal = NodePath("PanelContainer/HBoxContainer/P1UI/HP/HealthTotal")
 P2 = NodePath("../../Character2")
 P2ActionGoalValueLabelValue = NodePath("PanelContainer/HBoxContainer/P2UI/ActionGoal/ActionGoalValue")
 P2ActionGoalTotalLabelValue = NodePath("PanelContainer/HBoxContainer/P2UI/ActionGoal/ActionGoalTotal")
+P2HealthValue = NodePath("PanelContainer/HBoxContainer/P2UI/HP/HealthValue")
+P2HealthTotal = NodePath("PanelContainer/HBoxContainer/P2UI/HP/HealthTotal")
 
 [node name="PanelContainer" type="PanelContainer" parent="Runner/CanvasLayer/UI"]
 layout_mode = 1
@@ -86,6 +90,21 @@ layout_mode = 2
 text = "0"
 
 [node name="ActionGoalTotal" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI/ActionGoal"]
+layout_mode = 2
+text = "/ 0"
+
+[node name="HP" type="HBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI"]
+layout_mode = 2
+
+[node name="HealthLabel" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI/HP"]
+layout_mode = 2
+text = "HP: "
+
+[node name="HealthValue" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI/HP"]
+layout_mode = 2
+text = "0"
+
+[node name="HealthTotal" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI/HP"]
 layout_mode = 2
 text = "/ 0"
 
@@ -146,6 +165,22 @@ layout_mode = 2
 text = "0"
 
 [node name="ActionGoalTotal" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI/ActionGoal"]
+layout_mode = 2
+text = "/ 0"
+
+[node name="HP" type="HBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI"]
+layout_mode = 2
+alignment = 2
+
+[node name="HealthLabel" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI/HP"]
+layout_mode = 2
+text = "HP: "
+
+[node name="HealthValue" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI/HP"]
+layout_mode = 2
+text = "0"
+
+[node name="HealthTotal" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI/HP"]
 layout_mode = 2
 text = "/ 0"
 

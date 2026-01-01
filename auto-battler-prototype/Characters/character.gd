@@ -19,6 +19,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var minSta: int = 1   
 ## Maximum stamina roll to add to action goal
 @export var maxSta: int = 10   
+## Maximum HP
+@export var maxHP: int = 100
 
 @export var strategy: GlobalValues.STRATEGY
 @export var startFacingRight: bool = true
@@ -42,6 +44,7 @@ var opponentIsAttacking: bool = false
 @onready var hitstun : float = 0
 @onready var hitknockbackX : float = 0.000
 @onready var hitknockbackY : float = 0.000
+@onready var health : int = maxHP
 
 ## Set opponent character here
 @export var opponent : CharacterBody2D
@@ -97,17 +100,21 @@ func get_hit(hitbox: HitBox, _hurtbox: Hurtbox):
 		print("Attack detected, parent = " + parent.characterName + " dmg = " + str(hitbox.damage) + ", groupname = " + hitbox.groupName)
 		var chosenHitState = "Hitstun"
 		
+		# Check character currently moving backwards, char blocks
 		if %StateMachine.currentState is StateMoveBkwd or %StateMachine.currentState is StateBlockstun:
 			chosenHitState = "Blockstun"
 			hitstun = hitbox.blockstun
 			hitknockbackX = hitbox.blockbackX * %SideTracker.side * -1
 			hitknockbackY = hitbox.blockbackY
+		
+		# Else character got hit
 		else:
 			hitstop_frames = max(hitstop_frames, hitbox.hitstopFrames)
 			hitbox.owner.hitstop_frames = max(hitbox.owner.hitstop_frames, hitbox.hitstopFrames)
 			hitstun = hitbox.hitstun
 			hitknockbackX = hitbox.knockbackX * %SideTracker.side * -1
 			hitknockbackY = hitbox.knockbackY
+			health -= hitbox.damage
 		#
 		#Hitvfx.showHit.emit(hitbox, hurtbox)
 		#
