@@ -6,7 +6,7 @@ class_name Character
 signal broadcastAtkActiveEnd()
 signal broadcastWillAtk(willAtk: bool)
 
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 2
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 ## Mainly for debugging and identification
 @export var characterName : String = "P1"
 ## Base stat to calculate attack damage from
