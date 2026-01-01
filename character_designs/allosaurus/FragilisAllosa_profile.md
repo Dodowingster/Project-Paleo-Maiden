@@ -1,4 +1,4 @@
-> "I may stumble a hundred times, but when the bell rings, I will stand tall!"
+> "Precision, elegance, and a touch of ferocity. That is my melody."
 
 ― Fragilis Allosa
 
@@ -9,22 +9,24 @@
 | **Species** | *Allosaurus fragilis* (Meaning: "Different Lizard") |
 | **Era** | Late Jurassic |
 | **Key Features** | The "Lion of the Jurassic." Known for the "hatchet bite" theory (using the upper jaw like an axe), prominent lacrimal crests (horns) above the eyes, and large hand claws. |
-| **Lore Reflection** | Her **Sabre** fighting style mimics the slashing "hatchet bite" motion. Her **Red Mage** aesthetic (feathered hat, red coat) references the prominent crests and the species' status as a successful, widespread generalist. Her clumsiness references the famous specimen "Big Al," who suffered from 19 documented injuries and infections. |
+| **Lore Reflection** | Her **Sabre** fighting style mimics the slashing "hatchet bite" motion. Her **Red Mage** aesthetic (feathered hat, red coat) references the prominent crests and the species' status as a successful, widespread generalist. The 19 injuries of the famous "Big Al" specimen are reimagined as 9 distinct musical accessories she wears, symbolizing resilience and style. |
 
 ## Profile/Background
 
-Fragilis Allosa is the spirited, relatable heart of the Stratum Institute. Often called the "Special Star" by her friends, she possesses immense latent potential but is plagued by a comical degree of bad luck in her daily life. She is notoriously clumsy—tripping over flat surfaces, walking into glass doors, or accidentally knocking over displays with her tail. She is a frequent visitor to the infirmary for minor scrapes and bruises, earning her the affectionate nickname "Band-Aid Princess."
+Fragilis Allosa is the sophisticated, cunning strategist of the Stratum Institute. Often called the "Maestro" by her peers, she possesses immense latent potential and carries herself with an air of untouchable elegance. She is stylish and presentable at all times, notoriously smooth—gliding through social situations and battlefields alike with calculated grace.
 
-Despite her clumsiness, she commands respect as the **Conductor of the Institute Music Club**. Her signature "Red Mage" aesthetic—the feathered hat and long coat—is actually inspired by her love for theatrical performance and conducting attire. The moment she steps into a P-Magic duel, her demeanor shifts instantly. The clumsiness vanishes, replaced by the regal grace of a maestro. She fights with the elegance of a high-born fencer, treating her radiant crimson Sabre like a conductor's baton. She embodies the "Lion of the Jurassic"—a predator of nobility and ferocity. Her journey is one of reconciling these two halves: proving that a "fragile" girl who trips over her own feet can still rise to orchestrate a masterpiece in the arena.
+She commands respect as the **Conductor of the Institute Music Club**. Her signature "Red Mage" aesthetic—the feathered hat and long coat—is inspired by her love for theatrical performance and conducting attire. To honor the history of her species, she incorporates 9 musical notes into her attire, representing the injuries of "Big Al" distilled into pure fashion.
+
+In a P-Magic duel, she fights with the elegance of a high-born fencer, treating her radiant crimson Sabre like a conductor's baton. She embodies the "Lion of the Jurassic"—a predator of nobility and ferocity. Her journey is one of proving that true strength lies in turning one's history into a masterpiece.
 
 | Attribute | Detail |
 | :--- | :--- |
-| **Strengths** | Resilience, Battle IQ, "Locking In" |
-| **Weakness** | Daily Life Clumsiness (The "Big Al" Curse) |
-| **Tail** | Long and stiff for balance, but she often forgets its length in narrow aisles, knocking things over. |
+| **Strengths** | Cunning, Battle IQ, Charisma |
+| **Weakness** | Perfectionism (Intolerant of discord) |
+| **Tail** | Long and stiff for balance, she uses it as a graceful rudder to steer her elegant movements. |
 | **Height** | 176 cm (5'9") |
 | **Weight** | 70 kg (154 lbs) |
-| **Phone Wallpaper** | A motivational selfie with a thumbs up, featuring a bandage on her cheek. |
+| **Phone Wallpaper** | A perfectly framed selfie showing off her latest hat. |
 | **Unique Habit/Traits** | She unconsciously "conducts" with her hands when listening to music or explaining a strategy. |
 | **Titles** | The Lioness of the Jurassic, The Crimson Fencer |
 | **Birthdate** | September 12th |
@@ -52,16 +54,25 @@ Despite her clumsiness, she commands respect as the **Conductor of the Institute
 | Vocation | Core Trait | Signature Move |
 | :--- | :--- | :--- |
 | **Crimson Fencer** | **Regal Aggression:** Allosa fights with a one-handed Sabre style that emphasizes wide, chopping slashes (mimicking the hatchet bite) and elegant footwork. She uses her **Red** affinity to empower her blade with explosive energy, turning graceful fencing into shield-shattering heavy attacks. | **Hatchet Waltz:** Allosa performs a series of elegant dashes to confuse the enemy, ending with a vertical, two-handed overhead slash that crashes down with the weight of a guillotine. |
-| **Vermilion Red Mage** | **Versatile Mastery:** Evolving to incorporate **Focus (Blue)**, she mixes magic with martial prowess. She can now enchant her blade with elemental P-Magic or cast quick defensive wards, covering her reckless offensive style with calculated protection. | **Ballad of Big Al:** Allosa kicks her opponent away, then levitates her Sabre. Like a conductor, she orchestrates a flurry of exactly 19 strikes that launch the enemy skyward. She then recalls the blade to her hand and unleashes a piercing energy blow at the airborne target, ending with a stylish hands-on-hat pose. |
+| **Vermilion Red Mage** | **Versatile Mastery:** Evolving to incorporate **Focus (Blue)**, she mixes magic with martial prowess. She can now enchant her blade with elemental P-Magic or cast quick defensive wards, weaving spells into her combos with cunning precision. | **Ballad of Big Al:** Allosa kicks her opponent away, then levitates her Sabre. Like a conductor, she orchestrates a flurry of exactly 9 strikes (one for each note on her attire) that launch the enemy skyward. She then recalls the blade to her hand and unleashes a piercing energy blow at the airborne target, ending with a stylish hands-on-hat pose. |
 
 ## Motivation and Goals
 
-* **Primary Goal:** To win the Paleo-Maiden Championship and prove that her "fragile" nature is not a weakness, but a testament to her ability to survive and recover.
-* **Internal Goal:** To stop tripping in front of her crush/fans and to finally defeat Stenops Stegosa without flinching at the sight of the spikes.
+* **Primary Goal:** To win the Paleo-Maiden Championship and prove that elegance and cunning are the ultimate weapons of a predator.
+* **Internal Goal:** To compose the perfect battle strategy that defeats Stenops Stegosa without a single hair out of place.
 
 ## Trivia
 
-* Her clumsiness and "fragile" moniker are direct references to **"Big Al" (MOR 693)**, a famous Allosaurus specimen found with **19 healed fractures** and signs of infection. This number is directly referenced in her signature move, **Ballad of Big Al**, which consists of exactly **19 strikes**.
+* Her attire features **9 musical notes**, which are a stylized reference to **"Big Al" (MOR 693)**, a famous Allosaurus specimen found with **19 healed fractures**. She has condensed the 19 injuries into 9 distinct fashion statements. This number is directly referenced in her signature move, **Ballad of Big Al**, which consists of exactly **19 strikes**. The notes are:
+    1.  **8th Note** (Left Hat)
+    2.  **Treble Clef** (Left Hat)
+    3.  **Segno Note** (Center of Hat)
+    4.  **Alto Clef** (Necktie Clip)
+    5.  **Bass Clef** (Emblem on neck with ribbons and wings)
+    6.  **Beam Note** (Right Hat)
+    7.  **Coda Note** (Brooch pinning right side cloak)
+    8.  **Natural Sign** (Vest buttons)
+    9.  **Whole Note** (Vest buttons connecting to Natural Sign)
 * Her "Red Mage" design (feathered hat and cape) is a nod to the **lacrimal crests** (horns) above an Allosaurus's eyes, which are often depicted as red or colorful in paleo-art for display purposes.
 * The "Hatchet Waltz" signature move references the controversial **"Hatchet Bite" theory**, which suggested Allosaurus used its upper jaw like an axe to hack at prey.
-* Her conducting style is inspired by **Herbert von Karajan**, specifically his intense, eyes-closed focus. This symbolizes how she shuts out the world (and her own clumsiness) to channel her P-Magic perfectly during her "Ballad of Big Al" signature move.
+* Her conducting style is inspired by **Herbert von Karajan**, specifically his intense, eyes-closed focus. This symbolizes how she shuts out distractions to channel her P-Magic perfectly during her "Ballad of Big Al" signature move.
