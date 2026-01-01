@@ -15,7 +15,7 @@
 
 Fragilis Allosa is the sophisticated, cunning strategist of the Stratum Institute. Often called the "Maestro" by her peers, she possesses immense latent potential and carries herself with an air of untouchable elegance. She is stylish and presentable at all times, notoriously smooth—gliding through social situations and battlefields alike with calculated grace.
 
-She commands respect as the **Conductor of the Institute Music Club**. Her signature "Red Mage" aesthetic—the feathered hat and long coat—is inspired by her love for theatrical performance and conducting attire. To honor the history of her species, she incorporates 9 musical notes into her attire, representing the injuries of "Big Al" distilled into pure fashion.
+She commands respect as the **Conductor of the Institute Music Club**. Her signature "Red Mage" aesthetic—the feathered hat and long coat—is inspired by her love for theatrical performance and conducting attire. She often incorporates musical metaphors into her strategies, viewing each duel as a symphony where every move must be perfectly timed and executed.
 
 In a P-Magic duel, she fights with the elegance of a high-born fencer, treating her radiant crimson Sabre like a conductor's baton. She embodies the "Lion of the Jurassic"—a predator of nobility and ferocity. Her journey is one of proving that true strength lies in turning one's history into a masterpiece.
 
