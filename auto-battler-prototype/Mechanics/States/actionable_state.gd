@@ -30,7 +30,7 @@ func aggressive_strategy_logic() -> String:
 			else:
 				decision = "MoveBackward"
 		else:
-			if owner.distance_threshold_hit():
+			if owner.min_distance_hit():
 				decision = "Idle"
 			else:
 				decision = "MoveForward"
@@ -40,18 +40,22 @@ func aggressive_strategy_logic() -> String:
 
 func balanced_strategy_logic() -> String:
 	var decision : String = ""
-	var canAttack = owner.check_can_attack()
-	#var wantToAttack = owner.check_want_to_attack()
+	#var canAttack = owner.check_can_attack()
+	var wantToAttack = owner.check_want_to_attack()
 	
-	if canAttack:
+	if self.name == "Idle":
+		decision = "MoveBackward"
+		
+	if wantToAttack:
 		decision = "BaseAttack"
 	else:
-		if owner.distance < owner.distanceThreshold:
+		if owner.opponentIsAttacking:
 			decision = "MoveBackward"
-		elif owner.distance > owner.distanceThreshold:
-			decision = "MoveForward"
 		else:
-			decision = "Idle"
+			if owner.min_distance_hit():
+				decision = "MoveBackward"
+			elif owner.distance > owner.maxDistance:
+				decision = "MoveForward"
 	
 	return decision
 
@@ -65,7 +69,7 @@ func defensive_strategy_logic() -> String:
 		if canAttack:
 			decision = "BaseAttack"
 		else:
-			if owner.distance > owner.distanceThreshold:
+			if owner.distance > owner.minDistance:
 				decision = "MoveForward"
 			else:
 				decision = "Idle"

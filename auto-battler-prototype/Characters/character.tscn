@@ -97,7 +97,7 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_gydv5"]
 resource_name = "baseattack"
-length = 0.50000167
+length = 1.0000017
 step = 0.016666668
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -106,7 +106,7 @@ tracks/0/path = NodePath("SideTracker/Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.23333333),
+"times": PackedFloat32Array(0, 0.33333334, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [ExtResource("4_gase8"), ExtResource("5_gydv5"), ExtResource("6_07r0d")]
@@ -118,7 +118,7 @@ tracks/1/path = NodePath("SideTracker/Sprite:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.16666667),
+"times": PackedFloat32Array(0, 0.33333334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [Vector2(0, 4), Vector2(0, 12)]
@@ -130,7 +130,7 @@ tracks/2/path = NodePath("SideTracker/CharacterHurtbox/BaseAtkHurtbox1Shape:disa
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.1666667, 0.23333333),
+"times": PackedFloat32Array(0.33333337, 0.9166667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -142,7 +142,7 @@ tracks/3/path = NodePath("SideTracker/CharacterHurtbox/BaseAtkHurtbox1Shape:visi
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.1666667, 0.23333333),
+"times": PackedFloat32Array(0.33333337, 0.9166667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -154,7 +154,7 @@ tracks/4/path = NodePath("SideTracker/BaseAtkHitbox/BaseAtkHitboxShape:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.1666667, 0.23333333),
+"times": PackedFloat32Array(0.33333337, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -166,7 +166,7 @@ tracks/5/path = NodePath("SideTracker/BaseAtkHitbox/BaseAtkHitboxShape:disabled"
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.1666667, 0.23333333),
+"times": PackedFloat32Array(0.33333337, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -178,7 +178,7 @@ tracks/6/path = NodePath(".")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.23333333),
+"times": PackedFloat32Array(0.4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],

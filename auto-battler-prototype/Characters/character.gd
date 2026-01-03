@@ -27,7 +27,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var tickCount: int = 0
 
 ## Determines the maximum distance between characters to trigger their attack logic (for AGGRESSIVE strategy)
-@export var distanceThreshold: int = 80
+@export var minDistance: int = 80
+@export var maxDistance: int = 100
 ## Modifies base forward movement speed
 @export var forwardSpdMult: float = 1.0
 ## Modifies base backward movement speed
@@ -68,13 +69,13 @@ func set_char_velocity(_delta:float):
 
 
 func check_can_attack():
-	return (currentActionGoal >= actionGoalTotal && distance <= distanceThreshold && %StateMachine.currentState is not StateHitstun)
+	return (currentActionGoal >= actionGoalTotal && distance <= minDistance && %StateMachine.currentState is not StateHitstun)
 
 func check_want_to_attack():
 	return (currentActionGoal >= actionGoalTotal && %StateMachine.currentState is not StateHitstun)
 
-func distance_threshold_hit():
-	return distance <= distanceThreshold
+func min_distance_hit():
+	return distance <= minDistance
 
 func _on_tick(rcvDistance: float, rcvTickCount: int):
 	distance = rcvDistance
@@ -134,7 +135,7 @@ func decide_action(oppWillAtk: bool):
 	if oppWillAtk:
 		opponentIsAttacking = true
 		#if currentActionGoal >= actionGoalTotal:
-			#if distance <= distanceThreshold && %StateMachine.currentState is not StateHitstun:
+			#if distance <= minDistance && %StateMachine.currentState is not StateHitstun:
 				#decision = "baseAttack"
 				#currentActionGoal = 0
 		#else:
@@ -143,7 +144,7 @@ func decide_action(oppWillAtk: bool):
 	#else:
 		#if currentActionGoal >= actionGoalTotal:
 			#if %StateMachine.currentState is not StateHitstun:
-				#if distance <= distanceThreshold:
+				#if distance <= minDistance:
 					#decision = "baseAttack"
 					#currentActionGoal = 0
 				#else:
@@ -152,7 +153,7 @@ func decide_action(oppWillAtk: bool):
 				#
 		#else:
 			#if !opponentIsAttacking:
-				#if distance > distanceThreshold && %StateMachine.currentState is not StateHitstun:
+				#if distance > minDistance && %StateMachine.currentState is not StateHitstun:
 					#if !(%StateMachine.currentState is StateMoveFwd):
 						#decision = "moveForward"
 				#else:
