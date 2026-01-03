@@ -9,6 +9,8 @@ func update(_delta: float):
 		decision = aggressive_strategy_logic()
 	elif chosenStrategy == GlobalValues.STRATEGY.BALANCED:
 		decision = balanced_strategy_logic()
+	elif chosenStrategy == GlobalValues.STRATEGY.DEFENSIVE:
+		decision = defensive_strategy_logic()
 		
 	if decision != "" && decision != self.name:
 		transition.emit(self, decision)
@@ -50,5 +52,24 @@ func balanced_strategy_logic() -> String:
 			decision = "MoveForward"
 		else:
 			decision = "Idle"
+	
+	return decision
+
+
+func defensive_strategy_logic() -> String:
+	var decision : String = ""
+	var canAttack = owner.check_can_attack()
+	var wantToAttack = owner.check_want_to_attack()
+	
+	if wantToAttack:
+		if canAttack:
+			decision = "BaseAttack"
+		else:
+			if owner.distance > owner.distanceThreshold:
+				decision = "MoveForward"
+			else:
+				decision = "Idle"
+	else:
+		decision = "MoveBackward"
 	
 	return decision

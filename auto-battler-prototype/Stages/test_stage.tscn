@@ -182,12 +182,13 @@ texture = ExtResource("6_2ge0f")
 
 [node name="Character1" parent="Runner" node_paths=PackedStringArray("opponent") instance=ExtResource("3_k5qsb")]
 position = Vector2(88, 280)
+strategy = 2
 opponent = NodePath("../Character2")
 
 [node name="Character2" parent="Runner" node_paths=PackedStringArray("opponent") instance=ExtResource("3_k5qsb")]
 position = Vector2(704, 280)
 characterName = "P2"
-strategy = 1
+strategy = 2
 startFacingRight = false
 distanceThreshold = 100
 opponent = NodePath("../Character1")
