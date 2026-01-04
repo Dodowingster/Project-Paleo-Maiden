@@ -38,7 +38,7 @@ In a P-Magic duel, she fights with the elegance of a high-born fencer, treating 
 
 | Character | Relationship Type | Nature of Conflict/Bond |
 | :--- | :--- | :--- |
-| **Stenops Stegosa** | **Eternal Rival** | They are polar opposites who bicker like cats and dogs constantly. These two are inseparable frenemies. Stegosa's defensive, calculated nature perfectly counters Allosa's aggressive style, making them the ultimate sparring partners who push each other to the limit. |
+| **Stenops Stegosa** | **Eternal Rival** | A clash of **Musical Performance vs. Visual Arts**. Their rivalry is defined by the desire to prove whose artistry holds more importance. While they bicker constantly to prove who is superior in both **Artistic Sense** and **Battle Sense**, they share a deep mutual respect for the medium of **Creativity**. They recognize each other as true artists, even if they disagree on the method. |
 | **Longus Diplo** | **The Unreachable Wall** | A massive Sauropod Maiden who represents the sheer scale Allosa must overcome. While Allosa is the "Lion," Diplo is the mountain. Allosa views defeating her as the ultimate proof of skill over size. |
 | **Ostromm Utahra** | **Territorial Rival** | Utahra covets Allosa's status as the premier predator of the American West. While Allosa tries to be friendly, Utahra's intense competitiveness forces them into clashes over who truly owns the title of "Champion." |
 
