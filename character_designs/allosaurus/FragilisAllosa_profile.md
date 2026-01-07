@@ -1,4 +1,4 @@
-> "Precision, elegance, and a touch of ferocity. That is my melody."
+> "I will become the number one champion. With my melody to be heard across the globe!"
 
 ― Fragilis Allosa
 
@@ -13,11 +13,11 @@
 
 ## Profile/Background
 
-Fragilis Allosa is the sophisticated, cunning strategist of the Stratum Institute. Often called the "Maestro" by her peers, she possesses immense latent potential and carries herself with an air of untouchable elegance. She is stylish and presentable at all times, notoriously smooth—gliding through social situations and battlefields alike with calculated grace.
+Fragilis Allosa is the **central protagonist** and the beating heart of the Stratum Institute. While she is admired as the "Maestro" for her sophisticated strategies and untouchable elegance, this persona hides a deeply relatable determination.
 
-She commands respect as the **Conductor of the Institute Music Club**. Her signature "Red Mage" aesthetic—the feathered hat and long coat—is inspired by her love for theatrical performance and conducting attire. She often incorporates musical metaphors into her strategies, viewing each duel as a symphony where every move must be perfectly timed and executed.
+She works harder than anyone else to prove that **technique, legacy, and spirit** can overcome raw power. She is the bridge between the old and the new, the one who reaches out to rivals and friends alike to create a "Grand Symphony" where every Paleo Maiden can find their stage. Her journey is not just about winning; it's about defining what it means to be a champion in a changing world.
 
-In a P-Magic duel, she fights with the elegance of a high-born fencer, treating her radiant crimson Sabre like a conductor's baton. She embodies the "Lion of the Jurassic"—a predator of nobility and ferocity. Her journey is one of proving that true strength lies in turning one's history into a masterpiece.
+In a P-Magic duel, she fights with the elegance of a high-born fencer, treating her radiant crimson Sabre like a conductor's baton. She embodies the "Lion of the Jurassic"—a predator of nobility and ferocity. She is the **"Special Star"** of the franchise, the character whose growth mirrors the player's journey.
 
 | Attribute | Detail |
 | :--- | :--- |
@@ -40,7 +40,7 @@ In a P-Magic duel, she fights with the elegance of a high-born fencer, treating 
 | :--- | :--- | :--- |
 | **Stenops Stegosa** | **Eternal Rival** | A clash of **Musical Performance vs. Visual Arts**. Their rivalry is defined by the desire to prove whose artistry holds more importance. While they bicker constantly to prove who is superior in both **Artistic Sense** and **Battle Sense**, they share a deep mutual respect for the medium of **Creativity**. They recognize each other as true artists, even if they disagree on the method. |
 | **Longus Diplo** | **The Unreachable Wall** | A massive Sauropod Maiden who represents the sheer scale Allosa must overcome. While Allosa is the "Lion," Diplo is the mountain. Allosa views defeating her as the ultimate proof of skill over size. |
-| **Ostromm Utahra** | **Territorial Rival** | Utahra covets Allosa's status as the premier predator of the American West. While Allosa tries to be friendly, Utahra's intense competitiveness forces them into clashes over who truly owns the title of "Champion." |
+| **Ostromm Utahra** | **Territorial Rival** | A political and territorial clash over who truly represents their home state. Allosa holds the prestigious, long-standing title of "State Maiden", but Utahra has recently gained massive popularity, claiming the specific title of "State Maiden." Allosa views Utahra as a rude upstart trying to usurp her established legacy. |
 
 ## Vocation Evolution(s)
 
@@ -58,8 +58,8 @@ In a P-Magic duel, she fights with the elegance of a high-born fencer, treating 
 
 ## Motivation and Goals
 
-* **Primary Goal:** To win the Paleo-Maiden Championship and prove that elegance and cunning are the ultimate weapons of a predator.
-* **Internal Goal:** To compose the perfect battle strategy that defeats Stenops Stegosa without a single hair out of place.
+* **Primary Goal:** To become the **"Primeval Queen"** (The Top Paleo Maiden) and defend her title as the "Champion of Utah," proving that the classics can outshine even the trendiest modern rivals.
+* **Internal Goal:** To overcome her anxiety of obsolescence and show the world that her "melody" is timeless.
 
 ## Trivia
 
@@ -76,3 +76,5 @@ In a P-Magic duel, she fights with the elegance of a high-born fencer, treating 
 * Her "Red Mage" design (feathered hat and cape) is a nod to the **lacrimal crests** (horns) above an Allosaurus's eyes, which are often depicted as red or colorful in paleo-art for display purposes.
 * The "Hatchet Waltz" signature move references the controversial **"Hatchet Bite" theory**, which suggested Allosaurus used its upper jaw like an axe to hack at prey.
 * Her conducting style is inspired by **Herbert von Karajan**, specifically his intense, eyes-closed focus. This symbolizes how she shuts out distractions to channel her P-Magic perfectly during her "Ballad of Big Al" signature move.
+* Her rivalry with **Ostromm Utahra** is based on Utah state legislation. **Allosaurus** was designated the **State Fossil of Utah** in 1988. However, in 2018, **Utahraptor** was designated the **State Dinosaur**, effectively splitting the title and creating a "turf war" over who is the true representative of the state.
+* As the **"Face of the Project,"** she is designed to be the most balanced and adaptable fighter (The "Ryu" or "Mario" archetype), making her the perfect entry point for new players (Trainers).
