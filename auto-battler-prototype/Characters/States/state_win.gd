@@ -1,5 +1,5 @@
 extends State
-class_name StateHitstun
+class_name StateWin
 
 
 @onready var animPlayer : AnimationPlayer = %AnimationPlayer
@@ -15,8 +15,8 @@ func _ready():
 func enter():
 	spriteOGCoordinates = %Sprite.position
 	initialDistance = owner.distance
-	if "hitstun" in animList:
-		animPlayer.play("hitstun")
+	if "win" in animList:
+		animPlayer.play("win")
 
 
 func exit():
@@ -30,8 +30,6 @@ func exit():
 func update(_delta: float):
 	#if lastTick != owner.tickCount:
 		#lastTick = owner.tickCount
-	
-	# if hitstop frames finished
 	if owner.hitstop_frames <= 0:
 		var chosenState = ""
 		owner.hitstun -= _delta
@@ -45,33 +43,28 @@ func update(_delta: float):
 
 
 func physics_update(_delta: float):
-	# if hitstop already started
+
 	if owner.hitstop_frames > 0:
-		# if hitstop didn't start before
 		if not owner.was_in_hitstop:
 			owner.stored_velocity = owner.velocity
 			owner.was_in_hitstop = true
 			animPlayer.speed_scale = 0
 		owner.velocity = Vector2.ZERO
-
-	# not in hitstop
 	else:
-		# just finished hitstop
 		if owner.was_in_hitstop:
 			owner.velocity = owner.stored_velocity
 			owner.was_in_hitstop = false
 			animPlayer.speed_scale = 1
-	
 	if owner.hitstop_frames > 0:
-		shake_sprite(owner.hitstop_frames, 2)
+		#shake_sprite(owner.hitstop_frames, 2)
 		owner.hitstop_frames -= 1
 
-func shake_sprite(currentHitStopFrame: int, pixelShake: int):
-	if currentHitStopFrame % 3 == 0:
-		%Sprite.position.x = spriteOGCoordinates.x + pixelShake
-	elif currentHitStopFrame % 2 == 0:
-		%Sprite.position.x = spriteOGCoordinates.x
-	elif currentHitStopFrame % 1 == 0:
-		%Sprite.position.x = spriteOGCoordinates.x - pixelShake
-	else:
-		%Sprite.position.x = spriteOGCoordinates.x
+#func shake_sprite(currentHitStopFrame: int, pixelShake: int):
+	#if currentHitStopFrame % 3 == 0:
+		#%Sprite.position.x = spriteOGCoordinates.x + pixelShake
+	#elif currentHitStopFrame % 2 == 0:
+		#%Sprite.position.x = spriteOGCoordinates.x
+	#elif currentHitStopFrame % 1 == 0:
+		#%Sprite.position.x = spriteOGCoordinates.x - pixelShake
+	#else:
+		#%Sprite.position.x = spriteOGCoordinates.x

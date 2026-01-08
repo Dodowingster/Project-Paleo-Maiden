@@ -72,14 +72,18 @@ func set_char_velocity(_delta:float):
 
 
 func check_can_attack():
-	return (currentActionGoal >= actionGoalTotal && distance <= minDistance && %StateMachine.currentState is not StateHitstun)
+	return (currentActionGoal >= actionGoalTotal && 			# Action goal check
+			distance <= minDistance && 							# Distance check (attack close enough to hit)
+			%StateMachine.currentState is not StateHitstun)		# Histun check
 
 func check_want_to_attack():
-	return (currentActionGoal >= actionGoalTotal && %StateMachine.currentState is not StateHitstun)
+	return (currentActionGoal >= actionGoalTotal && 			# Action goal check
+			%StateMachine.currentState is not StateHitstun)		# Hitstun check
 
 func min_distance_hit():
 	return distance <= minDistance
 
+# What the character does each tick
 func _on_tick(rcvDistance: float, rcvTickCount: int):
 	distance = rcvDistance
 	tickCount = rcvTickCount
@@ -106,6 +110,12 @@ func get_hit(hitbox: HitBox, _hurtbox: Hurtbox):
 			hitstun = hitbox.blockstun
 			hitknockbackX = hitbox.blockbackX * %SideTracker.side * -1
 			hitknockbackY = hitbox.blockbackY
+
+			# Check for KO (no chip kill)
+			if health - floor(hitbox.damage * 0.3) < 0:
+				health = 1
+			else:
+				health -= floor(hitbox.damage * 0.3)
 		
 		# Else character got hit
 		else:
@@ -114,7 +124,13 @@ func get_hit(hitbox: HitBox, _hurtbox: Hurtbox):
 			hitstun = hitbox.hitstun
 			hitknockbackX = hitbox.knockbackX * %SideTracker.side * -1
 			hitknockbackY = hitbox.knockbackY
-			health -= hitbox.damage
+
+			# Check for KO
+			if health - hitbox.damage < 0:
+				chosenHitState = "Lose"
+				health = 0
+			else:
+				health -= hitbox.damage
 		#
 		#Hitvfx.showHit.emit(hitbox, hurtbox)
 		#
