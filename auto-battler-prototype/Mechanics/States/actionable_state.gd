@@ -40,14 +40,17 @@ func aggressive_strategy_logic() -> String:
 
 func balanced_strategy_logic() -> String:
 	var decision : String = ""
-	#var canAttack = owner.check_can_attack()
+	var canAttack = owner.check_can_attack()
 	var wantToAttack = owner.check_want_to_attack()
 	
 	if self.name == "Idle":
 		decision = "MoveBackward"
 		
 	if wantToAttack:
+		#if canAttack:
 		decision = "BaseAttack"
+		#else:
+			#decision = "MoveForward"
 	else:
 		if owner.opponentIsAttacking:
 			decision = "MoveBackward"
