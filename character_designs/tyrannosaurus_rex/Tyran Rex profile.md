@@ -43,7 +43,7 @@ Crucially, Tyran is **oblivious** to the fear she inspires. She views her loud, 
 | Character | Relationship Type | Nature of Conflict/Bond |
 | :--- | :--- | :--- |
 | **Aegypt Spino** (Spinosaurus) | **Rival** | Tyran sees Spino as a worthy adversary and respects her intellect and Arcane Stamina. |
-| **Horri Tricera** (Triceratops) | **Vice President/Rival** | Tyran respects Tricera and depends on her for most of the Student Council Affairs. On the battlefield though is a completely different story where each tries their hardest to out perform the other- having fun while doing so. |
+| **Horri Tricera** (Triceratops) | **Vice President / Arch-Rival** | The "Immovable Object" to Tyran's "Unstoppable Force." While Tyran relies on Horri to keep the Student Council from collapsing under paperwork, she finds Horri's secret "Magitech" hobby endlessly amusing. In the ring, their rivalry is legendary—a clash of absolute offense against absolute defense. |
 | **Sastrei Taurus** (Carnotaurus) | **Friend** | Tyran sees Taurus as someone with maximum potential. She actively encourages Taurus to be dominant in the Apex League, despite Taurus's choice of Agility over Power. |
 
 ---
@@ -76,3 +76,4 @@ Crucially, Tyran is **oblivious** to the fear she inspires. She views her loud, 
 
 * Her signature move, Tyrant Divider, is an allegory for the T. rex's incredible bite force. The move doesn't rely on speed or finesse; it relies on overwhelming, crushing impact that ignores weak defenses.
 * Her birthdate, the 5th of October is a special day for Palaeontology, as it marks the anniversary of the first description and naming of Tyrannosaurus rex, in 1905.
+* The rivalry between Tyran and Horri is historically accurate, as *Tyrannosaurus* and *Triceratops* were contemporaries in the Late Cretaceous period and are known to have fought each other. This rivalry is famously immortalized in museums worldwide where their fossils are often exhibited together in combat poses.
