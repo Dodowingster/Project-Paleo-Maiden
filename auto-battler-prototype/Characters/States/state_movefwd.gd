@@ -4,18 +4,20 @@ class_name StateMoveFwd
 
 @onready var animPlayer : AnimationPlayer = %AnimationPlayer
 var animList : PackedStringArray = []
+var animName : String
 var lastTick : int = 0
 
 func _ready():
 	animList = animPlayer.get_animation_list()
+	animName = owner.animLibName + "/moveforward"
 
 func enter():
-	if "moveforward" in animList:
-		animPlayer.play("moveforward")
+	if animName in animList:
+		animPlayer.play(animName)
 
 
 func exit():
-	animPlayer.stop()
+	animPlayer.play(owner.animLibName + "/RESET")
 
 
 func update(_delta: float):
