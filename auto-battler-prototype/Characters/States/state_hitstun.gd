@@ -4,20 +4,22 @@ class_name StateHitstun
 
 @onready var animPlayer : AnimationPlayer = %AnimationPlayer
 var animList : PackedStringArray = []
+var animName : String
 var lastTick : int = 0
 var initialDistance : float = 0
 var spriteOGCoordinates : Vector2 = Vector2.ZERO
 
 func _ready():
 	animList = animPlayer.get_animation_list()
+	animName = owner.animLibName + "/hitstun"
 	spriteOGCoordinates = %Sprite.position
 
 func enter():
 	owner.canClash = false
 	spriteOGCoordinates = %Sprite.position
 	initialDistance = owner.distance
-	if "hitstun" in animList:
-		animPlayer.play("hitstun")
+	if animName in animList:
+		animPlayer.play(animName)
 
 
 func exit():
@@ -25,7 +27,7 @@ func exit():
 	var finalDistance : float = owner.distance
 	var knockbackDistance : float = finalDistance - initialDistance
 	print("Knockback distance: " + str(knockbackDistance))
-	animPlayer.stop()
+	animPlayer.play(owner.animLibName + "/RESET")
 
 
 func update(_delta: float):

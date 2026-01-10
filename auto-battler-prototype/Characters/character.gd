@@ -11,6 +11,7 @@ signal broadcastWinState()
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 ## Mainly for debugging and identification
 @export var characterName : String = "P1"
+@export var animLibName : String
 ## Base stat to calculate attack damage from
 @export var atk: int = 5   # currently unused
 ## Base stat to calculate damage taken
