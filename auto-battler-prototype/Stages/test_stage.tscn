@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cp47aajkwulg7"]
+[gd_scene load_steps=14 format=3 uid="uid://cp47aajkwulg7"]
 
 [ext_resource type="Script" uid="uid://crlglabortqf2" path="res://Stages/test_stage.gd" id="1_3gimc"]
 [ext_resource type="Script" uid="uid://dggc1tw4nmkkk" path="res://Mechanics/data_tracker.gd" id="1_7in27"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_1su0b"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="8_lnwe3"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_5dtn3"]
+[ext_resource type="PackedScene" uid="uid://cuygyjev8fxp8" path="res://Characters/ryoshu/character_ryoshu.tscn" id="9_y2t8x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhvwd"]
 size = Vector2(2000, 32)
@@ -186,11 +187,11 @@ minDistance = 75
 maxDistance = 150
 opponent = NodePath("../Character2")
 
-[node name="Character2" parent="Runner" node_paths=PackedStringArray("opponent") instance=ExtResource("3_k5qsb")]
+[node name="Character2" parent="Runner" node_paths=PackedStringArray("opponent") instance=ExtResource("9_y2t8x")]
 position = Vector2(704, 280)
 characterName = "P2"
 startFacingRight = false
-minDistance = 75
+minDistance = 100
 maxDistance = 150
 opponent = NodePath("../Character1")
 

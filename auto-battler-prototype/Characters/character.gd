@@ -86,10 +86,21 @@ func _on_tick(rcvDistance: float, rcvTickCount: int):
 		var rng_roll: int = randi() % (maxSta + 1) + minSta
 		currentActionGoal += rng_roll
 	
-	if check_can_attack():
-		broadcastWillAtk.emit(true)
+	if strategy == GlobalValues.STRATEGY.AGGRESSIVE:
+		if check_can_attack():
+			broadcastWillAtk.emit(true)
+		else:
+			broadcastWillAtk.emit(false)
+	elif strategy == GlobalValues.STRATEGY.BALANCED:
+		if check_want_to_attack():
+			broadcastWillAtk.emit(true)
+		else:
+			broadcastWillAtk.emit(false)
 	else:
-		broadcastWillAtk.emit(false)
+		if check_can_attack():
+			broadcastWillAtk.emit(true)
+		else:
+			broadcastWillAtk.emit(false)
 
 
 func get_hit(hitbox: HitBox, _hurtbox: Hurtbox):
