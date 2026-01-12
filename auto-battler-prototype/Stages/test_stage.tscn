@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cp47aajkwulg7"]
+[gd_scene load_steps=16 format=3 uid="uid://cp47aajkwulg7"]
 
 [ext_resource type="Script" uid="uid://crlglabortqf2" path="res://Stages/test_stage.gd" id="1_3gimc"]
 [ext_resource type="Script" uid="uid://dggc1tw4nmkkk" path="res://Mechanics/data_tracker.gd" id="1_7in27"]
@@ -15,6 +15,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhvwd"]
 size = Vector2(2000, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84gnr"]
+size = Vector2(16, 480)
 
 [sub_resource type="Resource" id="Resource_5dtn3"]
 script = ExtResource("9_5dtn3")
@@ -207,18 +210,28 @@ collision_mask = 16
 position = Vector2(416, 368)
 shape = SubResource("RectangleShape2D_vhvwd")
 
-[node name="Polygon2D" type="Polygon2D" parent="Runner/Ground"]
-visible = false
-position = Vector2(0, 128)
-color = Color(9.0004505e-06, 0.7094359, 0.117693074, 1)
-polygon = PackedVector2Array(0, 256, 800, 256, 800, 320, 0, 320)
-
 [node name="Tyran" type="Sprite2D" parent="Runner"]
 modulate = Color(0.85814106, 0.85814106, 0.85814106, 1)
 texture_filter = 1
 position = Vector2(312, 192)
 scale = Vector2(2, 2)
 texture = ExtResource("6_2ge0f")
+
+[node name="WallLeft" type="StaticBody2D" parent="Runner"]
+collision_layer = 16
+collision_mask = 16
+
+[node name="WallCollision" type="CollisionShape2D" parent="Runner/WallLeft"]
+position = Vector2(-584, 144)
+shape = SubResource("RectangleShape2D_84gnr")
+
+[node name="WallRight" type="StaticBody2D" parent="Runner"]
+collision_layer = 16
+collision_mask = 16
+
+[node name="WallCollision" type="CollisionShape2D" parent="Runner/WallRight"]
+position = Vector2(1416, 144)
+shape = SubResource("RectangleShape2D_84gnr")
 
 [node name="PhanCam" type="Node2D" parent="."]
 unique_name_in_owner = true
