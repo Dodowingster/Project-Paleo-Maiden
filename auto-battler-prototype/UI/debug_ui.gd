@@ -5,10 +5,10 @@ extends Control
 @export var timerLabelValue: Label
 @export var distanceLabelValue: Label
 
-@export var P1: CharacterBody2D
+@onready var P1: CharacterBody2D
 @export var P1ActionGoalValueLabelValue: Label
 @export var P1ActionGoalTotalLabelValue: Label
-@export var P2: CharacterBody2D
+@onready var P2: CharacterBody2D
 @export var P2ActionGoalValueLabelValue: Label
 @export var P2ActionGoalTotalLabelValue: Label
 
@@ -16,6 +16,9 @@ func _ready() -> void:
 	tickLabelValue.text = str(0)
 	timerLabelValue.text = "0.000s"
 	distanceLabelValue.text = "0"
+
+
+func char_setup() -> void:
 	P1ActionGoalTotalLabelValue.text = "/ " + str(P1.actionGoalTotal)
 	P2ActionGoalTotalLabelValue.text = "/ " + str(P2.actionGoalTotal)
 
