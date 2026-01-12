@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cp47aajkwulg7"]
+[gd_scene load_steps=15 format=3 uid="uid://cp47aajkwulg7"]
 
 [ext_resource type="Script" uid="uid://crlglabortqf2" path="res://Stages/test_stage.gd" id="1_3gimc"]
 [ext_resource type="Script" uid="uid://dggc1tw4nmkkk" path="res://Mechanics/data_tracker.gd" id="1_7in27"]
+[ext_resource type="Script" uid="uid://cdylqchnf8jnu" path="res://Stages/runner.gd" id="2_84gnr"]
 [ext_resource type="Script" uid="uid://c51us734jurpc" path="res://UI/debug_ui.gd" id="2_nmfya"]
 [ext_resource type="Texture2D" uid="uid://dlkjbch0cfhkn" path="res://Stages/assets/dirtfield.png" id="3_hmbi7"]
 [ext_resource type="PackedScene" uid="uid://c0n8jl8cb30ey" path="res://Characters/don/character_don.tscn" id="3_k5qsb"]
@@ -24,12 +25,16 @@ script = ExtResource("1_3gimc")
 
 [node name="Runner" type="Node" parent="."]
 process_mode = 1
+script = ExtResource("2_84gnr")
+char1 = ExtResource("3_k5qsb")
+char2 = ExtResource("9_y2t8x")
+p1SpawnPosition = Vector2(88, 280)
+p2SpawnPosition = Vector2(704, 280)
 
-[node name="DataTracker" type="Node" parent="Runner" node_paths=PackedStringArray("char1", "char2")]
+[node name="DataTracker" type="Node" parent="Runner"]
+unique_name_in_owner = true
 script = ExtResource("1_7in27")
 ticksPerSecond = 30
-char1 = NodePath("../Character1")
-char2 = NodePath("../Character2")
 
 [node name="DirtFieldReal" type="Sprite2D" parent="Runner"]
 position = Vector2(416, 192)
@@ -43,7 +48,8 @@ texture = ExtResource("4_2ge0f")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Runner"]
 
-[node name="UI" type="Control" parent="Runner/CanvasLayer" node_paths=PackedStringArray("dataTracker", "tickLabelValue", "timerLabelValue", "distanceLabelValue", "P1", "P1ActionGoalValueLabelValue", "P1ActionGoalTotalLabelValue", "P1HealthValue", "P1HealthTotal", "P2", "P2ActionGoalValueLabelValue", "P2ActionGoalTotalLabelValue", "P2HealthValue", "P2HealthTotal")]
+[node name="UI" type="Control" parent="Runner/CanvasLayer" node_paths=PackedStringArray("dataTracker", "tickLabelValue", "timerLabelValue", "distanceLabelValue", "P1ActionGoalValueLabelValue", "P1ActionGoalTotalLabelValue", "P2ActionGoalValueLabelValue", "P2ActionGoalTotalLabelValue")]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(800, 600)
 layout_mode = 3
 anchors_preset = 0
@@ -54,7 +60,6 @@ dataTracker = NodePath("../../DataTracker")
 tickLabelValue = NodePath("PanelContainer/HBoxContainer/StageUI/Tick/TickValue")
 timerLabelValue = NodePath("PanelContainer/HBoxContainer/StageUI/Timer/TimerValue")
 distanceLabelValue = NodePath("PanelContainer/HBoxContainer/StageUI/Distance/DistanceValue")
-P1 = NodePath("../../Character1")
 P1ActionGoalValueLabelValue = NodePath("PanelContainer/HBoxContainer/P1UI/ActionGoal/ActionGoalValue")
 P1ActionGoalTotalLabelValue = NodePath("PanelContainer/HBoxContainer/P1UI/ActionGoal/ActionGoalTotal")
 P1HealthValue = NodePath("PanelContainer/HBoxContainer/P1UI/HP/HealthValue")
@@ -186,8 +191,7 @@ layout_mode = 2
 text = "/ 0"
 
 [node name="Camera2D" type="Camera2D" parent="Runner"]
-physics_interpolation_mode = 1
-position = Vector2(396, 280)
+position = Vector2(704, 280)
 
 [node name="PhantomCameraHost" type="Node" parent="Runner/Camera2D"]
 process_priority = 300
@@ -216,48 +220,12 @@ position = Vector2(312, 192)
 scale = Vector2(2, 2)
 texture = ExtResource("6_2ge0f")
 
-[node name="Character1" parent="Runner" node_paths=PackedStringArray("opponent") instance=ExtResource("3_k5qsb")]
-position = Vector2(88, 280)
-characterName = "P1"
-atk = 5
-def = 5
-spd = 10
-minSta = 1
-maxSta = 10
-maxHP = 10
-strategy = 0
-startFacingRight = true
-minDistance = 75
-maxDistance = 150
-forwardSpdMult = 1.0
-backwardSpdMult = 0.5
-actionGoalTotal = 300
-opponent = NodePath("../Character2")
-
-[node name="Character2" parent="Runner" node_paths=PackedStringArray("opponent") instance=ExtResource("9_y2t8x")]
-position = Vector2(704, 280)
-characterName = "P2"
-atk = 5
-def = 5
-spd = 10
-minSta = 1
-maxSta = 10
-maxHP = 10
-strategy = 0
-startFacingRight = false
-minDistance = 100
-maxDistance = 150
-forwardSpdMult = 1.0
-backwardSpdMult = 0.5
-actionGoalTotal = 300
-opponent = NodePath("../Character1")
-
-[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_targets")]
+[node name="PhanCam" type="Node2D" parent="."]
+unique_name_in_owner = true
 top_level = true
-position = Vector2(396, 280)
+position = Vector2(704, 280)
 script = ExtResource("8_lnwe3")
 follow_mode = 3
-follow_targets = [NodePath("../Runner/Character1"), NodePath("../Runner/Character2")]
 snap_to_pixel = true
 tween_resource = SubResource("Resource_5dtn3")
 follow_axis_lock = 2
