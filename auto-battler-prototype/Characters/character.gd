@@ -123,7 +123,7 @@ func _on_tick(rcvDistance: float, rcvTickCount: int):
 		else:
 			broadcastWillAtk.emit(GlobalValues.ACTION.MOVE)
 	elif strategy == GlobalValues.STRATEGY.BALANCED:
-		if check_want_to_attack():
+		if check_want_to_attack() and distance > minDistance and distance < maxDistance:
 			broadcastWillAtk.emit(GlobalValues.ACTION.ATTACK)
 		else:
 			broadcastWillAtk.emit(GlobalValues.ACTION.MOVE)

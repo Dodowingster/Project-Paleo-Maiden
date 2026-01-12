@@ -51,7 +51,12 @@ func balanced_strategy_logic() -> String:
 		
 	if wantToAttack:
 		#if canAttack:
-		decision = "BaseAttack"
+		if owner.distance > owner.maxDistance:
+			decision = "MoveForward"
+		elif owner.distance < owner.minDistance:
+			decision = "MoveBackward"
+		else:
+			decision = "BaseAttack"
 		#else:
 			#decision = "MoveForward"
 	else:
