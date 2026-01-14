@@ -4,7 +4,7 @@ class_name Character
 #signal changeState(newState: String)
 #signal broadcastAtkStart()
 signal broadcastAtkActiveEnd()
-signal broadcastWillAtk(willAtk: bool)
+signal broadcastAction(action : GlobalValues.ACTION)
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 ## Mainly for debugging and identification
@@ -57,7 +57,7 @@ func _ready() -> void:
 	%SideTracker.set_facing_direction(startFacingRight)
 	GlobalValues.connect("updateDataToChar", _on_tick)
 	if opponent != null:
-		opponent.connect("broadcastWillAtk", decide_action)
+		opponent.connect("broadcastAction", decide_action)
 		opponent.connect("broadcastAtkActiveEnd", on_atk_active_end_signal_rcvd)
 
 func set_char_velocity(_delta:float):
@@ -87,15 +87,15 @@ func min_distance_hit():
 func _on_tick(rcvDistance: float, rcvTickCount: int):
 	distance = rcvDistance
 	tickCount = rcvTickCount
-	if %StateMachine.currentState is not StateHitstun:
+	if %StateMachine.currentState is not StateHitstun and %StateMachine.currentState is not StateClashing:
 		#currentActionGoal += sta
 		var rng_roll: int = randi() % (maxSta + 1) + minSta
 		currentActionGoal += rng_roll
 	
 	if check_can_attack():
-		broadcastWillAtk.emit(true)
+		broadcastAction.emit(GlobalValues.ACTION.ATTACK)
 	else:
-		broadcastWillAtk.emit(false)
+		broadcastAction.emit(GlobalValues.ACTION.MOVE)
 
 
 func get_hit(hitbox: HitBox, _hurtbox: Hurtbox):
@@ -153,45 +153,16 @@ func get_hit(hitbox: HitBox, _hurtbox: Hurtbox):
 		opponentIsAttacking = false
 
 
-func decide_action(oppWillAtk: bool):
-	#var decision = ""
-	if oppWillAtk:
+func decide_action(oppAction: GlobalValues.ACTION):
+	if oppAction == GlobalValues.ACTION.ATTACK:
 		opponentIsAttacking = true
-		#if currentActionGoal >= actionGoalTotal:
-			#if distance <= minDistance && %StateMachine.currentState is not StateHitstun:
-				#decision = "baseAttack"
-				#currentActionGoal = 0
-		#else:
-			#if %StateMachine.currentState is not StateHitstun && %StateMachine.currentState is not StateBaseAtk:
-				#decision = "moveBackward"
-	#else:
-		#if currentActionGoal >= actionGoalTotal:
-			#if %StateMachine.currentState is not StateHitstun:
-				#if distance <= minDistance:
-					#decision = "baseAttack"
-					#currentActionGoal = 0
-				#else:
-					#if !(%StateMachine.currentState is StateMoveFwd):
-						#decision = "moveForward"
-				#
-		#else:
-			#if !opponentIsAttacking:
-				#if distance > minDistance && %StateMachine.currentState is not StateHitstun:
-					#if !(%StateMachine.currentState is StateMoveFwd):
-						#decision = "moveForward"
-				#else:
-					#if !(%StateMachine.currentState is StateIdle):
-						#decision = "idle"
-	#if decision != "":
-		#changeState.emit(decision)
+	#elif oppAction == GlobalValues.ACTION.CLASH:
+		#pass
+		
 	
 
 func on_atk_active_end_signal_rcvd():
 	opponentIsAttacking = false
-	#if characterName == "P1":
-		#print("Atk signal received: opponentIsAttacking set to false")
-	#if %StateMachine.currentState is StateMoveBkwd:
-		#%StateMachine.on_child_transition($StateMachine.currentState, "Idle")
 	
 func broadcast_atk_active_end():
 	broadcastAtkActiveEnd.emit()
