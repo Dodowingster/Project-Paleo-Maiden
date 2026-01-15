@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c0n8jl8cb30ey"]
+[gd_scene load_steps=38 format=3 uid="uid://c0n8jl8cb30ey"]
 
 [ext_resource type="Script" uid="uid://f081btviug4u" path="res://Characters/character.gd" id="1_acr0g"]
 [ext_resource type="Script" uid="uid://colufoqxh8nwm" path="res://Characters/side_tracker.gd" id="2_3mn46"]
@@ -21,7 +21,8 @@
 [ext_resource type="Script" uid="uid://bqw1eo83vcp4r" path="res://Characters/States/state_hitstun.gd" id="18_ix8sw"]
 [ext_resource type="Script" uid="uid://bsmgvqgq5xmdr" path="res://Characters/States/state_win.gd" id="20_7l2v5"]
 [ext_resource type="Script" uid="uid://fhsfdpvgkyv4" path="res://Characters/States/state_lose.gd" id="21_6ffrd"]
-[ext_resource type="Script" uid="uid://4y83ty0qfjy6" path="res://Characters/state_clash.gd" id="22_k33a2"]
+[ext_resource type="Script" uid="uid://4y83ty0qfjy6" path="res://Characters/States/state_clash.gd" id="22_k33a2"]
+[ext_resource type="Script" uid="uid://0d6s2ipebmb2" path="res://Characters/States/state_clash_win.gd" id="23_lc666"]
 
 [sub_resource type="Animation" id="Animation_ywvfl"]
 length = 0.001
@@ -251,6 +252,35 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("9_ix8sw")]
+}
+
+[sub_resource type="Animation" id="Animation_k33a2"]
+resource_name = "clashwin"
+length = 0.7500017
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SideTracker/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.3166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("4_gase8"), ExtResource("5_gydv5"), ExtResource("6_07r0d")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SideTracker/Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(0, 4), Vector2(0, 12)]
 }
 
 [sub_resource type="Animation" id="Animation_hct78"]
@@ -522,35 +552,6 @@ tracks/1/keys = {
 "values": [Vector2(0, 8)]
 }
 
-[sub_resource type="Animation" id="Animation_k33a2"]
-resource_name = "clashwin"
-length = 0.7500017
-step = 0.016666668
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SideTracker/Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.3166667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [ExtResource("4_gase8"), ExtResource("5_gydv5"), ExtResource("6_07r0d")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SideTracker/Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Vector2(0, 4), Vector2(0, 12)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ywvfl"]
 _data = {
 &"RESET": SubResource("Animation_ywvfl"),
@@ -665,4 +666,8 @@ metadata/_custom_type_script = "uid://fhsfdpvgkyv4"
 [node name="Clashing" type="Node" parent="StateMachine"]
 script = ExtResource("22_k33a2")
 
+[node name="ClashWin" type="Node" parent="StateMachine"]
+script = ExtResource("23_lc666")
+
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/BaseAttack" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/ClashWin" method="_on_animation_player_animation_finished"]

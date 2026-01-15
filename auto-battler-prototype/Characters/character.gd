@@ -89,7 +89,7 @@ func min_distance_hit():
 	return distance <= minDistance
 
 func clash_check():
-	var win_clash_chance = atk + def / (atk + def) + (opponent.atk + opponent.def) * 100
+	var win_clash_chance = (float(atk + def) / float(atk + def + opponent.atk + opponent.def)) * 100
 	var win_clash_check = randi() % 100
 	return win_clash_check <= win_clash_chance
 
@@ -98,12 +98,13 @@ func determine_clash_winner():
 	broadcastClashResult.emit(clashResult)
 	
 func on_clash_result_rcvd(result: bool):
-	if (clashResult and result) or (!clashResult and !result):
-		pass
-	elif clashResult and !result:
-		pass
-	elif !clashResult and result:
-		pass
+	#if (clashResult and result) or (!clashResult and !result):
+		#pass
+	#elif clashResult and !result:
+		#pass
+	#elif !clashResult and result:
+		#pass
+	oppClashResult = result
 
 # What the character does each tick
 func _on_tick(rcvDistance: float, rcvTickCount: int):

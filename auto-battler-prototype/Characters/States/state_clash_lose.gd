@@ -1,19 +1,16 @@
-extends State
-class_name StateClashing
+extends Node
+class_name StateClashLose
 
 
 @onready var animPlayer : AnimationPlayer = %AnimationPlayer
 var animList : PackedStringArray = []
-var animDuration : float = 1.0
-var currentDuration : float = 0.0
 
 func _ready():
 	animList = animPlayer.get_animation_list()
 
 func enter():
-	currentDuration = 0.0
-	if "blockstun" in animList:
-		animPlayer.play("blockstun")
+	if "clashwin" in animList:
+		animPlayer.play("clashwin")
 
 
 func exit():
@@ -21,9 +18,10 @@ func exit():
 
 
 func update(_delta: float):
-	currentDuration += _delta
-	if currentDuration >= animDuration:
-		transition.emit(self, "Idle")
+	pass
+	#currentDuration += _delta
+	#if currentDuration >= animDuration:
+		#transition.emit(self, "Idle")
 
 
 func physics_update(_delta: float):
