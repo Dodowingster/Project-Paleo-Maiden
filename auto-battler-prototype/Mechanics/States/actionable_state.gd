@@ -30,8 +30,8 @@ func aggressive_strategy_logic() -> String:
 			else:
 				decision = "MoveBackward"
 		else:
-			if owner.min_distance_hit():
-				decision = "Idle"
+			if owner.min_distance_hit() and owner.opponent.min_distance_hit():
+				decision = "Clashing"
 			else:
 				decision = "MoveForward"
 	

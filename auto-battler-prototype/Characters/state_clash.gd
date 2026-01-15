@@ -23,7 +23,7 @@ func exit():
 func update(_delta: float):
 	currentDuration += _delta
 	if currentDuration >= animDuration:
-		pass   # decide clash winner here
+		transition.emit(self, "Idle")
 
 
 func physics_update(_delta: float):

@@ -5,6 +5,7 @@ class_name Character
 #signal broadcastAtkStart()
 signal broadcastAtkActiveEnd()
 signal broadcastAction(action : GlobalValues.ACTION)
+signal broadcastClashResult(result : bool)
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 ## Mainly for debugging and identification
@@ -40,6 +41,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var actionGoalTotal: int = 300
 var currentActionGoal: int = 0
 var opponentIsAttacking: bool = false
+var wantToClash = false
+var clashResult : bool = false
+var oppClashResult : bool = false
 
 @onready var hitstun : float = 0
 @onready var hitknockbackX : float = 0.000
@@ -47,7 +51,7 @@ var opponentIsAttacking: bool = false
 @onready var health : int = maxHP
 
 ## Set opponent character here
-@export var opponent : CharacterBody2D
+@export var opponent : Character
 
 var hitstop_frames: int = 0
 var stored_velocity: Vector2 = Vector2.ZERO
@@ -59,6 +63,7 @@ func _ready() -> void:
 	if opponent != null:
 		opponent.connect("broadcastAction", decide_action)
 		opponent.connect("broadcastAtkActiveEnd", on_atk_active_end_signal_rcvd)
+		opponent.connect("broadcastClashResult", on_clash_result_rcvd)
 
 func set_char_velocity(_delta:float):
 	if not is_on_floor():
@@ -83,10 +88,28 @@ func check_want_to_attack():
 func min_distance_hit():
 	return distance <= minDistance
 
+func clash_check():
+	var win_clash_chance = atk + def / (atk + def) + (opponent.atk + opponent.def) * 100
+	var win_clash_check = randi() % 100
+	return win_clash_check <= win_clash_chance
+
+func determine_clash_winner():
+	clashResult = clash_check()
+	broadcastClashResult.emit(clashResult)
+	
+func on_clash_result_rcvd(result: bool):
+	if (clashResult and result) or (!clashResult and !result):
+		pass
+	elif clashResult and !result:
+		pass
+	elif !clashResult and result:
+		pass
+
 # What the character does each tick
 func _on_tick(rcvDistance: float, rcvTickCount: int):
 	distance = rcvDistance
 	tickCount = rcvTickCount
+	wantToClash = false
 	if %StateMachine.currentState is not StateHitstun and %StateMachine.currentState is not StateClashing:
 		#currentActionGoal += sta
 		var rng_roll: int = randi() % (maxSta + 1) + minSta
@@ -156,8 +179,6 @@ func get_hit(hitbox: HitBox, _hurtbox: Hurtbox):
 func decide_action(oppAction: GlobalValues.ACTION):
 	if oppAction == GlobalValues.ACTION.ATTACK:
 		opponentIsAttacking = true
-	#elif oppAction == GlobalValues.ACTION.CLASH:
-		#pass
 		
 	
 
