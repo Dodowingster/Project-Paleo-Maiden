@@ -11,6 +11,7 @@ func _ready():
 	animList = animPlayer.get_animation_list()
 
 func enter():
+	owner.canClash = false
 	initialDistance = owner.distance
 	if "blockstun" in animList:
 		animPlayer.play("blockstun")

@@ -11,6 +11,7 @@ func _ready():
 
 
 func enter():
+	owner.canClash = true
 	if "movebackward" in animList:
 		animPlayer.play("movebackward")
 

@@ -10,6 +10,7 @@ func _ready():
 	animList = animPlayer.get_animation_list()
 
 func enter():
+	owner.canClash = true
 	if "moveforward" in animList:
 		animPlayer.play("moveforward")
 

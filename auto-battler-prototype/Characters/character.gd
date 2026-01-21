@@ -41,6 +41,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var actionGoalTotal: int = 300
 var currentActionGoal: int = 0
 var opponentIsAttacking: bool = false
+var canClash = false
 var wantToClash = false
 var clashResult : bool = false
 var oppClashResult : bool = false
@@ -98,20 +99,15 @@ func determine_clash_winner():
 	broadcastClashResult.emit(clashResult)
 	
 func on_clash_result_rcvd(result: bool):
-	#if (clashResult and result) or (!clashResult and !result):
-		#pass
-	#elif clashResult and !result:
-		#pass
-	#elif !clashResult and result:
-		#pass
 	oppClashResult = result
+	print(opponent.characterName + " Clash Result: " + str(oppClashResult))
 
 # What the character does each tick
 func _on_tick(rcvDistance: float, rcvTickCount: int):
 	distance = rcvDistance
 	tickCount = rcvTickCount
 	wantToClash = false
-	if %StateMachine.currentState is not StateHitstun and %StateMachine.currentState is not StateClashing:
+	if %StateMachine.currentState is not StateHitstun and %StateMachine.currentState is not StateClashing and %StateMachine.currentState is not StateClashLose:
 		#currentActionGoal += sta
 		var rng_roll: int = randi() % (maxSta + 1) + minSta
 		currentActionGoal += rng_roll

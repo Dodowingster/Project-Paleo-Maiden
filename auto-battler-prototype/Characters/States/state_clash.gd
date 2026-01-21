@@ -4,16 +4,19 @@ class_name StateClashing
 
 @onready var animPlayer : AnimationPlayer = %AnimationPlayer
 var animList : PackedStringArray = []
-var animDuration : float = 1.0
+var animDuration : float = 0.25
 var currentDuration : float = 0.0
+var clash_anims: PackedStringArray = ["blockstun", "clash2"]
 
 func _ready():
 	animList = animPlayer.get_animation_list()
 
 func enter():
+	owner.canClash = true
 	currentDuration = 0.0
-	if "blockstun" in animList:
-		animPlayer.play("blockstun")
+	var animIndex = randi_range(0, clash_anims.size() - 1)
+	if clash_anims[animIndex] in animList:
+		animPlayer.play(clash_anims[animIndex])
 	owner.determine_clash_winner()
 
 
@@ -26,21 +29,12 @@ func exit():
 func update(_delta: float):
 	currentDuration += _delta
 	if currentDuration >= animDuration:
-		print(owner.characterName + " Clash Result: " + str(owner.clashResult))
-		print(owner.opponent.characterName + " Clash Result: " + str(owner.opponent.clashResult))
-		print("")
-		if owner.clashResult:
-			if owner.oppClashResult:
-				transition.emit(self, "Idle")
-			else:
-				transition.emit(self, "ClashWin")
+		if owner.clashResult == owner.oppClashResult or !owner.clashResult:
+			owner.hitstun = 0.5
+			owner.hitknockbackX = 1000 * %SideTracker.side * -1
+			transition.emit(self, "ClashLose")
 		else:
-			if !owner.oppClashResult:
-				transition.emit(self, "Idle")
-			else:
-				owner.hitstun = 0.6
-				owner.hitknockbackX = 600 * %SideTracker.side * -1
-				transition.emit(self, "Hitstun")
+			transition.emit(self, "ClashWin")
 					
 
 

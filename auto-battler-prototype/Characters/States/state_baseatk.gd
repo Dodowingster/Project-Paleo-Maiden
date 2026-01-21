@@ -11,6 +11,7 @@ func _ready():
 	animList = animPlayer.get_animation_list()
 
 func enter():
+	owner.canClash = false
 	owner.currentActionGoal = 0
 	if "baseattack" in animList:
 		animPlayer.play("baseattack")

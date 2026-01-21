@@ -9,6 +9,7 @@ func _ready():
 	animList = animPlayer.get_animation_list()
 
 func enter():
+	owner.canClash = false
 	if "clashwin" in animList:
 		animPlayer.play("clashwin")
 

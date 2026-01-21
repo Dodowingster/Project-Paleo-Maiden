@@ -11,6 +11,7 @@ func _ready():
 
 
 func enter():
+	owner.canClash = true
 	if "idle" in animList:
 		animPlayer.play("idle")
 

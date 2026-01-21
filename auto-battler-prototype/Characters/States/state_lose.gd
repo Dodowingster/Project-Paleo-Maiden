@@ -13,6 +13,7 @@ func _ready():
 	spriteOGCoordinates = %Sprite.position
 
 func enter():
+	owner.canClash = false
 	spriteOGCoordinates = %Sprite.position
 	initialDistance = owner.distance
 	if "lose" in animList:
