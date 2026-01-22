@@ -4,7 +4,7 @@ class_name StateClashing
 
 @onready var animPlayer : AnimationPlayer = %AnimationPlayer
 var animList : PackedStringArray = []
-var animDuration : float = 0.25
+var animDuration : float = 0.5
 var currentDuration : float = 0.0
 var clash_anims: PackedStringArray = ["blockstun", "clash2"]
 

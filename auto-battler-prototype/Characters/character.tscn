@@ -268,6 +268,33 @@ tracks/1/keys = {
 "values": [Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_bc6bj"]
+resource_name = "clash2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SideTracker/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_3ctyc")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SideTracker/Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(0, 6)]
+}
+
 [sub_resource type="Animation" id="Animation_k33a2"]
 resource_name = "clashwin"
 length = 0.333335
@@ -566,33 +593,6 @@ tracks/1/keys = {
 "values": [Vector2(0, 8)]
 }
 
-[sub_resource type="Animation" id="Animation_bc6bj"]
-resource_name = "clash2"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SideTracker/Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("7_3ctyc")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SideTracker/Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(0, 6)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ywvfl"]
 _data = {
 &"RESET": SubResource("Animation_ywvfl"),
@@ -622,6 +622,20 @@ size = Vector2(48, 128)
 collision_layer = 16
 collision_mask = 16
 script = ExtResource("1_acr0g")
+characterName = null
+atk = null
+def = null
+spd = null
+minSta = null
+maxSta = null
+maxHP = null
+strategy = null
+startFacingRight = null
+minDistance = null
+maxDistance = null
+forwardSpdMult = null
+backwardSpdMult = null
+actionGoalTotal = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
