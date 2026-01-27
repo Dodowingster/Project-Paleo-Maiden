@@ -31,6 +31,7 @@ func exit():
 func update(_delta: float):
 	#if lastTick != owner.tickCount:
 		#lastTick = owner.tickCount
+	
 	if owner.hitstop_frames <= 0:
 		var chosenState = ""
 		owner.hitstun -= _delta
@@ -44,21 +45,26 @@ func update(_delta: float):
 
 
 func physics_update(_delta: float):
+	pass
+	# if hitstop animation started
+	# if owner.hitstop_frames > 0:
+	# 	# if hitstop animation didn't start before
+	# 	if not owner.was_in_hitstop:
+	# 		owner.stored_velocity = owner.velocity
+	# 		owner.was_in_hitstop = true
+	# 		animPlayer.speed_scale = 0
+	# 	owner.velocity = Vector2.ZERO
 
-	if owner.hitstop_frames > 0:
-		if not owner.was_in_hitstop:
-			owner.stored_velocity = owner.velocity
-			owner.was_in_hitstop = true
-			animPlayer.speed_scale = 0
-		owner.velocity = Vector2.ZERO
-	else:
-		if owner.was_in_hitstop:
-			owner.velocity = owner.stored_velocity
-			owner.was_in_hitstop = false
-			animPlayer.speed_scale = 1
-	if owner.hitstop_frames > 0:
-		#shake_sprite(owner.hitstop_frames, 2)
-		owner.hitstop_frames -= 1
+	# # not in hitstop animation
+	# else:
+	# 	# just finished hitstop animation
+	# 	if owner.was_in_hitstop:
+	# 		owner.velocity = owner.stored_velocity
+	# 		owner.was_in_hitstop = false
+	# 		animPlayer.speed_scale = 1
+	# if owner.hitstop_frames > 0:
+	# 	#shake_sprite(owner.hitstop_frames, 2)
+	# 	owner.hitstop_frames -= 1
 
 #func shake_sprite(currentHitStopFrame: int, pixelShake: int):
 	#if currentHitStopFrame % 3 == 0:

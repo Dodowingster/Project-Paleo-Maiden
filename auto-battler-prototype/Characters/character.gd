@@ -6,6 +6,7 @@ class_name Character
 signal broadcastAtkActiveEnd()
 signal broadcastAction(action : GlobalValues.ACTION)
 signal broadcastClashResult(result : bool)
+signal broadcastWinState()
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 ## Mainly for debugging and identification
@@ -65,6 +66,7 @@ func _ready() -> void:
 		opponent.connect("broadcastAction", decide_action)
 		opponent.connect("broadcastAtkActiveEnd", on_atk_active_end_signal_rcvd)
 		opponent.connect("broadcastClashResult", on_clash_result_rcvd)
+		opponent.connect("broadcastWinState", on_win_confirmed)
 
 func set_char_velocity(_delta:float):
 	if not is_on_floor():
@@ -107,7 +109,9 @@ func _on_tick(rcvDistance: float, rcvTickCount: int):
 	distance = rcvDistance
 	tickCount = rcvTickCount
 	wantToClash = false
-	if %StateMachine.currentState is not StateHitstun and %StateMachine.currentState is not StateClashing and %StateMachine.currentState is not StateClashLose:
+	if %StateMachine.currentState is not StateHitstun \
+	and %StateMachine.currentState is not StateClashing \
+	and %StateMachine.currentState is not StateClashLose:
 		#currentActionGoal += sta
 		var rng_roll: int = randi() % (maxSta + 1) + minSta
 		currentActionGoal += rng_roll
@@ -146,9 +150,10 @@ func get_hit(hitbox: HitBox, _hurtbox: Hurtbox):
 			hitknockbackY = hitbox.knockbackY
 
 			# Check for KO
-			if health - hitbox.damage < 0:
+			if health - hitbox.damage <= 0:
 				chosenHitState = "Lose"
 				health = 0
+				broadcastWinState.emit()
 			else:
 				health -= hitbox.damage
 		#
@@ -185,4 +190,8 @@ func on_atk_active_end_signal_rcvd():
 func broadcast_atk_active_end():
 	broadcastAtkActiveEnd.emit()
 	opponentIsAttacking = false
-	
+
+func on_win_confirmed():
+	# stop doing stuff
+	var chosenHitState = "Win"
+	%StateMachine.on_child_transition($StateMachine.currentState, chosenHitState)
