@@ -6,7 +6,7 @@ pipeline {
     stages {
     stage('build-docs') {
         steps {
-        echo "build-docs test hello haha"
+        echo "build-docs test hello"
         }
     }
 
