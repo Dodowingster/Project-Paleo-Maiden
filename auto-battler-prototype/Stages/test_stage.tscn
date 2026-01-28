@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://dggc1tw4nmkkk" path="res://Mechanics/data_tracker.gd" id="1_7in27"]
 [ext_resource type="Script" uid="uid://cdylqchnf8jnu" path="res://Stages/runner.gd" id="2_84gnr"]
 [ext_resource type="Script" uid="uid://c51us734jurpc" path="res://UI/debug_ui.gd" id="2_nmfya"]
+[ext_resource type="PackedScene" uid="uid://c0n8jl8cb30ey" path="res://Characters/don/character_don.tscn" id="3_84gnr"]
 [ext_resource type="Texture2D" uid="uid://dlkjbch0cfhkn" path="res://Stages/assets/dirtfield.png" id="3_hmbi7"]
-[ext_resource type="PackedScene" uid="uid://c0n8jl8cb30ey" path="res://Characters/don/character_don.tscn" id="3_k5qsb"]
 [ext_resource type="Texture2D" uid="uid://cs52kxor2xbar" path="res://Stages/assets/cliff.png" id="4_2ge0f"]
 [ext_resource type="Texture2D" uid="uid://bw3vi8afoxpmr" path="res://Characters/placeholder_sprites/Tyran_Rex/tyran_rex-idle.png" id="6_2ge0f"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_1su0b"]
@@ -29,7 +29,7 @@ script = ExtResource("1_3gimc")
 [node name="Runner" type="Node" parent="."]
 process_mode = 1
 script = ExtResource("2_84gnr")
-char1 = ExtResource("3_k5qsb")
+char1 = ExtResource("3_84gnr")
 char2 = ExtResource("9_y2t8x")
 p1SpawnPosition = Vector2(88, 280)
 p2SpawnPosition = Vector2(704, 280)
@@ -51,7 +51,7 @@ texture = ExtResource("4_2ge0f")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Runner"]
 
-[node name="UI" type="Control" parent="Runner/CanvasLayer" node_paths=PackedStringArray("dataTracker", "tickLabelValue", "timerLabelValue", "distanceLabelValue", "P1ActionGoalValueLabelValue", "P1ActionGoalTotalLabelValue", "P2ActionGoalValueLabelValue", "P2ActionGoalTotalLabelValue")]
+[node name="UI" type="Control" parent="Runner/CanvasLayer" node_paths=PackedStringArray("dataTracker", "tickLabelValue", "timerLabelValue", "distanceLabelValue", "P1ActionGoalValueLabelValue", "P1ActionGoalTotalLabelValue", "P1HealthValue", "P1HealthTotal", "P2ActionGoalValueLabelValue", "P2ActionGoalTotalLabelValue", "P2HealthValue", "P2HealthTotal")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(800, 600)
 layout_mode = 3
@@ -67,7 +67,6 @@ P1ActionGoalValueLabelValue = NodePath("PanelContainer/HBoxContainer/P1UI/Action
 P1ActionGoalTotalLabelValue = NodePath("PanelContainer/HBoxContainer/P1UI/ActionGoal/ActionGoalTotal")
 P1HealthValue = NodePath("PanelContainer/HBoxContainer/P1UI/HP/HealthValue")
 P1HealthTotal = NodePath("PanelContainer/HBoxContainer/P1UI/HP/HealthTotal")
-P2 = NodePath("../../Character2")
 P2ActionGoalValueLabelValue = NodePath("PanelContainer/HBoxContainer/P2UI/ActionGoal/ActionGoalValue")
 P2ActionGoalTotalLabelValue = NodePath("PanelContainer/HBoxContainer/P2UI/ActionGoal/ActionGoalTotal")
 P2HealthValue = NodePath("PanelContainer/HBoxContainer/P2UI/HP/HealthValue")

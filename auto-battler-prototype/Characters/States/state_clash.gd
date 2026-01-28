@@ -15,8 +15,8 @@ func enter():
 	owner.canClash = true
 	currentDuration = 0.0
 	var animIndex = randi_range(0, clash_anims.size() - 1)
-	if clash_anims[animIndex] in animList:
-		animPlayer.play(clash_anims[animIndex])
+	if (owner.animLibName + "/" + clash_anims[animIndex]) in animList:
+		animPlayer.play(owner.animLibName + "/" + clash_anims[animIndex])
 	owner.determine_clash_winner()
 
 

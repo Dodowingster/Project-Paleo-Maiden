@@ -119,19 +119,19 @@ func _on_tick(rcvDistance: float, rcvTickCount: int):
 	
 	if strategy == GlobalValues.STRATEGY.AGGRESSIVE:
 		if check_can_attack():
-			broadcastWillAtk.emit(GlobalValues.ACTION.ATTACK)
+			broadcastAction.emit(GlobalValues.ACTION.ATTACK)
 		else:
-			broadcastWillAtk.emit(GlobalValues.ACTION.MOVE)
+			broadcastAction.emit(GlobalValues.ACTION.MOVE)
 	elif strategy == GlobalValues.STRATEGY.BALANCED:
 		if check_want_to_attack() and distance > minDistance and distance < maxDistance:
-			broadcastWillAtk.emit(GlobalValues.ACTION.ATTACK)
+			broadcastAction.emit(GlobalValues.ACTION.ATTACK)
 		else:
-			broadcastWillAtk.emit(GlobalValues.ACTION.MOVE)
+			broadcastAction.emit(GlobalValues.ACTION.MOVE)
 	else:
 		if check_can_attack():
-			broadcastWillAtk.emit(GlobalValues.ACTION.ATTACK)
+			broadcastAction.emit(GlobalValues.ACTION.ATTACK)
 		else:
-			broadcastWillAtk.emit(GlobalValues.ACTION.MOVE)
+			broadcastAction.emit(GlobalValues.ACTION.MOVE)
 
 
 func get_hit(hitbox: HitBox, _hurtbox: Hurtbox):

@@ -4,14 +4,16 @@ class_name StateClashWin
 
 @onready var animPlayer : AnimationPlayer = %AnimationPlayer
 var animList : PackedStringArray = []
+var animName : String
 
 func _ready():
 	animList = animPlayer.get_animation_list()
+	animName = owner.animLibName + "/clashwin"
 
 func enter():
 	owner.canClash = false
-	if "clashwin" in animList:
-		animPlayer.play("clashwin")
+	if animName in animList:
+		animPlayer.play(animName)
 
 
 func exit():
@@ -30,5 +32,5 @@ func physics_update(_delta: float):
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "clashwin":
+	if anim_name == animName:
 		transition.emit(self, "Idle")

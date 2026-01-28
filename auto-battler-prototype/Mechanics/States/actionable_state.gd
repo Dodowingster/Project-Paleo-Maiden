@@ -64,7 +64,10 @@ func balanced_strategy_logic() -> String:
 			decision = "MoveBackward"
 		else:
 			if owner.min_distance_hit():
-				decision = "MoveBackward"
+				if owner.opponent.min_distance_hit() and owner.canClash and owner.opponent.canClash:
+					decision = "Clashing"
+				else:
+					decision = "MoveBackward"
 			elif owner.distance > owner.maxDistance:
 				decision = "MoveForward"
 	
