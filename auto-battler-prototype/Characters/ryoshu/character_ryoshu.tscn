@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://f081btviug4u" path="res://Characters/character.gd" id="1_bi5y6"]
 [ext_resource type="AnimationLibrary" uid="uid://dkhtxnpfpt0ey" path="res://Characters/ryoshu/anims/ryoshu.res" id="2_1yfbb"]
-[ext_resource type="Texture2D" uid="uid://brpi2npl8m8oe" path="res://Characters/placeholder_sprites/NCorpRyoshu/skill2_3_#8687.png" id="2_6evoe"]
 [ext_resource type="Script" uid="uid://colufoqxh8nwm" path="res://Characters/side_tracker.gd" id="3_p0g8r"]
+[ext_resource type="Texture2D" uid="uid://cw18q6uoc1vs7" path="res://Characters/placeholder_sprites/NCorpRyoshu/idle_#8786.png" id="4_6evoe"]
 [ext_resource type="Script" uid="uid://71l6nk5830yo" path="res://Mechanics/hitbox.gd" id="5_wj0cb"]
 [ext_resource type="Script" uid="uid://cuqyr28ih435l" path="res://Mechanics/hurtbox.gd" id="6_gjvu5"]
 [ext_resource type="Script" uid="uid://whbif5ykrdmj" path="res://Mechanics/States/state_machine.gd" id="7_a5iu6"]
@@ -18,38 +18,6 @@
 [ext_resource type="Script" uid="uid://4y83ty0qfjy6" path="res://Characters/States/state_clash.gd" id="16_ueoe7"]
 [ext_resource type="Script" uid="uid://0d6s2ipebmb2" path="res://Characters/States/state_clash_win.gd" id="17_eosh7"]
 [ext_resource type="Script" uid="uid://dd3dfa5mjk32y" path="res://Characters/States/state_clash_lose.gd" id="18_prufi"]
-
-[sub_resource type="Animation" id="Animation_82d4v"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SideTracker/Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_6evoe")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SideTracker/Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(24, 6)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ueoe7"]
-_data = {
-&"RESET": SubResource("Animation_82d4v")
-}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tsap4"]
 size = Vector2(300, 128)
@@ -75,7 +43,6 @@ maxDistance = 150
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=168969679]
 unique_name_in_owner = true
-libraries/ = SubResource("AnimationLibrary_ueoe7")
 libraries/ryoshu = ExtResource("2_1yfbb")
 
 [node name="SideTracker" type="Node2D" parent="." unique_id=1012004143]
@@ -84,9 +51,9 @@ script = ExtResource("3_p0g8r")
 
 [node name="Sprite" type="Sprite2D" parent="SideTracker" unique_id=646568360]
 unique_name_in_owner = true
-position = Vector2(24, 6)
+position = Vector2(32, -4)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_6evoe")
+texture = ExtResource("4_6evoe")
 
 [node name="BaseAtkHitbox" type="Area2D" parent="SideTracker" unique_id=937195184 node_paths=PackedStringArray("hitboxArea")]
 collision_layer = 0
