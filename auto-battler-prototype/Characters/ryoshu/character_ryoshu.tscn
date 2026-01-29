@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cuygyjev8fxp8"]
+[gd_scene format=3 uid="uid://cuygyjev8fxp8"]
 
 [ext_resource type="Script" uid="uid://f081btviug4u" path="res://Characters/character.gd" id="1_bi5y6"]
 [ext_resource type="AnimationLibrary" uid="uid://dkhtxnpfpt0ey" path="res://Characters/ryoshu/anims/ryoshu.res" id="2_1yfbb"]
@@ -63,7 +63,7 @@ size = Vector2(40, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_acr0g"]
 size = Vector2(48, 128)
 
-[node name="Character" type="CharacterBody2D"]
+[node name="Character" type="CharacterBody2D" unique_id=149400912]
 collision_layer = 16
 collision_mask = 16
 script = ExtResource("1_bi5y6")
@@ -73,24 +73,22 @@ strategy = 1
 minDistance = 100
 maxDistance = 150
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=168969679]
 unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_ueoe7"),
-&"ryoshu": ExtResource("2_1yfbb")
-}
+libraries/ = SubResource("AnimationLibrary_ueoe7")
+libraries/ryoshu = ExtResource("2_1yfbb")
 
-[node name="SideTracker" type="Node2D" parent="."]
+[node name="SideTracker" type="Node2D" parent="." unique_id=1012004143]
 unique_name_in_owner = true
 script = ExtResource("3_p0g8r")
 
-[node name="Sprite" type="Sprite2D" parent="SideTracker"]
+[node name="Sprite" type="Sprite2D" parent="SideTracker" unique_id=646568360]
 unique_name_in_owner = true
 position = Vector2(24, 6)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_6evoe")
 
-[node name="BaseAtkHitbox" type="Area2D" parent="SideTracker" node_paths=PackedStringArray("hitboxArea")]
+[node name="BaseAtkHitbox" type="Area2D" parent="SideTracker" unique_id=937195184 node_paths=PackedStringArray("hitboxArea")]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("5_wj0cb")
@@ -102,68 +100,68 @@ blockbackX = 2000
 hitstopFrames = 10
 hitboxArea = NodePath("BaseAtkHitboxShape")
 
-[node name="BaseAtkHitboxShape" type="CollisionShape2D" parent="SideTracker/BaseAtkHitbox"]
+[node name="BaseAtkHitboxShape" type="CollisionShape2D" parent="SideTracker/BaseAtkHitbox" unique_id=1180688965]
 visible = false
 shape = SubResource("RectangleShape2D_tsap4")
 disabled = true
 debug_color = Color(0.7, 0, 0, 0.41960785)
 
-[node name="CharacterHurtbox" type="Area2D" parent="SideTracker"]
+[node name="CharacterHurtbox" type="Area2D" parent="SideTracker" unique_id=369053781]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("6_gjvu5")
 
-[node name="HurtboxShape" type="CollisionShape2D" parent="SideTracker/CharacterHurtbox"]
+[node name="HurtboxShape" type="CollisionShape2D" parent="SideTracker/CharacterHurtbox" unique_id=1208479990]
 shape = SubResource("RectangleShape2D_0xudx")
 debug_color = Color(0, 0.6, 0, 0.41960785)
 
-[node name="BaseAtkHurtbox1Shape" type="CollisionShape2D" parent="SideTracker/CharacterHurtbox"]
+[node name="BaseAtkHurtbox1Shape" type="CollisionShape2D" parent="SideTracker/CharacterHurtbox" unique_id=317467564]
 position = Vector2(40, -4)
 shape = SubResource("RectangleShape2D_ix8sw")
 disabled = true
 debug_color = Color(0, 0.6, 0, 0.41960785)
 
-[node name="CollisionShape" type="CollisionShape2D" parent="."]
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1402031516]
 shape = SubResource("RectangleShape2D_acr0g")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initialState")]
+[node name="StateMachine" type="Node" parent="." unique_id=521959736 node_paths=PackedStringArray("initialState")]
 unique_name_in_owner = true
 script = ExtResource("7_a5iu6")
 initialState = NodePath("Idle")
 
-[node name="Hitstun" type="Node" parent="StateMachine"]
+[node name="Hitstun" type="Node" parent="StateMachine" unique_id=1894404954]
 script = ExtResource("8_hsu6n")
 
-[node name="Blockstun" type="Node" parent="StateMachine"]
+[node name="Blockstun" type="Node" parent="StateMachine" unique_id=1718858392]
 script = ExtResource("9_hn76h")
 
-[node name="Idle" type="Node" parent="StateMachine"]
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1922364542]
 script = ExtResource("10_lnxhv")
 
-[node name="MoveForward" type="Node" parent="StateMachine"]
+[node name="MoveForward" type="Node" parent="StateMachine" unique_id=567865980]
 script = ExtResource("11_g7238")
 
-[node name="MoveBackward" type="Node" parent="StateMachine"]
+[node name="MoveBackward" type="Node" parent="StateMachine" unique_id=440099007]
 script = ExtResource("12_ry7wk")
 
-[node name="BaseAttack" type="Node" parent="StateMachine"]
+[node name="BaseAttack" type="Node" parent="StateMachine" unique_id=863453284]
 script = ExtResource("13_27ar1")
 
-[node name="Win" type="Node" parent="StateMachine"]
+[node name="Win" type="Node" parent="StateMachine" unique_id=746120392]
 script = ExtResource("14_6evoe")
 metadata/_custom_type_script = "uid://bsmgvqgq5xmdr"
 
-[node name="Lose" type="Node" parent="StateMachine"]
+[node name="Lose" type="Node" parent="StateMachine" unique_id=1687371448]
 script = ExtResource("15_82d4v")
 metadata/_custom_type_script = "uid://fhsfdpvgkyv4"
 
-[node name="Clashing" type="Node" parent="StateMachine"]
+[node name="Clashing" type="Node" parent="StateMachine" unique_id=979653606]
 script = ExtResource("16_ueoe7")
 
-[node name="ClashWin" type="Node" parent="StateMachine"]
+[node name="ClashWin" type="Node" parent="StateMachine" unique_id=976322209]
 script = ExtResource("17_eosh7")
 
-[node name="ClashLose" type="Node" parent="StateMachine"]
+[node name="ClashLose" type="Node" parent="StateMachine" unique_id=2002700516]
 script = ExtResource("18_prufi")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/BaseAttack" method="_on_animation_player_animation_finished"]
