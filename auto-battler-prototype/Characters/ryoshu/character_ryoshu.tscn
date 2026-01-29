@@ -1,0 +1,170 @@
+[gd_scene load_steps=25 format=3 uid="uid://cuygyjev8fxp8"]
+
+[ext_resource type="Script" uid="uid://f081btviug4u" path="res://Characters/character.gd" id="1_bi5y6"]
+[ext_resource type="AnimationLibrary" uid="uid://dkhtxnpfpt0ey" path="res://Characters/ryoshu/anims/ryoshu.res" id="2_1yfbb"]
+[ext_resource type="Texture2D" uid="uid://brpi2npl8m8oe" path="res://Characters/placeholder_sprites/NCorpRyoshu/skill2_3_#8687.png" id="2_6evoe"]
+[ext_resource type="Script" uid="uid://colufoqxh8nwm" path="res://Characters/side_tracker.gd" id="3_p0g8r"]
+[ext_resource type="Script" uid="uid://71l6nk5830yo" path="res://Mechanics/hitbox.gd" id="5_wj0cb"]
+[ext_resource type="Script" uid="uid://cuqyr28ih435l" path="res://Mechanics/hurtbox.gd" id="6_gjvu5"]
+[ext_resource type="Script" uid="uid://whbif5ykrdmj" path="res://Mechanics/States/state_machine.gd" id="7_a5iu6"]
+[ext_resource type="Script" uid="uid://bqw1eo83vcp4r" path="res://Characters/States/state_hitstun.gd" id="8_hsu6n"]
+[ext_resource type="Script" uid="uid://chhf2t5cm2eg4" path="res://Characters/States/state_blockstun.gd" id="9_hn76h"]
+[ext_resource type="Script" uid="uid://bibnpqp5otcvs" path="res://Characters/States/state_idle.gd" id="10_lnxhv"]
+[ext_resource type="Script" uid="uid://85tmkwtqblw3" path="res://Characters/States/state_movefwd.gd" id="11_g7238"]
+[ext_resource type="Script" uid="uid://sv5uv45x0dmh" path="res://Characters/States/state_movebkwd.gd" id="12_ry7wk"]
+[ext_resource type="Script" uid="uid://bfib7jjd33vor" path="res://Characters/States/state_baseatk.gd" id="13_27ar1"]
+[ext_resource type="Script" uid="uid://bsmgvqgq5xmdr" path="res://Characters/States/state_win.gd" id="14_6evoe"]
+[ext_resource type="Script" uid="uid://fhsfdpvgkyv4" path="res://Characters/States/state_lose.gd" id="15_82d4v"]
+[ext_resource type="Script" uid="uid://4y83ty0qfjy6" path="res://Characters/States/state_clash.gd" id="16_ueoe7"]
+[ext_resource type="Script" uid="uid://0d6s2ipebmb2" path="res://Characters/States/state_clash_win.gd" id="17_eosh7"]
+[ext_resource type="Script" uid="uid://dd3dfa5mjk32y" path="res://Characters/States/state_clash_lose.gd" id="18_prufi"]
+
+[sub_resource type="Animation" id="Animation_82d4v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SideTracker/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_6evoe")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SideTracker/Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(24, 6)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ueoe7"]
+_data = {
+&"RESET": SubResource("Animation_82d4v")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsap4"]
+size = Vector2(300, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xudx"]
+size = Vector2(48, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ix8sw"]
+size = Vector2(40, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_acr0g"]
+size = Vector2(48, 128)
+
+[node name="Character" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_bi5y6")
+characterName = "Ryoshu"
+animLibName = "ryoshu"
+strategy = 1
+minDistance = 100
+maxDistance = 150
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_ueoe7"),
+&"ryoshu": ExtResource("2_1yfbb")
+}
+
+[node name="SideTracker" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_p0g8r")
+
+[node name="Sprite" type="Sprite2D" parent="SideTracker"]
+unique_name_in_owner = true
+position = Vector2(24, 6)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_6evoe")
+
+[node name="BaseAtkHitbox" type="Area2D" parent="SideTracker" node_paths=PackedStringArray("hitboxArea")]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("5_wj0cb")
+damage = 20
+hitstun = 0.8
+blockstun = 0.65
+knockbackX = 5000
+blockbackX = 2000
+hitstopFrames = 10
+hitboxArea = NodePath("BaseAtkHitboxShape")
+
+[node name="BaseAtkHitboxShape" type="CollisionShape2D" parent="SideTracker/BaseAtkHitbox"]
+visible = false
+shape = SubResource("RectangleShape2D_tsap4")
+disabled = true
+debug_color = Color(0.7, 0, 0, 0.41960785)
+
+[node name="CharacterHurtbox" type="Area2D" parent="SideTracker"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("6_gjvu5")
+
+[node name="HurtboxShape" type="CollisionShape2D" parent="SideTracker/CharacterHurtbox"]
+shape = SubResource("RectangleShape2D_0xudx")
+debug_color = Color(0, 0.6, 0, 0.41960785)
+
+[node name="BaseAtkHurtbox1Shape" type="CollisionShape2D" parent="SideTracker/CharacterHurtbox"]
+position = Vector2(40, -4)
+shape = SubResource("RectangleShape2D_ix8sw")
+disabled = true
+debug_color = Color(0, 0.6, 0, 0.41960785)
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_acr0g")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initialState")]
+unique_name_in_owner = true
+script = ExtResource("7_a5iu6")
+initialState = NodePath("Idle")
+
+[node name="Hitstun" type="Node" parent="StateMachine"]
+script = ExtResource("8_hsu6n")
+
+[node name="Blockstun" type="Node" parent="StateMachine"]
+script = ExtResource("9_hn76h")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("10_lnxhv")
+
+[node name="MoveForward" type="Node" parent="StateMachine"]
+script = ExtResource("11_g7238")
+
+[node name="MoveBackward" type="Node" parent="StateMachine"]
+script = ExtResource("12_ry7wk")
+
+[node name="BaseAttack" type="Node" parent="StateMachine"]
+script = ExtResource("13_27ar1")
+
+[node name="Win" type="Node" parent="StateMachine"]
+script = ExtResource("14_6evoe")
+metadata/_custom_type_script = "uid://bsmgvqgq5xmdr"
+
+[node name="Lose" type="Node" parent="StateMachine"]
+script = ExtResource("15_82d4v")
+metadata/_custom_type_script = "uid://fhsfdpvgkyv4"
+
+[node name="Clashing" type="Node" parent="StateMachine"]
+script = ExtResource("16_ueoe7")
+
+[node name="ClashWin" type="Node" parent="StateMachine"]
+script = ExtResource("17_eosh7")
+
+[node name="ClashLose" type="Node" parent="StateMachine"]
+script = ExtResource("18_prufi")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/BaseAttack" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/ClashWin" method="_on_animation_player_animation_finished"]

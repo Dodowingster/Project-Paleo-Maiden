@@ -4,20 +4,23 @@ class_name StateBaseAtk
 
 @onready var animPlayer : AnimationPlayer = %AnimationPlayer
 var animList : PackedStringArray = []
+var animName : String
 var lastTick : int = 0
 #var spriteOGCoordinates : Vector2 = Vector2.ZERO
 
 func _ready():
 	animList = animPlayer.get_animation_list()
+	animName = owner.animLibName + "/baseattack"
 
 func enter():
+	owner.canClash = false
 	owner.currentActionGoal = 0
-	if "baseattack" in animList:
-		animPlayer.play("baseattack")
+	if animName in animList:
+		animPlayer.play(animName)
 
 
 func exit():
-	animPlayer.stop()
+	animPlayer.play(owner.animLibName + "/RESET")
 
 
 func update(_delta: float):
@@ -52,5 +55,5 @@ func physics_update(_delta: float):
 		#%Sprite.position.x = spriteOGCoordinates.x
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "baseattack":
+	if anim_name == animName:
 		transition.emit(self, "Idle")

@@ -6,8 +6,8 @@ var tickCount: int = 0
 var tickAccumulator: float = 0.000
 var timer: float = 0.000
 
-@export var char1: CharacterBody2D
-@export var char2: CharacterBody2D
+@onready var char1: CharacterBody2D
+@onready var char2: CharacterBody2D
 var distance: float = 0.000
 
 
