@@ -4,6 +4,7 @@ extends Area2D
 @onready var lastGroupCollision = ""
 @onready var lastGroupHitCooldownDefault = 0.1
 @onready var lastGroupHitCooldown = 0
+@export var hurtboxAreaList : Array[CollisionShape2D]
 
 func _init() -> void:
 	collision_layer = 4

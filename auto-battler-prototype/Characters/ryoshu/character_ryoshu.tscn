@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://f081btviug4u" path="res://Characters/character.gd" id="1_bi5y6"]
 [ext_resource type="AnimationLibrary" uid="uid://dkhtxnpfpt0ey" path="res://Characters/ryoshu/anims/ryoshu.res" id="2_1yfbb"]
 [ext_resource type="Script" uid="uid://colufoqxh8nwm" path="res://Characters/side_tracker.gd" id="3_p0g8r"]
-[ext_resource type="Texture2D" uid="uid://ic1ruer8hnf5" path="res://Characters/placeholder_sprites/NCorpRyoshu/skill2_7.png" id="4_6evoe"]
+[ext_resource type="Texture2D" uid="uid://cw18q6uoc1vs7" path="res://Characters/placeholder_sprites/NCorpRyoshu/idle_#8786.png" id="4_ueoe7"]
 [ext_resource type="Script" uid="uid://71l6nk5830yo" path="res://Mechanics/hitbox.gd" id="5_wj0cb"]
 [ext_resource type="Script" uid="uid://cuqyr28ih435l" path="res://Mechanics/hurtbox.gd" id="6_gjvu5"]
 [ext_resource type="Script" uid="uid://whbif5ykrdmj" path="res://Mechanics/States/state_machine.gd" id="7_a5iu6"]
@@ -18,6 +18,8 @@
 [ext_resource type="Script" uid="uid://4y83ty0qfjy6" path="res://Characters/States/state_clash.gd" id="16_ueoe7"]
 [ext_resource type="Script" uid="uid://0d6s2ipebmb2" path="res://Characters/States/state_clash_win.gd" id="17_eosh7"]
 [ext_resource type="Script" uid="uid://dd3dfa5mjk32y" path="res://Characters/States/state_clash_lose.gd" id="18_prufi"]
+[ext_resource type="PackedScene" uid="uid://wa1rn1pd2gkc" path="res://Mechanics/Techniques/Loadout.tscn" id="19_82d4v"]
+[ext_resource type="PackedScene" uid="uid://c0ucds3whvuj1" path="res://Mechanics/Techniques/RushTechnique.tscn" id="20_eosh7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tsap4"]
 size = Vector2(300, 128)
@@ -51,12 +53,12 @@ script = ExtResource("3_p0g8r")
 
 [node name="Sprite" type="Sprite2D" parent="SideTracker" unique_id=646568360]
 unique_name_in_owner = true
-position = Vector2(32, -6)
+position = Vector2(32, -4)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("4_6evoe")
+texture = ExtResource("4_ueoe7")
 region_rect = Rect2(0, 0, 1199, 1310)
 
-[node name="BaseAtkHitbox" type="Area2D" parent="SideTracker" unique_id=937195184 node_paths=PackedStringArray("hitboxArea")]
+[node name="BaseAtkHitbox" type="Area2D" parent="SideTracker" unique_id=937195184 node_paths=PackedStringArray("hitboxAreaList")]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("5_wj0cb")
@@ -66,7 +68,7 @@ blockstun = 0.65
 knockbackX = 5000
 blockbackX = 2000
 hitstopFrames = 10
-hitboxArea = NodePath("BaseAtkHitboxShape")
+hitboxAreaList = [NodePath("BaseAtkHitboxShape")]
 
 [node name="BaseAtkHitboxShape" type="CollisionShape2D" parent="SideTracker/BaseAtkHitbox" unique_id=1180688965]
 visible = false
@@ -74,10 +76,11 @@ shape = SubResource("RectangleShape2D_tsap4")
 disabled = true
 debug_color = Color(0.7, 0, 0, 0.41960785)
 
-[node name="CharacterHurtbox" type="Area2D" parent="SideTracker" unique_id=369053781]
+[node name="CharacterHurtbox" type="Area2D" parent="SideTracker" unique_id=369053781 node_paths=PackedStringArray("hurtboxAreaList")]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("6_gjvu5")
+hurtboxAreaList = [NodePath("HurtboxShape"), NodePath("BaseAtkHurtbox1Shape")]
 
 [node name="HurtboxShape" type="CollisionShape2D" parent="SideTracker/CharacterHurtbox" unique_id=1208479990]
 shape = SubResource("RectangleShape2D_0xudx")
@@ -131,6 +134,12 @@ script = ExtResource("17_eosh7")
 
 [node name="ClashLose" type="Node" parent="StateMachine" unique_id=2002700516]
 script = ExtResource("18_prufi")
+
+[node name="Loadout" parent="." unique_id=56358037 node_paths=PackedStringArray("techniqueList", "character") instance=ExtResource("19_82d4v")]
+techniqueList = [NodePath("RushTechnique")]
+character = NodePath("..")
+
+[node name="RushTechnique" parent="Loadout" unique_id=1746416143 instance=ExtResource("20_eosh7")]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/BaseAttack" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/ClashWin" method="_on_animation_player_animation_finished"]

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://wa1rn1pd2gkc"]
+
+[ext_resource type="Script" uid="uid://dtjonm8icxnt4" path="res://Mechanics/Techniques/loadout.gd" id="1_4wcvy"]
+
+[node name="Loadout" type="Node" unique_id=56358037 node_paths=PackedStringArray("techniqueList")]
+script = ExtResource("1_4wcvy")
+techniqueList = [null]
