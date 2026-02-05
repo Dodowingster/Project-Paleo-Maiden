@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://4yjlva7uulij"]
 
-[ext_resource type="Script" uid="uid://davbi37fiwm0b" path="res://Mechanics/Techniques/action_goal_trigger.gd" id="1_qnnnv"]
+[ext_resource type="Script" uid="uid://davbi37fiwm0b" path="res://Mechanics/Techniques/Triggers/action_goal_trigger.gd" id="1_qnnnv"]
 
 [node name="ActionGoalTrigger" type="Node" unique_id=1889016597]
 script = ExtResource("1_qnnnv")

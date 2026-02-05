@@ -18,8 +18,8 @@
 [ext_resource type="Script" uid="uid://4y83ty0qfjy6" path="res://Characters/States/state_clash.gd" id="16_ueoe7"]
 [ext_resource type="Script" uid="uid://0d6s2ipebmb2" path="res://Characters/States/state_clash_win.gd" id="17_eosh7"]
 [ext_resource type="Script" uid="uid://dd3dfa5mjk32y" path="res://Characters/States/state_clash_lose.gd" id="18_prufi"]
-[ext_resource type="PackedScene" uid="uid://wa1rn1pd2gkc" path="res://Mechanics/Techniques/Loadout.tscn" id="19_82d4v"]
-[ext_resource type="PackedScene" uid="uid://c0ucds3whvuj1" path="res://Mechanics/Techniques/RushTechnique.tscn" id="20_eosh7"]
+[ext_resource type="PackedScene" uid="uid://wa1rn1pd2gkc" path="res://Mechanics/Techniques/Loadout/Loadout.tscn" id="19_82d4v"]
+[ext_resource type="PackedScene" uid="uid://c0ucds3whvuj1" path="res://Mechanics/Techniques/TechniqueTypes/RushTechnique.tscn" id="20_eosh7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tsap4"]
 size = Vector2(300, 128)
