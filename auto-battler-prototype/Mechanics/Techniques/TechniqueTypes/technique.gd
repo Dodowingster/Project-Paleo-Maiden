@@ -8,16 +8,16 @@ enum TECHNIQUE_TYPE { RUSH, REVERSAL, SHORT_RANGE, MID_RANGE, LONG_RANGE, PROJEC
 @export var effects: Array
 @onready var techniqueName : String
 @onready var techniqueType : TECHNIQUE_TYPE
-@onready var hitboxList: Array[HitBox] 
-@onready var hurtboxList: Array[Hurtbox]
-
-
-@export var startup: Array[int]
-@export var active: Array[int]
-@export var recovery: Array[int]
-
-@export var hurtboxShowAt: Array[int]
-@export var hurtboxActive: Array[int]
+#@onready var hitboxList: Array[HitBox] 
+#@onready var hurtboxList: Array[Hurtbox]
+#
+#
+#@export var startup: Array[int]
+#@export var active: Array[int]
+#@export var recovery: Array[int]
+#
+#@export var hurtboxShowAt: Array[int]
+#@export var hurtboxActive: Array[int]
 
 
 func setup_triggers(char: Character) -> void:
