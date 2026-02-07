@@ -2,9 +2,39 @@
 
 [ext_resource type="Script" uid="uid://bggk0a3c0aeag" path="res://Mechanics/Techniques/TechniqueTypes/rush_technique.gd" id="1_k6iuy"]
 [ext_resource type="PackedScene" uid="uid://4yjlva7uulij" path="res://Mechanics/Techniques/Triggers/ActionGoalTrigger.tscn" id="2_tnf2p"]
+[ext_resource type="Script" uid="uid://cm2swp1i5yuvi" path="res://Mechanics/Techniques/Triggers/cooldown_trigger.gd" id="3_mfsfk"]
+[ext_resource type="Script" uid="uid://47pgbc3k1h" path="res://Mechanics/Techniques/Triggers/hit_trigger.gd" id="4_s0lfi"]
+[ext_resource type="Script" uid="uid://ca0greousgvam" path="res://Mechanics/Techniques/Triggers/hp_trigger.gd" id="5_0n3km"]
+[ext_resource type="Script" uid="uid://brn2vsxpkvuvn" path="res://Mechanics/Techniques/Triggers/opp_state_trigger.gd" id="6_javei"]
+[ext_resource type="Script" uid="uid://vvpc8qlg01o" path="res://Mechanics/Techniques/Triggers/range_trigger.gd" id="7_f2b2s"]
+[ext_resource type="Script" uid="uid://c5gxs7ehq2eig" path="res://Mechanics/Techniques/Triggers/pos_trigger.gd" id="8_f2b2s"]
 
 [node name="RushTechnique" type="Node" unique_id=1746416143 node_paths=PackedStringArray("triggers")]
 script = ExtResource("1_k6iuy")
 triggers = [NodePath("ActionGoalTrigger")]
 
 [node name="ActionGoalTrigger" parent="." unique_id=1889016597 instance=ExtResource("2_tnf2p")]
+
+[node name="CooldownTrigger" type="Node" parent="." unique_id=150074331]
+script = ExtResource("3_mfsfk")
+metadata/_custom_type_script = "uid://cm2swp1i5yuvi"
+
+[node name="HitTrigger" type="Node" parent="." unique_id=1126393621]
+script = ExtResource("4_s0lfi")
+metadata/_custom_type_script = "uid://47pgbc3k1h"
+
+[node name="HpTrigger" type="Node" parent="." unique_id=1884708736]
+script = ExtResource("5_0n3km")
+metadata/_custom_type_script = "uid://ca0greousgvam"
+
+[node name="OppStateTrigger" type="Node" parent="." unique_id=151571993]
+script = ExtResource("6_javei")
+metadata/_custom_type_script = "uid://brn2vsxpkvuvn"
+
+[node name="RangeTrigger" type="Node" parent="." unique_id=351435726]
+script = ExtResource("7_f2b2s")
+metadata/_custom_type_script = "uid://vvpc8qlg01o"
+
+[node name="PositionTrigger" type="Node" parent="." unique_id=349565960]
+script = ExtResource("8_f2b2s")
+metadata/_custom_type_script = "uid://c5gxs7ehq2eig"
