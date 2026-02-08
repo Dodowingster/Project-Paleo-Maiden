@@ -20,12 +20,16 @@ enum TECHNIQUE_TYPE { RUSH, REVERSAL, SHORT_RANGE, MID_RANGE, LONG_RANGE, PROJEC
 #@export var hurtboxActive: Array[int]
 
 
-func setup_triggers(char: Character) -> void:
+func setup_triggers(character: Character) -> void:
 	for trigger in triggers:
 		if trigger is ActionGoalTrigger:
-			trigger.character = char
+			print("Action goal trigger triggered")
+			trigger.character = character
+		if trigger is HpTrigger:
+			print("HP trigger triggered")
+			trigger.character = character
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var conditions_met : bool = true
 	for trigger in triggers:
 		if !trigger.check_condition():
@@ -33,5 +37,3 @@ func _process(delta: float) -> void:
 			break
 	if conditions_met:
 		print("Execute skill.")
-		
-		
