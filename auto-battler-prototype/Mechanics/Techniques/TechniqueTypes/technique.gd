@@ -4,7 +4,7 @@ class_name Technique
 
 enum TECHNIQUE_TYPE { RUSH, REVERSAL, SHORT_RANGE, MID_RANGE, LONG_RANGE, PROJECTILE }
 
-@export var triggers : Array[Trigger]
+var triggers : Array[Trigger]
 @export var effects: Array
 @onready var techniqueName : String
 @onready var techniqueType : TECHNIQUE_TYPE
@@ -19,6 +19,14 @@ enum TECHNIQUE_TYPE { RUSH, REVERSAL, SHORT_RANGE, MID_RANGE, LONG_RANGE, PROJEC
 #@export var hurtboxShowAt: Array[int]
 #@export var hurtboxActive: Array[int]
 
+func _ready() -> void:
+	# Initialize triggers array
+	var children = get_children()
+
+	for child in children:
+		# We only want the triggers
+		if child is Trigger:
+			triggers.append(child)
 
 func setup_triggers(character: Character) -> void:
 	for trigger in triggers:
