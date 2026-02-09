@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://c0ucds3whvuj1"]
 
 [ext_resource type="Script" uid="uid://bggk0a3c0aeag" path="res://Mechanics/Techniques/TechniqueTypes/rush_technique.gd" id="1_k6iuy"]
-[ext_resource type="PackedScene" uid="uid://4yjlva7uulij" path="res://Mechanics/Techniques/Triggers/ActionGoalTrigger.tscn" id="2_tnf2p"]
+[ext_resource type="Script" uid="uid://davbi37fiwm0b" path="res://Mechanics/Techniques/Triggers/action_goal_trigger.gd" id="2_mfsfk"]
 [ext_resource type="Script" uid="uid://ca0greousgvam" path="res://Mechanics/Techniques/Triggers/hp_trigger.gd" id="5_0n3km"]
 
 [node name="RushTechnique" type="Node" unique_id=1746416143]
 script = ExtResource("1_k6iuy")
 
-[node name="ActionGoalTrigger" parent="." unique_id=1889016597 instance=ExtResource("2_tnf2p")]
+[node name="ActionGoalTrigger" type="Node" parent="." unique_id=516347050]
+script = ExtResource("2_mfsfk")
+metadata/_custom_type_script = "uid://davbi37fiwm0b"
 
 [node name="HpTrigger" type="Node" parent="." unique_id=1884708736]
 script = ExtResource("5_0n3km")

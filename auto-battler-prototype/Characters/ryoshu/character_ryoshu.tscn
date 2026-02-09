@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://f081btviug4u" path="res://Characters/character.gd" id="1_bi5y6"]
 [ext_resource type="AnimationLibrary" uid="uid://dkhtxnpfpt0ey" path="res://Characters/ryoshu/anims/ryoshu.res" id="2_1yfbb"]
 [ext_resource type="Script" uid="uid://colufoqxh8nwm" path="res://Characters/side_tracker.gd" id="3_p0g8r"]
-[ext_resource type="Texture2D" uid="uid://w6h71evwekkf" path="res://Characters/placeholder_sprites/NCorpRyoshu/skill2_6.png" id="4_ueoe7"]
+[ext_resource type="Texture2D" uid="uid://cw18q6uoc1vs7" path="res://Characters/placeholder_sprites/NCorpRyoshu/idle_#8786.png" id="4_ueoe7"]
 [ext_resource type="Script" uid="uid://71l6nk5830yo" path="res://Mechanics/hitbox.gd" id="5_wj0cb"]
 [ext_resource type="Script" uid="uid://cuqyr28ih435l" path="res://Mechanics/hurtbox.gd" id="6_gjvu5"]
 [ext_resource type="Script" uid="uid://whbif5ykrdmj" path="res://Mechanics/States/state_machine.gd" id="7_a5iu6"]
@@ -53,7 +53,7 @@ script = ExtResource("3_p0g8r")
 
 [node name="Sprite" type="Sprite2D" parent="SideTracker" unique_id=646568360]
 unique_name_in_owner = true
-position = Vector2(56, 0)
+position = Vector2(32, -4)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_ueoe7")
 region_rect = Rect2(0, 0, 1199, 1310)
@@ -135,9 +135,7 @@ script = ExtResource("17_eosh7")
 [node name="ClashLose" type="Node" parent="StateMachine" unique_id=2002700516]
 script = ExtResource("18_prufi")
 
-[node name="Loadout" parent="." unique_id=56358037 node_paths=PackedStringArray("techniqueList", "character") instance=ExtResource("19_82d4v")]
-techniqueList = [NodePath("RushTechnique")]
-character = NodePath("..")
+[node name="Loadout" parent="." unique_id=56358037 instance=ExtResource("19_82d4v")]
 
 [node name="RushTechnique" parent="Loadout" unique_id=1746416143 instance=ExtResource("20_eosh7")]
 

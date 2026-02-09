@@ -4,9 +4,12 @@ class_name Technique
 
 enum TECHNIQUE_TYPE { RUSH, REVERSAL, SHORT_RANGE, MID_RANGE, LONG_RANGE, PROJECTILE }
 
-var triggers : Array[Trigger]
+# debug vars
+var characterName: String
+var techniqueName: String
+
+var triggers: Array[Trigger]
 @export var effects: Array
-@onready var techniqueName : String
 @onready var techniqueType : TECHNIQUE_TYPE
 #@onready var hitboxList: Array[HitBox] 
 #@onready var hurtboxList: Array[Hurtbox]
@@ -29,13 +32,20 @@ func _ready() -> void:
 			triggers.append(child)
 
 func setup_triggers(character: Character) -> void:
+	# Initialize character name (for debugging and potentially screen effects)
+	self.characterName = character.characterName
+	print(characterName)
+	print("  Trigger setup for " + techniqueName)
+
 	for trigger in triggers:
 		if trigger is ActionGoalTrigger:
-			print("Action goal trigger triggered")
+			print("	Action goal trigger initialized")
 			trigger.character = character
 		if trigger is HpTrigger:
-			print("HP trigger triggered")
+			print("	HP trigger initialized")
 			trigger.character = character
+	
+	print("\n")
 
 func _process(_delta: float) -> void:
 	var conditions_met : bool = true
@@ -44,4 +54,7 @@ func _process(_delta: float) -> void:
 			conditions_met = false
 			break
 	if conditions_met:
-		print("Execute skill.")
+		execute_technique()
+
+@abstract
+func execute_technique() -> void

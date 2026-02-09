@@ -1,10 +1,16 @@
 extends Node
 class_name Loadout
 
-@export var techniqueList : Array[Technique]
-@export var character : Character
-#@export var listSize : int
+var techniqueList : Array[Technique]
+
+@onready var character : Character = owner
 
 func _ready() -> void:
-	for technique in techniqueList:
-		technique.setup_triggers(character)
+	# Initialize techniques array
+	var children = get_children()
+
+	for child in children:
+		# We only want the techniques
+		if child is Technique:
+			child.setup_triggers(character)
+			techniqueList.append(child)
