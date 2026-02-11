@@ -8,6 +8,8 @@ enum TECHNIQUE_TYPE { RUSH, REVERSAL, SHORT_RANGE, MID_RANGE, LONG_RANGE, PROJEC
 @export var effects: Array
 @onready var techniqueName : String
 @onready var techniqueType : TECHNIQUE_TYPE
+@onready var slotPriority : int = 0
+@onready var readyToRun : bool = false
 #@onready var hitboxList: Array[HitBox] 
 #@onready var hurtboxList: Array[Hurtbox]
 #
@@ -20,18 +22,23 @@ enum TECHNIQUE_TYPE { RUSH, REVERSAL, SHORT_RANGE, MID_RANGE, LONG_RANGE, PROJEC
 #@export var hurtboxActive: Array[int]
 
 
+func setup_priority(priorityVal : int) -> void:
+	slotPriority = priorityVal
+
 func setup_triggers(char: Character) -> void:
 	for trigger in triggers:
 		if trigger is ActionGoalTrigger:
 			trigger.character = char
+	readyToRun = true
 
 func _process(delta: float) -> void:
-	var conditions_met : bool = true
-	for trigger in triggers:
-		if !trigger.check_condition():
-			conditions_met = false
-			break
-	if conditions_met:
-		print("Execute skill.")
+	if readyToRun:
+		var conditions_met : bool = true
+		for trigger in triggers:
+			if !trigger.check_condition():
+				conditions_met = false
+				break
+		if conditions_met:
+			print("Execute skill %s. Priority = %d" % [self.name, slotPriority])
 		
 		
