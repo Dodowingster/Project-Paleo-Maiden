@@ -47,14 +47,14 @@ func setup_triggers(character: Character) -> void:
 	
 	print("\n")
 
-func _process(_delta: float) -> void:
+func trigger_check() -> bool:
 	var conditions_met : bool = true
 	for trigger in triggers:
 		if !trigger.check_condition():
 			conditions_met = false
 			break
-	if conditions_met:
-		execute_technique()
+
+	return conditions_met
 
 @abstract
 func execute_technique() -> void

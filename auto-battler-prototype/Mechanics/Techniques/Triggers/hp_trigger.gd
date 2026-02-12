@@ -2,11 +2,11 @@ extends Trigger
 class_name HpTrigger
 ## Trigger class for checking against a set HP value 
 
-## The upper HP value to check against.
+## The upper HP value to check against (inclusive).
 @export var hpCriteriaUpper : int = 100
 
-## The lower HP value to check against.
-@export var hpCriteriaLower : int
+## The lower HP value to check against (inclusive).
+@export var hpCriteriaLower : int = 1
 
 ## Reference to the character node.
 @onready var character : Character
