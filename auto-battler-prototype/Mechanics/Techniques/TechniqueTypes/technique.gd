@@ -11,6 +11,7 @@ var techniqueName: String
 var triggers: Array[Trigger]
 @export var effects: Array
 @onready var techniqueType : TECHNIQUE_TYPE
+@onready var slotPriority : int = 0
 #@onready var hitboxList: Array[HitBox] 
 #@onready var hurtboxList: Array[Hurtbox]
 #
@@ -30,6 +31,9 @@ func _ready() -> void:
 		# We only want the triggers
 		if child is Trigger:
 			triggers.append(child)
+
+func setup_priority(slotPriorityVal: int) -> void:
+	slotPriority = slotPriorityVal
 
 func setup_triggers(character: Character) -> void:
 	# Initialize character name (for debugging and potentially screen effects)
