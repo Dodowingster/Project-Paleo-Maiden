@@ -2,6 +2,8 @@
 extends Node
 class_name Technique
 
+signal canExecute(index : int, checkPassed : bool)
+
 enum TECHNIQUE_TYPE { RUSH, REVERSAL, SHORT_RANGE, MID_RANGE, LONG_RANGE, PROJECTILE }
 
 # debug vars

@@ -30,18 +30,22 @@ func char_setup() -> void:
 	P1HealthTotal.text = "/ " + str(P1.maxHP)
 	var techniqueList = P1.loadout.get_children()
 	for technique in techniqueList:
-		var techniqueLabel : Label = Label.new()
-		techniqueLabel.text = technique.name
-		P1TechniqueList.add_child(techniqueLabel)
+		if technique is Technique:
+			technique.canExecute.connect(updateTechniqueAvailableP1)
+			var techniqueLabel : Label = Label.new()
+			techniqueLabel.text = technique.name
+			P1TechniqueList.add_child(techniqueLabel)
 	
 	P2ActionGoalTotalLabelValue.text = "/ " + str(P2.actionGoalTotal)
 	P2HealthTotal.text = "/ " + str(P2.maxHP)
 	techniqueList = P2.loadout.get_children()
 	for technique in techniqueList:
-		var techniqueLabel : Label = Label.new()
-		techniqueLabel.text = technique.name
-		techniqueLabel.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-		P2TechniqueList.add_child(techniqueLabel)
+		if technique is Technique:
+			technique.canExecute.connect(updateTechniqueAvailableP2)
+			var techniqueLabel : Label = Label.new()
+			techniqueLabel.text = technique.name
+			techniqueLabel.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+			P2TechniqueList.add_child(techniqueLabel)
 
 func _process(_delta: float) -> void:
 	tickLabelValue.text = str(dataTracker.tickCount)
@@ -52,3 +56,17 @@ func _process(_delta: float) -> void:
 	P1HealthValue.text = str(P1.health)
 	P2ActionGoalValueLabelValue.text = str(P2.currentActionGoal)
 	P2HealthValue.text = str(P2.health)
+
+func updateTechniqueAvailableP1(index : int, available: bool) -> void:
+	var techniqueLabel : Label = P1TechniqueList.get_child(index)
+	if available:
+		techniqueLabel.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	else:
+		techniqueLabel.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+
+func updateTechniqueAvailableP2(index : int, available: bool) -> void:
+	var techniqueLabel : Label = P2TechniqueList.get_child(index)
+	if available:
+		techniqueLabel.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	else:
+		techniqueLabel.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
