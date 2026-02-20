@@ -79,11 +79,13 @@ collision_mask = 0
 script = ExtResource("8_7en0w")
 
 [node name="HurtboxShape" type="CollisionShape2D" parent="SideTracker/CharacterHurtbox" unique_id=664979489]
+rotation = -1.0471976
 shape = SubResource("RectangleShape2D_0xudx")
 debug_color = Color(0, 0.6, 0, 0.41960785)
 
 [node name="BaseAtkHurtbox1Shape" type="CollisionShape2D" parent="SideTracker/CharacterHurtbox" unique_id=1416181559]
 position = Vector2(40, -4)
+rotation = -1.0471976
 shape = SubResource("RectangleShape2D_ix8sw")
 disabled = true
 debug_color = Color(0, 0.6, 0, 0.41960785)
