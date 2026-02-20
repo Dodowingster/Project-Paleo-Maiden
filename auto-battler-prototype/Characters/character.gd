@@ -52,6 +52,7 @@ var oppClashResult : bool = false
 @onready var hitknockbackX : float = 0.000
 @onready var hitknockbackY : float = 0.000
 @onready var health : int = maxHP
+@onready var loadout : Loadout = $Loadout
 
 ## Set opponent character here
 @export var opponent : Character

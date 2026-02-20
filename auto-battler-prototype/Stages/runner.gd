@@ -23,11 +23,11 @@ func _ready() -> void:
 		nodeP2.opponent = nodeP1
 		dataTracker.char1 = nodeP1
 		dataTracker.char2 = nodeP2
-		ui.P1 = nodeP1
-		ui.P2 = nodeP2
-		ui.char_setup()
 		phanCam.follow_targets = [nodeP1, nodeP2]
 		nodeP1.position = p1SpawnPosition
 		nodeP2.position = p2SpawnPosition
 		self.add_child(nodeP1)
 		self.add_child(nodeP2)
+		ui.P1 = nodeP1
+		ui.P2 = nodeP2
+		ui.char_setup()

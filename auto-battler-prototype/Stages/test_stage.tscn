@@ -51,7 +51,7 @@ texture = ExtResource("4_2ge0f")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Runner" unique_id=1343250026]
 
-[node name="UI" type="Control" parent="Runner/CanvasLayer" unique_id=2080865342 node_paths=PackedStringArray("dataTracker", "tickLabelValue", "timerLabelValue", "distanceLabelValue", "P1ActionGoalValueLabelValue", "P1ActionGoalTotalLabelValue", "P1HealthValue", "P1HealthTotal", "P2ActionGoalValueLabelValue", "P2ActionGoalTotalLabelValue", "P2HealthValue", "P2HealthTotal")]
+[node name="UI" type="Control" parent="Runner/CanvasLayer" unique_id=2080865342 node_paths=PackedStringArray("dataTracker", "tickLabelValue", "timerLabelValue", "distanceLabelValue", "P1ActionGoalValueLabelValue", "P1ActionGoalTotalLabelValue", "P1HealthValue", "P1HealthTotal", "P1TechniqueList", "P2ActionGoalValueLabelValue", "P2ActionGoalTotalLabelValue", "P2HealthValue", "P2HealthTotal", "P2TechniqueList")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(800, 600)
 layout_mode = 3
@@ -67,10 +67,12 @@ P1ActionGoalValueLabelValue = NodePath("PanelContainer/HBoxContainer/P1UI/Action
 P1ActionGoalTotalLabelValue = NodePath("PanelContainer/HBoxContainer/P1UI/ActionGoal/ActionGoalTotal")
 P1HealthValue = NodePath("PanelContainer/HBoxContainer/P1UI/HP/HealthValue")
 P1HealthTotal = NodePath("PanelContainer/HBoxContainer/P1UI/HP/HealthTotal")
+P1TechniqueList = NodePath("PanelContainer/HBoxContainer/P1UI/Techniques")
 P2ActionGoalValueLabelValue = NodePath("PanelContainer/HBoxContainer/P2UI/ActionGoal/ActionGoalValue")
 P2ActionGoalTotalLabelValue = NodePath("PanelContainer/HBoxContainer/P2UI/ActionGoal/ActionGoalTotal")
 P2HealthValue = NodePath("PanelContainer/HBoxContainer/P2UI/HP/HealthValue")
 P2HealthTotal = NodePath("PanelContainer/HBoxContainer/P2UI/HP/HealthTotal")
+P2TechniqueList = NodePath("PanelContainer/HBoxContainer/P2UI/Techniques")
 
 [node name="PanelContainer" type="PanelContainer" parent="Runner/CanvasLayer/UI" unique_id=946951563]
 layout_mode = 1
@@ -115,6 +117,13 @@ text = "0"
 [node name="HealthTotal" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI/HP" unique_id=347680651]
 layout_mode = 2
 text = "/ 0"
+
+[node name="Techniques" type="VBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI" unique_id=1932309050]
+layout_mode = 2
+
+[node name="ListHeader" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI/Techniques" unique_id=1605307740]
+layout_mode = 2
+text = "P1 Techniques:"
 
 [node name="StageUI" type="VBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer" unique_id=558485912]
 layout_mode = 2
@@ -191,6 +200,14 @@ text = "0"
 [node name="HealthTotal" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI/HP" unique_id=1538962629]
 layout_mode = 2
 text = "/ 0"
+
+[node name="Techniques" type="VBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI" unique_id=614137807]
+layout_mode = 2
+
+[node name="ListHeader" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI/Techniques" unique_id=990268984]
+layout_mode = 2
+text = "P2 Techniques:"
+horizontal_alignment = 2
 
 [node name="Camera2D" type="Camera2D" parent="Runner" unique_id=336103352]
 position = Vector2(704, 280)
