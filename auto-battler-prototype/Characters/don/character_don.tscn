@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://f081btviug4u" path="res://Characters/character.gd" id="1_acr0g"]
 [ext_resource type="Script" uid="uid://colufoqxh8nwm" path="res://Characters/side_tracker.gd" id="2_3mn46"]
 [ext_resource type="AnimationLibrary" uid="uid://boalcp78pqj5n" path="res://Characters/don/anims/don.res" id="2_u51hr"]
-[ext_resource type="Texture2D" uid="uid://bu0cubdglsyeb" path="res://Characters/placeholder_sprites/A_CinqEastDon/dmg.png" id="4_bs6a3"]
+[ext_resource type="Texture2D" uid="uid://bt8isuoep80x2" path="res://Characters/placeholder_sprites/A_CinqEastDon/idle.png" id="4_bs6a3"]
 [ext_resource type="Script" uid="uid://whbif5ykrdmj" path="res://Mechanics/States/state_machine.gd" id="4_dk5p5"]
 [ext_resource type="Script" uid="uid://bibnpqp5otcvs" path="res://Characters/States/state_idle.gd" id="5_d1l3k"]
 [ext_resource type="Script" uid="uid://85tmkwtqblw3" path="res://Characters/States/state_movefwd.gd" id="6_2esnv"]
@@ -49,7 +49,6 @@ script = ExtResource("2_3mn46")
 
 [node name="Sprite" type="Sprite2D" parent="SideTracker" unique_id=1654816590]
 unique_name_in_owner = true
-rotation = -1.0471976
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_bs6a3")
 
@@ -79,13 +78,11 @@ script = ExtResource("12_ap31n")
 hurtboxAreaList = [NodePath("HurtboxShape"), NodePath("BaseAtkHurtbox1Shape")]
 
 [node name="HurtboxShape" type="CollisionShape2D" parent="SideTracker/CharacterHurtbox" unique_id=664979489]
-rotation = -1.0471976
 shape = SubResource("RectangleShape2D_0xudx")
 debug_color = Color(0, 0.6, 0, 0.41960785)
 
 [node name="BaseAtkHurtbox1Shape" type="CollisionShape2D" parent="SideTracker/CharacterHurtbox" unique_id=1416181559]
 position = Vector2(40, -4)
-rotation = -1.0471976
 shape = SubResource("RectangleShape2D_ix8sw")
 disabled = true
 debug_color = Color(0, 0.6, 0, 0.41960785)

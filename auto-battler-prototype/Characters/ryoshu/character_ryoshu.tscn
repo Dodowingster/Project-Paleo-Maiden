@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://f081btviug4u" path="res://Characters/character.gd" id="1_bi5y6"]
 [ext_resource type="AnimationLibrary" uid="uid://dkhtxnpfpt0ey" path="res://Characters/ryoshu/anims/ryoshu.res" id="2_1yfbb"]
 [ext_resource type="Script" uid="uid://colufoqxh8nwm" path="res://Characters/side_tracker.gd" id="3_p0g8r"]
-[ext_resource type="Texture2D" uid="uid://y5eqnejvsq2q" path="res://Characters/placeholder_sprites/NCorpRyoshu/dmg_#9155.png" id="4_eosh7"]
+[ext_resource type="Texture2D" uid="uid://cw18q6uoc1vs7" path="res://Characters/placeholder_sprites/NCorpRyoshu/idle_#8786.png" id="4_eosh7"]
 [ext_resource type="Script" uid="uid://71l6nk5830yo" path="res://Mechanics/hitbox.gd" id="5_wj0cb"]
 [ext_resource type="Script" uid="uid://cuqyr28ih435l" path="res://Mechanics/hurtbox.gd" id="6_gjvu5"]
 [ext_resource type="Script" uid="uid://whbif5ykrdmj" path="res://Mechanics/States/state_machine.gd" id="7_a5iu6"]
@@ -54,8 +54,7 @@ script = ExtResource("3_p0g8r")
 
 [node name="Sprite" type="Sprite2D" parent="SideTracker" unique_id=646568360]
 unique_name_in_owner = true
-position = Vector2(8.000001, -16.000002)
-rotation = -1.0471976
+position = Vector2(32, -4)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_eosh7")
 region_rect = Rect2(0, 0, 1199, 1310)
@@ -85,19 +84,16 @@ script = ExtResource("6_gjvu5")
 hurtboxAreaList = [NodePath("HurtboxShape"), NodePath("BaseAtkHurtbox1Shape")]
 
 [node name="HurtboxShape" type="CollisionShape2D" parent="SideTracker/CharacterHurtbox" unique_id=1208479990]
-rotation = -1.0471976
 shape = SubResource("RectangleShape2D_0xudx")
 debug_color = Color(0, 0.6, 0, 0.41960785)
 
 [node name="BaseAtkHurtbox1Shape" type="CollisionShape2D" parent="SideTracker/CharacterHurtbox" unique_id=317467564]
 position = Vector2(40, -4)
-rotation = -1.0471976
 shape = SubResource("RectangleShape2D_ix8sw")
 disabled = true
 debug_color = Color(0, 0.6, 0, 0.41960785)
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1402031516]
-rotation = -1.0471976
 shape = SubResource("RectangleShape2D_acr0g")
 
 [node name="StateMachine" type="Node" parent="." unique_id=521959736 node_paths=PackedStringArray("initialState")]
