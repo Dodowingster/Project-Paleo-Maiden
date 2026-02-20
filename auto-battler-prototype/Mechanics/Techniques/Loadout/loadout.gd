@@ -8,14 +8,16 @@ class_name Loadout
 func _ready() -> void:
 	# Initialize techniques array
 	var children = get_children()
+	# gets all children, remember to filter by techniques
+	var childrenCount : int = children.size()
 	var count : int = 0
 
 	for child in children:
 		# We only want the techniques
 		if child is Technique:
-			count += 1
-			child.setup_priority(priorityPerPosition * count)
+			child.setup_priority(priorityPerPosition * (childrenCount - count))
 			child.setup_triggers(character)
+			count += 1
 
 func _process(_delta: float) -> void:
 	var techniqueToExecute : Technique = null
