@@ -1,6 +1,8 @@
 extends Node
 class_name Loadout
 
+signal updateTriggerStatus(position: int, canExecute: bool)
+
 @onready var character : Character = owner
 
 @export var priorityPerPosition : int = 5
@@ -17,6 +19,7 @@ func _ready() -> void:
 		if child is Technique:
 			child.setup_priority(priorityPerPosition * (childrenCount - count))
 			child.setup_triggers(character)
+			child.executionStatusChanged.connect(notify_ui)
 			count += 1
 
 func _process(_delta: float) -> void:
@@ -27,11 +30,11 @@ func _process(_delta: float) -> void:
 		if child is Technique:
 			count += 1
 			if child.trigger_check():
-				child.canExecute.emit(count, true)
 				if techniqueToExecute == null || techniqueToExecute.slotPriority < child.slotPriority:
 					techniqueToExecute = child
-			else:
-				child.canExecute.emit(count, false)
 			
 	if techniqueToExecute != null:
 		techniqueToExecute.execute_technique()
+
+func notify_ui(technique: Technique, executionStatus: bool) -> void:
+	updateTriggerStatus.emit(technique.get_index() + 1, executionStatus)

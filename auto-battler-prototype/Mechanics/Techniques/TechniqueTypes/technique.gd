@@ -2,7 +2,7 @@
 extends Node
 class_name Technique
 
-signal canExecute(index : int, checkPassed : bool)
+signal executionStatusChanged(technique: Technique, status: bool)
 
 enum TECHNIQUE_TYPE { RUSH, REVERSAL, SHORT_RANGE, MID_RANGE, LONG_RANGE, PROJECTILE }
 
@@ -12,6 +12,7 @@ var techniqueName: String
 
 var triggers: Array[Trigger]
 @export var effects: Array
+@onready var canExecute : bool = false
 @onready var techniqueType : TECHNIQUE_TYPE
 @onready var slotPriority : int = 0
 #@onready var hitboxList: Array[HitBox] 
@@ -60,6 +61,9 @@ func trigger_check() -> bool:
 			conditions_met = false
 			break
 
+	if conditions_met != canExecute:
+		executionStatusChanged.emit(self, conditions_met)
+	canExecute = conditions_met
 	return conditions_met
 
 @abstract

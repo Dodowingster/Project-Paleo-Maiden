@@ -29,9 +29,9 @@ func char_setup() -> void:
 	P1ActionGoalTotalLabelValue.text = "/ " + str(P1.actionGoalTotal)
 	P1HealthTotal.text = "/ " + str(P1.maxHP)
 	var techniqueList = P1.loadout.get_children()
+	P1.loadout.updateTriggerStatus.connect(updateTechniqueStatusP1)
 	for technique in techniqueList:
 		if technique is Technique:
-			technique.canExecute.connect(updateTechniqueAvailableP1)
 			var techniqueLabel : Label = Label.new()
 			techniqueLabel.text = technique.name
 			P1TechniqueList.add_child(techniqueLabel)
@@ -39,9 +39,9 @@ func char_setup() -> void:
 	P2ActionGoalTotalLabelValue.text = "/ " + str(P2.actionGoalTotal)
 	P2HealthTotal.text = "/ " + str(P2.maxHP)
 	techniqueList = P2.loadout.get_children()
+	P2.loadout.updateTriggerStatus.connect(updateTechniqueStatusP2)
 	for technique in techniqueList:
 		if technique is Technique:
-			technique.canExecute.connect(updateTechniqueAvailableP2)
 			var techniqueLabel : Label = Label.new()
 			techniqueLabel.text = technique.name
 			techniqueLabel.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
@@ -57,16 +57,16 @@ func _process(_delta: float) -> void:
 	P2ActionGoalValueLabelValue.text = str(P2.currentActionGoal)
 	P2HealthValue.text = str(P2.health)
 
-func updateTechniqueAvailableP1(index : int, available: bool) -> void:
-	var techniqueLabel : Label = P1TechniqueList.get_child(index)
-	if available:
+func updateTechniqueStatusP1(position: int, canExecute: bool) -> void:
+	var techniqueLabel : Label = P1TechniqueList.get_child(position)
+	if canExecute:
 		techniqueLabel.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	else:
 		techniqueLabel.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
-
-func updateTechniqueAvailableP2(index : int, available: bool) -> void:
-	var techniqueLabel : Label = P2TechniqueList.get_child(index)
-	if available:
+		
+func updateTechniqueStatusP2(position: int, canExecute: bool) -> void:
+	var techniqueLabel : Label = P2TechniqueList.get_child(position)
+	if canExecute:
 		techniqueLabel.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	else:
 		techniqueLabel.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
