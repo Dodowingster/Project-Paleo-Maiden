@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://c2pi52jo2w0y8"]
+
+[ext_resource type="Script" uid="uid://boc53imrgb27h" path="res://Characters/generic/character_data.gd" id="1_c8uxx"]
+[ext_resource type="AnimationLibrary" uid="uid://dkhtxnpfpt0ey" path="res://Characters/ryoshu/anims/ryoshu.res" id="1_uyfw6"]
+
+[resource]
+script = ExtResource("1_c8uxx")
+characterName = "Ryoshu"
+animLib = ExtResource("1_uyfw6")
+strategy = 1
+minDistance = 100
+maxDistance = 150
+metadata/_custom_type_script = "uid://boc53imrgb27h"

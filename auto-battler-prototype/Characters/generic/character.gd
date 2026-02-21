@@ -9,38 +9,39 @@ signal broadcastClashResult(result : bool)
 signal broadcastWinState()
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+@export var characterData : CharacterData
 ## Mainly for debugging and identification
-@export var characterName : String = "P1"
+@onready var characterName : String
 @export var animLibName : String
 ## Base stat to calculate attack damage from
-@export var atk: int = 5   # currently unused
+@onready var atk: int  # currently unused
 ## Base stat to calculate damage taken
-@export var def: int = 5   # currently unused
+@onready var def: int  # currently unused
 ## Determines general move speed (in pixels I think?)
-@export var spd: int = 10   
+@onready var spd: int   
 ## Minimum stamina roll to add to action goal
-@export var minSta: int = 1   
+@onready var minSta: int  
 ## Maximum stamina roll to add to action goal
-@export var maxSta: int = 10   
+@onready var maxSta: int   
 ## Maximum HP
-@export var maxHP: int = 100
+@onready var maxHP: int
 
-@export var strategy: GlobalValues.STRATEGY
+@onready var strategy: GlobalValues.STRATEGY
 @export var startFacingRight: bool = true
 
-@onready var distance: float = 0
-@onready var tickCount: int = 0
+@onready var distance: float
+@onready var tickCount: int
 
 ## Determines the maximum distance between characters to trigger their attack logic (for AGGRESSIVE strategy)
-@export var minDistance: int = 80
-@export var maxDistance: int = 100
+@onready var minDistance: int
+@onready var maxDistance: int
 ## Modifies base forward movement speed
-@export var forwardSpdMult: float = 1.0
+@onready var forwardSpdMult: float
 ## Modifies base backward movement speed
-@export var backwardSpdMult: float = 0.5
+@onready var backwardSpdMult: float
 
 ## Determines number of action goal points needed to perform an attack
-@export var actionGoalTotal: int = 300
+@onready var actionGoalTotal: int
 var currentActionGoal: int = 0
 var opponentIsAttacking: bool = false
 var canClash = false
@@ -48,10 +49,10 @@ var wantToClash = false
 var clashResult : bool = false
 var oppClashResult : bool = false
 
-@onready var hitstun : float = 0
-@onready var hitknockbackX : float = 0.000
-@onready var hitknockbackY : float = 0.000
-@onready var health : int = maxHP
+var hitstun : float = 0
+var hitknockbackX : float = 0.000
+var hitknockbackY : float = 0.000
+var health : int = maxHP
 @onready var loadout : Loadout = $Loadout
 
 ## Set opponent character here
@@ -60,6 +61,23 @@ var oppClashResult : bool = false
 var hitstop_frames: int = 0
 var stored_velocity: Vector2 = Vector2.ZERO
 var was_in_hitstop: bool = false
+
+func _enter_tree() -> void:
+	characterName = characterData.characterName
+	atk = characterData.atk
+	def = characterData.def
+	spd = characterData.spd
+	minSta = characterData.minSta
+	maxSta = characterData.maxSta
+	maxHP = characterData.maxHP
+	strategy = characterData.strategy
+	minDistance = characterData.minDistance
+	maxDistance = characterData.maxDistance
+	forwardSpdMult = characterData.forwardSpdMult
+	backwardSpdMult = characterData.backwardSpdMult
+	actionGoalTotal = characterData.actionGoalTotal
+	
+	health = maxHP
 
 func _ready() -> void:
 	%SideTracker.set_facing_direction(startFacingRight)
