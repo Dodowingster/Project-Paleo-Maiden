@@ -57,15 +57,15 @@ func _process(_delta: float) -> void:
 	P2ActionGoalValueLabelValue.text = str(P2.currentActionGoal)
 	P2HealthValue.text = str(P2.health)
 
-func updateTechniqueStatusP1(position: int, canExecute: bool) -> void:
-	var techniqueLabel : Label = P1TechniqueList.get_child(position)
+func updateTechniqueStatusP1(index: int, canExecute: bool) -> void:
+	var techniqueLabel : Label = P1TechniqueList.get_child(index)
 	if canExecute:
 		techniqueLabel.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	else:
 		techniqueLabel.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 		
-func updateTechniqueStatusP2(position: int, canExecute: bool) -> void:
-	var techniqueLabel : Label = P2TechniqueList.get_child(position)
+func updateTechniqueStatusP2(index: int, canExecute: bool) -> void:
+	var techniqueLabel : Label = P2TechniqueList.get_child(index)
 	if canExecute:
 		techniqueLabel.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	else:

@@ -3,6 +3,7 @@ class_name CharacterData
 
 @export var characterName : String
 @export var animLib : AnimationLibrary
+@export var animLibName : String
 @export var atk : int = 5
 @export var def : int = 5
 @export var spd : int = 10
@@ -15,3 +16,4 @@ class_name CharacterData
 @export var forwardSpdMult : float = 1.0
 @export var backwardSpdMult : float = 0.5
 @export var actionGoalTotal : int = 300
+@export var baseAtkData : HitboxData

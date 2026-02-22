@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://whbif5ykrdmj" path="res://Mechanics/States/state_machine.gd" id="4_dk5p5"]
 [ext_resource type="Script" uid="uid://bibnpqp5otcvs" path="res://Characters/States/state_idle.gd" id="5_d1l3k"]
 [ext_resource type="Script" uid="uid://85tmkwtqblw3" path="res://Characters/States/state_movefwd.gd" id="6_2esnv"]
+[ext_resource type="Shape2D" uid="uid://c03de4iv0ht51" path="res://Characters/don/hitboxes/don_baseatkshape.tres" id="7_1lbb8"]
 [ext_resource type="Script" uid="uid://sv5uv45x0dmh" path="res://Characters/States/state_movebkwd.gd" id="7_bvy42"]
 [ext_resource type="Script" uid="uid://bfib7jjd33vor" path="res://Characters/States/state_baseatk.gd" id="9_sh1xl"]
 [ext_resource type="Script" uid="uid://71l6nk5830yo" path="res://Mechanics/hitbox.gd" id="11_6wv34"]
@@ -21,8 +22,6 @@
 [ext_resource type="Script" uid="uid://bqw1eo83vcp4r" path="res://Characters/States/state_hitstun.gd" id="18_ix8sw"]
 [ext_resource type="PackedScene" uid="uid://wa1rn1pd2gkc" path="res://Mechanics/Techniques/Loadout/Loadout.tscn" id="19_bs6a3"]
 [ext_resource type="PackedScene" uid="uid://c0ucds3whvuj1" path="res://Mechanics/Techniques/TechniqueTypes/RushTechnique.tscn" id="20_cajpt"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsap4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xudx"]
 size = Vector2(48, 128)
@@ -38,7 +37,6 @@ collision_layer = 16
 collision_mask = 16
 script = ExtResource("1_acr0g")
 characterData = ExtResource("2_cajpt")
-animLibName = "don"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=599901854]
 unique_name_in_owner = true
@@ -53,7 +51,8 @@ unique_name_in_owner = true
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_bs6a3")
 
-[node name="BaseAtkHitbox" type="Area2D" parent="SideTracker" unique_id=1283739801 node_paths=PackedStringArray("hitboxAreaList")]
+[node name="BaseAtkHitbox" type="Area2D" parent="SideTracker" unique_id=1283739801]
+unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("11_6wv34")
@@ -63,20 +62,18 @@ blockstun = 0.4
 knockbackX = 1500
 blockbackX = 600
 hitstopFrames = 5
-hitboxAreaList = [NodePath("BaseAtkHitboxShape")]
 
 [node name="BaseAtkHitboxShape" type="CollisionShape2D" parent="SideTracker/BaseAtkHitbox" unique_id=112687363]
 visible = false
 position = Vector2(65, -4)
-shape = SubResource("RectangleShape2D_tsap4")
+shape = ExtResource("7_1lbb8")
 disabled = true
 debug_color = Color(0.7, 0, 0, 0.41960785)
 
-[node name="CharacterHurtbox" type="Area2D" parent="SideTracker" unique_id=994874910 node_paths=PackedStringArray("hurtboxAreaList")]
+[node name="CharacterHurtbox" type="Area2D" parent="SideTracker" unique_id=994874910]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("12_ap31n")
-hurtboxAreaList = [NodePath("HurtboxShape"), NodePath("BaseAtkHurtbox1Shape")]
 
 [node name="HurtboxShape" type="CollisionShape2D" parent="SideTracker/CharacterHurtbox" unique_id=664979489]
 shape = SubResource("RectangleShape2D_0xudx")

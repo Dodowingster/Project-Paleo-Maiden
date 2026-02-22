@@ -25,10 +25,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	var techniqueToExecute : Technique = null
 	var children = get_children()
-	var count : int = 0
 	for child in children:
 		if child is Technique:
-			count += 1
 			if child.trigger_check():
 				if techniqueToExecute == null || techniqueToExecute.slotPriority < child.slotPriority:
 					techniqueToExecute = child

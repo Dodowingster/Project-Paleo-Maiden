@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://71l6nk5830yo" path="res://Mechanics/hitbox.gd" id="5_wj0cb"]
 [ext_resource type="Script" uid="uid://cuqyr28ih435l" path="res://Mechanics/hurtbox.gd" id="6_gjvu5"]
 [ext_resource type="Script" uid="uid://whbif5ykrdmj" path="res://Mechanics/States/state_machine.gd" id="7_a5iu6"]
+[ext_resource type="Shape2D" uid="uid://csdpet0w62gk5" path="res://Characters/ryoshu/hitboxes/ryoshu_baseatkshape.tres" id="7_i3btx"]
 [ext_resource type="Script" uid="uid://bqw1eo83vcp4r" path="res://Characters/States/state_hitstun.gd" id="8_hsu6n"]
 [ext_resource type="Script" uid="uid://chhf2t5cm2eg4" path="res://Characters/States/state_blockstun.gd" id="9_hn76h"]
 [ext_resource type="Script" uid="uid://bibnpqp5otcvs" path="res://Characters/States/state_idle.gd" id="10_lnxhv"]
@@ -23,9 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://c0ucds3whvuj1" path="res://Mechanics/Techniques/TechniqueTypes/RushTechnique.tscn" id="20_eosh7"]
 [ext_resource type="PackedScene" uid="uid://cfvom7euhykh6" path="res://Mechanics/Techniques/TechniqueTypes/SecondTechnique.tscn" id="21_eosh7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsap4"]
-size = Vector2(300, 128)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xudx"]
 size = Vector2(48, 128)
 
@@ -40,7 +38,6 @@ collision_layer = 16
 collision_mask = 16
 script = ExtResource("1_bi5y6")
 characterData = ExtResource("2_prufi")
-animLibName = "ryoshu"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=168969679]
 unique_name_in_owner = true
@@ -57,7 +54,8 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_eosh7")
 region_rect = Rect2(0, 0, 1199, 1310)
 
-[node name="BaseAtkHitbox" type="Area2D" parent="SideTracker" unique_id=937195184 node_paths=PackedStringArray("hitboxAreaList")]
+[node name="BaseAtkHitbox" type="Area2D" parent="SideTracker" unique_id=937195184]
+unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("5_wj0cb")
@@ -67,19 +65,17 @@ blockstun = 0.65
 knockbackX = 5000
 blockbackX = 2000
 hitstopFrames = 10
-hitboxAreaList = [NodePath("BaseAtkHitboxShape")]
 
 [node name="BaseAtkHitboxShape" type="CollisionShape2D" parent="SideTracker/BaseAtkHitbox" unique_id=1180688965]
 visible = false
-shape = SubResource("RectangleShape2D_tsap4")
+shape = ExtResource("7_i3btx")
 disabled = true
 debug_color = Color(0.7, 0, 0, 0.41960785)
 
-[node name="CharacterHurtbox" type="Area2D" parent="SideTracker" unique_id=369053781 node_paths=PackedStringArray("hurtboxAreaList")]
+[node name="CharacterHurtbox" type="Area2D" parent="SideTracker" unique_id=369053781]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("6_gjvu5")
-hurtboxAreaList = [NodePath("HurtboxShape"), NodePath("BaseAtkHurtbox1Shape")]
 
 [node name="HurtboxShape" type="CollisionShape2D" parent="SideTracker/CharacterHurtbox" unique_id=1208479990]
 shape = SubResource("RectangleShape2D_0xudx")

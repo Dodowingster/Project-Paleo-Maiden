@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="HitboxData" format=3 uid="uid://cio0tac8ba3j6"]
+
+[ext_resource type="Shape2D" uid="uid://csdpet0w62gk5" path="res://Characters/ryoshu/hitboxes/ryoshu_baseatkshape.tres" id="1_c2b81"]
+[ext_resource type="Script" uid="uid://djprxni5sqe65" path="res://Characters/generic/hitbox_data.gd" id="1_lqo67"]
+
+[resource]
+script = ExtResource("1_lqo67")
+damage = 20
+hitstun = 0.8
+blockstun = 0.65
+knockbackX = 5000
+blockbackX = 2000
+hitstopFrames = 10
+hitboxShape = ExtResource("1_c2b81")
+metadata/_custom_type_script = "uid://djprxni5sqe65"

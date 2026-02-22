@@ -12,7 +12,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var characterData : CharacterData
 ## Mainly for debugging and identification
 @onready var characterName : String
-@export var animLibName : String
+@onready var animLibName : String
 ## Base stat to calculate attack damage from
 @onready var atk: int  # currently unused
 ## Base stat to calculate damage taken
@@ -64,6 +64,7 @@ var was_in_hitstop: bool = false
 
 func _enter_tree() -> void:
 	characterName = characterData.characterName
+	animLibName = characterData.animLibName
 	atk = characterData.atk
 	def = characterData.def
 	spd = characterData.spd
@@ -81,6 +82,21 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	%SideTracker.set_facing_direction(startFacingRight)
+	
+	#base atk stuff
+	%BaseAtkHitbox.damage = characterData.baseAtkData.damage
+	%BaseAtkHitbox.hitstun = characterData.baseAtkData.hitstun
+	%BaseAtkHitbox.blockstun = characterData.baseAtkData.blockstun
+	%BaseAtkHitbox.knockbackX = characterData.baseAtkData.knockbackX
+	%BaseAtkHitbox.knockbackY = characterData.baseAtkData.knockbackY
+	%BaseAtkHitbox.blockbackX = characterData.baseAtkData.blockbackX
+	%BaseAtkHitbox.blockbackY = characterData.baseAtkData.blockbackY
+	%BaseAtkHitbox.hitstopFrames = characterData.baseAtkData.hitstopFrames
+	%BaseAtkHitbox.isMultiHit = characterData.baseAtkData.isMultiHit
+	%BaseAtkHitbox.groupName = characterData.baseAtkData.groupName
+	var hitboxshape : CollisionShape2D = %BaseAtkHitbox.get_child(0)
+	hitboxshape.shape = characterData.baseAtkData.hitboxShape
+	
 	GlobalValues.connect("updateDataToChar", _on_tick)
 	if opponent != null:
 		opponent.connect("broadcastAction", decide_action)
