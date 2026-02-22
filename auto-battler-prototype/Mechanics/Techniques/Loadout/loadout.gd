@@ -26,10 +26,8 @@ func setup_techniques() -> void:
 func techniques_check() -> void:
 	var chosenTechnique : Technique = null
 	var children = get_children()
-	var count : int = 0
 	for child in children:
 		if child is Technique:
-			count += 1
 			if child.trigger_check():
 				if chosenTechnique == null || chosenTechnique.slotPriority < child.slotPriority:
 					chosenTechnique = child
