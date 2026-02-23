@@ -1,8 +1,10 @@
 extends Node
 
 
-@export var char1 : PackedScene
-@export var char2 : PackedScene
+@onready var char1 : PackedScene
+@onready var char2 : PackedScene
+@export var data1 : CharacterData
+@export var data2 : CharacterData
 @export var p1SpawnPosition : Vector2
 @export var p2SpawnPosition : Vector2
 
@@ -14,9 +16,13 @@ extends Node
 
 
 func _ready() -> void:
+	char1 = load("res://Characters/generic/character.tscn")
+	char2 = load("res://Characters/generic/character.tscn")
 	if char1 != null and char2 != null:
 		nodeP1 = char1.instantiate()
 		nodeP2 = char2.instantiate()
+		nodeP1.characterData = data1
+		nodeP2.characterData = data2
 		nodeP1.startFacingRight = true
 		nodeP2.startFacingRight = false
 		nodeP1.opponent = nodeP2

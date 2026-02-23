@@ -4,14 +4,14 @@
 [ext_resource type="Script" uid="uid://dggc1tw4nmkkk" path="res://Mechanics/data_tracker.gd" id="1_7in27"]
 [ext_resource type="Script" uid="uid://cdylqchnf8jnu" path="res://Stages/runner.gd" id="2_84gnr"]
 [ext_resource type="Script" uid="uid://c51us734jurpc" path="res://UI/debug_ui.gd" id="2_nmfya"]
-[ext_resource type="PackedScene" uid="uid://c0n8jl8cb30ey" path="res://Characters/don/character_don.tscn" id="3_84gnr"]
 [ext_resource type="Texture2D" uid="uid://dlkjbch0cfhkn" path="res://Stages/assets/dirtfield.png" id="3_hmbi7"]
+[ext_resource type="Resource" uid="uid://c2k2423pfb03h" path="res://Characters/don/don_data.tres" id="3_y2t8x"]
 [ext_resource type="Texture2D" uid="uid://cs52kxor2xbar" path="res://Stages/assets/cliff.png" id="4_2ge0f"]
+[ext_resource type="Resource" uid="uid://c2pi52jo2w0y8" path="res://Characters/ryoshu/ryoshu_data.tres" id="4_84gnr"]
 [ext_resource type="Texture2D" uid="uid://bw3vi8afoxpmr" path="res://Characters/placeholder_sprites/Tyran_Rex/tyran_rex-idle.png" id="6_2ge0f"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_1su0b"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="8_lnwe3"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_5dtn3"]
-[ext_resource type="PackedScene" uid="uid://cuygyjev8fxp8" path="res://Characters/ryoshu/character_ryoshu.tscn" id="9_y2t8x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhvwd"]
 size = Vector2(2000, 32)
@@ -29,8 +29,8 @@ script = ExtResource("1_3gimc")
 [node name="Runner" type="Node" parent="." unique_id=2070498116]
 process_mode = 1
 script = ExtResource("2_84gnr")
-char1 = ExtResource("3_84gnr")
-char2 = ExtResource("9_y2t8x")
+data1 = ExtResource("3_y2t8x")
+data2 = ExtResource("4_84gnr")
 p1SpawnPosition = Vector2(88, 280)
 p2SpawnPosition = Vector2(704, 280)
 

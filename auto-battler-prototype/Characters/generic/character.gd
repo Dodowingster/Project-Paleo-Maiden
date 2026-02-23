@@ -65,6 +65,12 @@ var was_in_hitstop: bool = false
 func _enter_tree() -> void:
 	characterName = characterData.characterName
 	animLibName = characterData.animLibName
+	# clear animation libraries
+	var libs : Array[StringName] = %AnimationPlayer.get_animation_library_list()
+	for lib in libs:
+		%AnimationPlayer.remove_animation_library(lib)
+	# add the needed animation library
+	%AnimationPlayer.add_animation_library(animLibName, characterData.animLib)
 	atk = characterData.atk
 	def = characterData.def
 	spd = characterData.spd
