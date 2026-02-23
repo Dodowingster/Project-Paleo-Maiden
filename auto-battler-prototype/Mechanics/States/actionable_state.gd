@@ -81,10 +81,6 @@ func balanced_strategy_logic() -> String:
 			elif owner.distance > owner.maxDistance:
 				decision = "MoveForward"
 	
-	if decision == "BaseAttack":
-		owner.broadcastAction.emit(GlobalValues.ACTION.ATTACK)
-	else:
-		owner.broadcastAction.emit(GlobalValues.ACTION.MOVE)
 	return decision
 
 
