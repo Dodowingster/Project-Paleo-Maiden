@@ -100,6 +100,7 @@ func _ready() -> void:
 	%BaseAtkHitbox.hitstopFrames = characterData.baseAtkData.hitstopFrames
 	%BaseAtkHitbox.isMultiHit = characterData.baseAtkData.isMultiHit
 	%BaseAtkHitbox.groupName = characterData.baseAtkData.groupName
+	# set hitbox shape (eventually need to initialize collisionshapes in here)
 	var hitboxshape : CollisionShape2D = %BaseAtkHitbox.get_child(0)
 	hitboxshape.shape = characterData.baseAtkData.hitboxShape
 	
