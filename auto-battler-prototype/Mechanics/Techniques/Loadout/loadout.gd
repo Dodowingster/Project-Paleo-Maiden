@@ -7,7 +7,7 @@ signal updateTriggerStatus(position: int, canExecute: bool)
 
 @export var priorityPerPosition : int = 5
 
-func _ready() -> void:
+func setup_techniques() -> void:
 	# Initialize techniques array
 	var children = get_children()
 	# gets all children, remember to filter by techniques

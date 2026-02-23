@@ -3,9 +3,13 @@ extends Node
 
 @onready var char1 : PackedScene
 @onready var char2 : PackedScene
+
 @export var data1 : CharacterData
-@export var data2 : CharacterData
+@export var loadout1 : Array[PackedScene]
 @export var p1SpawnPosition : Vector2
+
+@export var data2 : CharacterData
+@export var loadout2 : Array[PackedScene]
 @export var p2SpawnPosition : Vector2
 
 @onready var nodeP1 : Character
@@ -18,7 +22,7 @@ extends Node
 func _ready() -> void:
 	char1 = load("res://Characters/generic/character.tscn")
 	char2 = load("res://Characters/generic/character.tscn")
-	if char1 != null and char2 != null:
+	if data1 != null and data2 != null:
 		nodeP1 = char1.instantiate()
 		nodeP2 = char2.instantiate()
 		nodeP1.characterData = data1
@@ -34,6 +38,16 @@ func _ready() -> void:
 		nodeP2.position = p2SpawnPosition
 		self.add_child(nodeP1)
 		self.add_child(nodeP2)
+		for technique in loadout1:
+			var techniqueNode = technique.instantiate()
+			if techniqueNode is Technique:
+				nodeP1.loadout.add_child(techniqueNode)
+		nodeP1.loadout.setup_techniques()
+		for technique in loadout2:
+			var techniqueNode = technique.instantiate()
+			if techniqueNode is Technique:
+				nodeP2.loadout.add_child(techniqueNode)
+		nodeP2.loadout.setup_techniques()
 		ui.P1 = nodeP1
 		ui.P2 = nodeP2
 		ui.char_setup()

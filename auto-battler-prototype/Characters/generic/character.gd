@@ -53,7 +53,7 @@ var hitstun : float = 0
 var hitknockbackX : float = 0.000
 var hitknockbackY : float = 0.000
 var health : int = maxHP
-@onready var loadout : Loadout = $Loadout
+var loadout : Loadout
 
 ## Set opponent character here
 @export var opponent : Character
@@ -63,6 +63,7 @@ var stored_velocity: Vector2 = Vector2.ZERO
 var was_in_hitstop: bool = false
 
 func _enter_tree() -> void:
+	loadout = %Loadout
 	characterName = characterData.characterName
 	animLibName = characterData.animLibName
 	# clear animation libraries
