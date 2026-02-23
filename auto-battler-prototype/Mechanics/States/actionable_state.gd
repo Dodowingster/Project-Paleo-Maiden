@@ -15,7 +15,14 @@ func update(_delta: float):
 			decision = balanced_strategy_logic()
 		elif chosenStrategy == GlobalValues.STRATEGY.DEFENSIVE:
 			decision = defensive_strategy_logic()
-		
+	
+	if decision == "BaseAttack" or decision == "Technique":
+		owner.broadcastAction.emit(GlobalValues.ACTION.ATTACK)
+	else:
+		owner.broadcastAction.emit(GlobalValues.ACTION.MOVE)
+	
+	# fix logic by doing two rounds of decision logic
+	
 	if decision != "" && decision != self.name:
 		transition.emit(self, decision)
 
@@ -42,7 +49,7 @@ func aggressive_strategy_logic() -> String:
 			else:
 				decision = "MoveForward"
 	
-	if decision == "BaseAttack":
+	if decision == "BaseAttack" or decision == "Technique":
 		owner.broadcastAction.emit(GlobalValues.ACTION.ATTACK)
 	else:
 		owner.broadcastAction.emit(GlobalValues.ACTION.MOVE)
@@ -79,10 +86,6 @@ func balanced_strategy_logic() -> String:
 			elif owner.distance > owner.maxDistance:
 				decision = "MoveForward"
 	
-	if decision == "BaseAttack":
-		owner.broadcastAction.emit(GlobalValues.ACTION.ATTACK)
-	else:
-		owner.broadcastAction.emit(GlobalValues.ACTION.MOVE)
 	return decision
 
 
@@ -102,7 +105,7 @@ func defensive_strategy_logic() -> String:
 	else:
 		decision = "MoveBackward"
 	
-	if decision == "BaseAttack":
+	if decision == "BaseAttack" or decision == "Technique":
 		owner.broadcastAction.emit(GlobalValues.ACTION.ATTACK)
 	else:
 		owner.broadcastAction.emit(GlobalValues.ACTION.MOVE)

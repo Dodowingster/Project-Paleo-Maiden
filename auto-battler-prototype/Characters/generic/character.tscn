@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://iwn3gnxw56qj" path="res://Characters/placeholder_sprites/A_CinqEastDon/skill2_2~3.png" id="3_1g87l"]
 [ext_resource type="AnimationLibrary" uid="uid://boalcp78pqj5n" path="res://Characters/don/anims/don.res" id="4_1us7d"]
 [ext_resource type="Script" uid="uid://colufoqxh8nwm" path="res://Characters/generic/side_tracker.gd" id="4_ocvec"]
+[ext_resource type="AnimationLibrary" uid="uid://dkhtxnpfpt0ey" path="res://Characters/ryoshu/anims/ryoshu.res" id="5_1us7d"]
 [ext_resource type="Script" uid="uid://71l6nk5830yo" path="res://Mechanics/hitbox.gd" id="6_s8f15"]
 [ext_resource type="Shape2D" uid="uid://c03de4iv0ht51" path="res://Characters/don/hitboxes/don_baseatkshape.tres" id="7_kntwo"]
 [ext_resource type="Script" uid="uid://cuqyr28ih435l" path="res://Mechanics/hurtbox.gd" id="8_7en0w"]
@@ -74,6 +75,7 @@ characterData = ExtResource("2_1us7d")
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_ocvec")
 libraries/don = ExtResource("4_1us7d")
+libraries/ryoshu = ExtResource("5_1us7d")
 
 [node name="SideTracker" type="Node2D" parent="." unique_id=1595326739]
 unique_name_in_owner = true
