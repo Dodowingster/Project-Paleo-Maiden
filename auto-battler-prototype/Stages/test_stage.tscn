@@ -32,10 +32,10 @@ script = ExtResource("1_3gimc")
 process_mode = 1
 script = ExtResource("2_84gnr")
 data1 = ExtResource("3_y2t8x")
-loadout1 = Array[PackedScene]([ExtResource("5_jud1q")])
+loadout1 = Array[PackedScene]([ExtResource("6_oxt3d")])
 p1SpawnPosition = Vector2(88, 280)
 data2 = ExtResource("4_84gnr")
-loadout2 = Array[PackedScene]([ExtResource("5_jud1q"), ExtResource("6_oxt3d")])
+loadout2 = Array[PackedScene]([ExtResource("5_jud1q")])
 p2SpawnPosition = Vector2(704, 280)
 
 [node name="DataTracker" type="Node" parent="Runner" unique_id=1905321381]

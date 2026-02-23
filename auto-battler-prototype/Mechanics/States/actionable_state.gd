@@ -38,6 +38,10 @@ func aggressive_strategy_logic() -> String:
 			else:
 				decision = "MoveForward"
 	
+	if decision == "BaseAttack":
+		owner.broadcastAction.emit(GlobalValues.ACTION.ATTACK)
+	else:
+		owner.broadcastAction.emit(GlobalValues.ACTION.MOVE)
 	return decision
 
 
@@ -71,6 +75,10 @@ func balanced_strategy_logic() -> String:
 			elif owner.distance > owner.maxDistance:
 				decision = "MoveForward"
 	
+	if decision == "BaseAttack":
+		owner.broadcastAction.emit(GlobalValues.ACTION.ATTACK)
+	else:
+		owner.broadcastAction.emit(GlobalValues.ACTION.MOVE)
 	return decision
 
 
@@ -90,4 +98,8 @@ func defensive_strategy_logic() -> String:
 	else:
 		decision = "MoveBackward"
 	
+	if decision == "BaseAttack":
+		owner.broadcastAction.emit(GlobalValues.ACTION.ATTACK)
+	else:
+		owner.broadcastAction.emit(GlobalValues.ACTION.MOVE)
 	return decision

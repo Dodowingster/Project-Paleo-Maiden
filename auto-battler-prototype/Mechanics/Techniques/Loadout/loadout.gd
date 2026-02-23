@@ -22,7 +22,7 @@ func setup_techniques() -> void:
 			child.executionStatusChanged.connect(notify_ui)
 			count += 1
 
-func _process(_delta: float) -> void:
+func techniques_check() -> Technique:
 	var techniqueToExecute : Technique = null
 	var children = get_children()
 	for child in children:
@@ -31,8 +31,9 @@ func _process(_delta: float) -> void:
 				if techniqueToExecute == null || techniqueToExecute.slotPriority < child.slotPriority:
 					techniqueToExecute = child
 			
-	if techniqueToExecute != null:
-		techniqueToExecute.execute_technique()
+	#if techniqueToExecute != null:
+		#techniqueToExecute.execute_technique()
+	return techniqueToExecute
 
 func notify_ui(technique: Technique, executionStatus: bool) -> void:
 	updateTriggerStatus.emit(technique.get_index() + 1, executionStatus)
