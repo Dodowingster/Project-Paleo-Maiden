@@ -9,6 +9,7 @@ enum TECHNIQUE_TYPE { RUSH, REVERSAL, SHORT_RANGE, MID_RANGE, LONG_RANGE, PROJEC
 # debug vars
 var characterName: String
 var techniqueName: String
+var animName: String
 
 var triggers: Array[Trigger]
 @export var effects: Array

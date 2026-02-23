@@ -10,7 +10,6 @@
 [ext_resource type="Resource" uid="uid://c2pi52jo2w0y8" path="res://Characters/ryoshu/ryoshu_data.tres" id="4_84gnr"]
 [ext_resource type="PackedScene" uid="uid://c0ucds3whvuj1" path="res://Mechanics/Techniques/TechniqueTypes/RushTechnique.tscn" id="5_jud1q"]
 [ext_resource type="Texture2D" uid="uid://bw3vi8afoxpmr" path="res://Characters/placeholder_sprites/Tyran_Rex/tyran_rex-idle.png" id="6_2ge0f"]
-[ext_resource type="PackedScene" uid="uid://cfvom7euhykh6" path="res://Mechanics/Techniques/TechniqueTypes/SecondTechnique.tscn" id="6_oxt3d"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_1su0b"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="8_lnwe3"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_5dtn3"]
@@ -32,7 +31,7 @@ script = ExtResource("1_3gimc")
 process_mode = 1
 script = ExtResource("2_84gnr")
 data1 = ExtResource("3_y2t8x")
-loadout1 = Array[PackedScene]([ExtResource("6_oxt3d")])
+loadout1 = Array[PackedScene]([ExtResource("5_jud1q")])
 p1SpawnPosition = Vector2(88, 280)
 data2 = ExtResource("4_84gnr")
 loadout2 = Array[PackedScene]([ExtResource("5_jud1q")])

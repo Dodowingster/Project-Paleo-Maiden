@@ -6,15 +6,17 @@ class_name StateTechnique
 var animList : PackedStringArray = []
 var animName : String
 var lastTick : int = 0
+var chosenTechnique : Technique
 #var spriteOGCoordinates : Vector2 = Vector2.ZERO
 
 func _ready():
 	animList = animPlayer.get_animation_list()
-	animName = owner.animLibName + "/baseattack"
 
 func enter():
 	owner.canClash = false
 	owner.currentActionGoal = 0
+	chosenTechnique = %Loadout.techniqueToExecute
+	animName = owner.animLibName + "/" + chosenTechnique.animName
 	if animName in animList:
 		animPlayer.play(animName)
 

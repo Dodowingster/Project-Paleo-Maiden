@@ -4,13 +4,17 @@ class_name ActionableState
 func update(_delta: float):
 	var decision : String = ""
 	var chosenStrategy: GlobalValues.STRATEGY = owner.strategy
-
-	if chosenStrategy == GlobalValues.STRATEGY.AGGRESSIVE:
-		decision = aggressive_strategy_logic()
-	elif chosenStrategy == GlobalValues.STRATEGY.BALANCED:
-		decision = balanced_strategy_logic()
-	elif chosenStrategy == GlobalValues.STRATEGY.DEFENSIVE:
-		decision = defensive_strategy_logic()
+	
+	%Loadout.techniques_check()
+	if %Loadout.techniqueToExecute != null:
+		decision = "Technique"
+	else:
+		if chosenStrategy == GlobalValues.STRATEGY.AGGRESSIVE:
+			decision = aggressive_strategy_logic()
+		elif chosenStrategy == GlobalValues.STRATEGY.BALANCED:
+			decision = balanced_strategy_logic()
+		elif chosenStrategy == GlobalValues.STRATEGY.DEFENSIVE:
+			decision = defensive_strategy_logic()
 		
 	if decision != "" && decision != self.name:
 		transition.emit(self, decision)
