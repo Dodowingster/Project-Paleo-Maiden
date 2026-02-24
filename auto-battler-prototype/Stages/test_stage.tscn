@@ -8,7 +8,8 @@
 [ext_resource type="Resource" uid="uid://c2k2423pfb03h" path="res://Characters/don/don_data.tres" id="3_y2t8x"]
 [ext_resource type="Texture2D" uid="uid://cs52kxor2xbar" path="res://Stages/assets/cliff.png" id="4_2ge0f"]
 [ext_resource type="Resource" uid="uid://c2pi52jo2w0y8" path="res://Characters/ryoshu/ryoshu_data.tres" id="4_84gnr"]
-[ext_resource type="PackedScene" uid="uid://c0ucds3whvuj1" path="res://Mechanics/Techniques/TechniqueTypes/RushTechnique.tscn" id="5_jud1q"]
+[ext_resource type="Script" uid="uid://c0c4p57o71yio" path="res://Characters/generic/technique_data.gd" id="4_oxt3d"]
+[ext_resource type="Resource" uid="uid://bouom4lj25mga" path="res://Characters/don/techniques/don_rush.tres" id="5_kcvyg"]
 [ext_resource type="Texture2D" uid="uid://bw3vi8afoxpmr" path="res://Characters/placeholder_sprites/Tyran_Rex/tyran_rex-idle.png" id="6_2ge0f"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_1su0b"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="8_lnwe3"]
@@ -31,10 +32,9 @@ script = ExtResource("1_3gimc")
 process_mode = 1
 script = ExtResource("2_84gnr")
 data1 = ExtResource("3_y2t8x")
-loadout1 = Array[PackedScene]([ExtResource("5_jud1q")])
+loadout1 = Array[ExtResource("4_oxt3d")]([ExtResource("5_kcvyg")])
 p1SpawnPosition = Vector2(88, 280)
 data2 = ExtResource("4_84gnr")
-loadout2 = Array[PackedScene]([ExtResource("5_jud1q")])
 p2SpawnPosition = Vector2(704, 280)
 
 [node name="DataTracker" type="Node" parent="Runner" unique_id=1905321381]

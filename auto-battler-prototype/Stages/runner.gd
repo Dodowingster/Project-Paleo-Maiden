@@ -5,11 +5,11 @@ extends Node
 @onready var char2 : PackedScene
 
 @export var data1 : CharacterData
-@export var loadout1 : Array[PackedScene]
+@export var loadout1 : Array[TechniqueData]
 @export var p1SpawnPosition : Vector2
 
 @export var data2 : CharacterData
-@export var loadout2 : Array[PackedScene]
+@export var loadout2 : Array[TechniqueData]
 @export var p2SpawnPosition : Vector2
 
 @onready var nodeP1 : Character
@@ -38,13 +38,13 @@ func _ready() -> void:
 		nodeP2.position = p2SpawnPosition
 		self.add_child(nodeP1)
 		self.add_child(nodeP2)
-		for technique in loadout1:
-			var techniqueNode = technique.instantiate()
+		for technique_data in loadout1:
+			var techniqueNode = technique_data.technique.instantiate()
 			if techniqueNode is Technique:
 				nodeP1.loadout.add_child(techniqueNode)
 		nodeP1.loadout.setup_techniques()
-		for technique in loadout2:
-			var techniqueNode = technique.instantiate()
+		for technique_data in loadout2:
+			var techniqueNode = technique_data.technique.instantiate()
 			if techniqueNode is Technique:
 				nodeP2.loadout.add_child(techniqueNode)
 		nodeP2.loadout.setup_techniques()
