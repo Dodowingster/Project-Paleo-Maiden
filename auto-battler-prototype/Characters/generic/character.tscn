@@ -25,38 +25,6 @@
 [ext_resource type="Script" uid="uid://nqsoppuuytas" path="res://Characters/generic/state_technique.gd" id="21_1us7d"]
 [ext_resource type="PackedScene" uid="uid://wa1rn1pd2gkc" path="res://Mechanics/Techniques/Loadout/Loadout.tscn" id="21_ucqw4"]
 
-[sub_resource type="Animation" id="Animation_ryghy"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SideTracker/Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_1g87l")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SideTracker/Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(24, 20)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ocvec"]
-_data = {
-&"RESET": SubResource("Animation_ryghy")
-}
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xudx"]
 size = Vector2(48, 128)
 
@@ -82,7 +50,7 @@ script = ExtResource("4_ocvec")
 
 [node name="Sprite" type="Sprite2D" parent="SideTracker" unique_id=1654816590]
 unique_name_in_owner = true
-position = Vector2(24, 20)
+position = Vector2(0, 20)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("6_ryghy")
 script = ExtResource("7_ryghy")
