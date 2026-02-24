@@ -5,7 +5,7 @@ func update(_delta: float):
 	var decision : String = ""
 	var chosenStrategy: GlobalValues.STRATEGY = owner.strategy
 	
-	%Loadout.techniques_check()
+	#%Loadout.techniques_check()
 	if %Loadout.techniqueToExecute != null:
 		decision = "Technique"
 	else:
@@ -16,10 +16,10 @@ func update(_delta: float):
 		elif chosenStrategy == GlobalValues.STRATEGY.DEFENSIVE:
 			decision = defensive_strategy_logic()
 	
-	if decision == "BaseAttack" or decision == "Technique":
-		owner.broadcastAction.emit(GlobalValues.ACTION.ATTACK)
-	else:
-		owner.broadcastAction.emit(GlobalValues.ACTION.MOVE)
+	#if decision == "BaseAttack" or decision == "Technique":
+		#owner.broadcastAction.emit(GlobalValues.ACTION.ATTACK)
+	#else:
+		#owner.broadcastAction.emit(GlobalValues.ACTION.MOVE)
 	
 	# fix logic by doing two rounds of decision logic
 	
