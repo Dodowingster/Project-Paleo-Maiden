@@ -112,6 +112,70 @@ func _ready() -> void:
 		opponent.connect("broadcastClashResult", on_clash_result_rcvd)
 		opponent.connect("broadcastWinState", on_win_confirmed)
 
+func setup_loadout(techniqueDataList : Array[TechniqueData]) -> void:
+	var resetAnim : Animation = %AnimationPlayer.get_animation(animLibName + "/RESET")
+	var hitstunAnim : Animation = %AnimationPlayer.get_animation(animLibName + "/hitstun")
+	for technique_data in techniqueDataList:
+		var techniqueNode = technique_data.technique.instantiate()
+		if techniqueNode is Technique:
+			loadout.add_child(techniqueNode)
+			for i in technique_data.hitboxes.size():
+				var techniqueHitbox : HitBox = HitBox.new()
+				techniqueHitbox.damage = technique_data.hitboxes[i].damage
+				techniqueHitbox.hitstun = technique_data.hitboxes[i].hitstun
+				techniqueHitbox.blockstun = technique_data.hitboxes[i].blockstun
+				techniqueHitbox.knockbackX = technique_data.hitboxes[i].knockbackX
+				techniqueHitbox.knockbackY = technique_data.hitboxes[i].knockbackY
+				techniqueHitbox.blockbackX = technique_data.hitboxes[i].blockbackX
+				techniqueHitbox.blockbackY = technique_data.hitboxes[i].blockbackY
+				techniqueHitbox.hitstopFrames = technique_data.hitboxes[i].hitstopFrames
+				techniqueHitbox.isMultiHit = technique_data.hitboxes[i].isMultiHit
+				techniqueHitbox.groupName = technique_data.hitboxes[i].groupName
+				var hitboxShape : CollisionShape2D = CollisionShape2D.new()
+				hitboxShape.shape = technique_data.hitboxes[i].hitboxShape
+				hitboxShape.disabled = true
+				hitboxShape.visible = true
+				hitboxShape.debug_color = Color(0.69, 0, 0, 0.41)
+				hitboxShape.position = technique_data.hitboxLocations[i]
+				techniqueHitbox.add_child(hitboxShape)
+				%SideTracker.add_child(techniqueHitbox)
+				techniqueHitbox.owner = self
+				# set keys for technique
+				var techniqueAnim : Animation = %AnimationPlayer.get_animation(animLibName + "/" + techniqueNode.animName)
+				var track_idx = techniqueAnim.add_track(Animation.TYPE_VALUE)
+				techniqueAnim.track_set_path(track_idx, "%s:disabled" % hitboxShape.get_path())
+				techniqueAnim.value_track_set_update_mode(track_idx, Animation.UPDATE_DISCRETE)
+				techniqueAnim.track_insert_key(track_idx, 0, true)
+				techniqueAnim.track_insert_key(track_idx, technique_data.hitboxStartups[i]/60.0, false)
+				techniqueAnim.track_insert_key(track_idx, (technique_data.hitboxStartups[i] + technique_data.hitboxActive[i])/60.0, true)
+				track_idx = techniqueAnim.add_track(Animation.TYPE_VALUE)
+				techniqueAnim.track_set_path(track_idx, "%s:visible" % hitboxShape.get_path())
+				techniqueAnim.value_track_set_update_mode(track_idx, Animation.UPDATE_DISCRETE)
+				techniqueAnim.track_insert_key(track_idx, 0, false)
+				techniqueAnim.track_insert_key(track_idx, technique_data.hitboxStartups[i]/60.0, true)
+				techniqueAnim.track_insert_key(track_idx, (technique_data.hitboxStartups[i] + technique_data.hitboxActive[i])/60.0, false)
+				
+				# set keys for reset
+				track_idx = resetAnim.add_track(Animation.TYPE_VALUE)
+				resetAnim.track_set_path(track_idx, "%s:disabled" % hitboxShape.get_path())
+				resetAnim.value_track_set_update_mode(track_idx, Animation.UPDATE_DISCRETE)
+				resetAnim.track_insert_key(track_idx, 0, true)
+				track_idx = resetAnim.add_track(Animation.TYPE_VALUE)
+				resetAnim.track_set_path(track_idx, "%s:visible" % hitboxShape.get_path())
+				resetAnim.value_track_set_update_mode(track_idx, Animation.UPDATE_DISCRETE)
+				resetAnim.track_insert_key(track_idx, 0, false)
+				# set keys for hitstun
+				track_idx = hitstunAnim.add_track(Animation.TYPE_VALUE)
+				hitstunAnim.track_set_path(track_idx, "%s:disabled" % hitboxShape.get_path())
+				hitstunAnim.value_track_set_update_mode(track_idx, Animation.UPDATE_DISCRETE)
+				hitstunAnim.track_insert_key(track_idx, 0, true)
+				track_idx = hitstunAnim.add_track(Animation.TYPE_VALUE)
+				hitstunAnim.track_set_path(track_idx, "%s:visible" % hitboxShape.get_path())
+				hitstunAnim.value_track_set_update_mode(track_idx, Animation.UPDATE_DISCRETE)
+				hitstunAnim.track_insert_key(track_idx, 0, false)
+				
+	loadout.setup_techniques()
+
 func set_char_velocity(_delta:float):
 	if not is_on_floor():
 		velocity.y += gravity
@@ -121,7 +185,6 @@ func set_char_velocity(_delta:float):
 		hitknockbackY = 0.000
 	else:
 		velocity.x = lerp(velocity.x, 0.000, 0.250)
-
 
 func check_can_attack():
 	return (currentActionGoal >= actionGoalTotal && 			# Action goal check
@@ -180,7 +243,6 @@ func _on_tick(rcvDistance: float, rcvTickCount: int):
 			else:
 				broadcastAction.emit(GlobalValues.ACTION.MOVE)
 
-
 func get_hit(hitbox: HitBox, _hurtbox: Hurtbox):
 	var parent = hitbox.owner
 	if parent != self:
@@ -235,7 +297,6 @@ func get_hit(hitbox: HitBox, _hurtbox: Hurtbox):
 		#
 		%StateMachine.on_child_transition($StateMachine.currentState, chosenHitState)
 		opponentIsAttacking = false
-
 
 func decide_action(oppAction: GlobalValues.ACTION):
 	if oppAction == GlobalValues.ACTION.ATTACK:

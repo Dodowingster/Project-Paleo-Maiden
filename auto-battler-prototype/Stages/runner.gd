@@ -38,16 +38,8 @@ func _ready() -> void:
 		nodeP2.position = p2SpawnPosition
 		self.add_child(nodeP1)
 		self.add_child(nodeP2)
-		for technique_data in loadout1:
-			var techniqueNode = technique_data.technique.instantiate()
-			if techniqueNode is Technique:
-				nodeP1.loadout.add_child(techniqueNode)
-		nodeP1.loadout.setup_techniques()
-		for technique_data in loadout2:
-			var techniqueNode = technique_data.technique.instantiate()
-			if techniqueNode is Technique:
-				nodeP2.loadout.add_child(techniqueNode)
-		nodeP2.loadout.setup_techniques()
+		nodeP1.setup_loadout(loadout1)
+		nodeP2.setup_loadout(loadout2)
 		ui.P1 = nodeP1
 		ui.P2 = nodeP2
 		ui.char_setup()

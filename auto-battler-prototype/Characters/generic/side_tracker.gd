@@ -1,4 +1,5 @@
 extends Node2D
+class_name SideTracker
 
 var side = 1        # 1 = right, -1 = left
 var canFlip = true

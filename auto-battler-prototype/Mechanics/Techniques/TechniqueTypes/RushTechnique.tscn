@@ -13,4 +13,5 @@ metadata/_custom_type_script = "uid://davbi37fiwm0b"
 
 [node name="HpTrigger" type="Node" parent="." unique_id=1884708736]
 script = ExtResource("5_0n3km")
+hpCriteriaUpper = 50
 metadata/_custom_type_script = "uid://ca0greousgvam"
