@@ -16,7 +16,7 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_5dtn3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhvwd"]
-size = Vector2(2000, 32)
+size = Vector2(1000, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_84gnr"]
 size = Vector2(16, 480)
@@ -241,7 +241,7 @@ collision_layer = 16
 collision_mask = 16
 
 [node name="WallCollision" type="CollisionShape2D" parent="Runner/WallLeft" unique_id=289652172]
-position = Vector2(-584, 144)
+position = Vector2(-84, 144)
 shape = SubResource("RectangleShape2D_84gnr")
 
 [node name="WallRight" type="StaticBody2D" parent="Runner" unique_id=1269666561]
@@ -249,7 +249,7 @@ collision_layer = 16
 collision_mask = 16
 
 [node name="WallCollision" type="CollisionShape2D" parent="Runner/WallRight" unique_id=64733506]
-position = Vector2(1416, 144)
+position = Vector2(916, 144)
 shape = SubResource("RectangleShape2D_84gnr")
 
 [node name="PhanCam" type="Node2D" parent="." unique_id=280291903]
