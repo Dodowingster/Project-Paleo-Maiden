@@ -134,7 +134,7 @@ func setup_loadout(techniqueDataList : Array[TechniqueData]) -> void:
 				var hitboxShape : CollisionShape2D = CollisionShape2D.new()
 				hitboxShape.shape = technique_data.hitboxes[i].hitboxShape
 				hitboxShape.disabled = true
-				hitboxShape.visible = true
+				hitboxShape.visible = false
 				hitboxShape.debug_color = Color(0.69, 0, 0, 0.41)
 				hitboxShape.position = technique_data.hitboxLocations[i]
 				techniqueHitbox.add_child(hitboxShape)

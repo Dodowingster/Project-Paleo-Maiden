@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bggk0a3c0aeag" path="res://Mechanics/Techniques/TechniqueTypes/rush_technique.gd" id="1_k6iuy"]
 [ext_resource type="Script" uid="uid://davbi37fiwm0b" path="res://Mechanics/Techniques/Triggers/action_goal_trigger.gd" id="2_mfsfk"]
+[ext_resource type="Script" uid="uid://vvpc8qlg01o" path="res://Mechanics/Techniques/Triggers/range_trigger.gd" id="4_ulrdt"]
 [ext_resource type="Script" uid="uid://ca0greousgvam" path="res://Mechanics/Techniques/Triggers/hp_trigger.gd" id="5_0n3km"]
 
 [node name="RushTechnique" type="Node" unique_id=1746416143]
@@ -13,5 +14,10 @@ metadata/_custom_type_script = "uid://davbi37fiwm0b"
 
 [node name="HpTrigger" type="Node" parent="." unique_id=1884708736]
 script = ExtResource("5_0n3km")
-hpCriteriaUpper = 50
 metadata/_custom_type_script = "uid://ca0greousgvam"
+
+[node name="RangeTrigger" type="Node" parent="." unique_id=1929594027]
+script = ExtResource("4_ulrdt")
+minRange = 100.0
+maxRange = 120.0
+metadata/_custom_type_script = "uid://vvpc8qlg01o"

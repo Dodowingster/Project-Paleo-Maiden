@@ -52,6 +52,9 @@ func setup_triggers(character: Character) -> void:
 		if trigger is HpTrigger:
 			print("	HP trigger initialized")
 			trigger.character = character
+		if trigger is RangeTrigger:
+			print("	Range trigger initialized")
+			trigger.character = character
 	
 	print("\n")
 
