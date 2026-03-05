@@ -136,7 +136,7 @@ func setup_loadout(techniqueDataList : Array[TechniqueData]) -> void:
 				hitboxShape.disabled = true
 				hitboxShape.visible = false
 				hitboxShape.debug_color = Color(0.69, 0, 0, 0.41)
-				hitboxShape.position = technique_data.hitboxLocations[i]
+				hitboxShape.position = technique_data.hitboxes[i].location
 				techniqueHitbox.add_child(hitboxShape)
 				%SideTracker.add_child(techniqueHitbox)
 				techniqueHitbox.owner = self
@@ -146,14 +146,14 @@ func setup_loadout(techniqueDataList : Array[TechniqueData]) -> void:
 				techniqueAnim.track_set_path(track_idx, "%s:disabled" % hitboxShape.get_path())
 				techniqueAnim.value_track_set_update_mode(track_idx, Animation.UPDATE_DISCRETE)
 				techniqueAnim.track_insert_key(track_idx, 0, true)
-				techniqueAnim.track_insert_key(track_idx, technique_data.hitboxStartups[i]/60.0, false)
-				techniqueAnim.track_insert_key(track_idx, (technique_data.hitboxStartups[i] + technique_data.hitboxActive[i])/60.0, true)
+				techniqueAnim.track_insert_key(track_idx, technique_data.hitboxes[i].startup/60.0, false)
+				techniqueAnim.track_insert_key(track_idx, (technique_data.hitboxes[i].startup + technique_data.hitboxes[i].active)/60.0, true)
 				track_idx = techniqueAnim.add_track(Animation.TYPE_VALUE)
 				techniqueAnim.track_set_path(track_idx, "%s:visible" % hitboxShape.get_path())
 				techniqueAnim.value_track_set_update_mode(track_idx, Animation.UPDATE_DISCRETE)
 				techniqueAnim.track_insert_key(track_idx, 0, false)
-				techniqueAnim.track_insert_key(track_idx, technique_data.hitboxStartups[i]/60.0, true)
-				techniqueAnim.track_insert_key(track_idx, (technique_data.hitboxStartups[i] + technique_data.hitboxActive[i])/60.0, false)
+				techniqueAnim.track_insert_key(track_idx, technique_data.hitboxes[i].startup/60.0, true)
+				techniqueAnim.track_insert_key(track_idx, (technique_data.hitboxes[i].startup + technique_data.hitboxes[i].active)/60.0, false)
 				
 				# set keys for reset
 				track_idx = resetAnim.add_track(Animation.TYPE_VALUE)

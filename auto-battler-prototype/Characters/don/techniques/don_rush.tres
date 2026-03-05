@@ -9,7 +9,4 @@
 script = ExtResource("2_0rysk")
 technique = ExtResource("4_is0jn")
 hitboxes = Array[ExtResource("1_nc1kb")]([ExtResource("2_gikfn")])
-hitboxStartups = Array[int]([20])
-hitboxActive = Array[int]([8])
-hitboxLocations = Array[Vector2]([Vector2(64, 8)])
 metadata/_custom_type_script = "uid://c0c4p57o71yio"

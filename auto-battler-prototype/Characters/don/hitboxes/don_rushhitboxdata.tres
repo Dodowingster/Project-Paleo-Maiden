@@ -12,4 +12,7 @@ knockbackX = 2000
 blockbackX = 500
 hitstopFrames = 8
 hitboxShape = ExtResource("1_hvwtj")
+startup = 20
+active = 8
+location = Vector2(64, 8)
 metadata/_custom_type_script = "uid://djprxni5sqe65"
