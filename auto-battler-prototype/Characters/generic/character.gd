@@ -313,3 +313,6 @@ func on_win_confirmed():
 	# stop doing stuff
 	var chosenHitState = "Win"
 	%StateMachine.on_child_transition($StateMachine.currentState, chosenHitState)
+
+func get_side() -> int:
+	return %SideTracker.side

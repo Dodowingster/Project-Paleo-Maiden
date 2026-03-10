@@ -12,7 +12,7 @@ var techniqueName: String
 var animName: String
 
 var triggers: Array[Trigger]
-@export var effects: Array
+var effects: Array[Effect]
 @onready var canExecute : bool = false
 @onready var techniqueType : TECHNIQUE_TYPE
 @onready var slotPriority : int = 0
@@ -35,11 +35,13 @@ func _ready() -> void:
 		# We only want the triggers
 		if child is Trigger:
 			triggers.append(child)
+		if child is Effect:
+			effects.append(child)
 
 func setup_priority(slotPriorityVal: int) -> void:
 	slotPriority = slotPriorityVal
 
-func setup_triggers(character: Character) -> void:
+func setup_triggers_and_effects(character: Character) -> void:
 	# Initialize character name (for debugging and potentially screen effects)
 	self.characterName = character.characterName
 	print(characterName)
@@ -55,6 +57,12 @@ func setup_triggers(character: Character) -> void:
 		if trigger is RangeTrigger:
 			print("	Range trigger initialized")
 			trigger.character = character
+	
+	print(" \nEffect setup for " + techniqueName)
+	
+	for effect in effects:
+		if effect is MoveEffect:
+			effect.character = character
 	
 	print("\n")
 

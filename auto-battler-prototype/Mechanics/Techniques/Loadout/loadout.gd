@@ -19,7 +19,7 @@ func setup_techniques() -> void:
 		# We only want the techniques
 		if child is Technique:
 			child.setup_priority(priorityPerPosition * (childrenCount - count))
-			child.setup_triggers(character)
+			child.setup_triggers_and_effects(character)
 			child.executionStatusChanged.connect(notify_ui)
 			count += 1
 

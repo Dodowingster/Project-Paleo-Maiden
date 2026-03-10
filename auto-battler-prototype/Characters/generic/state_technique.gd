@@ -22,14 +22,20 @@ func enter():
 
 
 func exit():
+	for effect in chosenTechnique.effects:
+		effect.reset()
 	animPlayer.play(owner.animLibName + "/RESET")
 
 
 func update(_delta: float):
-	pass
+	for effect in chosenTechnique.effects:
+		effect.execute_effect(_delta)
 
 
 func physics_update(_delta: float):
+	for effect in chosenTechnique.effects:
+		effect.execute_physics_effect(_delta)
+	
 	if owner.hitstop_frames > 0:
 		if not owner.was_in_hitstop:
 			owner.stored_velocity = owner.velocity
