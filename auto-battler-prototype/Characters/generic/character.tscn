@@ -50,7 +50,7 @@ script = ExtResource("4_ocvec")
 
 [node name="Sprite" type="Sprite2D" parent="SideTracker" unique_id=1654816590]
 unique_name_in_owner = true
-position = Vector2(0, 20)
+position = Vector2(56, 0)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("6_ryghy")
 script = ExtResource("7_ryghy")
