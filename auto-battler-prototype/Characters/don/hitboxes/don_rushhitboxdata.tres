@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_6lj3y")
-damage = 20
+damage = 15
 hitstun = 0.7
 blockstun = 0.55
 knockbackX = 2000
