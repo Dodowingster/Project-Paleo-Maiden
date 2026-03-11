@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://unt36v32v5nu"]
+
+[ext_resource type="Script" uid="uid://bggk0a3c0aeag" path="res://Mechanics/Techniques/TechniqueTypes/rush_technique.gd" id="1_f4hai"]
+[ext_resource type="Script" uid="uid://davbi37fiwm0b" path="res://Mechanics/Techniques/Triggers/action_goal_trigger.gd" id="2_fpvk4"]
+[ext_resource type="Script" uid="uid://vvpc8qlg01o" path="res://Mechanics/Techniques/Triggers/range_trigger.gd" id="3_oe2yn"]
+[ext_resource type="Script" uid="uid://dcjcx6dhuwnr4" path="res://Mechanics/Techniques/Effects/move_effect.gd" id="4_oe2yn"]
+
+[node name="Ryoshu_Rush" type="Node" unique_id=693203156]
+script = ExtResource("1_f4hai")
+
+[node name="ActionGoalTrigger" type="Node" parent="." unique_id=533879386]
+script = ExtResource("2_fpvk4")
+metadata/_custom_type_script = "uid://davbi37fiwm0b"
+
+[node name="RangeTrigger" type="Node" parent="." unique_id=1830907435]
+script = ExtResource("3_oe2yn")
+minRange = 150.0
+maxRange = 180.0
+metadata/_custom_type_script = "uid://vvpc8qlg01o"
+
+[node name="MoveEffect" type="Node" parent="." unique_id=864559123]
+script = ExtResource("4_oe2yn")
+velocity = Vector2(2200, 0)
+applyFrame = 25
+metadata/_custom_type_script = "uid://dcjcx6dhuwnr4"

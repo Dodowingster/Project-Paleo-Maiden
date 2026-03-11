@@ -16,16 +16,6 @@ var effects: Array[Effect]
 @onready var canExecute : bool = false
 @onready var techniqueType : TECHNIQUE_TYPE
 @onready var slotPriority : int = 0
-#@onready var hitboxList: Array[HitBox] 
-#@onready var hurtboxList: Array[Hurtbox]
-#
-#
-#@export var startup: Array[int]
-#@export var active: Array[int]
-#@export var recovery: Array[int]
-#
-#@export var hurtboxShowAt: Array[int]
-#@export var hurtboxActive: Array[int]
 
 func _ready() -> void:
 	# Initialize triggers array
