@@ -29,3 +29,8 @@ script = ExtResource("4_oe2yn")
 velocity = Vector2(2200, 0)
 applyFrame = 25
 metadata/_custom_type_script = "uid://dcjcx6dhuwnr4"
+
+[node name="CooldownTrigger" type="Node" parent="." unique_id=1286279239]
+script = ExtResource("5_aed7n")
+cooldown = 10.0
+metadata/_custom_type_script = "uid://cm2swp1i5yuvi"
