@@ -17,6 +17,9 @@ func enter():
 	owner.currentActionGoal = 0
 	chosenTechnique = %Loadout.techniqueToExecute
 	animName = owner.animLibName + "/" + chosenTechnique.animName
+	for trigger in chosenTechnique.triggers:
+		if trigger is CooldownTrigger:
+			trigger.reset()
 	if animName in animList:
 		animPlayer.play(animName)
 
