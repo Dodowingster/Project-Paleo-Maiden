@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://hrvfmlohrxj7" path="res://Characters/ryoshu/techniques/ryoshu_rush.tres" id="7_kcvyg"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_1su0b"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="8_lnwe3"]
+[ext_resource type="Resource" uid="uid://chfnndt3hm1wf" path="res://Characters/ryoshu/techniques/ryoshu_reversal.tres" id="8_uxbob"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_5dtn3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhvwd"]
@@ -36,7 +37,7 @@ data1 = ExtResource("3_y2t8x")
 loadout1 = Array[ExtResource("4_oxt3d")]([ExtResource("5_kcvyg")])
 p1SpawnPosition = Vector2(88, 280)
 data2 = ExtResource("4_84gnr")
-loadout2 = Array[ExtResource("4_oxt3d")]([ExtResource("7_kcvyg")])
+loadout2 = Array[ExtResource("4_oxt3d")]([ExtResource("7_kcvyg"), ExtResource("8_uxbob")])
 p2SpawnPosition = Vector2(704, 280)
 
 [node name="DataTracker" type="Node" parent="Runner" unique_id=1905321381]

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://4uhmmy32w4ms"]
+
+[ext_resource type="Script" uid="uid://bg6a50k8efu" path="res://Mechanics/Techniques/TechniqueTypes/reversal_technique.gd" id="1_lvp3g"]
+[ext_resource type="Script" uid="uid://brn2vsxpkvuvn" path="res://Mechanics/Techniques/Triggers/opp_state_trigger.gd" id="2_e17gi"]
+[ext_resource type="Script" uid="uid://vvpc8qlg01o" path="res://Mechanics/Techniques/Triggers/range_trigger.gd" id="3_pt63p"]
+[ext_resource type="Script" uid="uid://dcjcx6dhuwnr4" path="res://Mechanics/Techniques/Effects/move_effect.gd" id="4_1yojt"]
+
+[node name="Ryoshu_Reversal" type="Node" unique_id=1204371215]
+script = ExtResource("1_lvp3g")
+
+[node name="OppStateTrigger" type="Node" parent="." unique_id=1186920147]
+script = ExtResource("2_e17gi")
+metadata/_custom_type_script = "uid://brn2vsxpkvuvn"
+
+[node name="RangeTrigger" type="Node" parent="." unique_id=1952870101]
+script = ExtResource("3_pt63p")
+maxRange = 80.0
+metadata/_custom_type_script = "uid://vvpc8qlg01o"
+
+[node name="MoveEffect" type="Node" parent="." unique_id=1727249952]
+script = ExtResource("4_1yojt")
+velocity = Vector2(1000, 0)
+applyFrame = 15
+metadata/_custom_type_script = "uid://dcjcx6dhuwnr4"
+
+[node name="MoveEffect2" type="Node" parent="." unique_id=137924945]
+script = ExtResource("4_1yojt")
+velocity = Vector2(500, 0)
+applyFrame = 48
+metadata/_custom_type_script = "uid://dcjcx6dhuwnr4"

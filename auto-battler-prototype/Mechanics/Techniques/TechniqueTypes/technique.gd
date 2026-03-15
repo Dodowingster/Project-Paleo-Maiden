@@ -35,26 +35,29 @@ func setup_triggers_and_effects(character: Character) -> void:
 	# Initialize character name (for debugging and potentially screen effects)
 	self.characterName = character.characterName
 	print(characterName)
-	print("  Trigger setup for " + techniqueName)
+	print(" Trigger setup for " + techniqueName)
 
 	for trigger in triggers:
-		if trigger is ActionGoalTrigger:
-			print("	Action goal trigger initialized")
+		#if trigger is ActionGoalTrigger:
+			#print("	Action goal trigger initialized")
+			#trigger.character = character
+		#if trigger is HpTrigger:
+			#print("	HP trigger initialized")
+			#trigger.character = character
+		#if trigger is RangeTrigger:
+			#print(" Range trigger initialized")
+			#trigger.character = character
+		if trigger is ActionGoalTrigger or trigger is HpTrigger or trigger is RangeTrigger \
+		or trigger is OppStateTrigger:
 			trigger.character = character
-		if trigger is HpTrigger:
-			print("	HP trigger initialized")
-			trigger.character = character
-		if trigger is RangeTrigger:
-			print("	Range trigger initialized")
-			trigger.character = character
+		print("  " + trigger.name + " trigger initialized")
 	
-	print(" \nEffect setup for " + techniqueName)
+	print(" Effect setup for " + techniqueName)
 	
 	for effect in effects:
 		if effect is MoveEffect:
+			print("  " + effect.name + " effect initialized")
 			effect.character = character
-	
-	print("\n")
 
 func trigger_check() -> bool:
 	var conditions_met : bool = true

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TechniqueData" format=3 uid="uid://chfnndt3hm1wf"]
+
+[ext_resource type="Script" uid="uid://djprxni5sqe65" path="res://Characters/generic/hitbox_data.gd" id="1_mc8pt"]
+[ext_resource type="Script" uid="uid://c0c4p57o71yio" path="res://Characters/generic/technique_data.gd" id="2_4mfan"]
+[ext_resource type="Resource" uid="uid://cor26x6yp65b2" path="res://Characters/ryoshu/hitboxes/ryoshu_reversalhitboxdata.tres" id="2_ukb23"]
+[ext_resource type="PackedScene" uid="uid://4uhmmy32w4ms" path="res://Characters/ryoshu/techniques/Ryoshu_Reversal.tscn" id="3_4mfan"]
+
+[resource]
+script = ExtResource("2_4mfan")
+technique = ExtResource("3_4mfan")
+hitboxes = Array[ExtResource("1_mc8pt")]([ExtResource("2_ukb23")])
+metadata/_custom_type_script = "uid://c0c4p57o71yio"
