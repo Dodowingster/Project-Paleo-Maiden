@@ -9,10 +9,7 @@ extends Area2D
 @export var blockbackX = 0
 @export var blockbackY = 0
 @export var hitstopFrames = 0
-@export var hitboxAreaList : Array[CollisionShape2D]
 @export var isMultiHit = false
-
-
 # if grouped, then only one of these hitboxes can hit a hurtbox at one times
 @export var groupName = ""
 

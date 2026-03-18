@@ -1,0 +1,175 @@
+[gd_scene format=3 uid="uid://c0n8jl8cb30ey"]
+
+[ext_resource type="Script" uid="uid://f081btviug4u" path="res://Characters/generic/character.gd" id="1_1g87l"]
+[ext_resource type="Resource" uid="uid://c2k2423pfb03h" path="res://Characters/don/don_data.tres" id="2_1us7d"]
+[ext_resource type="Texture2D" uid="uid://sp4jmmsptcrf" path="res://Characters/placeholder_sprites/NCorpRyoshu/skill3_12.png" id="3_1us7d"]
+[ext_resource type="AnimationLibrary" uid="uid://boalcp78pqj5n" path="res://Characters/don/anims/don.res" id="4_1us7d"]
+[ext_resource type="Script" uid="uid://colufoqxh8nwm" path="res://Characters/generic/side_tracker.gd" id="4_ocvec"]
+[ext_resource type="AnimationLibrary" uid="uid://dkhtxnpfpt0ey" path="res://Characters/ryoshu/anims/ryoshu.res" id="5_1us7d"]
+[ext_resource type="Script" uid="uid://71l6nk5830yo" path="res://Mechanics/hitbox.gd" id="6_s8f15"]
+[ext_resource type="Shape2D" uid="uid://c03de4iv0ht51" path="res://Characters/don/hitboxes/don_baseatkshape.tres" id="7_kntwo"]
+[ext_resource type="Script" uid="uid://cuqyr28ih435l" path="res://Mechanics/hurtbox.gd" id="8_7en0w"]
+[ext_resource type="Script" uid="uid://whbif5ykrdmj" path="res://Mechanics/States/state_machine.gd" id="9_28a1p"]
+[ext_resource type="Script" uid="uid://bqw1eo83vcp4r" path="res://Characters/States/state_hitstun.gd" id="10_40065"]
+[ext_resource type="Script" uid="uid://chhf2t5cm2eg4" path="res://Characters/States/state_blockstun.gd" id="11_0rq6b"]
+[ext_resource type="Script" uid="uid://bibnpqp5otcvs" path="res://Characters/States/state_idle.gd" id="12_xyuli"]
+[ext_resource type="Script" uid="uid://85tmkwtqblw3" path="res://Characters/States/state_movefwd.gd" id="13_w4xc1"]
+[ext_resource type="Script" uid="uid://sv5uv45x0dmh" path="res://Characters/States/state_movebkwd.gd" id="14_p1ouf"]
+[ext_resource type="Script" uid="uid://bfib7jjd33vor" path="res://Characters/States/state_baseatk.gd" id="15_iyeba"]
+[ext_resource type="Script" uid="uid://bsmgvqgq5xmdr" path="res://Characters/States/state_win.gd" id="16_ioa8p"]
+[ext_resource type="Script" uid="uid://fhsfdpvgkyv4" path="res://Characters/States/state_lose.gd" id="17_yr544"]
+[ext_resource type="Script" uid="uid://4y83ty0qfjy6" path="res://Characters/States/state_clash.gd" id="18_kmsib"]
+[ext_resource type="Script" uid="uid://0d6s2ipebmb2" path="res://Characters/States/state_clash_win.gd" id="19_1d8pi"]
+[ext_resource type="Script" uid="uid://dd3dfa5mjk32y" path="res://Characters/States/state_clash_lose.gd" id="20_avqc8"]
+[ext_resource type="Script" uid="uid://nqsoppuuytas" path="res://Characters/generic/state_technique.gd" id="21_1us7d"]
+[ext_resource type="PackedScene" uid="uid://wa1rn1pd2gkc" path="res://Mechanics/Techniques/Loadout/Loadout.tscn" id="21_ucqw4"]
+
+[sub_resource type="Animation" id="Animation_ryghy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SideTracker/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_1us7d")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SideTracker/Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -80)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ocvec"]
+_data = {
+&"RESET": SubResource("Animation_ryghy")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xudx"]
+size = Vector2(48, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ix8sw"]
+size = Vector2(40, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_acr0g"]
+size = Vector2(48, 128)
+
+[node name="Character" type="CharacterBody2D" unique_id=216433586]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_1g87l")
+characterData = ExtResource("2_1us7d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=599901854]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_ocvec")
+libraries/don = ExtResource("4_1us7d")
+libraries/ryoshu = ExtResource("5_1us7d")
+
+[node name="SideTracker" type="Node2D" parent="." unique_id=1595326739]
+unique_name_in_owner = true
+script = ExtResource("4_ocvec")
+
+[node name="Sprite" type="Sprite2D" parent="SideTracker" unique_id=1654816590]
+unique_name_in_owner = true
+position = Vector2(0, -80)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_1us7d")
+
+[node name="BaseAtkHitbox" type="Area2D" parent="SideTracker" unique_id=1283739801]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("6_s8f15")
+damage = 15
+hitstun = 0.5
+blockstun = 0.4
+knockbackX = 1500
+blockbackX = 600
+hitstopFrames = 5
+
+[node name="BaseAtkHitboxShape" type="CollisionShape2D" parent="SideTracker/BaseAtkHitbox" unique_id=112687363]
+visible = false
+position = Vector2(65, -4)
+shape = ExtResource("7_kntwo")
+disabled = true
+debug_color = Color(0.7, 0, 0, 0.41960785)
+
+[node name="CharacterHurtbox" type="Area2D" parent="SideTracker" unique_id=994874910]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("8_7en0w")
+
+[node name="HurtboxShape" type="CollisionShape2D" parent="SideTracker/CharacterHurtbox" unique_id=664979489]
+shape = SubResource("RectangleShape2D_0xudx")
+debug_color = Color(0, 0.6, 0, 0.41960785)
+
+[node name="BaseAtkHurtbox1Shape" type="CollisionShape2D" parent="SideTracker/CharacterHurtbox" unique_id=1416181559]
+position = Vector2(40, -4)
+shape = SubResource("RectangleShape2D_ix8sw")
+disabled = true
+debug_color = Color(0, 0.6, 0, 0.41960785)
+
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=504018138]
+shape = SubResource("RectangleShape2D_acr0g")
+
+[node name="StateMachine" type="Node" parent="." unique_id=842694158 node_paths=PackedStringArray("initialState")]
+unique_name_in_owner = true
+script = ExtResource("9_28a1p")
+initialState = NodePath("Idle")
+
+[node name="Hitstun" type="Node" parent="StateMachine" unique_id=739731566]
+script = ExtResource("10_40065")
+
+[node name="Blockstun" type="Node" parent="StateMachine" unique_id=416201006]
+script = ExtResource("11_0rq6b")
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1789980425]
+script = ExtResource("12_xyuli")
+
+[node name="MoveForward" type="Node" parent="StateMachine" unique_id=158639724]
+script = ExtResource("13_w4xc1")
+
+[node name="MoveBackward" type="Node" parent="StateMachine" unique_id=992213530]
+script = ExtResource("14_p1ouf")
+
+[node name="BaseAttack" type="Node" parent="StateMachine" unique_id=971020999]
+script = ExtResource("15_iyeba")
+
+[node name="Win" type="Node" parent="StateMachine" unique_id=1934949902]
+script = ExtResource("16_ioa8p")
+metadata/_custom_type_script = "uid://bsmgvqgq5xmdr"
+
+[node name="Lose" type="Node" parent="StateMachine" unique_id=758125938]
+script = ExtResource("17_yr544")
+metadata/_custom_type_script = "uid://fhsfdpvgkyv4"
+
+[node name="Clashing" type="Node" parent="StateMachine" unique_id=555105173]
+script = ExtResource("18_kmsib")
+
+[node name="ClashWin" type="Node" parent="StateMachine" unique_id=1797105660]
+script = ExtResource("19_1d8pi")
+
+[node name="ClashLose" type="Node" parent="StateMachine" unique_id=687320232]
+script = ExtResource("20_avqc8")
+
+[node name="Technique" type="Node" parent="StateMachine" unique_id=2046698486]
+script = ExtResource("21_1us7d")
+
+[node name="Loadout" parent="." unique_id=56358037 instance=ExtResource("21_ucqw4")]
+unique_name_in_owner = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/BaseAttack" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/ClashWin" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Technique" method="_on_animation_player_animation_finished"]

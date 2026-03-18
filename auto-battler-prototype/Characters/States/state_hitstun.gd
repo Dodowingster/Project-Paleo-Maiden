@@ -26,7 +26,7 @@ func exit():
 	%Sprite.position = spriteOGCoordinates
 	var finalDistance : float = owner.distance
 	var knockbackDistance : float = finalDistance - initialDistance
-	print("Knockback distance: " + str(knockbackDistance))
+	print("Hit knockback distance: " + str(knockbackDistance))
 	animPlayer.play(owner.animLibName + "/RESET")
 
 

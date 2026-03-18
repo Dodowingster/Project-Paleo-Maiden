@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://c0ucds3whvuj1"]
+
+[ext_resource type="Script" uid="uid://bggk0a3c0aeag" path="res://Mechanics/Techniques/TechniqueTypes/rush_technique.gd" id="1_x8dea"]
+[ext_resource type="Script" uid="uid://ca0greousgvam" path="res://Mechanics/Techniques/Triggers/hp_trigger.gd" id="3_rmle8"]
+[ext_resource type="Script" uid="uid://vvpc8qlg01o" path="res://Mechanics/Techniques/Triggers/range_trigger.gd" id="4_ixda5"]
+[ext_resource type="Script" uid="uid://dcjcx6dhuwnr4" path="res://Mechanics/Techniques/Effects/move_effect.gd" id="5_1qw1w"]
+[ext_resource type="Script" uid="uid://cm2swp1i5yuvi" path="res://Mechanics/Techniques/Triggers/cooldown_trigger.gd" id="6_edhm0"]
+
+[node name="Don_Rush" type="Node" unique_id=1746416143]
+script = ExtResource("1_x8dea")
+
+[node name="CooldownTrigger" type="Node" parent="." unique_id=1700420408]
+script = ExtResource("6_edhm0")
+cooldown = 10.0
+metadata/_custom_type_script = "uid://cm2swp1i5yuvi"
+
+[node name="HpTrigger" type="Node" parent="." unique_id=1884708736]
+script = ExtResource("3_rmle8")
+hpCriteriaLower = 50.0
+metadata/_custom_type_script = "uid://ca0greousgvam"
+
+[node name="RangeTrigger" type="Node" parent="." unique_id=1929594027]
+script = ExtResource("4_ixda5")
+minRange = 100.0
+maxRange = 150.0
+metadata/_custom_type_script = "uid://vvpc8qlg01o"
+
+[node name="MoveEffect" type="Node" parent="." unique_id=492457890]
+script = ExtResource("5_1qw1w")
+velocity = Vector2(1000, 0)
+applyFrame = 20
+metadata/_custom_type_script = "uid://dcjcx6dhuwnr4"

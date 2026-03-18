@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TechniqueData" format=3 uid="uid://bouom4lj25mga"]
+
+[ext_resource type="Script" uid="uid://djprxni5sqe65" path="res://Characters/generic/hitbox_data.gd" id="1_nc1kb"]
+[ext_resource type="Script" uid="uid://c0c4p57o71yio" path="res://Characters/generic/technique_data.gd" id="2_0rysk"]
+[ext_resource type="Resource" uid="uid://c067bwvnyklkj" path="res://Characters/don/hitboxes/don_rushhitboxdata.tres" id="2_gikfn"]
+[ext_resource type="PackedScene" uid="uid://c0ucds3whvuj1" path="res://Characters/don/techniques/Don_Rush.tscn" id="4_is0jn"]
+
+[resource]
+script = ExtResource("2_0rysk")
+technique = ExtResource("4_is0jn")
+hitboxes = Array[ExtResource("1_nc1kb")]([ExtResource("2_gikfn")])
+metadata/_custom_type_script = "uid://c0c4p57o71yio"

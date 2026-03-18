@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="HitboxData" format=3 uid="uid://cor26x6yp65b2"]
+
+[ext_resource type="Shape2D" uid="uid://vh3dr0bfoe68" path="res://Characters/ryoshu/hitboxes/ryoshu_reversalhitboxshape.tres" id="1_d0cg4"]
+[ext_resource type="Script" uid="uid://djprxni5sqe65" path="res://Characters/generic/hitbox_data.gd" id="1_rk56k"]
+
+[resource]
+script = ExtResource("1_rk56k")
+damage = 10
+hitstun = 0.9
+blockstun = 0.3
+knockbackX = 2000
+blockbackX = 700
+hitstopFrames = 5
+hitboxShape = ExtResource("1_d0cg4")
+startup = 15
+active = 3
+location = Vector2(44, -48)
+metadata/_custom_type_script = "uid://djprxni5sqe65"

@@ -22,7 +22,7 @@ func enter():
 func exit():
 	var finalDistance : float = owner.distance
 	var knockbackDistance : float = finalDistance - initialDistance
-	print("Knockback distance: " + str(knockbackDistance))
+	print("Block knockback distance: " + str(knockbackDistance))
 	animPlayer.play(owner.animLibName + "/RESET")
 
 

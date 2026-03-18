@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TechniqueData" format=3 uid="uid://hrvfmlohrxj7"]
+
+[ext_resource type="Script" uid="uid://djprxni5sqe65" path="res://Characters/generic/hitbox_data.gd" id="1_6ewsy"]
+[ext_resource type="Script" uid="uid://c0c4p57o71yio" path="res://Characters/generic/technique_data.gd" id="2_nm2s0"]
+[ext_resource type="Resource" uid="uid://dcaxpd8hdt2co" path="res://Characters/ryoshu/hitboxes/ryoshu_rushhitboxdata.tres" id="2_slwoj"]
+[ext_resource type="PackedScene" uid="uid://unt36v32v5nu" path="res://Characters/ryoshu/techniques/Ryoshu_Rush.tscn" id="3_nm2s0"]
+
+[resource]
+script = ExtResource("2_nm2s0")
+technique = ExtResource("3_nm2s0")
+hitboxes = Array[ExtResource("1_6ewsy")]([ExtResource("2_slwoj")])
+metadata/_custom_type_script = "uid://c0c4p57o71yio"
