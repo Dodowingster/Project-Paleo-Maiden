@@ -21,7 +21,6 @@ func _process(delta: float) -> void:
 		currentTimer -= delta
 	elif currentTimer <= 0:
 		conditionPassed = true
-		print("Cooldown finished!")
 
 func reset() -> void:
 	conditionPassed = false
