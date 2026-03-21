@@ -11,7 +11,7 @@ script = ExtResource("1_qgmx4")
 
 [node name="RangeTrigger" type="Node" parent="." unique_id=316414984]
 script = ExtResource("2_cd0w0")
-maxRange = 150.0
+maxRange = 180.0
 metadata/_custom_type_script = "uid://vvpc8qlg01o"
 
 [node name="MoveEffect" type="Node" parent="." unique_id=1357346883]

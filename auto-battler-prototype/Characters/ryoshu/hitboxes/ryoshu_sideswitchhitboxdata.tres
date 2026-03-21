@@ -10,7 +10,6 @@ hitstun = 0.6
 blockstun = 0.2
 knockbackX = 200
 blockbackX = 70
-hitstopFrames = 8
 hitboxShape = ExtResource("1_c86tv")
 startup = 25
 active = 5

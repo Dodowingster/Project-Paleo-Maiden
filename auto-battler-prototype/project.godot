@@ -59,6 +59,10 @@ frame_forward={
 
 tips/show_jitter_tips=false
 
+[physics]
+
+2d/solver/default_contact_bias=0.5
+
 [rendering]
 
 renderer/rendering_method="mobile"
