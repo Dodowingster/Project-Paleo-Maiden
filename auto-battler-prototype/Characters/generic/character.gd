@@ -216,6 +216,15 @@ func _on_tick(rcvDistance: float, rcvTickCount: int):
 	distance = rcvDistance
 	tickCount = rcvTickCount
 	wantToClash = false
+	
+	if %StateMachine.currentState is ActionableState:
+		%SideTracker.set_side_lock(false)
+	else:
+		%SideTracker.set_side_lock(true)
+		
+	if %SideTracker.canFlip:
+		face_opponent()
+	
 	if %StateMachine.currentState is not StateHitstun \
 	and %StateMachine.currentState is not StateClashing \
 	and %StateMachine.currentState is not StateClashLose:
@@ -249,11 +258,15 @@ func get_hit(hitbox: HitBox, _hurtbox: Hurtbox):
 		print("Attack detected, parent = " + parent.characterName + " dmg = " + str(hitbox.damage) + ", groupname = " + hitbox.groupName)
 		var chosenHitState = "Hitstun"
 		
+		var knockbackDirectionMod : int = 1
+		if is_char_facing_right():
+			knockbackDirectionMod = -1
+		
 		# Check character currently moving backwards, char blocks
 		if %StateMachine.currentState is StateMoveBkwd or %StateMachine.currentState is StateBlockstun:
 			chosenHitState = "Blockstun"
 			hitstun = hitbox.blockstun
-			hitknockbackX = hitbox.blockbackX * %SideTracker.side * -1
+			hitknockbackX = hitbox.blockbackX * knockbackDirectionMod
 			hitknockbackY = hitbox.blockbackY
 
 			# Check for KO (no chip kill)
@@ -267,7 +280,7 @@ func get_hit(hitbox: HitBox, _hurtbox: Hurtbox):
 			hitstop_frames = max(hitstop_frames, hitbox.hitstopFrames)
 			hitbox.owner.hitstop_frames = max(hitbox.owner.hitstop_frames, hitbox.hitstopFrames)
 			hitstun = hitbox.hitstun
-			hitknockbackX = hitbox.knockbackX * %SideTracker.side * -1
+			hitknockbackX = hitbox.knockbackX * knockbackDirectionMod
 			hitknockbackY = hitbox.knockbackY
 
 			# Check for KO
@@ -316,3 +329,16 @@ func on_win_confirmed():
 
 func get_side() -> int:
 	return %SideTracker.side
+
+func toggle_collision(canCollide : bool) -> void:
+	if !canCollide:
+		pass
+	self.set_collision_layer_value(1, canCollide)
+	self.set_collision_mask_value(1, canCollide)
+	
+func face_opponent() -> void:
+	var facingRight : bool = is_char_facing_right()
+	%SideTracker.set_facing_direction(facingRight)
+
+func is_char_facing_right() -> bool:
+	return position.x < opponent.position.x

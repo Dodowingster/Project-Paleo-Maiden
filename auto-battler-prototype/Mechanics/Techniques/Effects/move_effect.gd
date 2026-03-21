@@ -12,10 +12,10 @@ func execute_effect(delta: float) -> void:
 
 func execute_physics_effect(delta: float) -> void:
 	if not triggered:
-		timeElapsed += delta
 		if timeElapsed > (applyFrame / 60.0):
 			character.velocity += velocity * character.get_side()
 			triggered = true
+		timeElapsed += delta
 
 func reset() -> void:
 	timeElapsed = 0

@@ -48,6 +48,13 @@ frame_forward={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="character"
+2d_physics/layer_2="hitbox"
+2d_physics/layer_4="hurtbox"
+2d_physics/layer_5="environment"
+
 [phantom_camera]
 
 tips/show_jitter_tips=false
