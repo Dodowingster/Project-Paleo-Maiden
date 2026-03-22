@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://doy6qds7jr6o6"]
+
+[node name="BattleSetup" type="Control" unique_id=1438093763]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1650663864]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=1024489404]
+layout_mode = 2
+
+[node name="P1" type="VBoxContainer" parent="PanelContainer/HBoxContainer" unique_id=1165531110]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/P1" unique_id=1663738048]
+layout_mode = 2
+text = "P1"
+horizontal_alignment = 1
+
+[node name="CharacterList" type="ItemList" parent="PanelContainer/HBoxContainer/P1" unique_id=1912008411]
+layout_mode = 2
+size_flags_vertical = 3
+item_count = 2
+item_0/text = "Don"
+item_1/text = "Ryoshu"
+
+[node name="TechniqueList" type="ItemList" parent="PanelContainer/HBoxContainer/P1" unique_id=848167893]
+layout_mode = 2
+select_mode = 1
+
+[node name="P2" type="VBoxContainer" parent="PanelContainer/HBoxContainer" unique_id=1942058990]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/P2" unique_id=2038368737]
+layout_mode = 2
+text = "P2"
+horizontal_alignment = 1
+
+[node name="CharacterList" type="ItemList" parent="PanelContainer/HBoxContainer/P2" unique_id=1042829699]
+layout_mode = 2
+size_flags_vertical = 3
+item_count = 2
+item_0/text = "Don"
+item_1/text = "Ryoshu"
+
+[node name="TechniqueList" type="ItemList" parent="PanelContainer/HBoxContainer/P2" unique_id=331100990]
+layout_mode = 2
+select_mode = 1

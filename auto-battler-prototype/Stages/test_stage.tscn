@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dggc1tw4nmkkk" path="res://Mechanics/data_tracker.gd" id="1_7in27"]
 [ext_resource type="Script" uid="uid://cdylqchnf8jnu" path="res://Stages/runner.gd" id="2_84gnr"]
 [ext_resource type="Script" uid="uid://c51us734jurpc" path="res://UI/debug_ui.gd" id="2_nmfya"]
+[ext_resource type="PackedScene" uid="uid://b3ig74cit7ics" path="res://UI/Menus/PauseMenu.tscn" id="2_uxbob"]
 [ext_resource type="Texture2D" uid="uid://dlkjbch0cfhkn" path="res://Stages/assets/dirtfield.png" id="3_hmbi7"]
 [ext_resource type="Resource" uid="uid://c2k2423pfb03h" path="res://Characters/don/don_data.tres" id="3_y2t8x"]
 [ext_resource type="Texture2D" uid="uid://cs52kxor2xbar" path="res://Stages/assets/cliff.png" id="4_2ge0f"]
@@ -214,6 +215,11 @@ layout_mode = 2
 text = "P2 Techniques:"
 horizontal_alignment = 2
 
+[node name="PauseMenu" parent="Runner/CanvasLayer" unique_id=1081214476 instance=ExtResource("2_uxbob")]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+
 [node name="Camera2D" type="Camera2D" parent="Runner" unique_id=336103352]
 position = Vector2(704, 280)
 
@@ -266,3 +272,7 @@ follow_axis_lock = 2
 auto_zoom_min = 0.1
 auto_zoom_max = 1.2
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[connection signal="pressed" from="Runner/CanvasLayer/PauseMenu/PanelContainer/VBoxContainer/ResumeBtn" to="." method="_on_resume_btn_pressed"]
+
+[editable path="Runner/CanvasLayer/PauseMenu"]
