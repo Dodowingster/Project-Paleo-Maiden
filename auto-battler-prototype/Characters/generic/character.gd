@@ -111,6 +111,7 @@ func _ready() -> void:
 		opponent.connect("broadcastAtkActiveEnd", on_atk_active_end_signal_rcvd)
 		opponent.connect("broadcastClashResult", on_clash_result_rcvd)
 		opponent.connect("broadcastWinState", on_win_confirmed)
+		distance = abs(opponent.position.x - position.x)
 
 func setup_loadout(techniqueDataList : Array[TechniqueData]) -> void:
 	var resetAnim : Animation = %AnimationPlayer.get_animation(animLibName + "/RESET")

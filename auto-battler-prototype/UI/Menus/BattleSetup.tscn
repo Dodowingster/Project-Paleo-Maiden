@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://doy6qds7jr6o6"]
 
+[ext_resource type="Script" uid="uid://dojital3qpw7y" path="res://UI/Menus/battle_setup.gd" id="1_b6kka"]
+
 [node name="BattleSetup" type="Control" unique_id=1438093763]
 layout_mode = 3
 anchors_preset = 15
@@ -9,6 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_b6kka")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1650663864]
 layout_mode = 1
@@ -18,45 +21,71 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=1024489404]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=995813801]
 layout_mode = 2
 
-[node name="P1" type="VBoxContainer" parent="PanelContainer/HBoxContainer" unique_id=1165531110]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=1024489404]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="P1" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1165531110]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/P1" unique_id=1663738048]
+[node name="P1Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/P1" unique_id=1663738048]
 layout_mode = 2
 text = "P1"
 horizontal_alignment = 1
 
-[node name="CharacterList" type="ItemList" parent="PanelContainer/HBoxContainer/P1" unique_id=1912008411]
+[node name="CharacterLabel" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/P1" unique_id=430619858]
 layout_mode = 2
-size_flags_vertical = 3
-item_count = 2
-item_0/text = "Don"
-item_1/text = "Ryoshu"
+text = "Character: "
 
-[node name="TechniqueList" type="ItemList" parent="PanelContainer/HBoxContainer/P1" unique_id=848167893]
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/P1" unique_id=1167357010]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+tile_scroll_hint = true
+
+[node name="Characters" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/P1/ScrollContainer" unique_id=431211679]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Char1Btn" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/P1/ScrollContainer/Characters" unique_id=844707606]
+layout_mode = 2
+text = "Don"
+
+[node name="Char2Btn" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/P1/ScrollContainer/Characters" unique_id=1144169814]
+layout_mode = 2
+text = "Ryoshu"
+
+[node name="TechniqueList" type="ItemList" parent="PanelContainer/VBoxContainer/HBoxContainer/P1" unique_id=848167893]
 layout_mode = 2
 select_mode = 1
 
-[node name="P2" type="VBoxContainer" parent="PanelContainer/HBoxContainer" unique_id=1942058990]
+[node name="P2" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1942058990]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/P2" unique_id=2038368737]
+[node name="P2Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/P2" unique_id=2038368737]
 layout_mode = 2
 text = "P2"
 horizontal_alignment = 1
 
-[node name="CharacterList" type="ItemList" parent="PanelContainer/HBoxContainer/P2" unique_id=1042829699]
+[node name="CharacterSelect" type="HBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/P2" unique_id=643469078]
 layout_mode = 2
-size_flags_vertical = 3
-item_count = 2
-item_0/text = "Don"
-item_1/text = "Ryoshu"
 
-[node name="TechniqueList" type="ItemList" parent="PanelContainer/HBoxContainer/P2" unique_id=331100990]
+[node name="CharacterLabel" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/P2/CharacterSelect" unique_id=267766806]
+layout_mode = 2
+text = "Character: "
+
+[node name="TechniqueList" type="ItemList" parent="PanelContainer/VBoxContainer/HBoxContainer/P2" unique_id=331100990]
 layout_mode = 2
 select_mode = 1
+
+[node name="StartBtn" type="Button" parent="PanelContainer/VBoxContainer" unique_id=286935302]
+layout_mode = 2
+text = "Start"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
