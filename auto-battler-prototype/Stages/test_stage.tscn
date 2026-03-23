@@ -230,11 +230,11 @@ script = ExtResource("8_1su0b")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Ground" type="StaticBody2D" parent="Runner" unique_id=1837921822]
+position = Vector2(416, 368)
 collision_layer = 16
 collision_mask = 16
 
 [node name="GroundCollision" type="CollisionShape2D" parent="Runner/Ground" unique_id=1160344322]
-position = Vector2(416, 368)
 shape = SubResource("RectangleShape2D_vhvwd")
 
 [node name="Tyran" type="Sprite2D" parent="Runner" unique_id=1196646335]
@@ -244,20 +244,22 @@ position = Vector2(312, 192)
 scale = Vector2(2, 2)
 texture = ExtResource("6_2ge0f")
 
-[node name="WallLeft" type="StaticBody2D" parent="Runner" unique_id=10466412]
+[node name="WallLeft" type="RigidBody2D" parent="Runner" unique_id=1391500226]
+position = Vector2(-84, 144)
 collision_layer = 16
 collision_mask = 16
+freeze = true
 
 [node name="WallCollision" type="CollisionShape2D" parent="Runner/WallLeft" unique_id=289652172]
-position = Vector2(-84, 144)
 shape = SubResource("RectangleShape2D_84gnr")
 
-[node name="WallRight" type="StaticBody2D" parent="Runner" unique_id=1269666561]
+[node name="WallRight" type="RigidBody2D" parent="Runner" unique_id=1150156411]
+position = Vector2(916, 144)
 collision_layer = 16
 collision_mask = 16
+freeze = true
 
 [node name="WallCollision" type="CollisionShape2D" parent="Runner/WallRight" unique_id=64733506]
-position = Vector2(916, 144)
 shape = SubResource("RectangleShape2D_84gnr")
 
 [node name="PhanCam" type="Node2D" parent="." unique_id=280291903]
