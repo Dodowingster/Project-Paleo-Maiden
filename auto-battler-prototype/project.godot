@@ -14,8 +14,8 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="AutoBattler Prototype"
-run/main_scene="uid://cp47aajkwulg7"
+config/name="Project Paleo-Maiden"
+run/main_scene="uid://doy6qds7jr6o6"
 config/features=PackedStringArray("4.6", "Mobile")
 run/max_fps=60
 config/icon="res://icon.svg"

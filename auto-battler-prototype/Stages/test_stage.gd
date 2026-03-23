@@ -1,4 +1,5 @@
 extends Node2D
+class_name Stage
 
 var frame_forward_pressed : bool = false
 
@@ -14,7 +15,8 @@ func _physics_process(_delta: float) -> void:
 			frame_forward_pressed = false
 	
 	if Input.is_action_just_pressed("pause_action"):
-		get_tree().paused = !get_tree().paused
+		if !%PauseMenu.visible:
+			get_tree().paused = !get_tree().paused
 	
 	if Input.is_action_just_pressed("pause_menu"):
 		get_tree().paused = !get_tree().paused
@@ -24,3 +26,10 @@ func _physics_process(_delta: float) -> void:
 func _on_resume_btn_pressed() -> void:
 	get_tree().paused = !get_tree().paused
 	%PauseMenu.visible = !%PauseMenu.visible
+
+
+func _on_end_battle_btn_pressed() -> void:
+	get_tree().paused = false
+	var battleSetup : PackedScene = load("res://UI/Menus/BattleSetup.tscn")
+	var battleSetupNode : Node = battleSetup.instantiate()
+	get_tree().change_scene_to_node(battleSetupNode)

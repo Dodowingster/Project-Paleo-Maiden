@@ -8,5 +8,7 @@
 [resource]
 script = ExtResource("2_0rysk")
 technique = ExtResource("4_is0jn")
+techniqueName = "D_Rush"
+animName = "rush"
 hitboxes = Array[ExtResource("1_nc1kb")]([ExtResource("2_gikfn")])
 metadata/_custom_type_script = "uid://c0c4p57o71yio"

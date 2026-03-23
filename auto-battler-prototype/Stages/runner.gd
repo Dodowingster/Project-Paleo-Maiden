@@ -1,5 +1,5 @@
 extends Node
-
+class_name Runner
 
 @onready var char1 : PackedScene
 @onready var char2 : PackedScene
