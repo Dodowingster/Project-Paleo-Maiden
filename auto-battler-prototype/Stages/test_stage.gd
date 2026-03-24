@@ -19,8 +19,12 @@ func _physics_process(_delta: float) -> void:
 			get_tree().paused = !get_tree().paused
 	
 	if Input.is_action_just_pressed("pause_menu"):
-		get_tree().paused = !get_tree().paused
-		%PauseMenu.visible = !%PauseMenu.visible
+		if %PauseMenu.visible:
+			get_tree().paused = false
+			%PauseMenu.visible = false
+		else:
+			get_tree().paused = true
+			%PauseMenu.visible = true
 
 
 func _on_resume_btn_pressed() -> void:

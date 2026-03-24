@@ -23,7 +23,15 @@ func _physics_process(delta):
 		print("RENAME YOUR SHIT")
 	if currentState:
 		currentState.physics_update(delta)
-	owner.move_and_slide()
+	if owner is Character:
+		if roundf(owner.velocity.x) != 0 or owner.is_on_wall():
+			if !owner.is_on_wall():
+				owner.velocity_x_before_wall = owner.velocity.x
+			else:
+				owner.opponent.velocity.x -= owner.velocity_x_before_wall
+				owner.velocity_x_before_wall = 0
+		owner.move_and_slide()
+		
 			
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

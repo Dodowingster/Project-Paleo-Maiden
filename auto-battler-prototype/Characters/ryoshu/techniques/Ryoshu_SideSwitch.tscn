@@ -22,8 +22,7 @@ metadata/_custom_type_script = "uid://dcjcx6dhuwnr4"
 
 [node name="CooldownTrigger" type="Node" parent="." unique_id=1893210529]
 script = ExtResource("4_l8y2l")
-cooldown = 5.0
-startWithCooldown = false
+cooldown = 12.0
 metadata/_custom_type_script = "uid://cm2swp1i5yuvi"
 
 [node name="SideSwitchEffect" type="Node" parent="." unique_id=723464475]

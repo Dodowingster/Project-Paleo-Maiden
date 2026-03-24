@@ -62,6 +62,8 @@ var hitstop_frames: int = 0
 var stored_velocity: Vector2 = Vector2.ZERO
 var was_in_hitstop: bool = false
 
+var velocity_x_before_wall : float = 0
+
 func _enter_tree() -> void:
 	loadout = %Loadout
 	characterName = characterData.characterName
