@@ -15,11 +15,23 @@ class_name SetupChar
 @export var selectedTechList : ItemList
 
 func _ready() -> void:
+	setup_selection()
+
+func setup_selection() -> void:
 	for character in charList:
 		charSelectList.add_item(character.characterName)
 	for tech in techniqueList:
 		techSelectList.add_item(tech.techniqueName)
 	headerLabel.text = headerLabelText
+
+func set_selection(prevChar : CharacterData, prevTech : Array[TechniqueData]) -> void:
+	charSelectList.deselect_all()
+	techSelectList.deselect_all()
+	charSelectList.select(charList.find(prevChar))
+	_on_char_list_item_selected(charList.find(prevChar))
+	for tech in prevTech:
+		techSelectList.select(techniqueList.find(tech))
+		_on_technique_list_multi_selected(techniqueList.find(tech), true)
 
 
 func _on_char_list_item_selected(index: int) -> void:

@@ -34,6 +34,5 @@ func _on_resume_btn_pressed() -> void:
 
 func _on_end_battle_btn_pressed() -> void:
 	get_tree().paused = false
-	var battleSetup : PackedScene = load("res://UI/Menus/BattleSetup.tscn")
-	var battleSetupNode : Node = battleSetup.instantiate()
-	get_tree().change_scene_to_node(battleSetupNode)
+	SimpleSceneManager.back_to_battle_setup(self)
+	
