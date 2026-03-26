@@ -5,6 +5,7 @@ class_name Technique
 
 signal executionStatusChanged(technique: Technique, status: bool)
 
+## Technique class used to create techniques that are used in loadouts
 enum TECHNIQUE_TYPE { RUSH, REVERSAL, SHORT_RANGE, MID_RANGE, LONG_RANGE, PROJECTILE }
 
 # Debug vars
