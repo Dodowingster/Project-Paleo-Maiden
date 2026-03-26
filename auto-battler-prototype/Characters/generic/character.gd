@@ -255,11 +255,17 @@ func _on_tick(rcvDistance: float, rcvTickCount: int):
 			else:
 				broadcastAction.emit(GlobalValues.ACTION.MOVE)
 
-func get_hit(hitbox: HitBox, _hurtbox: Hurtbox):
+func get_hit(hitbox: HitBox, hurtbox: Hurtbox):
 	var parent = hitbox.owner
 	if parent != self:
+		var hitbox_location : Vector2 = hitbox.get_children()[0].global_position
+		var hurtbox_location : Vector2 = hurtbox.get_children()[0].global_position
+		var vfx_pos = (hitbox_location + hurtbox_location) / 2
+		var vfx_type : VFXManager.VFX_TYPE
+		
 		print("Attack detected, parent = " + parent.characterName + " dmg = " + str(hitbox.damage) + ", groupname = " + hitbox.groupName)
 		var chosenHitState = "Hitstun"
+		vfx_type = VFXManager.VFX_TYPE.HIT
 		
 		var knockbackDirectionMod : int = 1
 		if is_char_facing_right():
@@ -268,6 +274,7 @@ func get_hit(hitbox: HitBox, _hurtbox: Hurtbox):
 		# Check character currently moving backwards, char blocks
 		if %StateMachine.currentState is StateMoveBkwd or %StateMachine.currentState is StateBlockstun:
 			chosenHitState = "Blockstun"
+			vfx_type = VFXManager.VFX_TYPE.BLOCK
 			hitstun = hitbox.blockstun
 			hitknockbackX = hitbox.blockbackX * knockbackDirectionMod
 			hitknockbackY = hitbox.blockbackY
@@ -293,24 +300,10 @@ func get_hit(hitbox: HitBox, _hurtbox: Hurtbox):
 				broadcastWinState.emit()
 			else:
 				health -= hitbox.damage
-		#
-		#Hitvfx.showHit.emit(hitbox, hurtbox)
-		#
+				
+		var vfx : VFX = VFXManager.spawn_vfx(vfx_type, vfx_pos, knockbackDirectionMod)
+		vfx.freeze_frames = hitstop_frames
 		
-		#if abs(hitknockbackX) < abs(hitknockbackY)/2:
-			#tumble = true
-			#if hitknockbackY < 0:
-				#chosenHitState = "EnemyHitUp"
-			#elif hitknockbackY > 0:
-				#chosenHitState = "EnemyHitDown"
-		#elif abs(hitknockbackX) > abs(hitknockbackY)/2:
-			#tumble = true
-			#chosenHitState = "EnemyHitAway"
-			#if hitknockbackX > 0:
-				#flip_char("left")
-			#elif hitknockbackX < 0:
-				#flip_char("right")
-		#
 		%StateMachine.on_child_transition($StateMachine.currentState, chosenHitState)
 		opponentIsAttacking = false
 

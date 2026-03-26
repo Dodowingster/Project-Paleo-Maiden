@@ -269,11 +269,10 @@ follow_mode = 3
 snap_to_pixel = true
 tween_resource = SubResource("Resource_5dtn3")
 follow_damping = true
-follow_damping_value = Vector2(0.05, 0.05)
 auto_zoom = true
 auto_zoom_min = 0.5
 auto_zoom_max = 1.0
-auto_zoom_margin = Vector4(100, 0, 100, 0)
+auto_zoom_margin = Vector4(200, 0, 200, 0)
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [connection signal="pressed" from="Runner/CanvasLayer/PauseMenu/PanelContainer/VBoxContainer/ResumeBtn" to="." method="_on_resume_btn_pressed"]

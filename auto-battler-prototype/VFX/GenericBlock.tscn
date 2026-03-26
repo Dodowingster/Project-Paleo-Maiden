@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://b0pychytso8f8"]
+
+[ext_resource type="Script" uid="uid://ck5hkeeclio7i" path="res://VFX/hitvfx.gd" id="1_47qk4"]
+[ext_resource type="Texture2D" uid="uid://2027clsfhwng" path="res://VFX/misceffects_1_bgremove.png" id="2_vogdx"]
+
+[sub_resource type="Animation" id="Animation_qhspb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlockSprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(8, 264, 24, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_ilkes"]
+resource_name = "play"
+length = 0.20000167
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlockSprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(8, 256, 32, 40), Rect2(40, 256, 32, 40), Rect2(72, 256, 32, 40), Rect2(104, 256, 32, 40), Rect2(138, 256, 32, 40), Rect2(170, 256, 32, 40), Rect2(203, 256, 32, 40)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_um8cg"]
+_data = {
+&"RESET": SubResource("Animation_qhspb"),
+&"play": SubResource("Animation_ilkes")
+}
+
+[node name="GenericBlock" type="Node2D" unique_id=704200051]
+script = ExtResource("1_47qk4")
+
+[node name="BlockSprite" type="Sprite2D" parent="." unique_id=1089238996]
+scale = Vector2(-4, 4)
+texture = ExtResource("2_vogdx")
+region_enabled = true
+region_rect = Rect2(8, 264, 24, 32)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1486703997]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_um8cg")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

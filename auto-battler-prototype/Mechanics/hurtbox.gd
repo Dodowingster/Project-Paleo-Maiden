@@ -11,18 +11,10 @@ func _init() -> void:
 
 func _ready() -> void:
 	connect("area_entered", _on_area_entered)
-	#connect("area_exited", _on_area_exited)
 	
 func _physics_process(delta):
 	if lastGroupCollision != "" and lastGroupHitCooldown > 0:
 		lastGroupHitCooldown -= delta
-	#var areas: Array[Area2D] = get_overlapping_areas()
-	#if areas.size() > 0:
-		#print("Checking coordinates for " + str(areas))
-		#for area in areas:
-			#if area.owner != owner:
-				#print("Hitbox: " + str(area.global_position))
-				#print("Hurtbox: " + str(self.global_position))
 	
 func _on_area_entered(hitbox: HitBox) -> void:
 	if hitbox == null:

@@ -25,6 +25,7 @@ config/icon="res://icon.svg"
 GlobalValues="*res://Mechanics/global_values.gd"
 PhantomCameraManager="*uid://duq6jhf6unyis"
 SimpleSceneManager="*uid://f7wh4whqg2pk"
+VFXManager="*uid://bnib7hcjt4te8"
 
 [display]
 
@@ -35,6 +36,10 @@ window/stretch/mode="viewport"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
+
+[global_group]
+
+vfx=""
 
 [input]
 
