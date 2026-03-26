@@ -17,16 +17,16 @@ func _ready():
 func enter():
 	owner.canClash = false
 	spriteOGCoordinates = %Sprite.position
-	initialDistance = owner.distance
+	#initialDistance = owner.distance
 	if animName in animList:
 		animPlayer.play(animName)
 
 
 func exit():
 	%Sprite.position = spriteOGCoordinates
-	var finalDistance : float = owner.distance
-	var knockbackDistance : float = finalDistance - initialDistance
-	print("Knockback distance: " + str(knockbackDistance))
+	#var finalDistance : float = owner.distance
+	#var knockbackDistance : float = finalDistance - initialDistance
+	#print("Knockback distance: " + str(knockbackDistance))
 	animPlayer.stop()
 
 

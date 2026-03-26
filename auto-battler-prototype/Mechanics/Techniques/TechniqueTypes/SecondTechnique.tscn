@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cfvom7euhykh6"]
+
+[ext_resource type="Script" uid="uid://xl2bdpjsimsr" path="res://Mechanics/Techniques/TechniqueTypes/second_technique.gd" id="1_tpwhh"]
+[ext_resource type="Script" uid="uid://davbi37fiwm0b" path="res://Mechanics/Techniques/Triggers/action_goal_trigger.gd" id="2_k3tnx"]
+[ext_resource type="Script" uid="uid://ca0greousgvam" path="res://Mechanics/Techniques/Triggers/hp_trigger.gd" id="3_vb7ij"]
+
+[node name="SecondTechnique" type="Node" unique_id=1107871288]
+script = ExtResource("1_tpwhh")
+
+[node name="ActionGoalTrigger" type="Node" parent="." unique_id=840352527]
+script = ExtResource("2_k3tnx")
+metadata/_custom_type_script = "uid://davbi37fiwm0b"
+
+[node name="HpTrigger" type="Node" parent="." unique_id=253855605]
+script = ExtResource("3_vb7ij")
+metadata/_custom_type_script = "uid://ca0greousgvam"

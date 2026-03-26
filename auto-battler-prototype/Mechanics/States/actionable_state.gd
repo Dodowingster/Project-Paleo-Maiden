@@ -4,14 +4,17 @@ class_name ActionableState
 func update(_delta: float):
 	var decision : String = ""
 	var chosenStrategy: GlobalValues.STRATEGY = owner.strategy
-
-	if chosenStrategy == GlobalValues.STRATEGY.AGGRESSIVE:
-		decision = aggressive_strategy_logic()
-	elif chosenStrategy == GlobalValues.STRATEGY.BALANCED:
-		decision = balanced_strategy_logic()
-	elif chosenStrategy == GlobalValues.STRATEGY.DEFENSIVE:
-		decision = defensive_strategy_logic()
-		
+	
+	if %Loadout.techniqueToExecute != null:
+		decision = "Technique"
+	else:
+		if chosenStrategy == GlobalValues.STRATEGY.AGGRESSIVE:
+			decision = aggressive_strategy_logic()
+		elif chosenStrategy == GlobalValues.STRATEGY.BALANCED:
+			decision = balanced_strategy_logic()
+		elif chosenStrategy == GlobalValues.STRATEGY.DEFENSIVE:
+			decision = defensive_strategy_logic()
+	
 	if decision != "" && decision != self.name:
 		transition.emit(self, decision)
 
@@ -38,6 +41,10 @@ func aggressive_strategy_logic() -> String:
 			else:
 				decision = "MoveForward"
 	
+	if decision == "BaseAttack" or decision == "Technique":
+		owner.broadcastAction.emit(GlobalValues.ACTION.ATTACK)
+	else:
+		owner.broadcastAction.emit(GlobalValues.ACTION.MOVE)
 	return decision
 
 
@@ -53,8 +60,11 @@ func balanced_strategy_logic() -> String:
 		#if canAttack:
 		if owner.distance > owner.maxDistance:
 			decision = "MoveForward"
-		elif owner.distance < owner.minDistance:
-			decision = "MoveBackward"
+		elif owner.min_distance_hit():
+			if owner.opponent.min_distance_hit() and owner.canClash and owner.opponent.canClash:
+				decision = "Clashing"
+			else:
+				decision = "MoveBackward"
 		else:
 			decision = "BaseAttack"
 		#else:
@@ -90,4 +100,8 @@ func defensive_strategy_logic() -> String:
 	else:
 		decision = "MoveBackward"
 	
+	if decision == "BaseAttack" or decision == "Technique":
+		owner.broadcastAction.emit(GlobalValues.ACTION.ATTACK)
+	else:
+		owner.broadcastAction.emit(GlobalValues.ACTION.MOVE)
 	return decision

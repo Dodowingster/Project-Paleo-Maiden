@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="HitboxData" format=3 uid="uid://c067bwvnyklkj"]
+
+[ext_resource type="Script" uid="uid://djprxni5sqe65" path="res://Characters/generic/hitbox_data.gd" id="1_6lj3y"]
+[ext_resource type="Shape2D" uid="uid://b8bo863kmgrty" path="res://Characters/don/hitboxes/don_rushhitboxshape.tres" id="1_hvwtj"]
+
+[resource]
+script = ExtResource("1_6lj3y")
+damage = 15
+hitstun = 0.7
+blockstun = 0.55
+knockbackX = 2000
+blockbackX = 500
+hitstopFrames = 8
+hitboxShape = ExtResource("1_hvwtj")
+startup = 20
+active = 8
+location = Vector2(64, 8)
+metadata/_custom_type_script = "uid://djprxni5sqe65"
