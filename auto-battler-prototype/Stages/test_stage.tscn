@@ -222,6 +222,8 @@ visible = false
 
 [node name="Camera2D" type="Camera2D" parent="Runner" unique_id=336103352]
 position = Vector2(400, 288)
+limit_left = -104
+limit_right = 936
 
 [node name="PhantomCameraHost" type="Node" parent="Runner/Camera2D" unique_id=141014086]
 process_priority = 300
@@ -273,6 +275,8 @@ auto_zoom = true
 auto_zoom_min = 0.5
 auto_zoom_max = 1.0
 auto_zoom_margin = Vector4(200, 0, 200, 0)
+limit_left = -104
+limit_right = 936
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [connection signal="pressed" from="Runner/CanvasLayer/PauseMenu/PanelContainer/VBoxContainer/ResumeBtn" to="." method="_on_resume_btn_pressed"]
