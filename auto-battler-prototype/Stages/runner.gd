@@ -17,6 +17,7 @@ class_name Runner
 @onready var dataTracker : DataTracker = %DataTracker
 @onready var ui : Control = %UI
 @onready var phanCam : PhantomCamera2D = %PhanCam
+@export var camera : CustomCamera
 
 
 func _ready() -> void:
@@ -36,6 +37,8 @@ func _ready() -> void:
 		phanCam.follow_targets = [nodeP1, nodeP2]
 		nodeP1.position = p1SpawnPosition
 		nodeP2.position = p2SpawnPosition
+		nodeP1.shakeCamera.connect(camera.add_trauma)
+		nodeP2.shakeCamera.connect(camera.add_trauma)
 		self.add_child(nodeP1)
 		self.add_child(nodeP2)
 		nodeP1.setup_loadout(loadout1)

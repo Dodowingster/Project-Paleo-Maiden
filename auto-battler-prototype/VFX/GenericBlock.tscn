@@ -17,6 +17,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Rect2(8, 264, 24, 32)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlockSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-8, -8)]
+}
 
 [sub_resource type="Animation" id="Animation_ilkes"]
 resource_name = "play"
@@ -34,6 +46,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [Rect2(8, 256, 32, 40), Rect2(40, 256, 32, 40), Rect2(72, 256, 32, 40), Rect2(104, 256, 32, 40), Rect2(138, 256, 32, 40), Rect2(170, 256, 32, 40), Rect2(203, 256, 32, 40)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlockSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-8, -8)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_um8cg"]
 _data = {
@@ -45,7 +69,8 @@ _data = {
 script = ExtResource("1_47qk4")
 
 [node name="BlockSprite" type="Sprite2D" parent="." unique_id=1089238996]
-scale = Vector2(-4, 4)
+position = Vector2(-8, -8)
+scale = Vector2(-3.5, 3.5)
 texture = ExtResource("2_vogdx")
 region_enabled = true
 region_rect = Rect2(8, 264, 24, 32)

@@ -7,6 +7,7 @@ signal broadcastAtkActiveEnd()
 signal broadcastAction(action : GlobalValues.ACTION)
 signal broadcastClashResult(result : bool)
 signal broadcastWinState()
+signal shakeCamera(amount : float)
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var characterData : CharacterData
@@ -308,6 +309,7 @@ func get_hit(hitbox: HitBox, hurtbox: Hurtbox):
 				
 		var vfx : VFX = VFXManager.spawn_vfx(vfx_type, vfx_pos, knockbackDirectionMod)
 		vfx.freeze_frames = hitstop_frames
+		shakeCamera.emit((hitstop_frames * 1.0/5) * 0.2)
 		
 		%StateMachine.on_child_transition($StateMachine.currentState, chosenHitState)
 		opponentIsAttacking = false
