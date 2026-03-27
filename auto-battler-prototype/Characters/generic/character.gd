@@ -229,6 +229,11 @@ func _on_tick(rcvDistance: float, rcvTickCount: int):
 		face_opponent()
 	
 	if %StateMachine.currentState is not StateHitstun \
+	and %StateMachine.currentState is not StateBlockstun \
+	and %StateMachine.currentState is not StateBaseAtk \
+	and %StateMachine.currentState is not StateTechnique \
+	and %StateMachine.currentState is not StateWin \
+	and %StateMachine.currentState is not StateLose \
 	and %StateMachine.currentState is not StateClashing \
 	and %StateMachine.currentState is not StateClashLose:
 		#currentActionGoal += sta
