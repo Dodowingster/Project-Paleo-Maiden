@@ -28,8 +28,9 @@ func _physics_process(delta):
 			if !owner.is_on_wall():
 				owner.velocity_x_before_wall = owner.velocity.x
 			else:
-				owner.opponent.velocity.x -= owner.velocity_x_before_wall
-				owner.velocity_x_before_wall = 0
+				if owner.velocity_x_before_wall != 0:
+					owner.opponent.velocity.x -= owner.velocity_x_before_wall
+					owner.velocity_x_before_wall = 0
 		owner.move_and_slide()
 		
 			
