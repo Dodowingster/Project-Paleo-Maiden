@@ -264,9 +264,18 @@ func _on_tick(rcvDistance: float, rcvTickCount: int):
 func get_hit(hitbox: HitBox, hurtbox: Hurtbox):
 	var parent = hitbox.owner
 	if parent != self:
-		var hitbox_location : Vector2 = hitbox.get_children()[0].global_position
-		var hurtbox_location : Vector2 = hurtbox.get_children()[0].global_position
+		var hitbox_location : Vector2 = hitbox.get_children()[0].global_transform.origin
+		var hurtbox_location : Vector2 = hurtbox.get_children()[0].global_transform.origin
+		var hitbox_size : Vector2 = hitbox.get_children()[0].shape.size
+		var hurtbox_size : Vector2 = hurtbox.get_children()[0].shape.size
 		var vfx_pos = (hitbox_location + hurtbox_location) / 2
+		
+		var hitboxRect : Rect2 = Rect2(hitbox_location - hitbox_size/2, hitbox_size)
+		var hurtboxRect : Rect2 = Rect2(hurtbox_location - hurtbox_size/2, hurtbox_size)
+		var intersection : Rect2 = hitboxRect.intersection(hurtboxRect)
+		if intersection.size != Vector2.ZERO:
+			vfx_pos = intersection.position + intersection.size/2
+		
 		var vfx_type : VFXManager.VFX_TYPE
 		
 		print("Attack detected, parent = " + parent.characterName + " dmg = " + str(hitbox.damage) + ", groupname = " + hitbox.groupName)
