@@ -180,6 +180,37 @@ func setup_loadout(techniqueDataList : Array[TechniqueData]) -> void:
 				
 	loadout.setup_techniques()
 
+func unload_loadout() -> void:
+	var resetAnim : Animation = %AnimationPlayer.get_animation(animLibName + "/RESET")
+	var hitstunAnim : Animation = %AnimationPlayer.get_animation(animLibName + "/hitstun")
+	for technique in loadout.get_children():
+		if technique is Technique:
+			var techniqueAnim : Animation = %AnimationPlayer.get_animation(animLibName + "/" + technique.animName)
+			for child in %SideTracker.get_children():
+				if child is HitBox:
+					for shape in child.get_children():
+						var disabledTechTrack : int = techniqueAnim.find_track("%s:disabled" % shape.get_path(), Animation.TYPE_VALUE)
+						if disabledTechTrack != -1:
+							techniqueAnim.remove_track(disabledTechTrack)
+						var visibleTechTrack : int = techniqueAnim.find_track("%s:visible" % shape.get_path(), Animation.TYPE_VALUE)
+						if visibleTechTrack != -1:
+							techniqueAnim.remove_track(visibleTechTrack)
+						if disabledTechTrack != -1 and visibleTechTrack != -1:
+							var disabledResetTrack : int = resetAnim.find_track("%s:disabled" % shape.get_path(), Animation.TYPE_VALUE)
+							if disabledResetTrack != -1:
+								resetAnim.remove_track(disabledResetTrack)
+							var visibleResetTrack : int = resetAnim.find_track("%s:visible" % shape.get_path(), Animation.TYPE_VALUE)
+							if visibleResetTrack != -1:
+								resetAnim.remove_track(visibleResetTrack)
+							var disabledHitstunTrack : int = hitstunAnim.find_track("%s:disabled" % shape.get_path(), Animation.TYPE_VALUE)
+							if disabledHitstunTrack != -1:
+								hitstunAnim.remove_track(disabledHitstunTrack)
+							var visibleHitstunTrack : int = hitstunAnim.find_track("%s:visible" % shape.get_path(), Animation.TYPE_VALUE)
+							if visibleHitstunTrack != -1:
+								hitstunAnim.remove_track(visibleHitstunTrack)
+						
+			
+
 func set_char_velocity(_delta:float):
 	if not is_on_floor():
 		velocity.y += gravity
