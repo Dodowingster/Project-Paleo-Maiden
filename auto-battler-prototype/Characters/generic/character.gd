@@ -208,8 +208,7 @@ func unload_loadout() -> void:
 							var visibleHitstunTrack : int = hitstunAnim.find_track("%s:visible" % shape.get_path(), Animation.TYPE_VALUE)
 							if visibleHitstunTrack != -1:
 								hitstunAnim.remove_track(visibleHitstunTrack)
-						
-			
+
 
 func set_char_velocity(_delta:float):
 	if not is_on_floor():

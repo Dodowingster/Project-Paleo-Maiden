@@ -30,7 +30,7 @@ func set_selection(prevChar : CharacterData, prevTech : Array[TechniqueData]) ->
 	charSelectList.select(charList.find(prevChar))
 	_on_char_list_item_selected(charList.find(prevChar))
 	for tech in prevTech:
-		techSelectList.select(techniqueList.find(tech))
+		techSelectList.select(techniqueList.find(tech), false)
 		_on_technique_list_multi_selected(techniqueList.find(tech), true)
 
 
