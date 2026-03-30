@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cuskt27lt6cex" path="res://Characters/placeholder_sprites/NCorpRyoshu/skill3_2_#9181.png" id="6_1us7d"]
 [ext_resource type="Script" uid="uid://71l6nk5830yo" path="res://Mechanics/hitbox.gd" id="6_s8f15"]
 [ext_resource type="Shape2D" uid="uid://c03de4iv0ht51" path="res://Characters/don/hitboxes/don_baseatkshape.tres" id="7_kntwo"]
+[ext_resource type="Script" uid="uid://xhutnxqw7tsv" path="res://Characters/generic/shake_sprite.gd" id="7_ryghy"]
 [ext_resource type="Script" uid="uid://cuqyr28ih435l" path="res://Mechanics/hurtbox.gd" id="8_7en0w"]
 [ext_resource type="Script" uid="uid://whbif5ykrdmj" path="res://Mechanics/States/state_machine.gd" id="9_28a1p"]
 [ext_resource type="Script" uid="uid://bqw1eo83vcp4r" path="res://Characters/States/state_hitstun.gd" id="10_40065"]
@@ -52,6 +53,7 @@ unique_name_in_owner = true
 position = Vector2(41, -4)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("6_1us7d")
+script = ExtResource("7_ryghy")
 
 [node name="BaseAtkHitbox" type="Area2D" parent="SideTracker" unique_id=1283739801]
 unique_name_in_owner = true
