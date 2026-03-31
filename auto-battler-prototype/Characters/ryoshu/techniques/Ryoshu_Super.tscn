@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://vvpc8qlg01o" path="res://Mechanics/Techniques/Triggers/range_trigger.gd" id="4_q0i3k"]
 [ext_resource type="Script" uid="uid://j5gvlgjyc1n2" path="res://Mechanics/Techniques/Effects/freezescreen_effect.gd" id="5_3npcg"]
 [ext_resource type="Script" uid="uid://def02s2coydwo" path="res://Mechanics/Techniques/Effects/focuscamera_effect.gd" id="6_pg8d4"]
+[ext_resource type="Script" uid="uid://b2o1c2gj8l2gj" path="res://Mechanics/Techniques/Effects/zoomcamera_effect.gd" id="7_q0i3k"]
 
 [node name="RyoshuSuper" type="Node" unique_id=1484722612]
 script = ExtResource("1_e02yo")
@@ -33,3 +34,9 @@ metadata/_custom_type_script = "uid://j5gvlgjyc1n2"
 script = ExtResource("6_pg8d4")
 revertFrame = 85
 metadata/_custom_type_script = "uid://def02s2coydwo"
+
+[node name="ZoomCameraEffect" type="Node" parent="." unique_id=1526906510]
+script = ExtResource("7_q0i3k")
+revertFrame = 85
+zoom = Vector2(1.3, 1.3)
+metadata/_custom_type_script = "uid://b2o1c2gj8l2gj"
