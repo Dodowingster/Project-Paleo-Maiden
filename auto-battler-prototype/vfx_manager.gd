@@ -19,3 +19,9 @@ func spawn_vfx(vfx_type : VFX_TYPE, vfx_position : Vector2, scale_x_mod : int = 
 	vfx_node.scale.x = vfx_node.scale.x * scale_x_mod
 	get_tree().root.add_child(vfx_node)
 	return vfx_node
+
+func spawn_specified_vfx(vfx : VFX, vfx_position : Vector2, scale_x_mod : int = 1) -> VFX:
+	vfx.position = vfx_position
+	vfx.scale.x = vfx.scale.x * scale_x_mod
+	get_tree().root.add_child(vfx)
+	return vfx
