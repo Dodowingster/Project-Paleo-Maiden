@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://y4x6wj01li2r"]
+
+[ext_resource type="Script" uid="uid://byoxtyp10g1r8" path="res://Mechanics/Techniques/TechniqueTypes/super_technique.gd" id="1_e02yo"]
+[ext_resource type="Script" uid="uid://davbi37fiwm0b" path="res://Mechanics/Techniques/Triggers/action_goal_trigger.gd" id="2_keunw"]
+[ext_resource type="Script" uid="uid://cm2swp1i5yuvi" path="res://Mechanics/Techniques/Triggers/cooldown_trigger.gd" id="3_pg8d4"]
+[ext_resource type="Script" uid="uid://vvpc8qlg01o" path="res://Mechanics/Techniques/Triggers/range_trigger.gd" id="4_q0i3k"]
+[ext_resource type="Script" uid="uid://j5gvlgjyc1n2" path="res://Mechanics/Techniques/Effects/freezescreen_effect.gd" id="5_3npcg"]
+
+[node name="RyoshuSuper" type="Node" unique_id=1484722612]
+script = ExtResource("1_e02yo")
+
+[node name="ActionGoalTrigger" type="Node" parent="." unique_id=1416423685]
+script = ExtResource("2_keunw")
+metadata/_custom_type_script = "uid://davbi37fiwm0b"
+
+[node name="CooldownTrigger" type="Node" parent="." unique_id=1230323461]
+script = ExtResource("3_pg8d4")
+cooldown = 5.0
+metadata/_custom_type_script = "uid://cm2swp1i5yuvi"
+
+[node name="RangeTrigger" type="Node" parent="." unique_id=949961414]
+script = ExtResource("4_q0i3k")
+maxRange = 180.0
+metadata/_custom_type_script = "uid://vvpc8qlg01o"
+
+[node name="FreezeScreenEffect" type="Node" parent="." unique_id=818517468]
+script = ExtResource("5_3npcg")
+revertFrame = 85
+metadata/_custom_type_script = "uid://j5gvlgjyc1n2"

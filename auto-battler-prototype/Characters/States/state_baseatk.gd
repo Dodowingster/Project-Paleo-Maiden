@@ -40,19 +40,7 @@ func physics_update(_delta: float):
 			owner.was_in_hitstop = false
 			animPlayer.speed_scale = 1
 	if owner.hitstop_frames > 0:
-		#shake_sprite(owner.hitstop_frames, 2)
 		owner.hitstop_frames -= 1
-
-
-#func shake_sprite(currentHitStopFrame: int, pixelShake: int):
-	#if currentHitStopFrame % 3 == 0:
-		#%Sprite.position.x = spriteOGCoordinates.x + pixelShake
-	#elif currentHitStopFrame % 2 == 0:
-		#%Sprite.position.x = spriteOGCoordinates.x
-	#elif currentHitStopFrame % 1 == 0:
-		#%Sprite.position.x = spriteOGCoordinates.x - pixelShake
-	#else:
-		#%Sprite.position.x = spriteOGCoordinates.x
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == animName:

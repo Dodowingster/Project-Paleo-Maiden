@@ -74,7 +74,8 @@ func _enter_tree() -> void:
 	for lib in libs:
 		%AnimationPlayer.remove_animation_library(lib)
 	# add the needed animation library
-	%AnimationPlayer.add_animation_library(animLibName, characterData.animLib)
+	var copiedLib : AnimationLibrary = characterData.animLib.duplicate(true)
+	%AnimationPlayer.add_animation_library(animLibName, copiedLib)
 	atk = characterData.atk
 	def = characterData.def
 	spd = characterData.spd

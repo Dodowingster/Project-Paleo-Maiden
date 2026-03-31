@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://chfnndt3hm1wf" path="res://Characters/ryoshu/techniques/ryoshu_reversal.tres" id="8_m5m86"]
 [ext_resource type="Resource" uid="uid://cp1vjeyka1tul" path="res://Characters/ryoshu/techniques/ryoshu_sideswitch.tres" id="9_5hpsr"]
 [ext_resource type="PackedScene" uid="uid://3tfudsg5f3v" path="res://UI/Menus/SetupChar.tscn" id="10_l6cnn"]
+[ext_resource type="Resource" uid="uid://dewv7utm7vt8c" path="res://Characters/ryoshu/techniques/ryoshu_super.tres" id="10_ojtvw"]
 
 [node name="BattleSetup" type="Control" unique_id=1438093763 node_paths=PackedStringArray("setupChar1", "setupChar2")]
 layout_mode = 3
@@ -22,7 +23,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_b6kka")
 charList = Array[ExtResource("2_h7fae")]([ExtResource("3_ysw65"), ExtResource("4_yc3jj")])
-techniqueList = Array[ExtResource("5_m8xi5")]([ExtResource("6_l6cnn"), ExtResource("7_ojtvw"), ExtResource("8_m5m86"), ExtResource("9_5hpsr")])
+techniqueList = Array[ExtResource("5_m8xi5")]([ExtResource("6_l6cnn"), ExtResource("7_ojtvw"), ExtResource("8_m5m86"), ExtResource("9_5hpsr"), ExtResource("10_ojtvw")])
 setupChar1 = NodePath("PanelContainer/VBoxContainer/SetupMenu/SetupChar")
 setupChar2 = NodePath("PanelContainer/VBoxContainer/SetupMenu/SetupChar2")
 

@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://hrvfmlohrxj7" path="res://Characters/ryoshu/techniques/ryoshu_rush.tres" id="7_hguw3"]
 [ext_resource type="Resource" uid="uid://chfnndt3hm1wf" path="res://Characters/ryoshu/techniques/ryoshu_reversal.tres" id="8_t66uo"]
 [ext_resource type="Resource" uid="uid://cp1vjeyka1tul" path="res://Characters/ryoshu/techniques/ryoshu_sideswitch.tres" id="9_n3tgy"]
+[ext_resource type="Resource" uid="uid://dewv7utm7vt8c" path="res://Characters/ryoshu/techniques/ryoshu_super.tres" id="10_j7hqa"]
 
 [node name="SetupChar" type="VBoxContainer" unique_id=617072385 node_paths=PackedStringArray("headerLabel", "selectedCharLabel", "charSelectList", "techSelectList", "selectedTechList")]
 anchors_preset = 8
@@ -26,7 +27,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_hdoat")
 charList = Array[ExtResource("2_0hg0a")]([ExtResource("3_j7hqa"), ExtResource("4_w1o85")])
-techniqueList = Array[ExtResource("5_7pbdq")]([ExtResource("6_p3pgw"), ExtResource("7_hguw3"), ExtResource("8_t66uo"), ExtResource("9_n3tgy")])
+techniqueList = Array[ExtResource("5_7pbdq")]([ExtResource("6_p3pgw"), ExtResource("7_hguw3"), ExtResource("8_t66uo"), ExtResource("9_n3tgy"), ExtResource("10_j7hqa")])
 headerLabelText = "Test"
 headerLabel = NodePath("HeaderLabel")
 selectedCharLabel = NodePath("SelectedChar/SelectedCharLabel")
