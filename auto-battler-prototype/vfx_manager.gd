@@ -14,7 +14,7 @@ func spawn_vfx(vfx_type : VFX_TYPE, vfx_position : Vector2, scale_x_mod : int = 
 			vfx_node = block_vfx.instantiate()
 		_:
 			push_error("VFX doesn't exist.")
-	vfx_node.add_to_group("vfx")
+	#vfx_node.add_to_group("vfx")
 	vfx_node.position = vfx_position
 	vfx_node.scale.x = vfx_node.scale.x * scale_x_mod
 	get_tree().root.add_child(vfx_node)

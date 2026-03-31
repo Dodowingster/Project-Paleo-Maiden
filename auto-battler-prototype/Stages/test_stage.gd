@@ -3,6 +3,9 @@ class_name Stage
 
 var always_running_nodes : Array[Node] = []
 
+func _ready() -> void:
+	StageManager.set_stage(self)
+
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause_menu"):
 		if %PauseMenu.visible:
@@ -25,7 +28,7 @@ func _on_end_battle_btn_pressed() -> void:
 func get_always_running_nodes() -> void:
 	always_running_nodes = []
 	for node in self.get_child(0).get_children():
-		if node.process_mode == PROCESS_MODE_ALWAYS:
+		if node is Character and node.process_mode == PROCESS_MODE_ALWAYS:
 			always_running_nodes.append(node)
 
 

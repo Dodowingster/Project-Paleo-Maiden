@@ -13,9 +13,12 @@
 [ext_resource type="Resource" uid="uid://bouom4lj25mga" path="res://Characters/don/techniques/don_rush.tres" id="5_kcvyg"]
 [ext_resource type="Texture2D" uid="uid://bw3vi8afoxpmr" path="res://Characters/placeholder_sprites/Tyran_Rex/tyran_rex-idle.png" id="6_2ge0f"]
 [ext_resource type="Resource" uid="uid://cp1vjeyka1tul" path="res://Characters/ryoshu/techniques/ryoshu_sideswitch.tres" id="7_oh5io"]
+[ext_resource type="Resource" uid="uid://hrvfmlohrxj7" path="res://Characters/ryoshu/techniques/ryoshu_rush.tres" id="7_wqi8t"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_1su0b"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="8_lnwe3"]
+[ext_resource type="Resource" uid="uid://chfnndt3hm1wf" path="res://Characters/ryoshu/techniques/ryoshu_reversal.tres" id="8_qpgl0"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_5dtn3"]
+[ext_resource type="Resource" uid="uid://dewv7utm7vt8c" path="res://Characters/ryoshu/techniques/ryoshu_super.tres" id="10_6xav4"]
 [ext_resource type="Script" uid="uid://dwjuwme5l70i5" path="res://Stages/custom_camera.gd" id="13_oh5io"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhvwd"]
@@ -38,7 +41,7 @@ data1 = ExtResource("3_y2t8x")
 loadout1 = Array[ExtResource("4_oxt3d")]([ExtResource("5_kcvyg")])
 p1SpawnPosition = Vector2(100, 280)
 data2 = ExtResource("4_84gnr")
-loadout2 = Array[ExtResource("4_oxt3d")]([ExtResource("7_oh5io")])
+loadout2 = Array[ExtResource("4_oxt3d")]([ExtResource("7_wqi8t"), ExtResource("8_qpgl0"), ExtResource("7_oh5io"), ExtResource("10_6xav4")])
 p2SpawnPosition = Vector2(700, 280)
 camera = NodePath("Camera")
 
@@ -223,6 +226,7 @@ process_mode = 3
 visible = false
 
 [node name="Camera" type="Camera2D" parent="Runner" unique_id=336103352]
+process_mode = 3
 position = Vector2(400, 288)
 limit_left = -104
 limit_right = 936
@@ -268,6 +272,7 @@ shape = SubResource("RectangleShape2D_84gnr")
 
 [node name="PhanCam" type="Node2D" parent="." unique_id=280291903]
 unique_name_in_owner = true
+process_mode = 3
 top_level = true
 position = Vector2(400, 288)
 script = ExtResource("8_lnwe3")
