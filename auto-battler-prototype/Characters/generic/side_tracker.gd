@@ -8,14 +8,13 @@ func _ready() -> void:
 	side = 1 if scale.x > 0 else -1
 
 func set_facing_direction(facingRight: bool):
-	if canFlip:
-		if facingRight:
-			side = 1
-			scale.x = 1
-		else:
-			side = -1
-			scale.x = -1
+	if facingRight:
+		side = 1
+		scale.x = 1
+	else:
+		side = -1
+		scale.x = -1
 	
 
-func set_lock_direction(directionLock: bool):
+func set_side_lock(directionLock: bool):
 	canFlip = !directionLock

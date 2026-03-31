@@ -16,6 +16,7 @@ func _ready():
 
 func enter():
 	owner.canClash = false
+	owner.face_opponent()
 	spriteOGCoordinates = %Sprite.position
 	initialDistance = owner.distance
 	if animName in animList:

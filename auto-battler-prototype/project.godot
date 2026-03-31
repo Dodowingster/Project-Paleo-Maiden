@@ -14,8 +14,8 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="AutoBattler Prototype"
-run/main_scene="uid://cp47aajkwulg7"
+config/name="Project Paleo-Maiden"
+run/main_scene="uid://doy6qds7jr6o6"
 config/features=PackedStringArray("4.6", "Mobile")
 run/max_fps=60
 config/icon="res://icon.svg"
@@ -24,6 +24,8 @@ config/icon="res://icon.svg"
 
 GlobalValues="*res://Mechanics/global_values.gd"
 PhantomCameraManager="*uid://duq6jhf6unyis"
+SimpleSceneManager="*uid://f7wh4whqg2pk"
+VFXManager="*uid://bnib7hcjt4te8"
 
 [display]
 
@@ -34,6 +36,10 @@ window/stretch/mode="viewport"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
+
+[global_group]
+
+vfx=""
 
 [input]
 
@@ -47,10 +53,26 @@ frame_forward={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":93,"key_label":0,"unicode":93,"location":0,"echo":false,"script":null)
 ]
 }
+pause_menu={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194309,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+
+[layer_names]
+
+2d_physics/layer_1="character"
+2d_physics/layer_2="hitbox"
+2d_physics/layer_4="hurtbox"
+2d_physics/layer_5="environment"
 
 [phantom_camera]
 
 tips/show_jitter_tips=false
+
+[physics]
+
+2d/solver/default_contact_bias=0.5
 
 [rendering]
 

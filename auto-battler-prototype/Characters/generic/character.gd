@@ -7,6 +7,7 @@ signal broadcastAtkActiveEnd()
 signal broadcastAction(action : GlobalValues.ACTION)
 signal broadcastClashResult(result : bool)
 signal broadcastWinState()
+signal shakeCamera(amount : float)
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var characterData : CharacterData
@@ -62,6 +63,8 @@ var hitstop_frames: int = 0
 var stored_velocity: Vector2 = Vector2.ZERO
 var was_in_hitstop: bool = false
 
+var velocity_x_before_wall : float = 0
+
 func _enter_tree() -> void:
 	loadout = %Loadout
 	characterName = characterData.characterName
@@ -111,7 +114,9 @@ func _ready() -> void:
 		opponent.connect("broadcastAtkActiveEnd", on_atk_active_end_signal_rcvd)
 		opponent.connect("broadcastClashResult", on_clash_result_rcvd)
 		opponent.connect("broadcastWinState", on_win_confirmed)
+		distance = abs(opponent.position.x - position.x)
 
+## SETUP functions
 func setup_loadout(techniqueDataList : Array[TechniqueData]) -> void:
 	var resetAnim : Animation = %AnimationPlayer.get_animation(animLibName + "/RESET")
 	var hitstunAnim : Animation = %AnimationPlayer.get_animation(animLibName + "/hitstun")
@@ -176,6 +181,37 @@ func setup_loadout(techniqueDataList : Array[TechniqueData]) -> void:
 				
 	loadout.setup_techniques()
 
+func unload_loadout() -> void:
+	var resetAnim : Animation = %AnimationPlayer.get_animation(animLibName + "/RESET")
+	var hitstunAnim : Animation = %AnimationPlayer.get_animation(animLibName + "/hitstun")
+	for technique in loadout.get_children():
+		if technique is Technique:
+			var techniqueAnim : Animation = %AnimationPlayer.get_animation(animLibName + "/" + technique.animName)
+			for child in %SideTracker.get_children():
+				if child is HitBox:
+					for shape in child.get_children():
+						var disabledTechTrack : int = techniqueAnim.find_track("%s:disabled" % shape.get_path(), Animation.TYPE_VALUE)
+						if disabledTechTrack != -1:
+							techniqueAnim.remove_track(disabledTechTrack)
+						var visibleTechTrack : int = techniqueAnim.find_track("%s:visible" % shape.get_path(), Animation.TYPE_VALUE)
+						if visibleTechTrack != -1:
+							techniqueAnim.remove_track(visibleTechTrack)
+						if disabledTechTrack != -1 and visibleTechTrack != -1:
+							var disabledResetTrack : int = resetAnim.find_track("%s:disabled" % shape.get_path(), Animation.TYPE_VALUE)
+							if disabledResetTrack != -1:
+								resetAnim.remove_track(disabledResetTrack)
+							var visibleResetTrack : int = resetAnim.find_track("%s:visible" % shape.get_path(), Animation.TYPE_VALUE)
+							if visibleResetTrack != -1:
+								resetAnim.remove_track(visibleResetTrack)
+							var disabledHitstunTrack : int = hitstunAnim.find_track("%s:disabled" % shape.get_path(), Animation.TYPE_VALUE)
+							if disabledHitstunTrack != -1:
+								hitstunAnim.remove_track(disabledHitstunTrack)
+							var visibleHitstunTrack : int = hitstunAnim.find_track("%s:visible" % shape.get_path(), Animation.TYPE_VALUE)
+							if visibleHitstunTrack != -1:
+								hitstunAnim.remove_track(visibleHitstunTrack)
+
+
+## initial PHYSICS function
 func set_char_velocity(_delta:float):
 	if not is_on_floor():
 		velocity.y += gravity
@@ -186,6 +222,8 @@ func set_char_velocity(_delta:float):
 	else:
 		velocity.x = lerp(velocity.x, 0.000, 0.250)
 
+
+## STRATEGY related functions
 func check_can_attack():
 	return (currentActionGoal >= actionGoalTotal && 			# Action goal check
 			distance <= minDistance && 							# Distance check (attack close enough to hit)
@@ -198,6 +236,24 @@ func check_want_to_attack():
 func min_distance_hit():
 	return distance <= minDistance
 
+func decide_action(oppAction: GlobalValues.ACTION):
+	if oppAction == GlobalValues.ACTION.ATTACK:
+		opponentIsAttacking = true
+
+func on_atk_active_end_signal_rcvd():
+	opponentIsAttacking = false
+	
+func broadcast_atk_active_end():
+	broadcastAtkActiveEnd.emit()
+	opponentIsAttacking = false
+
+func on_win_confirmed():
+	# stop doing stuff
+	var chosenHitState = "Win"
+	%StateMachine.on_child_transition($StateMachine.currentState, chosenHitState)
+
+
+## CLASH related functions
 func clash_check():
 	var win_clash_chance = (float(atk + def) / float(atk + def + opponent.atk + opponent.def)) * 100
 	var win_clash_check = randi() % 100
@@ -211,12 +267,27 @@ func on_clash_result_rcvd(result: bool):
 	oppClashResult = result
 	print(opponent.characterName + " Clash Result: " + str(oppClashResult))
 
-# What the character does each tick
+
+# What the character does each TICK
 func _on_tick(rcvDistance: float, rcvTickCount: int):
 	distance = rcvDistance
 	tickCount = rcvTickCount
 	wantToClash = false
+	
+	if %StateMachine.currentState is ActionableState:
+		%SideTracker.set_side_lock(false)
+	else:
+		%SideTracker.set_side_lock(true)
+		
+	if %SideTracker.canFlip:
+		face_opponent()
+	
 	if %StateMachine.currentState is not StateHitstun \
+	and %StateMachine.currentState is not StateBlockstun \
+	and %StateMachine.currentState is not StateBaseAtk \
+	and %StateMachine.currentState is not StateTechnique \
+	and %StateMachine.currentState is not StateWin \
+	and %StateMachine.currentState is not StateLose \
 	and %StateMachine.currentState is not StateClashing \
 	and %StateMachine.currentState is not StateClashLose:
 		#currentActionGoal += sta
@@ -243,76 +314,103 @@ func _on_tick(rcvDistance: float, rcvTickCount: int):
 			else:
 				broadcastAction.emit(GlobalValues.ACTION.MOVE)
 
-func get_hit(hitbox: HitBox, _hurtbox: Hurtbox):
-	var parent = hitbox.owner
+
+# on character getting HIT
+func get_hit(hitbox: HitBox, hurtbox: Hurtbox):
+	var parent : Character = hitbox.owner
 	if parent != self:
+		var vfx_pos : Vector2 = get_intersection_midpoint(hitbox, hurtbox)
+		
+		var vfx_type : VFXManager.VFX_TYPE
+		
 		print("Attack detected, parent = " + parent.characterName + " dmg = " + str(hitbox.damage) + ", groupname = " + hitbox.groupName)
 		var chosenHitState = "Hitstun"
+		vfx_type = VFXManager.VFX_TYPE.HIT
+		
+		var knockbackDirectionMod : int = 1
+		if is_char_facing_right():
+			knockbackDirectionMod = -1
 		
 		# Check character currently moving backwards, char blocks
 		if %StateMachine.currentState is StateMoveBkwd or %StateMachine.currentState is StateBlockstun:
 			chosenHitState = "Blockstun"
+			vfx_type = VFXManager.VFX_TYPE.BLOCK
 			hitstun = hitbox.blockstun
-			hitknockbackX = hitbox.blockbackX * %SideTracker.side * -1
+			hitknockbackX = hitbox.blockbackX * knockbackDirectionMod
 			hitknockbackY = hitbox.blockbackY
 
 			# Check for KO (no chip kill)
-			if health - floor(hitbox.damage * 0.3) < 0:
-				health = 1
-			else:
-				health -= floor(hitbox.damage * 0.3)
+			take_damage_block(parent.calc_initial_damage(hitbox.damage))
 		
 		# Else character got hit
 		else:
 			hitstop_frames = max(hitstop_frames, hitbox.hitstopFrames)
 			hitbox.owner.hitstop_frames = max(hitbox.owner.hitstop_frames, hitbox.hitstopFrames)
 			hitstun = hitbox.hitstun
-			hitknockbackX = hitbox.knockbackX * %SideTracker.side * -1
+			hitknockbackX = hitbox.knockbackX * knockbackDirectionMod
 			hitknockbackY = hitbox.knockbackY
 
 			# Check for KO
-			if health - hitbox.damage <= 0:
+			take_damage_hit(parent.calc_initial_damage(hitbox.damage))
+			if health <= 0:
 				chosenHitState = "Lose"
 				health = 0
 				broadcastWinState.emit()
-			else:
-				health -= hitbox.damage
-		#
-		#Hitvfx.showHit.emit(hitbox, hurtbox)
-		#
+				
+		var vfx : VFX = VFXManager.spawn_vfx(vfx_type, vfx_pos, knockbackDirectionMod)
+		vfx.freeze_frames = hitstop_frames
+		shakeCamera.emit((hitstop_frames * 1.0/5) * 0.2)
+		%Sprite.add_trauma((hitstop_frames * 1.0/5) * 0.2)
 		
-		#if abs(hitknockbackX) < abs(hitknockbackY)/2:
-			#tumble = true
-			#if hitknockbackY < 0:
-				#chosenHitState = "EnemyHitUp"
-			#elif hitknockbackY > 0:
-				#chosenHitState = "EnemyHitDown"
-		#elif abs(hitknockbackX) > abs(hitknockbackY)/2:
-			#tumble = true
-			#chosenHitState = "EnemyHitAway"
-			#if hitknockbackX > 0:
-				#flip_char("left")
-			#elif hitknockbackX < 0:
-				#flip_char("right")
-		#
 		%StateMachine.on_child_transition($StateMachine.currentState, chosenHitState)
 		opponentIsAttacking = false
 
-func decide_action(oppAction: GlobalValues.ACTION):
-	if oppAction == GlobalValues.ACTION.ATTACK:
-		opponentIsAttacking = true
 
-func on_atk_active_end_signal_rcvd():
-	opponentIsAttacking = false
-	
-func broadcast_atk_active_end():
-	broadcastAtkActiveEnd.emit()
-	opponentIsAttacking = false
+## DAMAGE calc functions
+func calc_initial_damage(value : int) -> int:
+	return value + atk
 
-func on_win_confirmed():
-	# stop doing stuff
-	var chosenHitState = "Win"
-	%StateMachine.on_child_transition($StateMachine.currentState, chosenHitState)
+func take_damage_hit(value : int) -> void:
+	var actualDamage : int = value - def
+	health -= actualDamage
+	if health < 0:
+		health = 0
 
+func take_damage_block(value : int) -> void:
+	@warning_ignore("narrowing_conversion")
+	var actualDamage : int = (value - def) * 0.3
+	health -= actualDamage
+	if health <= 0:
+		health = 1
+
+
+## HELPER functions
 func get_side() -> int:
 	return %SideTracker.side
+
+func toggle_collision(canCollide : bool) -> void:
+	if !canCollide:
+		pass
+	self.set_collision_layer_value(1, canCollide)
+	self.set_collision_mask_value(1, canCollide)
+	
+func face_opponent() -> void:
+	var facingRight : bool = is_char_facing_right()
+	%SideTracker.set_facing_direction(facingRight)
+
+func is_char_facing_right() -> bool:
+	return position.x < opponent.position.x
+
+func get_intersection_midpoint(hitbox: HitBox, hurtbox: Hurtbox) -> Vector2:
+	var hitbox_location : Vector2 = hitbox.get_children()[0].global_transform.origin
+	var hurtbox_location : Vector2 = hurtbox.get_children()[0].global_transform.origin
+	var hitbox_size : Vector2 = hitbox.get_children()[0].shape.size
+	var hurtbox_size : Vector2 = hurtbox.get_children()[0].shape.size
+	var vfx_pos : Vector2 = (hitbox_location + hurtbox_location) / 2
+	
+	var hitboxRect : Rect2 = Rect2(hitbox_location - hitbox_size/2, hitbox_size)
+	var hurtboxRect : Rect2 = Rect2(hurtbox_location - hurtbox_size/2, hurtbox_size)
+	var intersection : Rect2 = hitboxRect.intersection(hurtboxRect)
+	if intersection.size != Vector2.ZERO:
+		vfx_pos = intersection.position + intersection.size/2
+	return vfx_pos

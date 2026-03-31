@@ -4,7 +4,7 @@ class_name StateClashing
 
 @onready var animPlayer : AnimationPlayer = %AnimationPlayer
 var animList : PackedStringArray = []
-var animDuration : float = 0.5
+var animDuration : float = 0.3
 var currentDuration : float = 0.0
 var clash_anims: PackedStringArray = ["blockstun", "clash2"]
 
@@ -13,6 +13,7 @@ func _ready():
 
 func enter():
 	owner.canClash = true
+	owner.face_opponent()
 	currentDuration = 0.0
 	var animIndex = randi_range(0, clash_anims.size() - 1)
 	if (owner.animLibName + "/" + clash_anims[animIndex]) in animList:
