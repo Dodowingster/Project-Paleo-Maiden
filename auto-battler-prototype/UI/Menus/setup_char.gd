@@ -11,8 +11,10 @@ class_name SetupChar
 @export var headerLabel : Label
 @export var selectedCharLabel : Label
 @export var charSelectList : ItemList
+@export var techOverallList : VBoxContainer
 @export var techSelectList : ItemList
 @export var selectedTechList : ItemList
+@export var attributesList : AttributesList
 
 func _ready() -> void:
 	setup_selection()
@@ -27,16 +29,18 @@ func setup_selection() -> void:
 func set_selection(prevChar : CharacterData, prevTech : Array[TechniqueData]) -> void:
 	charSelectList.deselect_all()
 	techSelectList.deselect_all()
-	charSelectList.select(charList.find(prevChar))
-	_on_char_list_item_selected(charList.find(prevChar))
+	var ogIndex : int = find_original_index(prevChar)
+	charSelectList.select(ogIndex)
+	_on_char_list_item_selected(ogIndex)
+	attributesList.character_selected(prevChar) # override original data after 1st battle
 	for tech in prevTech:
 		techSelectList.select(techniqueList.find(tech), false)
 		_on_technique_list_multi_selected(techniqueList.find(tech), true)
 
-
 func _on_char_list_item_selected(index: int) -> void:
-	selectedChar = charList[index]
+	selectedChar = charList[index].duplicate_deep()
 	selectedCharLabel.text = selectedChar.characterName
+	attributesList.character_selected(selectedChar)
 
 func _on_technique_list_multi_selected(index: int, selected: bool) -> void:
 	if selected:
@@ -45,5 +49,12 @@ func _on_technique_list_multi_selected(index: int, selected: bool) -> void:
 	else:
 		selectedTechList.remove_item(selectedTech.find(techniqueList[index]))
 		selectedTech.remove_at(selectedTech.find(techniqueList[index]))
-		
+
+func find_original_index(copied_data : CharacterData) -> int:
+	var foundValue : int = -1
+	for data in charList:
+		if data is CharacterData and data.characterName == copied_data.characterName:
+			foundValue = charList.find(data)
 	
+	return foundValue
+			

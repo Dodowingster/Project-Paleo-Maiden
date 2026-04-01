@@ -18,6 +18,8 @@ func back_to_battle_setup(stage : Stage) -> void:
 
 func start_battle(setupChar1 : SetupChar, setupChar2 : SetupChar, stage : Stage) -> void:
 	if setupChar1.selectedChar != null and setupChar2.selectedChar != null:
+		setupChar1.attributesList.update_character_data(setupChar1.selectedChar)
+		setupChar2.attributesList.update_character_data(setupChar2.selectedChar)
 		var runner : Runner = stage.get_node("Runner")
 		runner.data1 = setupChar1.selectedChar
 		runner.data2 = setupChar2.selectedChar
