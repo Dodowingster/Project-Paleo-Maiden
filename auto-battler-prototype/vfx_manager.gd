@@ -2,10 +2,11 @@ extends Node
 
 @onready var hit_vfx : PackedScene = preload("res://VFX/GenericHit.tscn")
 @onready var block_vfx : PackedScene = preload("res://VFX/GenericBlock.tscn")
+@onready var clashwin_vfx : PackedScene = preload("res://VFX/GenericClashWin.tscn")
 @onready var clash_vfx : PackedScene = preload("res://VFX/GenericClashing.tscn")
 @onready var bothClash : bool = false
 
-enum VFX_TYPE { HIT, BLOCK }
+enum VFX_TYPE { HIT, BLOCK, CLASHWIN }
 
 func spawn_vfx(vfx_type : VFX_TYPE, vfx_position : Vector2, scale_x_mod : int = 1) -> VFX:
 	var vfx_node : VFX
@@ -14,6 +15,8 @@ func spawn_vfx(vfx_type : VFX_TYPE, vfx_position : Vector2, scale_x_mod : int = 
 			vfx_node = hit_vfx.instantiate()
 		VFX_TYPE.BLOCK:
 			vfx_node = block_vfx.instantiate()
+		VFX_TYPE.CLASHWIN:
+			vfx_node = clashwin_vfx.instantiate()
 		_:
 			push_error("VFX doesn't exist.")
 	#vfx_node.add_to_group("vfx")
