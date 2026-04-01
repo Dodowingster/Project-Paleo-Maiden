@@ -1,6 +1,8 @@
 extends Node
 
 func back_to_battle_setup(stage : Stage) -> void:
+	for node in get_tree().get_nodes_in_group("vfx"):
+		node.queue_free()
 	var battleSetup : PackedScene = load("res://UI/Menus/BattleSetup.tscn")
 	var battleSetupNode : BattleSetup = battleSetup.instantiate()
 	var runner : Runner = stage.get_node("Runner")
