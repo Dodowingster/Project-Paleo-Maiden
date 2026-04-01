@@ -74,7 +74,8 @@ func _enter_tree() -> void:
 	for lib in libs:
 		%AnimationPlayer.remove_animation_library(lib)
 	# add the needed animation library
-	%AnimationPlayer.add_animation_library(animLibName, characterData.animLib)
+	var copiedLib : AnimationLibrary = characterData.animLib.duplicate(true)
+	%AnimationPlayer.add_animation_library(animLibName, copiedLib)
 	atk = characterData.atk
 	def = characterData.def
 	spd = characterData.spd
@@ -335,6 +336,10 @@ func get_hit(hitbox: HitBox, hurtbox: Hurtbox):
 		if %StateMachine.currentState is StateMoveBkwd or %StateMachine.currentState is StateBlockstun:
 			chosenHitState = "Blockstun"
 			vfx_type = VFXManager.VFX_TYPE.BLOCK
+			@warning_ignore("integer_division")
+			hitstop_frames = max(hitstop_frames, hitbox.hitstopFrames/2)
+			@warning_ignore("integer_division")
+			hitbox.owner.hitstop_frames = max(hitbox.owner.hitstop_frames, hitbox.hitstopFrames/2)
 			hitstun = hitbox.blockstun
 			hitknockbackX = hitbox.blockbackX * knockbackDirectionMod
 			hitknockbackY = hitbox.blockbackY
@@ -358,7 +363,10 @@ func get_hit(hitbox: HitBox, hurtbox: Hurtbox):
 				broadcastWinState.emit()
 				
 		var vfx : VFX = VFXManager.spawn_vfx(vfx_type, vfx_pos, knockbackDirectionMod)
-		vfx.freeze_frames = hitstop_frames
+		vfx.add_to_group("vfx", false)
+		for vfxNode in get_tree().get_nodes_in_group("vfx"):
+			vfxNode.freeze_frames = hitstop_frames
+		#vfx.freeze_frames = hitstop_frames
 		shakeCamera.emit((hitstop_frames * 1.0/5) * 0.2)
 		%Sprite.add_trauma((hitstop_frames * 1.0/5) * 0.2)
 		

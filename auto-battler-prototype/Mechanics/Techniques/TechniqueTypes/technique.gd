@@ -38,17 +38,17 @@ func setup_triggers_and_effects(character: Character) -> void:
 	print(" Trigger setup for " + techniqueName)
 
 	for trigger in triggers:
-		if trigger is ActionGoalTrigger or trigger is HpTrigger or trigger is RangeTrigger \
-		or trigger is OppStateTrigger:
-			trigger.character = character
+		#if trigger is ActionGoalTrigger or trigger is HpTrigger or trigger is RangeTrigger \
+		#or trigger is OppStateTrigger:
+		trigger.character = character
 		print("  " + trigger.name + " trigger initialized")
 	
 	print(" Effect setup for " + techniqueName)
 	
 	for effect in effects:
-		if effect is MoveEffect or effect is SideSwitchEffect:
-			print("  " + effect.name + " effect initialized")
-			effect.character = character
+		#if effect is MoveEffect or effect is SideSwitchEffect:
+		print("  " + effect.name + " effect initialized")
+		effect.character = character
 
 func trigger_check() -> bool:
 	var conditions_met : bool = true

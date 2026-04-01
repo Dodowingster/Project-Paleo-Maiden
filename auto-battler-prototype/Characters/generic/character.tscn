@@ -5,7 +5,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://boalcp78pqj5n" path="res://Characters/don/anims/don.res" id="4_1us7d"]
 [ext_resource type="Script" uid="uid://colufoqxh8nwm" path="res://Characters/generic/side_tracker.gd" id="4_ocvec"]
 [ext_resource type="AnimationLibrary" uid="uid://dkhtxnpfpt0ey" path="res://Characters/ryoshu/anims/ryoshu.res" id="5_1us7d"]
-[ext_resource type="Texture2D" uid="uid://cuskt27lt6cex" path="res://Characters/placeholder_sprites/NCorpRyoshu/skill3_2_#9181.png" id="6_1us7d"]
+[ext_resource type="Texture2D" uid="uid://bt8isuoep80x2" path="res://Characters/placeholder_sprites/A_CinqEastDon/idle.png" id="6_ryghy"]
 [ext_resource type="Script" uid="uid://71l6nk5830yo" path="res://Mechanics/hitbox.gd" id="6_s8f15"]
 [ext_resource type="Shape2D" uid="uid://c03de4iv0ht51" path="res://Characters/don/hitboxes/don_baseatkshape.tres" id="7_kntwo"]
 [ext_resource type="Script" uid="uid://xhutnxqw7tsv" path="res://Characters/generic/shake_sprite.gd" id="7_ryghy"]
@@ -50,9 +50,8 @@ script = ExtResource("4_ocvec")
 
 [node name="Sprite" type="Sprite2D" parent="SideTracker" unique_id=1654816590]
 unique_name_in_owner = true
-position = Vector2(41, -4)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("6_1us7d")
+texture = ExtResource("6_ryghy")
 script = ExtResource("7_ryghy")
 
 [node name="BaseAtkHitbox" type="Area2D" parent="SideTracker" unique_id=1283739801]
