@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://lce06nickwyo"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fpdwe"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 90.0
+initial_velocity_max = 120.0
+gravity = Vector3(0, 198, 0)
+scale_min = 4.0
+scale_max = 4.0
+color = Color(1, 0.8333334, 0, 1)
+
+[node name="GenericClashing" type="Node2D" unique_id=1792738906]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=28756315]
+scale = Vector2(5, 5)
+lifetime = 0.2
+trail_enabled = true
+trail_lifetime = 0.09999999999999999
+trail_sections = 6
+trail_section_subdivisions = 3
+process_material = SubResource("ParticleProcessMaterial_fpdwe")
