@@ -19,10 +19,10 @@ func spawn_vfx(vfx_type : VFX_TYPE, vfx_position : Vector2, scale_x_mod : int = 
 			vfx_node = clashwin_vfx.instantiate()
 		_:
 			push_error("VFX doesn't exist.")
-	#vfx_node.add_to_group("vfx")
+	vfx_node.add_to_group("vfx")
 	vfx_node.global_position = vfx_position
 	vfx_node.scale.x = vfx_node.scale.x * scale_x_mod
-	get_tree().root.add_child(vfx_node)
+	get_tree().root.add_child(vfx_node, false)
 	return vfx_node
 
 func spawn_specified_vfx(vfx : VFX, vfx_position : Vector2, scale_x_mod : int = 1) -> VFX:
@@ -40,6 +40,7 @@ func spawn_clash_vfx(char1 : Character, char2 : Character) -> Node2D:
 		var clash_node : Node2D = clash_vfx.instantiate()
 		var vfx_position : Vector2 = (char1.global_position + char2.global_position) / 2.0
 		clash_node.global_position = vfx_position
+		clash_node.add_to_group("vfx", false)
 		get_tree().root.add_child(clash_node)
 		return clash_node
 
