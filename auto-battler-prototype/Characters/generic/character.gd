@@ -332,10 +332,6 @@ func get_hit(hitbox: HitBox, hurtbox: Hurtbox):
 		if is_char_facing_right():
 			knockbackDirectionMod = -1
 		
-		var knockbackDirectionMod : int = 1
-		if is_char_facing_right():
-			knockbackDirectionMod = -1
-		
 		# Check character currently moving backwards, char blocks
 		if %StateMachine.currentState is StateMoveBkwd or %StateMachine.currentState is StateBlockstun:
 			chosenHitState = "Blockstun"
