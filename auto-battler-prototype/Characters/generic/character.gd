@@ -107,6 +107,8 @@ func _ready() -> void:
 	%BaseAtkHitbox.groupName = characterData.baseAtkData.groupName
 	# set hitbox shape (eventually need to initialize collisionshapes in here)
 	var hitboxshape : CollisionShape2D = %BaseAtkHitbox.get_child(0)
+	hitboxshape.debug_color = Color(0.69, 0, 0, 0.41)
+	hitboxshape.position = characterData.baseAtkData.location
 	hitboxshape.shape = characterData.baseAtkData.hitboxShape
 	
 	GlobalValues.connect("updateDataToChar", _on_tick)
