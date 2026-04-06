@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="HurtboxData" format=3 uid="uid://c3n15wtrpsuda"]
+
+[ext_resource type="Shape2D" uid="uid://c50rtt8kqdcsh" path="res://Characters/don/hurtboxes/don_baseatkhurtboxshape.tres" id="1_0xmm7"]
+[ext_resource type="Script" uid="uid://dvmw6qlvblh7i" path="res://Characters/generic/hurtbox_data.gd" id="1_ivvnp"]
+
+[resource]
+script = ExtResource("1_ivvnp")
+hurtboxShape = ExtResource("1_0xmm7")
+startup = 15
+active = 28
+location = Vector2(40, -4)
+metadata/_custom_type_script = "uid://dvmw6qlvblh7i"
