@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://vvpc8qlg01o" path="res://Mechanics/Techniques/Triggers/range_trigger.gd" id="3_pt63p"]
 [ext_resource type="Script" uid="uid://dcjcx6dhuwnr4" path="res://Mechanics/Techniques/Effects/move_effect.gd" id="4_1yojt"]
 [ext_resource type="Script" uid="uid://cm2swp1i5yuvi" path="res://Mechanics/Techniques/Triggers/cooldown_trigger.gd" id="5_1oynq"]
+[ext_resource type="Script" uid="uid://c5gxs7ehq2eig" path="res://Mechanics/Techniques/Triggers/pos_trigger.gd" id="6_3h3ca"]
 
 [node name="Ryoshu_Reversal" type="Node" unique_id=1204371215]
 script = ExtResource("1_lvp3g")
@@ -34,3 +35,7 @@ script = ExtResource("4_1yojt")
 velocity = Vector2(500, 0)
 applyFrame = 48
 metadata/_custom_type_script = "uid://dcjcx6dhuwnr4"
+
+[node name="PositionTrigger" type="Node" parent="." unique_id=519362813]
+script = ExtResource("6_3h3ca")
+metadata/_custom_type_script = "uid://c5gxs7ehq2eig"

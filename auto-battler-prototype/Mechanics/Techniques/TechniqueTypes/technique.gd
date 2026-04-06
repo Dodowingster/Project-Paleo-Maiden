@@ -47,9 +47,10 @@ func setup_triggers_and_effects(character: Character) -> void:
 	print(" Trigger setup for " + techniqueName)
 
 	for trigger in triggers:
-		#if trigger is ActionGoalTrigger or trigger is HpTrigger or trigger is RangeTrigger \
-		#or trigger is OppStateTrigger:
+		# if trigger is ActionGoalTrigger or trigger is HpTrigger or trigger is RangeTrigger \
+		# or trigger is OppStateTrigger or trigger is PositionTrigger:
 		trigger.character = character
+		print("character side: " + str(trigger.character.get_side()))
 		print("  " + trigger.name + " trigger initialized")
 	
 	print(" Effect setup for " + techniqueName)
