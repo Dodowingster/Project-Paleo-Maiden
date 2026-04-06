@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dd3sajkycqovj" path="res://Mechanics/Techniques/TechniqueTypes/baseatk_technique.gd" id="1_eanrm"]
 [ext_resource type="Script" uid="uid://davbi37fiwm0b" path="res://Mechanics/Techniques/Triggers/action_goal_trigger.gd" id="2_p3ays"]
+[ext_resource type="Script" uid="uid://vvpc8qlg01o" path="res://Mechanics/Techniques/Triggers/range_trigger.gd" id="3_p3ays"]
 
 [node name="DonBaseAtk" type="Node" unique_id=1301937975]
 script = ExtResource("1_eanrm")
@@ -9,3 +10,9 @@ script = ExtResource("1_eanrm")
 [node name="ActionGoalTrigger" type="Node" parent="." unique_id=1023278779]
 script = ExtResource("2_p3ays")
 metadata/_custom_type_script = "uid://davbi37fiwm0b"
+
+[node name="RangeTrigger" type="Node" parent="." unique_id=658285388]
+script = ExtResource("3_p3ays")
+minRange = 80.0
+maxRange = 100.0
+metadata/_custom_type_script = "uid://vvpc8qlg01o"

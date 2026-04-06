@@ -11,7 +11,7 @@
 script = ExtResource("3_ijmwf")
 technique = ExtResource("5_by8yf")
 techniqueName = "BaseAtk"
-animName = "baseatk"
+animName = "baseattack"
 hitboxes = Array[ExtResource("1_w5ksu")]([ExtResource("2_ijmwf")])
 hurtboxes = Array[ExtResource("2_7hdvc")]([ExtResource("4_by8yf")])
 metadata/_custom_type_script = "uid://c0c4p57o71yio"
