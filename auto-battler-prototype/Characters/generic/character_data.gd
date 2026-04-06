@@ -16,4 +16,4 @@ class_name CharacterData
 @export var forwardSpdMult : float = 1.0
 @export var backwardSpdMult : float = 0.5
 @export var actionGoalTotal : int = 300
-@export var baseAtkData : HitboxData
+@export var baseAtkData : TechniqueData

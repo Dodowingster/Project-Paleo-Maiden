@@ -95,21 +95,21 @@ func _ready() -> void:
 	%SideTracker.set_facing_direction(startFacingRight)
 	
 	#base atk stuff
-	%BaseAtkHitbox.damage = characterData.baseAtkData.damage
-	%BaseAtkHitbox.hitstun = characterData.baseAtkData.hitstun
-	%BaseAtkHitbox.blockstun = characterData.baseAtkData.blockstun
-	%BaseAtkHitbox.knockbackX = characterData.baseAtkData.knockbackX
-	%BaseAtkHitbox.knockbackY = characterData.baseAtkData.knockbackY
-	%BaseAtkHitbox.blockbackX = characterData.baseAtkData.blockbackX
-	%BaseAtkHitbox.blockbackY = characterData.baseAtkData.blockbackY
-	%BaseAtkHitbox.hitstopFrames = characterData.baseAtkData.hitstopFrames
-	%BaseAtkHitbox.isMultiHit = characterData.baseAtkData.isMultiHit
-	%BaseAtkHitbox.groupName = characterData.baseAtkData.groupName
-	# set hitbox shape (eventually need to initialize collisionshapes in here)
-	var hitboxshape : CollisionShape2D = %BaseAtkHitbox.get_child(0)
-	hitboxshape.debug_color = Color(0.69, 0, 0, 0.41)
-	hitboxshape.position = characterData.baseAtkData.location
-	hitboxshape.shape = characterData.baseAtkData.hitboxShape
+	#%BaseAtkHitbox.damage = characterData.baseAtkData.damage
+	#%BaseAtkHitbox.hitstun = characterData.baseAtkData.hitstun
+	#%BaseAtkHitbox.blockstun = characterData.baseAtkData.blockstun
+	#%BaseAtkHitbox.knockbackX = characterData.baseAtkData.knockbackX
+	#%BaseAtkHitbox.knockbackY = characterData.baseAtkData.knockbackY
+	#%BaseAtkHitbox.blockbackX = characterData.baseAtkData.blockbackX
+	#%BaseAtkHitbox.blockbackY = characterData.baseAtkData.blockbackY
+	#%BaseAtkHitbox.hitstopFrames = characterData.baseAtkData.hitstopFrames
+	#%BaseAtkHitbox.isMultiHit = characterData.baseAtkData.isMultiHit
+	#%BaseAtkHitbox.groupName = characterData.baseAtkData.groupName
+	## set hitbox shape (eventually need to initialize collisionshapes in here)
+	#var hitboxshape : CollisionShape2D = %BaseAtkHitbox.get_child(0)
+	#hitboxshape.debug_color = Color(0.69, 0, 0, 0.41)
+	#hitboxshape.position = characterData.baseAtkData.location
+	#hitboxshape.shape = characterData.baseAtkData.hitboxShape
 	
 	GlobalValues.connect("updateDataToChar", _on_tick)
 	if opponent != null:
@@ -123,6 +123,7 @@ func _ready() -> void:
 func setup_loadout(techniqueDataList : Array[TechniqueData]) -> void:
 	var resetAnim : Animation = %AnimationPlayer.get_animation(animLibName + "/RESET")
 	var hitstunAnim : Animation = %AnimationPlayer.get_animation(animLibName + "/hitstun")
+	techniqueDataList.append(characterData.baseAtkData)
 	for technique_data in techniqueDataList:
 		var techniqueNode = technique_data.technique.instantiate()
 		if techniqueNode is Technique:

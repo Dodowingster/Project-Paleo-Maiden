@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TechniqueData" format=3 uid="uid://dlt5lhptm2c8t"]
+
+[ext_resource type="Script" uid="uid://djprxni5sqe65" path="res://Characters/generic/hitbox_data.gd" id="1_3rsup"]
+[ext_resource type="Script" uid="uid://dvmw6qlvblh7i" path="res://Characters/generic/hurtbox_data.gd" id="2_6xv6y"]
+[ext_resource type="Resource" uid="uid://cio0tac8ba3j6" path="res://Characters/ryoshu/hitboxes/ryoshu_baseatkdata.tres" id="2_j4hsa"]
+[ext_resource type="Script" uid="uid://c0c4p57o71yio" path="res://Characters/generic/technique_data.gd" id="3_j4hsa"]
+[ext_resource type="PackedScene" uid="uid://ccutc7ykeyd6p" path="res://Characters/ryoshu/techniques/Ryoshu_BaseAtk.tscn" id="5_6shj4"]
+
+[resource]
+script = ExtResource("3_j4hsa")
+technique = ExtResource("5_6shj4")
+techniqueName = "BaseAtk"
+animName = "baseatk"
+hitboxes = Array[ExtResource("1_3rsup")]([ExtResource("2_j4hsa")])
+metadata/_custom_type_script = "uid://c0c4p57o71yio"
