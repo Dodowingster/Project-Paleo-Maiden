@@ -10,6 +10,9 @@ func back_to_battle_setup(stage : Stage) -> void:
 	var p2CharData : CharacterData = runner.data2
 	var p1LoadoutData : Array[TechniqueData] = runner.loadout1
 	var p2LoadoutData : Array[TechniqueData] = runner.loadout2
+	# remove base attacks from loadout
+	p1LoadoutData.remove_at(-1)
+	p2LoadoutData.remove_at(-1)
 	for child in runner.get_children():
 		if child is Character:
 			child.unload_loadout()
