@@ -94,21 +94,6 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	%SideTracker.set_facing_direction(startFacingRight)
 	
-	#base atk stuff
-	%BaseAtkHitbox.damage = characterData.baseAtkData.damage
-	%BaseAtkHitbox.hitstun = characterData.baseAtkData.hitstun
-	%BaseAtkHitbox.blockstun = characterData.baseAtkData.blockstun
-	%BaseAtkHitbox.knockbackX = characterData.baseAtkData.knockbackX
-	%BaseAtkHitbox.knockbackY = characterData.baseAtkData.knockbackY
-	%BaseAtkHitbox.blockbackX = characterData.baseAtkData.blockbackX
-	%BaseAtkHitbox.blockbackY = characterData.baseAtkData.blockbackY
-	%BaseAtkHitbox.hitstopFrames = characterData.baseAtkData.hitstopFrames
-	%BaseAtkHitbox.isMultiHit = characterData.baseAtkData.isMultiHit
-	%BaseAtkHitbox.groupName = characterData.baseAtkData.groupName
-	# set hitbox shape (eventually need to initialize collisionshapes in here)
-	var hitboxshape : CollisionShape2D = %BaseAtkHitbox.get_child(0)
-	hitboxshape.shape = characterData.baseAtkData.hitboxShape
-	
 	GlobalValues.connect("updateDataToChar", _on_tick)
 	if opponent != null:
 		opponent.connect("broadcastAction", decide_action)
@@ -121,6 +106,8 @@ func _ready() -> void:
 func setup_loadout(techniqueDataList : Array[TechniqueData]) -> void:
 	var resetAnim : Animation = %AnimationPlayer.get_animation(animLibName + "/RESET")
 	var hitstunAnim : Animation = %AnimationPlayer.get_animation(animLibName + "/hitstun")
+	techniqueDataList.append(characterData.baseAtkData)
+	
 	for technique_data in techniqueDataList:
 		var techniqueNode = technique_data.technique.instantiate()
 		if techniqueNode is Technique:
@@ -137,6 +124,7 @@ func setup_loadout(techniqueDataList : Array[TechniqueData]) -> void:
 				techniqueHitbox.hitstopFrames = technique_data.hitboxes[i].hitstopFrames
 				techniqueHitbox.isMultiHit = technique_data.hitboxes[i].isMultiHit
 				techniqueHitbox.groupName = technique_data.hitboxes[i].groupName
+				
 				var hitboxShape : CollisionShape2D = CollisionShape2D.new()
 				hitboxShape.shape = technique_data.hitboxes[i].hitboxShape
 				hitboxShape.disabled = true
@@ -146,6 +134,7 @@ func setup_loadout(techniqueDataList : Array[TechniqueData]) -> void:
 				techniqueHitbox.add_child(hitboxShape)
 				%SideTracker.add_child(techniqueHitbox)
 				techniqueHitbox.owner = self
+				
 				# set keys for technique
 				var techniqueAnim : Animation = %AnimationPlayer.get_animation(animLibName + "/" + techniqueNode.animName)
 				var track_idx = techniqueAnim.add_track(Animation.TYPE_VALUE)
@@ -154,6 +143,7 @@ func setup_loadout(techniqueDataList : Array[TechniqueData]) -> void:
 				techniqueAnim.track_insert_key(track_idx, 0, true)
 				techniqueAnim.track_insert_key(track_idx, technique_data.hitboxes[i].startup/60.0, false)
 				techniqueAnim.track_insert_key(track_idx, (technique_data.hitboxes[i].startup + technique_data.hitboxes[i].active)/60.0, true)
+				
 				track_idx = techniqueAnim.add_track(Animation.TYPE_VALUE)
 				techniqueAnim.track_set_path(track_idx, "%s:visible" % hitboxShape.get_path())
 				techniqueAnim.value_track_set_update_mode(track_idx, Animation.UPDATE_DISCRETE)
@@ -166,6 +156,7 @@ func setup_loadout(techniqueDataList : Array[TechniqueData]) -> void:
 				resetAnim.track_set_path(track_idx, "%s:disabled" % hitboxShape.get_path())
 				resetAnim.value_track_set_update_mode(track_idx, Animation.UPDATE_DISCRETE)
 				resetAnim.track_insert_key(track_idx, 0, true)
+				
 				track_idx = resetAnim.add_track(Animation.TYPE_VALUE)
 				resetAnim.track_set_path(track_idx, "%s:visible" % hitboxShape.get_path())
 				resetAnim.value_track_set_update_mode(track_idx, Animation.UPDATE_DISCRETE)
@@ -175,8 +166,56 @@ func setup_loadout(techniqueDataList : Array[TechniqueData]) -> void:
 				hitstunAnim.track_set_path(track_idx, "%s:disabled" % hitboxShape.get_path())
 				hitstunAnim.value_track_set_update_mode(track_idx, Animation.UPDATE_DISCRETE)
 				hitstunAnim.track_insert_key(track_idx, 0, true)
+				
 				track_idx = hitstunAnim.add_track(Animation.TYPE_VALUE)
 				hitstunAnim.track_set_path(track_idx, "%s:visible" % hitboxShape.get_path())
+				hitstunAnim.value_track_set_update_mode(track_idx, Animation.UPDATE_DISCRETE)
+				hitstunAnim.track_insert_key(track_idx, 0, false)
+			
+			
+			for j in technique_data.hurtboxes.size():
+				var hurtboxShape : CollisionShape2D = CollisionShape2D.new()
+				hurtboxShape.shape = technique_data.hurtboxes[j].hurtboxShape
+				hurtboxShape.disabled = true
+				hurtboxShape.visible = false
+				hurtboxShape.debug_color = Color(0, 0.6, 0, 0.42)
+				hurtboxShape.position = technique_data.hurtboxes[j].location
+				%CharacterHurtbox.add_child(hurtboxShape)
+				
+				# set keys for technique
+				var techniqueAnim : Animation = %AnimationPlayer.get_animation(animLibName + "/" + techniqueNode.animName)
+				var track_idx = techniqueAnim.add_track(Animation.TYPE_VALUE)
+				techniqueAnim.track_set_path(track_idx, "%s:disabled" % hurtboxShape.get_path())
+				techniqueAnim.value_track_set_update_mode(track_idx, Animation.UPDATE_DISCRETE)
+				techniqueAnim.track_insert_key(track_idx, 0, true)
+				techniqueAnim.track_insert_key(track_idx, technique_data.hurtboxes[j].startup/60.0, false)
+				techniqueAnim.track_insert_key(track_idx, (technique_data.hurtboxes[j].startup + technique_data.hurtboxes[j].active)/60.0, true)
+				
+				track_idx = techniqueAnim.add_track(Animation.TYPE_VALUE)
+				techniqueAnim.track_set_path(track_idx, "%s:visible" % hurtboxShape.get_path())
+				techniqueAnim.value_track_set_update_mode(track_idx, Animation.UPDATE_DISCRETE)
+				techniqueAnim.track_insert_key(track_idx, 0, false)
+				techniqueAnim.track_insert_key(track_idx, technique_data.hurtboxes[j].startup/60.0, true)
+				techniqueAnim.track_insert_key(track_idx, (technique_data.hurtboxes[j].startup + technique_data.hurtboxes[j].active)/60.0, false)
+				
+				# set keys for reset
+				track_idx = resetAnim.add_track(Animation.TYPE_VALUE)
+				resetAnim.track_set_path(track_idx, "%s:disabled" % hurtboxShape.get_path())
+				resetAnim.value_track_set_update_mode(track_idx, Animation.UPDATE_DISCRETE)
+				resetAnim.track_insert_key(track_idx, 0, true)
+				
+				track_idx = resetAnim.add_track(Animation.TYPE_VALUE)
+				resetAnim.track_set_path(track_idx, "%s:visible" % hurtboxShape.get_path())
+				resetAnim.value_track_set_update_mode(track_idx, Animation.UPDATE_DISCRETE)
+				resetAnim.track_insert_key(track_idx, 0, false)
+				# set keys for hitstun
+				track_idx = hitstunAnim.add_track(Animation.TYPE_VALUE)
+				hitstunAnim.track_set_path(track_idx, "%s:disabled" % hurtboxShape.get_path())
+				hitstunAnim.value_track_set_update_mode(track_idx, Animation.UPDATE_DISCRETE)
+				hitstunAnim.track_insert_key(track_idx, 0, true)
+				
+				track_idx = hitstunAnim.add_track(Animation.TYPE_VALUE)
+				hitstunAnim.track_set_path(track_idx, "%s:visible" % hurtboxShape.get_path())
 				hitstunAnim.value_track_set_update_mode(track_idx, Animation.UPDATE_DISCRETE)
 				hitstunAnim.track_insert_key(track_idx, 0, false)
 				
@@ -210,7 +249,27 @@ func unload_loadout() -> void:
 							var visibleHitstunTrack : int = hitstunAnim.find_track("%s:visible" % shape.get_path(), Animation.TYPE_VALUE)
 							if visibleHitstunTrack != -1:
 								hitstunAnim.remove_track(visibleHitstunTrack)
-
+				if child is Hurtbox:
+					for shape in child.get_children():
+						var disabledTechTrack : int = techniqueAnim.find_track("%s:disabled" % shape.get_path(), Animation.TYPE_VALUE)
+						if disabledTechTrack != -1:
+							techniqueAnim.remove_track(disabledTechTrack)
+						var visibleTechTrack : int = techniqueAnim.find_track("%s:visible" % shape.get_path(), Animation.TYPE_VALUE)
+						if visibleTechTrack != -1:
+							techniqueAnim.remove_track(visibleTechTrack)
+						if disabledTechTrack != -1 and visibleTechTrack != -1:
+							var disabledResetTrack : int = resetAnim.find_track("%s:disabled" % shape.get_path(), Animation.TYPE_VALUE)
+							if disabledResetTrack != -1:
+								resetAnim.remove_track(disabledResetTrack)
+							var visibleResetTrack : int = resetAnim.find_track("%s:visible" % shape.get_path(), Animation.TYPE_VALUE)
+							if visibleResetTrack != -1:
+								resetAnim.remove_track(visibleResetTrack)
+							var disabledHitstunTrack : int = hitstunAnim.find_track("%s:disabled" % shape.get_path(), Animation.TYPE_VALUE)
+							if disabledHitstunTrack != -1:
+								hitstunAnim.remove_track(disabledHitstunTrack)
+							var visibleHitstunTrack : int = hitstunAnim.find_track("%s:visible" % shape.get_path(), Animation.TYPE_VALUE)
+							if visibleHitstunTrack != -1:
+								hitstunAnim.remove_track(visibleHitstunTrack)
 
 ## initial PHYSICS function
 func set_char_velocity(_delta:float):

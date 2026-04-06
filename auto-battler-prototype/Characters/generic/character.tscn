@@ -2,13 +2,10 @@
 
 [ext_resource type="Script" uid="uid://f081btviug4u" path="res://Characters/generic/character.gd" id="1_1g87l"]
 [ext_resource type="Resource" uid="uid://c2k2423pfb03h" path="res://Characters/don/don_data.tres" id="2_1us7d"]
-[ext_resource type="Texture2D" uid="uid://db7kfrg8jyckl" path="res://Characters/placeholder_sprites/NCorpRyoshu/skill3_19_#8785.png" id="3_1us7d"]
 [ext_resource type="AnimationLibrary" uid="uid://boalcp78pqj5n" path="res://Characters/don/anims/don.res" id="4_1us7d"]
 [ext_resource type="Script" uid="uid://colufoqxh8nwm" path="res://Characters/generic/side_tracker.gd" id="4_ocvec"]
 [ext_resource type="AnimationLibrary" uid="uid://dkhtxnpfpt0ey" path="res://Characters/ryoshu/anims/ryoshu.res" id="5_1us7d"]
-[ext_resource type="Texture2D" uid="uid://bt8isuoep80x2" path="res://Characters/placeholder_sprites/A_CinqEastDon/idle.png" id="6_ryghy"]
-[ext_resource type="Script" uid="uid://71l6nk5830yo" path="res://Mechanics/hitbox.gd" id="6_s8f15"]
-[ext_resource type="Shape2D" uid="uid://c03de4iv0ht51" path="res://Characters/don/hitboxes/don_baseatkshape.tres" id="7_kntwo"]
+[ext_resource type="Texture2D" uid="uid://bt8isuoep80x2" path="res://Characters/placeholder_sprites/A_CinqEastDon/idle.png" id="6_1g87l"]
 [ext_resource type="Script" uid="uid://xhutnxqw7tsv" path="res://Characters/generic/shake_sprite.gd" id="7_ryghy"]
 [ext_resource type="Script" uid="uid://cuqyr28ih435l" path="res://Mechanics/hurtbox.gd" id="8_7en0w"]
 [ext_resource type="Script" uid="uid://whbif5ykrdmj" path="res://Mechanics/States/state_machine.gd" id="9_28a1p"]
@@ -26,43 +23,8 @@
 [ext_resource type="Script" uid="uid://nqsoppuuytas" path="res://Characters/generic/state_technique.gd" id="21_1us7d"]
 [ext_resource type="PackedScene" uid="uid://wa1rn1pd2gkc" path="res://Mechanics/Techniques/Loadout/Loadout.tscn" id="21_ucqw4"]
 
-[sub_resource type="Animation" id="Animation_ryghy"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SideTracker/Sprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-24, -30)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SideTracker/Sprite:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_1us7d")]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ocvec"]
-_data = {
-&"RESET": SubResource("Animation_ryghy")
-}
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xudx"]
 size = Vector2(48, 128)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ix8sw"]
-size = Vector2(40, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_acr0g"]
 size = Vector2(32, 128)
@@ -74,7 +36,6 @@ characterData = ExtResource("2_1us7d")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=599901854]
 unique_name_in_owner = true
-libraries/ = SubResource("AnimationLibrary_ocvec")
 libraries/don = ExtResource("4_1us7d")
 libraries/ryoshu = ExtResource("5_1us7d")
 
@@ -84,43 +45,18 @@ script = ExtResource("4_ocvec")
 
 [node name="Sprite" type="Sprite2D" parent="SideTracker" unique_id=1654816590]
 unique_name_in_owner = true
-position = Vector2(-24, -30)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("6_ryghy")
+texture = ExtResource("6_1g87l")
 script = ExtResource("7_ryghy")
 
-[node name="BaseAtkHitbox" type="Area2D" parent="SideTracker" unique_id=1283739801]
-unique_name_in_owner = true
-collision_layer = 0
-collision_mask = 0
-script = ExtResource("6_s8f15")
-damage = 15
-hitstun = 0.5
-blockstun = 0.4
-knockbackX = 1500
-blockbackX = 600
-hitstopFrames = 5
-
-[node name="BaseAtkHitboxShape" type="CollisionShape2D" parent="SideTracker/BaseAtkHitbox" unique_id=112687363]
-visible = false
-position = Vector2(65, -4)
-shape = ExtResource("7_kntwo")
-disabled = true
-debug_color = Color(0.7, 0, 0, 0.41960785)
-
 [node name="CharacterHurtbox" type="Area2D" parent="SideTracker" unique_id=994874910]
+unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("8_7en0w")
 
 [node name="HurtboxShape" type="CollisionShape2D" parent="SideTracker/CharacterHurtbox" unique_id=664979489]
 shape = SubResource("RectangleShape2D_0xudx")
-debug_color = Color(0, 0.6, 0, 0.41960785)
-
-[node name="BaseAtkHurtbox1Shape" type="CollisionShape2D" parent="SideTracker/CharacterHurtbox" unique_id=1416181559]
-position = Vector2(40, -4)
-shape = SubResource("RectangleShape2D_ix8sw")
-disabled = true
 debug_color = Color(0, 0.6, 0, 0.41960785)
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=504018138]

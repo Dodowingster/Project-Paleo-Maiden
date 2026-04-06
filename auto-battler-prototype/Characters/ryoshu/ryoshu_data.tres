@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://boc53imrgb27h" path="res://Characters/generic/character_data.gd" id="1_c8uxx"]
 [ext_resource type="AnimationLibrary" uid="uid://dkhtxnpfpt0ey" path="res://Characters/ryoshu/anims/ryoshu.res" id="1_uyfw6"]
-[ext_resource type="Resource" uid="uid://cio0tac8ba3j6" path="res://Characters/ryoshu/hitboxes/ryoshu_baseatkdata.tres" id="2_om7tl"]
+[ext_resource type="Resource" uid="uid://dlt5lhptm2c8t" path="res://Characters/ryoshu/techniques/ryoshu_baseatk.tres" id="2_om7tl"]
 
 [resource]
 script = ExtResource("1_c8uxx")

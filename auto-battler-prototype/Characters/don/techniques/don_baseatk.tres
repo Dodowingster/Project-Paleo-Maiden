@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="TechniqueData" format=3 uid="uid://66b0klag3244"]
+
+[ext_resource type="Script" uid="uid://djprxni5sqe65" path="res://Characters/generic/hitbox_data.gd" id="1_w5ksu"]
+[ext_resource type="Script" uid="uid://dvmw6qlvblh7i" path="res://Characters/generic/hurtbox_data.gd" id="2_7hdvc"]
+[ext_resource type="Resource" uid="uid://bc51sbcctyo5h" path="res://Characters/don/hitboxes/don_baseatkdata.tres" id="2_ijmwf"]
+[ext_resource type="Script" uid="uid://c0c4p57o71yio" path="res://Characters/generic/technique_data.gd" id="3_ijmwf"]
+[ext_resource type="Resource" uid="uid://c3n15wtrpsuda" path="res://Characters/don/hurtboxes/don_baseatkhurtboxdata.tres" id="4_by8yf"]
+[ext_resource type="PackedScene" uid="uid://dbaejhs668365" path="res://Characters/don/techniques/Don_BaseAtk.tscn" id="5_by8yf"]
+
+[resource]
+script = ExtResource("3_ijmwf")
+technique = ExtResource("5_by8yf")
+techniqueName = "BaseAtk"
+animName = "baseattack"
+hitboxes = Array[ExtResource("1_w5ksu")]([ExtResource("2_ijmwf")])
+hurtboxes = Array[ExtResource("2_7hdvc")]([ExtResource("4_by8yf")])
+metadata/_custom_type_script = "uid://c0c4p57o71yio"
