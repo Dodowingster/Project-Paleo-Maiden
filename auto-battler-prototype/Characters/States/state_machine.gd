@@ -33,7 +33,7 @@ func _physics_process(delta):
 					owner.velocity_x_before_wall = 0
 				else:
 					if currentState.impact_just_applied:
-						owner.opponent.velocity.x -= owner.velocity_x_before_wall
+						owner.opponent.velocity.x -= owner.velocity.x
 				
 		owner.move_and_slide()
 		

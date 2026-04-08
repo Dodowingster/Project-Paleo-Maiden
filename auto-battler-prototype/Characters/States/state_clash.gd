@@ -16,6 +16,7 @@ func enter():
 	owner.canClash = true
 	owner.face_opponent()
 	currentDuration = 0.0
+	owner.velocity.x = 0
 	var animIndex = randi_range(0, clash_anims.size() - 1)
 	if (owner.animLibName + "/" + clash_anims[animIndex]) in animList:
 		animPlayer.play(owner.animLibName + "/" + clash_anims[animIndex])
@@ -36,8 +37,6 @@ func update(_delta: float):
 	currentDuration += _delta
 	if currentDuration >= animDuration:
 		if owner.clashResult == owner.oppClashResult or !owner.clashResult:
-			owner.hitstun = 0.5
-			owner.hitknockbackX = 1000 * %SideTracker.side * -1
 			transition.emit(self, "ClashLose")
 		else:
 			transition.emit(self, "ClashWin")

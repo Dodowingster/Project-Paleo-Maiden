@@ -46,6 +46,8 @@ func update(_delta: float):
 
 
 func physics_update(_delta: float):
+	if impact_just_applied:
+		impact_just_applied = false
 	# if hitstop already started
 	if owner.hitstop_frames > 0:
 		# if hitstop didn't start before
@@ -63,10 +65,9 @@ func physics_update(_delta: float):
 			owner.velocity = owner.stored_velocity
 			owner.was_in_hitstop = false
 			impact_just_applied = true
-			super.physics_update(_delta)
 			animPlayer.speed_scale = 1
 		else:
-			impact_just_applied = false
+			impact_just_applied = true
 	
 	if owner.hitstop_frames > 0:
 		owner.hitstop_frames -= 1
