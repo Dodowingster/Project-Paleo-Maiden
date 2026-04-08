@@ -460,6 +460,10 @@ func toggle_collision(canCollide : bool) -> void:
 		pass
 	self.set_collision_layer_value(1, canCollide)
 	self.set_collision_mask_value(1, canCollide)
+
+func toggle_hurtbox(hurtbox_active : bool) -> void:
+	%CharacterHurtbox.monitorable = hurtbox_active
+	%CharacterHurtbox.monitoring = hurtbox_active
 	
 func face_opponent() -> void:
 	var facingRight : bool = is_char_facing_right()

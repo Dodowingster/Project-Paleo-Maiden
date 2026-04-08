@@ -12,6 +12,9 @@ var distance: float = 0.000
 
 
 func _ready() -> void:
+	reset()
+
+func reset() -> void:
 	tickCount = 0
 	tickAccumulator = 0.000
 	timer = 0.000

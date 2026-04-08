@@ -12,6 +12,7 @@ func _physics_process(_delta: float) -> void:
 			_on_resume_btn_pressed()
 		else:
 			pause_game()
+			%PauseMenu.resumeBtn.grab_focus.call_deferred()
 			%PauseMenu.visible = true
 
 
@@ -39,6 +40,16 @@ func pause_game() -> void:
 			node.process_mode = PROCESS_MODE_PAUSABLE
 	get_tree().paused = true
 
+
+func restart_game() -> void:
+	always_running_nodes = []
+	VFXManager.despawn_all_vfx()
+	var runner : Runner = get_node("Runner")
+	runner.reset()
+	runner.initialize()
+	StageManager.set_stage(self)
+	get_tree().paused = false
+	%PauseMenu.visible = false
 
 func resume_game() -> void:
 	if always_running_nodes.size() > 0:

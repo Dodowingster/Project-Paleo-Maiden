@@ -26,6 +26,7 @@ func spawn_vfx(vfx_type : VFX_TYPE, vfx_position : Vector2, scale_x_mod : int = 
 	return vfx_node
 
 func spawn_specified_vfx(vfx : VFX, vfx_position : Vector2, scale_x_mod : int = 1) -> VFX:
+	vfx.add_to_group("vfx", false)
 	vfx.position = vfx_position
 	vfx.scale.x = vfx.scale.x * scale_x_mod
 	get_tree().root.add_child(vfx)
@@ -47,3 +48,7 @@ func spawn_clash_vfx(char1 : Character, char2 : Character) -> Node2D:
 func despawn_clash_vfx(clash_node : Node2D) -> void:
 	bothClash = false
 	clash_node.queue_free()
+
+func despawn_all_vfx() -> void:
+	for vfx in get_tree().get_nodes_in_group("vfx"):
+		vfx.queue_free()
