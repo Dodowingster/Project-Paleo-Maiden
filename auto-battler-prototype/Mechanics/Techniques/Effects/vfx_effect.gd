@@ -17,7 +17,6 @@ func execute_effect(delta: float) -> void:
 				var side_corrected_pos : Vector2 = Vector2(localPos.x * character.get_side(), localPos.y)
 				var vfx_pos : Vector2 = character.global_position + side_corrected_pos
 				var in_tree_vfx : VFX = VFXManager.spawn_specified_vfx(vfxNode, vfx_pos, character.get_side())
-				in_tree_vfx.add_to_group("vfx", false)
 			triggered = true
 		timeElapsed += delta
 

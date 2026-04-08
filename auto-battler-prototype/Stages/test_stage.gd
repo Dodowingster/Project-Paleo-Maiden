@@ -42,6 +42,7 @@ func pause_game() -> void:
 
 func restart_game() -> void:
 	always_running_nodes = []
+	VFXManager.despawn_all_vfx()
 	var runner : Runner = get_node("Runner")
 	runner.reset()
 	runner.initialize()
