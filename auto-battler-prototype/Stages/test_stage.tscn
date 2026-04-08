@@ -290,6 +290,7 @@ limit_right = 936
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [connection signal="pressed" from="Runner/CanvasLayer/PauseMenu/PanelContainer/VBoxContainer/ResumeBtn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="Runner/CanvasLayer/PauseMenu/PanelContainer/VBoxContainer/RestartBtn" to="." method="restart_game"]
 [connection signal="pressed" from="Runner/CanvasLayer/PauseMenu/PanelContainer/VBoxContainer/EndBattleBtn" to="." method="_on_end_battle_btn_pressed"]
 
 [editable path="Runner/CanvasLayer/PauseMenu"]

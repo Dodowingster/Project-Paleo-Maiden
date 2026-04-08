@@ -40,6 +40,15 @@ func pause_game() -> void:
 	get_tree().paused = true
 
 
+func restart_game() -> void:
+	always_running_nodes = []
+	var runner : Runner = get_node("Runner")
+	runner.reset()
+	runner.initialize()
+	StageManager.set_stage(self)
+	get_tree().paused = false
+	%PauseMenu.visible = false
+
 func resume_game() -> void:
 	if always_running_nodes.size() > 0:
 		for node in always_running_nodes:

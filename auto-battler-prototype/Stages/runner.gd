@@ -21,6 +21,9 @@ class_name Runner
 
 
 func _ready() -> void:
+	initialize()
+
+func initialize() -> void:
 	char1 = load("res://Characters/generic/character.tscn")
 	char2 = load("res://Characters/generic/character.tscn")
 	if data1 != null and data2 != null:
@@ -46,3 +49,15 @@ func _ready() -> void:
 		ui.P1 = nodeP1
 		ui.P2 = nodeP2
 		ui.char_setup()
+
+func reset() -> void:
+	nodeP1.unload_loadout()
+	loadout1.remove_at(-1)
+	nodeP2.unload_loadout()
+	loadout2.remove_at(-1)
+	nodeP1.shakeCamera.disconnect(camera.add_trauma)
+	nodeP2.shakeCamera.disconnect(camera.add_trauma)
+	phanCam.follow_targets = []
+	nodeP1.queue_free()
+	nodeP2.queue_free()
+	ui.clear()

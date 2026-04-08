@@ -46,6 +46,14 @@ func char_setup() -> void:
 			techniqueLabel.text = technique.name
 			techniqueLabel.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 			P2TechniqueList.add_child(techniqueLabel)
+			
+func clear() -> void:
+	for child in P1TechniqueList.get_children():
+		if child.name != "ListHeader":
+			child.queue_free()
+	for child in P2TechniqueList.get_children():
+		if child.name != "ListHeader":
+			child.queue_free()
 
 func _process(_delta: float) -> void:
 	tickLabelValue.text = str(dataTracker.tickCount)
