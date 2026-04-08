@@ -186,5 +186,27 @@ text = "Max Distance:"
 layout_mode = 2
 virtual_keyboard_type = 2
 
+[node name="FwdSpdMultStat" type="HBoxContainer" parent="TabContainer/Attributes" unique_id=496295557]
+layout_mode = 2
+
+[node name="StatLabel" type="Label" parent="TabContainer/Attributes/FwdSpdMultStat" unique_id=1803373188]
+layout_mode = 2
+text = "Forward Spd Mult:"
+
+[node name="StatEdit" type="LineEdit" parent="TabContainer/Attributes/FwdSpdMultStat" unique_id=472783406]
+layout_mode = 2
+virtual_keyboard_type = 3
+
+[node name="BkwdSpdMultStat" type="HBoxContainer" parent="TabContainer/Attributes" unique_id=1022877562]
+layout_mode = 2
+
+[node name="StatLabel" type="Label" parent="TabContainer/Attributes/BkwdSpdMultStat" unique_id=1864065329]
+layout_mode = 2
+text = "Backward Spd Mult:"
+
+[node name="StatEdit" type="LineEdit" parent="TabContainer/Attributes/BkwdSpdMultStat" unique_id=337619349]
+layout_mode = 2
+virtual_keyboard_type = 3
+
 [connection signal="item_selected" from="CharList" to="." method="_on_char_list_item_selected"]
 [connection signal="multi_selected" from="TabContainer/Techniques/TechniqueList" to="." method="_on_technique_list_multi_selected"]

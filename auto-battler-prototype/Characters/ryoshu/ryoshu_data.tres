@@ -12,5 +12,7 @@ animLibName = "ryoshu"
 strategy = 1
 minDistance = 100
 maxDistance = 150
+forwardSpdMult = 50.0
+backwardSpdMult = 25.0
 baseAtkData = ExtResource("2_om7tl")
 metadata/_custom_type_script = "uid://boc53imrgb27h"
