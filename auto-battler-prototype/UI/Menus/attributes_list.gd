@@ -9,6 +9,8 @@ class_name AttributesList
 @onready var maxStaEdit : LineEdit
 @onready var minDistanceEdit : LineEdit
 @onready var maxDistanceEdit : LineEdit
+@onready var fwdSpdMultEdit : LineEdit
+@onready var bkwdSpdMultEdit : LineEdit
 
 func _enter_tree() -> void:
 	hpEdit = get_node("HPStat/StatEdit")
@@ -19,6 +21,8 @@ func _enter_tree() -> void:
 	maxStaEdit = get_node("MaxStaStat/StatEdit")
 	minDistanceEdit = get_node("MinDistanceStat/StatEdit")
 	maxDistanceEdit = get_node("MaxDistanceStat/StatEdit")
+	fwdSpdMultEdit = get_node("FwdSpdMultStat/StatEdit")
+	bkwdSpdMultEdit = get_node("BkwdSpdMultStat/StatEdit")
 
 func character_selected(charData : CharacterData) -> void:
 	hpEdit.text = str(charData.maxHP)
@@ -29,6 +33,8 @@ func character_selected(charData : CharacterData) -> void:
 	maxStaEdit.text = str(charData.maxSta)
 	minDistanceEdit.text = str(charData.minDistance)
 	maxDistanceEdit.text = str(charData.maxDistance)
+	fwdSpdMultEdit.text = str(charData.forwardSpdMult)
+	bkwdSpdMultEdit.text = str(charData.backwardSpdMult)
 
 func update_character_data(charData : CharacterData) -> void:
 	charData.maxHP = int(hpEdit.text)
@@ -39,3 +45,5 @@ func update_character_data(charData : CharacterData) -> void:
 	charData.maxSta = int(maxStaEdit.text)
 	charData.minDistance = int(minDistanceEdit.text)
 	charData.maxDistance = int(maxDistanceEdit.text)
+	charData.forwardSpdMult = float(fwdSpdMultEdit.text)
+	charData.backwardSpdMult = float(bkwdSpdMultEdit.text)
