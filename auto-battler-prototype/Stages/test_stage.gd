@@ -12,6 +12,7 @@ func _physics_process(_delta: float) -> void:
 			_on_resume_btn_pressed()
 		else:
 			pause_game()
+			%PauseMenu.resumeBtn.grab_focus.call_deferred()
 			%PauseMenu.visible = true
 
 
