@@ -24,13 +24,17 @@ func _physics_process(delta):
 	if currentState:
 		currentState.physics_update(delta)
 	if owner is Character:
-		if roundf(owner.velocity.x) != 0 or owner.is_on_wall():
-			if !owner.is_on_wall():
-				owner.velocity_x_before_wall = owner.velocity.x
-			else:
+		if !owner.is_on_wall():
+			owner.velocity_x_before_wall = roundf(owner.velocity.x)
+		else:
+			if currentState is StunState:
 				if owner.velocity_x_before_wall != 0:
 					owner.opponent.velocity.x -= owner.velocity_x_before_wall
 					owner.velocity_x_before_wall = 0
+				else:
+					if currentState.impact_just_applied:
+						owner.opponent.velocity.x -= owner.velocity_x_before_wall
+				
 		owner.move_and_slide()
 		
 			

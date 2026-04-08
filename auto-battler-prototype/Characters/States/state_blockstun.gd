@@ -1,4 +1,4 @@
-extends State
+extends StunState
 class_name StateBlockstun
 
 
@@ -28,9 +28,6 @@ func exit():
 
 
 func update(_delta: float):
-	#if lastTick != owner.tickCount:
-		#lastTick = owner.tickCount
-	
 	# if hitstop frames finished
 	if owner.hitstop_frames <= 0:
 		var chosenState = ""
@@ -51,6 +48,7 @@ func physics_update(_delta: float):
 		if not owner.was_in_hitstop:
 			owner.stored_velocity = owner.velocity
 			owner.was_in_hitstop = true
+			impact_just_applied = false
 			animPlayer.speed_scale = 0
 		owner.velocity = Vector2.ZERO
 
@@ -60,8 +58,11 @@ func physics_update(_delta: float):
 		if owner.was_in_hitstop:
 			owner.velocity = owner.stored_velocity
 			owner.was_in_hitstop = false
+			impact_just_applied = true
+			super.physics_update(_delta)
 			animPlayer.speed_scale = 1
+		else:
+			impact_just_applied = false
 	
 	if owner.hitstop_frames > 0:
-		#shake_sprite(owner.hitstop_frames, 2)
 		owner.hitstop_frames -= 1

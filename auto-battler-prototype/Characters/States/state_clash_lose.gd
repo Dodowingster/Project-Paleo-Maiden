@@ -1,4 +1,4 @@
-extends State
+extends StunState
 class_name StateClashLose
 
 
@@ -17,22 +17,16 @@ func _ready():
 func enter():
 	owner.canClash = false
 	spriteOGCoordinates = %Sprite.position
-	#initialDistance = owner.distance
 	if animName in animList:
 		animPlayer.play(animName)
 
 
 func exit():
 	%Sprite.position = spriteOGCoordinates
-	#var finalDistance : float = owner.distance
-	#var knockbackDistance : float = finalDistance - initialDistance
-	#print("Knockback distance: " + str(knockbackDistance))
 	animPlayer.stop()
 
 
 func update(_delta: float):
-	#if lastTick != owner.tickCount:
-		#lastTick = owner.tickCount
 	
 	# if hitstop frames finished
 	if owner.hitstop_frames <= 0:
@@ -54,6 +48,7 @@ func physics_update(_delta: float):
 		if not owner.was_in_hitstop:
 			owner.stored_velocity = owner.velocity
 			owner.was_in_hitstop = true
+			impact_just_applied = false
 			animPlayer.speed_scale = 0
 		owner.velocity = Vector2.ZERO
 
@@ -63,18 +58,11 @@ func physics_update(_delta: float):
 		if owner.was_in_hitstop:
 			owner.velocity = owner.stored_velocity
 			owner.was_in_hitstop = false
+			impact_just_applied = true
+			super.physics_update(_delta)
 			animPlayer.speed_scale = 1
+		else:
+			impact_just_applied = false
 	
 	if owner.hitstop_frames > 0:
-		shake_sprite(owner.hitstop_frames, 2)
 		owner.hitstop_frames -= 1
-
-func shake_sprite(currentHitStopFrame: int, pixelShake: int):
-	if currentHitStopFrame % 3 == 0:
-		%Sprite.position.x = spriteOGCoordinates.x + pixelShake
-	elif currentHitStopFrame % 2 == 0:
-		%Sprite.position.x = spriteOGCoordinates.x
-	elif currentHitStopFrame % 1 == 0:
-		%Sprite.position.x = spriteOGCoordinates.x - pixelShake
-	else:
-		%Sprite.position.x = spriteOGCoordinates.x

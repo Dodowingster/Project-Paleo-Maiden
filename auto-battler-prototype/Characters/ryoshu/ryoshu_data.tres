@@ -9,6 +9,7 @@ script = ExtResource("1_c8uxx")
 characterName = "Ryoshu"
 animLib = ExtResource("1_uyfw6")
 animLibName = "ryoshu"
+spd = 500
 strategy = 1
 minDistance = 100
 maxDistance = 150

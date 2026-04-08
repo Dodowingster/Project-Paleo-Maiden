@@ -28,4 +28,4 @@ func update(_delta: float):
 func physics_update(_delta: float):
 	if lastTick != owner.tickCount:
 		lastTick = owner.tickCount
-		owner.position.x += owner.spd * owner.forwardSpdMult * %SideTracker.side
+		owner.velocity.x = owner.spd * owner.forwardSpdMult * %SideTracker.side
