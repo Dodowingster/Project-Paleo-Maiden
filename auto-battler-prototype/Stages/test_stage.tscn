@@ -51,13 +51,13 @@ script = ExtResource("1_7in27")
 ticksPerSecond = 30
 
 [node name="DirtFieldReal" type="Sprite2D" parent="Runner" unique_id=1269894354]
-position = Vector2(416, 192)
-scale = Vector2(1, 0.5972973)
+position = Vector2(416, 216)
+scale = Vector2(1.2, 0.717)
 texture = ExtResource("3_hmbi7")
 
 [node name="Cliff" type="Sprite2D" parent="Runner" unique_id=105157828]
-position = Vector2(416, 384)
-scale = Vector2(1, 0.9972973)
+position = Vector2(416, 360)
+scale = Vector2(1.2, 1.196)
 texture = ExtResource("4_2ge0f")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Runner" unique_id=1343250026]
@@ -66,156 +66,178 @@ texture = ExtResource("4_2ge0f")
 unique_name_in_owner = true
 custom_minimum_size = Vector2(800, 600)
 layout_mode = 3
-anchors_preset = 0
-offset_right = 800.0
-offset_bottom = 600.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("2_nmfya")
 dataTracker = NodePath("../../DataTracker")
-tickLabelValue = NodePath("PanelContainer/HBoxContainer/StageUI/Tick/TickValue")
-timerLabelValue = NodePath("PanelContainer/HBoxContainer/StageUI/Timer/TimerValue")
-distanceLabelValue = NodePath("PanelContainer/HBoxContainer/StageUI/Distance/DistanceValue")
-P1ActionGoalValueLabelValue = NodePath("PanelContainer/HBoxContainer/P1UI/ActionGoal/ActionGoalValue")
-P1ActionGoalTotalLabelValue = NodePath("PanelContainer/HBoxContainer/P1UI/ActionGoal/ActionGoalTotal")
-P1HealthValue = NodePath("PanelContainer/HBoxContainer/P1UI/HP/HealthValue")
-P1HealthTotal = NodePath("PanelContainer/HBoxContainer/P1UI/HP/HealthTotal")
-P1TechniqueList = NodePath("PanelContainer/HBoxContainer/P1UI/Techniques")
-P2ActionGoalValueLabelValue = NodePath("PanelContainer/HBoxContainer/P2UI/ActionGoal/ActionGoalValue")
-P2ActionGoalTotalLabelValue = NodePath("PanelContainer/HBoxContainer/P2UI/ActionGoal/ActionGoalTotal")
-P2HealthValue = NodePath("PanelContainer/HBoxContainer/P2UI/HP/HealthValue")
-P2HealthTotal = NodePath("PanelContainer/HBoxContainer/P2UI/HP/HealthTotal")
-P2TechniqueList = NodePath("PanelContainer/HBoxContainer/P2UI/Techniques")
+tickLabelValue = NodePath("VBoxContainer/PanelContainer/HBoxContainer/StageUI/Tick/TickValue")
+timerLabelValue = NodePath("VBoxContainer/PanelContainer/HBoxContainer/StageUI/Timer/TimerValue")
+distanceLabelValue = NodePath("VBoxContainer/PanelContainer/HBoxContainer/StageUI/Distance/DistanceValue")
+P1ActionGoalValueLabelValue = NodePath("VBoxContainer/PanelContainer/HBoxContainer/P1UI/ActionGoal/ActionGoalValue")
+P1ActionGoalTotalLabelValue = NodePath("VBoxContainer/PanelContainer/HBoxContainer/P1UI/ActionGoal/ActionGoalTotal")
+P1HealthValue = NodePath("VBoxContainer/PanelContainer/HBoxContainer/P1UI/HP/HealthValue")
+P1HealthTotal = NodePath("VBoxContainer/PanelContainer/HBoxContainer/P1UI/HP/HealthTotal")
+P1TechniqueList = NodePath("VBoxContainer/TechniquesPanel/HBoxContainer/P1Techniques")
+P2ActionGoalValueLabelValue = NodePath("VBoxContainer/PanelContainer/HBoxContainer/P2UI/ActionGoal/ActionGoalValue")
+P2ActionGoalTotalLabelValue = NodePath("VBoxContainer/PanelContainer/HBoxContainer/P2UI/ActionGoal/ActionGoalTotal")
+P2HealthValue = NodePath("VBoxContainer/PanelContainer/HBoxContainer/P2UI/HP/HealthValue")
+P2HealthTotal = NodePath("VBoxContainer/PanelContainer/HBoxContainer/P2UI/HP/HealthTotal")
+P2TechniqueList = NodePath("VBoxContainer/TechniquesPanel/HBoxContainer/P2Techniques")
 
-[node name="PanelContainer" type="PanelContainer" parent="Runner/CanvasLayer/UI" unique_id=946951563]
+[node name="VBoxContainer" type="VBoxContainer" parent="Runner/CanvasLayer/UI" unique_id=946594256]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
-offset_bottom = 77.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer" unique_id=172435710]
+[node name="PanelContainer" type="PanelContainer" parent="Runner/CanvasLayer/UI/VBoxContainer" unique_id=946951563]
 layout_mode = 2
 
-[node name="P1UI" type="VBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer" unique_id=1925341404]
+[node name="HBoxContainer" type="HBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer" unique_id=172435710]
+layout_mode = 2
+
+[node name="P1UI" type="VBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1925341404]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ActionGoal" type="HBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI" unique_id=763971389]
+[node name="ActionGoal" type="HBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P1UI" unique_id=763971389]
 layout_mode = 2
 
-[node name="ActionGoalLabel" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI/ActionGoal" unique_id=870274264]
+[node name="ActionGoalLabel" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P1UI/ActionGoal" unique_id=870274264]
 layout_mode = 2
 text = "Action Goal: "
 
-[node name="ActionGoalValue" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI/ActionGoal" unique_id=1746662203]
+[node name="ActionGoalValue" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P1UI/ActionGoal" unique_id=1746662203]
 layout_mode = 2
 text = "0"
 
-[node name="ActionGoalTotal" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI/ActionGoal" unique_id=807984940]
+[node name="ActionGoalTotal" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P1UI/ActionGoal" unique_id=807984940]
 layout_mode = 2
 text = "/ 0"
 
-[node name="HP" type="HBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI" unique_id=1044332064]
+[node name="HP" type="HBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P1UI" unique_id=1044332064]
 layout_mode = 2
 
-[node name="HealthLabel" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI/HP" unique_id=33642562]
+[node name="HealthLabel" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P1UI/HP" unique_id=33642562]
 layout_mode = 2
 text = "HP: "
 
-[node name="HealthValue" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI/HP" unique_id=1153973122]
+[node name="HealthValue" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P1UI/HP" unique_id=1153973122]
 layout_mode = 2
 text = "0"
 
-[node name="HealthTotal" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI/HP" unique_id=347680651]
+[node name="HealthTotal" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P1UI/HP" unique_id=347680651]
 layout_mode = 2
 text = "/ 0"
 
-[node name="Techniques" type="VBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI" unique_id=1932309050]
-layout_mode = 2
-
-[node name="ListHeader" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI/Techniques" unique_id=1605307740]
-layout_mode = 2
-text = "P1 Techniques:"
-
-[node name="StageUI" type="VBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer" unique_id=558485912]
+[node name="StageUI" type="VBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer" unique_id=558485912]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Tick" type="HBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/StageUI" unique_id=542927653]
+[node name="Tick" type="HBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/StageUI" unique_id=542927653]
 layout_mode = 2
 alignment = 1
 
-[node name="TickLabel" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/StageUI/Tick" unique_id=970591541]
+[node name="TickLabel" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/StageUI/Tick" unique_id=970591541]
 layout_mode = 2
 text = "Tick:"
 
-[node name="TickValue" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/StageUI/Tick" unique_id=1957307352]
+[node name="TickValue" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/StageUI/Tick" unique_id=1957307352]
 layout_mode = 2
 text = "0"
 
-[node name="Timer" type="HBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/StageUI" unique_id=2099755838]
+[node name="Timer" type="HBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/StageUI" unique_id=2099755838]
 layout_mode = 2
 alignment = 1
 
-[node name="TimerLabel" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/StageUI/Timer" unique_id=952661789]
+[node name="TimerLabel" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/StageUI/Timer" unique_id=952661789]
 layout_mode = 2
 text = "Timer: "
 
-[node name="TimerValue" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/StageUI/Timer" unique_id=1877560936]
+[node name="TimerValue" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/StageUI/Timer" unique_id=1877560936]
 layout_mode = 2
 text = "0.000s"
 
-[node name="Distance" type="HBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/StageUI" unique_id=469191005]
+[node name="Distance" type="HBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/StageUI" unique_id=469191005]
 layout_mode = 2
 alignment = 1
 
-[node name="DistanceLabel" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/StageUI/Distance" unique_id=862217998]
+[node name="DistanceLabel" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/StageUI/Distance" unique_id=862217998]
 layout_mode = 2
 text = "Distance: "
 
-[node name="DistanceValue" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/StageUI/Distance" unique_id=1639403947]
+[node name="DistanceValue" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/StageUI/Distance" unique_id=1639403947]
 layout_mode = 2
 text = "0"
 
-[node name="P2UI" type="VBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer" unique_id=1944575006]
+[node name="P2UI" type="VBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1944575006]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ActionGoal" type="HBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI" unique_id=63920315]
+[node name="ActionGoal" type="HBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P2UI" unique_id=63920315]
 layout_mode = 2
 alignment = 2
 
-[node name="ActionGoalLabel" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI/ActionGoal" unique_id=1889200332]
+[node name="ActionGoalLabel" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P2UI/ActionGoal" unique_id=1889200332]
 layout_mode = 2
 text = "Action Goal: "
 
-[node name="ActionGoalValue" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI/ActionGoal" unique_id=1427211928]
+[node name="ActionGoalValue" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P2UI/ActionGoal" unique_id=1427211928]
 layout_mode = 2
 text = "0"
 
-[node name="ActionGoalTotal" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI/ActionGoal" unique_id=1635756269]
+[node name="ActionGoalTotal" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P2UI/ActionGoal" unique_id=1635756269]
 layout_mode = 2
 text = "/ 0"
 
-[node name="HP" type="HBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI" unique_id=366779346]
+[node name="HP" type="HBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P2UI" unique_id=366779346]
 layout_mode = 2
 alignment = 2
 
-[node name="HealthLabel" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI/HP" unique_id=924288202]
+[node name="HealthLabel" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P2UI/HP" unique_id=924288202]
 layout_mode = 2
 text = "HP: "
 
-[node name="HealthValue" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI/HP" unique_id=1784795154]
+[node name="HealthValue" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P2UI/HP" unique_id=1784795154]
 layout_mode = 2
 text = "0"
 
-[node name="HealthTotal" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI/HP" unique_id=1538962629]
+[node name="HealthTotal" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P2UI/HP" unique_id=1538962629]
 layout_mode = 2
 text = "/ 0"
 
-[node name="Techniques" type="VBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI" unique_id=614137807]
+[node name="VSpace" type="Control" parent="Runner/CanvasLayer/UI/VBoxContainer" unique_id=1638804118]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TechniquesPanel" type="PanelContainer" parent="Runner/CanvasLayer/UI/VBoxContainer" unique_id=585482285]
 layout_mode = 2
 
-[node name="ListHeader" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI/Techniques" unique_id=990268984]
+[node name="HBoxContainer" type="HBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/TechniquesPanel" unique_id=1586546943]
+layout_mode = 2
+
+[node name="P1Techniques" type="VBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/TechniquesPanel/HBoxContainer" unique_id=1932309050]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ListHeader" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/TechniquesPanel/HBoxContainer/P1Techniques" unique_id=1605307740]
+layout_mode = 2
+text = "P1 Techniques:"
+
+[node name="Spacer" type="Control" parent="Runner/CanvasLayer/UI/VBoxContainer/TechniquesPanel/HBoxContainer" unique_id=471932974]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="P2Techniques" type="VBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/TechniquesPanel/HBoxContainer" unique_id=614137807]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ListHeader" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/TechniquesPanel/HBoxContainer/P2Techniques" unique_id=990268984]
 layout_mode = 2
 text = "P2 Techniques:"
 horizontal_alignment = 2

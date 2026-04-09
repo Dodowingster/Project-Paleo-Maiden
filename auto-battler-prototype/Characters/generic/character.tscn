@@ -22,6 +22,7 @@
 [ext_resource type="Script" uid="uid://dd3dfa5mjk32y" path="res://Characters/States/state_clash_lose.gd" id="20_avqc8"]
 [ext_resource type="Script" uid="uid://nqsoppuuytas" path="res://Characters/generic/state_technique.gd" id="21_1us7d"]
 [ext_resource type="PackedScene" uid="uid://wa1rn1pd2gkc" path="res://Mechanics/Techniques/Loadout/Loadout.tscn" id="21_ucqw4"]
+[ext_resource type="Script" uid="uid://cyexs8siijqaw" path="res://Characters/generic/attack_viewer.gd" id="23_1us7d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xudx"]
 size = Vector2(48, 128)
@@ -107,6 +108,9 @@ script = ExtResource("21_1us7d")
 
 [node name="Loadout" parent="." unique_id=56358037 instance=ExtResource("21_ucqw4")]
 unique_name_in_owner = true
+
+[node name="AttackViewer" type="Node2D" parent="." unique_id=112814914]
+script = ExtResource("23_1us7d")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/BaseAttack" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/ClashWin" method="_on_animation_player_animation_finished"]

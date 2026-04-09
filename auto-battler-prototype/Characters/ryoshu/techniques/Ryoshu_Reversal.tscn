@@ -22,12 +22,12 @@ metadata/_custom_type_script = "uid://vvpc8qlg01o"
 
 [node name="CooldownTrigger" type="Node" parent="." unique_id=361220087]
 script = ExtResource("5_1oynq")
-cooldown = 5.0
+cooldown = 20.0
 metadata/_custom_type_script = "uid://cm2swp1i5yuvi"
 
 [node name="InvulEffect" type="Node" parent="." unique_id=347866665]
 script = ExtResource("5_1856i")
-revertFrame = 15
+revertFrame = 20
 metadata/_custom_type_script = "uid://cuwtyksi0gpac"
 
 [node name="MoveEffect" type="Node" parent="." unique_id=1727249952]
