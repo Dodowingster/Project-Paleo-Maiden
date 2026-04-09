@@ -99,7 +99,7 @@ func _ready() -> void:
 		opponent.connect("broadcastAction", decide_action)
 		opponent.connect("broadcastAtkActiveEnd", on_atk_active_end_signal_rcvd)
 		opponent.connect("broadcastClashResult", on_clash_result_rcvd)
-		opponent.connect("broadcastWinState", on_win_confirmed)
+		opponent.connect("broadcastWinState", on_win_confirmed) # HERE IS THE BLOODY PROBLEM HAIYA
 		distance = abs(opponent.position.x - position.x)
 
 ## SETUP functions
@@ -419,7 +419,7 @@ func get_hit(hitbox: HitBox, hurtbox: Hurtbox):
 			if health <= 0:
 				chosenHitState = "Lose"
 				health = 0
-				broadcastWinState.emit()
+				broadcastWinState.emit() # ANOTHER REASON FOR THE BUG OMAGAD BRUH WTF MAN AW HELL NAW WHO INVITED THIS KID
 				
 		var vfx : VFX = VFXManager.spawn_vfx(vfx_type, vfx_pos, knockbackDirectionMod)
 		vfx.add_to_group("vfx", false)
