@@ -16,6 +16,7 @@ metadata/_custom_type_script = "uid://davbi37fiwm0b"
 [node name="CooldownTrigger" type="Node" parent="." unique_id=1286279239]
 script = ExtResource("5_aed7n")
 cooldown = 10.0
+startingCooldown = 5.0
 metadata/_custom_type_script = "uid://cm2swp1i5yuvi"
 
 [node name="RangeTrigger" type="Node" parent="." unique_id=2078482826]

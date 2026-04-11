@@ -6,14 +6,14 @@ class_name CooldownTrigger
 @onready var currentTimer : float = 0
 @export var startWithCooldown : bool = true
 @onready var conditionPassed : bool = false
-#@onready var internalTimer : float = 0
+@export var startingCooldown : float
 
 func check_condition() -> bool:
 	return conditionPassed
 
 func _ready() -> void:
 	if startWithCooldown:
-		currentTimer = cooldown
+		currentTimer = startingCooldown
 
 func _process(delta: float) -> void:
 	#internalTimer += delta
