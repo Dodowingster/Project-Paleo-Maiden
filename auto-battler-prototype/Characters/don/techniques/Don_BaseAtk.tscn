@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dbaejhs668365"]
 
-[ext_resource type="Script" uid="uid://dd3sajkycqovj" path="res://Mechanics/Techniques/TechniqueTypes/baseatk_technique.gd" id="1_eanrm"]
-[ext_resource type="Script" uid="uid://davbi37fiwm0b" path="res://Mechanics/Techniques/Triggers/action_goal_trigger.gd" id="2_p3ays"]
-[ext_resource type="Script" uid="uid://vvpc8qlg01o" path="res://Mechanics/Techniques/Triggers/range_trigger.gd" id="3_p3ays"]
+[ext_resource type="Script" uid="uid://dd3sajkycqovj" path="res://Mechanics/Techniques/baseatk_technique.gd" id="1_eanrm"]
+[ext_resource type="Script" uid="uid://davbi37fiwm0b" path="res://Mechanics/Triggers/action_goal_trigger.gd" id="2_p3ays"]
+[ext_resource type="Script" uid="uid://vvpc8qlg01o" path="res://Mechanics/Triggers/range_trigger.gd" id="3_p3ays"]
 
 [node name="DonBaseAtk" type="Node" unique_id=1301937975]
 script = ExtResource("1_eanrm")
