@@ -56,6 +56,7 @@ var hitknockbackY : float = 0.000
 var health : int = maxHP
 var loadout : Loadout
 var affMgr : AffinityManager
+var stateMachine : StateMachine
 
 ## Set opponent character here
 @export var opponent : Character
@@ -69,6 +70,7 @@ var velocity_x_before_wall : float = 0
 func _enter_tree() -> void:
 	loadout = %Loadout
 	affMgr = %AffinityManager
+	stateMachine = %StateMachine
 	characterName = characterData.characterName
 	animLibName = characterData.animLibName
 	# clear animation libraries
