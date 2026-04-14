@@ -61,6 +61,8 @@ var stateMachine : StateMachine
 ## Set opponent character here
 @export var opponent : Character
 
+@export var affinityBonuses : Array[PackedScene]
+
 var hitstop_frames: int = 0
 var stored_velocity: Vector2 = Vector2.ZERO
 var was_in_hitstop: bool = false
@@ -97,7 +99,7 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	%SideTracker.set_facing_direction(startFacingRight)
-	
+	affMgr.setup_affinity_bonuses(affinityBonuses)
 	GlobalValues.connect("updateDataToChar", _on_tick)
 	if opponent != null:
 		opponent.connect("broadcastAction", decide_action)

@@ -5,6 +5,6 @@ class_name AffinityTrigger
 @export var chanceMod : float
 
 func check_condition() -> bool:
-	var success_check = randi() % 100
-	var chance = (character.affMgr.affLvl * chanceMod)/100.0
+	var success_check = randf() * 100
+	var chance = character.affMgr.affLvl * chanceMod
 	return success_check <= chance

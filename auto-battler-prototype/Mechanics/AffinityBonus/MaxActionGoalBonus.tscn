@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://d3iu0sin4j6fq"]
+
+[ext_resource type="Script" uid="uid://da0owk4ok5ydx" path="res://Mechanics/AffinityBonus/affinity_bonus.gd" id="1_rr463"]
+[ext_resource type="Script" uid="uid://bbjt57et5iesw" path="res://Mechanics/Triggers/affinity_trigger.gd" id="2_y6h3e"]
+[ext_resource type="Script" uid="uid://bbt5ka554cde7" path="res://Mechanics/Triggers/no_action_goal_trigger.gd" id="3_plimo"]
+[ext_resource type="Script" uid="uid://cakwbd0hmhwng" path="res://Mechanics/Effects/maxactiongoal_effect.gd" id="4_obcs8"]
+[ext_resource type="Script" uid="uid://cm2swp1i5yuvi" path="res://Mechanics/Triggers/cooldown_trigger.gd" id="4_plimo"]
+
+[node name="MaxActionGoalBonus" type="Node" unique_id=1050982167]
+script = ExtResource("1_rr463")
+metadata/_custom_type_script = "uid://da0owk4ok5ydx"
+
+[node name="AffinityTrigger" type="Node" parent="." unique_id=1177072335]
+script = ExtResource("2_y6h3e")
+chanceMod = 0.01
+metadata/_custom_type_script = "uid://bbjt57et5iesw"
+
+[node name="NoActionGoalTrigger" type="Node" parent="." unique_id=1915241691]
+script = ExtResource("3_plimo")
+metadata/_custom_type_script = "uid://bbt5ka554cde7"
+
+[node name="CooldownTrigger" type="Node" parent="." unique_id=2040609918]
+script = ExtResource("4_plimo")
+cooldown = 10.0
+startingCooldown = 5.0
+metadata/_custom_type_script = "uid://cm2swp1i5yuvi"
+
+[node name="MaxActionGoalEffect" type="Node" parent="." unique_id=953202435]
+script = ExtResource("4_obcs8")
+metadata/_custom_type_script = "uid://cakwbd0hmhwng"
