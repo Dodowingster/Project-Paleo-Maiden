@@ -20,4 +20,7 @@ func _process(delta: float) -> void:
 	for affBonus in affBonuses:
 		if affBonus.trigger_check():
 			affBonus.execute_effects(delta)
-			print("AFFINITY BONUS TRIGGERED")
+			var char = self.get_parent()
+			if char is Character:
+				char.popupAffinity.emit(affBonus.affEffectName)
+				

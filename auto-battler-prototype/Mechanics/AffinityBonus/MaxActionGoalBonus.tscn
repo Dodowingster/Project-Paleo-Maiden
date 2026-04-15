@@ -8,11 +8,12 @@
 
 [node name="MaxActionGoalBonus" type="Node" unique_id=1050982167]
 script = ExtResource("1_rr463")
+affEffectName = "Instant Action!"
 metadata/_custom_type_script = "uid://da0owk4ok5ydx"
 
 [node name="AffinityTrigger" type="Node" parent="." unique_id=1177072335]
 script = ExtResource("2_y6h3e")
-chanceMod = 0.01
+chanceMod = 0.02
 metadata/_custom_type_script = "uid://bbjt57et5iesw"
 
 [node name="NoActionGoalTrigger" type="Node" parent="." unique_id=1915241691]

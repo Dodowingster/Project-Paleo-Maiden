@@ -8,6 +8,7 @@ signal broadcastAction(action : GlobalValues.ACTION)
 signal broadcastClashResult(result : bool)
 signal broadcastWinState()
 signal shakeCamera(amount : float)
+signal popupAffinity(name: String)
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var characterData : CharacterData

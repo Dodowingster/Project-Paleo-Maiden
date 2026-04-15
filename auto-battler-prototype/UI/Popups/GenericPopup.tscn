@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dniqkpw7a5g3r"]
+
+[ext_resource type="Script" uid="uid://na8lmscaybgf" path="res://UI/Popups/generic_popup.gd" id="1_ai0b3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_47j7t"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+
+[node name="GenericPopup" type="PanelContainer" unique_id=852546902]
+offset_right = 127.0
+offset_bottom = 23.0
+script = ExtResource("1_ai0b3")
+
+[node name="Label" type="Label" parent="." unique_id=984151903]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_47j7t")
+text = "Example Text!!!"

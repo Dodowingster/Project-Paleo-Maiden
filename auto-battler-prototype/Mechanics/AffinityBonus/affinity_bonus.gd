@@ -6,6 +6,7 @@ var triggers: Array[Trigger]
 ## Array of effects attached to the technique
 var effects: Array[Effect]
 var canExecute : bool = false
+@export var affEffectName : String
 
 func _ready() -> void:
 	var children = get_children()
