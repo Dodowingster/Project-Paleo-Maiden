@@ -19,7 +19,7 @@ func enter():
 	spriteOGCoordinates = %Sprite.position
 	initialDistance = owner.distance
 	if animName in animList:
-		animPlayer.play(animName)
+		animPlayer.animation_set_next(animPlayer.current_animation, animName)
 
 
 func exit():

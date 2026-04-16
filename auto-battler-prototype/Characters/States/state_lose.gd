@@ -18,6 +18,9 @@ func enter():
 	owner.canClash = false
 	spriteOGCoordinates = %Sprite.position
 	initialDistance = owner.distance
+	var currentAnim = animPlayer.current_animation
+	
+	animPlayer.stop()
 	if animName in animList:
 		animPlayer.play(animName)
 
