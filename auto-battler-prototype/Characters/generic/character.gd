@@ -6,7 +6,7 @@ class_name Character
 signal broadcastAtkActiveEnd()
 signal broadcastAction(action : GlobalValues.ACTION)
 signal broadcastClashResult(result : bool)
-signal broadcastWinState()
+signal broadcastState(state: String)
 signal shakeCamera(amount : float)
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -99,7 +99,7 @@ func _ready() -> void:
 		opponent.connect("broadcastAction", decide_action)
 		opponent.connect("broadcastAtkActiveEnd", on_atk_active_end_signal_rcvd)
 		opponent.connect("broadcastClashResult", on_clash_result_rcvd)
-		opponent.connect("broadcastWinState", on_win_confirmed) # HERE IS THE BLOODY PROBLEM HAIYA
+		opponent.connect("broadcastState", check_states) # HERE IS THE BLOODY PROBLEM HAIYA
 		distance = abs(opponent.position.x - position.x)
 
 ## SETUP functions
@@ -307,10 +307,26 @@ func broadcast_atk_active_end():
 	broadcastAtkActiveEnd.emit()
 	opponentIsAttacking = false
 
-func on_win_confirmed():
+## test
+func check_states(oppState):
+	# TODO: actually we need to check if opponent also got this
+	var chosenState = ""
+	var currentState = %StateMachine.currentState
+	
+	if not opponentIsAttacking and oppState == "Lose":
+		chosenState = "Win"
+		
+		# Happens during 2nd char check during double down, opponentIsAttacking
+		# no longer true but current health is already set to 0. So current 
+		# char should lose
+		if health == 0:
+			chosenState = "Lose"
+		
 	# stop doing stuff
-	var chosenHitState = "Win"
-	%StateMachine.on_child_transition($StateMachine.currentState, chosenHitState)
+	else:
+		chosenState = "Lose"
+	
+	%StateMachine.on_child_transition(currentState, chosenState)
 
 
 ## CLASH related functions
@@ -419,7 +435,7 @@ func get_hit(hitbox: HitBox, hurtbox: Hurtbox):
 			if health <= 0:
 				chosenHitState = "Lose"
 				health = 0
-				broadcastWinState.emit() # ANOTHER REASON FOR THE BUG OMAGAD BRUH WTF MAN AW HELL NAW WHO INVITED THIS KID
+				broadcastState.emit(chosenHitState) # ANOTHER REASON FOR THE BUG OMAGAD BRUH WTF MAN AW HELL NAW WHO INVITED THIS KID
 				
 		var vfx : VFX = VFXManager.spawn_vfx(vfx_type, vfx_pos, knockbackDirectionMod)
 		vfx.add_to_group("vfx", false)

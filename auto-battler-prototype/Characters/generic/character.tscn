@@ -20,9 +20,9 @@
 [ext_resource type="Script" uid="uid://4y83ty0qfjy6" path="res://Characters/States/state_clash.gd" id="18_kmsib"]
 [ext_resource type="Script" uid="uid://0d6s2ipebmb2" path="res://Characters/States/state_clash_win.gd" id="19_1d8pi"]
 [ext_resource type="Script" uid="uid://dd3dfa5mjk32y" path="res://Characters/States/state_clash_lose.gd" id="20_avqc8"]
-[ext_resource type="Script" uid="uid://nqsoppuuytas" path="res://Characters/generic/state_technique.gd" id="21_1us7d"]
+[ext_resource type="Script" uid="uid://nqsoppuuytas" path="res://Characters/States/state_technique.gd" id="21_1us7d"]
 [ext_resource type="PackedScene" uid="uid://wa1rn1pd2gkc" path="res://Mechanics/Techniques/Loadout/Loadout.tscn" id="21_ucqw4"]
-[ext_resource type="Script" uid="uid://cyexs8siijqaw" path="res://Characters/generic/attack_viewer.gd" id="23_1us7d"]
+[ext_resource type="Script" path="res://Characters/generic/attack_viewer.gd" id="23_1us7d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xudx"]
 size = Vector2(48, 128)
