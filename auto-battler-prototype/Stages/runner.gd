@@ -19,6 +19,7 @@ class_name Runner
 @onready var phanCam : PhantomCamera2D = %PhanCam
 @export var camera : CustomCamera
 
+signal broadcastFin()
 
 func _ready() -> void:
 	initialize()
@@ -50,6 +51,9 @@ func initialize() -> void:
 		ui.P2 = nodeP2
 		ui.char_setup()
 
+		nodeP1.connect("broadcastLose", broadcast_fin)
+		nodeP2.connect("broadcastLose", broadcast_fin)
+
 func reset() -> void:
 	nodeP1.unload_loadout()
 	loadout1.remove_at(-1)
@@ -61,3 +65,6 @@ func reset() -> void:
 	nodeP1.queue_free()
 	nodeP2.queue_free()
 	ui.clear()
+
+func broadcast_fin() -> void:
+	broadcastFin.emit()

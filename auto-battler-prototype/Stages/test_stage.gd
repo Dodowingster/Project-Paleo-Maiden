@@ -6,6 +6,9 @@ var always_running_nodes : Array[Node] = []
 func _ready() -> void:
 	StageManager.set_stage(self)
 
+	var runner = get_node("Runner")
+	runner.connect("broadcastFin", finish_game)
+
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause_menu"):
 		if %PauseMenu.visible:
@@ -57,3 +60,8 @@ func resume_game() -> void:
 			node.process_mode = Node.PROCESS_MODE_ALWAYS
 	else:
 		get_tree().paused = false
+
+func finish_game() -> void:
+	pause_game()
+	%PauseMenu.resumeBtn.grab_focus.call_deferred()
+	%PauseMenu.visible = true

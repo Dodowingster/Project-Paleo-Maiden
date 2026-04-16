@@ -99,7 +99,7 @@ func _ready() -> void:
 		opponent.connect("broadcastAction", decide_action)
 		opponent.connect("broadcastAtkActiveEnd", on_atk_active_end_signal_rcvd)
 		opponent.connect("broadcastClashResult", on_clash_result_rcvd)
-		opponent.connect("broadcastLose", check_win) # HERE IS THE BLOODY PROBLEM HAIYA
+		opponent.connect("broadcastLose", check_win)
 		distance = abs(opponent.position.x - position.x)
 
 ## SETUP functions
@@ -308,7 +308,7 @@ func broadcast_atk_active_end():
 	opponentIsAttacking = false
 
 ## Check whether the char wins or loses (double down) after receiving the lose
-## signal from the opponent
+## signal from the opponent.
 func check_win():
 	# TODO: actually we need to check if opponent also got this
 	var chosenState = ""
@@ -436,7 +436,6 @@ func get_hit(hitbox: HitBox, hurtbox: Hurtbox):
 			if health <= 0:
 				chosenHitState = "Lose"
 				health = 0
-				broadcastLose.emit() # ANOTHER REASON FOR THE BUG OMAGAD BRUH WTF MAN AW HELL NAW WHO INVITED THIS KID
 				
 		var vfx : VFX = VFXManager.spawn_vfx(vfx_type, vfx_pos, knockbackDirectionMod)
 		vfx.add_to_group("vfx", false)
