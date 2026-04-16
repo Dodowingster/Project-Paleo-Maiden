@@ -49,6 +49,8 @@ func initialize() -> void:
 		nodeP2.setup_loadout(loadout2)
 		ui.P1 = nodeP1
 		ui.P2 = nodeP2
+		%LeftPopupSection.connect_to_character(nodeP1)
+		%RightPopupSection.connect_to_character(nodeP2)
 		ui.char_setup()
 
 		nodeP1.connect("broadcastLose", broadcast_fin)

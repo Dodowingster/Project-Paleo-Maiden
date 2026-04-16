@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://f081btviug4u" path="res://Characters/generic/character.gd" id="1_1g87l"]
 [ext_resource type="Resource" uid="uid://c2k2423pfb03h" path="res://Characters/don/don_data.tres" id="2_1us7d"]
+[ext_resource type="PackedScene" uid="uid://d3iu0sin4j6fq" path="res://Mechanics/AffinityBonus/MaxActionGoalBonus.tscn" id="3_ocvec"]
+[ext_resource type="Script" uid="uid://s0ees7w47yw6" path="res://Characters/generic/affinity_manager.gd" id="3_ryghy"]
 [ext_resource type="AnimationLibrary" uid="uid://boalcp78pqj5n" path="res://Characters/don/anims/don.res" id="4_1us7d"]
 [ext_resource type="Script" uid="uid://colufoqxh8nwm" path="res://Characters/generic/side_tracker.gd" id="4_ocvec"]
 [ext_resource type="AnimationLibrary" uid="uid://dkhtxnpfpt0ey" path="res://Characters/ryoshu/anims/ryoshu.res" id="5_1us7d"]
@@ -21,8 +23,8 @@
 [ext_resource type="Script" uid="uid://0d6s2ipebmb2" path="res://Characters/States/state_clash_win.gd" id="19_1d8pi"]
 [ext_resource type="Script" uid="uid://dd3dfa5mjk32y" path="res://Characters/States/state_clash_lose.gd" id="20_avqc8"]
 [ext_resource type="Script" uid="uid://nqsoppuuytas" path="res://Characters/States/state_technique.gd" id="21_1us7d"]
-[ext_resource type="PackedScene" uid="uid://wa1rn1pd2gkc" path="res://Mechanics/Techniques/Loadout/Loadout.tscn" id="21_ucqw4"]
-[ext_resource type="Script" path="res://Characters/generic/attack_viewer.gd" id="23_1us7d"]
+[ext_resource type="PackedScene" uid="uid://wa1rn1pd2gkc" path="res://Mechanics/Loadout/Loadout.tscn" id="21_ucqw4"]
+[ext_resource type="Script" uid="uid://cyexs8siijqaw" path="res://Characters/generic/attack_viewer.gd" id="23_1us7d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xudx"]
 size = Vector2(48, 128)
@@ -34,6 +36,12 @@ size = Vector2(32, 128)
 collision_mask = 49
 script = ExtResource("1_1g87l")
 characterData = ExtResource("2_1us7d")
+affinityBonuses = Array[PackedScene]([ExtResource("3_ocvec")])
+
+[node name="AffinityManager" type="Node" parent="." unique_id=1817413589]
+unique_name_in_owner = true
+script = ExtResource("3_ryghy")
+affLvl = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=599901854]
 unique_name_in_owner = true

@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://4uhmmy32w4ms"]
 
-[ext_resource type="Script" uid="uid://bg6a50k8efu" path="res://Mechanics/Techniques/TechniqueTypes/reversal_technique.gd" id="1_lvp3g"]
-[ext_resource type="Script" uid="uid://brn2vsxpkvuvn" path="res://Mechanics/Techniques/Triggers/opp_state_trigger.gd" id="2_e17gi"]
-[ext_resource type="Script" uid="uid://vvpc8qlg01o" path="res://Mechanics/Techniques/Triggers/range_trigger.gd" id="3_pt63p"]
-[ext_resource type="Script" uid="uid://dcjcx6dhuwnr4" path="res://Mechanics/Techniques/Effects/move_effect.gd" id="4_1yojt"]
-[ext_resource type="Script" uid="uid://cm2swp1i5yuvi" path="res://Mechanics/Techniques/Triggers/cooldown_trigger.gd" id="5_1oynq"]
-[ext_resource type="Script" uid="uid://cuwtyksi0gpac" path="res://Mechanics/Techniques/Effects/invul_effect.gd" id="5_1856i"]
-[ext_resource type="Script" uid="uid://c5gxs7ehq2eig" path="res://Mechanics/Techniques/Triggers/pos_trigger.gd" id="6_3h3ca"]
+[ext_resource type="Script" uid="uid://bg6a50k8efu" path="res://Mechanics/Techniques/reversal_technique.gd" id="1_lvp3g"]
+[ext_resource type="Script" uid="uid://brn2vsxpkvuvn" path="res://Mechanics/Triggers/opp_state_trigger.gd" id="2_e17gi"]
+[ext_resource type="Script" uid="uid://vvpc8qlg01o" path="res://Mechanics/Triggers/range_trigger.gd" id="3_pt63p"]
+[ext_resource type="Script" uid="uid://dcjcx6dhuwnr4" path="res://Mechanics/Effects/move_effect.gd" id="4_1yojt"]
+[ext_resource type="Script" uid="uid://cm2swp1i5yuvi" path="res://Mechanics/Triggers/cooldown_trigger.gd" id="5_1oynq"]
+[ext_resource type="Script" uid="uid://cuwtyksi0gpac" path="res://Mechanics/Effects/invul_effect.gd" id="5_1856i"]
+[ext_resource type="Script" uid="uid://c5gxs7ehq2eig" path="res://Mechanics/Triggers/pos_trigger.gd" id="6_3h3ca"]
 
 [node name="Ryoshu_Reversal" type="Node" unique_id=1204371215]
 script = ExtResource("1_lvp3g")
@@ -23,6 +23,7 @@ metadata/_custom_type_script = "uid://vvpc8qlg01o"
 [node name="CooldownTrigger" type="Node" parent="." unique_id=361220087]
 script = ExtResource("5_1oynq")
 cooldown = 20.0
+startingCooldown = 20.0
 metadata/_custom_type_script = "uid://cm2swp1i5yuvi"
 
 [node name="InvulEffect" type="Node" parent="." unique_id=347866665]

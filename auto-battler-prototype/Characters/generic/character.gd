@@ -8,6 +8,7 @@ signal broadcastAction(action : GlobalValues.ACTION)
 signal broadcastClashResult(result : bool)
 signal broadcastLose()
 signal shakeCamera(amount : float)
+signal popupAffinity(name: String)
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var characterData : CharacterData
@@ -55,9 +56,13 @@ var hitknockbackX : float = 0.000
 var hitknockbackY : float = 0.000
 var health : int = maxHP
 var loadout : Loadout
+var affMgr : AffinityManager
+var stateMachine : StateMachine
 
 ## Set opponent character here
 @export var opponent : Character
+
+@export var affinityBonuses : Array[PackedScene]
 
 var hitstop_frames: int = 0
 var stored_velocity: Vector2 = Vector2.ZERO
@@ -67,6 +72,8 @@ var velocity_x_before_wall : float = 0
 
 func _enter_tree() -> void:
 	loadout = %Loadout
+	affMgr = %AffinityManager
+	stateMachine = %StateMachine
 	characterName = characterData.characterName
 	animLibName = characterData.animLibName
 	# clear animation libraries
@@ -93,7 +100,7 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	%SideTracker.set_facing_direction(startFacingRight)
-	
+	affMgr.setup_affinity_bonuses(affinityBonuses)
 	GlobalValues.connect("updateDataToChar", _on_tick)
 	if opponent != null:
 		opponent.connect("broadcastAction", decide_action)

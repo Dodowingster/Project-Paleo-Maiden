@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://y4x6wj01li2r"]
 
-[ext_resource type="Script" uid="uid://byoxtyp10g1r8" path="res://Mechanics/Techniques/TechniqueTypes/super_technique.gd" id="1_e02yo"]
-[ext_resource type="Script" uid="uid://cm2swp1i5yuvi" path="res://Mechanics/Techniques/Triggers/cooldown_trigger.gd" id="3_pg8d4"]
-[ext_resource type="Script" uid="uid://cuwtyksi0gpac" path="res://Mechanics/Techniques/Effects/invul_effect.gd" id="4_kudru"]
-[ext_resource type="Script" uid="uid://vvpc8qlg01o" path="res://Mechanics/Techniques/Triggers/range_trigger.gd" id="4_q0i3k"]
-[ext_resource type="Script" uid="uid://j5gvlgjyc1n2" path="res://Mechanics/Techniques/Effects/freezescreen_effect.gd" id="5_3npcg"]
-[ext_resource type="Script" uid="uid://def02s2coydwo" path="res://Mechanics/Techniques/Effects/focuscamera_effect.gd" id="6_pg8d4"]
-[ext_resource type="Script" uid="uid://bvv84w67o4y8v" path="res://Mechanics/Techniques/Effects/vfx_effect.gd" id="7_3npcg"]
-[ext_resource type="Script" uid="uid://b2o1c2gj8l2gj" path="res://Mechanics/Techniques/Effects/zoomcamera_effect.gd" id="7_q0i3k"]
+[ext_resource type="Script" uid="uid://byoxtyp10g1r8" path="res://Mechanics/Techniques/super_technique.gd" id="1_e02yo"]
+[ext_resource type="Script" uid="uid://cm2swp1i5yuvi" path="res://Mechanics/Triggers/cooldown_trigger.gd" id="3_pg8d4"]
+[ext_resource type="Script" uid="uid://cuwtyksi0gpac" path="res://Mechanics/Effects/invul_effect.gd" id="4_kudru"]
+[ext_resource type="Script" uid="uid://vvpc8qlg01o" path="res://Mechanics/Triggers/range_trigger.gd" id="4_q0i3k"]
+[ext_resource type="Script" uid="uid://j5gvlgjyc1n2" path="res://Mechanics/Effects/freezescreen_effect.gd" id="5_3npcg"]
+[ext_resource type="Script" uid="uid://def02s2coydwo" path="res://Mechanics/Effects/focuscamera_effect.gd" id="6_pg8d4"]
+[ext_resource type="Script" uid="uid://bvv84w67o4y8v" path="res://Mechanics/Effects/vfx_effect.gd" id="7_3npcg"]
+[ext_resource type="Script" uid="uid://b2o1c2gj8l2gj" path="res://Mechanics/Effects/zoomcamera_effect.gd" id="7_q0i3k"]
 [ext_resource type="PackedScene" uid="uid://bv1rq18v51k0o" path="res://Characters/ryoshu/vfx/ryoshu_vfx_1.tscn" id="8_3npcg"]
 [ext_resource type="PackedScene" uid="uid://boxhm4562qggs" path="res://Characters/ryoshu/vfx/ryoshu_vfx_2.tscn" id="9_f2if8"]
 
@@ -17,6 +17,7 @@ script = ExtResource("1_e02yo")
 [node name="CooldownTrigger" type="Node" parent="." unique_id=1230323461]
 script = ExtResource("3_pg8d4")
 cooldown = 30.0
+startingCooldown = 30.0
 metadata/_custom_type_script = "uid://cm2swp1i5yuvi"
 
 [node name="RangeTrigger" type="Node" parent="." unique_id=949961414]

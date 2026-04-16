@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_5dtn3"]
 [ext_resource type="Resource" uid="uid://dewv7utm7vt8c" path="res://Characters/ryoshu/techniques/ryoshu_super.tres" id="10_6xav4"]
 [ext_resource type="Script" uid="uid://dwjuwme5l70i5" path="res://Stages/custom_camera.gd" id="13_oh5io"]
+[ext_resource type="Script" uid="uid://b8q8o6q0rpwfj" path="res://Stages/popup_section.gd" id="16_qpgl0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhvwd"]
 size = Vector2(3000, 32)
@@ -246,6 +247,33 @@ horizontal_alignment = 2
 unique_name_in_owner = true
 process_mode = 3
 visible = false
+
+[node name="LeftPopupSection" type="Control" parent="Runner/CanvasLayer" unique_id=900674249]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_vertical = 2
+script = ExtResource("16_qpgl0")
+
+[node name="RightPopupSection" type="Control" parent="Runner/CanvasLayer" unique_id=1243299242]
+unique_name_in_owner = true
+layout_direction = 3
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_vertical = 2
+script = ExtResource("16_qpgl0")
+sectionDirection = 1
 
 [node name="Camera" type="Camera2D" parent="Runner" unique_id=336103352]
 process_mode = 3
