@@ -250,6 +250,7 @@ visible = false
 
 [node name="LeftPopupSection" type="Control" parent="Runner/CanvasLayer" unique_id=900674249]
 unique_name_in_owner = true
+layout_direction = 2
 layout_mode = 3
 anchors_preset = 4
 anchor_top = 0.5

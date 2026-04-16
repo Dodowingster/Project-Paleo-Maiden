@@ -9,6 +9,8 @@ content_margin_right = 5.0
 [node name="GenericPopup" type="PanelContainer" unique_id=852546902]
 offset_right = 127.0
 offset_bottom = 23.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
 script = ExtResource("1_ai0b3")
 
 [node name="Label" type="Label" parent="." unique_id=984151903]
