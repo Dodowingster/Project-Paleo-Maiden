@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dggc1tw4nmkkk" path="res://Mechanics/data_tracker.gd" id="1_7in27"]
 [ext_resource type="Script" uid="uid://cdylqchnf8jnu" path="res://Stages/runner.gd" id="2_84gnr"]
 [ext_resource type="Script" uid="uid://c51us734jurpc" path="res://UI/debug_ui.gd" id="2_nmfya"]
+[ext_resource type="PackedScene" uid="uid://b3ig74cit7ics" path="res://UI/Menus/PauseMenu.tscn" id="2_uxbob"]
 [ext_resource type="Texture2D" uid="uid://dlkjbch0cfhkn" path="res://Stages/assets/dirtfield.png" id="3_hmbi7"]
 [ext_resource type="Resource" uid="uid://c2k2423pfb03h" path="res://Characters/don/don_data.tres" id="3_y2t8x"]
 [ext_resource type="Texture2D" uid="uid://cs52kxor2xbar" path="res://Stages/assets/cliff.png" id="4_2ge0f"]
@@ -11,11 +12,14 @@
 [ext_resource type="Script" uid="uid://c0c4p57o71yio" path="res://Characters/generic/technique_data.gd" id="4_oxt3d"]
 [ext_resource type="Resource" uid="uid://bouom4lj25mga" path="res://Characters/don/techniques/don_rush.tres" id="5_kcvyg"]
 [ext_resource type="Texture2D" uid="uid://bw3vi8afoxpmr" path="res://Characters/placeholder_sprites/Tyran_Rex/tyran_rex-idle.png" id="6_2ge0f"]
-[ext_resource type="Resource" uid="uid://hrvfmlohrxj7" path="res://Characters/ryoshu/techniques/ryoshu_rush.tres" id="7_kcvyg"]
+[ext_resource type="Resource" uid="uid://cp1vjeyka1tul" path="res://Characters/ryoshu/techniques/ryoshu_sideswitch.tres" id="7_oh5io"]
+[ext_resource type="Resource" uid="uid://hrvfmlohrxj7" path="res://Characters/ryoshu/techniques/ryoshu_rush.tres" id="7_wqi8t"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_1su0b"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="8_lnwe3"]
-[ext_resource type="Resource" uid="uid://chfnndt3hm1wf" path="res://Characters/ryoshu/techniques/ryoshu_reversal.tres" id="8_uxbob"]
+[ext_resource type="Resource" uid="uid://chfnndt3hm1wf" path="res://Characters/ryoshu/techniques/ryoshu_reversal.tres" id="8_qpgl0"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_5dtn3"]
+[ext_resource type="Resource" uid="uid://dewv7utm7vt8c" path="res://Characters/ryoshu/techniques/ryoshu_super.tres" id="10_6xav4"]
+[ext_resource type="Script" uid="uid://dwjuwme5l70i5" path="res://Stages/custom_camera.gd" id="13_oh5io"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhvwd"]
 size = Vector2(3000, 32)
@@ -30,15 +34,16 @@ script = ExtResource("9_5dtn3")
 process_mode = 3
 script = ExtResource("1_3gimc")
 
-[node name="Runner" type="Node" parent="." unique_id=2070498116]
+[node name="Runner" type="Node" parent="." unique_id=2070498116 node_paths=PackedStringArray("camera")]
 process_mode = 1
 script = ExtResource("2_84gnr")
 data1 = ExtResource("3_y2t8x")
 loadout1 = Array[ExtResource("4_oxt3d")]([ExtResource("5_kcvyg")])
-p1SpawnPosition = Vector2(88, 280)
+p1SpawnPosition = Vector2(100, 280)
 data2 = ExtResource("4_84gnr")
-loadout2 = Array[ExtResource("4_oxt3d")]([ExtResource("7_kcvyg"), ExtResource("8_uxbob")])
-p2SpawnPosition = Vector2(704, 280)
+loadout2 = Array[ExtResource("4_oxt3d")]([ExtResource("7_wqi8t"), ExtResource("8_qpgl0"), ExtResource("7_oh5io"), ExtResource("10_6xav4")])
+p2SpawnPosition = Vector2(700, 280)
+camera = NodePath("Camera")
 
 [node name="DataTracker" type="Node" parent="Runner" unique_id=1905321381]
 unique_name_in_owner = true
@@ -46,13 +51,13 @@ script = ExtResource("1_7in27")
 ticksPerSecond = 30
 
 [node name="DirtFieldReal" type="Sprite2D" parent="Runner" unique_id=1269894354]
-position = Vector2(416, 192)
-scale = Vector2(1, 0.5972973)
+position = Vector2(416, 216)
+scale = Vector2(1.2, 0.717)
 texture = ExtResource("3_hmbi7")
 
 [node name="Cliff" type="Sprite2D" parent="Runner" unique_id=105157828]
-position = Vector2(416, 384)
-scale = Vector2(1, 0.9972973)
+position = Vector2(416, 360)
+scale = Vector2(1.2, 1.196)
 texture = ExtResource("4_2ge0f")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Runner" unique_id=1343250026]
@@ -61,175 +66,207 @@ texture = ExtResource("4_2ge0f")
 unique_name_in_owner = true
 custom_minimum_size = Vector2(800, 600)
 layout_mode = 3
-anchors_preset = 0
-offset_right = 800.0
-offset_bottom = 600.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("2_nmfya")
 dataTracker = NodePath("../../DataTracker")
-tickLabelValue = NodePath("PanelContainer/HBoxContainer/StageUI/Tick/TickValue")
-timerLabelValue = NodePath("PanelContainer/HBoxContainer/StageUI/Timer/TimerValue")
-distanceLabelValue = NodePath("PanelContainer/HBoxContainer/StageUI/Distance/DistanceValue")
-P1ActionGoalValueLabelValue = NodePath("PanelContainer/HBoxContainer/P1UI/ActionGoal/ActionGoalValue")
-P1ActionGoalTotalLabelValue = NodePath("PanelContainer/HBoxContainer/P1UI/ActionGoal/ActionGoalTotal")
-P1HealthValue = NodePath("PanelContainer/HBoxContainer/P1UI/HP/HealthValue")
-P1HealthTotal = NodePath("PanelContainer/HBoxContainer/P1UI/HP/HealthTotal")
-P1TechniqueList = NodePath("PanelContainer/HBoxContainer/P1UI/Techniques")
-P2ActionGoalValueLabelValue = NodePath("PanelContainer/HBoxContainer/P2UI/ActionGoal/ActionGoalValue")
-P2ActionGoalTotalLabelValue = NodePath("PanelContainer/HBoxContainer/P2UI/ActionGoal/ActionGoalTotal")
-P2HealthValue = NodePath("PanelContainer/HBoxContainer/P2UI/HP/HealthValue")
-P2HealthTotal = NodePath("PanelContainer/HBoxContainer/P2UI/HP/HealthTotal")
-P2TechniqueList = NodePath("PanelContainer/HBoxContainer/P2UI/Techniques")
+tickLabelValue = NodePath("VBoxContainer/PanelContainer/HBoxContainer/StageUI/Tick/TickValue")
+timerLabelValue = NodePath("VBoxContainer/PanelContainer/HBoxContainer/StageUI/Timer/TimerValue")
+distanceLabelValue = NodePath("VBoxContainer/PanelContainer/HBoxContainer/StageUI/Distance/DistanceValue")
+P1ActionGoalValueLabelValue = NodePath("VBoxContainer/PanelContainer/HBoxContainer/P1UI/ActionGoal/ActionGoalValue")
+P1ActionGoalTotalLabelValue = NodePath("VBoxContainer/PanelContainer/HBoxContainer/P1UI/ActionGoal/ActionGoalTotal")
+P1HealthValue = NodePath("VBoxContainer/PanelContainer/HBoxContainer/P1UI/HP/HealthValue")
+P1HealthTotal = NodePath("VBoxContainer/PanelContainer/HBoxContainer/P1UI/HP/HealthTotal")
+P1TechniqueList = NodePath("VBoxContainer/TechniquesPanel/HBoxContainer/P1Techniques")
+P2ActionGoalValueLabelValue = NodePath("VBoxContainer/PanelContainer/HBoxContainer/P2UI/ActionGoal/ActionGoalValue")
+P2ActionGoalTotalLabelValue = NodePath("VBoxContainer/PanelContainer/HBoxContainer/P2UI/ActionGoal/ActionGoalTotal")
+P2HealthValue = NodePath("VBoxContainer/PanelContainer/HBoxContainer/P2UI/HP/HealthValue")
+P2HealthTotal = NodePath("VBoxContainer/PanelContainer/HBoxContainer/P2UI/HP/HealthTotal")
+P2TechniqueList = NodePath("VBoxContainer/TechniquesPanel/HBoxContainer/P2Techniques")
 
-[node name="PanelContainer" type="PanelContainer" parent="Runner/CanvasLayer/UI" unique_id=946951563]
+[node name="VBoxContainer" type="VBoxContainer" parent="Runner/CanvasLayer/UI" unique_id=946594256]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
-offset_bottom = 77.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer" unique_id=172435710]
+[node name="PanelContainer" type="PanelContainer" parent="Runner/CanvasLayer/UI/VBoxContainer" unique_id=946951563]
 layout_mode = 2
 
-[node name="P1UI" type="VBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer" unique_id=1925341404]
+[node name="HBoxContainer" type="HBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer" unique_id=172435710]
+layout_mode = 2
+
+[node name="P1UI" type="VBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1925341404]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ActionGoal" type="HBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI" unique_id=763971389]
+[node name="ActionGoal" type="HBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P1UI" unique_id=763971389]
 layout_mode = 2
 
-[node name="ActionGoalLabel" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI/ActionGoal" unique_id=870274264]
+[node name="ActionGoalLabel" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P1UI/ActionGoal" unique_id=870274264]
 layout_mode = 2
 text = "Action Goal: "
 
-[node name="ActionGoalValue" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI/ActionGoal" unique_id=1746662203]
+[node name="ActionGoalValue" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P1UI/ActionGoal" unique_id=1746662203]
 layout_mode = 2
 text = "0"
 
-[node name="ActionGoalTotal" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI/ActionGoal" unique_id=807984940]
+[node name="ActionGoalTotal" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P1UI/ActionGoal" unique_id=807984940]
 layout_mode = 2
 text = "/ 0"
 
-[node name="HP" type="HBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI" unique_id=1044332064]
+[node name="HP" type="HBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P1UI" unique_id=1044332064]
 layout_mode = 2
 
-[node name="HealthLabel" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI/HP" unique_id=33642562]
+[node name="HealthLabel" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P1UI/HP" unique_id=33642562]
 layout_mode = 2
 text = "HP: "
 
-[node name="HealthValue" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI/HP" unique_id=1153973122]
+[node name="HealthValue" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P1UI/HP" unique_id=1153973122]
 layout_mode = 2
 text = "0"
 
-[node name="HealthTotal" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI/HP" unique_id=347680651]
+[node name="HealthTotal" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P1UI/HP" unique_id=347680651]
 layout_mode = 2
 text = "/ 0"
 
-[node name="Techniques" type="VBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI" unique_id=1932309050]
-layout_mode = 2
-
-[node name="ListHeader" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P1UI/Techniques" unique_id=1605307740]
-layout_mode = 2
-text = "P1 Techniques:"
-
-[node name="StageUI" type="VBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer" unique_id=558485912]
+[node name="StageUI" type="VBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer" unique_id=558485912]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Tick" type="HBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/StageUI" unique_id=542927653]
+[node name="Tick" type="HBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/StageUI" unique_id=542927653]
 layout_mode = 2
 alignment = 1
 
-[node name="TickLabel" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/StageUI/Tick" unique_id=970591541]
+[node name="TickLabel" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/StageUI/Tick" unique_id=970591541]
 layout_mode = 2
 text = "Tick:"
 
-[node name="TickValue" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/StageUI/Tick" unique_id=1957307352]
+[node name="TickValue" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/StageUI/Tick" unique_id=1957307352]
 layout_mode = 2
 text = "0"
 
-[node name="Timer" type="HBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/StageUI" unique_id=2099755838]
+[node name="Timer" type="HBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/StageUI" unique_id=2099755838]
 layout_mode = 2
 alignment = 1
 
-[node name="TimerLabel" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/StageUI/Timer" unique_id=952661789]
+[node name="TimerLabel" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/StageUI/Timer" unique_id=952661789]
 layout_mode = 2
 text = "Timer: "
 
-[node name="TimerValue" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/StageUI/Timer" unique_id=1877560936]
+[node name="TimerValue" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/StageUI/Timer" unique_id=1877560936]
 layout_mode = 2
 text = "0.000s"
 
-[node name="Distance" type="HBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/StageUI" unique_id=469191005]
+[node name="Distance" type="HBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/StageUI" unique_id=469191005]
 layout_mode = 2
 alignment = 1
 
-[node name="DistanceLabel" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/StageUI/Distance" unique_id=862217998]
+[node name="DistanceLabel" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/StageUI/Distance" unique_id=862217998]
 layout_mode = 2
 text = "Distance: "
 
-[node name="DistanceValue" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/StageUI/Distance" unique_id=1639403947]
+[node name="DistanceValue" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/StageUI/Distance" unique_id=1639403947]
 layout_mode = 2
 text = "0"
 
-[node name="P2UI" type="VBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer" unique_id=1944575006]
+[node name="P2UI" type="VBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1944575006]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ActionGoal" type="HBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI" unique_id=63920315]
+[node name="ActionGoal" type="HBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P2UI" unique_id=63920315]
 layout_mode = 2
 alignment = 2
 
-[node name="ActionGoalLabel" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI/ActionGoal" unique_id=1889200332]
+[node name="ActionGoalLabel" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P2UI/ActionGoal" unique_id=1889200332]
 layout_mode = 2
 text = "Action Goal: "
 
-[node name="ActionGoalValue" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI/ActionGoal" unique_id=1427211928]
+[node name="ActionGoalValue" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P2UI/ActionGoal" unique_id=1427211928]
 layout_mode = 2
 text = "0"
 
-[node name="ActionGoalTotal" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI/ActionGoal" unique_id=1635756269]
+[node name="ActionGoalTotal" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P2UI/ActionGoal" unique_id=1635756269]
 layout_mode = 2
 text = "/ 0"
 
-[node name="HP" type="HBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI" unique_id=366779346]
+[node name="HP" type="HBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P2UI" unique_id=366779346]
 layout_mode = 2
 alignment = 2
 
-[node name="HealthLabel" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI/HP" unique_id=924288202]
+[node name="HealthLabel" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P2UI/HP" unique_id=924288202]
 layout_mode = 2
 text = "HP: "
 
-[node name="HealthValue" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI/HP" unique_id=1784795154]
+[node name="HealthValue" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P2UI/HP" unique_id=1784795154]
 layout_mode = 2
 text = "0"
 
-[node name="HealthTotal" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI/HP" unique_id=1538962629]
+[node name="HealthTotal" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/PanelContainer/HBoxContainer/P2UI/HP" unique_id=1538962629]
 layout_mode = 2
 text = "/ 0"
 
-[node name="Techniques" type="VBoxContainer" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI" unique_id=614137807]
+[node name="VSpace" type="Control" parent="Runner/CanvasLayer/UI/VBoxContainer" unique_id=1638804118]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TechniquesPanel" type="PanelContainer" parent="Runner/CanvasLayer/UI/VBoxContainer" unique_id=585482285]
 layout_mode = 2
 
-[node name="ListHeader" type="Label" parent="Runner/CanvasLayer/UI/PanelContainer/HBoxContainer/P2UI/Techniques" unique_id=990268984]
+[node name="HBoxContainer" type="HBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/TechniquesPanel" unique_id=1586546943]
+layout_mode = 2
+
+[node name="P1Techniques" type="VBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/TechniquesPanel/HBoxContainer" unique_id=1932309050]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ListHeader" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/TechniquesPanel/HBoxContainer/P1Techniques" unique_id=1605307740]
+layout_mode = 2
+text = "P1 Techniques:"
+
+[node name="Spacer" type="Control" parent="Runner/CanvasLayer/UI/VBoxContainer/TechniquesPanel/HBoxContainer" unique_id=471932974]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="P2Techniques" type="VBoxContainer" parent="Runner/CanvasLayer/UI/VBoxContainer/TechniquesPanel/HBoxContainer" unique_id=614137807]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ListHeader" type="Label" parent="Runner/CanvasLayer/UI/VBoxContainer/TechniquesPanel/HBoxContainer/P2Techniques" unique_id=990268984]
 layout_mode = 2
 text = "P2 Techniques:"
 horizontal_alignment = 2
 
-[node name="Camera2D" type="Camera2D" parent="Runner" unique_id=336103352]
-position = Vector2(704, 280)
+[node name="PauseMenu" parent="Runner/CanvasLayer" unique_id=1081214476 instance=ExtResource("2_uxbob")]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
 
-[node name="PhantomCameraHost" type="Node" parent="Runner/Camera2D" unique_id=141014086]
+[node name="Camera" type="Camera2D" parent="Runner" unique_id=336103352]
+process_mode = 3
+position = Vector2(400, 288)
+limit_left = -104
+limit_right = 936
+editor_draw_limits = true
+script = ExtResource("13_oh5io")
+
+[node name="PhantomCameraHost" type="Node" parent="Runner/Camera" unique_id=141014086]
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("8_1su0b")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Ground" type="StaticBody2D" parent="Runner" unique_id=1837921822]
-collision_layer = 16
-collision_mask = 16
+position = Vector2(400, 368)
+collision_layer = 32
+collision_mask = 0
 
 [node name="GroundCollision" type="CollisionShape2D" parent="Runner/Ground" unique_id=1160344322]
-position = Vector2(416, 368)
 shape = SubResource("RectangleShape2D_vhvwd")
 
 [node name="Tyran" type="Sprite2D" parent="Runner" unique_id=1196646335]
@@ -239,31 +276,43 @@ position = Vector2(312, 192)
 scale = Vector2(2, 2)
 texture = ExtResource("6_2ge0f")
 
-[node name="WallLeft" type="StaticBody2D" parent="Runner" unique_id=10466412]
+[node name="WallLeft" type="StaticBody2D" parent="Runner" unique_id=1099409070]
+position = Vector2(-84, 144)
 collision_layer = 16
-collision_mask = 16
+collision_mask = 0
 
 [node name="WallCollision" type="CollisionShape2D" parent="Runner/WallLeft" unique_id=289652172]
-position = Vector2(-84, 144)
 shape = SubResource("RectangleShape2D_84gnr")
 
-[node name="WallRight" type="StaticBody2D" parent="Runner" unique_id=1269666561]
+[node name="WallRight" type="StaticBody2D" parent="Runner" unique_id=44962713]
+position = Vector2(916, 144)
 collision_layer = 16
-collision_mask = 16
+collision_mask = 0
 
 [node name="WallCollision" type="CollisionShape2D" parent="Runner/WallRight" unique_id=64733506]
-position = Vector2(916, 144)
 shape = SubResource("RectangleShape2D_84gnr")
 
 [node name="PhanCam" type="Node2D" parent="." unique_id=280291903]
 unique_name_in_owner = true
+process_mode = 3
 top_level = true
-position = Vector2(704, 280)
+position = Vector2(400, 288)
 script = ExtResource("8_lnwe3")
 follow_mode = 3
 snap_to_pixel = true
 tween_resource = SubResource("Resource_5dtn3")
-follow_axis_lock = 2
-auto_zoom_min = 0.1
-auto_zoom_max = 1.2
+follow_damping = true
+auto_zoom = true
+auto_zoom_min = 0.5
+auto_zoom_max = 1.0
+auto_zoom_margin = Vector4(200, 0, 200, 0)
+draw_limits = true
+limit_left = -104
+limit_right = 936
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[connection signal="pressed" from="Runner/CanvasLayer/PauseMenu/PanelContainer/VBoxContainer/ResumeBtn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="Runner/CanvasLayer/PauseMenu/PanelContainer/VBoxContainer/RestartBtn" to="." method="restart_game"]
+[connection signal="pressed" from="Runner/CanvasLayer/PauseMenu/PanelContainer/VBoxContainer/EndBattleBtn" to="." method="_on_end_battle_btn_pressed"]
+
+[editable path="Runner/CanvasLayer/PauseMenu"]

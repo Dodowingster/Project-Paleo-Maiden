@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ccutc7ykeyd6p"]
+
+[ext_resource type="Script" uid="uid://dd3sajkycqovj" path="res://Mechanics/Techniques/TechniqueTypes/baseatk_technique.gd" id="1_1ruhi"]
+[ext_resource type="Script" uid="uid://davbi37fiwm0b" path="res://Mechanics/Techniques/Triggers/action_goal_trigger.gd" id="2_i8lo0"]
+[ext_resource type="Script" uid="uid://vvpc8qlg01o" path="res://Mechanics/Techniques/Triggers/range_trigger.gd" id="3_i8lo0"]
+
+[node name="RyoshuBaseAtk" type="Node" unique_id=2108171781]
+script = ExtResource("1_1ruhi")
+
+[node name="ActionGoalTrigger" type="Node" parent="." unique_id=988238645]
+script = ExtResource("2_i8lo0")
+metadata/_custom_type_script = "uid://davbi37fiwm0b"
+
+[node name="RangeTrigger" type="Node" parent="." unique_id=478682504]
+script = ExtResource("3_i8lo0")
+minRange = 100.0
+maxRange = 150.0
+metadata/_custom_type_script = "uid://vvpc8qlg01o"

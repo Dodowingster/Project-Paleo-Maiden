@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bv1rq18v51k0o"]
+
+[ext_resource type="Script" uid="uid://ck5hkeeclio7i" path="res://VFX/hitvfx.gd" id="1_y7t33"]
+[ext_resource type="Texture2D" uid="uid://dpu1eqv8d2sax" path="res://Characters/placeholder_sprites/NCorpRyoshu/skill3_7_e.png" id="2_602lc"]
+
+[sub_resource type="Animation" id="Animation_igsfk"]
+resource_name = "play"
+length = 0.083335005
+step = 0.016666668
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s6uvi"]
+_data = {
+&"play": SubResource("Animation_igsfk")
+}
+
+[node name="RyoshuVfx1" type="Node2D" unique_id=1492772927]
+script = ExtResource("1_y7t33")
+metadata/_custom_type_script = "uid://ck5hkeeclio7i"
+
+[node name="VFXSprite" type="Sprite2D" parent="." unique_id=1019569262]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_602lc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=795752820]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_s6uvi")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

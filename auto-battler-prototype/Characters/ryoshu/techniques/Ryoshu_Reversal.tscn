@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://vvpc8qlg01o" path="res://Mechanics/Techniques/Triggers/range_trigger.gd" id="3_pt63p"]
 [ext_resource type="Script" uid="uid://dcjcx6dhuwnr4" path="res://Mechanics/Techniques/Effects/move_effect.gd" id="4_1yojt"]
 [ext_resource type="Script" uid="uid://cm2swp1i5yuvi" path="res://Mechanics/Techniques/Triggers/cooldown_trigger.gd" id="5_1oynq"]
+[ext_resource type="Script" uid="uid://cuwtyksi0gpac" path="res://Mechanics/Techniques/Effects/invul_effect.gd" id="5_1856i"]
+[ext_resource type="Script" uid="uid://c5gxs7ehq2eig" path="res://Mechanics/Techniques/Triggers/pos_trigger.gd" id="6_3h3ca"]
 
 [node name="Ryoshu_Reversal" type="Node" unique_id=1204371215]
 script = ExtResource("1_lvp3g")
@@ -15,13 +17,18 @@ metadata/_custom_type_script = "uid://brn2vsxpkvuvn"
 
 [node name="RangeTrigger" type="Node" parent="." unique_id=1952870101]
 script = ExtResource("3_pt63p")
-maxRange = 80.0
+maxRange = 100.0
 metadata/_custom_type_script = "uid://vvpc8qlg01o"
 
 [node name="CooldownTrigger" type="Node" parent="." unique_id=361220087]
 script = ExtResource("5_1oynq")
-cooldown = 15.0
+cooldown = 20.0
 metadata/_custom_type_script = "uid://cm2swp1i5yuvi"
+
+[node name="InvulEffect" type="Node" parent="." unique_id=347866665]
+script = ExtResource("5_1856i")
+revertFrame = 20
+metadata/_custom_type_script = "uid://cuwtyksi0gpac"
 
 [node name="MoveEffect" type="Node" parent="." unique_id=1727249952]
 script = ExtResource("4_1yojt")
@@ -34,3 +41,7 @@ script = ExtResource("4_1yojt")
 velocity = Vector2(500, 0)
 applyFrame = 48
 metadata/_custom_type_script = "uid://dcjcx6dhuwnr4"
+
+[node name="PositionTrigger" type="Node" parent="." unique_id=519362813]
+script = ExtResource("6_3h3ca")
+metadata/_custom_type_script = "uid://c5gxs7ehq2eig"

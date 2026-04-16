@@ -1,5 +1,5 @@
 extends Node
-
+class_name Runner
 
 @onready var char1 : PackedScene
 @onready var char2 : PackedScene
@@ -17,9 +17,13 @@ extends Node
 @onready var dataTracker : DataTracker = %DataTracker
 @onready var ui : Control = %UI
 @onready var phanCam : PhantomCamera2D = %PhanCam
+@export var camera : CustomCamera
 
 
 func _ready() -> void:
+	initialize()
+
+func initialize() -> void:
 	char1 = load("res://Characters/generic/character.tscn")
 	char2 = load("res://Characters/generic/character.tscn")
 	if data1 != null and data2 != null:
@@ -36,6 +40,8 @@ func _ready() -> void:
 		phanCam.follow_targets = [nodeP1, nodeP2]
 		nodeP1.position = p1SpawnPosition
 		nodeP2.position = p2SpawnPosition
+		nodeP1.shakeCamera.connect(camera.add_trauma)
+		nodeP2.shakeCamera.connect(camera.add_trauma)
 		self.add_child(nodeP1)
 		self.add_child(nodeP2)
 		nodeP1.setup_loadout(loadout1)
@@ -43,3 +49,15 @@ func _ready() -> void:
 		ui.P1 = nodeP1
 		ui.P2 = nodeP2
 		ui.char_setup()
+
+func reset() -> void:
+	nodeP1.unload_loadout()
+	loadout1.remove_at(-1)
+	nodeP2.unload_loadout()
+	loadout2.remove_at(-1)
+	nodeP1.shakeCamera.disconnect(camera.add_trauma)
+	nodeP2.shakeCamera.disconnect(camera.add_trauma)
+	phanCam.follow_targets = []
+	nodeP1.queue_free()
+	nodeP2.queue_free()
+	ui.clear()

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="TechniqueData" format=3 uid="uid://dewv7utm7vt8c"]
+
+[ext_resource type="Script" uid="uid://djprxni5sqe65" path="res://Characters/generic/hitbox_data.gd" id="1_v1k7m"]
+[ext_resource type="Script" uid="uid://c0c4p57o71yio" path="res://Characters/generic/technique_data.gd" id="2_delj5"]
+[ext_resource type="Resource" uid="uid://ceqtiqjwvfyj7" path="res://Characters/ryoshu/hitboxes/ryoshu_superhitboxdata.tres" id="2_rdj1n"]
+[ext_resource type="PackedScene" uid="uid://y4x6wj01li2r" path="res://Characters/ryoshu/techniques/Ryoshu_Super.tscn" id="3_delj5"]
+
+[resource]
+script = ExtResource("2_delj5")
+technique = ExtResource("3_delj5")
+techniqueName = "R_Super"
+animName = "super"
+hitboxes = Array[ExtResource("1_v1k7m")]([ExtResource("2_rdj1n")])
+metadata/_custom_type_script = "uid://c0c4p57o71yio"

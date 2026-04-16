@@ -1,0 +1,212 @@
+[gd_scene format=3 uid="uid://3tfudsg5f3v"]
+
+[ext_resource type="Script" uid="uid://wndh5diq72cg" path="res://UI/Menus/setup_char.gd" id="1_hdoat"]
+[ext_resource type="Script" uid="uid://boc53imrgb27h" path="res://Characters/generic/character_data.gd" id="2_0hg0a"]
+[ext_resource type="Resource" uid="uid://c2k2423pfb03h" path="res://Characters/don/don_data.tres" id="3_j7hqa"]
+[ext_resource type="Resource" uid="uid://c2pi52jo2w0y8" path="res://Characters/ryoshu/ryoshu_data.tres" id="4_w1o85"]
+[ext_resource type="Script" uid="uid://c0c4p57o71yio" path="res://Characters/generic/technique_data.gd" id="5_7pbdq"]
+[ext_resource type="Resource" uid="uid://bouom4lj25mga" path="res://Characters/don/techniques/don_rush.tres" id="6_p3pgw"]
+[ext_resource type="Resource" uid="uid://hrvfmlohrxj7" path="res://Characters/ryoshu/techniques/ryoshu_rush.tres" id="7_hguw3"]
+[ext_resource type="Resource" uid="uid://chfnndt3hm1wf" path="res://Characters/ryoshu/techniques/ryoshu_reversal.tres" id="8_t66uo"]
+[ext_resource type="Resource" uid="uid://cp1vjeyka1tul" path="res://Characters/ryoshu/techniques/ryoshu_sideswitch.tres" id="9_n3tgy"]
+[ext_resource type="Resource" uid="uid://dewv7utm7vt8c" path="res://Characters/ryoshu/techniques/ryoshu_super.tres" id="10_j7hqa"]
+[ext_resource type="Script" uid="uid://bbgs31gushkq" path="res://UI/Menus/attributes_list.gd" id="11_w1o85"]
+
+[node name="SetupChar" type="VBoxContainer" unique_id=617072385 node_paths=PackedStringArray("headerLabel", "selectedCharLabel", "charSelectList", "techOverallList", "techSelectList", "selectedTechList", "attributesList")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -179.0
+offset_right = 45.0
+offset_bottom = 179.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_hdoat")
+charList = Array[ExtResource("2_0hg0a")]([ExtResource("3_j7hqa"), ExtResource("4_w1o85")])
+techniqueList = Array[ExtResource("5_7pbdq")]([ExtResource("6_p3pgw"), ExtResource("7_hguw3"), ExtResource("8_t66uo"), ExtResource("9_n3tgy"), ExtResource("10_j7hqa")])
+headerLabelText = "Test"
+headerLabel = NodePath("HeaderLabel")
+selectedCharLabel = NodePath("SelectedChar/SelectedCharLabel")
+charSelectList = NodePath("CharList")
+techOverallList = NodePath("TabContainer/Techniques")
+techSelectList = NodePath("TabContainer/Techniques/TechniqueList")
+selectedTechList = NodePath("TabContainer/Techniques/SelectedTechList")
+attributesList = NodePath("TabContainer/Attributes")
+
+[node name="HeaderLabel" type="Label" parent="." unique_id=309494882]
+layout_mode = 2
+text = "P1"
+horizontal_alignment = 1
+
+[node name="SelectedChar" type="HBoxContainer" parent="." unique_id=2005897089]
+layout_mode = 2
+
+[node name="CharLabel" type="Label" parent="SelectedChar" unique_id=683546046]
+layout_mode = 2
+text = "Character: "
+
+[node name="SelectedCharLabel" type="Label" parent="SelectedChar" unique_id=1287084296]
+layout_mode = 2
+
+[node name="CharList" type="ItemList" parent="." unique_id=1652285796]
+layout_mode = 2
+auto_height = true
+
+[node name="TabContainer" type="TabContainer" parent="." unique_id=806651170]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="Techniques" type="VBoxContainer" parent="TabContainer" unique_id=1476875171]
+layout_mode = 2
+size_flags_vertical = 3
+metadata/_tab_index = 0
+
+[node name="TechniqueLabel" type="Label" parent="TabContainer/Techniques" unique_id=2129251662]
+layout_mode = 2
+text = "Available Techniques:"
+
+[node name="TechniqueList" type="ItemList" parent="TabContainer/Techniques" unique_id=2063515036]
+layout_mode = 2
+size_flags_vertical = 3
+select_mode = 2
+auto_height = true
+
+[node name="SelectedTechniques" type="Label" parent="TabContainer/Techniques" unique_id=1999846037]
+layout_mode = 2
+text = "Selected Techniques:"
+
+[node name="SelectedTechList" type="ItemList" parent="TabContainer/Techniques" unique_id=1070697166]
+layout_mode = 2
+size_flags_vertical = 3
+select_mode = 1
+allow_search = false
+auto_height = true
+
+[node name="Attributes" type="VBoxContainer" parent="TabContainer" unique_id=2048576403]
+visible = false
+layout_mode = 2
+script = ExtResource("11_w1o85")
+metadata/_tab_index = 1
+
+[node name="StatsLabel" type="Label" parent="TabContainer/Attributes" unique_id=1532992326]
+layout_mode = 2
+text = "Stats"
+
+[node name="HPStat" type="HBoxContainer" parent="TabContainer/Attributes" unique_id=1417157755]
+layout_mode = 2
+
+[node name="StatLabel" type="Label" parent="TabContainer/Attributes/HPStat" unique_id=1834970518]
+layout_mode = 2
+text = "HP:"
+
+[node name="StatEdit" type="LineEdit" parent="TabContainer/Attributes/HPStat" unique_id=404356030]
+layout_mode = 2
+virtual_keyboard_type = 2
+
+[node name="AtkStat" type="HBoxContainer" parent="TabContainer/Attributes" unique_id=641377607]
+layout_mode = 2
+
+[node name="StatLabel" type="Label" parent="TabContainer/Attributes/AtkStat" unique_id=1665838442]
+layout_mode = 2
+text = "Atk:"
+
+[node name="StatEdit" type="LineEdit" parent="TabContainer/Attributes/AtkStat" unique_id=274769768]
+layout_mode = 2
+virtual_keyboard_type = 2
+
+[node name="DefStat" type="HBoxContainer" parent="TabContainer/Attributes" unique_id=128811220]
+layout_mode = 2
+
+[node name="StatLabel" type="Label" parent="TabContainer/Attributes/DefStat" unique_id=1315811592]
+layout_mode = 2
+text = "Def:"
+
+[node name="StatEdit" type="LineEdit" parent="TabContainer/Attributes/DefStat" unique_id=1626883565]
+layout_mode = 2
+virtual_keyboard_type = 2
+
+[node name="SpdStat" type="HBoxContainer" parent="TabContainer/Attributes" unique_id=170808819]
+layout_mode = 2
+
+[node name="StatLabel" type="Label" parent="TabContainer/Attributes/SpdStat" unique_id=2069363052]
+layout_mode = 2
+text = "Spd:"
+
+[node name="StatEdit" type="LineEdit" parent="TabContainer/Attributes/SpdStat" unique_id=1879027757]
+layout_mode = 2
+virtual_keyboard_type = 2
+
+[node name="MinStaStat" type="HBoxContainer" parent="TabContainer/Attributes" unique_id=958010189]
+layout_mode = 2
+
+[node name="StatLabel" type="Label" parent="TabContainer/Attributes/MinStaStat" unique_id=1756252814]
+layout_mode = 2
+text = "Min Sta:"
+
+[node name="StatEdit" type="LineEdit" parent="TabContainer/Attributes/MinStaStat" unique_id=1394000235]
+layout_mode = 2
+virtual_keyboard_type = 2
+
+[node name="MaxStaStat" type="HBoxContainer" parent="TabContainer/Attributes" unique_id=479361747]
+layout_mode = 2
+
+[node name="StatLabel" type="Label" parent="TabContainer/Attributes/MaxStaStat" unique_id=348591624]
+layout_mode = 2
+text = "Max Sta:"
+
+[node name="StatEdit" type="LineEdit" parent="TabContainer/Attributes/MaxStaStat" unique_id=1795525436]
+layout_mode = 2
+virtual_keyboard_type = 2
+
+[node name="MinDistanceStat" type="HBoxContainer" parent="TabContainer/Attributes" unique_id=1865639973]
+layout_mode = 2
+
+[node name="StatLabel" type="Label" parent="TabContainer/Attributes/MinDistanceStat" unique_id=591486368]
+layout_mode = 2
+text = "Min Distance:"
+
+[node name="StatEdit" type="LineEdit" parent="TabContainer/Attributes/MinDistanceStat" unique_id=1206292573]
+layout_mode = 2
+virtual_keyboard_type = 2
+
+[node name="MaxDistanceStat" type="HBoxContainer" parent="TabContainer/Attributes" unique_id=641290259]
+layout_mode = 2
+
+[node name="StatLabel" type="Label" parent="TabContainer/Attributes/MaxDistanceStat" unique_id=301068117]
+layout_mode = 2
+text = "Max Distance:"
+
+[node name="StatEdit" type="LineEdit" parent="TabContainer/Attributes/MaxDistanceStat" unique_id=123694412]
+layout_mode = 2
+virtual_keyboard_type = 2
+
+[node name="FwdSpdMultStat" type="HBoxContainer" parent="TabContainer/Attributes" unique_id=496295557]
+layout_mode = 2
+
+[node name="StatLabel" type="Label" parent="TabContainer/Attributes/FwdSpdMultStat" unique_id=1803373188]
+layout_mode = 2
+text = "Forward Spd Mult:"
+
+[node name="StatEdit" type="LineEdit" parent="TabContainer/Attributes/FwdSpdMultStat" unique_id=472783406]
+layout_mode = 2
+virtual_keyboard_type = 3
+
+[node name="BkwdSpdMultStat" type="HBoxContainer" parent="TabContainer/Attributes" unique_id=1022877562]
+layout_mode = 2
+
+[node name="StatLabel" type="Label" parent="TabContainer/Attributes/BkwdSpdMultStat" unique_id=1864065329]
+layout_mode = 2
+text = "Backward Spd Mult:"
+
+[node name="StatEdit" type="LineEdit" parent="TabContainer/Attributes/BkwdSpdMultStat" unique_id=337619349]
+layout_mode = 2
+virtual_keyboard_type = 3
+
+[connection signal="item_selected" from="CharList" to="." method="_on_char_list_item_selected"]
+[connection signal="multi_selected" from="TabContainer/Techniques/TechniqueList" to="." method="_on_technique_list_multi_selected"]

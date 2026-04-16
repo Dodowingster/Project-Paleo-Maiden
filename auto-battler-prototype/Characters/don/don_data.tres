@@ -2,12 +2,14 @@
 
 [ext_resource type="AnimationLibrary" uid="uid://boalcp78pqj5n" path="res://Characters/don/anims/don.res" id="1_d05c3"]
 [ext_resource type="Script" uid="uid://boc53imrgb27h" path="res://Characters/generic/character_data.gd" id="1_tsipi"]
-[ext_resource type="Resource" uid="uid://bc51sbcctyo5h" path="res://Characters/don/hitboxes/don_baseatkdata.tres" id="2_brx57"]
+[ext_resource type="Resource" uid="uid://66b0klag3244" path="res://Characters/don/techniques/don_baseatk.tres" id="2_brx57"]
 
 [resource]
 script = ExtResource("1_tsipi")
 characterName = "Don"
 animLib = ExtResource("1_d05c3")
 animLibName = "don"
+forwardSpdMult = 50.0
+backwardSpdMult = 25.0
 baseAtkData = ExtResource("2_brx57")
 metadata/_custom_type_script = "uid://boc53imrgb27h"

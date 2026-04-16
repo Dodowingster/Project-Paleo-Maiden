@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="TechniqueData" format=3 uid="uid://cp1vjeyka1tul"]
+
+[ext_resource type="Script" uid="uid://djprxni5sqe65" path="res://Characters/generic/hitbox_data.gd" id="1_vyhvs"]
+[ext_resource type="Script" uid="uid://c0c4p57o71yio" path="res://Characters/generic/technique_data.gd" id="2_1x1u5"]
+[ext_resource type="Resource" uid="uid://cinamrjb4psog" path="res://Characters/ryoshu/hitboxes/ryoshu_sideswitchhitboxdata.tres" id="2_88kye"]
+[ext_resource type="PackedScene" uid="uid://1kcdfef523s8" path="res://Characters/ryoshu/techniques/Ryoshu_SideSwitch.tscn" id="3_1x1u5"]
+
+[resource]
+script = ExtResource("2_1x1u5")
+technique = ExtResource("3_1x1u5")
+techniqueName = "R_SideSwitch"
+animName = "sideswitch"
+hitboxes = Array[ExtResource("1_vyhvs")]([ExtResource("2_88kye")])
+metadata/_custom_type_script = "uid://c0c4p57o71yio"

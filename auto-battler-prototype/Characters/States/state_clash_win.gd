@@ -14,6 +14,8 @@ func enter():
 	owner.canClash = false
 	if animName in animList:
 		animPlayer.play(animName)
+	var vfx_pos : Vector2 = owner.opponent.global_position
+	VFXManager.spawn_vfx(VFXManager.VFX_TYPE.CLASHWIN, vfx_pos, owner.get_side())
 
 
 func exit():
