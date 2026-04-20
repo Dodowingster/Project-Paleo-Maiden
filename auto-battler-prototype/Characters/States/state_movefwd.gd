@@ -5,7 +5,6 @@ class_name StateMoveFwd
 @onready var animPlayer : AnimationPlayer = %AnimationPlayer
 var animList : PackedStringArray = []
 var animName : String
-var lastTick : int = 0
 
 func _ready():
 	animList = animPlayer.get_animation_list()
@@ -26,6 +25,4 @@ func update(_delta: float):
 
 
 func physics_update(_delta: float):
-	if lastTick != owner.tickCount:
-		lastTick = owner.tickCount
-		owner.velocity.x = owner.spd * owner.forwardSpdMult * %SideTracker.side
+	owner.velocity.x = owner.spd * owner.forwardSpdMult * %SideTracker.side

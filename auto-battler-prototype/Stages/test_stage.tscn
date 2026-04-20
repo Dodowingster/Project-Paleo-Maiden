@@ -49,7 +49,6 @@ camera = NodePath("Camera")
 [node name="DataTracker" type="Node" parent="Runner" unique_id=1905321381]
 unique_name_in_owner = true
 script = ExtResource("1_7in27")
-ticksPerSecond = 30
 
 [node name="DirtFieldReal" type="Sprite2D" parent="Runner" unique_id=1269894354]
 position = Vector2(416, 216)

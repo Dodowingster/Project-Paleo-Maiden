@@ -403,55 +403,60 @@ func _on_tick(rcvDistance: float, rcvTickCount: int):
 func get_hit(hitbox: HitBox, hurtbox: Hurtbox):
 	var parent : Character = hitbox.owner
 	if parent != self:
+		# choose where to spawn the vfx
 		var vfx_pos : Vector2 = get_intersection_midpoint(hitbox, hurtbox)
-		
+		# holds the type of vfx to be initialized at the end of the process
 		var vfx_type : VFXManager.VFX_TYPE
+		var final_hitstop : int = 0
+		var final_hitstop_owner : int = 0
 		
-		print("Attack detected, parent = " + parent.characterName + " dmg = " + str(hitbox.damage) + ", groupname = " + hitbox.groupName)
-		var chosenHitState = "Hitstun"
-		vfx_type = VFXManager.VFX_TYPE.HIT
-		
+		# hit facing direction management
 		var knockbackDirectionMod : int = 1
 		if is_char_facing_right():
 			knockbackDirectionMod = -1
+			
+		print("Attack detected, parent = " + parent.characterName + " dmg = " + str(hitbox.damage) + ", groupname = " + hitbox.groupName)
+		
+		# setup defaults (Hit is default)
+		var chosenHitState = "Hitstun"
+		vfx_type = VFXManager.VFX_TYPE.HIT
+		var outputHealth = health
+		final_hitstop = max(hitstop_frames, hitbox.hitstopFrames)
+		final_hitstop_owner = max(hitbox.owner.hitstop_frames, hitbox.hitstopFrames)
+		hitstun = hitbox.hitstun
+		hitknockbackX = hitbox.knockbackX * knockbackDirectionMod
+		hitknockbackY = hitbox.knockbackY
+		outputHealth = take_damage_hit(parent.calc_initial_damage(hitbox.damage))
 		
 		# Check character currently moving backwards, char blocks
 		if %StateMachine.currentState is StateMoveBkwd or %StateMachine.currentState is StateBlockstun:
 			chosenHitState = "Blockstun"
 			vfx_type = VFXManager.VFX_TYPE.BLOCK
 			@warning_ignore("integer_division")
-			hitstop_frames = max(hitstop_frames, hitbox.hitstopFrames/2)
+			final_hitstop = max(hitstop_frames, hitbox.hitstopFrames/2)
 			@warning_ignore("integer_division")
-			hitbox.owner.hitstop_frames = max(hitbox.owner.hitstop_frames, hitbox.hitstopFrames/2)
+			final_hitstop_owner = max(hitbox.owner.hitstop_frames, hitbox.hitstopFrames/2)
 			hitstun = hitbox.blockstun
 			hitknockbackX = hitbox.blockbackX * knockbackDirectionMod
 			hitknockbackY = hitbox.blockbackY
-
 			# Check for KO (no chip kill)
-			take_damage_block(parent.calc_initial_damage(hitbox.damage))
+			outputHealth = take_damage_block(parent.calc_initial_damage(hitbox.damage))
 		
-		# Else character got hit
-		else:
-			hitstop_frames = max(hitstop_frames, hitbox.hitstopFrames)
-			hitbox.owner.hitstop_frames = max(hitbox.owner.hitstop_frames, hitbox.hitstopFrames)
-			hitstun = hitbox.hitstun
-			hitknockbackX = hitbox.knockbackX * knockbackDirectionMod
-			hitknockbackY = hitbox.knockbackY
-
-			# Check for KO
-			take_damage_hit(parent.calc_initial_damage(hitbox.damage))
-			if health <= 0:
-				chosenHitState = "Lose"
-				health = 0
-				
+		# vfx, hitstop, camera and sprite shake handling
+		hitstop_frames = final_hitstop
+		hitbox.owner.hitstop_frames = final_hitstop_owner
 		var vfx : VFX = VFXManager.spawn_vfx(vfx_type, vfx_pos, knockbackDirectionMod)
 		vfx.add_to_group("vfx", false)
 		for vfxNode in get_tree().get_nodes_in_group("vfx"):
 			vfxNode.freeze_frames = hitstop_frames
-		#vfx.freeze_frames = hitstop_frames
 		shakeCamera.emit((hitstop_frames * 1.0/5) * 0.2)
 		%Sprite.add_trauma((hitstop_frames * 1.0/5) * 0.2)
 		
+		# final outcome
+		health = outputHealth
+		if health <= 0:
+				chosenHitState = "Lose"
+				health = 0
 		%StateMachine.on_child_transition($StateMachine.currentState, chosenHitState)
 		opponentIsAttacking = false
 
@@ -460,18 +465,22 @@ func get_hit(hitbox: HitBox, hurtbox: Hurtbox):
 func calc_initial_damage(value : int) -> int:
 	return value + atk
 
-func take_damage_hit(value : int) -> void:
+func take_damage_hit(value : int) -> int:
+	var outputHealth = health
 	var actualDamage : int = value - def
-	health -= actualDamage
-	if health < 0:
-		health = 0
+	outputHealth -= actualDamage
+	if outputHealth < 0:
+		outputHealth = 0
+	return outputHealth
 
-func take_damage_block(value : int) -> void:
+func take_damage_block(value : int) -> int:
+	var outputHealth = health
 	@warning_ignore("narrowing_conversion")
 	var actualDamage : int = (value - def) * 0.3
-	health -= actualDamage
-	if health <= 0:
-		health = 1
+	outputHealth -= actualDamage
+	if outputHealth <= 0:
+		outputHealth = 1
+	return outputHealth
 
 
 ## HELPER functions
