@@ -1,7 +1,6 @@
 extends StunState
 class_name StateLose
 
-
 @onready var animPlayer : AnimationPlayer = %AnimationPlayer
 var animList : PackedStringArray = []
 var animName : String
@@ -22,14 +21,12 @@ func enter():
 	if animName in animList:
 		animPlayer.play(animName)
 
-
 func exit():
 	%Sprite.position = spriteOGCoordinates
 	var finalDistance : float = owner.distance
 	var knockbackDistance : float = finalDistance - initialDistance
 	print("Knockback distance: " + str(knockbackDistance))
 	animPlayer.stop()
-
 
 func update(_delta: float):
 	timer -= _delta
