@@ -454,6 +454,7 @@ func get_hit(hitbox: HitBox, hurtbox: Hurtbox):
 		
 		# final outcome
 		health = outputHealth
+		affMgr.check_event_bonuses()
 		if health <= 0:
 				chosenHitState = "Lose"
 				health = 0

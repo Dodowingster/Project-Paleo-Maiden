@@ -7,10 +7,12 @@ var triggers: Array[Trigger]
 var effects: Array[Effect]
 var canExecute : bool = false
 @export var affEffectName : String
+@export var triggerLimit : int = -1 # negative means no limit
+@onready var triggerCount : int = 0
 
 func _ready() -> void:
 	var children = get_children()
-	
+	triggerCount = max(triggerLimit, 0)
 	for child in children:
 		# We only want the triggers
 		if child is Trigger:
@@ -27,14 +29,17 @@ func setup_triggers_and_effects(character: Character) -> void:
 		effect.character = character
 
 func trigger_check() -> bool:
-	var conditions_met : bool = true
-	for trigger in triggers:
-		if !trigger.check_condition():
-			conditions_met = false
-			break
+	if triggerLimit == -1 or triggerCount > 0:
+		var conditions_met : bool = true
+		for trigger in triggers:
+			if !trigger.check_condition():
+				conditions_met = false
+				break
 
-	canExecute = conditions_met
-	return conditions_met
+		canExecute = conditions_met
+		return conditions_met
+	else:
+		return false
 
 func execute_effects(delta : float) -> void:
 	for effect in effects:
@@ -43,3 +48,4 @@ func execute_effects(delta : float) -> void:
 		for trigger in triggers:
 			if trigger is CooldownTrigger:
 				trigger.reset()
+	triggerCount -= 1
