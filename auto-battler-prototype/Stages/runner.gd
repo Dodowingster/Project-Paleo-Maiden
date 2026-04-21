@@ -19,7 +19,7 @@ class_name Runner
 @onready var phanCam : PhantomCamera2D = %PhanCam
 @export var camera : CustomCamera
 
-signal broadcastFin()
+signal broadcastFin(winner: String)
 
 func _ready() -> void:
 	initialize()
@@ -53,8 +53,9 @@ func initialize() -> void:
 		%RightPopupSection.connect_to_character(nodeP2)
 		ui.char_setup()
 
-		nodeP1.connect("broadcastLose", broadcast_fin)
-		nodeP2.connect("broadcastLose", broadcast_fin)
+		# TODO: Check what happens here during double downs using breakpoints
+		nodeP1.broadcastLose.connect(broadcast_fin.bind("P2"))
+		nodeP2.broadcastLose.connect(broadcast_fin.bind("P1"))
 
 func reset() -> void:
 	nodeP1.unload_loadout()
@@ -68,5 +69,5 @@ func reset() -> void:
 	nodeP2.queue_free()
 	ui.clear()
 
-func broadcast_fin() -> void:
-	broadcastFin.emit()
+func broadcast_fin(winner: String) -> void:
+	broadcastFin.emit(winner)

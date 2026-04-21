@@ -317,7 +317,6 @@ func broadcast_atk_active_end():
 ## Check whether the char wins or loses (double down) after receiving the lose
 ## signal from the opponent.
 func check_win():
-	# TODO: actually we need to check if opponent also got this
 	var chosenState = ""
 	var currentState = %StateMachine.currentState
 	

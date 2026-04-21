@@ -58,7 +58,10 @@ func resume_game() -> void:
 	else:
 		get_tree().paused = false
 
-func finish_game() -> void:
+func finish_game(winner: String) -> void:
+	var finishLabel : Label = get_node("Runner/CanvasLayer/FinishMenu/PanelContainer/VBoxContainer/FinLabel")
+
 	pause_game()
+	finishLabel.text = winner + " WIN"
 	%FinishMenu.visible = true
 	%FinishMenu.rematchBtn.grab_focus()
