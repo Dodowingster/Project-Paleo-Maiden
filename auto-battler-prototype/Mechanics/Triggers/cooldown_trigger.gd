@@ -22,6 +22,10 @@ func _process(delta: float) -> void:
 	elif currentTimer <= 0:
 		conditionPassed = true
 
+func force_ready() -> void:
+	currentTimer = 0
+	conditionPassed = true
+
 func reset() -> void:
 	conditionPassed = false
 	currentTimer = cooldown
