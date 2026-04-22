@@ -344,7 +344,9 @@ func clash_check():
 	return win_clash_check <= win_clash_chance
 
 func determine_clash_winner():
-	clashResult = clash_check()
+	affMgr.check_event_bonuses()
+	if !clashResult:
+		clashResult = clash_check()
 	broadcastClashResult.emit(clashResult)
 	
 func on_clash_result_rcvd(result: bool):

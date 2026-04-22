@@ -8,6 +8,7 @@ var animDuration : float = 0.5
 var currentDuration : float = 0.0
 var clash_anims: PackedStringArray = ["blockstun", "clash2"]
 var clash_vfx : Node2D
+var clash_result_obtained : bool = false
 
 func _ready():
 	animList = animPlayer.get_animation_list()
@@ -21,10 +22,11 @@ func enter():
 	if (owner.animLibName + "/" + clash_anims[animIndex]) in animList:
 		animPlayer.play(owner.animLibName + "/" + clash_anims[animIndex])
 	clash_vfx = VFXManager.spawn_clash_vfx(owner, owner.opponent)
-	owner.determine_clash_winner()
+	clash_result_obtained = false
 
 
 func exit():
+	clash_result_obtained = false
 	owner.clashResult = false
 	owner.oppClashResult = false
 	if clash_vfx != null:
@@ -34,6 +36,9 @@ func exit():
 
 
 func update(_delta: float):
+	if !clash_result_obtained:
+		owner.determine_clash_winner()
+		clash_result_obtained = true
 	currentDuration += _delta
 	if currentDuration >= animDuration:
 		if owner.clashResult == owner.oppClashResult or !owner.clashResult:

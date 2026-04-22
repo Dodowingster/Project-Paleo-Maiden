@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bmvlkv53mb3cn" path="res://Mechanics/AffinityBonus/SurviveBonus.tscn" id="4_7q3v8"]
 [ext_resource type="Script" uid="uid://colufoqxh8nwm" path="res://Characters/generic/side_tracker.gd" id="4_ocvec"]
 [ext_resource type="AnimationLibrary" uid="uid://dkhtxnpfpt0ey" path="res://Characters/ryoshu/anims/ryoshu.res" id="5_1us7d"]
+[ext_resource type="PackedScene" uid="uid://0ikbyqukpbpo" path="res://Mechanics/AffinityBonus/ClashGoodBonus.tscn" id="5_s8f15"]
 [ext_resource type="Texture2D" uid="uid://bt8isuoep80x2" path="res://Characters/placeholder_sprites/A_CinqEastDon/idle.png" id="6_1g87l"]
 [ext_resource type="Script" uid="uid://xhutnxqw7tsv" path="res://Characters/generic/shake_sprite.gd" id="7_ryghy"]
 [ext_resource type="Script" uid="uid://cuqyr28ih435l" path="res://Mechanics/hurtbox.gd" id="8_7en0w"]
@@ -37,7 +38,7 @@ size = Vector2(32, 128)
 collision_mask = 49
 script = ExtResource("1_1g87l")
 characterData = ExtResource("2_1us7d")
-affinityBonuses = Array[PackedScene]([ExtResource("3_ocvec"), ExtResource("4_7q3v8")])
+affinityBonuses = Array[PackedScene]([ExtResource("3_ocvec"), ExtResource("4_7q3v8"), ExtResource("5_s8f15")])
 
 [node name="AffinityManager" type="Node" parent="." unique_id=1817413589]
 unique_name_in_owner = true

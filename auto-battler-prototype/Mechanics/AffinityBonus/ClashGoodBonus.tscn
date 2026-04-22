@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://0ikbyqukpbpo"]
+
+[ext_resource type="Script" uid="uid://cuhe3xmw2vmk5" path="res://Mechanics/AffinityBonus/event_affinity_bonus.gd" id="1_1jxuj"]
+[ext_resource type="Script" uid="uid://bbjt57et5iesw" path="res://Mechanics/Triggers/affinity_trigger.gd" id="2_eu22f"]
+[ext_resource type="Script" uid="uid://s8mwep3iqkmg" path="res://Mechanics/Effects/goodclash_effect.gd" id="3_a1mxj"]
+[ext_resource type="Script" uid="uid://dbqpqd3fqm5tx" path="res://Mechanics/Triggers/clashing_trigger.gd" id="4_r7j87"]
+
+[node name="ClashGoodBonus" type="Node" unique_id=582828383]
+script = ExtResource("1_1jxuj")
+affEffectName = "No Losing!"
+metadata/_custom_type_script = "uid://cuhe3xmw2vmk5"
+
+[node name="AffinityTrigger" type="Node" parent="." unique_id=426509467]
+script = ExtResource("2_eu22f")
+chanceMod = 2.0
+metadata/_custom_type_script = "uid://bbjt57et5iesw"
+
+[node name="ClashingTrigger" type="Node" parent="." unique_id=358705982]
+script = ExtResource("4_r7j87")
+metadata/_custom_type_script = "uid://dbqpqd3fqm5tx"
+
+[node name="GoodClashEffect" type="Node" parent="." unique_id=191212908]
+script = ExtResource("3_a1mxj")
+metadata/_custom_type_script = "uid://s8mwep3iqkmg"
