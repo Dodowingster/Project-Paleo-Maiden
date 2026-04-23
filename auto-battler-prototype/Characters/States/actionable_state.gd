@@ -1,5 +1,9 @@
 extends State
 class_name ActionableState
+
+func enter() -> void:
+	owner.canClash = true
+	
 #
 #func update(_delta: float):
 	#var decision : String = ""
