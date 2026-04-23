@@ -7,6 +7,7 @@ class_name StateManager
 @export var noActionGoalStates : Array[State]
 
 func run_full_logic() -> void:
+	# decide whether character can change sides
 	sideTracker.set_side_lock(stateMachine.currentState is not ActionableState)
 	if sideTracker.canFlip:
 		character.face_opponent()
@@ -16,10 +17,14 @@ func run_full_logic() -> void:
 		var rng_roll: int = randi() % (character.maxSta + 1) + character.minSta
 		character.currentActionGoal += rng_roll
 	
+	# check if character has any executable techniques
 	character.loadout.techniques_check()
 	if character.loadout.techniqueToExecute != null:
+		# if got, then tell the opponent that they're gonna attack
+		# if using a technique that doesn't attack, need to add more logic
 		character.opponent.opponentIsAttacking = true
 	else:
+		# depending on strategy, tell opponent if the character will attack
 		if character.strategy == GlobalValues.STRATEGY.BALANCED:
 			if character.check_want_to_attack() and character.distance > character.minDistance and \
 			character.distance < character.maxDistance:
@@ -28,6 +33,9 @@ func run_full_logic() -> void:
 			if character.check_can_attack():
 				character.opponent.opponentIsAttacking = true
 	
+	# after character tells opponent what they'll do, opponent will decide what they will do
+	# note: we're choosing the opponent's state here because we don't know the execution order if we
+	# choose the character's state here
 	if character.opponent.stateMachine.currentState is ActionableState:
 		var oppStateManager : StateManager = character.opponent.get_node("StateManager")
 		oppStateManager.run_decision_logic(character.opponent.strategy)
