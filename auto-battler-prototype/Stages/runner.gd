@@ -53,7 +53,6 @@ func initialize() -> void:
 		%RightPopupSection.connect_to_character(nodeP2)
 		ui.char_setup()
 
-		# TODO: Check what happens here during double downs using breakpoints
 		nodeP1.broadcastLose.connect(broadcast_fin.bind("P2"))
 		nodeP2.broadcastLose.connect(broadcast_fin.bind("P1"))
 

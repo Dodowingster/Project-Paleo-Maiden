@@ -60,8 +60,13 @@ func resume_game() -> void:
 
 func finish_game(winner: String) -> void:
 	var finishLabel : Label = get_node("Runner/CanvasLayer/FinishMenu/PanelContainer/VBoxContainer/FinLabel")
+	var runner : Runner = get_node("Runner")
 
+	if runner.nodeP1.health or runner.nodeP2.health:
+		finishLabel.text = winner + " WIN"
+	else:
+		finishLabel.text = "DRAW"
+	
 	pause_game()
-	finishLabel.text = winner + " WIN"
 	%FinishMenu.visible = true
 	%FinishMenu.rematchBtn.grab_focus()
