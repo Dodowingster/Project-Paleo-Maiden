@@ -59,7 +59,7 @@ func resume_game() -> void:
 		get_tree().paused = false
 
 func finish_game(winner: String) -> void:
-	var finishLabel : Label = get_node("Runner/CanvasLayer/FinishMenu/PanelContainer/VBoxContainer/FinLabel")
+	var finishLabel : Label = get_node("Runner/CanvasLayer/FinishMenu/PanelContainer/VBoxContainer/FinishLabel")
 	var runner : Runner = get_node("Runner")
 
 	if runner.nodeP1.health or runner.nodeP2.health:

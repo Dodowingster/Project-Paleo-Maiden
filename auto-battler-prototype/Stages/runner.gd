@@ -69,4 +69,9 @@ func reset() -> void:
 	ui.clear()
 
 func broadcast_fin(winner: String) -> void:
+	var	finTimer: Timer = get_node("FinishTimer")
+
+	finTimer.start()
+	await finTimer.timeout
+	# TODO: find out how to do slowdown. check `Engine.set_time_scale(value)`
 	broadcastFin.emit(winner)

@@ -61,6 +61,9 @@ position = Vector2(416, 360)
 scale = Vector2(1.2, 1.196)
 texture = ExtResource("4_2ge0f")
 
+[node name="FinishTimer" type="Timer" parent="Runner" unique_id=1004613469]
+one_shot = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="Runner" unique_id=1343250026]
 
 [node name="UI" type="Control" parent="Runner/CanvasLayer" unique_id=2080865342 node_paths=PackedStringArray("dataTracker", "tickLabelValue", "timerLabelValue", "distanceLabelValue", "P1ActionGoalValueLabelValue", "P1ActionGoalTotalLabelValue", "P1HealthValue", "P1HealthTotal", "P1TechniqueList", "P2ActionGoalValueLabelValue", "P2ActionGoalTotalLabelValue", "P2HealthValue", "P2HealthTotal", "P2TechniqueList")]
