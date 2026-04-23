@@ -13,5 +13,5 @@ class_name HpTrigger
 
 ## Checks the HP Check Mode set in the inspector.
 func check_condition() -> bool:
-	return (character.health/character.maxHP * 100.0) <= hpCriteriaUpper && \
-	(character.health/character.maxHP * 100.0) >= hpCriteriaLower
+	return ((character.health * 1.0/character.maxHP) * 100.0) <= hpCriteriaUpper && \
+	((character.health * 1.0/character.maxHP * 100.0)) >= hpCriteriaLower

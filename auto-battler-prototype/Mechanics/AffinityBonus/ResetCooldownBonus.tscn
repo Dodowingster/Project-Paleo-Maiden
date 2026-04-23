@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://t5ijh4ht3g7r"]
+
+[ext_resource type="Script" uid="uid://da0owk4ok5ydx" path="res://Mechanics/AffinityBonus/affinity_bonus.gd" id="1_7epap"]
+[ext_resource type="Script" uid="uid://bbjt57et5iesw" path="res://Mechanics/Triggers/affinity_trigger.gd" id="2_13ihk"]
+[ext_resource type="Script" uid="uid://cndkm6ikl8jeq" path="res://Mechanics/Triggers/cooldownavailable_trigger.gd" id="3_gusdg"]
+[ext_resource type="Script" uid="uid://dc4ki00b1q2n2" path="res://Mechanics/Effects/resetcooldown_effect.gd" id="4_ksmx2"]
+
+[node name="ResetCooldownBonus" type="Node" unique_id=1042152853]
+script = ExtResource("1_7epap")
+affEffectName = "Cooldown Reset!"
+metadata/_custom_type_script = "uid://da0owk4ok5ydx"
+
+[node name="AffinityTrigger" type="Node" parent="." unique_id=965871146]
+script = ExtResource("2_13ihk")
+chanceMod = 0.01
+metadata/_custom_type_script = "uid://bbjt57et5iesw"
+
+[node name="CooldownAvailableTrigger" type="Node" parent="." unique_id=2035460577]
+script = ExtResource("3_gusdg")
+metadata/_custom_type_script = "uid://cndkm6ikl8jeq"
+
+[node name="ResetCooldownEffect" type="Node" parent="." unique_id=643060654]
+script = ExtResource("4_ksmx2")
+metadata/_custom_type_script = "uid://dc4ki00b1q2n2"
