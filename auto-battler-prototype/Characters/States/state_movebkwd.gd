@@ -12,7 +12,7 @@ func _ready():
 
 
 func enter():
-	owner.canClash = true
+	super.enter()
 	if animName in animList:
 		animPlayer.play(animName)
 
