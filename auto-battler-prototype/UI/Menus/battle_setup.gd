@@ -8,6 +8,7 @@ class_name BattleSetup
 @export var setupChar2 : SetupChar
 
 func _ready() -> void:
+	Dialogic.start("testtimeline")
 	setupChar1.charList = charList
 	setupChar1.techniqueList = techniqueList
 	setupChar2.charList = charList

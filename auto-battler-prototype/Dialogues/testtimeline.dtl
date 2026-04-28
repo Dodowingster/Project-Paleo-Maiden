@@ -1,0 +1,9 @@
+[background arg="res://Stages/assets/dirtfield.png" fade="0.0"]
+join test_character left [wait="true"]
+test_character: Hello!
+test_character: My name's Yukari! I was chosen for this test to bait Dodo's attention!
+join test_character2 right [animation="Fade In" length="0.3" wait="true" mirrored="true"]
+test_character2: What's up?
+update test_character leftmost [animation="Bounce" move_time="0.2"]
+test_character (Surprised): Huh??
+leave --All-- [animation="Instant Out" length="0.0"]
