@@ -5,7 +5,6 @@ var always_running_nodes : Array[Node] = []
 
 func _ready() -> void:
 	StageManager.set_stage(self)
-
 	var runner = get_node("Runner")
 	runner.connect("broadcastFin", finish_game)
 
