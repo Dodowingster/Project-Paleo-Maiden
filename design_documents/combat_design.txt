@@ -1,0 +1,74 @@
+Character Stats
+ATK
+    - increasing atk lets the character do more damage
+DEF
+    - increasing this lets the character take less damage
+SPD
+    - increase movement speed
+    - this means more clashes, less action goal wasted if the character is aggressive
+    - instead, less clashes, but still less action goal wasted if the character is defensive?
+    - basically enhances the chances of the character's strategy working
+STA
+    - has a min/max value, rolls a number between it every frame/tick
+    - increases frequency of performing strategy
+Range
+    - min, max determines character decisions
+    - cannot be changed
+HP
+    - character's health
+    - increasing it ups the character's survivability
+Strategy
+    - what is the perfect strategy?
+        - hits all attacks
+        - maximizes action goal gain
+        - blocks/avoids all opponent attacks
+        - do this until opponent dies
+        - should we have a timer?
+            - if yes, character should be able to kill opponent/ have a life lead before the timer ends
+            - timer min 60 max 99
+    - how do you build a strategy?
+        - general theme
+        - how they maximize action goal economy
+        - how they attack
+        - how they avoid attack
+    - Tyran Rex strategy:
+        - general theme:
+            - GO IN
+        - attack rules:
+            - get into attack range as quick as possible
+            - if have action goal and within range, attack
+        - block rules:
+            - uh
+        - avoid rules:
+            - uh
+        - clash rules:
+            - force as many clashes as possible
+    - Kitadani Fukuira strategy:
+        - general theme:
+            - figure out how to land your powerful base attack
+                - bad attack startup, great post attack situation
+        - attack rules:
+            - stay outside opponent max range until action goal met
+            - when action goal is met, go into range to attack
+                - but if opponent is attacking
+                    - if opponent has higher max range, run in to block
+                    - if opponent has lower max range, move in until opponent max range to attack
+        - block rules:
+            - uh
+        - avoid rules:
+            - uh
+        - clash rules:
+            - if opponent between min and max range
+                - go for clash to try to push back opponent
+
+Clashing
+    - if both characters are at min range, clash
+    - the character with shorter min range determines whether a clash happens
+Techniques
+    - different techniques fill in weaknesses of a character/ enhances their strengths:
+    - rush:
+        - moves forward and does damage
+        - since it moves forward, results in better stage position
+        - post-hit situation: should be good to allow continued offense
+        - post-block situation: potential reversal from opponent
+
