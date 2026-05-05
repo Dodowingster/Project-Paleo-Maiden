@@ -14,6 +14,7 @@ func _ready():
 
 func enter():
 	owner.canClash = false
+	#owner.currentActionGoal = 0
 	owner.face_opponent()
 	initialDistance = owner.distance
 	if animName in animList:

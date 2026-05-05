@@ -67,6 +67,8 @@ var stateManager : StateManager
 var hitstop_frames: int = 0
 var stored_velocity: Vector2 = Vector2.ZERO
 var was_in_hitstop: bool = false
+var hit_by: Array[HitBox] = []
+var hurtboxes_hit: Array[Hurtbox] = []
 
 var velocity_x_before_wall : float = 0
 
@@ -109,6 +111,8 @@ func _ready() -> void:
 		opponent.connect("broadcastClashResult", on_clash_result_rcvd)
 		opponent.connect("broadcastLose", check_win)
 		distance = abs(opponent.position.x - position.x)
+	
+	stateManager.run_strategy_mods(strategy)
 
 ## SETUP functions
 func setup_loadout(techniqueDataList : Array[TechniqueData]) -> void:
@@ -299,7 +303,8 @@ func check_can_attack():
 
 func check_want_to_attack():
 	return (currentActionGoal >= actionGoalTotal && 			# Action goal check
-			%StateMachine.currentState is not StateHitstun)		# Hitstun check
+			%StateMachine.currentState is not StateHitstun && 
+			%StateMachine.currentState is not StateBlockstun)		# Hitstun check
 
 func min_distance_hit():
 	return distance <= minDistance
@@ -361,50 +366,55 @@ func _on_tick(rcvDistance: float, rcvTickCount: int):
 	tickCount = rcvTickCount
 	
 	stateManager.run_full_logic()
-	
-	#if %StateMachine.currentState is ActionableState:
-		#%SideTracker.set_side_lock(false)
-	#else:
-		#%SideTracker.set_side_lock(true)
-		#
-	#if %SideTracker.canFlip:
-		#face_opponent()
-	#
-	#if %StateMachine.currentState is not StateHitstun \
-	#and %StateMachine.currentState is not StateBlockstun \
-	#and %StateMachine.currentState is not StateBaseAtk \
-	#and %StateMachine.currentState is not StateTechnique \
-	#and %StateMachine.currentState is not StateWin \
-	#and %StateMachine.currentState is not StateLose \
-	#and %StateMachine.currentState is not StateClashing \
-	#and %StateMachine.currentState is not StateClashLose:
-		##currentActionGoal += sta
-		#var rng_roll: int = randi() % (maxSta + 1) + minSta
-		#currentActionGoal += rng_roll
-	#
-	#loadout.techniques_check()
-	#if loadout.techniqueToExecute != null:
-		#broadcastAction.emit(GlobalValues.ACTION.ATTACK)
-	#else:
-		#if strategy == GlobalValues.STRATEGY.AGGRESSIVE:
-			#if check_can_attack():
-				#broadcastAction.emit(GlobalValues.ACTION.ATTACK)
-			#else:
-				#broadcastAction.emit(GlobalValues.ACTION.MOVE)
-		#elif strategy == GlobalValues.STRATEGY.BALANCED:
-			#if check_want_to_attack() and distance > minDistance and distance < maxDistance:
-				#broadcastAction.emit(GlobalValues.ACTION.ATTACK)
-			#else:
-				#broadcastAction.emit(GlobalValues.ACTION.MOVE)
-		#else:
-			#if check_can_attack():
-				#broadcastAction.emit(GlobalValues.ACTION.ATTACK)
-			#else:
-				#broadcastAction.emit(GlobalValues.ACTION.MOVE)
 
 
 # on character getting HIT
-func get_hit(hitbox: HitBox, hurtbox: Hurtbox):
+func get_hit(hitbox: HitBox, hurtbox: Hurtbox) -> void:
+	var parent : Character = hitbox.owner
+	if parent != self:
+		hit_by.append(hitbox)
+		hurtboxes_hit.append(hurtbox)
+
+func get_hit_logic(hitbox: HitBox, hurtbox: Hurtbox):
+	var parent : Character = hitbox.owner
+	# choose where to spawn the vfx
+	var vfx_pos : Vector2 = get_intersection_midpoint(hitbox, hurtbox)
+	# holds the type of vfx to be initialized at the end of the process
+	var vfx_type : VFXManager.VFX_TYPE
+	var final_hitstop : int = 0
+	var final_hitstop_owner : int = 0
+	
+	# hit facing direction management
+	var knockbackDirectionMod : int = 1
+	if is_char_facing_right():
+		knockbackDirectionMod = -1
+		
+	print("Attack detected, parent = " + parent.characterName + " dmg = " + str(hitbox.damage) + ", groupname = " + hitbox.groupName)
+	
+	vfx_type = VFXManager.VFX_TYPE.HIT
+	var outputHealth = health
+	final_hitstop = max(hitstop_frames, hitbox.hitstopFrames)
+	final_hitstop_owner = max(hitbox.owner.hitstop_frames, hitbox.hitstopFrames)
+	hitstun = hitbox.hitstun
+	hitknockbackX = hitbox.knockbackX * knockbackDirectionMod
+	hitknockbackY = hitbox.knockbackY
+	outputHealth = take_damage_hit(parent.calc_initial_damage(hitbox.damage))
+	
+	# vfx, hitstop, camera and sprite shake handling
+	hitstop_frames = final_hitstop
+	hitbox.owner.hitstop_frames = final_hitstop_owner
+	var vfx : VFX = VFXManager.spawn_vfx(vfx_type, vfx_pos, knockbackDirectionMod)
+	vfx.add_to_group("vfx", false)
+	for vfxNode in get_tree().get_nodes_in_group("vfx"):
+		vfxNode.freeze_frames = hitstop_frames
+	shakeCamera.emit((hitstop_frames * 1.0/5) * 0.2)
+	%Sprite.add_trauma((hitstop_frames * 1.0/5) * 0.2)
+	
+	# final outcome
+	health = outputHealth
+	opponentIsAttacking = false
+
+func get_block_logic(hitbox: HitBox, hurtbox: Hurtbox):
 	var parent : Character = hitbox.owner
 	if parent != self:
 		# choose where to spawn the vfx
@@ -421,30 +431,16 @@ func get_hit(hitbox: HitBox, hurtbox: Hurtbox):
 			
 		print("Attack detected, parent = " + parent.characterName + " dmg = " + str(hitbox.damage) + ", groupname = " + hitbox.groupName)
 		
-		# setup defaults (Hit is default)
-		var chosenHitState = "Hitstun"
-		vfx_type = VFXManager.VFX_TYPE.HIT
-		var outputHealth = health
-		final_hitstop = max(hitstop_frames, hitbox.hitstopFrames)
-		final_hitstop_owner = max(hitbox.owner.hitstop_frames, hitbox.hitstopFrames)
-		hitstun = hitbox.hitstun
-		hitknockbackX = hitbox.knockbackX * knockbackDirectionMod
-		hitknockbackY = hitbox.knockbackY
-		outputHealth = take_damage_hit(parent.calc_initial_damage(hitbox.damage))
-		
-		# Check character currently moving backwards, char blocks
-		if %StateMachine.currentState is StateMoveBkwd or %StateMachine.currentState is StateBlockstun:
-			chosenHitState = "Blockstun"
-			vfx_type = VFXManager.VFX_TYPE.BLOCK
-			@warning_ignore("integer_division")
-			final_hitstop = max(hitstop_frames, hitbox.hitstopFrames/2)
-			@warning_ignore("integer_division")
-			final_hitstop_owner = max(hitbox.owner.hitstop_frames, hitbox.hitstopFrames/2)
-			hitstun = hitbox.blockstun
-			hitknockbackX = hitbox.blockbackX * knockbackDirectionMod
-			hitknockbackY = hitbox.blockbackY
-			# Check for KO (no chip kill)
-			outputHealth = take_damage_block(parent.calc_initial_damage(hitbox.damage))
+		vfx_type = VFXManager.VFX_TYPE.BLOCK
+		@warning_ignore("integer_division")
+		final_hitstop = max(hitstop_frames, hitbox.hitstopFrames/2)
+		@warning_ignore("integer_division")
+		final_hitstop_owner = max(hitbox.owner.hitstop_frames, hitbox.hitstopFrames/2)
+		hitstun = hitbox.blockstun
+		hitknockbackX = hitbox.blockbackX * knockbackDirectionMod
+		hitknockbackY = hitbox.blockbackY
+		# Check for KO (no chip kill)
+		var outputHealth = take_damage_block(parent.calc_initial_damage(hitbox.damage))
 		
 		# vfx, hitstop, camera and sprite shake handling
 		hitstop_frames = final_hitstop
@@ -458,12 +454,15 @@ func get_hit(hitbox: HitBox, hurtbox: Hurtbox):
 		
 		# final outcome
 		health = outputHealth
-		affMgr.check_event_bonuses()
-		if health <= 0:
-				chosenHitState = "Lose"
-				health = 0
-		%StateMachine.on_child_transition($StateMachine.currentState, chosenHitState)
 		opponentIsAttacking = false
+
+func get_attacked_outcome() -> String:
+	var outcomeState = ""
+	affMgr.check_event_bonuses()
+	if health <= 0:
+		health = 0
+		outcomeState = "Lose"
+	return outcomeState
 
 
 ## DAMAGE calc functions
