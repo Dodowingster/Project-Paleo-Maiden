@@ -34,7 +34,7 @@
 size = Vector2(48, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_acr0g"]
-size = Vector2(32, 128)
+size = Vector2(48, 128)
 
 [node name="Character" type="CharacterBody2D" unique_id=216433586]
 collision_mask = 49
@@ -75,13 +75,14 @@ debug_color = Color(0, 0.6, 0, 0.41960785)
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=504018138]
 shape = SubResource("RectangleShape2D_acr0g")
 
-[node name="StateManager" type="Node" parent="." unique_id=1093992849 node_paths=PackedStringArray("stateMachine", "character", "sideTracker", "noActionGoalStates")]
+[node name="StateManager" type="Node" parent="." unique_id=1093992849 node_paths=PackedStringArray("stateMachine", "character", "sideTracker", "noActionGoalStates", "canBlockStates")]
 unique_name_in_owner = true
 script = ExtResource("14_7en0w")
 stateMachine = NodePath("../StateMachine")
 character = NodePath("..")
 sideTracker = NodePath("../SideTracker")
 noActionGoalStates = [NodePath("../StateMachine/Hitstun"), NodePath("../StateMachine/Blockstun"), NodePath("../StateMachine/BaseAttack"), NodePath("../StateMachine/Technique"), NodePath("../StateMachine/Win"), NodePath("../StateMachine/Lose"), NodePath("../StateMachine/Clashing"), NodePath("../StateMachine/ClashLose")]
+canBlockStates = [NodePath("../StateMachine/Idle"), NodePath("../StateMachine/Blockstun"), NodePath("../StateMachine/MoveForward"), NodePath("../StateMachine/MoveBackward")]
 
 [node name="StateMachine" type="Node" parent="." unique_id=842694158 node_paths=PackedStringArray("initialState")]
 unique_name_in_owner = true
