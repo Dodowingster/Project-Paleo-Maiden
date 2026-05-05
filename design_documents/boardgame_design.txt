@@ -105,14 +105,14 @@ take place.
   │             │ disadvantage = more expensive).                            │
   ├─────────────┼────────────────────────────────────────────────────────────┤
   │ Cook        │ Spend 2-3 typed ingredients to prepare a meal.             │
-  │             │ Ingredient combination determines the dish and its reward.  │
+  │             │ Ingredient combination determines the dish and its reward. │
   │             │                                                            │
   │             │ BASE COOK (generic combination):                           │
   │             │  Restore 25 P-Magic + 5 Affinity.                          │
   │             │                                                            │
   │             │ NAMED DISH (specific combination, Maiden preference):      │
-  │             │  Liked dish   → P-Magic ↑↑ + Affinity ↑↑                  │
-  │             │  Loved dish   → P-Magic ↑↑ + Affinity ↑↑↑ + one           │
+  │             │  Liked dish   → P-Magic ↑↑ + Affinity ↑↑                   │
+  │             │  Loved dish   → P-Magic ↑↑ + Affinity ↑↑↑ + one            │
   │             │                 technique from her own discipline pool     │
   │             │  Disliked dish → P-Magic ↑ only, no Affinity gain          │
   │             │                                                            │
@@ -124,7 +124,7 @@ take place.
   │             │ Free action (does not consume the turn).                   │
   │             │                                                            │
   │             │ ROTATING FIELD SHOP:                                       │
-  │             │  - Stock is random and refreshes every 2 turns (= 1 month)│
+  │             │  - Stock is random and refreshes every 2 turns (= 1 month) │
   │             │  - 2-3 items available at a time                           │
   │             │  - Currency: Ingredients (Tier 1-2) or Excavation Finds    │
   │             │    (Tier 3)                                                │
@@ -133,7 +133,7 @@ take place.
   │             │  Tier 1 (cheap, Ingredients):                              │
   │             │   - Travelling Snacks: Negate Navigation ration cost for   │
   │             │     1 turn, regardless of distance rolled.                 │
-  │             │   - Campfire Kit: Use Cook once without spending            │
+  │             │   - Campfire Kit: Use Cook once without spending           │
   │             │     ingredients.                                           │
   │             │  Tier 2 (moderate, Ingredients):                           │
   │             │   - Scout Report: Reveal space types within X steps of     │
@@ -206,7 +206,7 @@ COOK SYSTEM
   │ Field Sirloin        │ Loved      │ Meat + Meat + Meat                │
   │ Grilled Cuts         │ Liked      │ Meat + Meat                       │
   │ Plains Stew          │ Liked      │ Meat + Plant                      │
-  │ Foraged Salad        │ Disliked   │ Plant + Plant (or Plant + Fungi)   │
+  │ Foraged Salad        │ Disliked   │ Plant + Plant (or Plant + Fungi)  │
   └──────────────────────┴────────────┴───────────────────────────────────┘
 
   REACTION LINES:
@@ -274,6 +274,7 @@ ARENA SHOP (Fixed Shops at Title Match Spaces)
     dialogue (e.g. Nevesi smugly holding your Local Map).
   - This grounds item scarcity in characterization rather than anonymous RNG
     and creates memorable "she STOLE my item" moments.
+  - Challenge them to a fight for the item.
 
   NOTE: The harder-to-reach nature of Arena spaces (predetermined fixed
   locations on the map) makes guaranteed stock a meaningful reward for
@@ -563,7 +564,7 @@ PASSIVE DIALOGUE SYSTEM (Ambient Character Voice)
   ┌──────────────────┬────────────────────────────────────────────────────┐
   │ Result           │ Line                                               │
   ├──────────────────┼────────────────────────────────────────────────────┤
-  │ Preferred ration │ "...Fine. At least you packed properly."          │
+  │ Preferred ration │ "...Fine. At least you packed properly."           │
   │ High yield       │ "...Not bad. More than I expected."                │
   │ High yield       │ "Told you. Home ground doesn't lie."               │
   │ (Plains only)    │                                                    │
@@ -571,7 +572,7 @@ PASSIVE DIALOGUE SYSTEM (Ambient Character Voice)
   │ Disliked ration  │ "...Next time, bring something worth eating."      │
   │ Low yield        │ "Nothing useful. Figures."                         │
   │ (Coastal only)   │                                                    │
-  │ Technique found  │ "...Hm. That's— ...useful. Write it down."        │
+  │ Technique found  │ "...Hm. That's— ...useful. Write it down."         │
   └──────────────────┴────────────────────────────────────────────────────┘
 
   SHOP / BARTER:
@@ -695,6 +696,8 @@ KIV: TENSION SYSTEM (Keep In View — Not Yet Designed)
     different rival sets and inheritance routes
   - Gives players a personal stake in the tournament ("I want the rematch
     with Nevesi because WE have a history")
+
+    sparring partner when dont want to have rivals
 
 --------------------------------------------------------------------------------
 AFFINITY (CLARIFICATION)
