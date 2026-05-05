@@ -717,6 +717,33 @@ AFFINITY (CLARIFICATION)
 
   The Tension system (KIV above) is a SEPARATE tracker and should not
   be conflated with Affinity.
+----------------------------------------------------------------------------------
+SCHEDULE TITLE MATCHES
+	-In order to go for the leagues, the dino must win X amount of title matches in order to qualify
+	-There will be a list of title matches that are compulsary for the dino to compete in
+	-The player can schedule coming title matches for the dino to fight in 
+	-After scheduling the Title match, the player must reach the Arena in Y amount of turns
+	-Scheduling the title match cost excavation items
+	-If the dino cannot reach the Arena in Y amount of turns, they will DQ the title match
+
+DQ
+-Special interaction will happen with the potential dino that the player gonna fight (negative?)
+
+Process of scheduling 
+
+-Player will be given a list of upcoming title matches and can schedule them
+
+-Schedule title match, pay the upfront cost (Excavation item)
+
+-After Z amount of turns before the title match happens, the placement in the Title match will be confirmed, Player will now know what is the upcoming dino they gonna fight
+
+-Player can choose to opt out of the title before the confirmation, the special interaction with the dino for DQing will not happen
+
+-If they dont reach the arena within the required amount of turns, they will DQ
+
+-If they Reach the arena in time, they will proceed with the title match.
+
+
 
 ================================================================================
 END OF DOCUMENT
