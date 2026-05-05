@@ -63,7 +63,7 @@ Strategy
         - gameplan:
             - focus on building atk first
             - also big focus on def so you don't die before you beat the shit out of the opponent
-            - sta is good but not as important
+            - sta is not as important
                 - 
             - spd isnt necessary, by always moving forward she forces opponent to interact
     - Kitadani Fukuira strategy:
