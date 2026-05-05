@@ -364,7 +364,8 @@ func on_clash_result_rcvd(result: bool):
 func _on_tick(rcvDistance: float, rcvTickCount: int):
 	distance = rcvDistance
 	tickCount = rcvTickCount
-	
+
+func _process(_delta: float) -> void:
 	stateManager.run_full_logic()
 
 
