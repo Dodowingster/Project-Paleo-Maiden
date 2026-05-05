@@ -31,8 +31,8 @@
                     <p>Year: <span id="year-display">1</span></p>
                     <p>Turn: <span id="turn-display">1</span> / 24</p>
                 </div>
-                <button id="roll-dice-btn">Roll Dice</button>
-                <p class="dice-display">Roll: <span id="dice-result">-</span></p>
+                <button id="roll-dice-btn">Scout Roll</button>
+                <p class="dice-display">Intel Range: <span id="dice-result">-</span></p>
                 <button id="toggle-ids-btn" class="debug-btn">Hide IDs</button>
             </div>
         </header>
@@ -57,31 +57,36 @@
                         <h3>☰ Mechanics Guide</h3>
                     </div>
                     <div class="panel-content">
+                        <h4>Navigation</h4>
+                        <div class="mechanic-entry">
+                            <strong>Scout Roll:</strong> Roll to determine how far expedition intel reaches. You inspect
+                            all spaces in range and choose ONE destination to travel to.
+                            <ul>
+                                <li><strong>Ration cost:</strong> 1–2 spaces = 1 ingredient &bull; 3–4 = 2 &bull; 5–6 =
+                                    3. Stopping early costs less.</li>
+                                <li><strong>Ration preference:</strong> Preferred ration = +2 Affinity &bull; Disliked =
+                                    &minus;2 Affinity.</li>
+                                <li><strong>Auto-yield:</strong> Ingredients and Excavation Finds gathered from every
+                                    space traveled through, based on biome.</li>
+                            </ul>
+                        </div>
+
                         <h4>Expedition Camp Actions</h4>
                         <div class="mechanic-entry">
-                            <strong>Train:</strong> Learn a specialized Disicpline Technique based on your Maiden. Cost
-                            varies by biome.
+                            <strong>Train:</strong> Spend P-Magic to learn a discipline technique. Cost varies by biome
+                            affinity.
                             <ul id="train-cost-list">
                                 <!-- JS will populate this -->
                             </ul>
                         </div>
-                        <div class="mechanic-entry">
-                            <strong>Forage:</strong> Spend P-Magic to find ingredients and potentially techniques.
-                            <ul>
-                                <li><strong>Lush Biomes (Plains, Forest, Coastal):</strong> 10 P-Magic for 2-4
-                                    ingredients.
-                                    20% chance of technique.</li>
-                                <li><strong>Harsh Biomes (Desert, Tundra, Volcanic, Mountain):</strong> 20 P-Magic for
-                                    1-2
-                                    ingredients. 50% chance of technique.</li>
-                            </ul>
-                        </div>
-                        <div class="mechanic-entry"><strong>Cook:</strong> Use 2 Ingredients to restore 25 P-Magic and
-                            gain
-                            5 Maiden Affinity.</div>
+                        <div class="mechanic-entry"><strong>Cook:</strong> Use 2 Ingredients to prepare a meal. Restores
+                            P-Magic and boosts Affinity. Named dishes give larger rewards.</div>
                         <div class="mechanic-entry"><strong>Barter:</strong> Trade 1 Ingredient now to receive 1
                             Ingredient
                             next turn. (Free action within camp).</div>
+                        <div class="mechanic-entry"><strong>Interact:</strong> If a biome-matched Maiden is present in
+                            camp,
+                            trigger one of her scene-pool interactions. Scenes do not repeat within the same run.</div>
 
                         <h4>Crossroads Events</h4>
                         <div class="mechanic-entry">
@@ -161,7 +166,14 @@
                     <div class="status-item">
                         <label>Inventory:</label>
                         <div id="inventory-display">
-                            <span>Ingredients: <span id="ingredient-count">0</span></span>
+                            <span>Total Ingredients: <span id="ingredient-count">0</span></span>
+                            <span>Excav. Finds: <span id="finds-count">0</span></span>
+                        </div>
+                        <div id="ingredient-breakdown">
+                            <span>Meat 🥩: <span id="ingredient-meat-count">0</span></span>
+                            <span>Plant 🌿: <span id="ingredient-plant-count">0</span></span>
+                            <span>Seafood 🐟: <span id="ingredient-seafood-count">0</span></span>
+                            <span>Fungi/Forage 🍄: <span id="ingredient-fungi-count">0</span></span>
                         </div>
                     </div>
                 </div>
@@ -186,9 +198,14 @@
         <div class="modal-content">
             <h2>Expedition Camp</h2>
             <p>You make camp in the wilderness. The air is still and the fire crackles softly. What will you do?</p>
+            <div id="camp-encounter-panel" class="camp-encounter-panel" hidden>
+                <h3 id="camp-encounter-name">Camp Visitor</h3>
+                <p id="camp-encounter-meta" class="camp-encounter-meta"></p>
+                <p id="camp-encounter-text"></p>
+            </div>
             <div class="modal-actions">
+                <button data-action="interact" hidden>Interact</button>
                 <button data-action="train">Train</button>
-                <button data-action="forage">Forage</button>
                 <button data-action="cook">Cook</button>
                 <button data-action="barter">Barter</button>
             </div>
@@ -221,6 +238,19 @@
                 <button data-action="interact">Interact (Free)</button>
                 <button data-action="challenge">Challenge (Free)</button>
                 <button data-action="leave">Leave</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="ration-selection-modal" class="modal-overlay">
+        <div class="modal-content ration-modal-content">
+            <h2>Pack Rations</h2>
+            <p id="ration-selection-summary">Choose which ingredients to consume before departing.</p>
+            <div id="ration-selection-list" class="ration-selection-list"></div>
+            <p id="ration-selection-remaining" class="ration-selection-remaining">Select your rations.</p>
+            <div class="modal-actions">
+                <button data-action="cancel-rations">Back</button>
+                <button data-action="confirm-rations">Depart</button>
             </div>
         </div>
     </div>

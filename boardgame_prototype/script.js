@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const turnDisplay = document.getElementById('turn-display');
     const yearDisplay = document.getElementById('year-display');
     const expeditionCampModal = document.getElementById('expedition-camp-modal');
+    const rationSelectionModal = document.getElementById('ration-selection-modal');
     const titleMatchModal = document.getElementById('title-match-modal');
     const crossroadsModal = document.getElementById('crossroads-modal');
     const notificationContainer = document.getElementById('notification-container');
@@ -17,35 +18,133 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentTurn = 1;
     let currentYear = 1;
     const COOK_INGREDIENT_COST = 2;
+    const INGREDIENT_TYPES = ['Meat', 'Plant', 'Seafood', 'Fungi/Forage'];
+    const INGREDIENT_AUTO_CONSUME_PRIORITY = ['Fungi/Forage', 'Plant', 'Seafood', 'Meat'];
+
+    // Ration cost bands: how many ingredients are spent based on distance moved
+    function getRationCost(distance) {
+        if (distance <= 2) return 1;
+        if (distance <= 4) return 2;
+        return 3;
+    }
+
+    // Biome yield per space during navigation
+    const BIOME_INGREDIENT_YIELD = {
+        Forest: { ingredients: { min: 1, max: 3 }, finds: { min: 0, max: 0 } },
+        Coastal: { ingredients: { min: 1, max: 3 }, finds: { min: 0, max: 1 } },
+        Plains: { ingredients: { min: 0, max: 2 }, finds: { min: 0, max: 1 } },
+        Desert: { ingredients: { min: 0, max: 1 }, finds: { min: 1, max: 3 } },
+        Volcanic: { ingredients: { min: 0, max: 0 }, finds: { min: 1, max: 3 } },
+        Mountain: { ingredients: { min: 0, max: 1 }, finds: { min: 1, max: 3 } },
+        Tundra: { ingredients: { min: 0, max: 1 }, finds: { min: 0, max: 2 } },
+    };
+
+    // Sastrei Taurus ration preference (prototype uses her as default Maiden)
+    const MAIDEN_RATION_PREFERENCE = {
+        Meat: 'preferred',
+        Plant: 'tolerated',
+        Seafood: 'tolerated',
+        'Fungi/Forage': 'disliked',
+    };
+
+    // Ingredient subtype by biome (primary)
+    const BIOME_INGREDIENT_TYPE = {
+        Plains: 'Meat',
+        Volcanic: 'Meat',
+        Mountain: 'Meat',
+        Forest: 'Plant',
+        Coastal: 'Seafood',
+        Tundra: 'Fungi/Forage',
+        Desert: 'Plant',
+    };
 
     // --- PALEO MAIDEN CHARACTER DATA (from combatprowess/script.js) ---
+    const CAMP_ENCOUNTER_CHANCE = 0.45;
     const PALEO_MAIDENS = [
         {
             name: "Tyran Rex",
             discipline: "Brute",
-            image: "../character_designs/tyrannosaurus_rex/Mugshot.png"
+            homeBiome: "Volcanic",
+            image: "../character_designs/tyrannosaurus_rex/Mugshot.png",
+            campScenes: [
+                {
+                    id: 'tyran-camp-1',
+                    title: 'Ashen Footwork',
+                    summary: 'She demonstrates how to keep momentum on unstable volcanic ground.',
+                    rewardType: 'technique',
+                },
+                {
+                    id: 'tyran-camp-2',
+                    title: 'Queen of the Campfire',
+                    summary: 'Her confidence fills the camp and your Maiden rises to meet it.',
+                    rewardType: 'pmagic',
+                    rewardValue: 15,
+                },
+            ],
         },
         {
             name: "Kitadani Fukuira",
             discipline: "Focus",
-            image: "../character_designs/fukuiraptor/Mugshot.png"
+            homeBiome: "Forest",
+            image: "../character_designs/fukuiraptor/Mugshot.png",
+            campScenes: [
+                {
+                    id: 'kitadani-camp-1',
+                    title: 'Quiet Tracking',
+                    summary: 'She points out spoor and listening cues you would have missed entirely.',
+                    rewardType: 'technique',
+                },
+                {
+                    id: 'kitadani-camp-2',
+                    title: 'Needleleaf Tea',
+                    summary: 'A steady conversation over a bitter forest brew settles the nerves.',
+                    rewardType: 'affinity',
+                    rewardValue: 4,
+                },
+            ],
         },
-        // {
-        //     name: "Sastrei Taurus",
-        //     discipline: "Flow",
-        //     image: "../character_designs/carnotaurus/Mugshot.png"
-        // },
         {
             name: "Aegypt Spino",
             discipline: "Focus",
-            image: "../character_designs/spinosaurus/placeholder.png"
+            homeBiome: "Coastal",
+            image: "../character_designs/spinosaurus/placeholder.png",
+            campScenes: [
+                {
+                    id: 'spino-camp-1',
+                    title: 'Shoreline Watch',
+                    summary: 'She reads currents, weather, and prey movement like a living map.',
+                    rewardType: 'technique',
+                },
+                {
+                    id: 'spino-camp-2',
+                    title: 'Saltwind Breather',
+                    summary: 'A controlled breathing drill near the surf restores your rhythm.',
+                    rewardType: 'pmagic',
+                    rewardValue: 15,
+                },
+            ],
         },
-        // Add other characters here if needed. For now, we need at least 3 for the selection.
-        // {
-        //     name: "Caza Amarga", // Assuming a name for the control discipline character
-        //     discipline: "Control",
-        //     image: "../character_designs/placeholder.png" // Placeholder image
-        // }
+        {
+            name: "Horri Tricera",
+            discipline: "Control",
+            homeBiome: "Plains",
+            image: "../character_designs/triceratops/placeholder.png",
+            campScenes: [
+                {
+                    id: 'horri-camp-1',
+                    title: 'Measured Charge',
+                    summary: 'She breaks down how to threaten space without overcommitting.',
+                    rewardType: 'technique',
+                },
+                {
+                    id: 'horri-camp-2',
+                    title: 'Lantern Talk',
+                    summary: 'A calm talk by lantern light leaves your Maiden more grounded.',
+                    rewardType: 'affinity',
+                    rewardValue: 4,
+                },
+            ],
+        },
     ];
 
     // --- PALEO ARTS DATA (from combatprowess/script.js) ---
@@ -95,11 +194,328 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         mainDiscipline: 'flow', // Player's main discipline (brute, focus, flow, control)
         barterDeliveryPending: false,
-        ingredients: 0, // Simplified to a single count for the prototype
+        ingredients: 5, // Start with 5 so player can immediately travel
+        excavationFinds: 0,
+        ingredientInventory: {
+            Meat: 2,
+            Plant: 2,
+            Seafood: 1,
+            'Fungi/Forage': 0,
+        },
     };
 
     let currentPlayerPosition = 'start'; // The ID of the current space
     let movablePaths = new Map(); // Stores destinationId -> path array
+    let pendingMove = null;
+    let currentCampEncounter = null;
+    const seenCampSceneIds = new Set();
+
+    function pickRandom(array) {
+        if (!array || array.length === 0) return null;
+        return array[Math.floor(Math.random() * array.length)];
+    }
+
+    function getIngredientCount(type) {
+        return playerState.ingredientInventory[type] || 0;
+    }
+
+    function getTotalIngredients() {
+        return INGREDIENT_TYPES.reduce((total, type) => total + getIngredientCount(type), 0);
+    }
+
+    function syncIngredientTotal() {
+        playerState.ingredients = getTotalIngredients();
+        return playerState.ingredients;
+    }
+
+    function addIngredientType(type, amount) {
+        if (!type || amount <= 0) return;
+        playerState.ingredientInventory[type] = getIngredientCount(type) + amount;
+        syncIngredientTotal();
+    }
+
+    function getIngredientDisplayLabel(type) {
+        const labels = {
+            Meat: 'Meat 🥩',
+            Plant: 'Plant 🌿',
+            Seafood: 'Seafood 🐟',
+            'Fungi/Forage': 'Fungi/Forage 🍄',
+        };
+
+        return labels[type] || type;
+    }
+
+    function formatIngredientSelection(selection) {
+        const parts = INGREDIENT_TYPES
+            .filter(type => (selection[type] || 0) > 0)
+            .map(type => `${selection[type]} ${getIngredientDisplayLabel(type)}`);
+        return parts.length > 0 ? parts.join(', ') : 'no ingredients';
+    }
+
+    function consumeIngredientSelection(selection) {
+        let totalToConsume = 0;
+
+        for (const type of INGREDIENT_TYPES) {
+            const amount = selection[type] || 0;
+            if (amount < 0 || amount > getIngredientCount(type)) {
+                return false;
+            }
+            totalToConsume += amount;
+        }
+
+        if (totalToConsume <= 0) {
+            return false;
+        }
+
+        for (const type of INGREDIENT_TYPES) {
+            const amount = selection[type] || 0;
+            if (amount > 0) {
+                playerState.ingredientInventory[type] -= amount;
+            }
+        }
+
+        syncIngredientTotal();
+        return true;
+    }
+
+    function autoConsumeIngredients(amount) {
+        if (getTotalIngredients() < amount) {
+            return null;
+        }
+
+        const consumed = {};
+        let remaining = amount;
+
+        for (const type of INGREDIENT_AUTO_CONSUME_PRIORITY) {
+            if (remaining <= 0) break;
+            const available = getIngredientCount(type);
+            const taken = Math.min(available, remaining);
+            if (taken > 0) {
+                consumed[type] = taken;
+                playerState.ingredientInventory[type] -= taken;
+                remaining -= taken;
+            }
+        }
+
+        syncIngredientTotal();
+        return remaining === 0 ? consumed : null;
+    }
+
+    function getRationAffinityDelta(selection) {
+        let affinityDelta = 0;
+
+        for (const type of INGREDIENT_TYPES) {
+            const amount = selection[type] || 0;
+            const preference = MAIDEN_RATION_PREFERENCE[type];
+
+            if (preference === 'preferred') {
+                affinityDelta += amount;
+            } else if (preference === 'disliked') {
+                affinityDelta -= amount;
+            }
+        }
+
+        return Math.max(-2, Math.min(2, affinityDelta));
+    }
+
+    function getNextCampScene(maiden) {
+        const availableScenes = (maiden.campScenes || []).filter(scene => !seenCampSceneIds.has(scene.id));
+        return pickRandom(availableScenes);
+    }
+
+    function rollCampEncounter(biome) {
+        const eligibleMaidens = PALEO_MAIDENS.filter(maiden => maiden.homeBiome === biome);
+
+        if (eligibleMaidens.length === 0 || Math.random() >= CAMP_ENCOUNTER_CHANCE) {
+            currentCampEncounter = null;
+            return;
+        }
+
+        const maiden = pickRandom(eligibleMaidens);
+        currentCampEncounter = {
+            maiden,
+            scene: getNextCampScene(maiden),
+            interacted: false,
+        };
+    }
+
+    function applyCampSceneReward(maiden, scene) {
+        if (!scene) {
+            logMessage(`You exchange a few words with ${maiden.name}, but nothing lasting comes of it.`, 'info');
+            return;
+        }
+
+        if (scene.rewardType === 'technique') {
+            const disciplineLower = maiden.discipline.toLowerCase();
+            const possibleArts = PALEOARTS_DATA.filter(art => art.type === 'Paleo Art' && art.discipline.toLowerCase() === disciplineLower);
+            const learnedArt = pickRandom(possibleArts);
+
+            if (learnedArt) {
+                playerState.techniques[disciplineLower]++;
+                logMessage(`${maiden.name} shares <strong>${scene.title}</strong>. You pick up <span class="text-${disciplineLower}">${learnedArt.name}</span>.`, 'reward');
+                return;
+            }
+        }
+
+        if (scene.rewardType === 'pmagic') {
+            const amount = scene.rewardValue || 10;
+            playerState.currentPMagic = Math.min(playerState.maxPMagic, playerState.currentPMagic + amount);
+            logMessage(`${maiden.name} shares <strong>${scene.title}</strong>. <span class="text-focus">+${amount} P-Magic</span>`, 'reward');
+            return;
+        }
+
+        if (scene.rewardType === 'affinity') {
+            const amount = scene.rewardValue || 3;
+            playerState.currentAffinity = Math.min(playerState.maxAffinity, playerState.currentAffinity + amount);
+            logMessage(`${maiden.name} shares <strong>${scene.title}</strong>. <span class="text-affinity">+${amount} Affinity</span>`, 'reward');
+            return;
+        }
+
+        logMessage(`${maiden.name} shares <strong>${scene.title}</strong>.`, 'reward');
+    }
+
+    function updateCampEncounterUI() {
+        const encounterPanel = document.getElementById('camp-encounter-panel');
+        const encounterName = document.getElementById('camp-encounter-name');
+        const encounterText = document.getElementById('camp-encounter-text');
+        const encounterMeta = document.getElementById('camp-encounter-meta');
+        const interactButton = expeditionCampModal.querySelector('button[data-action="interact"]');
+
+        if (!encounterPanel || !interactButton) return;
+
+        if (!currentCampEncounter) {
+            encounterPanel.hidden = true;
+            interactButton.hidden = true;
+            interactButton.disabled = true;
+            interactButton.textContent = 'Interact';
+            return;
+        }
+
+        const { maiden, scene, interacted } = currentCampEncounter;
+        encounterPanel.hidden = false;
+        encounterPanel.classList.toggle('resolved', interacted);
+        encounterName.textContent = maiden.name;
+        encounterMeta.textContent = `${maiden.homeBiome} biome • ${maiden.discipline} discipline`;
+
+        if (interacted) {
+            encounterText.textContent = `${maiden.name} settles into the campfire glow. You have already spent time together this camp.`;
+        } else if (scene) {
+            encounterText.textContent = `${scene.title}: ${scene.summary}`;
+        } else {
+            encounterText.textContent = `${maiden.name} is here tonight, but she has no new scene left this run.`;
+        }
+
+        interactButton.hidden = false;
+        interactButton.disabled = interacted;
+        interactButton.textContent = interacted ? 'Interacted' : 'Interact';
+    }
+
+    function hideRationSelection() {
+        pendingMove = null;
+        rationSelectionModal.classList.remove('visible');
+    }
+
+    function updateRationSelectionState() {
+        if (!pendingMove) return;
+
+        const remainingEl = document.getElementById('ration-selection-remaining');
+        const confirmBtn = rationSelectionModal.querySelector('button[data-action="confirm-rations"]');
+        const selectedTotal = Array.from(rationSelectionModal.querySelectorAll('.ration-input'))
+            .reduce((total, input) => total + (parseInt(input.value, 10) || 0), 0);
+        const remaining = pendingMove.rationCost - selectedTotal;
+
+        if (remaining > 0) {
+            remainingEl.textContent = `Select ${remaining} more ingredient${remaining > 1 ? 's' : ''}.`;
+            remainingEl.className = 'ration-selection-remaining';
+        } else if (remaining < 0) {
+            remainingEl.textContent = `Remove ${Math.abs(remaining)} ingredient${Math.abs(remaining) > 1 ? 's' : ''}.`;
+            remainingEl.className = 'ration-selection-remaining over';
+        } else {
+            remainingEl.textContent = 'Rations packed. Ready to depart.';
+            remainingEl.className = 'ration-selection-remaining ready';
+        }
+
+        confirmBtn.disabled = remaining !== 0;
+    }
+
+    function showRationSelection(moveData) {
+        pendingMove = moveData;
+
+        const summaryEl = document.getElementById('ration-selection-summary');
+        const listEl = document.getElementById('ration-selection-list');
+
+        summaryEl.innerHTML = `Traveling <strong>${moveData.distance} space${moveData.distance > 1 ? 's' : ''}</strong> to <strong>${moveData.destinationLabel}</strong> costs <strong>${moveData.rationCost} ingredient${moveData.rationCost > 1 ? 's' : ''}</strong>. Choose which rations to consume.`;
+
+        listEl.innerHTML = INGREDIENT_TYPES.map(type => {
+            const available = getIngredientCount(type);
+            return `
+                <label class="ration-row">
+                    <span class="ration-type">${getIngredientDisplayLabel(type)}</span>
+                    <span class="ration-available">Available: ${available}</span>
+                    <input class="ration-input" type="number" min="0" max="${available}" value="0" data-type="${type}">
+                </label>
+            `;
+        }).join('');
+
+        rationSelectionModal.classList.add('visible');
+        updateRationSelectionState();
+    }
+
+    function restoreMoveSelection() {
+        hideRationSelection();
+        const intelRange = parseInt(diceResultDisplay.textContent, 10);
+        if (!Number.isNaN(intelRange) && intelRange > 0) {
+            highlightPath(currentPlayerPosition, intelRange);
+            logMessage('Choose a destination within your current scout range.', 'info');
+        } else {
+            enableDiceRoll();
+        }
+    }
+
+    function confirmPendingMove() {
+        if (!pendingMove) return;
+
+        const selection = {};
+        rationSelectionModal.querySelectorAll('.ration-input').forEach(input => {
+            const value = Math.max(0, parseInt(input.value, 10) || 0);
+            const max = parseInt(input.max, 10) || 0;
+            input.value = Math.min(value, max);
+            selection[input.dataset.type] = parseInt(input.value, 10) || 0;
+        });
+
+        const selectedTotal = Object.values(selection).reduce((total, amount) => total + amount, 0);
+        if (selectedTotal !== pendingMove.rationCost) {
+            updateRationSelectionState();
+            return;
+        }
+
+        if (!consumeIngredientSelection(selection)) {
+            logMessage('Those rations are no longer available. Choose again.', 'error');
+            restoreMoveSelection();
+            return;
+        }
+
+        const affinityDelta = getRationAffinityDelta(selection);
+        const rationLabel = formatIngredientSelection(selection);
+
+        if (affinityDelta > 0) {
+            playerState.currentAffinity = Math.min(playerState.maxAffinity, playerState.currentAffinity + affinityDelta);
+            logMessage(`Packed ${rationLabel} for the journey. Sastrei approves. <span class="text-affinity">+${affinityDelta} Affinity</span>`, 'reward');
+        } else if (affinityDelta < 0) {
+            playerState.currentAffinity = Math.max(0, playerState.currentAffinity + affinityDelta);
+            logMessage(`Packed ${rationLabel} for the journey. Sastrei is not pleased. <span class="text-danger">${affinityDelta} Affinity</span>`, 'warning');
+        } else {
+            logMessage(`Packed ${rationLabel} for the journey.`, 'info');
+        }
+
+        logMessage(`Traveling ${pendingMove.distance} space${pendingMove.distance > 1 ? 's' : ''}, spending <strong>${pendingMove.rationCost} ingredient${pendingMove.rationCost > 1 ? 's' : ''}</strong> as rations.`, 'action');
+
+        const pathToTake = pendingMove.path;
+        hideRationSelection();
+        resolveNavigationYield(pathToTake);
+        updateStatusUI();
+        animateTokenAlongPath(pathToTake);
+    }
 
     // Define spaces as a graph. `connections` are the IDs of spaces you can move to.
     // Coordinates are based on the 64x64 grid.
@@ -629,12 +1045,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 logMessage("Time to begin your journey!", 'info');
                 break;
             case 'Wilderness':
-                if (Math.random() < 0.15) {
-                    logMessage("A chance encounter on the trail!", 'event');
-                    triggerCrossroadsEvent();
-                } else {
-                    showExpeditionCamp();
-                }
+                rollCampEncounter(spaceData.biome);
+                showExpeditionCamp();
                 break;
             case 'Crossroads':
                 triggerCrossroadsEvent();
@@ -707,15 +1119,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function showExpeditionCamp() {
         // Disable buttons based on player state
+        const interactButton = expeditionCampModal.querySelector('button[data-action="interact"]');
         const cookButton = expeditionCampModal.querySelector('button[data-action="cook"]');
         const barterButton = expeditionCampModal.querySelector('button[data-action="barter"]');
 
+        syncIngredientTotal();
+        if (interactButton) interactButton.disabled = !currentCampEncounter || currentCampEncounter.interacted;
         cookButton.disabled = playerState.ingredients < COOK_INGREDIENT_COST;
         barterButton.disabled = playerState.ingredients < 1;
+        updateCampEncounterUI();
 
         // Only show the initial message if the modal isn't already visible
         if (!expeditionCampModal.classList.contains('visible')) {
             logMessage("Made camp in the wilderness. Choose an action.", 'info');
+            if (currentCampEncounter) {
+                logMessage(`${currentCampEncounter.maiden.name} is already waiting by the fire.`, 'event');
+            }
         }
         expeditionCampModal.classList.add('visible');
     }
@@ -798,6 +1217,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateStatusUI() {
+        syncIngredientTotal();
+
         // Update P-Magic
         playerState.currentPMagic = Math.max(0, Math.min(playerState.currentPMagic, playerState.maxPMagic));
         const pMagicPercentage = (playerState.currentPMagic / playerState.maxPMagic) * 100;
@@ -835,17 +1256,50 @@ document.addEventListener('DOMContentLoaded', () => {
         const ingredientCountEl = document.getElementById('ingredient-count');
         const newIngredients = playerState.ingredients;
         const oldIngredients = parseInt(ingredientCountEl.textContent, 10);
-
-        if (newIngredients > oldIngredients) {
+        if (newIngredients !== oldIngredients) {
             triggerUIAnimation(ingredientCountEl.closest('#inventory-display'));
         }
         ingredientCountEl.textContent = newIngredients;
+
+        const inventoryIds = {
+            Meat: 'ingredient-meat-count',
+            Plant: 'ingredient-plant-count',
+            Seafood: 'ingredient-seafood-count',
+            'Fungi/Forage': 'ingredient-fungi-count',
+        };
+
+        for (const type of INGREDIENT_TYPES) {
+            const el = document.getElementById(inventoryIds[type]);
+            if (el) el.textContent = getIngredientCount(type);
+        }
+
+        // Update Excavation Finds
+        const findsEl = document.getElementById('finds-count');
+        if (findsEl) findsEl.textContent = playerState.excavationFinds;
     }
 
     function handleCampAction(action) {
         let endsTurn = false; // Camp actions no longer end the turn by default.
 
         switch (action) {
+            case 'interact':
+                {
+                    if (!currentCampEncounter) {
+                        logMessage("No Maiden is currently present in camp.", 'error');
+                        break;
+                    }
+
+                    const { maiden, scene } = currentCampEncounter;
+                    currentCampEncounter.interacted = true;
+                    logMessage(`You spend time with ${maiden.name}.`, 'event');
+                    if (scene) {
+                        seenCampSceneIds.add(scene.id);
+                        logMessage(`<strong>${scene.title}</strong>: ${scene.summary}`, 'info');
+                    }
+                    applyCampSceneReward(maiden, scene);
+                    updateCampEncounterUI();
+                    break;
+                }
             case 'train':
                 {
                     logMessage("You chose to Train.", 'action');
@@ -889,77 +1343,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     break;
                 }
-            case 'forage':
-                {
-                    logMessage("You chose to Forage.", 'action');
-                    const currentSpaceData = SPACES.find(s => s.id === currentPlayerPosition);
-                    hideExpeditionCamp();
-                    const currentBiome = currentSpaceData ? currentSpaceData.biome : 'Wilderness';
-
-                    let pMagicCost = 10; // Standard cost
-                    let techniqueFindChance = 0.20; // Standard 20% chance
-
-                    const harshBiomes = ['Volcanic', 'Mountain', 'Tundra', 'Desert'];
-                    if (harshBiomes.includes(currentBiome)) {
-                        pMagicCost = 20; // High risk
-                        techniqueFindChance = 0.50; // High reward (50% chance)
-                    }
-
-                    if (playerState.currentPMagic > 0) {
-                        playerState.currentPMagic -= pMagicCost;
-
-                        let ingredientsFound;
-                        switch (currentBiome) {
-                            case 'Forest':
-                            case 'Coastal':
-                            case 'Plains':
-                                ingredientsFound = Math.floor(Math.random() * 3) + 2; // Bountiful: 2-4 ingredients
-                                break;
-                            case 'Desert':
-                            case 'Tundra':
-                            case 'Volcanic':
-                            case 'Mountain':
-                                ingredientsFound = Math.floor(Math.random() * 2) + 1; // Sparse: 1-2 ingredients
-                                break;
-                            default:
-                                ingredientsFound = Math.floor(Math.random() * 3) + 1; // Standard: 1-3 ingredients
-                        }
-
-                        playerState.ingredients += ingredientsFound;
-                        let forageMessage = `Foraging in the ${currentBiome} cost ${pMagicCost} P-Magic and yielded ${ingredientsFound} ingredients.`;
-
-                        // Add a chance to find a biome-specific technique
-                        if (Math.random() < techniqueFindChance) {
-                            const biomeTechniqueMap = {
-                                'Volcanic': 'brute', 'Mountain': 'brute',
-                                'Coastal': 'focus', 'Tundra': 'focus',
-                                'Plains': 'flow', 'Forest': 'flow',
-                                'Desert': 'control',
-                            };
-
-                            const foundTechnique = biomeTechniqueMap[currentBiome];
-                            if (foundTechnique) {
-                                playerState.techniques[foundTechnique]++;
-                                forageMessage += `\nYou also learned a <span class="text-${foundTechnique}">${foundTechnique}</span> technique!`;
-                            }
-                        }
-                        logMessage(forageMessage, 'reward');
-                    } else {
-                        logMessage("You don't have any P-Magic left to forage.", 'error');
-                    }
-                    break;
-                }
+            // Forage removed: ingredients and finds now gathered automatically during Navigation.
             case 'cook':
                 {
                     logMessage("You chose to Cook.", 'action');
                     hideExpeditionCamp();
-                    if (playerState.ingredients >= COOK_INGREDIENT_COST) {
-                        playerState.ingredients -= COOK_INGREDIENT_COST;
+                    if (getTotalIngredients() >= COOK_INGREDIENT_COST) {
+                        const cookedIngredients = autoConsumeIngredients(COOK_INGREDIENT_COST);
                         const pMagicHealed = 25;
                         const affinityGained = 5;
                         playerState.currentPMagic = Math.min(playerState.maxPMagic, playerState.currentPMagic + pMagicHealed);
                         playerState.currentAffinity = Math.min(playerState.maxAffinity, playerState.currentAffinity + affinityGained);
-                        logMessage(`Cooked a meal. Recovered ${pMagicHealed} P-Magic and gained ${affinityGained} Affinity.`, 'reward');
+                        logMessage(`Cooked a meal using ${formatIngredientSelection(cookedIngredients)}. Recovered ${pMagicHealed} P-Magic and gained ${affinityGained} Affinity.`, 'reward');
                         triggerUIAnimation(document.getElementById('affinity-bar').parentElement);
                     } else {
                         logMessage("Not enough Ingredients to cook a meal.", 'error');
@@ -969,10 +1364,10 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'barter':
                 {
                     logMessage("You chose to Barter.", 'action');
-                    if (playerState.ingredients >= 1) {
-                        playerState.ingredients -= 1;
+                    if (getTotalIngredients() >= 1) {
+                        const barteredIngredients = autoConsumeIngredients(1);
                         playerState.barterDeliveryPending = true;
-                        logMessage("Traded 1 Ingredient for a future delivery. It will arrive next turn.", 'reward');
+                        logMessage(`Traded ${formatIngredientSelection(barteredIngredients)} for a future delivery. It will arrive next turn.`, 'reward');
 
                         // Disable the barter button for this camp session
                         expeditionCampModal.querySelector('button[data-action="barter"]').disabled = true;
@@ -992,28 +1387,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function highlightPath(start, count) {
-        // This function is now used to find and highlight possible moves
-        // We use a queue to store objects with the space ID and its current path
+        // Find all reachable spaces up to `count` steps away (player may stop early)
         let queue = [{ spaceId: start, path: [start] }];
-        let finalDestinations = new Set(); // Use a Set to store unique destination IDs
+        let visited = new Set([start]);
+        const availableIngredients = getTotalIngredients();
 
-        movablePaths.clear(); // Clear old paths before calculating new ones
+        movablePaths.clear();
+
         while (queue.length > 0) {
             const { spaceId, path } = queue.shift();
+            const distance = path.length - 1;
 
-            // If the path length equals the dice roll, we've found a valid destination
-            if (path.length - 1 === count) {
-                finalDestinations.add(spaceId);
-                movablePaths.set(spaceId, path); // Store the full path
-                continue; // Don't explore further from this path
+            // Any space within range (except the start) is a valid destination
+            if (distance > 0 && getRationCost(distance) <= availableIngredients) {
+                movablePaths.set(spaceId, path);
             }
 
-            const spaceData = SPACES.find(s => s.id === spaceId);
-            if (spaceData && spaceData.connections) {
-                for (const neighborId of spaceData.connections) {
-                    // Only add the neighbor to the queue if it's not already in the current path
-                    if (!path.includes(neighborId)) {
-                        queue.push({ spaceId: neighborId, path: [...path, neighborId] });
+            if (distance < count) {
+                const spaceData = SPACES.find(s => s.id === spaceId);
+                if (spaceData && spaceData.connections) {
+                    for (const neighborId of spaceData.connections) {
+                        if (!path.includes(neighborId)) {
+                            if (!visited.has(neighborId) || movablePaths.get(neighborId)?.length > path.length + 1) {
+                                visited.add(neighborId);
+                                queue.push({ spaceId: neighborId, path: [...path, neighborId] });
+                            }
+                        }
                     }
                 }
             }
@@ -1021,7 +1420,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.querySelectorAll('.space.selectable').forEach(el => el.classList.remove('selectable'));
 
-        finalDestinations.forEach(spaceId => {
+        movablePaths.forEach((path, spaceId) => {
             const spaceEl = document.querySelector(`[data-space-id="${spaceId}"]`);
             if (spaceEl) {
                 spaceEl.classList.add('selectable');
@@ -1029,7 +1428,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        if (finalDestinations.size === 0) {
+        if (movablePaths.size === 0) {
             logMessage("No valid moves from this location.", "error");
             enableDiceRoll();
         }
@@ -1038,12 +1437,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function rollDice() {
         if (currentTurn > MAX_TURNS) {
             logMessage("Year has ended. Cannot move.", "error");
-            return;
-        }
-
-        if (playerState.currentPMagic <= 0) {
-            handleExhaustion();
-            // Don't proceed with the roll
             return;
         }
 
@@ -1059,8 +1452,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 const finalRoll = Math.floor(Math.random() * 6) + 1;
                 diceResultDisplay.textContent = finalRoll;
                 diceResultDisplay.classList.remove('rolling');
-                logMessage(`Rolled a ${finalRoll}.`, 'roll');
-                logMessage(`Select a destination.`, 'info');
+
+                const rationCostAtMax = getRationCost(finalRoll);
+                if (getTotalIngredients() < 1) {
+                    logMessage(`Scout Roll: <strong>${finalRoll}</strong> — but you have no rations left to travel. Make camp and cook first.`, 'error');
+                    enableDiceRoll();
+                    return;
+                }
+
+                logMessage(`Scout Roll: <strong>${finalRoll}</strong> — expedition intel reaches ${finalRoll} spaces ahead.`, 'roll');
+                logMessage(`Ration cost: <strong>${rationCostAtMax} ingredient${rationCostAtMax > 1 ? 's' : ''}</strong> if you travel the full distance. Stopping early costs less.`, 'info');
+                logMessage(`Select a destination within range.`, 'info');
 
                 highlightPath(currentPlayerPosition, finalRoll);
             }
@@ -1075,7 +1477,84 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         const pathToTake = movablePaths.get(destinationId);
-        animateTokenAlongPath(pathToTake);
+        const distance = pathToTake.length - 1;
+        const rationCost = getRationCost(distance);
+
+        if (getTotalIngredients() < rationCost) {
+            logMessage(`That route costs ${rationCost} ingredients, but you only have ${getTotalIngredients()}. Choose a closer destination.`, 'error');
+            const intelRange = parseInt(diceResultDisplay.textContent, 10);
+            if (!Number.isNaN(intelRange) && intelRange > 0) {
+                highlightPath(currentPlayerPosition, intelRange);
+            } else {
+                enableDiceRoll();
+            }
+            return;
+        }
+
+        const destinationSpace = SPACES.find(s => s.id === destinationId);
+        showRationSelection({
+            path: pathToTake,
+            distance,
+            rationCost,
+            destinationId,
+            destinationLabel: destinationSpace?.name || destinationId,
+        });
+    }
+
+    function resolveNavigationYield(path) {
+        function randRange(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        const totalIngredientsByType = {
+            Meat: 0,
+            Plant: 0,
+            Seafood: 0,
+            'Fungi/Forage': 0,
+        };
+        let totalFinds = 0;
+
+        // Skip index 0 (starting space), yield from each space actually traveled through
+        for (let i = 1; i < path.length; i++) {
+            const spaceData = SPACES.find(s => s.id === path[i]);
+            if (!spaceData || !spaceData.biome) continue;
+            const table = BIOME_INGREDIENT_YIELD[spaceData.biome];
+            if (!table) continue;
+
+            const ing = randRange(table.ingredients.min, table.ingredients.max);
+            const fin = randRange(table.finds.min, table.finds.max);
+            const ingredientType = BIOME_INGREDIENT_TYPE[spaceData.biome] || 'Plant';
+
+            totalIngredientsByType[ingredientType] += ing;
+            totalFinds += fin;
+
+            // Per-space log
+            const spaceParts = [];
+            if (ing > 0) spaceParts.push(`<strong>+${ing} ${ingredientType}</strong>`);
+            if (fin > 0) spaceParts.push(`<strong>+${fin} find${fin > 1 ? 's' : ''}</strong>`);
+            const spaceLabel = spaceData.name || spaceData.id;
+            if (spaceParts.length > 0) {
+                logMessage(`${spaceLabel} (${spaceData.biome}): ${spaceParts.join(', ')}`, 'reward');
+            } else {
+                logMessage(`${spaceLabel} (${spaceData.biome}): nothing gathered.`, 'info');
+            }
+        }
+
+        for (const type of INGREDIENT_TYPES) {
+            if (totalIngredientsByType[type] > 0) {
+                addIngredientType(type, totalIngredientsByType[type]);
+            }
+        }
+        if (totalFinds > 0) playerState.excavationFinds += totalFinds;
+
+        const summaryParts = [];
+        const ingredientSummary = formatIngredientSelection(totalIngredientsByType);
+        if (ingredientSummary !== 'no ingredients') summaryParts.push(`+${Object.values(totalIngredientsByType).reduce((sum, amount) => sum + amount, 0)} ingredients (${ingredientSummary})`);
+        if (totalFinds > 0) summaryParts.push(`+${totalFinds} find${totalFinds > 1 ? 's' : ''}`);
+        const summaryMsg = summaryParts.length > 0
+            ? `Route total: <strong>${summaryParts.join(', ')}</strong>`
+            : 'Route total: nothing gathered.';
+        logMessage(summaryMsg, 'reward');
     }
 
     function handleExhaustion() {
@@ -1084,7 +1563,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let affinityLoss;
         let pMagicRecovery;
 
-        if (playerState.ingredients <= 0) {
+        if (getTotalIngredients() <= 0) {
             // Harsher penalty for having no ingredients
             affinityLoss = 20;
             pMagicRecovery = 5;
@@ -1110,8 +1589,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function endTurn() {
         if (playerState.barterDeliveryPending) {
-            playerState.ingredients += 1;
-            logMessage("Your bartered ingredient has arrived!", 'reward');
+            addIngredientType('Plant', 1);
+            logMessage("Your bartered ingredient has arrived! <strong>+1 Plant</strong>", 'reward');
             playerState.barterDeliveryPending = false;
             updateStatusUI();
         }
@@ -1195,6 +1674,7 @@ document.addEventListener('DOMContentLoaded', () => {
         createSpaces();
         drawConnections();
         createGridAndCoords(GRID_SIZE);
+        syncIngredientTotal();
         updateStatusUI();
         updateMechanicsGuide();
         updatePlayerPosition('start');
@@ -1220,6 +1700,27 @@ document.addEventListener('DOMContentLoaded', () => {
             expeditionCampModal.addEventListener('click', (e) => {
                 if (e.target.matches('.modal-actions button')) {
                     handleCampAction(e.target.dataset.action);
+                }
+            });
+        }
+
+        if (rationSelectionModal) {
+            rationSelectionModal.addEventListener('input', (e) => {
+                if (e.target.matches('.ration-input')) {
+                    const max = parseInt(e.target.max, 10) || 0;
+                    const value = Math.max(0, Math.min(max, parseInt(e.target.value, 10) || 0));
+                    e.target.value = value;
+                    updateRationSelectionState();
+                }
+            });
+
+            rationSelectionModal.addEventListener('click', (e) => {
+                if (e.target.matches('button[data-action="confirm-rations"]')) {
+                    confirmPendingMove();
+                }
+
+                if (e.target.matches('button[data-action="cancel-rations"]')) {
+                    restoreMoveSelection();
                 }
             });
         }
