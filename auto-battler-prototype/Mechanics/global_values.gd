@@ -2,7 +2,7 @@ extends Node
 
 signal updateDataToChar(distance: float, tickCount: int)
 
-enum STRATEGY {AGGRESSIVE, BALANCED, DEFENSIVE}
+enum STRATEGY {AGGRESSIVE, BALANCED, DEFENSIVE, EVASIVE}
 
 enum ACTION {ATTACK, CLASH, MOVE}
 
