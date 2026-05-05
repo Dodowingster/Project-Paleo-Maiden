@@ -1,0 +1,720 @@
+================================================================================
+PALEO-MAIDEN CHAMPIONSHIP: BOARD GAME DESIGN DOCUMENT
+================================================================================
+Last Updated: May 5, 2026
+
+--------------------------------------------------------------------------------
+GAME IDENTITY PILLARS
+--------------------------------------------------------------------------------
+All design decisions should be evaluated against these three pillars:
+
+  1. CHARACTERIZATION THROUGH HISTORICAL ACCURACY
+     - Characters are grounded in real paleontological data (species traits,
+       biome habitats, physical attributes)
+     - Mechanics should reflect the real-world nature of each species
+
+  2. EMPHASIS ON MAKING CHARACTERS LOOK COOL
+     - Every meaningful event should produce a narrative/visual moment, not
+       just a stat change
+     - Players should feel like they are watching their Maiden grow and evolve
+
+  3. FIGHTING GAME INFLUENCE
+     - Combat, technique inheritance, and build decisions should feel like
+       a fighting game player developing and locking in their main's gameplan
+     - Rivalry, rematches, and technique stealing are core to the identity
+
+--------------------------------------------------------------------------------
+CORE LOOP OVERVIEW
+--------------------------------------------------------------------------------
+  - 3-year run, 24 turns per year
+  - Board game world map with dice-driven non-linear movement
+  - Combat resolved by the auto-battler (Godot prototype)
+  - Failure to qualify in a year's final tournament ends the run permanently
+  - At the end of the run, the player's Final Build is locked permanently
+    and added to their Maiden Build Gallery (collection across all runs)
+
+--------------------------------------------------------------------------------
+NAVIGATION SYSTEM
+--------------------------------------------------------------------------------
+  Navigation is driven by expedition intelligence, not abstract luck.
+  Before moving, the player rolls a SCOUT ROLL to represent the quality of
+  field intel gathered — local rumors, terrain reports, fossil indicators,
+  and sightings from other expeditions.
+
+  SCOUT ROLL:
+  The result determines how many spaces ahead the expedition can read.
+  The player inspects all spaces within that range, then chooses ONE to
+  travel to as their destination.
+  - High roll = strong lead, wide range of options visible and reachable.
+  - Low roll  = vague intel, fewer options available this turn.
+  The player is not forced to travel the full rolled distance. Choosing a
+  closer destination reduces the ration cost.
+
+  COST: Travel consumes INGREDIENTS as rations, not P-Magic. Cost is based
+  on the distance to the chosen destination:
+   - 1-2 spaces = spend 1 ingredient
+   - 3-4 spaces = spend 2 ingredients
+   - 5-6 spaces = spend 3 ingredients
+
+  RATION CHOICE AND AFFINITY:
+  The ingredient(s) spent are the expedition's travel rations for the turn.
+  Each Maiden has food preferences, so the ration type can slightly affect
+  Affinity:
+   - Preferred ration → small Affinity gain
+   - Neutral ration   → no Affinity change
+   - Disliked ration  → small Affinity loss
+  This is intentionally a small effect. Cooking remains the primary way to
+  build Affinity through food.
+
+  AUTOMATIC YIELD DURING MOVEMENT:
+  Ingredients and Excavation Finds are gathered automatically from spaces
+  passed through en route to the chosen destination. Yield scales with
+  distance traveled — longer journeys produce more resources.
+
+  INGREDIENTS (personal survival economy):
+   - Lush biomes (Forest, Coastal, Plains): high yield
+   - Harsh biomes (Desert, Volcanic, Mountain, Tundra): low yield
+
+  EXCAVATION FINDS (academic/Institute economy):
+   - Harsh biomes (Desert, Volcanic, Mountain, Tundra): high yield —
+     rich fossil deposits, geological sites
+   - Lush biomes: low yield — poor fossil record
+
+  Biome yield ratios:
+   Forest / Coastal  → Ingredients ↑↑  Finds ↓
+   Plains            → Ingredients ↑   Finds ↑
+   Desert / Volcanic → Ingredients ↓   Finds ↑↑
+   Mountain / Tundra → Ingredients ↓   Finds ↑↑
+
+  NOTE: Harsh biomes are historically accurate — real-world fossil deposits
+  are concentrated in arid environments (Patagonia, Gobi Desert, etc.).
+
+--------------------------------------------------------------------------------
+CAMP SYSTEM
+--------------------------------------------------------------------------------
+The Expedition Camp is the primary decision space when landing on a
+Wilderness space. It is also the social hub where random Maiden encounters
+take place.
+
+  RESOURCE ACTIONS (always available):
+  ┌─────────────┬────────────────────────────────────────────────────────────┐
+  │ Action      │ Effect                                                     │
+  ├─────────────┼────────────────────────────────────────────────────────────┤
+  │ Train       │ Spend P-Magic to learn a discipline technique.             │
+  │             │ Cost varies by biome affinity (advantage = cheaper,        │
+  │             │ disadvantage = more expensive).                            │
+  ├─────────────┼────────────────────────────────────────────────────────────┤
+  │ Cook        │ Spend 2-3 typed ingredients to prepare a meal.             │
+  │             │ Ingredient combination determines the dish and its reward.  │
+  │             │                                                            │
+  │             │ BASE COOK (generic combination):                           │
+  │             │  Restore 25 P-Magic + 5 Affinity.                          │
+  │             │                                                            │
+  │             │ NAMED DISH (specific combination, Maiden preference):      │
+  │             │  Liked dish   → P-Magic ↑↑ + Affinity ↑↑                  │
+  │             │  Loved dish   → P-Magic ↑↑ + Affinity ↑↑↑ + one           │
+  │             │                 technique from her own discipline pool     │
+  │             │  Disliked dish → P-Magic ↑ only, no Affinity gain          │
+  │             │                                                            │
+  │             │ See COOK SYSTEM section for ingredient subtypes,           │
+  │             │ dish combinations, and per-Maiden preference tables.       │
+  ├─────────────┼────────────────────────────────────────────────────────────┤
+  │ Barter      │ Access the ROTATING FIELD SHOP to order travel items.      │
+  │             │ Items are delivered on the NEXT turn (delayed delivery).   │
+  │             │ Free action (does not consume the turn).                   │
+  │             │                                                            │
+  │             │ ROTATING FIELD SHOP:                                       │
+  │             │  - Stock is random and refreshes every 2 turns (= 1 month)│
+  │             │  - 2-3 items available at a time                           │
+  │             │  - Currency: Ingredients (Tier 1-2) or Excavation Finds    │
+  │             │    (Tier 3)                                                │
+  │             │                                                            │
+  │             │ ITEM TIERS:                                                │
+  │             │  Tier 1 (cheap, Ingredients):                              │
+  │             │   - Travelling Snacks: Negate Navigation ration cost for   │
+  │             │     1 turn, regardless of distance rolled.                 │
+  │             │   - Campfire Kit: Use Cook once without spending            │
+  │             │     ingredients.                                           │
+  │             │  Tier 2 (moderate, Ingredients):                           │
+  │             │   - Scout Report: Reveal space types within X steps of     │
+  │             │     current position.                                      │
+  │             │   - Expedition Boots: Move +1 extra space beyond dice      │
+  │             │     roll for 1 turn.                                       │
+  │             │  Tier 3 (expensive, Excavation Finds):                     │
+  │             │   - Local Map: Set dice roll to a specific number of your  │
+  │             │     choice for 1 turn.                                     │
+  │             │   - [Further Tier 3 items TBD]                             │
+  │             │                                                            │
+  │             │ KIV: Delivery may be delayed additional turns due to       │
+  │             │ random weather events (storms on the Primeval Continents). │
+  │             │ Adds comic tension to planning ahead.                      │
+  └─────────────┴────────────────────────────────────────────────────────────┘
+
+  INTERACT ACTION (available only when a Maiden is present in camp):
+  See "Encounter & Interaction System" below.
+
+--------------------------------------------------------------------------------
+COOK SYSTEM
+--------------------------------------------------------------------------------
+  INGREDIENT SUBTYPES:
+  Navigation yields typed ingredients, not a generic count. Subtype is
+  determined by the biome traveled through:
+  ┌────────────────┬───────────────────────────────────────────────────────┐
+  │ Ingredient     │ Primary Biomes                                        │
+  ├────────────────┼───────────────────────────────────────────────────────┤
+  │ Meat           │ Plains, Volcanic, Mountain (megafauna, prey animals)  │
+  ├────────────────┼───────────────────────────────────────────────────────┤
+  │ Plant          │ Forest, Plains (herbivore staples, roots, leaves)     │
+  ├────────────────┼───────────────────────────────────────────────────────┤
+  │ Seafood        │ Coastal (fish, crustaceans, aquatic fauna)            │
+  ├────────────────┼───────────────────────────────────────────────────────┤
+  │ Fungi/Forage   │ Forest, Tundra (mushrooms, gathered roots, lichens)   │
+  └────────────────┴───────────────────────────────────────────────────────┘
+  NOTE: A biome can yield multiple subtypes at lower rates. The table above
+  represents primary yields only.
+
+  NAMED DISH SYSTEM:
+  Specific ingredient combinations unlock named dishes. Each Maiden has a
+  personal preference table defining how she reacts to each dish:
+  - Loved    → P-Magic ↑↑ + Affinity ↑↑↑ + one technique from her own pool
+  - Liked    → P-Magic ↑↑ + Affinity ↑↑
+  - Neutral  → base Cook reward (P-Magic ↑ + Affinity ↑)
+  - Disliked → P-Magic ↑ only, no Affinity gain
+
+  Cook is intentionally a larger relationship boost than travel rationing.
+  Navigation rations can nudge Affinity slightly, but Cook is the deliberate
+  bonding action that produces meaningful Affinity growth.
+
+  The technique reward on a Loved dish is drawn from the Maiden's OWN
+  discipline pool — it reflects her being genuinely restored and focused,
+  not learning from an opponent.
+
+  AUTHORING REQUIREMENT (per Maiden):
+  - 1-2 Loved dishes (specific combinations + named dish title)
+  - 1-2 Liked dishes
+  - Disliked category (ingredient type or combination she dislikes)
+  - 1 reaction line per tier (Loved / Liked / Disliked)
+  Paleontological accuracy applies: herbivore Maidens should dislike
+  meat-heavy dishes; carnivore Maidens should dislike pure-plant dishes.
+
+  ── TEMPLATE: SASTREI TAURUS ────────────────────────────────────────────
+  Diet basis: Carnotaurus = carnivore. Meat-forward dishes are her comfort.
+
+  ┌──────────────────────┬────────────┬───────────────────────────────────┐
+  │ Dish                 │ Tier       │ Combination                       │
+  ├──────────────────────┼────────────┼───────────────────────────────────┤
+  │ Field Sirloin        │ Loved      │ Meat + Meat + Meat                │
+  │ Grilled Cuts         │ Liked      │ Meat + Meat                       │
+  │ Plains Stew          │ Liked      │ Meat + Plant                      │
+  │ Foraged Salad        │ Disliked   │ Plant + Plant (or Plant + Fungi)   │
+  └──────────────────────┴────────────┴───────────────────────────────────┘
+
+  REACTION LINES:
+  ┌──────────────────────┬───────────────────────────────────────────────┐
+  │ Tier                 │ Line                                          │
+  ├──────────────────────┼───────────────────────────────────────────────┤
+  │ Loved (Field         │ "...Now THAT is a meal. Don't make a big      │
+  │ Sirloin)             │ deal out of it."                              │
+  ├──────────────────────┼───────────────────────────────────────────────┤
+  │ Liked                │ "Good enough. I've had worse on the trail."   │
+  ├──────────────────────┼───────────────────────────────────────────────┤
+  │ Disliked             │ "...I'll eat it. Doesn't mean I'm happy       │
+  │                      │ about it."                                    │
+  └──────────────────────┴───────────────────────────────────────────────┘
+
+--------------------------------------------------------------------------------
+CURRENCY SYSTEM
+--------------------------------------------------------------------------------
+  Two separate resource currencies exist, representing different aspects of
+  the Great Expedition:
+
+  INGREDIENTS
+  - Gathered automatically via Navigate (surface-level exploration)
+  - Personal survival economy
+  - Spent on: Navigation rations, Cook, Tier 1-2 Barter items, Arena Shop
+    (Tier 1-2)
+
+  EXCAVATION FINDS
+  - Gathered automatically via Navigate (subsurface geological/fossil sites)
+  - Academic/Institute economy
+  - Spent on: Tier 3 Barter items, Arena Shop (Tier 3), Institute
+    contributions (KIV)
+  - Harsh biomes yield the most — incentivizes risky routing
+
+  KIV: Submitting Excavation Finds to the Stratum Institute may provide
+  a separate benefit (reputation meter, research upgrades, Title Match
+  entry fees). Not yet designed.
+
+--------------------------------------------------------------------------------
+ARENA SHOP (Fixed Shops at Title Match Spaces)
+--------------------------------------------------------------------------------
+  Title Match spaces (Arena spaces) double as FIXED SHOPS with guaranteed,
+  predetermined stock — unlike the rotating randomness of the Field Shop.
+
+  KEY DIFFERENCES FROM FIELD SHOP:
+  ┌─────────────────────┬──────────────────────┬──────────────────────────┐
+  │                     │ Field Shop (Barter)  │ Arena Shop               │
+  ├─────────────────────┼──────────────────────┼──────────────────────────┤
+  │ Stock               │ Random (2-3 items)   │ Fixed, guaranteed        │
+  ├─────────────────────┼──────────────────────┼──────────────────────────┤
+  │ Refresh             │ Every 2 turns        │ Static per location      │
+  ├─────────────────────┼──────────────────────┼──────────────────────────┤
+  │ Availability        │ Any camp (Wilderness)│ Must land on Arena space │
+  ├─────────────────────┼──────────────────────┼──────────────────────────┤
+  │ Currency            │ Ingredients / Finds  │ Ingredients / Finds      │
+  ├─────────────────────┼──────────────────────┼──────────────────────────┤
+  │ Delivery            │ Delayed (next turn)  │ Immediate (on-site)      │
+  └─────────────────────┴──────────────────────┴──────────────────────────┘
+
+  OUT OF STOCK SYSTEM:
+  - If a player arrives at an Arena Shop and a Tier 3 item is out of stock,
+    a specific named Paleo Maiden is responsible — she got there first and
+    bought it out.
+  - The culprit Maiden is displayed to the player with a short line of
+    dialogue (e.g. Nevesi smugly holding your Local Map).
+  - This grounds item scarcity in characterization rather than anonymous RNG
+    and creates memorable "she STOLE my item" moments.
+
+  NOTE: The harder-to-reach nature of Arena spaces (predetermined fixed
+  locations on the map) makes guaranteed stock a meaningful reward for
+  deliberate routing.
+
+--------------------------------------------------------------------------------
+ENCOUNTER & INTERACTION SYSTEM
+--------------------------------------------------------------------------------
+
+  STEP 1 — SPAWN
+  When landing on a Wilderness space, there is a chance a named Paleo Maiden
+  from the roster spawns in camp. The spawning Maiden is drawn from the pool
+  of maidens whose home biome matches the current space's biome.
+
+  TENSION WEIGHTING ON APPEARANCE:
+  - Higher Tension with a specific Maiden increases her appearance weight.
+  - Low Tension = baseline spawn chance.
+  - Mid/High Tension = progressively higher chance to appear when biome
+    eligibility is met.
+  - Design goal: rivalry momentum should feel alive during a run.
+
+  DESIGNATED RIVAL EXCEPTION:
+  - All Player Maidens have a fixed designated rival in their career run.
+  - Example: Tyran Rex's designated rival is Horri Tricera.
+  - Designated rivals are NOT treated as normal random camp spawns.
+  - They are scheduled through Rival Interaction beats (milestones) and
+    may also be used as Crossroads anchors.
+  - This keeps their relationship consistently present across the run,
+    instead of depending on RNG camp encounter luck.
+  - Fixed designated rivals coexist with player-selected extra rivals.
+    The fixed rival is guaranteed by default; extra rivals can be added
+    during the run to shape finals matchups and inheritance targets.
+
+  VOCATION SHIFT (Year 3 prevalence):
+  - In Years 1 and 2, encountered maidens appear in their base vocation.
+  - In Year 3, maidens may appear in a biome-shifted vocation more commonly.
+    Example: Aegypti Spino normally = Focus/Semi-Aquatic.
+             Aegypti Spino in Volcanic biome = Brute/Focus shifted vocation.
+  - This reflects the lore concept of evolution and mastery — the maiden has
+    been adapting to the environment, creating a new hybrid discipline form.
+  - The shifted vocation is NOT revealed to the player before engaging.
+    The player sees only that a Maiden has appeared in camp — the vocation
+    shift is discovered mid-sparring, preserving the surprise and making
+    the encounter feel like a genuine fighting game "who is this version"
+    moment.
+
+  VOCATION SHIFT EFFECT ON PLAYER'S MAIDEN:
+  - When the PLAYER'S Maiden unlocks a hybrid vocation, her biome
+    affinities expand to include the biomes associated with the new
+    discipline.
+  - Example: Sastrei Taurus (base = Flow/Plains) unlocks Boxing Magus
+    (Flow + Focus). Focus is associated with Coastal biomes. She now
+    has home-ground advantage in BOTH Plains and Coastal.
+  - This affects: Train costs, Navigate yields, and passive dialogue lines.
+    Her dialogue should reflect the adaptation — she no longer complains
+    about previously uncomfortable biomes once her vocation covers them.
+  - Biome affinity per discipline (reference):
+    Brute   → Volcanic, Mountain
+    Focus   → Coastal, Tundra
+    Flow    → Plains, Forest
+    Control → Desert
+
+  STEP 2 — INTERACT
+  The player chooses to Interact with the present Maiden.
+  An interaction scene is drawn randomly from that Maiden's interaction pool.
+
+  INTERACTION TRACKS:
+  - CAMP INTERACTIONS (random):
+    Uses the normal encounter flow above. Triggered by random camp spawns.
+    Intended for broad roster variety, casual social texture, and emergent
+    pairings.
+  - RIVAL INTERACTIONS (fixed):
+    Used for designated rival relationships. Triggered at planned points
+    in the run (milestones/Crossroads/scheduled beats), not pure camp RNG.
+    Intended for high-importance relationship progression and rematch setup.
+
+  INTERACTION POOL RULES:
+  - Each named Maiden has a minimum of 3 unique interaction scenes.
+  - Each scene is drawn without replacement — once an interaction plays,
+    it is removed from the pool for the remainder of that run.
+  - If the pool is exhausted, repeat encounters with that Maiden produce
+    a neutral "passing encounter" with no scene.
+
+  INTERACTION DESIGN PHILOSOPHY:
+  There are NO generic interaction types. Every interaction is a uniquely
+  authored scene specific to the relationship between your Maiden and the
+  Maiden encountered. Two Maidens who have a rivalry produce entirely
+  different scenes than two Maidens who are strangers or old friends.
+
+  SCENE KEYING RULE:
+  Interaction content is keyed by the PAIR, not only by the encountered
+  Maiden. In practice, this means:
+  - Tyran Rex (player) + Horri Tricera (encountered rival) uses one scene set
+  - Sastrei Taurus (player) + Horri Tricera (encountered maiden) uses a
+    different scene set
+  The encountered Maiden may be the same, but the relationship context is
+  different, so scenes and outcomes must be different.
+
+  Each scene is written from scratch — the sparring outcome (present or
+  absent, and its branching results) is determined by the scene itself,
+  not by a category label. A given scene either has sparring built into
+  it or it does not. A given scene's win/loss outcomes are specific to
+  the emotional stakes of that scene, not a shared mechanical template.
+
+  AUTHORING REQUIREMENTS (per interaction scene):
+  - Named relationship or scenario (serves as internal design shorthand)
+  - Clear emotional premise: what does this scene reveal about these two?
+  - Sparring: present or absent (determined by scene logic)
+  - If sparring present: separate WIN branch and LOSS branch, each with
+    distinct dialogue and mechanical outcomes
+  - If no sparring: the scene presents a PLAYER CHOICE. The choice is
+    framed by the scene's emotional context (not a generic menu).
+    Each option leads to a different resolution and a different reward:
+     • One option typically yields a technique from the encountered
+       Maiden's pool (the player engages through the relationship
+       between the two Maidens — observing, learning)
+     • One option typically yields a P-Magic restore (the player steps
+       in directly, usually in a quieter, more personal context)
+    Both options should feel like genuine expressions of the scene's
+    premise — neither is a "correct" answer. The scene's outcome
+    (what actually happens in the world) may be identical regardless
+    of choice; the reward reflects HOW the player engaged, not WHETHER
+    they succeeded.
+
+  RIVAL TRACK EXAMPLE — Player Maiden = Tyran Rex,
+  Designated Rival = Horri Tricera:
+
+  Perspective note:
+  - In this sample, you are playing a run with Tyran Rex as your chosen
+    Maiden.
+  - Horri Tricera is Tyran Rex's fixed designated rival for this run.
+  - These scenes are RIVAL INTERACTIONS (scheduled beats), not random
+    CAMP INTERACTIONS.
+
+  Scene 1 — "My Most Respected Rival"
+    Premise: Tyran Rex and Horri Tricera have a mutual, deeply-felt respect.
+    Both recognize something in the other that they themselves lack.
+    The gap is felt but neither can articulate it cleanly — a sparring
+    session is the only honest language they share.
+    Sparring: Guaranteed.
+    WIN branch (Tyran Rex wins): Tyran Rex finally understands what she
+      has been missing. A moment of genuine clarity. Horri Tricera
+      acknowledges the loss but leaves still searching — her question
+      is not yet answered.
+    LOSS branch (Tyran Rex loses): Horri Tricera finally sees what she
+      lacked. Tyran Rex loses but does not diminish — she watches
+      Horri Tricera walk away and keeps searching too.
+
+  Scene 2 — "The Tyrant King"
+    Premise: Tyran Rex is Student Council President and believes she is
+    deeply respected and valued by the student body. She is entirely
+    genuine about this — she shares this pride openly with the player.
+    In truth, the students obey out of fear, not admiration. Horri
+    Tricera knows this and tries to gently tell her. Tyran Rex does not
+    get the hint. The scene ends with her still completely oblivious.
+    Sparring: None.
+    Tonal register: Not mockery of Tyran Rex — something more bittersweet.
+    A person whose strength has blinded her to how she is truly seen.
+    Player Choice:
+     Option A — Encourage Horri Tricera to tell her directly:
+       Horri Tricera tries again, more plainly this time. Tyran Rex
+       receives it warmly, misses the point entirely, and thanks Horri
+       Tricera for the kind words. Horri Tricera gives up.
+       Reward: One random technique from Horri Tricera's Control pool
+       added to your library. (The interaction played out through the
+       relationship between these two — you observed and learned.)
+     Option B — Tell Tyran Rex yourself, over dinner:
+       A quieter moment. You try during a meal together. She listens,
+       nods earnestly, and interprets everything you said as proof of
+       how much her students care. She leaves in high spirits.
+       Reward: P-Magic restored. (A meal, a conversation — she didn't
+       hear you, but the effort cost you something and you recover.)
+
+  Scene 3 — WIP
+
+  STEP 3 — SCENE-DRIVEN OUTCOMES (NO GLOBAL FLOW TEMPLATE)
+
+  There is no universal post-sparring flow chart.
+  Outcome logic is authored per interaction scene and per Maiden pair.
+
+  AUTHORING RULES FOR OUTCOMES:
+  - If a scene includes sparring, write win/loss outcomes specifically for
+    that scene's emotional context.
+  - If a scene includes non-sparring choices, write option outcomes
+    specifically for that scene's context.
+  - Presence/absence of the encountered Maiden after the scene is not fixed
+    globally; it is scene-defined.
+  - Reward logic is scene-defined, but must follow these guardrails:
+    * Sparring wins are the primary source of technique inheritance.
+    * Non-sparring options may grant technique or P-Magic when justified by
+      the scene premise (for example: inspiration from observing another
+      Maiden's style, or recovery from personal conversation).
+    * Loss outcomes should still provide meaningful character progression,
+      even when rewards are lower than a win.
+
+  BALANCE GUARDRAIL:
+  - Across a full run, sparring should remain the dominant and most reliable
+    way to expand the player's technique library.
+
+  DIALOGUE REQUIREMENTS PER MAIDEN:
+  - Dialogue content is authored per Maiden-pair scene, not from a
+    universal post-fight template.
+  - If a scene contains sparring, write reaction lines for both outcomes
+    in each character's voice.
+  - If a scene contains choices, write both option branches in voice and
+    make the emotional difference legible.
+  - Lecturer response lines should reflect the pair dynamic and the
+    current run state.
+
+  SIGNATURE SKILL CHANCE ON WIN:
+  - Winning a sparring session has a chance to add the encountered Maiden's
+    Signature Skill to the player's library instead of a generic technique.
+  - The probability of the Signature Skill appearing scales with the
+    encountered Maiden's Tension level (see KIV: Tension System below).
+  - EXCEPTION: Winning a match by intentionally landing on a Tournament
+    Space GUARANTEES the Signature Skill is learned. No RNG.
+
+--------------------------------------------------------------------------------
+PASSIVE DIALOGUE SYSTEM (Ambient Character Voice)
+--------------------------------------------------------------------------------
+  Inspired by FF8's floating NPC dialogue, the player's Maiden delivers
+  short contextual lines during non-encounter turns. Lines are NOT
+  interactive — they appear as floating text/speech bubbles and require
+  no player input. They exist purely as texture to make every run feel
+  distinct and to communicate characterization passively.
+
+  THREE TRIGGER CATEGORIES:
+
+  1. BIOME TRAVEL LINES
+     Triggered when moving through or landing on a biome space.
+     Familiar biomes → confident, comfortable.
+     Unfamiliar/harsh biomes → irritated, challenged.
+     These also function as a soft tutorial — players learn a Maiden's
+     biome affinities through personality before reading any mechanic.
+
+  2. NAVIGATION RESULT LINES
+      Triggered when Navigate resolves at the end of movement.
+      Covers ration reactions, yield quality, and whether a technique was
+      found.
+
+  3. SHOP / BARTER LINES
+     Triggered when the Barter menu is opened or when browsing the
+     Arena Shop. Includes item-specific hint lines and out-of-stock
+     culprit reactions (per named Maiden responsible).
+
+  ── WRITING REQUIREMENTS PER MAIDEN ────────────────────────────────────
+  Each Maiden requires:
+  - 2-3 lines per biome (familiar / neutral / harsh)
+  - 2-3 navigation result lines (ration reaction / good yield / bad yield /
+    technique found)
+  - 3-4 barter/shop lines (general browse, item-specific, impatient)
+  - 1 out-of-stock reaction line per named culprit Maiden
+  Lines should be one sentence maximum. Voice must be consistent with
+  the Maiden's established personality.
+
+  AFFINITY INFLUENCE ON DIALOGUE:
+  A Maiden's passive dialogue lines shift in tone depending on the current
+  Affinity level. The same trigger may produce a different line at Low,
+  Mid, and High Affinity:
+  - Low Affinity  → distant, guarded, minimal. She doesn't volunteer much.
+  - Mid Affinity  → her natural voice. The baseline lines.
+  - High Affinity → warmer, lets her guard down. Things she'd normally
+                    cut off, she finishes. Personal details slip through.
+  Each line set should be written with all three tiers in mind.
+
+  ── TEMPLATE: SASTREI TAURUS ────────────────────────────────────────────
+  Personality: Terse, clipped, practically minded. Talks like she's
+  always mid-focus and the conversation is mildly interrupting her.
+  Warm undertones she doesn't advertise.
+
+  BIOME TRAVEL:
+  ┌──────────────────┬────────────────────────────────────────────────────┐
+  │ Biome            │ Line                                               │
+  ├──────────────────┼────────────────────────────────────────────────────┤
+  │ Plains (home)    │ "...This feels right. Keep moving."                │
+  │ Plains (home)    │ "Familiar ground. Don't slow me down."             │
+  │ Desert           │ "Hot. Fine. I've trained in worse."                │
+  │ Forest           │ "Too much cover. Stay sharp."                      │
+  │ Coastal          │ "...Tch. The humidity's already getting to me."    │
+  │ Coastal          │ "Salt air. Not my favourite."                      │
+  │ Volcanic         │ "Don't breathe too deep. Just keep pace."          │
+  │ Tundra           │ "Cold slows your legs. Mine don't slow."           │
+  │ Mountain         │ "Good resistance training, at least."              │
+  └──────────────────┴────────────────────────────────────────────────────┘
+
+  NAVIGATION RESULTS:
+  ┌──────────────────┬────────────────────────────────────────────────────┐
+  │ Result           │ Line                                               │
+  ├──────────────────┼────────────────────────────────────────────────────┤
+  │ Preferred ration │ "...Fine. At least you packed properly."          │
+  │ High yield       │ "...Not bad. More than I expected."                │
+  │ High yield       │ "Told you. Home ground doesn't lie."               │
+  │ (Plains only)    │                                                    │
+  │ Low yield        │ "Sparse. Move on."                                 │
+  │ Disliked ration  │ "...Next time, bring something worth eating."      │
+  │ Low yield        │ "Nothing useful. Figures."                         │
+  │ (Coastal only)   │                                                    │
+  │ Technique found  │ "...Hm. That's— ...useful. Write it down."        │
+  └──────────────────┴────────────────────────────────────────────────────┘
+
+  SHOP / BARTER:
+  ┌──────────────────────────┬──────────────────────────────────────────┐
+  │ Context                  │ Line                                     │
+  ├──────────────────────────┼──────────────────────────────────────────┤
+  │ Browsing (general)       │ "What are we even looking for."          │
+  │ Browsing (impatient)     │ "You sure are taking your sweet ass time."│
+  │ Sees Local Map           │ "...I could read that in my sleep.       │
+  │                          │  But fine, get it."                      │
+  │ Sees Travelling Snacks   │ "If it keeps us moving, I don't care     │
+  │                          │  what it tastes like."                   │
+  │ Sees Expedition Boots    │ "My legs are fine. But you're the one    │
+  │                          │  calling the shots."                     │
+  │ Waiting for delivery     │ "It's late."                             │
+  │ Delivery arrives         │ "Finally."                               │
+  └──────────────────────────┴──────────────────────────────────────────┘
+
+  OUT OF STOCK — CULPRIT REACTIONS:
+  ┌──────────────────────────┬──────────────────────────────────────────┐
+  │ Culprit                  │ Line                                     │
+  ├──────────────────────────┼──────────────────────────────────────────┤
+  │ Nevesi Pycnonemo         │ "...That bastard."                       │
+  │ Caza Amarga              │ "....Ouh, that's what she got huh..."    │
+  │ Tyran Rex                │ "...Of course she got to it first."      │
+  │ Unknown / Generic        │ "Someone beat us to it. Fine."           │
+  └──────────────────────────┴──────────────────────────────────────────┘
+
+  NOTE: All other Maidens require the same line sets written to match
+  their individual personality. Sastrei's set above is the template.
+
+
+
+  LIBRARY:
+  - All techniques earned throughout the run are stored in the player's
+    Technique Library.
+  - The player may freely equip and swap techniques at any time during the run.
+
+  FINAL BUILD LOCK:
+  - At the end of the run (after the final tournament or run completion),
+    the player must finalize their Maiden's build. This cannot be changed
+    after confirmation.
+  - The locked build is permanently saved to the Maiden Build Gallery.
+  - Example: Run 1 Sastrei Taurus → Kinetic Boxer (final build saved).
+             Run 2 Sastrei Taurus → Boxing Magus (new final build saved).
+  - Both builds exist as separate selectable versions in the Gallery,
+    usable in future versus/multiplayer content.
+
+--------------------------------------------------------------------------------
+CROSSROADS SPACE
+--------------------------------------------------------------------------------
+  Status: DECIDED.
+
+  Crossroads spaces are rare world events encountered while traveling
+  (during Navigation or en route to a destination). They surface Rival Interaction
+  scenes from NON-PLAYER Maiden pairs — scenes the player's Maiden was never
+  part of, witnessed from the outside.
+
+  CORE CONCEPT:
+  - Crossroads events draw directly from the existing Rival Interaction
+    scene pool of other Maiden pairs. No separate scene authoring required.
+  - Example: Player is running Sastrei Taurus. A Crossroads event triggers
+    "My Most Respected Rival" — the Tyran Rex × Horri Tricera scene —
+    playing out in front of her.
+  - The player chooses whether to watch (and stay for the sparring, if one
+    occurs) or move on.
+  - Watching can inspire Sastrei and contribute a technique to her pool
+    (scene-defined reward, drawn from the observed Maiden's discipline).
+
+  KEY DESIGN IMPLICATION:
+  - Every Rival Interaction scene is authored once per Maiden pair.
+  - That same scene can be experienced directly (when running that Maiden)
+    OR observed as a Crossroads event (when running a different Maiden).
+  - This means zero additional authoring cost for Crossroads specifically.
+
+  ROLE VS CAMP ENCOUNTERS:
+  - Camp encounters = direct interaction between player's Maiden and an
+    encountered Maiden.
+  - Crossroads = observational interactions between non-player Maiden pairs
+    that still influence the player's run through inspiration and world context.
+
+  DESIGN GOAL:
+  Crossroads makes the world feel alive independent of the player while still
+  feeding build progression and characterization. Scenes that Sastrei would
+  never be part of still matter to her run.
+
+  KIV: Authoring scope for all Maiden pair scene sets is tracked separately.
+
+--------------------------------------------------------------------------------
+KIV: TENSION SYSTEM (Keep In View — Not Yet Designed)
+--------------------------------------------------------------------------------
+  CONCEPT:
+  - A separate hidden/visible Tension tracker per encountered named Maiden
+    (distinct from Affinity, which tracks Lecturer ↔ Your Maiden relationship)
+  - Tension covers both rivalry and admiration — it is the weight of history
+    between your Maiden and another, regardless of whether it is warm or hostile
+  - High Tension increases that Maiden's appearance frequency during the run
+    (weighted spawn priority and stronger presence in encounter pacing)
+  - Built through: repeat camp encounters, sparring wins/losses,
+    Crossroads scenes
+  - At thresholds, the player may nominate multiple selected rivals for the
+    current run.
+
+  RIVAL SELECTION (MULTI-RIVAL):
+  - Each player Maiden has one fixed designated rival from lore.
+    Example: Sastrei Taurus ↔ Nevesi Pycnonemo.
+  - During a run, the player may add extra selected rivals (based on Tension)
+    to target specific inheritance paths and finals matchups.
+  - Selected rivals are guaranteed to appear in the final league/tournament
+    bracket for that run.
+  - This guarantees access to those rivals' unique inheritance opportunities
+    if the player reaches and wins those key matches.
+  - Example build routing: If building Boxing Magus Sastrei Taurus, the
+    player may select Aegypti Spino or Kitadani Fukuira as additional
+    rivals so they are guaranteed finals opponents for desired uniques.
+
+  WHY THIS IS IMPORTANT:
+  - Serves the characterization pillar: rivalry emerges from play, not
+    cutscenes
+  - Gives replayability: different runs with the same Maiden can produce
+    different rival sets and inheritance routes
+  - Gives players a personal stake in the tournament ("I want the rematch
+    with Nevesi because WE have a history")
+
+--------------------------------------------------------------------------------
+AFFINITY (CLARIFICATION)
+--------------------------------------------------------------------------------
+  Affinity = the bond between the PLAYER (Lecturer) and THEIR CHOSEN MAIDEN.
+  It is NOT a relationship meter with encountered rival maidens.
+
+  Built through:
+  - Cooking meals in camp (major gains)
+  - Preferred travel rations during Navigation (minor gains)
+  - Successful camp actions
+  - Positive interaction outcomes
+
+  Effects:
+  - Higher Affinity = better combat performance / morale for your Maiden
+  - May affect unlock conditions for certain camp actions or scenes
+
+  The Tension system (KIV above) is a SEPARATE tracker and should not
+  be conflated with Affinity.
+
+================================================================================
+END OF DOCUMENT
+================================================================================
