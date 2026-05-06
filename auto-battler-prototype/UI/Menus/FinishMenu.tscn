@@ -1,11 +1,11 @@
-[gd_scene format=3 uid="uid://b3ig74cit7ics"]
+[gd_scene format=3 uid="uid://nq7dkflhqnbu"]
 
-[ext_resource type="Script" uid="uid://dxtce8cyyic0" path="res://UI/Menus/pause_menu.gd" id="1_764ii"]
+[ext_resource type="Script" uid="uid://brnsf5px5qu0k" path="res://UI/Menus/finish_menu.gd" id="1_kqk8e"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bjeo5"]
 font_size = 50
 
-[node name="PauseMenu" type="Control" unique_id=1081214476]
+[node name="FinishMenu" type="Control" unique_id=1081214476]
 process_mode = 2
 layout_mode = 3
 anchors_preset = 8
@@ -15,9 +15,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-focus_neighbor_bottom = NodePath("PanelContainer/VBoxContainer/ResumeBtn")
-focus_next = NodePath("PanelContainer/VBoxContainer/ResumeBtn")
-script = ExtResource("1_764ii")
+script = ExtResource("1_kqk8e")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1939179704]
 layout_mode = 1
@@ -37,31 +35,22 @@ grow_vertical = 2
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=330145132]
+[node name="FinishLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=330145132]
 layout_mode = 2
-text = "PAUSED"
+text = "FINISH"
 label_settings = SubResource("LabelSettings_bjeo5")
 horizontal_alignment = 1
 
-[node name="ResumeBtn" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1620185024]
+[node name="RematchBtn" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1489805725]
 unique_name_in_owner = true
 layout_mode = 2
-focus_neighbor_bottom = NodePath("../RestartBtn")
-focus_next = NodePath("../RestartBtn")
-text = "Resume"
-
-[node name="RestartBtn" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1489805725]
-unique_name_in_owner = true
-layout_mode = 2
-focus_neighbor_top = NodePath("../ResumeBtn")
 focus_neighbor_bottom = NodePath("../EndBattleBtn")
 focus_next = NodePath("../EndBattleBtn")
-focus_previous = NodePath("../ResumeBtn")
-text = "Restart"
+text = "Rematch"
 
 [node name="EndBattleBtn" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1204180686]
 unique_name_in_owner = true
 layout_mode = 2
-focus_neighbor_top = NodePath("../RestartBtn")
-focus_previous = NodePath("../RestartBtn")
+focus_neighbor_top = NodePath("../RematchBtn")
+focus_previous = NodePath("../RematchBtn")
 text = "End Battle"

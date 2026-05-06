@@ -293,9 +293,12 @@ func set_char_velocity(_delta:float):
 
 ## STRATEGY related functions
 func check_can_attack():
-	return (currentActionGoal >= actionGoalTotal && 			# Action goal check
-			distance <= minDistance && 							# Distance check (attack close enough to hit)
-			%StateMachine.currentState is not StateHitstun)		# Histun check
+	return (
+		currentActionGoal >= actionGoalTotal && 			# Action goal check
+		distance <= minDistance && 							# Distance check (attack close enough to hit)
+		%StateMachine.currentState is not StateHitstun 		# Histun check
+		# %StateMachine.currentState is not StateWin		# Win state check
+		)
 
 func check_want_to_attack():
 	return (currentActionGoal >= actionGoalTotal && 			# Action goal check
@@ -318,7 +321,6 @@ func broadcast_atk_active_end():
 ## Check whether the char wins or loses (double down) after receiving the lose
 ## signal from the opponent.
 func check_win():
-	# TODO: actually we need to check if opponent also got this
 	var chosenState = ""
 	var currentState = %StateMachine.currentState
 	
@@ -460,8 +462,8 @@ func get_hit(hitbox: HitBox, hurtbox: Hurtbox):
 		health = outputHealth
 		affMgr.check_event_bonuses()
 		if health <= 0:
-				chosenHitState = "Lose"
-				health = 0
+			chosenHitState = "Lose"
+			health = 0
 		%StateMachine.on_child_transition($StateMachine.currentState, chosenHitState)
 		opponentIsAttacking = false
 

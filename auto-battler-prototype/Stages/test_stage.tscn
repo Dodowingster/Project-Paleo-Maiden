@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_5dtn3"]
 [ext_resource type="Resource" uid="uid://dewv7utm7vt8c" path="res://Characters/ryoshu/techniques/ryoshu_super.tres" id="10_6xav4"]
 [ext_resource type="Script" uid="uid://dwjuwme5l70i5" path="res://Stages/custom_camera.gd" id="13_oh5io"]
+[ext_resource type="PackedScene" uid="uid://nq7dkflhqnbu" path="res://UI/Menus/FinishMenu.tscn" id="16_6xav4"]
 [ext_resource type="Script" uid="uid://b8q8o6q0rpwfj" path="res://Stages/popup_section.gd" id="16_qpgl0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhvwd"]
@@ -59,6 +60,9 @@ texture = ExtResource("3_hmbi7")
 position = Vector2(416, 360)
 scale = Vector2(1.2, 1.196)
 texture = ExtResource("4_2ge0f")
+
+[node name="FinishTimer" type="Timer" parent="Runner" unique_id=1004613469]
+one_shot = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Runner" unique_id=1343250026]
 
@@ -244,7 +248,10 @@ horizontal_alignment = 2
 
 [node name="PauseMenu" parent="Runner/CanvasLayer" unique_id=1081214476 instance=ExtResource("2_uxbob")]
 unique_name_in_owner = true
-process_mode = 3
+visible = false
+
+[node name="FinishMenu" parent="Runner/CanvasLayer" unique_id=25866367 instance=ExtResource("16_6xav4")]
+unique_name_in_owner = true
 visible = false
 
 [node name="LeftPopupSection" type="Control" parent="Runner/CanvasLayer" unique_id=900674249]
@@ -341,5 +348,8 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [connection signal="pressed" from="Runner/CanvasLayer/PauseMenu/PanelContainer/VBoxContainer/ResumeBtn" to="." method="_on_resume_btn_pressed"]
 [connection signal="pressed" from="Runner/CanvasLayer/PauseMenu/PanelContainer/VBoxContainer/RestartBtn" to="." method="restart_game"]
 [connection signal="pressed" from="Runner/CanvasLayer/PauseMenu/PanelContainer/VBoxContainer/EndBattleBtn" to="." method="_on_end_battle_btn_pressed"]
+[connection signal="pressed" from="Runner/CanvasLayer/FinishMenu/PanelContainer/VBoxContainer/RematchBtn" to="." method="restart_game"]
+[connection signal="pressed" from="Runner/CanvasLayer/FinishMenu/PanelContainer/VBoxContainer/EndBattleBtn" to="." method="_on_end_battle_btn_pressed"]
 
 [editable path="Runner/CanvasLayer/PauseMenu"]
+[editable path="Runner/CanvasLayer/FinishMenu"]
