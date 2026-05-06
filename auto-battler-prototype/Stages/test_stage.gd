@@ -43,9 +43,11 @@ func restart_game() -> void:
 	always_running_nodes = []
 	VFXManager.despawn_all_vfx()
 	var runner : Runner = get_node("Runner")
+	var finTimer : Timer = runner.get_node("FinishTimer")
 	%DataTracker.reset()
 	runner.reset()
 	runner.initialize()
+	finTimer.stop()
 	StageManager.set_stage(self)
 	get_tree().paused = false
 	%PauseMenu.visible = false

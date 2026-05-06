@@ -71,7 +71,11 @@ func reset() -> void:
 func broadcast_fin(winner: String) -> void:
 	var	finTimer: Timer = get_node("FinishTimer")
 
-	finTimer.start()
-	await finTimer.timeout
-	# TODO: find out how to do slowdown. check `Engine.set_time_scale(value)`
-	broadcastFin.emit(winner)
+	# Make double sure at least one player's health is fully depleted
+	if not (nodeP1.health and nodeP2.health):
+		finTimer.start()
+		# Engine.time_scale = 0.3
+		# ^ would've been used for slowdown on fin but it breaks knockback physics
+		await finTimer.timeout
+		# Engine.time_scale = 1.0
+		broadcastFin.emit(winner)

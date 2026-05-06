@@ -40,7 +40,7 @@ func update(_delta: float):
 		#var currentHitStun = owner.hitstun
 		if owner.hitstun < 0:
 			owner.hitstun = 0
-			chosenState = "Idle"
+			chosenState = "Win"
 		
 		if chosenState != "":
 			transition.emit(self, chosenState)

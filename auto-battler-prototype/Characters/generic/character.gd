@@ -292,9 +292,12 @@ func set_char_velocity(_delta:float):
 
 ## STRATEGY related functions
 func check_can_attack():
-	return (currentActionGoal >= actionGoalTotal && 			# Action goal check
-			distance <= minDistance && 							# Distance check (attack close enough to hit)
-			%StateMachine.currentState is not StateHitstun)		# Histun check
+	return (
+		currentActionGoal >= actionGoalTotal && 			# Action goal check
+		distance <= minDistance && 							# Distance check (attack close enough to hit)
+		%StateMachine.currentState is not StateHitstun 		# Histun check
+		# %StateMachine.currentState is not StateWin		# Win state check
+		)
 
 func check_want_to_attack():
 	return (currentActionGoal >= actionGoalTotal && 			# Action goal check
@@ -371,6 +374,7 @@ func _on_tick(rcvDistance: float, rcvTickCount: int):
 	and %StateMachine.currentState is not StateTechnique \
 	and %StateMachine.currentState is not StateWin \
 	and %StateMachine.currentState is not StateLose \
+	and %StateMachine.currentState is not StateWin \
 	and %StateMachine.currentState is not StateClashing \
 	and %StateMachine.currentState is not StateClashLose:
 		#currentActionGoal += sta
@@ -454,8 +458,8 @@ func get_hit(hitbox: HitBox, hurtbox: Hurtbox):
 		# final outcome
 		health = outputHealth
 		if health <= 0:
-				chosenHitState = "Lose"
-				health = 0
+			chosenHitState = "Lose"
+			health = 0
 		%StateMachine.on_child_transition($StateMachine.currentState, chosenHitState)
 		opponentIsAttacking = false
 
