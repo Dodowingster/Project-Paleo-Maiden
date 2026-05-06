@@ -1,103 +1,49 @@
-Character Stats
-ATK
-    - increasing atk lets the character do more damage
-DEF
-    - increasing this lets the character take less damage
-SPD
-    - increase movement speed
-    - this means more clashes, less action goal wasted if the character is aggressive
-    - instead, less clashes, but still less action goal wasted if the character is defensive?
-    - basically enhances the chances of the character's strategy working
-STA
-    - has a min/max value, rolls a number between it every frame/tick
-    - increases frequency of performing strategy
-    - low STA -> more clashing, high STA -> less clashing
-    - Current
-        - when action goal is maxed, character has access to attack 
-        - character always has access to block
-        - attacking resets action goal
-        - blocking freezes action goal gain
-        - very common to see back and forths of characters blocking each other's attacks when out of sync
-        - slows down game outcomes, which isnt great for an auto battler
-    - Test idea?
-        - when action goal is maxed, character has access to attack or block
-        - once attack or block is triggered, action goal is lost
-        
-Range
-    - min, max determines character decisions
-    - cannot be changed
-HP
-    - character's health
-    - increasing it ups the character's survivability
+Battle System:
+1) Character Stats:
+- HP
+- ATK
+- DEF
+- SPD
+- STA (min and max)
+- Action Goal limit
+- Action Stocks
+- fwd move spd mult
+- bkwd move spd mult
+- fwd dash spd mult
+- min fwd dash duration
+- max fwd dash duration
+- bkwd dash spd mult
+- min bkwd dash duration
+- max bkwd dash duration
 
+2) Character differences (besides stats):
+- different base attack
+    - attacks determine threat range
+    - ??? with more techniques, threat range is determined by the longest range attack thats ready for use (important!)
+- different strategies
 
-Strategy
-    - what is the perfect strategy?
-        - hits all attacks
-        - maximizes action goal gain
-        - blocks/avoids all opponent attacks
-        - do this until opponent dies
-        - should we have a timer?
-            - if yes, character should be able to kill opponent/ have a life lead before the timer ends
-            - timer min 60 max 99
-    - how do you build a strategy?
-        - general theme
-        - how they maximize action goal economy
-        - how they attack
-        - how they avoid attack
-    - Tyran Rex strategy:
-        - general theme:
-            - overwhelming offense
-            - just take the hit, you've got the HP for it
-            - slow movement
-        - attack rules:
-            - if outside attack range, get into attack range
-            - if inside attack range but no action goal, go for clash
-            - if inside attack range and has action goal, attack
-        - block rules:
-            - imagine blocking lmao
-        - avoid rules:
-            - imagine running away lmao
-        - clash rules:
-            - inside attack range, but no action goal
-        - gameplan:
-            - focus on building atk first
-            - also big focus on def so you don't die before you beat the shit out of the opponent
-            - sta is good but not as important
-                - 
-            - spd isnt necessary, by always moving forward she forces opponent to interact
-    - Kitadani Fukuira strategy:
-        - general theme:
-            - figure out how to land your powerful base attack
-                - bad attack startup, great post attack situation
-        - attack rules:
-            - if outside attack range, go into attack range
-            - if inside attack range but no action goal, go for clash
-            - if inside attack range and has action goal:
-                - if opponent is not attacking, attack
-                - if opponent is attacking, move backwards
-                - if opponent hits, block attack and reset action goal
-        - block rules:
-            - uh
-        - avoid rules:
-            - uh
-        - clash rules:
-            - if opponent between min and max range
-                - go for clash to try to push back opponent
-        - gameplan:
-            - focus on ATK
-                - minimize number of attacks needed to win
-            - also STA
-            - spd is less of a priority
+3) Actions:
+- can gain action goal:
+    - walk forward
+        - can be interrupted with attack/block/clash anytime
+    - walk backward
+        - can be interrupted with attack/block/clash anytime
+    - dash forward
+        - has min (and maybe max) duration
+        - can only be interrupted with attack/block/clash after min duration
+    - dash backward
+        - has min (and maybe max) duration
+        - can only be interrupted with attack/block/clash after min duration
+- cannot gain action goal:
+    - attack
+        - consumes an action stock and reset action goal
+    - block
+        - consumes an action stock? resets action goal?
+    - clashing
+        - clash winner gains action goal
+        - clash loser's action goal is stuck in place until actionable
 
-Clashing
-    - if both characters are at min range, clash
-    - the character with shorter min range determines whether a clash happens
-Techniques
-    - different techniques fill in weaknesses of a character/ enhances their strengths:
-    - rush:
-        - moves forward and does damage
-        - since it moves forward, results in better stage position
-        - post-hit situation: should be good to allow continued offense
-        - post-block situation: potential reversal from opponent
-
+4) Situations:
+- 2 attacks hitting at the same time:
+    - higher base damage wins
+    - if same base damage, higher action goal wins
