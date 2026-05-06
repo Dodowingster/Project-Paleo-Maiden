@@ -14,7 +14,7 @@ func _ready():
 
 func enter():
 	owner.canClash = false
-	owner.currentActionGoal = 0
+	owner.currentActionStock -= 1
 	if animName in animList:
 		animPlayer.play(animName)
 

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c0c4p57o71yio" path="res://Characters/generic/technique_data.gd" id="2_1x1u5"]
 [ext_resource type="Resource" uid="uid://cinamrjb4psog" path="res://Characters/ryoshu/hitboxes/ryoshu_sideswitchhitboxdata.tres" id="2_88kye"]
 [ext_resource type="PackedScene" uid="uid://1kcdfef523s8" path="res://Characters/ryoshu/techniques/Ryoshu_SideSwitch.tscn" id="3_1x1u5"]
+[ext_resource type="Script" uid="uid://dvmw6qlvblh7i" path="res://Characters/generic/hurtbox_data.gd" id="3_ln1ut"]
 
 [resource]
 script = ExtResource("2_1x1u5")

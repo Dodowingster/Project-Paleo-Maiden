@@ -8,6 +8,7 @@ extends Control
 @onready var P1: Character
 @export var P1ActionGoalValueLabelValue: Label
 @export var P1ActionGoalTotalLabelValue: Label
+@export var P1ActionStockValue: Label
 @export var P1HealthValue : Label
 @export var P1HealthTotal : Label
 @export var P1TechniqueList : VBoxContainer
@@ -15,6 +16,7 @@ extends Control
 @onready var P2: Character
 @export var P2ActionGoalValueLabelValue: Label
 @export var P2ActionGoalTotalLabelValue: Label
+@export var P2ActionStockValue: Label
 @export var P2HealthValue : Label
 @export var P2HealthTotal : Label
 @export var P2TechniqueList : VBoxContainer
@@ -61,8 +63,10 @@ func _process(_delta: float) -> void:
 	distanceLabelValue.text = str(snapped(dataTracker.distance, 0.001))
 	
 	P1ActionGoalValueLabelValue.text = str(P1.currentActionGoal)
+	P1ActionStockValue.text = str(P1.currentActionStock)
 	P1HealthValue.text = str(P1.health)
 	P2ActionGoalValueLabelValue.text = str(P2.currentActionGoal)
+	P2ActionStockValue.text = str(P2.currentActionStock)
 	P2HealthValue.text = str(P2.health)
 
 func updateTechniqueStatusP1(index: int, canExecute: bool) -> void:

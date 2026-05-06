@@ -20,8 +20,8 @@ func enter():
 	for trigger in chosenTechnique.triggers:
 		if trigger is CooldownTrigger:
 			trigger.reset()
-		if trigger is ActionGoalTrigger:
-			owner.currentActionGoal = 0
+		if trigger is ActionStockTrigger:
+			owner.currentActionStock -= 1
 	if animName in animList:
 		animPlayer.play(animName)
 

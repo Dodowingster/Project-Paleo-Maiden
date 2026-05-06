@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_ivvnp")
 hurtboxShape = ExtResource("1_0xmm7")
-startup = 15
-active = 28
+startup = 8
+active = 20
 location = Vector2(40, -4)
 metadata/_custom_type_script = "uid://dvmw6qlvblh7i"

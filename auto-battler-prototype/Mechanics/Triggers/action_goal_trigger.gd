@@ -1,7 +1,7 @@
 extends Trigger
-class_name ActionGoalTrigger
+class_name ActionStockTrigger
 
 @onready var character : Character
 
 func check_condition() -> bool:
-	return character.currentActionGoal >= character.actionGoalTotal
+	return character.currentActionStock > 0

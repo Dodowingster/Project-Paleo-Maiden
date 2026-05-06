@@ -13,7 +13,9 @@ class_name CharacterData
 @export var strategy : GlobalValues.STRATEGY = GlobalValues.STRATEGY.AGGRESSIVE
 @export var minDistance : int = 80
 @export var maxDistance : int = 100
-@export var forwardSpdMult : float = 1.0
-@export var backwardSpdMult : float = 0.5
+@export var forwardSpdMult : float = 0.5
+@export var backwardSpdMult : float = 0.25
+@export var forwardDashSpdMult : float = 1.0
+@export var backwardDashSpdMult : float = 0.5
 @export var actionGoalTotal : int = 300
 @export var baseAtkData : TechniqueData

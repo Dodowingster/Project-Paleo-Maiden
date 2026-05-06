@@ -10,13 +10,13 @@ func _init() -> void:
 	collision_mask = 2
 
 func _ready() -> void:
-	connect("area_entered", _on_area_entered)
+	connect("area_entered", on_area_entered)
 	
 func _physics_process(delta):
 	if lastGroupCollision != "" and lastGroupHitCooldown > 0:
 		lastGroupHitCooldown -= delta
 	
-func _on_area_entered(hitbox: HitBox) -> void:
+func on_area_entered(hitbox: HitBox) -> void:
 	if hitbox == null:
 		return
 	else:

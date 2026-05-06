@@ -4,7 +4,6 @@ class_name Character
 #signal changeState(newState: String)
 #signal broadcastAtkStart()
 signal broadcastAtkActiveEnd()
-signal broadcastAction(action : GlobalValues.ACTION)
 signal broadcastClashResult(result : bool)
 signal broadcastLose()
 signal shakeCamera(amount : float)
@@ -41,10 +40,16 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var forwardSpdMult: float
 ## Modifies base backward movement speed
 @onready var backwardSpdMult: float
+## Modifies dash forward movement speed
+@onready var forwardDashSpdMult: float
+## Modifies dash backward movement speed
+@onready var backwardDashSpdMult: float
 
 ## Determines number of action goal points needed to perform an attack
 @onready var actionGoalTotal: int
 var currentActionGoal: int = 0
+var actionStocksTotal : int = 3
+var currentActionStock: int = 0
 var opponentIsAttacking: bool = false
 var canClash = false
 var clashResult : bool = false
@@ -97,6 +102,8 @@ func _enter_tree() -> void:
 	maxDistance = characterData.maxDistance
 	forwardSpdMult = characterData.forwardSpdMult
 	backwardSpdMult = characterData.backwardSpdMult
+	forwardDashSpdMult = characterData.forwardDashSpdMult
+	backwardDashSpdMult = characterData.backwardDashSpdMult
 	actionGoalTotal = characterData.actionGoalTotal
 	
 	health = maxHP
@@ -106,7 +113,6 @@ func _ready() -> void:
 	affMgr.setup_affinity_bonuses(affinityBonuses)
 	GlobalValues.connect("updateDataToChar", _on_tick)
 	if opponent != null:
-		opponent.connect("broadcastAction", decide_action)
 		opponent.connect("broadcastAtkActiveEnd", on_atk_active_end_signal_rcvd)
 		opponent.connect("broadcastClashResult", on_clash_result_rcvd)
 		opponent.connect("broadcastLose", check_win)
@@ -297,21 +303,20 @@ func set_char_velocity(_delta:float):
 
 ## STRATEGY related functions
 func check_can_attack():
-	return (currentActionGoal >= actionGoalTotal && 			# Action goal check
-			distance <= minDistance && 							# Distance check (attack close enough to hit)
-			%StateMachine.currentState is not StateHitstun)		# Histun check
+	return (currentActionStock > 0 && 
+			distance <= maxDistance)
 
 func check_want_to_attack():
-	return (currentActionGoal >= actionGoalTotal && 			# Action goal check
-			%StateMachine.currentState is not StateHitstun && 
-			%StateMachine.currentState is not StateBlockstun)		# Hitstun check
+	return (currentActionStock > 0)		# Hitstun check
+
+func check_can_clash():
+	return(min_distance_hit() and opponent.min_distance_hit() and canClash and opponent.canClash)
 
 func min_distance_hit():
 	return distance <= minDistance
 
-func decide_action(oppAction: GlobalValues.ACTION):
-	if oppAction == GlobalValues.ACTION.ATTACK:
-		opponentIsAttacking = true
+func in_attack_range():
+	return distance <= maxDistance
 
 func on_atk_active_end_signal_rcvd():
 	opponentIsAttacking = false
