@@ -13,6 +13,10 @@ func run_strategy_mods(strategy : GlobalValues.STRATEGY) -> void:
 	#if strategy == GlobalValues.STRATEGY.AGGRESSIVE:
 		#canBlockStates.clear()
 
+func can_act() -> bool:
+	return stateMachine.currentState is ActionableState or \
+	(stateMachine.currentState is DashState and stateMachine.currentState.canAct)
+
 func run_full_logic() -> void:
 	# decide whether character can change sides
 	sideTracker.set_side_lock(stateMachine.currentState is not ActionableState)
@@ -25,7 +29,7 @@ func run_full_logic() -> void:
 		var index : int = 0
 		while index < character.hit_by.size():
 			#  and (character.currentActionGoal >= character.actionGoalTotal)
-			if stateMachine.currentState in canBlockStates and (character.currentActionGoal >= character.actionGoalTotal):
+			if stateMachine.currentState in canBlockStates and (character.currentActionStock > 0):
 				character.get_block_logic(character.hit_by[index], character.hurtboxes_hit[index])
 				attackedOutcome = "Blockstun"
 			else:
@@ -44,6 +48,11 @@ func run_full_logic() -> void:
 		if stateMachine.currentState not in noActionGoalStates:
 			var rng_roll: int = randi() % (character.maxSta + 1) + character.minSta
 			character.currentActionGoal += rng_roll
+			if character.currentActionGoal >= character.actionGoalTotal and \
+			character.currentActionStock < character.actionStocksTotal:
+				character.currentActionGoal -= character.actionGoalTotal
+				character.currentActionStock += 1
+				print(character.characterName + " action stock + 1")
 		
 		# check if character has any executable techniques
 		character.loadout.techniques_check()
@@ -64,14 +73,13 @@ func run_full_logic() -> void:
 	# after character tells opponent what they'll do, opponent will decide what they will do
 	# note: we're choosing the opponent's state here because we don't know the execution order if we
 	# choose the character's state here
-	if character.opponent.stateMachine.currentState is ActionableState:
-		var oppStateManager : StateManager = character.opponent.get_node("StateManager")
-		oppStateManager.run_decision_logic(character.opponent.strategy)
+	var oppStateManager : StateManager = character.opponent.get_node("StateManager")
+	oppStateManager.run_decision_logic(character.opponent.strategy)
 
 
 func run_decision_logic(strategy : GlobalValues.STRATEGY) -> void:
 	var chosenState : String = ""
-	if stateMachine.currentState is ActionableState:
+	if can_act():
 		if character.loadout.techniqueToExecute != null:
 			chosenState = "Technique"
 		else:
@@ -88,59 +96,45 @@ func aggressive_decision_logic() -> String:
 	if character.check_can_attack():
 		chosenState = "BaseAttack"
 	else:
-		#if character.opponentIsAttacking:
-			#if character.check_want_to_attack():
-				#chosenState = "MoveForward"
-			#else:
-				#chosenState = "MoveBackward"
-		#else:
-			#if character.min_distance_hit():
-				#if character.opponent.min_distance_hit() and character.canClash and character.opponent.canClash:
-					#chosenState = "Clashing"
-				#else:
-					#chosenState = "Idle"
-			#else:
-				#chosenState = "MoveForward"
 		if character.min_distance_hit():
-			if character.opponent.min_distance_hit() and character.canClash and character.opponent.canClash:
+			if character.check_can_clash():
 				chosenState = "Clashing"
 			else:
 				chosenState = "Idle"
-		else:
+		elif character.in_attack_range():
 			chosenState = "MoveForward"
+		else:
+			chosenState = "DashForward"
 	
 	return chosenState
 
 func balanced_decision_logic() -> String:
 	var chosenState : String = ""
 	
-	#if character.stateMachine.currentState.name == "Idle":
-		#chosenState = "MoveBackward"
+	if character.stateMachine.currentState.name == "Idle":
+		chosenState = "MoveForward"
 		
 	if character.check_want_to_attack():
 		if character.distance > character.maxDistance:
 			chosenState = "MoveForward"
 		elif character.min_distance_hit():
-			if character.opponent.min_distance_hit() and character.canClash and character.opponent.canClash:
+			if character.check_can_clash():
 				chosenState = "Clashing"
 			else:
-				if character.opponentIsAttacking:
-					chosenState = "MoveBackward"
-				else:
-					chosenState = "MoveForward"
+				chosenState = "MoveBackward"
 		else:
 			chosenState = "BaseAttack"
 	else:
 		if character.opponentIsAttacking:
-			chosenState = "MoveBackward"
+			chosenState = "DashBackward"
 		else:
 			if character.min_distance_hit():
-				if character.opponent.min_distance_hit() and character.canClash and character.opponent.canClash:
+				if character.check_can_clash():
 					chosenState = "Clashing"
 				else:
 					chosenState = "MoveBackward"
 			elif character.distance > character.maxDistance:
-				chosenState = "MoveForward"
+				chosenState = "DashForward"
 	
 	return chosenState
 	

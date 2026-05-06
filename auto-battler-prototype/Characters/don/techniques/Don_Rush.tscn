@@ -9,7 +9,7 @@
 [node name="Don_Rush" type="Node" unique_id=1746416143]
 script = ExtResource("1_x8dea")
 
-[node name="ActionGoalTrigger" type="Node" parent="." unique_id=1809226879]
+[node name="ActionStockTrigger" type="Node" parent="." unique_id=1809226879]
 script = ExtResource("2_x8dea")
 metadata/_custom_type_script = "uid://davbi37fiwm0b"
 

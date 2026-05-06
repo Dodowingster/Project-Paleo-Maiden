@@ -9,13 +9,13 @@
 [ext_resource type="Script" uid="uid://colufoqxh8nwm" path="res://Characters/generic/side_tracker.gd" id="4_ocvec"]
 [ext_resource type="AnimationLibrary" uid="uid://dkhtxnpfpt0ey" path="res://Characters/ryoshu/anims/ryoshu.res" id="5_1us7d"]
 [ext_resource type="PackedScene" uid="uid://0ikbyqukpbpo" path="res://Mechanics/AffinityBonus/ClashGoodBonus.tscn" id="5_s8f15"]
-[ext_resource type="Texture2D" uid="uid://bt8isuoep80x2" path="res://Characters/placeholder_sprites/A_CinqEastDon/idle.png" id="6_1g87l"]
 [ext_resource type="PackedScene" uid="uid://t5ijh4ht3g7r" path="res://Mechanics/AffinityBonus/ResetCooldownBonus.tscn" id="6_kntwo"]
 [ext_resource type="Script" uid="uid://xhutnxqw7tsv" path="res://Characters/generic/shake_sprite.gd" id="7_ryghy"]
 [ext_resource type="Script" uid="uid://cuqyr28ih435l" path="res://Mechanics/hurtbox.gd" id="8_7en0w"]
 [ext_resource type="Script" uid="uid://whbif5ykrdmj" path="res://Characters/States/state_machine.gd" id="9_28a1p"]
 [ext_resource type="Script" uid="uid://bqw1eo83vcp4r" path="res://Characters/States/state_hitstun.gd" id="10_40065"]
 [ext_resource type="Script" uid="uid://chhf2t5cm2eg4" path="res://Characters/States/state_blockstun.gd" id="11_0rq6b"]
+[ext_resource type="Texture2D" uid="uid://8qr2krrkh2tq" path="res://Characters/placeholder_sprites/A_CinqEastDon/skill1_3.png" id="11_40065"]
 [ext_resource type="Script" uid="uid://bibnpqp5otcvs" path="res://Characters/States/state_idle.gd" id="12_xyuli"]
 [ext_resource type="Script" uid="uid://85tmkwtqblw3" path="res://Characters/States/state_movefwd.gd" id="13_w4xc1"]
 [ext_resource type="Script" uid="uid://gsw3o2s1dbgk" path="res://Characters/States/state_manager.gd" id="14_7en0w"]
@@ -25,8 +25,10 @@
 [ext_resource type="Script" uid="uid://fhsfdpvgkyv4" path="res://Characters/States/state_lose.gd" id="17_yr544"]
 [ext_resource type="Script" uid="uid://4y83ty0qfjy6" path="res://Characters/States/state_clash.gd" id="18_kmsib"]
 [ext_resource type="Script" uid="uid://0d6s2ipebmb2" path="res://Characters/States/state_clash_win.gd" id="19_1d8pi"]
+[ext_resource type="Script" uid="uid://c0a4y3qqqfiu3" path="res://Characters/States/state_dashfwd.gd" id="20_28a1p"]
 [ext_resource type="Script" uid="uid://dd3dfa5mjk32y" path="res://Characters/States/state_clash_lose.gd" id="20_avqc8"]
 [ext_resource type="Script" uid="uid://nqsoppuuytas" path="res://Characters/States/state_technique.gd" id="21_1us7d"]
+[ext_resource type="Script" uid="uid://piba5udqmidg" path="res://Characters/States/state_dashbkwd.gd" id="21_40065"]
 [ext_resource type="PackedScene" uid="uid://wa1rn1pd2gkc" path="res://Mechanics/Loadout/Loadout.tscn" id="21_ucqw4"]
 [ext_resource type="Script" uid="uid://cyexs8siijqaw" path="res://Characters/generic/attack_viewer.gd" id="23_1us7d"]
 
@@ -49,6 +51,7 @@ affLvl = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=599901854]
 unique_name_in_owner = true
+callback_mode_process = 0
 libraries/don = ExtResource("4_1us7d")
 libraries/ryoshu = ExtResource("5_1us7d")
 
@@ -58,8 +61,9 @@ script = ExtResource("4_ocvec")
 
 [node name="Sprite" type="Sprite2D" parent="SideTracker" unique_id=1654816590]
 unique_name_in_owner = true
+position = Vector2(0, 12)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("6_1g87l")
+texture = ExtResource("11_40065")
 script = ExtResource("7_ryghy")
 
 [node name="CharacterHurtbox" type="Area2D" parent="SideTracker" unique_id=994874910]
@@ -100,6 +104,16 @@ script = ExtResource("12_xyuli")
 
 [node name="MoveForward" type="Node" parent="StateMachine" unique_id=158639724]
 script = ExtResource("13_w4xc1")
+
+[node name="DashForward" type="Node" parent="StateMachine" unique_id=1051682112]
+script = ExtResource("20_28a1p")
+timeTillActionable = 0.3
+metadata/_custom_type_script = "uid://c0a4y3qqqfiu3"
+
+[node name="DashBackward" type="Node" parent="StateMachine" unique_id=1150037753]
+script = ExtResource("21_40065")
+timeTillActionable = 0.33
+metadata/_custom_type_script = "uid://piba5udqmidg"
 
 [node name="MoveBackward" type="Node" parent="StateMachine" unique_id=992213530]
 script = ExtResource("14_p1ouf")
