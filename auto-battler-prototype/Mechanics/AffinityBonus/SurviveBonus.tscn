@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bmvlkv53mb3cn"]
+
+[ext_resource type="Script" uid="uid://cuhe3xmw2vmk5" path="res://Mechanics/AffinityBonus/event_affinity_bonus.gd" id="1_1p0tg"]
+[ext_resource type="Script" uid="uid://bbjt57et5iesw" path="res://Mechanics/Triggers/affinity_trigger.gd" id="2_hyfdl"]
+[ext_resource type="Script" uid="uid://bhd1hp0vjukoo" path="res://Mechanics/Effects/survive_effect.gd" id="3_1p0tg"]
+[ext_resource type="Script" uid="uid://ca0greousgvam" path="res://Mechanics/Triggers/hp_trigger.gd" id="3_7rafb"]
+
+[node name="SurviveBonus" type="Node" unique_id=1266581918]
+script = ExtResource("1_1p0tg")
+affEffectName = "One More Chance!"
+triggerLimit = 1
+metadata/_custom_type_script = "uid://cuhe3xmw2vmk5"
+
+[node name="AffinityTrigger" type="Node" parent="." unique_id=1437390748]
+script = ExtResource("2_hyfdl")
+chanceMod = 1.0
+metadata/_custom_type_script = "uid://bbjt57et5iesw"
+
+[node name="HpTrigger" type="Node" parent="." unique_id=1887836624]
+script = ExtResource("3_7rafb")
+hpCriteriaUpper = 0.0
+hpCriteriaLower = 0.0
+metadata/_custom_type_script = "uid://ca0greousgvam"
+
+[node name="SurviveEffect" type="Node" parent="." unique_id=1949358381]
+script = ExtResource("3_1p0tg")
+metadata/_custom_type_script = "uid://bhd1hp0vjukoo"

@@ -11,7 +11,7 @@ func _ready():
 	animName = owner.animLibName + "/moveforward"
 
 func enter():
-	owner.canClash = true
+	super.enter()
 	if animName in animList:
 		animPlayer.play(animName)
 

@@ -13,6 +13,7 @@ func connect_to_character(character : Character) -> void:
 func add_popup(affBonusName : String) -> void:
 	var genericPopupNode : Node = genericPopup.instantiate()
 	if genericPopupNode is BonusPopUp:
+		genericPopupNode.process_mode = Node.PROCESS_MODE_ALWAYS
 		genericPopupNode.offset = 200
 		genericPopupNode.popupText = affBonusName
 		genericPopupNode.popupDirection = sectionDirection

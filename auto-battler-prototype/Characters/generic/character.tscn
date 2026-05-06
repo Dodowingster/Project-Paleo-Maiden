@@ -5,9 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://d3iu0sin4j6fq" path="res://Mechanics/AffinityBonus/MaxActionGoalBonus.tscn" id="3_ocvec"]
 [ext_resource type="Script" uid="uid://s0ees7w47yw6" path="res://Characters/generic/affinity_manager.gd" id="3_ryghy"]
 [ext_resource type="AnimationLibrary" uid="uid://boalcp78pqj5n" path="res://Characters/don/anims/don.res" id="4_1us7d"]
+[ext_resource type="PackedScene" uid="uid://bmvlkv53mb3cn" path="res://Mechanics/AffinityBonus/SurviveBonus.tscn" id="4_7q3v8"]
 [ext_resource type="Script" uid="uid://colufoqxh8nwm" path="res://Characters/generic/side_tracker.gd" id="4_ocvec"]
 [ext_resource type="AnimationLibrary" uid="uid://dkhtxnpfpt0ey" path="res://Characters/ryoshu/anims/ryoshu.res" id="5_1us7d"]
+[ext_resource type="PackedScene" uid="uid://0ikbyqukpbpo" path="res://Mechanics/AffinityBonus/ClashGoodBonus.tscn" id="5_s8f15"]
 [ext_resource type="Texture2D" uid="uid://bt8isuoep80x2" path="res://Characters/placeholder_sprites/A_CinqEastDon/idle.png" id="6_1g87l"]
+[ext_resource type="PackedScene" uid="uid://t5ijh4ht3g7r" path="res://Mechanics/AffinityBonus/ResetCooldownBonus.tscn" id="6_kntwo"]
 [ext_resource type="Script" uid="uid://xhutnxqw7tsv" path="res://Characters/generic/shake_sprite.gd" id="7_ryghy"]
 [ext_resource type="Script" uid="uid://cuqyr28ih435l" path="res://Mechanics/hurtbox.gd" id="8_7en0w"]
 [ext_resource type="Script" uid="uid://whbif5ykrdmj" path="res://Characters/States/state_machine.gd" id="9_28a1p"]
@@ -15,6 +18,7 @@
 [ext_resource type="Script" uid="uid://chhf2t5cm2eg4" path="res://Characters/States/state_blockstun.gd" id="11_0rq6b"]
 [ext_resource type="Script" uid="uid://bibnpqp5otcvs" path="res://Characters/States/state_idle.gd" id="12_xyuli"]
 [ext_resource type="Script" uid="uid://85tmkwtqblw3" path="res://Characters/States/state_movefwd.gd" id="13_w4xc1"]
+[ext_resource type="Script" uid="uid://gsw3o2s1dbgk" path="res://Characters/States/state_manager.gd" id="14_7en0w"]
 [ext_resource type="Script" uid="uid://sv5uv45x0dmh" path="res://Characters/States/state_movebkwd.gd" id="14_p1ouf"]
 [ext_resource type="Script" uid="uid://bfib7jjd33vor" path="res://Characters/States/state_baseatk.gd" id="15_iyeba"]
 [ext_resource type="Script" uid="uid://bsmgvqgq5xmdr" path="res://Characters/States/state_win.gd" id="16_ioa8p"]
@@ -36,7 +40,7 @@ size = Vector2(32, 128)
 collision_mask = 49
 script = ExtResource("1_1g87l")
 characterData = ExtResource("2_1us7d")
-affinityBonuses = Array[PackedScene]([ExtResource("3_ocvec")])
+affinityBonuses = Array[PackedScene]([ExtResource("3_ocvec"), ExtResource("4_7q3v8"), ExtResource("5_s8f15"), ExtResource("6_kntwo")])
 
 [node name="AffinityManager" type="Node" parent="." unique_id=1817413589]
 unique_name_in_owner = true
@@ -70,6 +74,14 @@ debug_color = Color(0, 0.6, 0, 0.41960785)
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=504018138]
 shape = SubResource("RectangleShape2D_acr0g")
+
+[node name="StateManager" type="Node" parent="." unique_id=1093992849 node_paths=PackedStringArray("stateMachine", "character", "sideTracker", "noActionGoalStates")]
+unique_name_in_owner = true
+script = ExtResource("14_7en0w")
+stateMachine = NodePath("../StateMachine")
+character = NodePath("..")
+sideTracker = NodePath("../SideTracker")
+noActionGoalStates = [NodePath("../StateMachine/Hitstun"), NodePath("../StateMachine/Blockstun"), NodePath("../StateMachine/BaseAttack"), NodePath("../StateMachine/Technique"), NodePath("../StateMachine/Win"), NodePath("../StateMachine/Lose"), NodePath("../StateMachine/Clashing"), NodePath("../StateMachine/ClashLose")]
 
 [node name="StateMachine" type="Node" parent="." unique_id=842694158 node_paths=PackedStringArray("initialState")]
 unique_name_in_owner = true

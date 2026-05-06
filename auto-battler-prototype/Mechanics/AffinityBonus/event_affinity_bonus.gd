@@ -1,0 +1,2 @@
+extends AffinityBonus
+class_name EventAffinityBonus

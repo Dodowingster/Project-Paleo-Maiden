@@ -18,9 +18,16 @@ func setup_affinity_bonuses(scenes : Array[PackedScene]) -> void:
 
 func _process(delta: float) -> void:
 	for affBonus in affBonuses:
-		if affBonus.trigger_check():
+		if affBonus is not EventAffinityBonus and affBonus.trigger_check():
 			affBonus.execute_effects(delta)
-			var char = self.get_parent()
-			if char is Character:
-				char.popupAffinity.emit(affBonus.affEffectName)
-				
+			var character = self.get_parent()
+			if character is Character:
+				character.popupAffinity.emit(affBonus.affEffectName)
+
+func check_event_bonuses() -> void:
+	for affBonus in affBonuses:
+		if affBonus is EventAffinityBonus and affBonus.trigger_check():
+			affBonus.execute_effects(0)
+			var character = self.get_parent()
+			if character is Character:
+				character.popupAffinity.emit(affBonus.affEffectName)

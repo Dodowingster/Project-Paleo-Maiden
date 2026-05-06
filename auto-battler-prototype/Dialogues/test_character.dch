@@ -1,0 +1,40 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "",
+&"color": Color(1, 1, 1, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "Default",
+&"description": "Test character portrait",
+&"display_name": "Yukari",
+&"mirror": false,
+&"nicknames": ["Dodo's Wife"],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"Default": {
+"export_overrides": {
+"image": "\"res://Characters/placeholder_sprites/yukari/tile000.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
+},
+"Surprised": {
+"export_overrides": {
+"image": "\"res://Characters/placeholder_sprites/yukari/tile004.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
+}
+},
+&"scale": 1.0
+}

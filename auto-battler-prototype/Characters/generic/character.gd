@@ -47,7 +47,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var currentActionGoal: int = 0
 var opponentIsAttacking: bool = false
 var canClash = false
-var wantToClash = false
 var clashResult : bool = false
 var oppClashResult : bool = false
 
@@ -58,6 +57,7 @@ var health : int = maxHP
 var loadout : Loadout
 var affMgr : AffinityManager
 var stateMachine : StateMachine
+var stateManager : StateManager
 
 ## Set opponent character here
 @export var opponent : Character
@@ -74,6 +74,7 @@ func _enter_tree() -> void:
 	loadout = %Loadout
 	affMgr = %AffinityManager
 	stateMachine = %StateMachine
+	stateManager = %StateManager
 	characterName = characterData.characterName
 	animLibName = characterData.animLibName
 	# clear animation libraries
@@ -346,7 +347,9 @@ func clash_check():
 	return win_clash_check <= win_clash_chance
 
 func determine_clash_winner():
-	clashResult = clash_check()
+	affMgr.check_event_bonuses()
+	if !clashResult:
+		clashResult = clash_check()
 	broadcastClashResult.emit(clashResult)
 	
 func on_clash_result_rcvd(result: bool):
@@ -358,48 +361,48 @@ func on_clash_result_rcvd(result: bool):
 func _on_tick(rcvDistance: float, rcvTickCount: int):
 	distance = rcvDistance
 	tickCount = rcvTickCount
-	wantToClash = false
 	
-	if %StateMachine.currentState is ActionableState:
-		%SideTracker.set_side_lock(false)
-	else:
-		%SideTracker.set_side_lock(true)
-		
-	if %SideTracker.canFlip:
-		face_opponent()
+	stateManager.run_full_logic()
 	
-	if %StateMachine.currentState is not StateHitstun \
-	and %StateMachine.currentState is not StateBlockstun \
-	and %StateMachine.currentState is not StateBaseAtk \
-	and %StateMachine.currentState is not StateTechnique \
-	and %StateMachine.currentState is not StateWin \
-	and %StateMachine.currentState is not StateLose \
-	and %StateMachine.currentState is not StateWin \
-	and %StateMachine.currentState is not StateClashing \
-	and %StateMachine.currentState is not StateClashLose:
-		#currentActionGoal += sta
-		var rng_roll: int = randi() % (maxSta + 1) + minSta
-		currentActionGoal += rng_roll
-	
-	loadout.techniques_check()
-	if loadout.techniqueToExecute != null:
-		broadcastAction.emit(GlobalValues.ACTION.ATTACK)
-	else:
-		if strategy == GlobalValues.STRATEGY.AGGRESSIVE:
-			if check_can_attack():
-				broadcastAction.emit(GlobalValues.ACTION.ATTACK)
-			else:
-				broadcastAction.emit(GlobalValues.ACTION.MOVE)
-		elif strategy == GlobalValues.STRATEGY.BALANCED:
-			if check_want_to_attack() and distance > minDistance and distance < maxDistance:
-				broadcastAction.emit(GlobalValues.ACTION.ATTACK)
-			else:
-				broadcastAction.emit(GlobalValues.ACTION.MOVE)
-		else:
-			if check_can_attack():
-				broadcastAction.emit(GlobalValues.ACTION.ATTACK)
-			else:
-				broadcastAction.emit(GlobalValues.ACTION.MOVE)
+	#if %StateMachine.currentState is ActionableState:
+		#%SideTracker.set_side_lock(false)
+	#else:
+		#%SideTracker.set_side_lock(true)
+		#
+	#if %SideTracker.canFlip:
+		#face_opponent()
+	#
+	#if %StateMachine.currentState is not StateHitstun \
+	#and %StateMachine.currentState is not StateBlockstun \
+	#and %StateMachine.currentState is not StateBaseAtk \
+	#and %StateMachine.currentState is not StateTechnique \
+	#and %StateMachine.currentState is not StateWin \
+	#and %StateMachine.currentState is not StateLose \
+	#and %StateMachine.currentState is not StateClashing \
+	#and %StateMachine.currentState is not StateClashLose:
+		##currentActionGoal += sta
+		#var rng_roll: int = randi() % (maxSta + 1) + minSta
+		#currentActionGoal += rng_roll
+	#
+	#loadout.techniques_check()
+	#if loadout.techniqueToExecute != null:
+		#broadcastAction.emit(GlobalValues.ACTION.ATTACK)
+	#else:
+		#if strategy == GlobalValues.STRATEGY.AGGRESSIVE:
+			#if check_can_attack():
+				#broadcastAction.emit(GlobalValues.ACTION.ATTACK)
+			#else:
+				#broadcastAction.emit(GlobalValues.ACTION.MOVE)
+		#elif strategy == GlobalValues.STRATEGY.BALANCED:
+			#if check_want_to_attack() and distance > minDistance and distance < maxDistance:
+				#broadcastAction.emit(GlobalValues.ACTION.ATTACK)
+			#else:
+				#broadcastAction.emit(GlobalValues.ACTION.MOVE)
+		#else:
+			#if check_can_attack():
+				#broadcastAction.emit(GlobalValues.ACTION.ATTACK)
+			#else:
+				#broadcastAction.emit(GlobalValues.ACTION.MOVE)
 
 
 # on character getting HIT
@@ -457,6 +460,7 @@ func get_hit(hitbox: HitBox, hurtbox: Hurtbox):
 		
 		# final outcome
 		health = outputHealth
+		affMgr.check_event_bonuses()
 		if health <= 0:
 			chosenHitState = "Lose"
 			health = 0

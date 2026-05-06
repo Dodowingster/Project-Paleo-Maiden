@@ -718,6 +718,82 @@ h3 {
     transform: none;
 }
 
+.camp-encounter-panel {
+    margin-top: 1rem;
+    padding: 1rem 1.25rem;
+    background-color: #e0d6c3;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    text-align: left;
+}
+
+.camp-encounter-panel.resolved {
+    opacity: 0.75;
+}
+
+.camp-encounter-panel h3 {
+    margin: 0 0 0.25rem 0;
+}
+
+.camp-encounter-panel p {
+    margin: 0.25rem 0 0;
+}
+
+.camp-encounter-meta {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--color-accent);
+}
+
+.ration-modal-content {
+    max-width: 560px;
+}
+
+.ration-selection-list {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.ration-row {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 80px;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background-color: #e0d6c3;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    text-align: left;
+}
+
+.ration-type,
+.ration-available,
+.ration-selection-remaining {
+    font-weight: bold;
+    color: var(--color-heading);
+}
+
+.ration-row input {
+    width: 100%;
+    padding: 0.4rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font: inherit;
+}
+
+.ration-selection-remaining {
+    margin-top: 1rem;
+}
+
+.ration-selection-remaining.ready {
+    color: var(--color-flow);
+}
+
+.ration-selection-remaining.over {
+    color: var(--color-brute);
+}
+
 /* --- New Styles for Title Match Modal --- */
 #title-match-aspirants {
     display: flex;
@@ -1191,6 +1267,24 @@ h3 {
 #inventory-display span {
     font-weight: bold;
     color: var(--color-heading);
+}
+
+#ingredient-breakdown {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+#ingredient-breakdown span {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--color-heading);
+    background-color: rgba(224, 214, 195, 0.7);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: 0.25rem 0.6rem;
 }
 
 /* --- New Animation for UI Updates --- */
