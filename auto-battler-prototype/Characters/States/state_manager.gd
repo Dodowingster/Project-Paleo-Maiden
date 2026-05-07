@@ -114,13 +114,13 @@ func balanced_decision_logic() -> String:
 			chosenState = "BaseAttack"
 	else:
 		if character.opponentIsAttacking:
-			chosenState = "DashBackward"
+			chosenState = "MoveBackward"
 		else:
 			if character.min_distance_hit():
 				if character.check_can_clash():
 					chosenState = "Clashing"
 				else:
-					chosenState = "MoveBackward"
+					chosenState = "DashBackward"
 			elif character.distance > character.maxDistance:
 				chosenState = "DashForward"
 	
