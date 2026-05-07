@@ -11,6 +11,7 @@ animLib = ExtResource("1_uyfw6")
 animLibName = "ryoshu"
 atk = 7
 maxSta = 14
+maxHP = 150
 strategy = 1
 minDistance = 70
 maxDistance = 150

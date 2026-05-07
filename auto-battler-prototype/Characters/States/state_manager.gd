@@ -55,24 +55,14 @@ func run_full_logic() -> void:
 				print(character.characterName + " action stock + 1")
 		
 		# check if character has any executable techniques
-		character.loadout.techniques_check()
-		#if character.loadout.techniqueToExecute != null:
-			## if got, then tell the opponent that they're gonna attack
-			## if using a technique that doesn't attack, need to add more logic
-			#character.opponent.opponentIsAttacking = true
-		#else:
-			#if character.check_can_attack():
-				#character.opponent.opponentIsAttacking = true
-	
-	# after character tells opponent what they'll do, opponent will decide what they will do
-	# note: we're choosing the opponent's state here because we don't know the execution order if we
-	# choose the character's state here
-	var oppStateManager : StateManager = character.opponent.get_node("StateManager")
-	oppStateManager.run_decision_logic(character.opponent.strategy)
+		
+
+	run_decision_logic(character.strategy)
 
 
 func run_decision_logic(strategy : GlobalValues.STRATEGY) -> void:
 	var chosenState : String = ""
+	character.loadout.techniques_check()
 	if can_act():
 		if character.loadout.techniqueToExecute != null:
 			chosenState = "Technique"
