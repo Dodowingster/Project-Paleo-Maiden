@@ -118,6 +118,14 @@ Justifications:
         - (FG)(CHAR) acts like fighting game specials, emphasizing character traits 
             - need to strategically choose techniques that fit the character's strategy
         - (COOL) lets more crazy things happen in battle
+    - Clashing:
+        - (COOL) if two characters are right next to each other doing nothing, it'll be kinda boring ah
+            - gives defensive characters a way to push back aggressive characters
+            - once again more things happening leading to more unique situations
+        - (CHAR) different characters can use clashes differently
+            - for example: Tyran Rex wants to win clashes to push opponent to corner
+            while Fukuira wants to win clashes to earn space to use her base attack
+        - (FG) this is the main mechanic for characters to manage stage control
 
 
 
