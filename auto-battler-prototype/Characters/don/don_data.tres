@@ -13,6 +13,7 @@ def = 3
 spd = 12
 maxSta = 15
 maxHP = 80
+strategy = 3
 minDistance = 70
 maxDistance = 120
 forwardSpdMult = 20.0

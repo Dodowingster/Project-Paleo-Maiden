@@ -14,7 +14,7 @@ func _ready():
 
 func enter():
 	owner.canClash = false
-	
+	owner.opponent.opponentIsAttacking = true
 	chosenTechnique = %Loadout.techniqueToExecute
 	animName = owner.animLibName + "/" + chosenTechnique.animName
 	for trigger in chosenTechnique.triggers:
