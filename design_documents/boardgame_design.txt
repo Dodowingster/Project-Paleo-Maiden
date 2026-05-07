@@ -717,31 +717,115 @@ AFFINITY (CLARIFICATION)
 
   The Tension system (KIV above) is a SEPARATE tracker and should not
   be conflated with Affinity.
-----------------------------------------------------------------------------------
-SCHEDULE TITLE MATCHES
-	-In order to go for the leagues, the dino must win X amount of title matches in order to qualify
-	-There will be a list of title matches that are compulsary for the dino to compete in
-	-The player can schedule coming title matches for the dino to fight in 
-	-After scheduling the Title match, the player must reach the Arena in Y amount of turns
-	-Scheduling the title match cost excavation items
-	-If the dino cannot reach the Arena in Y amount of turns, they will DQ the title match
 
-DQ
--Special interaction will happen with the potential dino that the player gonna fight (negative?)
+--------------------------------------------------------------------------------
+TITLE MATCHES AT ARENA GRIDS
+--------------------------------------------------------------------------------
+  Title Matches are scheduled commitments tied to fixed Arena Grid nodes on
+  the board map. They gate league qualification and create route-planning
+  pressure through travel deadlines.
 
-Process of scheduling 
+  TERMINOLOGY:
+  - Arena Grid = fixed Arena map node where Title Matches are held.
+  - Arena Grid is equivalent to the previously used term Arena space.
 
--Player will be given a list of upcoming title matches and can schedule them
+  QUALIFICATION RULE:
+  - To qualify for league progression, the player's Maiden must win X Title
+    Matches within the current season/year threshold.
+  - A subset of matches are marked as REQUIRED Title Matches. These cannot be
+    skipped if the player intends to qualify.
 
--Schedule title match, pay the upfront cost (Excavation item)
+  CORE RULES:
+  - Players receive a list of upcoming Title Matches and choose which one to
+    schedule.
+  - Scheduling requires an upfront cost paid in Excavation Finds.
+  - Each scheduled Title Match is bound to a specific Arena Grid destination.
+  - Once scheduled, a turn deadline begins: the player must reach that Arena
+    Grid within Y turns.
+  - Missing the deadline results in a DQ (disqualification) for that match.
 
--After Z amount of turns before the title match happens, the placement in the Title match will be confirmed, Player will now know what is the upcoming dino they gonna fight
+  SCHEDULING FLOW:
+  1. UPCOMING MATCH LIST
+     The player reviews available upcoming Title Matches and their assigned
+     Arena Grid locations.
 
--Player can choose to opt out of the title before the confirmation, the special interaction with the dino for DQing will not happen
+  2. COMMITMENT
+     The player schedules one Title Match and pays the Excavation Find entry
+     cost immediately.
 
--If they dont reach the arena within the required amount of turns, they will DQ
+  3. PRE-CONFIRM WINDOW
+     Until confirmation, the player may opt out with no rivalry penalty.
 
--If they Reach the arena in time, they will proceed with the title match.
+  4. MATCH CONFIRMATION
+     Z turns before match execution, bracket placement is locked and the
+     specific opponent is revealed.
+
+  5. ARRIVAL CHECK
+     If the player reaches the assigned Arena Grid within Y turns, the Title
+     Match proceeds on arrival at that node.
+     If not, the player is marked DQ for that scheduled match.
+
+  DQ OUTCOME:
+  - DQ can trigger a negative relationship interaction with the would-be
+    opponent (missed challenge / perceived disrespect).
+  - Opting out BEFORE confirmation does not trigger this negative interaction.
+
+  ARENA GRID INTERACTION NOTE:
+  - Arena Grids continue to function as Arena Shop locations.
+  - If multiple mechanics are present on arrival (shop + scheduled match),
+    scheduled Title Match resolution takes priority.
+
+  KIV: Exact values for X (wins required), Y (arrival deadline), Z
+  (opponent reveal lead time), and DQ penalty severity should be tuned during
+  balance passes.
+
+--------------------------------------------------------------------------------
+MAIN GOAL / END GAME — ANOMALY SEAL ARC (SAUROPHAGANAX MAXIMUS)
+--------------------------------------------------------------------------------
+  PRIMARY RUN GOAL:
+  - Complete the 3-year expedition and win the Grand Finals through normal
+    rival progression.
+
+  END-GAME ESCALATION (POST-FINALS ONLY):
+  - After Grand Finals, a hidden condition check can trigger the
+    Saurophaganax Anomaly Arc.
+  - Core thematic trigger: cross-lineage rivalry pressure (for example,
+    Theropod vs Sauropod lineage conflict).
+  - To reduce total miss chance, arc trigger may also use world-instability
+    accumulation as an alternate unlock route.
+
+  ANTAGONIST PROFILE:
+  - Saurophaganax is sentient, strategic, and highly intelligent.
+  - She is a world-level anomaly formed from contradictory lineage pressures,
+    framed as an entity that should not exist under normal world rules.
+  - Her dialogue can imply uncanny knowledge about extinction and reality,
+    reinforcing her "outside natural order" presence.
+
+  FINAL BATTLE PHASE ORDER (LOCKED):
+  1. PHASE 1 — SAUROPHAGANAX (TRUE FORM)
+     Direct duel against Saurophaganax herself.
+
+  2. PHASE 2 — CONJURED DINOSAUR COUNTERPART
+     Saurophaganax conjures the champion Maiden's real dinosaur counterpart
+     (example: Sastrei Taurus route -> Carnotaurus manifestation).
+     WIN CONDITION REWARD: Primal Instinct is attained immediately on
+     clearing Phase 2.
+
+  3. PHASE 3 — CHIMERIC MERGE FINALE
+     Saurophaganax merges with the conjured counterpart to create a chimera
+     final form that mirrors/corrupts the player's current build logic.
+
+  PRIMAL INSTINCT (END-GAME RULE):
+  - Primal Instinct manifests as P-Magic aura shaping into the Maiden's
+    real-life dinosaur silhouette.
+  - During the Anomaly Arc, this form is first attained after Phase 2 clear
+    and is used in Phase 3 as the decisive power threshold.
+
+  RESOLUTION MODEL:
+  - Saurophaganax is sealed, not permanently destroyed.
+  - Seal state is cyclical by world law and may reawaken in future eras.
+  - KIV: Whether anomaly resolution causes timeline reset / memory loss should
+    be finalized with roguelite progression persistence rules.
 
 
 
