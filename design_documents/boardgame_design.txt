@@ -827,7 +827,86 @@ MAIN GOAL / END GAME — ANOMALY SEAL ARC (SAUROPHAGANAX MAXIMUS)
   - KIV: Whether anomaly resolution causes timeline reset / memory loss should
     be finalized with roguelite progression persistence rules.
 
+--------------------------------------------------------------------------------
+GAUNTLET MODE (POST-GAME ARC / TRUE ENDING ROUTE)
+--------------------------------------------------------------------------------
+  CONCEPT:
+  - Gauntlet Mode is the post-game equivalent of an Arcade Mode ladder.
+  - The player selects a saved Final Build Maiden from their Maiden Build
+    Gallery and runs a single, self-contained Gauntlet.
+  - No board traversal. No resource management. Pure combat escalation.
 
+  UNLOCK CONDITION:
+  - Available after at least one completed run with a locked Final Build.
+
+  STRUCTURE:
+  - A sequential ladder of increasingly difficult battles against named
+    Paleo Maidens from the roster.
+  - Culminates in a full three-phase encounter against Saurophaganax Maximus.
+
+  TRUE ENDING:
+  - Clearing Gauntlet Mode with a specific Maiden unlocks her TRUE ENDING —
+    a unique scene depicting how that Maiden personally confronts the truth
+    of the Paleo Maiden world's cycle.
+  - Each Maiden's True Ending is authored individually. The same world truth
+    lands differently depending on who is hearing it.
+
+  CORE THEME — EVOLUTION AND SELF-DETERMINATION:
+  The unifying thread across all True Endings is self-improvement and
+  evolution: the moment each Maiden, upon learning the full truth of the
+  cycle, chooses who she decides to become. No two responses are the same.
+  The world's truth is a mirror — what it reflects depends entirely on the
+  Maiden standing in front of it.
+
+  This is not a theme about power. It is a theme about agency. Each True
+  Ending depicts the most evolved version of that Maiden's identity —
+  the person she becomes at the absolute limit of who she has always been.
+
+  AUTHORING RULE:
+  - Every True Ending must arrive at its resolution through the logic of
+    that Maiden's established character. The response must be inevitable
+    in hindsight — the player should feel "of course she would do this."
+  - No two Maidens share the same emotional resolution. The range of
+    responses should cover the full spectrum of how people confront
+    an impossible truth.
+
+  ── EXAMPLE: SASTREI TAURUS ─────────────────────────────────────────────
+  Evolved Self: The Maiden who decides her own fate.
+
+  Upon learning the truth — that the world is locked in a cycle, that
+  sealing Saurophaganax only delays the inevitable reset, that everything
+  and everyone she fought for exists inside a loop that will be wiped —
+  Sastrei does not hesitate long.
+
+  She does not accept the cycle. She does not argue with its logic.
+  She simply refuses to have any part of it.
+
+  Her resolution is to permanently destroy Saurophaganax at the cost of
+  her own existence — not out of self-destruction, but out of the
+  same willpower that carried her through every fight she was told
+  she could not win. She could not be given a large P-Magic pool.
+  She could not be given an easier path. She could not be given a world
+  that made sense. She chose her answer anyway.
+
+  The result: the cycle is broken. Everyone she knew survives and
+  continues. No one remembers her. The world does not know what
+  it was saved from, or by whom.
+
+  Tonal register: Not tragedy framed as loss. Tragedy framed as
+  completion. She finished what she started.
+
+  KEY DESIGN RULE:
+  - True Endings are per-Maiden, not per-build.
+  - A player who completes Gauntlet Mode twice with two different Sastrei
+    builds unlocks the same Sastrei True Ending both times.
+  - Different Maidens always produce different True Endings.
+
+  FINAL BUILD RELEVANCE:
+  - The player's locked build determines how the Gauntlet is approached
+    mechanically. The True Ending content does not change based on build,
+    but survival and phase difficulty are shaped by build choices.
+  - This makes the Build Gallery a functional archive, not just a
+    cosmetic collection.
 
 ================================================================================
 END OF DOCUMENT
