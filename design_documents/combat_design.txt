@@ -1,103 +1,133 @@
-Character Stats
-ATK
-    - increasing atk lets the character do more damage
-DEF
-    - increasing this lets the character take less damage
-SPD
-    - increase movement speed
-    - this means more clashes, less action goal wasted if the character is aggressive
-    - instead, less clashes, but still less action goal wasted if the character is defensive?
-    - basically enhances the chances of the character's strategy working
-STA
-    - has a min/max value, rolls a number between it every frame/tick
-    - increases frequency of performing strategy
-    - low STA -> more clashing, high STA -> less clashing
-    - Current
-        - when action goal is maxed, character has access to attack 
-        - character always has access to block
-        - attacking resets action goal
-        - blocking freezes action goal gain
-        - very common to see back and forths of characters blocking each other's attacks when out of sync
-        - slows down game outcomes, which isnt great for an auto battler
-    - Test idea?
-        - when action goal is maxed, character has access to attack or block
-        - once attack or block is triggered, action goal is lost
-        
-Range
-    - min, max determines character decisions
-    - cannot be changed
-HP
-    - character's health
-    - increasing it ups the character's survivability
+Battle System:
+1) Character Stats:
+- HP
+- ATK
+- DEF
+- SPD
+- STA (min and max)
+- Action Goal limit
+- Action Stocks
+- fwd move spd mult
+- bkwd move spd mult
+- fwd dash spd mult
+- min fwd dash duration
+- max fwd dash duration
+- bkwd dash spd mult
+- min bkwd dash duration
+- max bkwd dash duration
+
+2) Character differences:
+- different base attack
+- different strategies
+- different stats
+
+3) Actions:
+- can gain action goal:
+    - walk forward
+        - can be interrupted anytime
+    - walk backward
+        - can be interrupted anytime
+    - dash forward
+        - has min (and maybe max) duration
+        - can only be interrupted after min duration
+    - dash backward
+        - has min (and maybe max) duration
+        - can only be interrupted after min duration
+- cannot gain action goal:
+    - attack
+        - consumes an action stock
+    - block
+        - consumes an action stock
+    - clashing
+        - clash winner gains action goal
+        - clash loser's action goal is stuck in place until actionable
+
+4) Strategies:
+- Tyran Rex (Aggressive):
+    - Dash forward until in range
+    - continue dashing or continue walking forward while in range until can attack
+    - once got stock and in range, attack
+    - if no stock, clash instead
+    - Goal: force opponent into corner and beat the shit out of them
+        - aims to force more clashes to compensate for average action goal
+        - takes more hits, but becomes very dangerous once she pushes you to the corner
+
+- Some dino here (Defensive):
+
+- Sastrei Taurus (Evasive):
+    - with action stock:
+        - if opponent attacking: dash backwards
+        - else: 
+            - if out of range: dash forward
+            - else: walk forward
+    - without action stock:
+        if opponent is attacking or cannot clash while in range: dash backwards
+        else: walk forward
+        once close enough try to clash
+    - Goal: make opponents whiff their attacks before going in with your own
+- Kitadani Fukuira (Balanced):
+    - with action stock:
+        - if opponent attacking: walk backwards
+        - else: 
+            - if out of range: walk forward
+            - once in range, go for attack
+            - if too close, clash first
+    - without action stock:
+        if opponent is attacking or cannot clash while in range: dash backwards
+        else: walk forward
+        once close enough try to clash
+    - Goal: keep opponents away so you have time to attack
 
 
-Strategy
-    - what is the perfect strategy?
-        - hits all attacks
-        - maximizes action goal gain
-        - blocks/avoids all opponent attacks
-        - do this until opponent dies
-        - should we have a timer?
-            - if yes, character should be able to kill opponent/ have a life lead before the timer ends
-            - timer min 60 max 99
-    - how do you build a strategy?
-        - general theme
-        - how they maximize action goal economy
-        - how they attack
-        - how they avoid attack
-    - Tyran Rex strategy:
-        - general theme:
-            - overwhelming offense
-            - just take the hit, you've got the HP for it
-            - slow movement
-        - attack rules:
-            - if outside attack range, get into attack range
-            - if inside attack range but no action goal, go for clash
-            - if inside attack range and has action goal, attack
-        - block rules:
-            - imagine blocking lmao
-        - avoid rules:
-            - imagine running away lmao
-        - clash rules:
-            - inside attack range, but no action goal
-        - gameplan:
-            - focus on building atk first
-            - also big focus on def so you don't die before you beat the shit out of the opponent
-            - sta is not as important
-                - 
-            - spd isnt necessary, by always moving forward she forces opponent to interact
-    - Kitadani Fukuira strategy:
-        - general theme:
-            - figure out how to land your powerful base attack
-                - bad attack startup, great post attack situation
-        - attack rules:
-            - if outside attack range, go into attack range
-            - if inside attack range but no action goal, go for clash
-            - if inside attack range and has action goal:
-                - if opponent is not attacking, attack
-                - if opponent is attacking, move backwards
-                - if opponent hits, block attack and reset action goal
-        - block rules:
-            - uh
-        - avoid rules:
-            - uh
-        - clash rules:
-            - if opponent between min and max range
-                - go for clash to try to push back opponent
-        - gameplan:
-            - focus on ATK
-                - minimize number of attacks needed to win
-            - also STA
-            - spd is less of a priority
+Design Intentions:
+Core Pillars:
+    - simulate the neutral of a fighting game (FG)
+    - make em look cool (COOL)
+    - characterization through moveset (CHAR)
+Justifications:
+    - Movement:
+        - why 2 types of movement?
+            - (CHAR) to allow variety in strategies, showing how careful/reckless each dino is with their 
+            movement 
+            - (COOL) with only move, blocking occurs too often, leading to battles taking too long
+            - (COOL) dashing also increases the rate of things happening on screen, noticeable speed 
+            changes and vfx should engage the player for longer
+            - (FG) grounded fighting game movement usually also involves walking and dashing
+    - Action Stock and Goal:
+        - originally only action goal, players have maximum one action as soon as action goal is maxed
+            - for a more hit and run based system, this could be better
+            - (CHAR) but by allowing characters to "stock" their actions, we can introduce more complex 
+            strategies that require more than one stock
+            - (COOL)(FG) also this means when something happens, more things happen at a time, 
+            more peaks and valleys in battle, sorta like when someone wins neutral in a fighting game
+    - Blocking:
+        - can block when action stock > 0 and is idle or moving (not dashing)
+            - why does it use action stock? Idk yet need to experiment
+            - (COOL) but if it doesn't use action stock it'll make battles unnecessarily long? dashing might've fixed that tho
+            - (FG)(LOL) blocking exists in fighting games and should be used, so it'll be really funny to make characters that don't block
+            - (CHAR) how characters choose to block can also help emphasize character
+    - Attacking:
+        - similarly uses action stock and can be done when idle or moving (not dashing)
+        - uhhh you gotta attack to defeat the opponent sooooo
+        - (CHAR)(COOL)(FG) different characters have different attacks
+    - Strategy:
+        - (CHAR)different characters have different strategies, emphasizing character traits
+        - (FG) strategies are based on fighting game strategies
+        - (COOL) different strategies interact uniquely with each other
+    - Techniques:
+        - (FG)(CHAR) acts like fighting game specials, emphasizing character traits 
+            - need to strategically choose techniques that fit the character's strategy
+        - (COOL) lets more crazy things happen in battle
+    - Clashing:
+        - (COOL) if two characters are right next to each other doing nothing, it'll be kinda boring ah
+            - gives defensive characters a way to push back aggressive characters
+            - once again more things happening leading to more unique situations
+        - (CHAR) different characters can use clashes differently
+            - for example: Tyran Rex wants to win clashes to push opponent to corner
+            while Fukuira wants to win clashes to earn space to use her base attack
+        - (FG) this is the main mechanic for characters to manage stage control
 
-Clashing
-    - if both characters are at min range, clash
-    - the character with shorter min range determines whether a clash happens
-Techniques
-    - different techniques fill in weaknesses of a character/ enhances their strengths:
-    - rush:
-        - moves forward and does damage
-        - since it moves forward, results in better stage position
-        - post-hit situation: should be good to allow continued offense
-        - post-block situation: potential reversal from opponent
+
+
+    
 

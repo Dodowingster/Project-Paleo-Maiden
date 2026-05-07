@@ -9,7 +9,7 @@
 [node name="Ryoshu_Rush" type="Node" unique_id=693203156]
 script = ExtResource("1_f4hai")
 
-[node name="ActionGoalTrigger" type="Node" parent="." unique_id=225960377]
+[node name="ActionStockTrigger" type="Node" parent="." unique_id=225960377]
 script = ExtResource("2_aed7n")
 metadata/_custom_type_script = "uid://davbi37fiwm0b"
 
