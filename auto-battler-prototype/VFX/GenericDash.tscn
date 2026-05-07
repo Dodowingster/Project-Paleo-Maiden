@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://csdqu7qc4ndl1"]
+
+[ext_resource type="Script" uid="uid://ck5hkeeclio7i" path="res://VFX/hitvfx.gd" id="1_4ikm2"]
+[ext_resource type="Texture2D" uid="uid://2027clsfhwng" path="res://VFX/misceffects_1_bgremove.png" id="2_8o7df"]
+
+[sub_resource type="Animation" id="Animation_op8kw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GenericDash:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(8, 384, 32, 64)]
+}
+
+[sub_resource type="Animation" id="Animation_8o7df"]
+resource_name = "play"
+length = 0.30000335
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GenericDash:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.20000002, 0.23333335, 0.26666668, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(8, 384, 32, 64), Rect2(40, 384, 32, 64), Rect2(72, 384, 32, 64), Rect2(104, 384, 32, 64), Rect2(136, 384, 32, 64), Rect2(168, 384, 32, 64), Rect2(200, 384, 32, 64), Rect2(232, 384, 32, 64), Rect2(264, 384, 32, 64), Rect2(296, 384, 32, 64)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_op8kw"]
+_data = {
+&"RESET": SubResource("Animation_op8kw"),
+&"play": SubResource("Animation_8o7df")
+}
+
+[node name="GenericDash" type="Node2D" unique_id=1225988364 groups=["vfx"]]
+script = ExtResource("1_4ikm2")
+
+[node name="GenericDash" type="Sprite2D" parent="." unique_id=1186707176]
+scale = Vector2(2, 2)
+texture = ExtResource("2_8o7df")
+region_enabled = true
+region_rect = Rect2(8, 384, 32, 64)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=268019487]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_op8kw")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

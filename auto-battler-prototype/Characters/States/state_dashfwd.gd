@@ -14,6 +14,8 @@ func enter():
 	super.enter()
 	if animName in animList:
 		animPlayer.play(animName)
+	var vfx_pos : Vector2 = owner.global_position
+	VFXManager.spawn_vfx(VFXManager.VFX_TYPE.DASH, vfx_pos, owner.get_side())
 
 
 func exit():
