@@ -7,11 +7,8 @@ class_name StateManager
 @export var noActionGoalStates : Array[State]
 @export var canBlockStates : Array[State]
 var attackedOutcome = ""
-
-func run_strategy_mods(strategy : GlobalValues.STRATEGY) -> void:
-	pass
-	#if strategy == GlobalValues.STRATEGY.AGGRESSIVE:
-		#canBlockStates.clear()
+@onready var strategyRun : bool = false
+@onready var stateChosen : String = ""
 
 func can_act() -> bool:
 	return stateMachine.currentState is ActionableState or \
@@ -53,14 +50,18 @@ func run_full_logic() -> void:
 				character.currentActionGoal -= character.actionGoalTotal
 				character.currentActionStock += 1
 				print(character.characterName + " action stock + 1")
-		
-		# check if character has any executable techniques
-		
 
-	run_decision_logic(character.strategy)
+	stateChosen = run_decision_logic(character.strategy)
+	if strategyRun and character.opponent.stateManager.strategyRun:
+		if stateChosen != "" and stateMachine.currentState.name != stateChosen:
+			stateMachine.currentState.transition.emit(stateMachine.currentState, stateChosen)
+		var opponent : Character = character.opponent
+		if opponent.stateManager.stateChosen != "" and opponent.stateMachine.currentState.name != opponent.stateManager.stateChosen:
+			opponent.stateMachine.currentState.transition.emit(opponent.stateMachine.currentState, opponent.stateManager.stateChosen)
+		strategyRun = false
+		character.opponent.stateManager.strategyRun = false
 
-
-func run_decision_logic(strategy : GlobalValues.STRATEGY) -> void:
+func run_decision_logic(strategy : GlobalValues.STRATEGY) -> String:
 	var chosenState : String = ""
 	character.loadout.techniques_check()
 	if can_act():
@@ -73,9 +74,10 @@ func run_decision_logic(strategy : GlobalValues.STRATEGY) -> void:
 				chosenState = balanced_decision_logic()
 			elif strategy == GlobalValues.STRATEGY.EVASIVE:
 				chosenState = evasive_decision_logic()
-	
-	if chosenState != "" and stateMachine.currentState.name != chosenState:
-		stateMachine.currentState.transition.emit(stateMachine.currentState, chosenState)
+	strategyRun = true
+	return chosenState
+	#if chosenState != "" and stateMachine.currentState.name != chosenState:
+		#stateMachine.currentState.transition.emit(stateMachine.currentState, chosenState)
 
 func aggressive_decision_logic() -> String:
 	var chosenState : String = ""

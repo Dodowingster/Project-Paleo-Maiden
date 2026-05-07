@@ -19,6 +19,6 @@ forwardSpdMult = 17.5
 backwardSpdMult = 8.75
 forwardDashSpdMult = 35.0
 backwardDashSpdMult = 17.5
-actionGoalTotal = 450
+actionGoalTotal = 600
 baseAtkData = ExtResource("2_om7tl")
 metadata/_custom_type_script = "uid://boc53imrgb27h"

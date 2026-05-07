@@ -117,8 +117,6 @@ func _ready() -> void:
 		opponent.connect("broadcastClashResult", on_clash_result_rcvd)
 		opponent.connect("broadcastLose", check_win)
 		distance = abs(opponent.position.x - position.x)
-	
-	stateManager.run_strategy_mods(strategy)
 
 ## SETUP functions
 func setup_loadout(techniqueDataList : Array[TechniqueData]) -> void:
