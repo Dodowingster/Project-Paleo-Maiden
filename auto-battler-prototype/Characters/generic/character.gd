@@ -109,6 +109,13 @@ func _enter_tree() -> void:
 	health = maxHP
 
 func _ready() -> void:
+	var dashFwdState : State = stateMachine.states.get("dashforward")
+	var dashBkwdState : State = stateMachine.states.get("dashbackward")
+	if dashFwdState is StateDashFwd:
+		dashFwdState.timeTillActionable = characterData.forwardDashMinDuration
+	if dashBkwdState is StateDashBkwd:
+		dashBkwdState.timeTillActionable = characterData.backwardDashMinDuration
+		
 	%SideTracker.set_facing_direction(startFacingRight)
 	affMgr.setup_affinity_bonuses(affinityBonuses)
 	GlobalValues.connect("updateDataToChar", _on_tick)
@@ -117,6 +124,7 @@ func _ready() -> void:
 		opponent.connect("broadcastClashResult", on_clash_result_rcvd)
 		opponent.connect("broadcastLose", check_win)
 		distance = abs(opponent.position.x - position.x)
+
 
 ## SETUP functions
 func setup_loadout(techniqueDataList : Array[TechniqueData]) -> void:
@@ -286,6 +294,7 @@ func unload_loadout() -> void:
 							var visibleHitstunTrack : int = hitstunAnim.find_track("%s:visible" % shape.get_path(), Animation.TYPE_VALUE)
 							if visibleHitstunTrack != -1:
 								hitstunAnim.remove_track(visibleHitstunTrack)
+
 
 ## initial PHYSICS function
 func set_char_velocity(_delta:float):
