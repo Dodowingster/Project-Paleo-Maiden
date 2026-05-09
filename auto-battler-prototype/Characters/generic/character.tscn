@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://whbif5ykrdmj" path="res://Characters/States/state_machine.gd" id="9_28a1p"]
 [ext_resource type="Script" uid="uid://bqw1eo83vcp4r" path="res://Characters/States/state_hitstun.gd" id="10_40065"]
 [ext_resource type="Script" uid="uid://chhf2t5cm2eg4" path="res://Characters/States/state_blockstun.gd" id="11_0rq6b"]
+[ext_resource type="Texture2D" uid="uid://bt8isuoep80x2" path="res://Characters/placeholder_sprites/A_CinqEastDon/idle.png" id="12_0rq6b"]
 [ext_resource type="Script" uid="uid://bibnpqp5otcvs" path="res://Characters/States/state_idle.gd" id="12_xyuli"]
 [ext_resource type="Script" uid="uid://85tmkwtqblw3" path="res://Characters/States/state_movefwd.gd" id="13_w4xc1"]
 [ext_resource type="Script" uid="uid://gsw3o2s1dbgk" path="res://Characters/States/state_manager.gd" id="14_7en0w"]
@@ -31,7 +32,6 @@
 [ext_resource type="Script" uid="uid://piba5udqmidg" path="res://Characters/States/state_dashbkwd.gd" id="21_40065"]
 [ext_resource type="PackedScene" uid="uid://wa1rn1pd2gkc" path="res://Mechanics/Loadout/Loadout.tscn" id="21_ucqw4"]
 [ext_resource type="Script" uid="uid://cyexs8siijqaw" path="res://Characters/generic/attack_viewer.gd" id="23_1us7d"]
-[ext_resource type="Texture2D" uid="uid://uxtjm43ijs07" path="res://Characters/placeholder_sprites/Jin Sprites/jn052_00.png" id="39_1bgn5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xudx"]
 size = Vector2(48, 128)
@@ -63,10 +63,8 @@ script = ExtResource("4_ocvec")
 
 [node name="Sprite" type="Sprite2D" parent="SideTracker" unique_id=1654816590]
 unique_name_in_owner = true
-position = Vector2(-6, 0)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("39_1bgn5")
-flip_h = true
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("12_0rq6b")
 region_rect = Rect2(0, 88, 256, 401)
 script = ExtResource("7_ryghy")
 
