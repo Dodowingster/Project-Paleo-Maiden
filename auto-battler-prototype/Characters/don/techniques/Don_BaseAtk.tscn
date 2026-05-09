@@ -7,7 +7,7 @@
 [node name="DonBaseAtk" type="Node" unique_id=1301937975]
 script = ExtResource("1_eanrm")
 
-[node name="ActionGoalTrigger" type="Node" parent="." unique_id=1023278779]
+[node name="ActionStockTrigger" type="Node" parent="." unique_id=1023278779]
 script = ExtResource("2_p3ays")
 metadata/_custom_type_script = "uid://davbi37fiwm0b"
 

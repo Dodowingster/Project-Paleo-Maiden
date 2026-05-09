@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://goo0xael215h"]
+
+[ext_resource type="Script" uid="uid://boc53imrgb27h" path="res://Characters/generic/character_data.gd" id="1_5eh5q"]
+[ext_resource type="AnimationLibrary" uid="uid://c7xkr5d1qyx2t" path="res://Characters/jin/anims/jin.res" id="1_m0c2w"]
+[ext_resource type="Resource" uid="uid://b8cv6pg24ihv" path="res://Characters/jin/techniques/jin_baseatk.tres" id="2_c5yf4"]
+
+[resource]
+script = ExtResource("1_5eh5q")
+characterName = "Jin"
+animLib = ExtResource("1_m0c2w")
+animLibName = "jin"
+strategy = 1
+minDistance = 70
+maxDistance = 150
+forwardSpdMult = 20.0
+backwardSpdMult = 10.0
+forwardDashSpdMult = 35.0
+backwardDashSpdMult = 17.5
+actionGoalTotal = 600
+baseAtkData = ExtResource("2_c5yf4")
+metadata/_custom_type_script = "uid://boc53imrgb27h"

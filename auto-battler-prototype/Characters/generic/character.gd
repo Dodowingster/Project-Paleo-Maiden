@@ -244,6 +244,7 @@ func setup_loadout(techniqueDataList : Array[TechniqueData]) -> void:
 				hitstunAnim.track_insert_key(track_idx, 0, false)
 				
 	loadout.setup_techniques()
+	%AnimationPlayer.play(animLibName + "/RESET")
 
 func unload_loadout() -> void:
 	var resetAnim : Animation = %AnimationPlayer.get_animation(animLibName + "/RESET")

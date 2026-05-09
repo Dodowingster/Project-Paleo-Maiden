@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TechniqueData" format=3 uid="uid://b8cv6pg24ihv"]
+
+[ext_resource type="Script" uid="uid://djprxni5sqe65" path="res://Characters/generic/hitbox_data.gd" id="1_vpsa3"]
+[ext_resource type="Script" uid="uid://dvmw6qlvblh7i" path="res://Characters/generic/hurtbox_data.gd" id="2_prahd"]
+[ext_resource type="Resource" uid="uid://bqu3imk0goydg" path="res://Characters/jin/hitboxes/jin_baseatkdata.tres" id="2_w2by1"]
+[ext_resource type="Script" uid="uid://c0c4p57o71yio" path="res://Characters/generic/technique_data.gd" id="3_w2by1"]
+[ext_resource type="PackedScene" uid="uid://dnvb3adklhg3u" path="res://Characters/jin/techniques/Jin_BaseAtk.tscn" id="4_prahd"]
+
+[resource]
+script = ExtResource("3_w2by1")
+technique = ExtResource("4_prahd")
+techniqueName = "BaseAtk"
+animName = "baseattack"
+hitboxes = Array[ExtResource("1_vpsa3")]([ExtResource("2_w2by1")])
+metadata/_custom_type_script = "uid://c0c4p57o71yio"

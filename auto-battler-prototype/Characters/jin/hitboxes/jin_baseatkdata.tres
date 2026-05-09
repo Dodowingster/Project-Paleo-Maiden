@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="HitboxData" format=3 uid="uid://bqu3imk0goydg"]
+
+[ext_resource type="Shape2D" uid="uid://cq56ergs7pqid" path="res://Characters/jin/hitboxes/jin_baseatkshape.tres" id="1_k1o8s"]
+[ext_resource type="Script" uid="uid://djprxni5sqe65" path="res://Characters/generic/hitbox_data.gd" id="1_uu460"]
+
+[resource]
+script = ExtResource("1_uu460")
+damage = 25
+hitstun = 0.8
+blockstun = 0.6
+knockbackX = 1600
+blockbackX = 1200
+hitstopFrames = 10
+hitboxShape = ExtResource("1_k1o8s")
+startup = 20
+active = 4
+location = Vector2(72, -20)
+metadata/_custom_type_script = "uid://djprxni5sqe65"
