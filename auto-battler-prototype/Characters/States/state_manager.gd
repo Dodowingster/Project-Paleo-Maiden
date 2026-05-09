@@ -121,7 +121,7 @@ func balanced_decision_logic() -> String:
 					chosenState = "Clashing"
 				else:
 					chosenState = "DashBackward"
-			elif character.distance > character.maxDistance:
+			elif character.distance > (character.maxDistance * 1.3):
 				chosenState = "DashForward"
 	
 	return chosenState

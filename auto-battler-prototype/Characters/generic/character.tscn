@@ -17,7 +17,7 @@
 [ext_resource type="Script" uid="uid://bqw1eo83vcp4r" path="res://Characters/States/state_hitstun.gd" id="10_40065"]
 [ext_resource type="Script" uid="uid://chhf2t5cm2eg4" path="res://Characters/States/state_blockstun.gd" id="11_0rq6b"]
 [ext_resource type="Script" uid="uid://bibnpqp5otcvs" path="res://Characters/States/state_idle.gd" id="12_xyuli"]
-[ext_resource type="Texture2D" uid="uid://6egxyfryaor7" path="res://Characters/placeholder_sprites/Jin Sprites/jn407_12.png" id="13_0rq6b"]
+[ext_resource type="Texture2D" uid="uid://viv0tq23ssnd" path="res://Characters/placeholder_sprites/Jin Sprites/jn203_08.png" id="13_0rq6b"]
 [ext_resource type="Script" uid="uid://85tmkwtqblw3" path="res://Characters/States/state_movefwd.gd" id="13_w4xc1"]
 [ext_resource type="Script" uid="uid://gsw3o2s1dbgk" path="res://Characters/States/state_manager.gd" id="14_7en0w"]
 [ext_resource type="Script" uid="uid://sv5uv45x0dmh" path="res://Characters/States/state_movebkwd.gd" id="14_p1ouf"]
@@ -73,7 +73,7 @@ debug_color = Color(0, 0.6, 0, 0.41960785)
 
 [node name="Sprite" type="Sprite2D" parent="SideTracker" unique_id=1654816590]
 unique_name_in_owner = true
-position = Vector2(-32, 8)
+position = Vector2(16, 10)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("13_0rq6b")
 flip_h = true

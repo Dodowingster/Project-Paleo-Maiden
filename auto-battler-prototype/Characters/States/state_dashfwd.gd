@@ -5,15 +5,21 @@ class_name StateDashFwd
 @onready var animPlayer : AnimationPlayer = %AnimationPlayer
 var animList : PackedStringArray = []
 var animName : String
+var backupAnim : String
 
 func _ready():
 	animList = animPlayer.get_animation_list()
-	animName = owner.animLibName + "/moveforward"
+	animName = owner.animLibName + "/dashforward"
+	backupAnim = owner.animLibName + "/moveforward"
+	
 
 func enter():
 	super.enter()
 	if animName in animList:
 		animPlayer.play(animName)
+	else:
+		if backupAnim in animList:
+			animPlayer.play(backupAnim)
 	var vfx_pos : Vector2 = owner.global_position
 	VFXManager.spawn_vfx(VFXManager.VFX_TYPE.DASH, vfx_pos, owner.get_side())
 
