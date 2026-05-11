@@ -42,6 +42,17 @@ her. The world's own contradictions do.
 
 She is fully sentient, deeply strategic, and disturbingly knowledgeable — not just about the Paleo Maiden world, but about the world beyond it. She speaks of extinction as a fact. She references geological eras with the casual familiarity of someone who has seen them pass. She knows what Primal Instinct aura-forms look like because she recognizes the real creatures they mirror — creatures she watched disappear long before the Paleo Maidens existed.
 
+She also remembers the Lecturer (Player) across resets. In her view, the
+Lecturer is the true recurring constant of the cycle: the one who keeps
+returning, keeps choosing different Maidens, and keeps forgetting each prior
+attempt when time reversion happens. This is why she treats every endgame
+encounter as a continuation, not a first meeting.
+
+In truth-reveal confrontations, she does not test the Maiden in isolation.
+She tests the bond between Maiden and Lecturer. Affinity is not incidental to
+her endgame logic; it is evidence of whether their answer is conviction,
+dependency, rebellion, or responsibility.
+
 To every Maiden who has ever stood across from her, she is the most unsettling opponent they have ever faced. Not because she is overwhelming. Because she already knows exactly what they are.
 
 | Attribute | Detail |
@@ -51,6 +62,7 @@ To every Maiden who has ever stood across from her, she is the most unsettling o
 | **Affiliation** | None. Sealed. Recurrent. |
 | **Seal Status** | Cyclical — will reawaken regardless of resolution |
 | **Known Abilities** | Reality distortion, P-Magic conjuration of real dinosaur forms, build mirroring, Primal Instinct recognition |
+| **Lecturer Awareness** | Full cross-loop memory of prior Lecturer cycles while the Lecturer resets memory each loop |
 | **Combat Role** | World-level antagonist. Final Gauntlet boss. |
 | **Registered Rival** | None — she is not a rival. She is the end of the loop. |
 
@@ -62,9 +74,10 @@ To every Maiden who has ever stood across from her, she is the most unsettling o
 | :--- | :--- | :--- |
 | **Sauris (Progenitor)** | Joint Sealing (Past) | Sauris and Ornith executed the first seal simultaneously. Saurophaganax does not hold grudges; she considers their timing precise, logical, and temporarily effective. |
 | **Ornith (Progenitor)** | Joint Sealing (Past) | Ornith's seal was not separate or delayed; it was synchronized with Sauris in the same instant. That dual action prevented immediate time reversion despite the lineage conflict that created Saurophaganax. |
+| **Lecturer (Player)** | Recurring Witness | She has encountered the Lecturer repeatedly across looped histories. The Lecturer forgets each cycle; she does not. She taunts them to "return for truth" because she expects another loop iteration unless a true answer is reached. |
 | **All Active Maidens** | Specimens in a cycle | She does not see them as enemies. She sees them as iterations. She is genuinely curious about them, which makes her more unsettling, not less. |
-| **Sastrei Taurus** | Cycle-Breaking Anomaly | Sastrei rejects the loop itself and chooses total rupture over preservation. She forces Saurophaganax out of the world layer at the cost of her own existence. Saurophaganax treats her as the first answer she could not fully model. |
-| **Tyran Rex** | Sovereign Claimant | Tyran asserts authority over world continuity and denies Saurophaganax's right to arbitrate fate. In this route, Saurophaganax yields jurisdiction and withdraws rather than being loop-sealed. |
+| **Sastrei Taurus** | Cycle-Breaking Anomaly | Sastrei rejects the loop itself after learning the Lecturer's memories are erased by it again and again. She forces Saurophaganax out of the world layer at the cost of her own existence, and Saurophaganax treats her as the first answer she could not fully model. |
+| **Tyran Rex** | Sovereign Claimant | Tyran asserts authority over world continuity and denies Saurophaganax's right to arbitrate fate. In Tyran's answer, the Lecturer moves forward while Tyran takes on the recurrence herself, driving Saurophaganax back every time she returns. |
 | **Nevesi Pycnonemo** | Radiant Challenger | Nevesi begins from vanity but evolves into a covenant answer: collective cheering as stabilizing will. Her world's chant drowns Saurophaganax's presence and forces retreat without a time-loop reset. |
 
 ---
@@ -96,6 +109,7 @@ To every Maiden who has ever stood across from her, she is the most unsettling o
 * **Stated Position:** The cycle cannot be broken. She is not the villain of this story. She is the proof that the story repeats.
 * **Actual Behavior:** She allows herself to be fought. She is not certain the cycle is unbreakable. She has simply never seen a Maiden willing to pay the cost of finding out. She is waiting to be wrong.
 * **What She Wants (KIV):** To be answered, not sealed. She does not have a power fantasy. She has a philosophical one. The Maiden who can genuinely refute her existence — not suppress it, but end it — is the only outcome she has not already modeled.
+* **Endgame Test Logic:** She evaluates both the Maiden's answer and the Maiden-Lecturer bond. Higher Affinity does not guarantee victory; it determines how coherent and irreversible their answer can become.
 
 ---
 
