@@ -65,12 +65,20 @@ Scope: Arcade/Gauntlet alternative-answer endings after Saurophaganax resolution
 - Final Image: A dark horizon blooms into layered light like a living forest canopy. Nevesi stands at its center, no longer the only star, and smiles as the world shelters under her glow.
 - Homage: Her ending honors the meaning of Pycnonemosaurus, "Thick Forest Lizard": she becomes both the intimidating edge and the sanctuary canopy that protects life beneath it.
 
+## Fragilis Allosa - Symphony of the Different
+- Maiden's Answer: Even if the sound you hear is what you deem an illusion. It is still a sound that is being played by the instruments within this world. It is not your place to decide the end for us.
+- Lecturer Influence: The Lecturer’s mentorship taught Allosa that a true champion doesn't just defeat an opponent, they "arrange" the battlefield. Their bond provides the "First Audience" for a symphony that has never been played in any prior cycle.
+- Resolution: Allosa performs the Symphony of the Different. Using her Sabre as a conductor’s baton, she catches the chaotic, chimeric P-Magic of Saurophaganax and re-orders it. She "authors" a stable rhythm for the anomaly, effectively conducting Saurophaganax into a manifested, singular identity.
+- Cost: Relinquishing the Solo. Allosa gives up her original dream of being a solitary "Champion" (The Primeval Queen) to become a global Maestro. Her victory is no longer measured in individual trophies, but in the harmony of her ensemble.
+- World Result: Saurophaganax is successfully integrated into the world registry as Maximus. The reset cycle is broken. Allosa establishes the "Different Symphony Orchestra," embarking on a permanent world tour across both the Modern and Primeval Continents.
+- Final Image: A grand stage in a coastal city. Allosa stands at the podium, eyes closed in intense focus, conducting with the grace of the "Lioness of the Jurassic." In the orchestra behind her, Maximus—now a tall, striking student—is playing a grand pipe organ, her ancient power channeled into a haunting melody. In the wings, the Lecturer holds a world tour schedule, watching the "Different" harmony captivate the world.
+- Homage: Allosaurus means "Different Lizard." Her ending reflects her ability to take something "Different"—the chimeric anomaly—and find a place for it within the Grand Symphony.
+
 ---
 
 ## Pending Cards (To Author)
 - Caza Amarga
 - Horri Tricera
-- Fragilis Allosa
 - Aegypt Spino
 - Kitadani Fukuira
 - Ostromm Utahra
