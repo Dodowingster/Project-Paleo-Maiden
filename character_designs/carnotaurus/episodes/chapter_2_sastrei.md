@@ -6,17 +6,17 @@
 
 **BACKGROUND:** The vast gym echoes with the sounds of sparring. Maidens clash across several training rings. The LECTURER stands on an observation deck, clipboard in hand, fulfilling their official duties. Their attention is drawn to one particular ring where SASTREI TAURUS and CAZA AMARGA are facing off.
 
-Amarga stands poised, her P-Magic-conjured Mangual held ready—a formidable flail with a spiked head and impressive reach. Across from her, Sastrei is in her boxer's stance, her hands glowing faintly. She grits her teeth, trying to focus her P-Magic. A pair of small, shimmering gauntlets flicker into existence over her fists, but they look unstable, almost translucent.
+Amarga stands poised, her P-Magic-conjured **Twin-Spine Lash** held in a relaxed but lethal grip—the double-headed whip crackles with a refined white aura. Across from her, Sastrei is in her boxer's stance, her hands glowing faintly. She grits her teeth, trying to focus her P-Magic. A pair of small, shimmering gauntlets flicker into existence over her fists, but they look unstable, almost translucent.
 
-The spar begins. Sastrei darts forward, but Amarga easily keeps her at a distance with the long reach of her Mangual. Every time Sastrei tries to close in, a flick of Amarga's wrist sends the spiked head of the flail cracking near her, forcing her back. The fight is frustratingly one-sided. Finally, seeing an opening, Sastrei lunges, but Amarga swings her weapon in a wide, defensive arc. The Mangual connects, and Sastrei's P-Magic reserves shatter. She stumbles back, defeated, the faint light of her gauntlets extinguishing completely.
+The spar begins. Sastrei lunges, but Caza doesn't even lift a foot to retreat. Instead, a shimmer of Yellow P-Magic spreads beneath her heels like a spilled pool of water. She simply "slides" backward, her feet remaining perfectly still as the ground carries her out of range. The **Twin-Spine Lash** begins to move in rhythmic, circular patterns, creating a wall of snapping force. Every time Sastrei tries to close in, Caza glides effortlessly in a semi-circle, maintaining the exact same distance with frustrating precision. It’s like trying to catch a shadow on ice. Finally, Caza executes a **Crescendo Lash**. As she slides forward with sudden momentum, the twin lashes strike Sastrei's wrist and ankle simultaneously. The impact isn't just physical—it's a heavy concussive wave of Control that shatters Sastrei's P-Magic. She stumbles back, defeated.
 
 **CAZA AMARGA:**
 (Immediately dispelling her weapon and rushing over)
-Good spar, Sastrei! You almost had me on that last rush! Your timing is getting better!
+You’re still picking up your feet too much, Sastrei. It's so... unrefined. Honestly, do I need to buy you some skates for your birthday?
 
 **SASTREI TAURUS:**
-(Scowling, brushing herself off)
-Hmph. Whatever. Your reach is just cheap.
+(Scowling, but letting Caza brush the dust off her shoulder)
+Hmph. Whatever. Your whip is just a glorified jumping rope. You’re lucky I didn’t want to mess up your precious uniform.
 
 The Lecturer walks down from the observation deck as the two friends exit the ring.
 
