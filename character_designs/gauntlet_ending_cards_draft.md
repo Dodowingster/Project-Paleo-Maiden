@@ -76,8 +76,17 @@ Scope: Arcade/Gauntlet alternative-answer endings after Saurophaganax resolution
 
 ---
 
+## Caza Amarga - The One Who Lives With Bitterness
+- Maiden's Answer: "I have spent my life mastering control. If this world needs an anchor to stay steady, I will be its vessel. I will take your silence into my own soul."
+- Lecturer Influence: The Lecturer’s guidance on "Precision and Endurance" gave Caza the spiritual fortitude to become a living seal. Their bond is the last thing she holds onto before the weight of the anomaly forces her memories into the dark.
+- Resolution: Caza uses her **Twin-Spine Lash** to bind Saurophaganax, pulling the anomaly directly into her own P-Magic core. She becomes a living sarcophagus, sealing the truth and the terror of the cycle within her own body. This triggers a reset, but one cleansed of the anomaly's active presence.
+- Cost: **The Sacrifice of Self.** To maintain the internal seal, Caza’s memories of the battle and the truth of the world are wiped. She returns to the start of a new loop as her "normal" self, losing the context of her victory and the awareness of the burden she now carries within.
+- World Result: The cycle restarts in a state of relative peace. Saurophaganax is absent, trapped behind Caza’s own heartbeat. The world proceeds as if the threat never existed, anchored by a hidden sentinel.
+- Final Image: A quiet morning at the Stratum Institute. The Lecturer is reviewing Caza’s latest training data, offering a standard critique on her "Tidal Glide" precision. Caza nods, her posture perfect as always, but suddenly stops mid-sentence. She looks directly at the Lecturer, her expression shifting into one of profound, inexplicable grief. A single tear sheds from her left eye. The Lecturer pauses, surprised: "Caza? Is something wrong?" Caza wipes the tear away, looking genuinely confused. "I... I don't know. My heart just felt... very heavy for a moment." She takes a sip of her tea; for a split second, it tastes like ash and ink—bitter—before the flavor returns to normal. She offers a small, polite smile. "How strange. Please, continue, Lecturer."
+- Homage: *Amargasaurus* is named after the "La Amarga" (The Bitter) formation. Her ending is the ultimate expression of this: a bittersweet victory where she saves everyone she loves, but forgets the very love that gave her the strength to do it.
+---
+
 ## Pending Cards (To Author)
-- Caza Amarga
 - Horri Tricera
 - Aegypt Spino
 - Kitadani Fukuira
