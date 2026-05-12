@@ -38,16 +38,16 @@ Scope: Arcade/Gauntlet alternative-answer endings after Saurophaganax resolution
 
 ---
 
-## Sastrei Taurus - The Last Uppercut
+## Sastrei Taurus - A Devil's Final Rebellion
 - Maiden's Answer: Your control over the Lecturer's memories ends here. I chose this fight, and I am ending it with my own hands.
 - Lecturer Influence: The Lecturer's repeated memory loss sharpens Sastrei's rebellion into conviction, and their bond becomes the paradox exception that preserves her memory.
 - Resolution: Sastrei rejects all sealing logic by choice and tears the cycle apart through a cycle-breaking strike fueled by absolute defiance.
 - Cost: The paradox backlash erases Sastrei's name, personality, and personal history from collective memory. She accepts that price without regret. The Lecturer alone retains her memory in full, becoming her living legacy.
 - World Result: The time loop ends permanently. The world proceeds linearly.
 - Final Image: Two spectators debate who won the Grand Finals. They pull up archive footage — a fighter in a sleeveless horned hoodie, face clear on screen, with the footage chanting "Sastrei Taurus." The Lecturer stops, smiles faintly, and says: "Her name was Sastrei Taurus. She was my student." They walk on carrying the one memory that did not break.
-- Homage: There is only 1 complete Carnotaurus Skeleton found in real life hence the direction of her ending being that only a single person remembers her which is the player. 
+- Homage: There is only one nearly complete Carnotaurus skeleton known to science; her ending reflects this "solitary record"—she is the only one of her kind, and only one person is left to remember her.
 
-## Tyran Rex - By My Decree
+## Tyran Rex - The Tyrant King's Decree
 - Maiden's Answer: My Lecturer moves forward. If you return, you face me again. Gladly.
 - Lecturer Influence: Learning that the Lecturer is mind-wiped each cycle transforms Tyran's purpose into chosen sovereignty: she takes the recurrence herself so others can live continuously.
 - Resolution: Tyran issues a Sovereign Continuity Decree and binds it to her reign, turning each Saurophaganax return into a direct duel she is eager to answer.
@@ -56,7 +56,7 @@ Scope: Arcade/Gauntlet alternative-answer endings after Saurophaganax resolution
 - Final Image: The Lecturer walks through a sunlit courtyard at Stratum Institute, laughing with students, their memories intact and continuous. Across the academy boundary at dusk, alarm bells ring once. Tyran rises from her tribunal with a grin, lifts her greatsword, and says to the sky: "Again, then."
 - Homage: She became the Sovereign of the World to honor the meaning of Tyrannosaurus Rex's name which stands for The Tyrant King.
 
-## Nevesi Pycnonemo - Radiant Unison
+## Nevesi Pycnonemo - Sanctuary of the Radiant Thicket
 - Maiden's Answer: Let the whole world call my name if it must. I will answer as its sanctuary.
 - Lecturer Influence: Through her bond with the Lecturer, Nevesi realizes applause is no longer fuel for ego but a vow to protect everyone beneath her light.
 - Resolution: Nevesi gathers global cheering into a Radiant Canopy Covenant, wrapping the world in a protective sanctuary that rejects Saurophaganax's hold.
@@ -65,7 +65,7 @@ Scope: Arcade/Gauntlet alternative-answer endings after Saurophaganax resolution
 - Final Image: A dark horizon blooms into layered light like a living forest canopy. Nevesi stands at its center, no longer the only star, and smiles as the world shelters under her glow.
 - Homage: Her ending honors the meaning of Pycnonemosaurus, "Thick Forest Lizard": she becomes both the intimidating edge and the sanctuary canopy that protects life beneath it.
 
-## Fragilis Allosa - Symphony of the Different
+## Fragilis Allosa - Grand Symphony of the Different
 - Maiden's Answer: Even if the sound you hear is what you deem an illusion. It is still a sound that is being played by the instruments within this world. It is not your place to decide the end for us.
 - Lecturer Influence: The Lecturer’s mentorship taught Allosa that a true champion doesn't just defeat an opponent, they "arrange" the battlefield. Their bond provides the "First Audience" for a symphony that has never been played in any prior cycle.
 - Resolution: Allosa performs the Symphony of the Different. Using her Sabre as a conductor’s baton, she catches the chaotic, chimeric P-Magic of Saurophaganax and re-orders it. She "authors" a stable rhythm for the anomaly, effectively conducting Saurophaganax into a manifested, singular identity.
