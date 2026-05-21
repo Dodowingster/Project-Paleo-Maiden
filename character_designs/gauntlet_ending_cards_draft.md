@@ -86,12 +86,22 @@ Scope: Arcade/Gauntlet alternative-answer endings after Saurophaganax resolution
 - Homage: *Amargasaurus* is named after the "La Amarga" (The Bitter) formation. Her ending is the ultimate expression of this: a bittersweet victory where she saves everyone she loves, but forgets the very love that gave her the strength to do it.
 ---
 
+## Stenops Stegosa - The Roof between Reality and Illusion
+- Maiden's Answer: "Sauris and Ornith were never meant to be opposites. They’re the beginning and the end of the same story. And you? You’re just the 'Secret Rare' missing from the middle. I’m betting everything on this one draw—the card that completes the Masterpiece!"
+- Lecturer Influence: The Lecturer’s presence as an outsider acts as the "reference material" Stenops uses to define the anomaly. Their bond is the brush that allows her to illustrate the impossible.
+- Resolution: Stenops plays God Card: Ornis and God Card: Sauris simultaneously, creating a dual-layered P-Magic frame. She channels her imagination into a final blank card, "trapping" Saurophaganax by defining its chimeric nature as a singular Masterpiece: "Saurophaganax Maximus."
+- Cost: The Bleeding of Realities. Indexing a "Nomen Dubium" (an unresolvable name) forced a permanent memory leak from the Lecturer's world into hers. Stenops now sees the "True Shapes" of dinosaurs—the scientific, realistic versions from our world. To her, these look like terrifying, alien Kaiju. She can no longer distinguish between the "Maiden reality" and the "Fossil reality."
+- World Result: The loop ends because the anomaly is now a "Nomen Validum" (Valid Name) safely indexed. The world proceeds linearly, but Stenops retires from dueling, unable to separate her friends from the "monsters" she sees superimposed over them.
+- Final Image: Stenops is at the opening of her solo exhibition. The walls are covered in dark, hyper-realistic oil paintings of Kaiju-like monsters (realistic Stegosaurus, Allosaurus, etc.). She’s laughing with the Lecturer, looking spacey as she points to a painting of a feathered beast. "Hey Lecturer... remember when we fought the 'Secret Rare'? I keep seeing its friends everywhere. They’re a bit scary, so I decided to give them names too."
+- Homage: Gary Larson’s "Thagomizer" was a cartoon that became a scientific reality. Stenops flips this: she takes a scientific horror and turns it into an "illustration," but the "Truth" of science remains as a ghostly hallucination in her mind.
+
+---
+
 ## Pending Cards (To Author)
 - Horri Tricera
 - Aegypt Spino
 - Kitadani Fukuira
 - Ostromm Utahra
-- Stenops Stegosa
 
 ## Consistency Guardrails
 - Every ending must be character-true and feel inevitable in hindsight.
