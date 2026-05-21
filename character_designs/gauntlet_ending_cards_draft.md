@@ -97,8 +97,18 @@ Scope: Arcade/Gauntlet alternative-answer endings after Saurophaganax resolution
 
 ---
 
+## Horri Tricera - Birth of the Rough New Horizon
+- Maiden's Answer: "Every frontier needs someone to take the final hit so the settlers can build a home. Saurophaganax, I’m pulling the curtain down on our era. The wild days are over—and I'm the one riding out with the sunset."
+- Lecturer Influence: The Lecturer’s unwavering faith in her as an engineer—rather than just a powerful Maiden weapon—gives Horri the clarity to realize her worth isn't tied to her P-Magic. Their bond transforms her impending exile from a tragic punishment into a proud, chosen retirement.
+- Resolution: Horri executes a final, catastrophic Trident Pulsar, but instead of channeling the ambient energy, she overclocks her own P-Magic core. She burns her biological magic down to absolute ash, using the immense, volatile feedback to completely incinerate Saurophaganax and permanently weld the fractured timeline into a linear reality.
+- Cost: The Exiled Lawmaker. Because Stratum Institute mandates that all students must possess active P-Magic, Horri’s permanent burnout renders her legally ineligible to remain. Stripped of her status as a Maiden, she is formally discharged. The "Iron Sheriff" turns in her badge to the very system she saved, becoming a "Normal" in a world of legends.
+- World Result: The time loop is shattered permanently. Without the chaotic threat of the anomaly, the era of primal might ends. The world enters a massive industrial age driven by the surviving blueprints of Horri's Magitech, transitioning from a wild, dangerous frontier into a safe, structured civilization.
+- Final Image: The dusty perimeter of the Stratum Institute's gates at dusk. The Lecturer stands at the crossroads, clutching Horri's surrendered Vice President badge. Horri sits atop a rugged ranch horse, her academy uniform replaced by worn Wyoming denim. She adjusts her hat low to hide her eyes. She looks down at the Lecturer one last time, offering a slow, respectful nod. "Thanks for teaching me how to build a future, partner. Make sure they live in it," she says softly. With a click of her tongue, she turns away. The Lecturer watches as she rides into the vast frontier, her silhouette dissolving into the deep orange glow of the sunset—leaving the magic behind to build something real.
+- Homage: Triceratops horridus translates literally to "Rough Three-Horned Face," and it was one of the final non-avian dinosaurs to walk the earth before the extinction event cleared the way for a new era. The title plays directly on this: she leaves behind the sleek, magical world of the academy to forge the "rough frontier" of the modern, industrial human world, embodying the classic Western trope of the lone cowboy riding off once the job is done.
+
+--
+
 ## Pending Cards (To Author)
-- Horri Tricera
 - Aegypt Spino
 - Kitadani Fukuira
 - Ostromm Utahra
