@@ -9,7 +9,7 @@
 | **Species** | *Utahraptor ostrommaysorum* (Meaning: "Ostrom and May's Robber from Utah") |
 | **Era** | Early Cretaceous |
 | **Key Features** | The **largest known member of the Dromaeosauridae family** (the "raptors"). Defined by a massive, sickle-shaped claw on each foot, estimated to be up to 22 cm (8.7 in) long. |
-| **Lore Reflection** | Her **Red (Raw Power)** discipline reflects her status as the largest dromaeosaurid. Her large, intimidating **scythe** is a stylized representation of her signature killing claw, used for reaping judgment upon her foes. |
+| **Lore Reflection** | Her **Red (Raw Power)** discipline reflects her status as the largest dromaeosaurid. Her design incorporates a **"Gothic Inquisitor"** aesthetic—reminiscent of a nocturnal predator. Her large, intimidating **scythe** is a stylized representation of her signature killing claw, used for reaping judgment and "bleeding" P-Magic from her foes. |
 
 ---
 
@@ -54,8 +54,8 @@ The boy admires Ostromm Utahra and seeing his hero feeling defeated, he offers e
 
 | Stage | Vocation Title | Fused Trait Disciplines |
 | :--- | :--- | :--- |
-| **Base** | Inquisitor | **Red** |
-| **Final** | Executioner | **Red** (Raw Power) + **Green** (Speed & Precision) |
+| **Base** | Gothic Inquisitor | **Red** |
+| **Final** | Cardinal Judge | **Red** (Raw Power) + **Green** (Speed & Precision) |
 
 ---
 
@@ -63,7 +63,8 @@ The boy admires Ostromm Utahra and seeing his hero feeling defeated, he offers e
 
 | Vocation | Core Trait | Signature Move |
 | :--- | :--- | :--- |
-| **Inquisitor** | **Reaping Judgment:** Utahra's style is aggressive and domineering. She uses her scythe in wide, powerful arcs to control space and break an opponent's stance. Her attacks are heavy and deliberate, designed to punish any defensive lapse with overwhelming force, embodying the raw power of the largest raptor. | **Ostromm Gaze:** Utahra marks a target, making them "Judged." Her next attack against the Judged target ignores a portion of their block/defense and deals bonus damage, representing a focused, punishing strike. |
+| **Gothic Inquisitor** | **Hemorrhaging Strike:** Utahra's style is aggressive and domineering. Her scythe strikes inflict a **"Bleed"** effect on the opponent's P-Magic, causing their health pool to leak over time. She punishes defensive lapses with overwhelming force. | **Ostromm Gaze:** Utahra marks a target as "Judged." Scythe attacks against "Judged" targets ignore a portion of their defense and accelerate the Bleed tick rate, ensuring her judgment is swift. |
+| **Cardinal Judge** | **Sanguine Celerity:** Fuses Power with Speed. Utahra gains increased attack frequency against bleeding targets. Her precision strikes "harvest" leaked energy, sapping a portion of the opponent's P-Magic with every successful hit to replenish her own. | **Grand Harvest:** A lethal flurry of scythe strikes. Utahra siphons a massive burst of P-Magic from the target based on the current number of Bleed stacks, effectively executing the foe while fully restoring her own aura. |
 
 ---
 
@@ -77,4 +78,5 @@ The boy admires Ostromm Utahra and seeing his hero feeling defeated, he offers e
 ## Trivia
 
 * Her birthdate (February 18th) is a reference to the date in 2021 when the bill to make *Utahraptor* the Utah state dinosaur
+* Her design's "vampiric" flair is a nod to the *Dromaeosauridae* family's reputation as "nocturnal hunters" in early paleontological theories, blended with a modern "Alucard-esque" aesthetic.
 * Her rivalry with Kitadani Fukui is a thematic clash of dromaeosaurid-like dinosaurs: the largest "raptor" (Utahraptor) versus a megaraptoran (Fukuiraptor), whose power comes from its hands, not its feet.
