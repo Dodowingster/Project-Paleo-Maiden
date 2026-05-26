@@ -86,12 +86,53 @@ Scope: Arcade/Gauntlet alternative-answer endings after Saurophaganax resolution
 - Homage: *Amargasaurus* is named after the "La Amarga" (The Bitter) formation. Her ending is the ultimate expression of this: a bittersweet victory where she saves everyone she loves, but forgets the very love that gave her the strength to do it.
 ---
 
+## Stenops Stegosa - The Roof between Reality and Illusion
+- Maiden's Answer: "Sauris and Ornith were never meant to be opposites. They’re the beginning and the end of the same story. And you? You’re just the 'Secret Rare' missing from the middle. I’m betting everything on this one draw—the card that completes the Masterpiece!"
+- Lecturer Influence: The Lecturer’s presence as an outsider acts as the "reference material" Stenops uses to define the anomaly. Their bond is the brush that allows her to illustrate the impossible.
+- Resolution: Stenops plays God Card: Ornis and God Card: Sauris simultaneously, creating a dual-layered P-Magic frame. She channels her imagination into a final blank card, "trapping" Saurophaganax by defining its chimeric nature as a singular Masterpiece: "Saurophaganax Maximus."
+- Cost: The Bleeding of Realities. Indexing a "Nomen Dubium" (an unresolvable name) forced a permanent memory leak from the Lecturer's world into hers. Stenops now sees the "True Shapes" of dinosaurs—the scientific, realistic versions from our world. To her, these look like terrifying, alien Kaiju. She can no longer distinguish between the "Maiden reality" and the "Fossil reality."
+- World Result: The loop ends because the anomaly is now a "Nomen Validum" (Valid Name) safely indexed. The world proceeds linearly, but Stenops retires from dueling, unable to separate her friends from the "monsters" she sees superimposed over them.
+- Final Image: Stenops is at the opening of her solo exhibition. The walls are covered in dark, hyper-realistic oil paintings of Kaiju-like monsters (realistic Stegosaurus, Allosaurus, etc.). She’s laughing with the Lecturer, looking spacey as she points to a painting of a feathered beast. "Hey Lecturer... remember when we fought the 'Secret Rare'? I keep seeing its friends everywhere. They’re a bit scary, so I decided to give them names too."
+- Homage: Gary Larson’s "Thagomizer" was a cartoon that became a scientific reality. Stenops flips this: she takes a scientific horror and turns it into an "illustration," but the "Truth" of science remains as a ghostly hallucination in her mind.
+
+---
+
+## Horri Tricera - Birth of the Rough New Horizon
+- Maiden's Answer: "Every frontier needs someone to take the final hit so the settlers can build a home. Saurophaganax, I’m pulling the curtain down on our era. The wild days are over—and I'm the one riding out with the sunset."
+- Lecturer Influence: The Lecturer’s unwavering faith in her as an engineer—rather than just a powerful Maiden weapon—gives Horri the clarity to realize her worth isn't tied to her P-Magic. Their bond transforms her impending exile from a tragic punishment into a proud, chosen retirement.
+- Resolution: Horri executes a final, catastrophic Trident Pulsar, but instead of channeling the ambient energy, she overclocks her own P-Magic core. She burns her biological magic down to absolute ash, using the immense, volatile feedback to completely incinerate Saurophaganax and permanently weld the fractured timeline into a linear reality.
+- Cost: The Exiled Lawmaker. Because Stratum Institute mandates that all students must possess active P-Magic, Horri’s permanent burnout renders her legally ineligible to remain. Stripped of her status as a Maiden, she is formally discharged. The "Iron Sheriff" turns in her badge to the very system she saved, becoming a "Normal" in a world of legends.
+- World Result: The time loop is shattered permanently. Without the chaotic threat of the anomaly, the era of primal might ends. The world enters a massive industrial age driven by the surviving blueprints of Horri's Magitech, transitioning from a wild, dangerous frontier into a safe, structured civilization.
+- Final Image: The dusty perimeter of the Stratum Institute's gates at dusk. The Lecturer stands at the crossroads, clutching Horri's surrendered Vice President badge. Horri sits atop a rugged ranch horse, her academy uniform replaced by worn Wyoming denim. She adjusts her hat low to hide her eyes. She looks down at the Lecturer one last time, offering a slow, respectful nod. "Thanks for teaching me how to build a future, partner. Make sure they live in it," she says softly. With a click of her tongue, she turns away. The Lecturer watches as she rides into the vast frontier, her silhouette dissolving into the deep orange glow of the sunset—leaving the magic behind to build something real.
+- Homage: Triceratops horridus translates literally to "Rough Three-Horned Face," and it was one of the final non-avian dinosaurs to walk the earth before the extinction event cleared the way for a new era. The title plays directly on this: she leaves behind the sleek, magical world of the academy to forge the "rough frontier" of the modern, industrial human world, embodying the classic Western trope of the lone cowboy riding off once the job is done.
+
+---
+
+## Aegypt Spino - Rise of the Flying Spineman
+- Maiden's Answer: "If science can’t decide what I am, I'll decide it myself! Every legend I ever told is in my heart—and we’re pulling you down into the dark!"
+- Lecturer Influence: By logging her tall tales as absolute truth, the Lecturer provides the spiritual blueprint that allows Spino to manifest her fabrications into a real, phantom armada.
+- Resolution: Spino summons the Flying Spineman—a ghost ship with a hull shaped like her neural sail. She manifests ghostly clones of herself from her different stories. Together, the crew of clones hook Saurophaganax with spectral ropes and drag the anomaly off the cosmic edge, letting the deep ocean swallow them all.
+- Cost: The Ghost Captain’s Curse. To keep the anomaly safely drowned, Spino must permanently captain the vessel. Her body becomes a translucent spirit, her heart stops, and she is legally declared "lost at sea," unable to ever return to dry land or school.
+- World Result: The time loop is broken. Spino completely conquers her imposter syndrome, transcending history to become the legendary, undisputed ruler of the supernatural seas.
+- Final Image: Inside a dimly lit tavern, a group of sailors listen in awe to an old mariner telling the story of a ghost ship led by a majestic, ghost maiden with a towering sail who guided them through a deadly storm. Outside on the pier, the Lecturer smiles and raises a glass to the horizon as a familiar pirate's cheer echoes in the wind.
+- Homage: This honors her name meaning (Spinosaurus / Spine Lizard) and her meta-narrative fear of being erased. Instead of being a victim of a history that constantly changes, she turns her own "Spine" into a legendary phantom flagship, ensuring her legacy lives forever through folklore.
+
+---
+
+## Kitadani Fukuira - *Honorable Robber,* *Stealing chaos from the sky,* *The blade rests in Eternity.*
+
+- **Maiden's Answer:** "The true measure of a strike is its purity, not its noise. If this world is trapped in a discordant cycle, I will deliver the final, flawless cut—and rob this timeline of your chaos forever."
+- **Lecturer Influence:** The Lecturer’s unwavering dedication to her training refined her breathing and P-Magic concentration to absolute perfection. Their bond provides the absolute focus she needs to execute a strike that defies reality, transforming her obsessive drive for hygiene and purity into a sacred, world-saving discipline.
+- **Resolution:** Fukuira achieves the ultimate evolution of her style: **The Perfect Cut**. Using a flawless Iai draw, her katana slices through the very fabric of reality, opening a cross-dimensional portal. With the cleaving force of a Megaraptoran, she shears Saurophaganax away from the timeline, drawing the anomaly's chaotic P-Magic directly into her scabbard and sealing it within her blade as she sheathes it.
+- **Cost:** **The Eternal Sheath.** To maintain the dimensional seal and prevent the anomaly from tainting the world, Fukuira’s katana must never be drawn again. The single, decisive strike that achieved her life's goal is also her last; she willingly surrenders her identity as an active swordsman, binding her hands to a weapon that must remain forever silent.
+- **World Result:** The time loop is shattered. Saurophaganax is cleanly excised from the universe, leaving the world to proceed linearly in absolute, uncorrupted peace. Fukuira establishes her new school of swordsmanship—not to teach how to draw a blade, but how to master the discipline required to keep it still.
+- **Final Image:** A serene, sunlit dōjō surrounded by a gentle flurry of Sakura petals. Fukuira sits in perfect seiza posture, her posture immaculate and breathing optimal. Her legendary katana rests on a display rack behind her, its tsuba bound tightly by sacred cords to ensure it remains shut. The Lecturer stands at the entrance, welcoming a new generation of students. Fukuira looks at her bound sword, then up at the Lecturer, offering a rare, tranquil smile: "The blade is silent, Lecturer. And the world... is beautifully pure."
+- **Homage:** *Fukuiraraptor kitadaniensis* translates to the "Robber from Kitadani." Her ending honors this by making her a literal "Dimensional Robber" who steals the anomaly away from reality. Her Iai style reaches its logical conclusion: the ultimate masterwork is a blade that, having attained absolute perfection, never needs to be drawn again.
+
+---
+
 ## Pending Cards (To Author)
-- Horri Tricera
-- Aegypt Spino
-- Kitadani Fukuira
 - Ostromm Utahra
-- Stenops Stegosa
 
 ## Consistency Guardrails
 - Every ending must be character-true and feel inevitable in hindsight.
