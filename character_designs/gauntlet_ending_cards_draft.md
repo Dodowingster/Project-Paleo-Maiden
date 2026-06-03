@@ -130,7 +130,7 @@ Scope: Arcade/Gauntlet alternative-answer endings after Saurophaganax resolution
 
 ---
 ## Ostromm Utahra - The Sarcophagus of the Cedar Mountain
-- **Maiden's Answer:** "I have spent my life judging others... but for the sake of the future, I judge myself to be the Lock. I am the silence. I am the bedrock that keeps the nightmare down."
+- **Maiden's Answer:** "The judgment to pass on you has been decided! My scythe’s judgment is absolute. If this world requires a foundation to endure, then I sentence myself to be the stone. To seal you!"
 - **Lecturer Influence:** The Lecturer helped her realize that a true "Champion of Utah" isn't someone who wins a trophy, but someone who becomes the foundation of the land. This shift in perspective allows her to accept a role as a permanent sentinel rather than a public hero.
 - **Resolution:** **The Eternal Inquisitor’s Sarcophagus.** Utahra uses her "Grand Harvest" to draw Saurophaganax into a cosmic extra-dimensional rift—a "Predator Trap" outside the normal flow of time. She forces the anomaly into a massive, iron-bound stone coffin. To ensure the lid never opens, she chains herself across the doors, her body and scythe becoming a living "crucifix" seal. As the P-Magic solidifies, her last conscious act is to tap her sickle claw against the stone in that familiar rhythm, leaving a permanent resonance that anchors the rift to the physical earth.
 - **Cost:** **The Fossilized Hibernation.** Utahra is sealed alive in a state of "vampiric" stasis within the cosmic void. She becomes a literal statue—a block of sandstone and red iron. She exists in a perpetual, silent vigil, forgotten by the timeline she preserved, her only connection to reality being the physical "anchor" left behind in the Utah soil.
