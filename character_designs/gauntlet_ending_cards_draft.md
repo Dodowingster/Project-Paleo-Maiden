@@ -120,7 +120,6 @@ Scope: Arcade/Gauntlet alternative-answer endings after Saurophaganax resolution
 ---
 
 ## Kitadani Fukuira - *Honorable Robber,* *Stealing chaos from the sky,* *The blade rests in Eternity.*
-
 - **Maiden's Answer:** "The true measure of a strike is its purity, not its noise. If this world is trapped in a discordant cycle, I will deliver the final, flawless cut—and rob this timeline of your chaos forever."
 - **Lecturer Influence:** The Lecturer’s unwavering dedication to her training refined her breathing and P-Magic concentration to absolute perfection. Their bond provides the absolute focus she needs to execute a strike that defies reality, transforming her obsessive drive for hygiene and purity into a sacred, world-saving discipline.
 - **Resolution:** Fukuira achieves the ultimate evolution of her style: **The Perfect Cut**. Using a flawless Iai draw, her katana slices through the very fabric of reality, opening a cross-dimensional portal. With the cleaving force of a Megaraptoran, she shears Saurophaganax away from the timeline, drawing the anomaly's chaotic P-Magic directly into her scabbard and sealing it within her blade as she sheathes it.
@@ -130,10 +129,16 @@ Scope: Arcade/Gauntlet alternative-answer endings after Saurophaganax resolution
 - **Homage:** *Fukuiraraptor kitadaniensis* translates to the "Robber from Kitadani." Her ending honors this by making her a literal "Dimensional Robber" who steals the anomaly away from reality. Her Iai style reaches its logical conclusion: the ultimate masterwork is a blade that, having attained absolute perfection, never needs to be drawn again.
 
 ---
+## Ostromm Utahra - The Sarcophagus of the Cedar Mountain
+- **Maiden's Answer:** "I have spent my life judging others... but for the sake of the future, I judge myself to be the Lock. I am the silence. I am the bedrock that keeps the nightmare down."
+- **Lecturer Influence:** The Lecturer helped her realize that a true "Champion of Utah" isn't someone who wins a trophy, but someone who becomes the foundation of the land. This shift in perspective allows her to accept a role as a permanent sentinel rather than a public hero.
+- **Resolution:** **The Eternal Inquisitor’s Sarcophagus.** Utahra uses her "Grand Harvest" to draw Saurophaganax into a cosmic extra-dimensional rift—a "Predator Trap" outside the normal flow of time. She forces the anomaly into a massive, iron-bound stone coffin. To ensure the lid never opens, she chains herself across the doors, her body and scythe becoming a living "crucifix" seal. As the P-Magic solidifies, her last conscious act is to tap her sickle claw against the stone in that familiar rhythm, leaving a permanent resonance that anchors the rift to the physical earth.
+- **Cost:** **The Fossilized Hibernation.** Utahra is sealed alive in a state of "vampiric" stasis within the cosmic void. She becomes a literal statue—a block of sandstone and red iron. She exists in a perpetual, silent vigil, forgotten by the timeline she preserved, her only connection to reality being the physical "anchor" left behind in the Utah soil.
+- **World Result:** The time loop is shattered. The world proceeds linearly. The "Cedar Mountain Group" (Suarez, Marina, and Riveren) live full lives, unaware that their leader is the reason the sun rises on a new day.
+- **Final Image:** A remote excavation site in Utah. The Lecturer and Allosa stand before the massive 9-ton "Utahraptor Block," recently unearthed from the red dirt. As the Lecturer touches the sandstone, their cross-loop memories resonate with the stone, turning the surface of the block into a shimmering window into the cosmic void. Beyond the stone "lens," they see Utahra—fossilized, crucified, and still holding the iron doors shut against the silent stars. Allosa presses her hand against the cold stone of the anchor and whispers: "You always wanted my title... but you became the bedrock of this world. Rest for now. The Lecturer found your anchor, and together, we're going to find a way to pull you back through."
+- **Homage:** This ending pays homage to the discovery of the "Utahraptor Block" by James Kirkland. By making the block a physical "anchor" to the cosmic seal, the ending logically connects the Lecturer's role as an academic "Seeker" with the extra-dimensional sacrifice Utahra made to end the loop.
 
-## Pending Cards (To Author)
-- Ostromm Utahra
-
+---
 ## Consistency Guardrails
 - Every ending must be character-true and feel inevitable in hindsight.
 - Every ending must include a real cost and a visible world gain.
