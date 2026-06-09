@@ -70,7 +70,7 @@ The boy admired Ostromm Utahra, and seeing his hero feeling defeated, he offered
 
 ## Motivation and Goals
 
-* **Primary Goal:** To win the PMC to prove that she deserves the title as a champion from Utah, making her townspeople and friends proud.
+* **Primary Goal:** To win the PMC and define what it means to be the "Champion of Utah"—moving beyond a mere title toward becoming an unshakeable foundation for her home.
 * **Internal Goal:** To win the championship as a tribute to her young fan. She wants to stand on the final stage and declare herself as a symbol of strength and perseverance, ensuring her legacy is recognized and making the boy's dream a reality.
 
 ---
