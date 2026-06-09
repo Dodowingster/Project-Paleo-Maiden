@@ -15,7 +15,7 @@
 
 ## Profile/Background
 
-Ostromm Utahra is the fierce and commanding leader of the **"Cedar Mountain Group,"** a small, tight-knit group of Paleo Maidens. On the surface, Utahra projects an unshakeable, aristocratic composure. She maintains a rigid, silent gravity because she believes it's what her friends need to see, though her unnaturally still demeanor often leaves onlookers feeling deeply unsettled.
+Ostromm Utahra is the commanding matriarch of **House Cedar**, an ancient lineage of immense regal significance whose influence is woven into the very history of the Cedar Mountain territories. Regarded as a foundational pillar of the world’s social and political order, House Cedar is tasked with the preservation of ancestral stability and the stewardship of the land's deepest secrets. On the surface, Utahra projects an unshakeable, aristocratic composure. She maintains a rigid, silent gravity because she believes it is the decorum her lineage demands, though her unnaturally still demeanor often leaves onlookers feeling deeply unsettled.
 
 Despite her intimidating, predatory presence, she hides a surprising soft spot. Following a particularly demoralizing clash with her ideological rival, **Fragilis Allosa**—who holds a prestigious title that Utahra covets—she began to question her own strength. She was later found by a 10-year-old elementary school boy. 
 
@@ -44,9 +44,9 @@ The boy admired Ostromm Utahra, and seeing his hero feeling defeated, he offered
 | :--- | :--- | :--- |
 | **Fragilis Allosa** | **Symbolic Rival** | Allosa represents the champion of Utah, holding a symbolic title that Utahra believes she also deserves. Utahra initially sought to ruthlessly replace Allosa. Their rivalry is an intense battle for recognition, though Utahra's methods have since evolved from blind ambition into a quiet, focused challenge. |
 | **Kitadani Fukui** | **Ideological Rival** | Utahra and Fukui never seem to get along as they value completely different perspectives on mastering paleo arts. While Fukui focuses on the absolute purity of her P-Magic, Utahra specializes in a taboo style that actively sabotages and drains the opponent's energy (Bleed). |
-| **Suarez Gemini** | **Childhood Friend** | One of the Gemini twins and a core member of the "Cedar Mountain group." Hailing from the same place of birth, she views Utahra as a fierce but protective older sister. Their bond is built on deep trust, making them inseparable friends navigating university life together. |
-| **Marina Gemini** | **Childhood Friend** | One of the Gemini twins and a core member of the "Cedar Mountain group." Hailing from the same place of birth, she views Utahra as a fierce but protective older sister. Their bond is built on deep trust, making them inseparable friends navigating university life together. |
-| **Riveren Martha** | **Childhood Friend** | A core member of the "Cedar Mountain group." Hailing from the same place of birth, she looks up to Utahra as the group's leader and guiding force. Their bond is built on deep trust, making them inseparable friends navigating university life together. |
+| **Suarez Gemini** | **Childhood Friend** | One of the Gemini twins and a loyal scion of **House Cedar**. Hailing from the same ancestral lands, she views Utahra as a fierce but protective older sister. Their bond is built on deep trust, making them inseparable friends navigating university life together. |
+| **Marina Gemini** | **Childhood Friend** | One of the Gemini twins and a loyal scion of **House Cedar**. Hailing from the same ancestral lands, she views Utahra as a fierce but protective older sister. Their bond is built on deep trust, making them inseparable friends navigating university life together. |
+| **Riveren Martha** | **Childhood Friend** | A dedicated retainer of **House Cedar**. Hailing from the same ancestral lands, she looks up to Utahra as the House's matriarch and guiding force. Their bond is built on deep trust, making them inseparable friends navigating university life together. |
 
 ---
 
