@@ -63,7 +63,7 @@ Saurophaganax speaks with a weighted, archaic formalism. Her dialogue is designe
 *   **The Meta-Gaze:** She addresses the Lecturer (Player) as a recurring entity, mocking the "fiction" of the current run.
 *   **Binary Questioning:** She often presents the world as a choice between "truth" and "illusion," making the player feel that their progress is merely a hollow repetition.
 
-**Key Scenario:** [The Truth Trial (Cinematic Script)](./episodes/truth_trial_scenario.md)
+**Key Scenario:** [The Truth Trial (Cinematic Script)](./truth_trial_scenario.md)
 
 | Attribute | Detail |
 | :--- | :--- |
