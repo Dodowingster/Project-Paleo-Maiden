@@ -118,7 +118,7 @@ Saurophaganax speaks with a weighted, archaic formalism. Her dialogue is designe
 
 * **Stated Position:** The cycle cannot be broken. She is not the villain of this story. She is the proof that the story repeats.
 * **Actual Behavior:** She allows herself to be fought. She is not certain the cycle is unbreakable. She has simply never seen a Maiden willing to pay the cost of finding out. She is waiting to be wrong.
-* **What She Wants (KIV):** To be answered, not sealed. She does not have a power fantasy. She has a philosophical one. The Maiden who can genuinely refute her existence — not suppress it, but end it — is the only outcome she has not already modeled.
+* **What She Wants (KIV):** To be answered, not sealed. She has witnessed countless cycles of despair and repetition, but the recent emergence of the "Primal Hope"—where the extinct phantoms side with the Maidens—is a variable she has never successfully modeled. She is testing whether this new "bond of hope" is strong enough to finally break the world's fabrication and create a true future.
 * **Endgame Test Logic:** She evaluates both the Maiden's answer and the Maiden-Lecturer bond. Higher Affinity does not guarantee victory; it determines how coherent and irreversible their answer can become.
 
 ---
