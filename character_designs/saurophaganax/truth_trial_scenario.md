@@ -35,4 +35,4 @@
 "Take up arms, Daughter of Deinos! Lay before me the conviction of your bond, and best me with your will to survive!"
 
 **[SCENE END]**
-**NEXT PHASE:** Phase 2 — Conjured Counterpart Combat
+
