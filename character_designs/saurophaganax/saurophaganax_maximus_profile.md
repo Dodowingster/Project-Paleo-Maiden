@@ -1,4 +1,4 @@
-> *"You name things to make them real. You seal things to make them safe. Neither has ever worked on me."*
+> *"Tell me, Child of Man—is your affinity a bond of true conviction, or is it but a hollow contract bound by this false reality?"*
 
 ― Saurophaganax Maximus
 
@@ -54,6 +54,16 @@ her endgame logic; it is evidence of whether their answer is conviction,
 dependency, rebellion, or responsibility.
 
 To every Maiden who has ever stood across from her, she is the most unsettling opponent they have ever faced. Not because she is overwhelming. Because she already knows exactly what they are.
+
+### Voice and Speech Patterns
+
+Saurophaganax speaks with a weighted, archaic formalism. Her dialogue is designed to strip away the "modern" identity of the characters and force them into an existential confrontation.
+
+*   **Vocabulary of the Ancient:** Frequently uses *aught* (anything), *naught* (nothing), *child of man*, and *tidings*.
+*   **The Meta-Gaze:** She addresses the Lecturer (Player) as a recurring entity, mocking the "fiction" of the current run.
+*   **Binary Questioning:** She often presents the world as a choice between "truth" and "illusion," making the player feel that their progress is merely a hollow repetition.
+
+**Key Scenario:** [The Truth Trial (Cinematic Script)](./episodes/truth_trial_scenario.md)
 
 | Attribute | Detail |
 | :--- | :--- |
