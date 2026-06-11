@@ -804,6 +804,22 @@ MAIN GOAL / END GAME — ANOMALY SEAL ARC (SAUROPHAGANAX MAXIMUS)
     Theropod vs Sauropod lineage conflict).
   - To reduce total miss chance, arc trigger may also use world-instability
     accumulation as an alternate unlock route.
+  - Career True Route gate: the player's Maiden must reach MAX Affinity
+    BEFORE entering Grand Finals.
+  - If MAX Affinity is not reached before Grand Finals, the run resolves
+    through the standard career ending flow (no Saurophaganax confrontation
+    in that run).
+  - Core thematic trigger: cross-lineage rivalry pressure (for example,
+    Theropod vs Sauropod lineage conflict).
+  - To reduce total miss chance, arc trigger may also use world-instability
+    accumulation as an alternate unlock route.
+
+  CAREER TRUE ROUTE CLARIFICATION:
+  - "True Ending" in Career Mode refers to qualifying for and clearing the
+    Saurophaganax Anomaly Arc.
+  - This gate intentionally ties endgame truth confrontation to relationship
+    investment, reinforcing the Affinity system as a major narrative pillar.
+ 
 
   ANTAGONIST PROFILE:
   - Saurophaganax is sentient, strategic, and highly intelligent.
