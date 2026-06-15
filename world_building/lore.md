@@ -12,6 +12,7 @@
     -   [Characteristics and Lifestyle](#characteristics-and-lifestyle)
     -   [Lifespan](#lifespan)
     -   [Family Clades](#family-clades)
+    -   [The Unresolvable Anomaly (Nomen Dubium)](#the-unresolvable-anomaly-nomen-dubium)
     -   [Paleo-Magic (P-Magic)](#paleo-magic-p-magic)
     -   [Retirement and the Second Life](#retirement-and-the-second-life)
     -   [Paleo Arts and Magic Discplines](#paleo-arts-and-magic-discplines)
@@ -31,7 +32,7 @@
 
 ### Origins
 
-The Paleo Maidens are living $\text{Deinos}$ Manifestations, their existence a miracle of genetic regression tied to an ancient, primal energy. This energy first manifested in two legendary progenitors, from whom all Maidens descend. Today, new Maidens can emerge unpredictably as offspring from any human pairing, or they may be born through a union between a human and a Maiden, continuing the legacy of the First.
+The Paleo Maidens are living $\text{Deinos}$ Manifestations, their existence a miracle of genetic regression tied to an ancient, primal energy. This energy first manifested in two legendary progenitors, from whom all Maidens descend. However, it is now known that the friction between these two primary lineages generates a unique pressure—a "lineage friction" that can accumulate into anomalies beyond standard classification. Today, new Maidens can emerge unpredictably as offspring from any human pairing, or they may be born through a union between a human and a Maiden, continuing the legacy of the First.
  
 ### The First Maidens: Sauris and Ornith
 
@@ -42,6 +43,8 @@ According to the oldest histories, all Paleo Maidens trace their lineage back to
 *   **Ornith, the First Defender:** The progenitor of the **Ornithischian** clans. Her legacy is one of resilience, community, and unyielding defense. She is the archetypal ancestor of the armored, horned, and herding dinosaurs, and her spirit endures in every Maiden who triumphs through strategy, endurance, and protecting others.
 
 The fundamental differences between Sauris and Ornith created a natural, eternal rivalry that is now inherited by all their descendants. This is the true origin of the deep-seated divide between the Saurischian and Ornithischian clans. It is important to note that a legendary ancestor like **Sauris Taurus** is named in *homage* to the great progenitor, a title signifying her place at the peak of her lineage, and is not to be confused with the original Sauris herself.
+
+History also records a singular moment of total synchronization: when Sauris and Ornith acted as one to seal away the first manifestation of their own contradictions. This joint seal is the only reason the world’s "fabrication" remains stable.
 
 ### Characteristics and Lifestyle
 
@@ -139,6 +142,21 @@ A Paleo Maiden's name is a direct reflection of her identity, lineage, and gener
 
 This system establishes a clear hierarchy of legacy, where an ancestor's name reflects their historical significance and how foundational they were to their entire lineage.
 
+### The Unresolvable Anomaly (Nomen Dubium)
+
+While the classification system defines the lives of most Maidens, there exists a state known as **Nomen Dubium**—the Unresolvable. This is embodied by **Saurophaganax Maximus**, an entity that is not manifested from a single lineage but accumulated from the unresolved friction between the Sauris and Ornith orders.
+
+*   **The Chimeric Nightmare:** Unlike standard Maidens, an unresolvable anomaly can manifest physical traits from irreconcilable lineages, such as the crushing power of a Sauropod and the predatory grace of a Theropod, appearing as an anatomical abomination.
+*   **The Alpha and the Omega:** These anomalies claim to predate the world's current logic, viewing the Paleo Maiden world as a "grand fabrication" designed to bar the inhabitants from the gates of true reality.
+*   **The Cycle of Fabrication:** Their existence is cyclical. They are not produced by the world; they are the result of the world's own contradictions. Every time the lineage friction reaches a breaking point, the anomaly returns to initiate a **Truth Trial**, testing whether the bonds formed in this world are true conviction or merely hollow contracts.
+
+| Attribute | Detail |
+| :--- | :--- |
+| **Classification** | Nomen Dubium — Unresolvable |
+| **Origin** | Accumulated lineage friction residue |
+| **Nature** | Chimeric, sentient, and meta-aware |
+| **Role** | Final adjudicator of the Truth Trial |
+
 ### Paleo-Magic (P-Magic)
 
 Paleo-Magic (P-Magic) is the manifestation of a Maiden's primal energy and serves as their direct **Health Pool** in combat. This system is what allows for high-stakes competition without the risk of fatal injury. Attacks deplete an opponent's P-Magic reserve rather than causing physical harm. A Maiden is defeated when her P-Magic reaches zero, resulting in a state of complete exhaustion that may cause her to lose focus or faint. Since every Maiden is born with a different P-Magic capacity, their innate durability and combat style can vary significantly.
@@ -217,7 +235,11 @@ The geography of this world is one of profound duality, with a planet roughly tw
 
 ### The Modern World
 
-The Modern World is where the vast majority of humanity resides, in nations and cities that mirror our own. It is a world of familiar technology, culture, and civilization. Most Paleo Maidens are born into this world, their extraordinary abilities first emerging within its familiar cities and towns. They grow up as part of modern society before their unique calling leads them toward their training.
+The Modern World is where the vast majority of humanity resides, in nations and cities that mirror our own. It is a world of familiar technology, culture, and civilization. Most Paleo Maidens are born into this world, their extraordinary abilities first emerging within its familiar cities and towns.
+
+However, the "Truth" whispered by anomalies suggests that this world proceeds linearly only because of a recurring loop. While humanity sees only a continuous history, those who face the Truth Trial learn of a "million shattered pasts" and "forgotten tomorrows" that define the current era.
+
+### The Primeval Continents
 
 ### The Primeval Continents
 
@@ -231,4 +253,6 @@ The player takes on the role of a **Lecturer** at the Stratum Institute, selecti
 
 For those who achieve victory in the World Cup, an even greater challenge awaits: the player guides their graduated champion into one of the elite professional leagues—either the **Apex League** or the **Bulwark League**, depending on the Maiden's personal quest—to aim for the ultimate "Professional Crown."
 
-While managing their Champion's training schedule and travel itinerary, players are not alone. The institute's faculty is staffed by renowned paleontologist-professors—the very individuals who, in our world, discovered the fossils of the dinosaurs their Maidens are based on. For example, **Dr. Bonaparte** (*An homage based on [Dr. José Bonaparte](https://en.wikipedia.org/wiki/Jos%C3%A9_Bonaparte)*) is the world's leading expert on Maidens like *Sastrei Taurus* and *Caza Amarga*. As a lecturer, players can consult these professors for invaluable insights into a Maiden's unique strengths and latent potential, helping them tailor their coaching for maximum efficiency. These professors, often rivals in their own academic fields, provide a rich source of guidance and competitive drama within the university.
+While managing their Champion's training schedule and travel itinerary, players are not alone. The institute's faculty is staffed by renowned paleontologist-professors who provide invaluable insights.
+
+However, the role of the Lecturer transcends mere mentorship. Saurophaganax Maximus identifies the Lecturer as a **Recurring Witness**—a "Child of Man" who has walked this path across a thousand forgotten timelines. The Lecturer is the only constant across the world's resets, forever choosing a new "fiction" (Maiden) to inhabit. The ultimate task of the Lecturer is not just to win the World Cup, but to provide an answer to the Truth Trial that can finally break the cycle and secure a linear future for all Paleo Maidens.
