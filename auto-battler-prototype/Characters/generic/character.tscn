@@ -11,13 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://0ikbyqukpbpo" path="res://Mechanics/AffinityBonus/ClashGoodBonus.tscn" id="5_s8f15"]
 [ext_resource type="PackedScene" uid="uid://t5ijh4ht3g7r" path="res://Mechanics/AffinityBonus/ResetCooldownBonus.tscn" id="6_kntwo"]
 [ext_resource type="Script" uid="uid://xhutnxqw7tsv" path="res://Characters/generic/shake_sprite.gd" id="7_ryghy"]
+[ext_resource type="Texture2D" uid="uid://tuyj15q4u60r" path="res://Characters/placeholder_sprites/Jin Sprites/jn430_01.png" id="8_0rq6b"]
 [ext_resource type="Script" uid="uid://cuqyr28ih435l" path="res://Mechanics/hurtbox.gd" id="8_7en0w"]
 [ext_resource type="AnimationLibrary" uid="uid://c7xkr5d1qyx2t" path="res://Characters/jin/anims/jin.res" id="9_0rq6b"]
 [ext_resource type="Script" uid="uid://whbif5ykrdmj" path="res://Characters/States/state_machine.gd" id="9_28a1p"]
 [ext_resource type="Script" uid="uid://bqw1eo83vcp4r" path="res://Characters/States/state_hitstun.gd" id="10_40065"]
 [ext_resource type="Script" uid="uid://chhf2t5cm2eg4" path="res://Characters/States/state_blockstun.gd" id="11_0rq6b"]
 [ext_resource type="Script" uid="uid://bibnpqp5otcvs" path="res://Characters/States/state_idle.gd" id="12_xyuli"]
-[ext_resource type="Texture2D" uid="uid://viv0tq23ssnd" path="res://Characters/placeholder_sprites/Jin Sprites/jn203_08.png" id="13_0rq6b"]
 [ext_resource type="Script" uid="uid://85tmkwtqblw3" path="res://Characters/States/state_movefwd.gd" id="13_w4xc1"]
 [ext_resource type="Script" uid="uid://gsw3o2s1dbgk" path="res://Characters/States/state_manager.gd" id="14_7en0w"]
 [ext_resource type="Script" uid="uid://sv5uv45x0dmh" path="res://Characters/States/state_movebkwd.gd" id="14_p1ouf"]
@@ -32,6 +32,38 @@
 [ext_resource type="Script" uid="uid://piba5udqmidg" path="res://Characters/States/state_dashbkwd.gd" id="21_40065"]
 [ext_resource type="PackedScene" uid="uid://wa1rn1pd2gkc" path="res://Mechanics/Loadout/Loadout.tscn" id="21_ucqw4"]
 [ext_resource type="Script" uid="uid://cyexs8siijqaw" path="res://Characters/generic/attack_viewer.gd" id="23_1us7d"]
+
+[sub_resource type="Animation" id="Animation_xyuli"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SideTracker/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_0rq6b")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SideTracker/Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, -6)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w4xc1"]
+_data = {
+&"RESET": SubResource("Animation_xyuli")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xudx"]
 size = Vector2(48, 128)
@@ -53,6 +85,7 @@ affLvl = 5
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=599901854]
 unique_name_in_owner = true
 callback_mode_process = 0
+libraries/ = SubResource("AnimationLibrary_w4xc1")
 libraries/don = ExtResource("4_1us7d")
 libraries/jin = ExtResource("9_0rq6b")
 libraries/ryoshu = ExtResource("5_1us7d")
@@ -73,10 +106,9 @@ debug_color = Color(0, 0.6, 0, 0.41960785)
 
 [node name="Sprite" type="Sprite2D" parent="SideTracker" unique_id=1654816590]
 unique_name_in_owner = true
-position = Vector2(16, 10)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("13_0rq6b")
-flip_h = true
+position = Vector2(16, -6)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_0rq6b")
 region_rect = Rect2(0, 88, 256, 401)
 script = ExtResource("7_ryghy")
 

@@ -36,6 +36,7 @@ func on_area_entered(hitbox: HitBox) -> void:
 					lastGroupHitCooldown = lastGroupHitCooldownDefault
 			if allowHit:
 				print(lastGroupCollision)
+				hitbox.hitDetected.emit()
 				owner.get_hit(hitbox, self);
 
 #func _on_area_exited(hitbox: HitBox) -> void:

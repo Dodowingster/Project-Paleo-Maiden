@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://cp1vjeyka1tul" path="res://Characters/ryoshu/techniques/ryoshu_sideswitch.tres" id="9_5hpsr"]
 [ext_resource type="PackedScene" uid="uid://3tfudsg5f3v" path="res://UI/Menus/SetupChar.tscn" id="10_l6cnn"]
 [ext_resource type="Resource" uid="uid://dewv7utm7vt8c" path="res://Characters/ryoshu/techniques/ryoshu_super.tres" id="10_ojtvw"]
+[ext_resource type="Resource" uid="uid://bpva0q5o8rumj" path="res://Characters/jin/techniques/jin_projectile.tres" id="12_5hpsr"]
 
 [node name="BattleSetup" type="Control" unique_id=1438093763 node_paths=PackedStringArray("setupChar1", "setupChar2")]
 layout_mode = 3
@@ -24,7 +25,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_b6kka")
 charList = Array[ExtResource("2_h7fae")]([ExtResource("3_ysw65"), ExtResource("4_yc3jj"), ExtResource("5_m5m86")])
-techniqueList = Array[ExtResource("5_m8xi5")]([ExtResource("6_l6cnn"), ExtResource("7_ojtvw"), ExtResource("8_m5m86"), ExtResource("9_5hpsr"), ExtResource("10_ojtvw")])
+techniqueList = Array[ExtResource("5_m8xi5")]([ExtResource("6_l6cnn"), ExtResource("7_ojtvw"), ExtResource("8_m5m86"), ExtResource("9_5hpsr"), ExtResource("10_ojtvw"), ExtResource("12_5hpsr")])
 setupChar1 = NodePath("PanelContainer/VBoxContainer/SetupMenu/SetupChar")
 setupChar2 = NodePath("PanelContainer/VBoxContainer/SetupMenu/SetupChar2")
 
@@ -46,11 +47,13 @@ size_flags_vertical = 3
 [node name="SetupChar" parent="PanelContainer/VBoxContainer/SetupMenu" unique_id=617072385 instance=ExtResource("10_l6cnn")]
 layout_mode = 2
 charList = Array[ExtResource("2_h7fae")]([ExtResource("3_ysw65"), ExtResource("4_yc3jj"), ExtResource("5_m5m86")])
+techniqueList = Array[ExtResource("5_m8xi5")]([ExtResource("6_l6cnn"), ExtResource("7_ojtvw"), ExtResource("8_m5m86"), ExtResource("9_5hpsr"), ExtResource("10_ojtvw"), ExtResource("12_5hpsr")])
 headerLabelText = "P1"
 
 [node name="SetupChar2" parent="PanelContainer/VBoxContainer/SetupMenu" unique_id=807929390 instance=ExtResource("10_l6cnn")]
 layout_mode = 2
 charList = Array[ExtResource("2_h7fae")]([ExtResource("3_ysw65"), ExtResource("4_yc3jj"), ExtResource("5_m5m86")])
+techniqueList = Array[ExtResource("5_m8xi5")]([ExtResource("6_l6cnn"), ExtResource("7_ojtvw"), ExtResource("8_m5m86"), ExtResource("9_5hpsr"), ExtResource("10_ojtvw"), ExtResource("12_5hpsr")])
 headerLabelText = "P2"
 
 [node name="StartBtn" type="Button" parent="PanelContainer/VBoxContainer" unique_id=286935302]
