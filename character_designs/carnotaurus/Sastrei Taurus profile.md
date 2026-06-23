@@ -24,7 +24,7 @@ Sastrei Taurus is a Paleo-Maiden affiliated with the **Apex League (Carni Dorm)*
 | **Weight** | 64kg (141 lbs) |
 | **Phone Wallpaper** | A photo of her and Amarga when they were little | 
 | **Max Sprint Speed** | 72 km/h (45 mph) | 
-| **Titles** | Kinetic Brawler, Rogue of El Secreto, Rebellious Speedster |
+| **Titles** | Rogue of El Secreto, Rebellious Speedster |
 | **Birthdate** | April 27th |
 | **Birthplace** | Argentina |
 | **Likes** | Listening to Rap, Meat, Hoodies |
