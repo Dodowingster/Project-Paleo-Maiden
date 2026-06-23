@@ -39,12 +39,14 @@ Scope: Arcade/Gauntlet alternative-answer endings after Saurophaganax resolution
 ---
 
 ## Sastrei Taurus - A Devil's Final Rebellion
-- Maiden's Answer: Your control over the Lecturer's memories ends here. I chose this fight, and I am ending it with my own hands.
+- Maiden's Answer: Your control over the Lecturer's memories ends here. I chose this fight, and I am ending it with my own hands. Try to keep up!
 - Lecturer Influence: The Lecturer's repeated memory loss sharpens Sastrei's rebellion into conviction, and their bond becomes the paradox exception that preserves her memory.
-- Resolution: Sastrei rejects all sealing logic by choice and tears the cycle apart through a cycle-breaking strike fueled by absolute defiance.
+- Resolution: Pushing her Boxing Magus style to a speed that fractures the laws of physics, Sastrei executes a cataclysmic, screen-shattering final blow. The velocity is so extreme it causes severe temporal ripple effects that bleed directly backward into the past of the Primeval Continent. She permanently becomes the literal Ghost of Ceratos that her grandmother and mother witnessed decades ago, closing the loop by creating the very legend that originally inspired her
 - Cost: The paradox backlash erases Sastrei's name, personality, and personal history from collective memory. She accepts that price without regret. The Lecturer alone retains her memory in full, becoming her living legacy.
 - World Result: The time loop ends permanently. The world proceeds linearly.
-- Final Image: Two spectators debate who won the Grand Finals. They pull up archive footage — a fighter in a sleeveless horned hoodie, face clear on screen, with the footage chanting "Sastrei Taurus." The Lecturer stops, smiles faintly, and says: "Her name was Sastrei Taurus. She was my student." They walk on carrying the one memory that did not break.
+- Final Image: A few weeks after the Grand Finals, the Lecturer walks down the bustling corridors of the Stratum Institute. They pass a group of young Paleo-Maidens huddled around a tablet, intensely debating the corrupted archive footage of the championship match. "Have you seen the last grand finals? It was so sick."
+"Yeah, I wonder where she is now though, I heard she disappeared without a trace?" one asks, throwing her hands up. Another sighs, "Her face is entirely static in the video. I remember seeing her name displayed as Sastrei Taurus. But I have never heard of a student like that in this institution before."
+The Lecturer stops, staring at the familiar, unmistakable silhouette of the sleeveless horned hoodie on the screen. A faint, bittersweet smile crosses their face. They step up to the huddle, capturing the students' immediate attention. "I know Sastrei Taurus really well actually," the Lecturer says softly. The students look up, wide-eyed and eager, "Whoa, really?! What kind of person was she?" The Lecturer pauses, looking out the corridor window toward the hazy tree line of the Primeval Continent, before looking back down at them. "Tell me... what do you know about the Ghost of Ceratos?"
 - Homage: There is only one nearly complete Carnotaurus skeleton known to science; her ending reflects this "solitary record"—she is the only one of her kind, and only one person is left to remember her.
 
 ## Tyran Rex - The Tyrant King's Decree
