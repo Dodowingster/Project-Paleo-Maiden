@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cuxe7y8vv0frc"]
+
+[ext_resource type="Script" uid="uid://1s4bqkbcslqa" path="res://Mechanics/Techniques/projectile_technique.gd" id="1_c3m8y"]
+[ext_resource type="Script" uid="uid://davbi37fiwm0b" path="res://Mechanics/Triggers/action_goal_trigger.gd" id="2_scrn3"]
+[ext_resource type="Script" uid="uid://vvpc8qlg01o" path="res://Mechanics/Triggers/range_trigger.gd" id="3_ibsxw"]
+[ext_resource type="Script" uid="uid://cm2swp1i5yuvi" path="res://Mechanics/Triggers/cooldown_trigger.gd" id="4_ibsxw"]
+[ext_resource type="Script" uid="uid://brv4doelwgn1w" path="res://Mechanics/Effects/projectile_effect.gd" id="5_kntqi"]
+[ext_resource type="PackedScene" uid="uid://dhntkirqrjtnm" path="res://Characters/jin/projectiles/SonicWave.tscn" id="6_ugcig"]
+
+[node name="Jin_Projectile" type="Node" unique_id=656886546]
+script = ExtResource("1_c3m8y")
+
+[node name="ActionStockTrigger" type="Node" parent="." unique_id=416963749]
+script = ExtResource("2_scrn3")
+metadata/_custom_type_script = "uid://davbi37fiwm0b"
+
+[node name="RangeTrigger" type="Node" parent="." unique_id=1390656216]
+script = ExtResource("3_ibsxw")
+minRange = 100.0
+maxRange = 300.0
+metadata/_custom_type_script = "uid://vvpc8qlg01o"
+
+[node name="CooldownTrigger" type="Node" parent="." unique_id=1010755523]
+script = ExtResource("4_ibsxw")
+cooldown = 10.0
+startWithCooldown = false
+metadata/_custom_type_script = "uid://cm2swp1i5yuvi"
+
+[node name="ProjectileEffect" type="Node" parent="." unique_id=61283919]
+script = ExtResource("5_kntqi")
+spawnFrame = 37
+spawnVelocity = Vector2(1500, 0)
+spawnLocation = Vector2(120, 80)
+duration = 0.4
+projectile = ExtResource("6_ugcig")
+metadata/_custom_type_script = "uid://brv4doelwgn1w"

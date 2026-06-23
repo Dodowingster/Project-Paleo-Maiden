@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://saseoo5tbm1y"]
+
+[ext_resource type="Texture2D" uid="uid://btt6oaq5rh5sj" path="res://assets/10039_bgremove_2.png" id="1_175nm"]
+[ext_resource type="Script" uid="uid://uvoqifyxk30e" path="res://generics/base_vfx.gd" id="1_v0pp0"]
+
+[sub_resource type="Animation" id="Animation_jk6y4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(68, 52, 30, 28)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-16, -14)]
+}
+
+[sub_resource type="Animation" id="Animation_v0pp0"]
+resource_name = "play"
+length = 0.800003
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667, 0.533333, 0.6, 0.666667, 0.733333, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(68, 52, 30, 28), Rect2(112, 44, 37, 36), Rect2(165, 42, 39, 38), Rect2(220, 38, 39, 42), Rect2(274, 37, 39, 44), Rect2(325, 35, 48, 50), Rect2(385, 35, 50, 50), Rect2(442, 42, 39, 39), Rect2(497, 38, 39, 42), Rect2(553, 37, 39, 44), Rect2(603, 35, 50, 50), Rect2(660, 35, 50, 50), Rect2(715, 35, 50, 50)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667, 0.533333, 0.6, 0.666667, 0.733333, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-15, -14), Vector2(-18.5, -18), Vector2(-19.5, -19), Vector2(-19.5, -21), Vector2(-19.5, -22), Vector2(-21, -22), Vector2(-20, -22), Vector2(-19.5, -19), Vector2(-19.5, -21), Vector2(-19.5, -22), Vector2(-21, -22), Vector2(-22, -22), Vector2(-16, -22)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7pl4n"]
+_data = {
+&"RESET": SubResource("Animation_jk6y4"),
+&"play": SubResource("Animation_v0pp0")
+}
+
+[node name="WaveVfx" type="Node2D"]
+z_index = 1
+script = ExtResource("1_v0pp0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-16, -14)
+texture = ExtResource("1_175nm")
+region_enabled = true
+region_rect = Rect2(68, 52, 30, 28)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_7pl4n")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

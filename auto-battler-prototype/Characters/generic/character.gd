@@ -383,13 +383,18 @@ func _process(_delta: float) -> void:
 
 # on character getting HIT
 func get_hit(hitbox: HitBox, hurtbox: Hurtbox) -> void:
-	var parent : Character = hitbox.owner
+	
+	var parent = hitbox.owner
+	if parent is Projectile:
+		parent = parent.projectileOwner
 	if parent != self:
 		hit_by.append(hitbox)
 		hurtboxes_hit.append(hurtbox)
 
 func get_hit_logic(hitbox: HitBox, hurtbox: Hurtbox):
-	var parent : Character = hitbox.owner
+	var parent = hitbox.owner
+	if parent is Projectile:
+		parent = parent.projectileOwner
 	# choose where to spawn the vfx
 	var vfx_pos : Vector2 = get_intersection_midpoint(hitbox, hurtbox)
 	# holds the type of vfx to be initialized at the end of the process
@@ -407,7 +412,7 @@ func get_hit_logic(hitbox: HitBox, hurtbox: Hurtbox):
 	vfx_type = VFXManager.VFX_TYPE.HIT
 	var outputHealth = health
 	final_hitstop = max(hitstop_frames, hitbox.hitstopFrames)
-	final_hitstop_owner = max(hitbox.owner.hitstop_frames, hitbox.hitstopFrames)
+	final_hitstop_owner = max(parent.hitstop_frames, hitbox.hitstopFrames)
 	hitstun = hitbox.hitstun
 	hitknockbackX = hitbox.knockbackX * knockbackDirectionMod
 	hitknockbackY = hitbox.knockbackY
@@ -415,7 +420,7 @@ func get_hit_logic(hitbox: HitBox, hurtbox: Hurtbox):
 	
 	# vfx, hitstop, camera and sprite shake handling
 	hitstop_frames = final_hitstop
-	hitbox.owner.hitstop_frames = final_hitstop_owner
+	parent.hitstop_frames = final_hitstop_owner
 	var vfx : VFX = VFXManager.spawn_vfx(vfx_type, vfx_pos, knockbackDirectionMod)
 	vfx.add_to_group("vfx", false)
 	for vfxNode in get_tree().get_nodes_in_group("vfx"):

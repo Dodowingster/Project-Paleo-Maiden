@@ -1,6 +1,8 @@
 class_name HitBox
 extends Area2D
 
+signal hitDetected()
+
 @export var damage = 10
 @export var hitstun : float = 0.15
 @export var blockstun : float = 0.12
