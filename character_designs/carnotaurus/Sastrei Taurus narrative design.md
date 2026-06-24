@@ -73,7 +73,8 @@ The Lecturer steps closer, throwing a light, textbook shadow-boxing jab into the
 * **The Payoff**: A battle of supreme mutual respect. Sastrei manages to crack Caza's flawless spatial calculus using pure kinetic speed, earning Caza's ultimate validation as a true competitive peer.
 
 ### Act 2: The Jurassic League — The Clash of Outcasts
-* **The Opponent**: **Berniss Iguan**, a rogue Herbi Maiden who violently forces her way into the _WIP_
+* **The Opponent**: **Berniss Iguan**, a rogue Herbi Maiden who violently forces her way into the Apex League
+_WIP_
 
 ### Act 3: The Cretaceous League — The Light of Authenticity
 * **The Opponent**: **Nevesi Pycnonemo**, the reigning "Solar Sovereign."
