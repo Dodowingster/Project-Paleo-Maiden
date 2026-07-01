@@ -1,50 +1,67 @@
-"Be proud that you are to lose against me. A commendable feat."
+# Tyran Rex — Character Profile
 
-― Tyran Rex (The Tyrant Persona)
+> *"Be proud that you are to lose against me. A commendable feat."*
+> — Tyran Rex (The Tyrant Persona)
 
-## Real Life Counterpart Details
+## 1. General Biography & Metadata
 
-| Attribute | Detail |
-| :--- | :--- |
-| **Species** | *Tyrannosaurus rex* (Meaning: "Tyrant Lizard King") |
-| **Era** | Late Cretaceous |
-| **Key Features** | Massive size, crushing bite force, thick muscular tail for counterbalance, and disproportionately small forelimbs. |
-| **Lore Reflection** | Her absolute **Brute Force** and **Stamina** focus, her supreme authority (The King), and her use of crushing, overwhelming power in combat. Her P-Magic Greatsword compensates for the short reach of her small arms. |
+Tyran Rex serves as the **President of the Student Council** and the undisputed leader of the **Apex League (Carni Dorm)**.
 
----
-
-## Profile/Background
-
-Tyran Rex is the **President of the Student Council** and the leader of the **Apex League (Carni Dorm)**.
-
-Her political appointment is a **gamble by the Headmaster**, who recognized her raw, unparalleled potential despite her **chaotic past as the "Apex of the Underworld"—a notorious delinquent** who dominated underground fighting and training arenas. She was given the presidency not for her diplomacy, but to force her destructive energy into a legitimate, high-stakes challenge.
-
-Crucially, Tyran is **oblivious** to the fear she inspires. She views her loud, demanding demeanor as necessary leadership, and her boasts as **motivational declarations** designed to push others to her level of strength. She believes students *respect* her methods, failing to realize they comply out of sheer **terror** stemming from rumors of her brutal delinquent history.
+Her political appointment was a high-stakes, calculated gamble orchestrated by the Headmaster. Recognizing her raw, unparalleled potential despite her chaotic past as a notorious underworld gladiator, he handed her the presidency not for her diplomacy, but to channel her destructive, bottomless energy into a legitimate, high-stakes academic challenge.
 
 | Attribute | Detail |
-| :--- | :--- |
-| **Strengths** | Absolute Brute Force, Unmatched Stamina, Unintentional Deterrence |
-| **Weakness** | Extreme Arrogance, Complete Obliviousness to her reputation |
-| **Tail** | Due to its long and bulky nature, she often sits on her own tail as a cushion. |
+| --- | --- |
+| **Species** | *Tyrannosaurus rex* (Tyrannosauroidea lineage) |
+| **Lineage** | Former orphan of the underground arena; adopted the "Rex" name from mentor **Coelurosa Rex**. |
 | **Height** | 193 cm (6'4") |
 | **Weight** | 95 kg (209 lbs) |
+| **Birthdate** | October 5th *(Historical anniversary of the first description and naming of Tyrannosaurus rex in 1905)* |
+| **Birthplace** | Montana, North America |
 | **Phone Wallpaper** | Her daily schedule (meticulously planned, despite her chaotic personality) |
 | **Favourite Meal** | Burgers |
-| **Titles** | Apex Monarch, Cretacous Overlord (Used by others only out of fearful formality) |
-| **Birthdate** | October 5th |
-| **Birthplace** | Montana, North America |
-| **Likes** | Mentoring Juniors (but the juniors are frightened by her, of course she's oblivious about it), Maps, Fighting |
+| **Likes** | Mentoring Juniors, Maps, Fighting |
 | **Dislikes** | Mondays |
+| **Titles** | Apex Monarch, Cretaceous Overlord *(Used by others out of fearful formality)* |
 
 ---
 
-## Relationships (Friends/Rivals)
+## 2. Traits & Psychological Design
 
-| Character | Relationship Type | Nature of Conflict/Bond |
-| :--- | :--- | :--- |
-| **Aegypt Spino** (Spinosaurus) | **Rival** | Tyran sees Spino as a worthy adversary and respects her intellect and Arcane Stamina. |
-| **Horri Tricera** (Triceratops) | **Vice President / Arch-Rival** | The "Immovable Object" to Tyran's "Unstoppable Force." While Tyran relies on Horri to keep the Student Council from collapsing under paperwork, she finds Horri's secret "Magitech" hobby endlessly amusing. In the ring, their rivalry is legendary—a clash of absolute offense against absolute defense. |
-| **Sastrei Taurus** (Carnotaurus) | **Friend** | Tyran sees Taurus as someone with maximum potential. She actively encourages Taurus to be dominant in the Apex League, despite Taurus's choice of Agility over Power. |
+### The Core Paradox
+
+Tyran exists within a profound behavioral contradiction. On the surface, she is completely oblivious to the intense dread and intimidation she inspires in the student body. She firmly believes she is highly charming, approachable, and that her loud, demanding demeanor is simply standard, motivational leadership designed to push others to her level of strength. She genuinely believes students respect her methods, entirely failing to realize they comply out of sheer terror stemming from her brutal underworld history.
+
+Because of her massive size, she routinely sits on her own long, bulky tail as a cushion during meetings, completely unaware of the menacing aura she radiates over her peers.
+
+### The Hidden Solitude
+
+Deep beneath her unyielding arrogance, loud bravado, and boisterous persona, Tyran harbors an acute, deeply guarded vulnerability. Raised in a brutal criminal syndicate's slave cage where aggressive commands and absolute brute force were the singular mechanisms of survival, she is fundamentally trapped by her own power. Because the rest of the campus maintains a strict, fearful perimeter around her, she secretly struggles with an intense sense of isolation—frequently wondering if standing at the absolute evolutionary apex of the world carries an automatic lifetime sentence of total solitude.
+
+---
+
+## 3. Combat Mechanics & Vocation Evolution
+
+### Vocation Path
+
+* **Base Stage:** Warrior
+* **Hybrid Stage:** Battlemage
+* **Fused Trait Disciplines:** Brute (Core) $\times$ Stamina
+
+### Fighting Style: Crushing Impact
+
+Tyran's combat methodology completely rejects speed, agility, or delicate finesse in favor of pure, overwhelming weight. Every attack leverages her massive, naturally bottomless Stamina pool to deal catastrophic single-hit damage capable of shattering standard defenses. To compensate for the short reach of her biological lineage's forelimbs, she wields a massive, heavy P-Magic Greatsword.
+
+### Signature Move: Tyrant Divider
+
+An allegory for the *T. rex*'s legendary prehistoric bite force. Tyran initiates a vertical sword slash launched from an ablaze ground-drag stance, culminating in a devastating downward impalement. The sheer kinetic mass of the strike completely bypasses defensive stances, culminating in a massive, localized elemental explosion.
+
+---
+
+## 4. Relationships & Roster Dynamics
+
+* **Aegypt Spino (Spinosaurus) — Rival:** Tyran views Spino as an exceptionally worthy adversary on the circuit. She holds a profound respect for Spino's tactical intellect and massive Arcane Stamina, viewing her as one of the few peers capable of matching her in a straight historical clash.
+* **Horri Tricera (Triceratops) — Vice President / Arch-Rival:** The permanent "Immovable Object" to Tyran's "Unstoppable Force." While Tyran relies heavily on Horri's meticulous, structured methods to keep the Student Council from collapsing under paperwork, she finds Horri's secret "Magitech" hobby endlessly amusing. Their relationship is a fierce, legendary rivalry—a direct, absolute clash of supreme offense versus supreme defense.
+* **Sastrei Taurus (Carnotaurus) — Friend:** Tyran recognizes Taurus as an individual brimming with untapped competitive potential. She actively and loudly pressures Taurus to take a more dominant, aggressive stance within the Apex League, continuously pushing her to excel despite Taurus's personal choice to prioritize high-speed Agility over raw Power.
 
 ---
 
