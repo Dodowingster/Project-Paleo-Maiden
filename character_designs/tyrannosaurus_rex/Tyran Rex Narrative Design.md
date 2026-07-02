@@ -70,17 +70,17 @@ Later, the board is gathered in the meeting room again. Headmaster Buckland is a
 
 **Prerequisite:** Max Affinity reached with the Lecturer prior to the Cretaceous Grand Finals.
 
-* **The Atmosphere**: Late at night in the central courtyard of the training camp. Tyran sits cross-legged on her own bulky tail using it as a makeshift cushion, meticulously polishing the edge of her P-Magic greatsword.
+* **The Atmosphere**: Late at night in the central courtyard of the training camp. Tyran sits cross-legged on her own bulky tail using it as a makeshift cushion.
 * **The Dialogue**: She stops her rhythmic polishing, looking up at the stars with an uncharacteristic, quiet pensiveness before addressing the Lecturer:
-> *"Hey, Professor... do you remember the first day we met on the training field? When you actually walked right up to me?"*
+> *"Hey, Professor... do you remember the first day we met on the training field?"*
 
-She admits that despite her loud bravado and her firm belief that she is an inspiring, charming leader, she isn't entirely blind. She notices the look in the eyes of the ordinary students she tries to mentor—the pale, frozen fear rather than the fiery inspiration she intends to spark. For the first time, she opens up about her childhood in the Montana underground rings, explaining that when you grow up in a slave cage where loud commands and absolute brute force are the only things keeping you alive, you forget how to speak any other language.
+She admits that despite her loud bravado and her firm belief that she is an inspiring, charming leader, she isn't entirely blind. She notices the look in the eyes of the ordinary students she tries to mentor—the pale, frozen fear rather than the fiery inspiration she intends to spark. For the first time, she opens up about her childhood in the Montana underground rings, explaining that when you grow up in a slave cage where loud orders and absolute brute force are the only things keeping you alive, you forget how to speak any other language.
 
 Dropping her shield entirely, she looks at her greatsword with quiet vulnerability:
-> *"Everyone keeps their distance because they think I'm too much to handle. The students look at me like a monster, and the teachers treat me like a problem without a solution. For the longest time, I thought... maybe this is just the tax you pay. Maybe absolute power automatically sentences you to a lifetime of total solitude. But you... you didn't look at the warning signs. You didn't run away. You just looked me in the eye and saw a student who wanted to learn."*
+> *"You know, professor... I've been wondering, what is power? Having none deems you weak and defenseless; having too much deems you frightful and intimidating. For the longest time, I thought maybe power is a curse. Or maybe it's a gift—a gift that sentences those who possess it to a lifetime of solitude. I was beginning to lose hope of ever mastering my strength. But then—I met you"*
 
-* **The Temporal Anomaly**: As she stands up and lifts her greatsword toward the night sky, her massive P-Magic pool naturally flares in absolute, peak-affinity synchronization with the Lecturer's presence. The golden-red aura radiating from her body doesn't just illuminate the courtyard; it exerts a heavy, localized gravitational pull that causes the ambient pebbles to levitate. For a split second, a massive, phantasmal crown of pure prehistoric energy manifests above her head, symbolizing the undisputed apex authority of the Late Cretaceous era. Turning back to the Lecturer with her signature, confident grin, the anomaly vanishes as she says:
-> *"You didn't look at me like an unruly underworld beast that needed a leash. You looked at me like a King who just needed a partner. Let's go break some records tomorrow, Professor."*
+* **The Temporal Anomaly**: As she stands up, her massive P-Magic pool naturally flares in absolute, peak-affinity synchronization with the Lecturer's presence. The golden-red aura radiating from her body doesn't just illuminate the courtyard; it exerts a heavy, localized gravitational pull that causes the ambient pebbles to levitate. For a split second, a massive, phantasmal crown of pure prehistoric energy manifests above her head, symbolizing the undisputed apex authority of the Late Cretaceous era. Turning back to the Lecturer with her signature, confident grin, the anomaly vanishes as she says:
+> *"I used to think being born with this talent was the luckiest thing that ever happened to me. But now? I think meeting you takes first place"*
 
 
 ---
