@@ -100,7 +100,7 @@ Saurophaganax speaks with a weighted, archaic formalism. Her dialogue is designe
 | :--- | :--- | :--- |
 | **Phase 1** | Saurophaganax — True Form | Direct duel. Strategic, efficient, reads the player's patterns immediately. Her P-Magic does not feel like any known discipline. It feels like all of them, slightly wrong. |
 | **Phase 2** | Conjured Counterpart | She summons the real dinosaur species the player's Maiden is based on as a hostile manifestation. She does not fight alongside it. She observes. She already knows the outcome of this phase better than the player does. |
-| **Phase 3** | Chimeric Merge | She absorbs the conjured form and becomes a chimera that mirrors the player's current locked build, replicating techniques in a corrupted form. She is now both familiar and wrong in a way that is hard to describe. |
+| **Phase 3** | Chimeric Merge | Saurophaganax shatters the illusions entirely and transforms herself into her "real-world" counterpart. Because her fossil record is a disputed, chimeric assembly of fragmented remains, she manifests as a terrifying anatomical nightmare—uniting the irreconcilable traits of multiple distinct apex lineages into a single, unstable sovereign form. |
 
 ---
 
@@ -110,7 +110,7 @@ Saurophaganax speaks with a weighted, archaic formalism. Her dialogue is designe
 | :--- | :--- | :--- |
 | **True Form** | Absolute efficiency. No wasted motion, no emotional tells, no patterns the player has seen before. She fights like someone who has watched thousands of iterations of this exact fight. | Adapts to the player's approach within the first exchange. Does not repeat a punished move. |
 | **Conjured Counterpart** | The conjured form fights instinctively, without intelligence — it is pure species memory, not a Maiden. It is the real animal. The player is fighting something that does not know it is supposed to be a fair fight. | The Primal Instinct unlock happens here. The player's Maiden recognizes what she is fighting and becomes something more. |
-| **Chimeric Merge** | Mirrors the player's build with slight distortion. The timing is fractionally off. The techniques are recognizable but feel wrong. She is not copying — she is eroding. | Prioritizes targeting the player's most-used techniques. Punishes comfort. |
+| **Anatomical Dominance & Reality Erosion** | She abandons standard disciplines to weaponize her contradictory anatomy. Her attacks combine the crushing, impossible weight of the ancient progenitors with the razor-sharp predatory grace of multiple apex theropods simultaneously, physically distorting the arena boundaries with every strike. |
 
 ---
 
