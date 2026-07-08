@@ -6,8 +6,12 @@ Scope: Arcade/Gauntlet alternative-answer endings after Saurophaganax resolution
 ## The Awakening Trigger Rule (Prerequisite for the True Ending)
 
 - To unlock the True Grand Finale, the player must achieve MAX Affinity and complete Gauntlet Mode with every single Maiden across their separate timelines.
-- Each individual Gauntlet Ending represents a universe where a completely unique Lecturer and their Maiden achieved an absolute, unbroken bond.
-- Once all cards are unlocked, the sheer multiversal weight of these parallel bonds allows the Lecturer of the player's current run to activate a Cross-Timeline Quantum Bridge during Phase 3, allowing all Maidens and their unique Lecturers to defeat Saurophaganax together.
+- Each individual Gauntlet Ending represents a universe where each unique Lecturer and their Maiden achieved an absolute, unbroken bond.
+- Once all cards are unlocked, the sheer multiversal weight of these parallel bonds allows every timeline to share a single, unified moment during the fight against Saurophaganax Phase 3. Rather than fighting alone, the fabric of the multiverse aligns so that all Maidens stand together as the undisputed champions of their respective universes.
+- Having fully mastered the Primal Instinct, the final cinematic image features each Maiden fighting side-by-side, flanked by their Primal Instincts manifested in the magnificent, terrifying true forms of their real-life dinosaur counterparts.
+- This ultimate, multi-dimensional strike completely shatters Saurophaganax's anchoring, uniformly stripping her of her cosmic powers. Denuded of her godhood, Saurophaganax collapses, transforming into a normal, powerless Paleo-Maiden student named Maximus.
+- Standing amidst the fading light of the rift, the collective Maidens and Lecturers share a heartfelt moment of gratitude, thanking one another for making this impossible alliance a reality before they safely dissolve back into their separate, linear timelines.
+- Left behind in the current run's timeline, the active Maiden and her Lecturer approach the defeated entity. The Maiden extends her hand toward the dazed, newly-human Maximus, offering a warm smile and inviting her to leave the loop behind to join the Stratum Institute as a new transfer student.
 
 ## Truth Trigger Rule (Career -> Gauntlet)
 - Career True Route is only available if the player's Maiden reaches MAX Affinity before the Grand Finals.

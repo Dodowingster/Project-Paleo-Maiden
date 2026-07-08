@@ -791,8 +791,9 @@ TITLE MATCHES AT ARENA GRIDS
   balance passes.
 
 --------------------------------------------------------------------------------
-MAIN GOAL / END GAME — ANOMALY SEAL ARC (SAUROPHAGANAX MAXIMUS)
+MAIN GOAL / END GAME - ANOMALY SEAL ARC (SAUROPHAGANAX MAXIMUS)
 --------------------------------------------------------------------------------
+
   PRIMARY RUN GOAL:
   - Complete the 3-year expedition and win the Grand Finals through normal
     rival progression.
@@ -802,45 +803,46 @@ MAIN GOAL / END GAME — ANOMALY SEAL ARC (SAUROPHAGANAX MAXIMUS)
     Saurophaganax Anomaly Arc.
   - Core thematic trigger: cross-lineage rivalry pressure (for example,
     Theropod vs Sauropod lineage conflict).
-  - To reduce total miss chance, arc trigger may also use world-instability
-    accumulation as an alternate unlock route.
   - Career True Route gate: the player's Maiden must reach MAX Affinity
     BEFORE entering Grand Finals.
   - If MAX Affinity is not reached before Grand Finals, the run resolves
     through the standard career ending flow (no Saurophaganax confrontation
     in that run).
-  - Core thematic trigger: cross-lineage rivalry pressure (for example,
-    Theropod vs Sauropod lineage conflict).
-  - To reduce total miss chance, arc trigger may also use world-instability
-    accumulation as an alternate unlock route.
 
-  CAREER TRUE ROUTE CLARIFICATION:
-  - "True Ending" in Career Mode refers to qualifying for and clearing the
-    Saurophaganax Anomaly Arc.
+CAREER MODE CLARIFICATION:
+  - Clearing the Saurophaganax Anomaly Arc in Career Mode results in a localized 
+    timeline reset that rolls the world back to the beginning of the 3-year cycle. 
+    While the active Maiden's memories are completely wiped by the temporal shift, 
+    Saurophaganax fails to erase the Lecturer, whose role as a cosmic constant 
+    preserves their awareness across the loop.
+  - Before the reset finalizes, Saurophaganax directly taunts the Lecturer, 
+    challenging them to break the stagnation by taking their finalized, fully 
+    evolved Maiden into Gauntlet Mode to answer the absolute truth behind the 
+    multiverse.
   - This gate intentionally ties endgame truth confrontation to relationship
     investment, reinforcing the Affinity system as a major narrative pillar.
- 
 
   ANTAGONIST PROFILE:
   - Saurophaganax is sentient, strategic, and highly intelligent.
   - She is a world-level anomaly formed from contradictory lineage pressures,
     framed as an entity that should not exist under normal world rules.
-  - Her dialogue can imply uncanny knowledge about extinction and reality,
-    reinforcing her "outside natural order" presence.
+  - Her dialogue addresses the unique Lecturer of that timeline, recognizing
+    the position of the Mentor as a multiversal cosmic constant.
 
-  FINAL BATTLE PHASE ORDER (LOCKED):
-  1. PHASE 1 — SAUROPHAGANAX (TRUE FORM)
-     Direct duel against Saurophaganax herself.
-
-  2. PHASE 2 — CONJURED DINOSAUR COUNTERPART
-     Saurophaganax conjures the champion Maiden's real dinosaur counterpart
-     (example: Sastrei Taurus route -> Carnotaurus manifestation).
-     WIN CONDITION REWARD: Primal Instinct is attained immediately on
-     clearing Phase 2.
-
-  3. PHASE 3 — CHIMERIC MERGE FINALE
-     Saurophaganax merges with the conjured counterpart to create a chimera
-     final form that mirrors/corrupts the player's current build logic.
+  FINAL BATTLE PHASE ORDER (SYNCHRONIZED):
+  1. PHASE 1 - SAUROPHAGANAX MAXIMUS (BASE MAIDEN FORM)
+     Direct duel against Saurophaganax's standard Paleo Maiden form using
+     localized P-Magic.
+  2. PHASE 2 - CONJURED PRIMAL ANCESTOR
+     Saurophaganax solidifies the active Maiden's prehistoric ancestor into a
+     towering primal manifestation.
+     WIN CONDITION REWARD: Upon clearing Phase 2, the Maiden masters her
+     Primal Instinct immediately, manifesting a brilliant golden aura.
+  3. PHASE 3 - CHIMERIC TRUE FOSSIL NIGHTMARE
+     Saurophaganax's baseline Maiden form shatters like glass. She absorbs
+     the remaining chaotic energy to manifest her real-world counterpart - a
+     colossal, anatomically unstable chimeric nightmare displaying disputed
+     apex traits.
 
   PRIMAL INSTINCT (END-GAME RULE):
   - Primal Instinct manifests as P-Magic aura shaping into the Maiden's
@@ -849,14 +851,16 @@ MAIN GOAL / END GAME — ANOMALY SEAL ARC (SAUROPHAGANAX MAXIMUS)
     and is used in Phase 3 as the decisive power threshold.
 
   RESOLUTION MODEL:
-  - Saurophaganax is sealed, not permanently destroyed.
-  - Seal state is cyclical by world law and may reawaken in future eras.
-  - KIV: Whether anomaly resolution causes timeline reset / memory loss should
-    be finalized with roguelite progression persistence rules.
+  - In standard Career and individual Gauntlet runs, Saurophaganax is merely
+    sealed or forced into a localized retreat, causing a timeline reset or a
+    bittersweet personal sacrifice unique to that continuity.
+  - Absolute, permanent resolution is impossible within a single isolated
+    timeline.
 
 --------------------------------------------------------------------------------
-GAUNTLET MODE (POST-GAME ARC / TRUE ENDING ROUTE)
+GAUNTLET MODE (POST-GAME ARC / THE MULTIVERSAL FACULTY)
 --------------------------------------------------------------------------------
+
   CONCEPT:
   - Gauntlet Mode is the post-game equivalent of an Arcade Mode ladder.
   - The player selects a saved Final Build Maiden from their Maiden Build
@@ -869,71 +873,78 @@ GAUNTLET MODE (POST-GAME ARC / TRUE ENDING ROUTE)
   STRUCTURE:
   - A sequential ladder of increasingly difficult battles against named
     Paleo Maidens from the roster.
-  - Culminates in a full three-phase encounter against Saurophaganax Maximus.
+  - Culminates in a full three-phase encounter against Saurophaganax
+    Maximus.
 
-  TRUE ENDING:
-  - Clearing Gauntlet Mode with a specific Maiden unlocks her TRUE ENDING —
-    a unique scene depicting how that Maiden personally confronts the truth
-    of the Paleo Maiden world's cycle.
-  - Each Maiden's True Ending is authored individually. The same world truth
-    lands differently depending on who is hearing it.
+  GAUNTLET ENDING CARDS:
+  - Clearing Gauntlet Mode with a specific Maiden unlocks her GAUNTLET
+    ENDING CARD - a unique scene depicting how that specific, 'canon'
+    Lecturer and Maiden personally confront the truth of their timeline's
+    cycle.
+  - These endings serve as alternative-continuity answers. They are
+    bittersweet or tragic localized victories that act as the necessary
+    multiversal building blocks required to unlock the true conclusion of
+    the game.
 
-  CORE THEME — EVOLUTION AND SELF-DETERMINATION:
-  The unifying thread across all True Endings is self-improvement and
-  evolution: the moment each Maiden, upon learning the full truth of the
-  cycle, chooses who she decides to become. No two responses are the same.
-  The world's truth is a mirror — what it reflects depends entirely on the
-  Maiden standing in front of it.
+  THE TRUE GRAND FINALE (THE AWAKENING TRIGGER):
+  - UNLOCK REQUIREMENT: The player must achieve MAX Affinity and complete
+    Gauntlet Mode with every single Maiden across their separate timelines,
+    collecting every Ending Card.
+  - THE RESOLUTION: Once all cards are unlocked, the sheer multiversal
+    weight of these parallel bonds allows every timeline to share a single,
+    unified moment during Phase 3 of the Saurophaganax fight.
+  - Rather than fighting alone, all Maidens stand together as the
+    undisputed champions of their respective universes. Having fully
+    mastered their Primal Instincts, each Maiden fights side-by-side,
+    flanked by their Primal Instincts manifested in the magnificent, true
+    forms of their real-life dinosaur counterparts.
+  - This ultimate, multi-dimensional strike completely shatters
+    Saurophaganax's anchoring, uniformly stripping her of cosmic power and
+    turning her into a normal, powerless Paleo-Maiden named Maximus.
+  - After a heartfelt multiversal farewell, the Maidens and Lecturers
+    return to their separate, stabilized linear timelines. In the current
+    timeline, the active Maiden extends her hand to the defeated Maximus,
+    inviting her to join the Stratum Institute as a new transfer student.
 
-  This is not a theme about power. It is a theme about agency. Each True
-  Ending depicts the most evolved version of that Maiden's identity —
-  the person she becomes at the absolute limit of who she has always been.
+  CORE THEME - EVOLUTION AND SELF-DETERMINATION:
+  The unifying thread across all individual Gauntlet Endings is agency: the
+  moment each Maiden, upon learning the full truth of the cycle, chooses who
+  she decides to become at the absolute limit of her identity. No two
+  responses are the same. The world's truth is a mirror - what it reflects
+  depends entirely on the Maiden standing in front of it.
 
   AUTHORING RULE:
-  - Every True Ending must arrive at its resolution through the logic of
-    that Maiden's established character. The response must be inevitable
-    in hindsight — the player should feel "of course she would do this."
-  - No two Maidens share the same emotional resolution. The range of
-    responses should cover the full spectrum of how people confront
-    an impossible truth.
+  - Every Gauntlet Ending must arrive at its resolution through the logic of
+    that Maiden's established character. The response must be inevitable in
+    hindsight.
+  - No two Maidens share the same emotional resolution, covering the full
+    spectrum of how people confront an impossible truth before the True
+    Grand Finale synthesizes their efforts.
 
-  ── EXAMPLE: SASTREI TAURUS ─────────────────────────────────────────────
+  REVISED EXAMPLE: SASTREI TAURUS
   Evolved Self: The Maiden who decides her own fate.
 
-  Upon learning the truth — that the world is locked in a cycle, that
-  sealing Saurophaganax only delays the inevitable reset, that everything
-  and everyone she fought for exists inside a loop that will be wiped —
-  Sastrei does not hesitate long.
+  Upon learning the truth from Saurophaganax, Sastrei refuses to accept a
+  compromised reality. Her localized Gauntlet resolution is to push her
+  Boxing Magus style to a velocity that fractures physics, delivering a
+  screen-shattering blow that permanently welds her into past history as the
+  legendary "Ghost of Ceratos."
 
-  She does not accept the cycle. She does not argue with its logic.
-  She simply refuses to have any part of it.
-
-  Her resolution is to permanently destroy Saurophaganax at the cost of
-  her own existence — not out of self-destruction, but out of the
-  same willpower that carried her through every fight she was told
-  she could not win. She could not be given a large P-Magic pool.
-  She could not be given an easier path. She could not be given a world
-  that made sense. She chose her answer anyway.
-
-  The result: the cycle is broken. Everyone she knew survives and
-  continues. No one remembers her. The world does not know what
-  it was saved from, or by whom.
-
-  Tonal register: Not tragedy framed as loss. Tragedy framed as
-  completion. She finished what she started.
+  The cost of this isolated timeline victory is her erasure from public
+  memory - a bittersweet alternative continuity where her unique, canon
+  Lecturer is the only one left to preserve her legacy. This tragedy stands
+  as a powerful narrative weight, driving the player to complete the
+  remaining roster to save her via the True Grand Finale.
 
   KEY DESIGN RULE:
-  - True Endings are per-Maiden, not per-build.
+  - Ending Cards are per-Maiden, not per-build.
   - A player who completes Gauntlet Mode twice with two different Sastrei
-    builds unlocks the same Sastrei True Ending both times.
-  - Different Maidens always produce different True Endings.
+    builds unlocks the same Sastrei Gauntlet Ending both times.
 
   FINAL BUILD RELEVANCE:
   - The player's locked build determines how the Gauntlet is approached
-    mechanically. The True Ending content does not change based on build,
-    but survival and phase difficulty are shaped by build choices.
-  - This makes the Build Gallery a functional archive, not just a
-    cosmetic collection.
+    mechanically. The narrative content does not change based on build, but
+    survival and phase difficulty are shaped by build choices.
 
 ================================================================================
 END OF DOCUMENT
