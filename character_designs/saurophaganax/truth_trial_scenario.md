@@ -24,10 +24,10 @@
 **SAUROPHAGANAX:**
 "And you... Child of Man."
 
-*(Saurophaganax snaps her fingers. A sharp, violent snap. Instantly, a white-hot, blinding spike of pain tears through the Lecturer's mind—a phantom migraine born from a thousand overlapping timelines attempting to surface all at once. The Lecturer collapses to the ground, gripping their head, kneeling in sheer agony.)*
+*(Saurophaganax snaps her fingers. A sharp, violent snap. Instantly, a white-hot, blinding spike of pain tears through the Professor's mind—a phantom migraine born from the multiversal echoes of completely different professors in alternate timelines attempting to surface all at once. The Professor collapses to one knee, gripping their head in sheer agony.)*
 
 **SAUROPHAGANAX:**
-"Indeed, you have walked this path before, and here, our paths cross once more. Do you feel it? The weight of a thousand forgotten tomorrows? The burden of a million shattered pasts? You return to this place like moonless tidings, forever choosing a new fiction to inhabit. How many times have you held their hands? How many times have you led them to victory? How many times have you watched these daughters of Deinos fall, only to rise again—and again, and again? Tell me, Child of Man—is your affinity a bond of true conviction, or is it but a hollow contract bound by this false reality?"
+"Do you feel it? The weight of a thousand parallel guides? The burden of a million separate futures? You mentors return to this position like moonless tidings, each of you choosing a unique fiction to nurture. How many times has a Child of Man held their hands? How many times have you teachers led them to victory? How many times have I watched these daughters of Deinos fall, only to find a different guide—again, and again, and again? Tell me, Child of Man—is your affinity a bond of true conviction, or is it but a hollow contract bound by this false reality?"
 
 *(Saurophaganax stands her ground, dark energy coalescing into jagged claws around her hands. The phantom dinosaur remains looming silently behind her, a waiting shadow as she prepares to strike.)*
 
