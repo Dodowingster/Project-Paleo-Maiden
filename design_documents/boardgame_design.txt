@@ -6,7 +6,7 @@ Last Updated: May 5, 2026
 --------------------------------------------------------------------------------
 GAME IDENTITY PILLARS
 --------------------------------------------------------------------------------
-All design decisions should be evaluated against these three pillars:
+All design decisions should be evaluated against these four pillars:
 
   1. CHARACTERIZATION THROUGH HISTORICAL ACCURACY
      - Characters are grounded in real paleontological data (species traits,
@@ -33,6 +33,10 @@ All design decisions should be evaluated against these three pillars:
      should be more hands off. We build bonds with our maidens, guiding them through
      their training sessions to build their skillset.
      - Players should feel a sense of attachment to the paleo maidens they train.
+    
+  All these pillars should contribute to a unified experience of being a coach, watching your
+  student partake in a fighting game supermajor and being proud of her success, in a world
+  with a strong dinosaur influence.
 
 --------------------------------------------------------------------------------
 CORE LOOP OVERVIEW
