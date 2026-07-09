@@ -1,0 +1,160 @@
+================================================================================
+THE SPATIAL TECHNIQUE SYSTEM: KOMA GRID, MASTERY, & REPETITION DECAY
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE PROGRESSION LOOP ARCHITECTURE (CAREER TO GAUNTLET)
+--------------------------------------------------------------------------------
+The macro loop establishes a strict, irreversible barrier between the preparation/
+coaching phase and the competitive endgame arcade gauntlet.
+
+  - THE ACQUISITION PHASE (Career Mode): Over a 3-year timeline (24 turns/year), 
+    the coach balances stat training, cooking, and sparring to discover and 
+    practice techniques. Learned moves populate the run's Technique Library.
+  - THE ARTIFACT SNAPSHOT (Run End): Upon completing the final 3rd-Year 
+    Cretaceous League, the Maiden's final stats and her surviving Technique 
+    Library are permanently frozen as a "Final Build" portrait in the Gallery.
+  - THE EXECUTION PHASE (Gauntlet Mode): The player fields a frozen Final Build 
+    in arcade ladder runs. They can no longer learn moves or alter stats; they act 
+    strictly as a "Corner Coach," re-arranging the Active Grid between match 
+    rounds to counter specific opponent styles using their entire surviving vault.
+
+--------------------------------------------------------------------------------
+2. TECHNIQUE KOMA SHAPES & THE MASTERY MATRIX
+--------------------------------------------------------------------------------
+Techniques do not occupy flat text rows. Inspired by spatial inventory design, 
+moves exist as physical blocks (Komas) that must be fit onto a bounded matrix board. 
+Repeatedly drilling a move during the Career Run yields Mastery, physically 
+compressing its block footprint due to streamlined execution frames.
+
+  ┌──────────────────────────┬───────────┬───────────┬────────────────────────┐
+  │ Technique Tier           │ Base Size │ Max Mast. │ Fighting Game Function │
+  ├──────────────────────────┼───────────┼───────────┼────────────────────────┤
+  │ Core Specials (236/etc)  │ 3 Slots   │ 1 Slot    │ Starters, Space Control│
+  │ Ex Specials              │ 5 Slots   │ 3 Slots   │ i-frames, Extenders, EX│
+  │ Uniques (Base/Inherited) │ 7 Slots   │ 5 Slots   │ Character Cinematic Ult│
+  │ Vocation Uniques         │ 7 Slots   │ 5 Slots   │ Evolved Style Finisher │
+  └──────────────────────────┴───────────┴───────────┴────────────────────────┘
+
+--------------------------------------------------------------------------------
+3. THE DYNAMIC ACTIVE GRID & HYBRID EVOLUTION DISCOUNT
+--------------------------------------------------------------------------------
+The Active Grid represents the Maiden's immediate equipped cognitive capacity for 
+an upcoming battle. Her mind expands and optimizes as she evolves.
+
+  - THE BASELINE CAPACITY: 10 Slots (5x2 Matrix Grid)
+    All Maidens start with this restricted layout. An unoptimized Maiden trying 
+    to force an unmastered Unique (7 slots) and a single unmastered Special 
+    (3 slots) will entirely saturate her grid, choking her tactical options.
+  
+  - THE SHIFT EXPANSION: 16 Slots (4x4 Matrix Grid)
+    To achieve advanced forms, players must fit precise elemental/discipline block 
+    ratios (e.g., Flow + Focus) into the 10-slot grid. Success triggers a 
+    Vocation Shift (e.g., Boxing Magus). The board physically fractures and 
+    slides outward into a massive 4x4 grid, unlocking a Vocation Unique slot and 
+    permitting high-tier "Dream Builds."
+    * Note: Bulky, unmastered 3-slot blocks or unmaintained Rusty blocks will 
+      physically choke the baseline grid, preventing the shift from occurring.
+    
+  - THE NATIVE STYLE COGNITIVE DISCOUNT:
+    The moment a Maiden successfully shifts into a hybrid Vocation, her mental 
+    evolution grants an automatic, permanent spatial discount to her NATIVE Unique. 
+    Her base signature ultimate becomes instantly more integrated into her combat 
+    subconscious, shrinking its footprint by exactly -2 slots:
+      * Unmastered Native Unique: Compresses from 7 Slots -> down to 5 Slots.
+      * Fully Mastered Native Unique: Compresses from 5 Slots -> down to 3 Slots.
+
+--------------------------------------------------------------------------------
+4. THE AUTOMATIC RETENTION FILTER (TIME DECAY VS. MASTERY)
+--------------------------------------------------------------------------------
+To prevent absolute hoarding and force tactical player commitment during Career Mode, 
+unrefined techniques decay organically if neglected. Players cannot manually choose 
+to delete or "forget" techniques via menus; decay is governed strictly by time, 
+deployment, and mastery thresholds.
+
+  - THE MASTERY IMMUNITY RULE (Permanent Muscle Memory)
+    High-repetition training resulting in Max Mastery represents an indelible 
+    neurological shift in the Maiden's style. Once a technique achieves Max Mastery 
+    (e.g., Core Specials compressed to 1 slot, Uniques compressed to 3 or 5 slots), 
+    it becomes 100% IMMUNE to Rust. It is safe forever, can never expand, and can 
+    never be forgotten.
+
+  - PHASE 1: THE 3-TURN TIME WARNING (The Rust State)
+    If an unmastered technique sits benched in the Library—or resides on the 
+    Active Grid but fails to be deployed—for THREE consecutive Career turns, it 
+    accumulates "Rust."
+      * THE WARNING SIGNAL: The Koma block tarnishes visually and balloons in 
+        size (+1 to +2 slots), signaling that muscle memory is degrading.
+      * THE ON-GRID OVERLOAD: If a move rusts while actively equipped and its 
+        expansion pushes the grid beyond its capacity limits, the board becomes 
+        "Overloaded," penalizing the Maiden's starting frame data or meter.
+      * THE EXPLOIT-PROOF LIFELINE (Deployment-Based): A player can remove Rust at 
+        any point during the year by DEPLOYING the move—meaning they equip it to 
+        the grid and complete exactly one live sparring or tournament match. They 
+        do not rely on RNG AI execution; the player pays the cost purely by navigating 
+        a high-stakes match with a bulky, clunky grid layout to refresh her focus.
+
+  - PHASE 2: THE ANNUAL TRANSITION (The Forgotten Wipe)
+    At the conclusion of each calendar year (Turn 24), the Maiden cleans out her 
+    volatile mental clutter before advancing to the next cycle.
+      * THE PURGE RULE: Any unmastered technique that is actively "Rusty" at the 
+        exact moment the year rolls over is permanently scrubbed from her muscle 
+        memory and disappears from the Technique Library.
+      * THE SHARP IMMUNITY: Any move kept "Sharp" via active deployment rotation, 
+        protected by Max Mastery, or securely maintained within a valid, 
+        un-overloaded grid safely transitions into the next year.
+
+  - THE CRETACEOUS LEAGUE EXCEPTION (The Final Rescue Window)
+    The Cretaceous League at the end of Year 3 represents the final consecutive 
+    match series before the permanent Gallery Lock and transition to Gauntlet Mode.
+      * LIVE RESCUE MECHANIC: Because the League features a multi-battle bracket 
+        format, players can utilize early tournament rounds to deliberately deploy 
+        Rusty, unmastered techniques. Completing those high-stakes tournament rounds 
+        clears their decay instantly, saving them from the final wipe.
+      * THE GAUNTLET TRANSITION: The moment the tournament ends, remaining 
+        Rusty techniques are purged. The surviving "Sharp" library is locked 
+        into the Gauntlet Mode roster with all Rust mechanics entirely deactivated 
+        permanently.
+
+--------------------------------------------------------------------------------
+5. ESTABLISHED HIGH-LEVEL CAREER METAGAME
+--------------------------------------------------------------------------------
+This system divides the 3-year Career progression into a highly distinct, 
+satisfying tactical macro-loop:
+
+  - YEAR 1 (The Sponging Phase): The coach hogs as many techniques as possible, 
+    widely expanding her library to experiment with elemental combinations while 
+    beginning to master her core foundational specials to preserve early grid space.
+  - YEAR 2 (The Culling Phase): The player heavily prioritizes mastering the exact 
+    techniques needed to satisfy their target Hybrid Vocation Shift. Niche, high-tier 
+    moves intended for the endgame are put on a strict "maintenance deployment 
+    rotation" to prevent them from being wiped out at the Year 2 rollover.
+  - YEAR 3 (The Polishing Phase): The coach finishes mastering the core toolkit to 
+    earn permanent Rust Immunity. With their main combat style compressed, they use 
+    the final turns and early Cretaceous League bracket matches to de-rust any 
+    remaining unmastered secret weapons, cementing a massive, versatile strategy 
+    vault for the Gauntlet.
+
+--------------------------------------------------------------------------------
+6. ENDGAME GAUNTLET METAGAME & BALANCE REGULATION
+--------------------------------------------------------------------------------
+  - PURPOSED DESIGN ALIGNMENT: By handling the permanent removal of moves via 
+    the Career Mode's annual transitions, Gauntlet Mode does not require artificial 
+    menu deletion. The player enters the endgame with a massive, permanent 
+    tactical toolbox—the ultimate mechanical reward for a perfectly optimized 
+    Career Run.
+  
+  - THE CORNER-COACH MATRIX PUZZLE: In Gauntlet Mode, the active 16-slot grid acts 
+    as the "deck-thinner." Because fully mastered moves are compressed down to 1 
+    and 3 slots, a perfectly optimized Maiden has a microscopic core footprint. 
+    This allows players to freely adapt between ladder rounds, swapping utility, 
+    armor-breaking, or zoning tools on the fly to counter hyper-threat bosses like 
+    Saurophaganax without altering her core identity.
+  
+  - THE "DUAL-UNIQUE" SYNERGY: A player who unlocks a hybrid Vocation can achieve 
+    a devastating Dual-Ultimate build. Thanks to the Native Style Cognitive 
+    Discount, a fully mastered Native Unique only demands 3 slots post-evolution. 
+    Combined with a fully mastered Vocation Unique (5 slots), the core ultimates 
+    consume exactly 8 slots total. This leaves precisely half of the 16-slot grid 
+    (8 slots) completely free for high-tier Ex Specials and utility counters.
+================================================================================
