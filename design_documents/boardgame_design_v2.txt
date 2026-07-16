@@ -1,0 +1,66 @@
+--------------------------------------------------------------------------------
+CORE LOOP OVERVIEW
+--------------------------------------------------------------------------------
+- 3-year run, 24 turns per year
+- Board game world map with dice-driven non-linear movement
+- Combat resolved by the auto-battler (Godot prototype)
+- Failure to qualify in a year's final tournament ends the run permanently
+- At the end of the run, the player's Final Build is locked permanently
+and added to their Maiden Build Gallery (collection across all runs)
+
+--------------------------------------------------------------------------------
+TITLE MATCH SCHEDULING
+--------------------------------------------------------------------------------
+SCHEDULING MENU
+- available at most times while in the boardgame
+- choose from a list of available title matches to sign up for
+- signing up costs finds, lower cost if you sign up early
+
+
+--------------------------------------------------------------------------------
+NAVIGATION SYSTEM
+--------------------------------------------------------------------------------
+SCOUTING
+- roll dice to see how far ahead you can move
+    - Ex: roll 4 -> can move 0-4 spaces in any route
+- also reveals any event tiles in the vicinity
+
+
+--------------------------------------------------------------------------------
+TILE TYPES
+--------------------------------------------------------------------------------
+Available at any tile:
+- Lets you set up camp
+
+Empty:
+- Nothing happens, just go straight to camp
+
+Locals:
+- Discoverable by scouting
+- Lets you battle other maidens at the local for techniques based on their pool
+
+Arena:
+- Always visible on map
+- Not accessible until title match day
+- On title match day, participate in title match to get ex techniques based on their pool
+
+Hazard: 
+- Types:
+    - Fully blocked - blocks the route its on, preventing further movement past it
+    - Debuff - doesn't block the route its on, but passing through it causes a debuff or damages the player
+- Can be temporary or permanent, depending on the nature of the hazard
+
+Crossroads:
+- Encounters with other maidens interacting with each other
+- more details TODO
+
+Event:
+- random events focused on the world can trigger here
+- more details TODO
+
+Shops:
+- Types:
+    - Town shops: Bigger collection, always visible on map
+    - Travelling merchants: Limited stock, need to scout to discover
+- Items sold details TODO
+
