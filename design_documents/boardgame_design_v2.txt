@@ -64,3 +64,28 @@ Shops:
     - Travelling merchants: Limited stock, need to scout to discover
 - Items sold details TODO
 
+
+--------------------------------------------------------------------------------
+CAMP
+--------------------------------------------------------------------------------
+Available options (only one per camp)->
+Train:
+Lose HP, choose to either:
+- gain technique:
+    - technique obtained is dependent on biome
+- train existing technique:
+    - choose techniques to increase mastery on, limited by loadout size
+Cook:
+- Choose from a list of dishes to cook, each dish requires different ingredient combinations
+- different dishes increase/decrease maiden affinity by different amounts based on the maiden's preferences
+- HP also restored from the dish, restore amount varies by amount of ingredients used
+
+Spar:
+- only available if a rival/sparring partner is encountered
+- win -> get a random technique associated with the rival
+- lose -> HP restored to before the spar
+
+
+--------------------------------------------------------------------------------
+HUH
+--------------------------------------------------------------------------------
