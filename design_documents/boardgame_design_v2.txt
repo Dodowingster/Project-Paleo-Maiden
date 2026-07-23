@@ -9,6 +9,15 @@ CORE LOOP OVERVIEW
 and added to their Maiden Build Gallery (collection across all runs)
 
 --------------------------------------------------------------------------------
+WORLD MAP
+--------------------------------------------------------------------------------
+- Arenas are always at the same locations, same goes for some shops
+- Routes leading to these locations will always stay the same, always visible as well
+- Scouting reveals how far you can travel along the route and any events that are happening in
+those nodes (can randomize routes if we know how to do it)
+
+
+--------------------------------------------------------------------------------
 TITLE MATCH SCHEDULING
 --------------------------------------------------------------------------------
 SCHEDULING MENU
@@ -38,6 +47,7 @@ Empty:
 Locals:
 - Discoverable by scouting
 - Lets you battle other maidens at the local for techniques based on their pool
+- each space lets you do battle once
 
 Arena:
 - Always visible on map
@@ -52,7 +62,7 @@ Hazard:
 
 Crossroads:
 - Encounters with other maidens interacting with each other
-- more details TODO
+- maidens can learn techniques that relate to the interacting maidens
 
 Event:
 - random events focused on the world can trigger here
@@ -62,7 +72,7 @@ Shops:
 - Types:
     - Town shops: Bigger collection, always visible on map
     - Travelling merchants: Limited stock, need to scout to discover
-- Items sold details TODO
+- Items sold mainly have to do with movement and ingredients for cooking
 
 
 --------------------------------------------------------------------------------
@@ -78,6 +88,7 @@ Lose HP, choose to either:
 Cook:
 - Choose from a list of dishes to cook, each dish requires different ingredient combinations
 - different dishes increase/decrease maiden affinity by different amounts based on the maiden's preferences
+    - can't feed them the same dish consecutively, the affinity gain will be lower each time
 - HP also restored from the dish, restore amount varies by amount of ingredients used
 
 Spar:
@@ -87,5 +98,10 @@ Spar:
 
 
 --------------------------------------------------------------------------------
-HUH
+END OF YEAR
 --------------------------------------------------------------------------------
+- if the player has won enough title matches to qualify, they can proceed to the end of year finals,
+otherwise they lose the run
+
+End of Year Finals:
+- single elim top 8 -> 3 fights
