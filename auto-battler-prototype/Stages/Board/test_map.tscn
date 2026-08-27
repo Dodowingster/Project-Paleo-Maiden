@@ -3,6 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://b1ro4i7r2upk4" path="res://Stages/Board/assets/mapPack_tilesheet.png" id="1_ba6w2"]
 [ext_resource type="TileSet" uid="uid://bq6sag61c0tcn" path="res://Stages/assets/new_tile_set.tres" id="1_swmh8"]
 [ext_resource type="Script" uid="uid://bfwln7rtiidkv" path="res://Stages/Board/board_char.gd" id="2_2cvrh"]
+[ext_resource type="Script" uid="uid://bawabgkmfpbgs" path="res://Stages/Board/map_node.gd" id="4_85idx"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_m0fca"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_2gyk0"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="7_dgtof"]
+
+[sub_resource type="Resource" id="Resource_pdnt0"]
+script = ExtResource("6_2gyk0")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ba6w2"]
 atlas = ExtResource("1_ba6w2")
@@ -13,6 +20,27 @@ size = Vector2(16, 16)
 
 [node name="TestMap" type="Node2D" unique_id=1525044721]
 
+[node name="PhantomCamera2D" type="Node2D" parent="." unique_id=894899710 node_paths=PackedStringArray("follow_target")]
+top_level = true
+position = Vector2(96, 336)
+script = ExtResource("5_m0fca")
+follow_mode = 1
+follow_target = NodePath("../Player")
+tween_resource = SubResource("Resource_pdnt0")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=802898428]
+physics_interpolation_mode = 1
+position = Vector2(96, 336)
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1498545669]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("7_dgtof")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
 [node name="GroundMap" type="TileMapLayer" parent="." unique_id=700562517]
 tile_map_data = PackedByteArray("AAAAAAIAAQAFAAAAAAABAAIAAQAGAAAAAAACAAIAAQAGAAAAAAADAAIAAQAGAAAAAAAEAAIAAQAGAAAAAAAFAAIAAQAGAAAAAAAGAAIAAQAGAAAAAAAHAAIAAQAGAAAAAAAAAAMAAQAFAAEAAAAAAAQAAQAFAAEAAAAAAAUAAQAFAAEAAAAAAAYAAQAFAAEAAAAAAAcAAQAFAAIAAAABAAMAAQAGAAEAAAABAAQAAQAGAAEAAAABAAUAAQAGAAEAAAABAAYAAQAGAAEAAAABAAcAAQAGAAIAAAACAAMAAQAGAAEAAAACAAQAAQAGAAEAAAACAAUAAQAGAAEAAAACAAYAAQAGAAEAAAACAAcAAQAGAAIAAAADAAMAAQAGAAEAAAADAAQAAQAGAAEAAAADAAUAAQAGAAEAAAADAAYAAQAGAAEAAAADAAcAAQAGAAIAAAAEAAMAAQAGAAEAAAAEAAQAAQAGAAEAAAAEAAUAAQAGAAEAAAAEAAYAAQAGAAEAAAAEAAcAAQAGAAIAAAAFAAMAAQAGAAEAAAAFAAQAAQAGAAEAAAAFAAUAAQAGAAEAAAAFAAYAAQAGAAEAAAAFAAcAAQAGAAIAAAAGAAMAAQAGAAEAAAAGAAQAAQAGAAEAAAAGAAUAAQAGAAEAAAAGAAYAAQAGAAEAAAAGAAcAAQAGAAIAAAAHAAMAAQAGAAEAAAAHAAQAAQAGAAEAAAAHAAUAAQAGAAEAAAAHAAYAAQAGAAEAAAAHAAcAAQAGAAIAAAAIAAIAAQAGAAAAAAAIAAMAAQAGAAEAAAAIAAQAAQAGAAEAAAAIAAUAAQAGAAEAAAAIAAYAAQAGAAEAAAAIAAcAAQAGAAIAAAAJAAIAAQAGAAAAAAAJAAMAAQAGAAEAAAAJAAQAAQAGAAEAAAAJAAUAAQAGAAEAAAAJAAYAAQAGAAEAAAAJAAcAAQAGAAIAAAAKAAIAAQAGAAAAAAAKAAMAAQAGAAEAAAAKAAQAAQAGAAEAAAAKAAUAAQAGAAEAAAAKAAYAAQAGAAEAAAAKAAcAAQAGAAIAAAALAAIAAQAGAAAAAAALAAMAAQAGAAEAAAALAAQAAQAGAAEAAAALAAUAAQAGAAEAAAALAAYAAQAGAAEAAAALAAcAAQAGAAIAAAAMAAIAAQAGAAAAAAAMAAMAAQAGAAEAAAAMAAQAAQAGAAEAAAAMAAUAAQAGAAEAAAAMAAYAAQAGAAEAAAAMAAcAAQAGAAIAAAANAAIAAQAGAAAAAAANAAMAAQAGAAEAAAANAAQAAQAGAAEAAAANAAUAAQAGAAEAAAANAAYAAQAGAAEAAAANAAcAAQAGAAIAAAAOAAIAAQAGAAAAAAAOAAMAAQAGAAEAAAAOAAQAAQAGAAEAAAAOAAUAAQAGAAEAAAAOAAYAAQAGAAEAAAAOAAcAAQAGAAIAAAAPAAIAAQAHAAAAAAAPAAMAAQAHAAEAAAAPAAQAAQAHAAEAAAAPAAUAAQAHAAEAAAAPAAYAAQAHAAEAAAAPAAcAAQAHAAIAAAA=")
 tile_set = ExtResource("1_swmh8")
@@ -21,16 +49,46 @@ collision_enabled = false
 physics_quadrant_size = 64
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=730766270]
-tile_map_data = PackedByteArray("AAABAAMAAQAJAAsAAAACAAMAAQAGAAgAAAADAAMAAQAGAAgAAAAEAAMAAQAGAAgAAAAFAAMAAQAGAAgAAAAGAAMAAQAGAAgAAAAHAAMAAQABAAgAAAAHAAQAAQAFAAgAAAAHAAUAAQAFAAgAAAAHAAYAAQAAAAkAAAAIAAYAAQAGAAgAAAAJAAYAAQAGAAgAAAAKAAYAAQAGAAgAAAALAAYAAQAGAAgAAAAMAAYAAQAGAAgAAAANAAYAAQAGAAgAAAAOAAYAAQAJAAoAAAA=")
+tile_map_data = PackedByteArray("AAABAAMAAQAJAAsAAAACAAMAAQAGAAgAAAADAAMAAQAGAAgAAAAEAAMAAQAGAAgAAAAFAAMAAQAGAAoAAAAGAAMAAQAGAAgAAAAHAAMAAQABAAgAAAAHAAQAAQAFAAgAAAAHAAUAAQAFAAoAAAAHAAYAAQAAAAkAAAAIAAYAAQAGAAgAAAAJAAYAAQAGAAgAAAAKAAYAAQAGAAgAAAALAAYAAQAGAAgAAAAMAAYAAQAGAAgAAAANAAYAAQAGAAgAAAAOAAYAAQAJAAoAAAA=")
 tile_set = ExtResource("1_swmh8")
 rendering_quadrant_size = 64
 collision_enabled = false
 physics_quadrant_size = 64
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1960207277]
+[node name="InitialMapNode" type="Node2D" parent="." unique_id=1735152959 node_paths=PackedStringArray("rightNode")]
 position = Vector2(96, 224)
+script = ExtResource("4_85idx")
+rightNode = NodePath("../MapNode")
+
+[node name="MapNode" type="Node2D" parent="." unique_id=375970456 node_paths=PackedStringArray("leftNode", "rightNode", "downNode")]
+position = Vector2(352, 224)
+script = ExtResource("4_85idx")
+leftNode = NodePath("../InitialMapNode")
+rightNode = NodePath("../MapNode2")
+downNode = NodePath("../MapNode2")
+metadata/_custom_type_script = "uid://bawabgkmfpbgs"
+
+[node name="MapNode2" type="Node2D" parent="." unique_id=571856908 node_paths=PackedStringArray("leftNode", "upNode", "rightNode", "downNode")]
+position = Vector2(480, 352)
+script = ExtResource("4_85idx")
+leftNode = NodePath("../MapNode")
+upNode = NodePath("../MapNode")
+rightNode = NodePath("../MapNode3")
+downNode = NodePath("../MapNode3")
+metadata/_custom_type_script = "uid://bawabgkmfpbgs"
+
+[node name="MapNode3" type="Node2D" parent="." unique_id=358948792 node_paths=PackedStringArray("leftNode", "upNode")]
+position = Vector2(928, 416)
+script = ExtResource("4_85idx")
+leftNode = NodePath("../MapNode2")
+upNode = NodePath("../MapNode2")
+metadata/_custom_type_script = "uid://bawabgkmfpbgs"
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1960207277 node_paths=PackedStringArray("initialNode")]
+position = Vector2(96, 336)
 motion_mode = 1
 script = ExtResource("2_2cvrh")
+initialNode = NodePath("../InitialMapNode")
 
 [node name="TextureRect" type="TextureRect" parent="Player" unique_id=2063514080]
 anchors_preset = 7
