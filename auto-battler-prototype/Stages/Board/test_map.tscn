@@ -24,15 +24,23 @@ size = Vector2(16, 16)
 top_level = true
 position = Vector2(96, 336)
 script = ExtResource("5_m0fca")
-follow_mode = 1
+follow_mode = 2
 follow_target = NodePath("../Player")
 tween_resource = SubResource("Resource_pdnt0")
+follow_damping = true
+follow_damping_value = Vector2(0.2, 0.2)
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=802898428]
 physics_interpolation_mode = 1
 position = Vector2(96, 336)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.5
+drag_top_margin = 0.5
+drag_right_margin = 0.5
+drag_bottom_margin = 0.5
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1498545669]
