@@ -1,31 +1,29 @@
 [gd_scene format=4 uid="uid://b2ixl1h02b376"]
 
-[ext_resource type="Texture2D" uid="uid://b1ro4i7r2upk4" path="res://Stages/Board/assets/mapPack_tilesheet.png" id="1_ba6w2"]
+[ext_resource type="Script" uid="uid://bqxa8p3capw3h" path="res://Stages/Board/map_logic.gd" id="1_2gyk0"]
 [ext_resource type="TileSet" uid="uid://bq6sag61c0tcn" path="res://Stages/assets/new_tile_set.tres" id="1_swmh8"]
-[ext_resource type="Script" uid="uid://bfwln7rtiidkv" path="res://Stages/Board/board_char.gd" id="2_2cvrh"]
 [ext_resource type="Script" uid="uid://bawabgkmfpbgs" path="res://Stages/Board/map_node.gd" id="4_85idx"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_m0fca"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_2gyk0"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="7_dgtof"]
+[ext_resource type="PackedScene" uid="uid://cmaruqqh7tfqu" path="res://Stages/Board/map_player.tscn" id="7_m0fca"]
 
 [sub_resource type="Resource" id="Resource_pdnt0"]
 script = ExtResource("6_2gyk0")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ba6w2"]
-atlas = ExtResource("1_ba6w2")
-region = Rect2(968, 576, 48, 56)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_swmh8"]
-size = Vector2(16, 16)
-
 [node name="TestMap" type="Node2D" unique_id=1525044721]
+
+[node name="MapLogic" type="Node" parent="." unique_id=840629623 node_paths=PackedStringArray("player", "scout_value_ui")]
+script = ExtResource("1_2gyk0")
+player = NodePath("../MapPlayer")
+scout_value_ui = NodePath("../CanvasLayer/UI/MiniMenu/ScoutDetails/ScoutValue")
 
 [node name="PhantomCamera2D" type="Node2D" parent="." unique_id=894899710 node_paths=PackedStringArray("follow_target")]
 top_level = true
 position = Vector2(96, 336)
 script = ExtResource("5_m0fca")
 follow_mode = 2
-follow_target = NodePath("../Player")
+follow_target = NodePath("../MapPlayer")
 tween_resource = SubResource("Resource_pdnt0")
 follow_damping = true
 follow_damping_value = Vector2(0.2, 0.2)
@@ -37,10 +35,10 @@ physics_interpolation_mode = 1
 position = Vector2(96, 336)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
-drag_left_margin = 0.5
-drag_top_margin = 0.5
-drag_right_margin = 0.5
-drag_bottom_margin = 0.5
+drag_left_margin = 0.25
+drag_top_margin = 0.25
+drag_right_margin = 0.25
+drag_bottom_margin = 0.25
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1498545669]
@@ -50,14 +48,18 @@ script = ExtResource("7_dgtof")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="GroundMap" type="TileMapLayer" parent="." unique_id=700562517]
-tile_map_data = PackedByteArray("AAAAAAIAAQAFAAAAAAABAAIAAQAGAAAAAAACAAIAAQAGAAAAAAADAAIAAQAGAAAAAAAEAAIAAQAGAAAAAAAFAAIAAQAGAAAAAAAGAAIAAQAGAAAAAAAHAAIAAQAGAAAAAAAAAAMAAQAFAAEAAAAAAAQAAQAFAAEAAAAAAAUAAQAFAAEAAAAAAAYAAQAFAAEAAAAAAAcAAQAFAAIAAAABAAMAAQAGAAEAAAABAAQAAQAGAAEAAAABAAUAAQAGAAEAAAABAAYAAQAGAAEAAAABAAcAAQAGAAIAAAACAAMAAQAGAAEAAAACAAQAAQAGAAEAAAACAAUAAQAGAAEAAAACAAYAAQAGAAEAAAACAAcAAQAGAAIAAAADAAMAAQAGAAEAAAADAAQAAQAGAAEAAAADAAUAAQAGAAEAAAADAAYAAQAGAAEAAAADAAcAAQAGAAIAAAAEAAMAAQAGAAEAAAAEAAQAAQAGAAEAAAAEAAUAAQAGAAEAAAAEAAYAAQAGAAEAAAAEAAcAAQAGAAIAAAAFAAMAAQAGAAEAAAAFAAQAAQAGAAEAAAAFAAUAAQAGAAEAAAAFAAYAAQAGAAEAAAAFAAcAAQAGAAIAAAAGAAMAAQAGAAEAAAAGAAQAAQAGAAEAAAAGAAUAAQAGAAEAAAAGAAYAAQAGAAEAAAAGAAcAAQAGAAIAAAAHAAMAAQAGAAEAAAAHAAQAAQAGAAEAAAAHAAUAAQAGAAEAAAAHAAYAAQAGAAEAAAAHAAcAAQAGAAIAAAAIAAIAAQAGAAAAAAAIAAMAAQAGAAEAAAAIAAQAAQAGAAEAAAAIAAUAAQAGAAEAAAAIAAYAAQAGAAEAAAAIAAcAAQAGAAIAAAAJAAIAAQAGAAAAAAAJAAMAAQAGAAEAAAAJAAQAAQAGAAEAAAAJAAUAAQAGAAEAAAAJAAYAAQAGAAEAAAAJAAcAAQAGAAIAAAAKAAIAAQAGAAAAAAAKAAMAAQAGAAEAAAAKAAQAAQAGAAEAAAAKAAUAAQAGAAEAAAAKAAYAAQAGAAEAAAAKAAcAAQAGAAIAAAALAAIAAQAGAAAAAAALAAMAAQAGAAEAAAALAAQAAQAGAAEAAAALAAUAAQAGAAEAAAALAAYAAQAGAAEAAAALAAcAAQAGAAIAAAAMAAIAAQAGAAAAAAAMAAMAAQAGAAEAAAAMAAQAAQAGAAEAAAAMAAUAAQAGAAEAAAAMAAYAAQAGAAEAAAAMAAcAAQAGAAIAAAANAAIAAQAGAAAAAAANAAMAAQAGAAEAAAANAAQAAQAGAAEAAAANAAUAAQAGAAEAAAANAAYAAQAGAAEAAAANAAcAAQAGAAIAAAAOAAIAAQAGAAAAAAAOAAMAAQAGAAEAAAAOAAQAAQAGAAEAAAAOAAUAAQAGAAEAAAAOAAYAAQAGAAEAAAAOAAcAAQAGAAIAAAAPAAIAAQAHAAAAAAAPAAMAAQAHAAEAAAAPAAQAAQAHAAEAAAAPAAUAAQAHAAEAAAAPAAYAAQAHAAEAAAAPAAcAAQAHAAIAAAA=")
+tile_map_data = PackedByteArray("AAAAAAIAAQAFAAAAAAABAAIAAQAGAAAAAAACAAIAAQAGAAAAAAADAAIAAQAGAAAAAAAEAAIAAQAGAAAAAAAFAAIAAQAGAAAAAAAGAAIAAQAGAAAAAAAHAAIAAQAGAAAAAAAAAAMAAQAFAAEAAAAAAAQAAQAFAAEAAAAAAAUAAQAFAAEAAAAAAAYAAQAFAAEAAAAAAAcAAQAFAAEAAAABAAMAAQAGAAEAAAABAAQAAQAGAAEAAAABAAUAAQAGAAEAAAABAAYAAQAGAAEAAAABAAcAAQAGAAEAAAACAAMAAQAGAAEAAAACAAQAAQAGAAEAAAACAAUAAQAGAAEAAAACAAYAAQAGAAEAAAACAAcAAQAGAAEAAAADAAMAAQAGAAEAAAADAAQAAQAGAAEAAAADAAUAAQAGAAEAAAADAAYAAQAGAAEAAAADAAcAAQAGAAEAAAAEAAMAAQAGAAEAAAAEAAQAAQAGAAEAAAAEAAUAAQAGAAEAAAAEAAYAAQAGAAEAAAAEAAcAAQAGAAEAAAAFAAMAAQAGAAEAAAAFAAQAAQAGAAEAAAAFAAUAAQAGAAEAAAAFAAYAAQAGAAEAAAAFAAcAAQAGAAEAAAAGAAMAAQAGAAEAAAAGAAQAAQAGAAEAAAAGAAUAAQAGAAEAAAAGAAYAAQAGAAEAAAAGAAcAAQAGAAEAAAAHAAMAAQAGAAEAAAAHAAQAAQAGAAEAAAAHAAUAAQAGAAEAAAAHAAYAAQAGAAEAAAAHAAcAAQAGAAEAAAAIAAIAAQAGAAAAAAAIAAMAAQAGAAEAAAAIAAQAAQAGAAEAAAAIAAUAAQAGAAEAAAAIAAYAAQAGAAEAAAAIAAcAAQAGAAEAAAAJAAIAAQAGAAAAAAAJAAMAAQAGAAEAAAAJAAQAAQAGAAEAAAAJAAUAAQAGAAEAAAAJAAYAAQAGAAEAAAAJAAcAAQAGAAEAAAAKAAIAAQAGAAAAAAAKAAMAAQAGAAEAAAAKAAQAAQAGAAEAAAAKAAUAAQAGAAEAAAAKAAYAAQAGAAEAAAAKAAcAAQAGAAEAAAALAAIAAQAGAAAAAAALAAMAAQAGAAEAAAALAAQAAQAGAAEAAAALAAUAAQAGAAEAAAALAAYAAQAGAAEAAAALAAcAAQAGAAEAAAAMAAIAAQAGAAAAAAAMAAMAAQAGAAEAAAAMAAQAAQAGAAEAAAAMAAUAAQAGAAEAAAAMAAYAAQAGAAEAAAAMAAcAAQAGAAEAAAANAAIAAQAGAAAAAAANAAMAAQAGAAEAAAANAAQAAQAGAAEAAAANAAUAAQAGAAEAAAANAAYAAQAGAAEAAAANAAcAAQAGAAEAAAAOAAIAAQAGAAAAAAAOAAMAAQAGAAEAAAAOAAQAAQAGAAEAAAAOAAUAAQAGAAEAAAAOAAYAAQAGAAEAAAAOAAcAAQAGAAEAAAAPAAIAAQAHAAAAAAAPAAMAAQAHAAEAAAAPAAQAAQAHAAEAAAAPAAUAAQAHAAEAAAAPAAYAAQAHAAEAAAAPAAcAAQAHAAEAAAAOAAgAAQAGAAEAAAAOAAkAAQAGAAEAAAAOAAoAAQAGAAEAAAAOAAsAAQAGAAEAAAAOAAwAAQAGAAEAAAAOAA0AAQAGAAEAAAANAA0AAQAGAAEAAAAMAA0AAQAGAAEAAAAMAAwAAQAGAAEAAAAMAAsAAQAGAAEAAAAMAAoAAQAGAAEAAAANAAoAAQAGAAEAAAANAAsAAQAGAAEAAAANAAwAAQAGAAEAAAANAAkAAQAGAAEAAAANAAgAAQAGAAEAAAAMAAgAAQAGAAEAAAAMAAkAAQAGAAEAAAALAAkAAQAGAAEAAAALAAgAAQAGAAEAAAAKAAkAAQAGAAEAAAAKAAoAAQAGAAEAAAAKAAsAAQAGAAEAAAAKAAwAAQAGAAEAAAAKAA0AAQAGAAEAAAAKAA4AAQAGAAEAAAALAAsAAQAGAAEAAAALAAoAAQAGAAEAAAALAAwAAQAGAAEAAAALAA0AAQAGAAEAAAAKAAgAAQAGAAEAAAAJAAgAAQAGAAEAAAAJAAkAAQAGAAEAAAAJAAoAAQAGAAEAAAAJAAsAAQAGAAEAAAAJAAwAAQAGAAEAAAAJAA0AAQAGAAEAAAAIAA0AAQAGAAEAAAAIAAwAAQAGAAEAAAAIAAsAAQAGAAEAAAAIAAoAAQAGAAEAAAAIAAkAAQAGAAEAAAAIAAgAAQAGAAEAAAAHAAgAAQAGAAEAAAAHAAkAAQAGAAEAAAAHAAoAAQAGAAEAAAAHAAsAAQAGAAEAAAAHAAwAAQAGAAEAAAAGAAwAAQAGAAEAAAAGAA0AAQAGAAEAAAAGAA4AAQAGAAEAAAAGAAsAAQAGAAEAAAAGAAoAAQAGAAEAAAAGAAkAAQAGAAEAAAAGAAgAAQAGAAEAAAAFAAgAAQAGAAEAAAAFAAkAAQAGAAEAAAAEAAoAAQAGAAEAAAAEAAsAAQAGAAEAAAAEAAwAAQAGAAEAAAAEAA0AAQAGAAEAAAADAAwAAQAGAAEAAAADAAsAAQAGAAEAAAADAAoAAQAGAAEAAAADAAkAAQAGAAEAAAADAAgAAQAGAAEAAAACAAsAAQAGAAEAAAACAAwAAQAGAAEAAAACAAoAAQAGAAEAAAABAAoAAQAGAAEAAAABAAkAAQAGAAEAAAABAAgAAQAGAAEAAAABAAsAAQAGAAEAAAABAAwAAQAGAAEAAAABAA0AAQAGAAEAAAACAA0AAQAGAAEAAAACAAkAAQAGAAEAAAACAAgAAQAGAAEAAAADAA4AAQAGAAEAAAADAA0AAQAGAAEAAAAEAAkAAQAGAAEAAAAEAAgAAQAGAAEAAAAFAAoAAQAGAAEAAAAFAAsAAQAGAAEAAAAFAAwAAQAGAAEAAAAFAA0AAQAGAAEAAAAFAA4AAQAGAAEAAAAHAA0AAQAGAAEAAAABAA4AAQAGAAEAAAACAA4AAQAGAAEAAAAEAA4AAQAGAAEAAAAHAA4AAQAGAAEAAAAIAA4AAQAGAAEAAAAJAA4AAQAGAAEAAAALAA4AAQAGAAEAAAAMAA4AAQAGAAEAAAANAA4AAQAGAAEAAAAOAA4AAQAGAAEAAAAAAAgAAQAFAAEAAAAAAAkAAQAFAAEAAAAAAAoAAQAFAAEAAAAAAAsAAQAFAAEAAAAAAAwAAQAFAAEAAAAAAA0AAQAFAAEAAAAAAA4AAQAFAAEAAAAPAAgAAQAHAAEAAAAPAAkAAQAHAAEAAAAPAAoAAQAHAAEAAAAPAAsAAQAHAAEAAAAPAAwAAQAHAAEAAAAPAA0AAQAHAAEAAAAPAA4AAQAHAAEAAAABAA8AAQAGAAIAAAACAA8AAQAGAAIAAAADAA8AAQAGAAIAAAAEAA8AAQAGAAIAAAAFAA8AAQAGAAIAAAAGAA8AAQAGAAIAAAAHAA8AAQAGAAIAAAAIAA8AAQAGAAIAAAAJAA8AAQAGAAIAAAAKAA8AAQAGAAIAAAALAA8AAQAGAAIAAAAMAA8AAQAGAAIAAAANAA8AAQAGAAIAAAAOAA8AAQAGAAIAAAAAAA8AAQAFAAIAAAAPAA8AAQAHAAIAAAA=")
 tile_set = ExtResource("1_swmh8")
 rendering_quadrant_size = 64
 collision_enabled = false
 physics_quadrant_size = 64
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=730766270]
-tile_map_data = PackedByteArray("AAABAAMAAQAJAAsAAAACAAMAAQAGAAgAAAADAAMAAQAGAAgAAAAEAAMAAQAGAAgAAAAFAAMAAQAGAAoAAAAGAAMAAQAGAAgAAAAHAAMAAQABAAgAAAAHAAQAAQAFAAgAAAAHAAUAAQAFAAoAAAAHAAYAAQAAAAkAAAAIAAYAAQAGAAgAAAAJAAYAAQAGAAgAAAAKAAYAAQAGAAgAAAALAAYAAQAGAAgAAAAMAAYAAQAGAAgAAAANAAYAAQAGAAgAAAAOAAYAAQAJAAoAAAA=")
+[node name="EnvMap" type="TileMapLayer" parent="." unique_id=148463464]
+tile_map_data = PackedByteArray("AAAJAAcAAQAJAAIAAAAEAAkAAQAJAAIAAAAGAAwAAQAJAAIAAAAKAA4AAQAJAAIAAAAIAAwAAQAIAAMAAAAJAAwAAQAIAAMAAAAKAAwAAQAIAAMAAAALAAwAAQAIAAMAAAAFAAkAAQAJAAcAAAADAAQAAQAJAAcAAAAEAAQAAQAJAAcAAAAKAAcAAQAJAAcAAAAMAAcAAQAJAAcAAAAJAAUAAQAJAAcAAAALAAUAAQAJAAcAAAA=")
+tile_set = ExtResource("1_swmh8")
+
+[node name="NodeMap" type="TileMapLayer" parent="." unique_id=730766270]
+tile_map_data = PackedByteArray("AAABAAMAAQAJAAsAAAACAAMAAQAGAAgAAAADAAMAAQAGAAgAAAAEAAMAAQAGAAgAAAAFAAMAAQAGAAoAAAAGAAMAAQAGAAgAAAAHAAMAAQABAAgAAAAHAAQAAQAFAAgAAAAHAAUAAQAFAAoAAAAHAAYAAQAFAAkAAAAIAAYAAQAGAAgAAAAJAAYAAQAGAAgAAAAKAAYAAQAGAAgAAAALAAYAAQAGAAgAAAAMAAYAAQAGAAgAAAANAAYAAQAGAAgAAAAOAAYAAQAJAAoAAAAHAAkAAQAFAAoAAAAHAAcAAQAFAAgAAAAHAAgAAQAFAAgAAAAHAAoAAQAGAAkAAAAGAAoAAQAGAAgAAAAFAAoAAQAGAAgAAAAEAAoAAQAGAAgAAAADAAoAAQAJAAsAAAAHAA0AAQAEAAkAAAAHAAsAAQAFAAgAAAAHAAwAAQAFAAgAAAAFAA0AAQAJAAsAAAAGAA0AAQAGAAgAAAAIAA0AAQAGAAgAAAAJAA0AAQAGAAgAAAAKAA0AAQAGAAgAAAALAA0AAQAGAAgAAAAMAAoAAQAIAAoAAAAMAA0AAQABAAkAAAAMAAsAAQAFAAgAAAAMAAwAAQAFAAgAAAA=")
 tile_set = ExtResource("1_swmh8")
 rendering_quadrant_size = 64
 collision_enabled = false
@@ -82,37 +84,87 @@ script = ExtResource("4_85idx")
 leftNode = NodePath("../MapNode")
 upNode = NodePath("../MapNode")
 rightNode = NodePath("../MapNode3")
-downNode = NodePath("../MapNode3")
+downNode = NodePath("../MapNode4")
 metadata/_custom_type_script = "uid://bawabgkmfpbgs"
 
-[node name="MapNode3" type="Node2D" parent="." unique_id=358948792 node_paths=PackedStringArray("leftNode", "upNode")]
+[node name="MapNode3" type="Node2D" parent="." unique_id=358948792 node_paths=PackedStringArray("leftNode", "upNode", "downNode")]
 position = Vector2(928, 416)
 script = ExtResource("4_85idx")
 leftNode = NodePath("../MapNode2")
 upNode = NodePath("../MapNode2")
+downNode = NodePath("../MapNode4")
 metadata/_custom_type_script = "uid://bawabgkmfpbgs"
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1960207277 node_paths=PackedStringArray("initialNode")]
+[node name="MapNode4" type="Node2D" parent="." unique_id=406202370 node_paths=PackedStringArray("leftNode", "upNode", "rightNode", "downNode")]
+position = Vector2(480, 608)
+script = ExtResource("4_85idx")
+leftNode = NodePath("../MapNode5")
+upNode = NodePath("../MapNode2")
+rightNode = NodePath("../MapNode3")
+downNode = NodePath("../MapNode6")
+metadata/_custom_type_script = "uid://bawabgkmfpbgs"
+
+[node name="MapNode5" type="Node2D" parent="." unique_id=1005879647 node_paths=PackedStringArray("rightNode")]
+position = Vector2(224, 672)
+script = ExtResource("4_85idx")
+rightNode = NodePath("../MapNode4")
+metadata/_custom_type_script = "uid://bawabgkmfpbgs"
+
+[node name="MapNode6" type="Node2D" parent="." unique_id=54834745 node_paths=PackedStringArray("upNode", "rightNode")]
+position = Vector2(352, 864)
+script = ExtResource("4_85idx")
+upNode = NodePath("../MapNode4")
+rightNode = NodePath("../MapNode7")
+metadata/_custom_type_script = "uid://bawabgkmfpbgs"
+
+[node name="MapNode7" type="Node2D" parent="." unique_id=465542858 node_paths=PackedStringArray("leftNode", "upNode", "downNode")]
+position = Vector2(800, 672)
+script = ExtResource("4_85idx")
+leftNode = NodePath("../MapNode6")
+upNode = NodePath("../MapNode4")
+downNode = NodePath("../MapNode6")
+metadata/_custom_type_script = "uid://bawabgkmfpbgs"
+
+[node name="MapPlayer" parent="." unique_id=2095786576 node_paths=PackedStringArray("initialNode") instance=ExtResource("7_m0fca")]
 position = Vector2(96, 336)
-motion_mode = 1
-script = ExtResource("2_2cvrh")
 initialNode = NodePath("../InitialMapNode")
 
-[node name="TextureRect" type="TextureRect" parent="Player" unique_id=2063514080]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -24.0
-offset_top = -56.0
-offset_right = 24.0
-grow_horizontal = 2
-grow_vertical = 0
-texture = SubResource("AtlasTexture_ba6w2")
-metadata/_edit_use_anchors_ = true
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=569901503]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=164879629]
-shape = SubResource("RectangleShape2D_swmh8")
-disabled = true
-debug_color = Color(0.93487203, 0.056284778, 0.6159282, 0.41960785)
+[node name="UI" type="Control" parent="CanvasLayer" unique_id=2089427098]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MiniMenu" type="VBoxContainer" parent="CanvasLayer/UI" unique_id=1176460663]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoutButton" type="Button" parent="CanvasLayer/UI/MiniMenu" unique_id=1297716063]
+layout_mode = 2
+text = "Scout"
+
+[node name="ScoutDetails" type="HBoxContainer" parent="CanvasLayer/UI/MiniMenu" unique_id=1582213849]
+layout_mode = 2
+
+[node name="ScoutHeader" type="Label" parent="CanvasLayer/UI/MiniMenu/ScoutDetails" unique_id=1951822194]
+layout_mode = 2
+text = "Scout Value:"
+
+[node name="ScoutValue" type="Label" parent="CanvasLayer/UI/MiniMenu/ScoutDetails" unique_id=1140294799]
+layout_mode = 2
+text = "0"
+vertical_alignment = 1
+
+[node name="EndMoveButton" type="Button" parent="CanvasLayer/UI/MiniMenu" unique_id=920951045]
+layout_mode = 2
+text = "End Move"
+
+[connection signal="pressed" from="CanvasLayer/UI/MiniMenu/ScoutButton" to="MapLogic" method="_on_scout_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/MiniMenu/EndMoveButton" to="MapLogic" method="_on_end_move_button_pressed"]
