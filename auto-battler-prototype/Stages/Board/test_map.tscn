@@ -12,6 +12,14 @@
 [sub_resource type="Resource" id="Resource_pdnt0"]
 script = ExtResource("6_2gyk0")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2gyk0"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.06666667, 0.06666667, 0.06666667, 0.6666667)
+corner_radius_top_right = 10
+
 [node name="TestMap" type="Node2D" unique_id=1525044721]
 
 [node name="MapLogic" type="Node" parent="." unique_id=840629623 node_paths=PackedStringArray("player", "scout_value_ui")]
@@ -178,19 +186,18 @@ offset_right = 400.0
 grow_vertical = 0
 size_flags_vertical = 3
 
-[node name="CharDisplay" parent="CanvasLayer/CharacterData" unique_id=125981305 instance=ExtResource("8_2gyk0")]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/CharacterData" unique_id=1297844171]
 layout_mode = 1
 anchors_preset = 2
-anchor_left = 0.0
 anchor_top = 1.0
-anchor_right = 0.0
 anchor_bottom = 1.0
-offset_left = 0.0
-offset_top = -23.0
+offset_top = -158.0
 offset_right = 90.0
-offset_bottom = 0.0
-grow_horizontal = 1
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2gyk0")
+
+[node name="CharDisplay" parent="CanvasLayer/CharacterData/PanelContainer" unique_id=125981305 instance=ExtResource("8_2gyk0")]
+layout_mode = 2
 
 [connection signal="pressed" from="CanvasLayer/UI/MiniMenu/ScoutButton" to="MapLogic" method="_on_scout_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/MiniMenu/EndMoveButton" to="MapLogic" method="_on_end_move_button_pressed"]

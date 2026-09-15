@@ -26,3 +26,58 @@ text = "Character: "
 [node name="SelectedCharLabel" type="Label" parent="SelectedChar" unique_id=995677794]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="Atk" type="HBoxContainer" parent="." unique_id=1930845499]
+layout_mode = 2
+
+[node name="AtkLabel" type="Label" parent="Atk" unique_id=1170956514]
+layout_mode = 2
+text = "Atk: "
+
+[node name="AtkValueLabel" type="Label" parent="Atk" unique_id=556029953]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Def" type="HBoxContainer" parent="." unique_id=649988314]
+layout_mode = 2
+
+[node name="DefLabel" type="Label" parent="Def" unique_id=1294591526]
+layout_mode = 2
+text = "Def: "
+
+[node name="DefValueLabel" type="Label" parent="Def" unique_id=1265052541]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Spd" type="HBoxContainer" parent="." unique_id=231935958]
+layout_mode = 2
+
+[node name="SpdLabel" type="Label" parent="Spd" unique_id=1542687300]
+layout_mode = 2
+text = "Spd: "
+
+[node name="SpdValueLabel" type="Label" parent="Spd" unique_id=969107535]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MinSta" type="HBoxContainer" parent="." unique_id=172817891]
+layout_mode = 2
+
+[node name="MinStaLabel" type="Label" parent="MinSta" unique_id=326570963]
+layout_mode = 2
+text = "Min. Sta: "
+
+[node name="MinStaValueLabel" type="Label" parent="MinSta" unique_id=867196426]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MaxSta" type="HBoxContainer" parent="." unique_id=294304083]
+layout_mode = 2
+
+[node name="MaxStaLabel" type="Label" parent="MaxSta" unique_id=38342971]
+layout_mode = 2
+text = "Max. Sta: "
+
+[node name="MaxStaValueLabel" type="Label" parent="MaxSta" unique_id=1335051115]
+unique_name_in_owner = true
+layout_mode = 2
