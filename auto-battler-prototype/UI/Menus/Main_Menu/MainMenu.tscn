@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://ctrnsoyaugp03"]
+
+[ext_resource type="Script" uid="uid://cwx14cihh2jd7" path="res://UI/Menus/Main_Menu/main_menu.gd" id="1_761r3"]
+[ext_resource type="PackedScene" uid="uid://bq08yf57mhtgy" path="res://UI/Menus/Reusables/CharSelect.tscn" id="2_nh3ma"]
+
+[node name="MainMenu" type="Control" unique_id=422235598]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_761r3")
+
+[node name="Panel" type="Panel" parent="." unique_id=1279993375]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainLayout" type="VBoxContainer" parent="Panel" unique_id=999218049]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = -46.5
+offset_right = 82.0
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Panel/MainLayout" unique_id=1138975212]
+layout_mode = 2
+text = "Project Paleo Maiden"
+horizontal_alignment = 1
+
+[node name="MainOptions" type="VBoxContainer" parent="Panel/MainLayout" unique_id=1594081035]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="NewGameBtn" type="Button" parent="Panel/MainLayout/MainOptions" unique_id=680245276]
+layout_mode = 2
+text = "New Game"
+
+[node name="ContinueBtn" type="Button" parent="Panel/MainLayout/MainOptions" unique_id=2051813821]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Continue"
+
+[node name="QuitBtn" type="Button" parent="Panel/MainLayout/MainOptions" unique_id=1664165301]
+layout_mode = 2
+text = "Quit Game"
+
+[node name="NewGameOptions" type="VBoxContainer" parent="Panel/MainLayout" unique_id=1590369798]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="CharSelect" parent="Panel/MainLayout/NewGameOptions" unique_id=613794425 instance=ExtResource("2_nh3ma")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="StartRunBtn" type="Button" parent="Panel/MainLayout/NewGameOptions" unique_id=469186918]
+layout_mode = 2
+text = "Start Run"
+
+[node name="CharSelectBackBtn" type="Button" parent="Panel/MainLayout/NewGameOptions" unique_id=124988836]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="Panel/MainLayout/MainOptions/NewGameBtn" to="." method="_on_new_game_btn_pressed"]
+[connection signal="pressed" from="Panel/MainLayout/MainOptions/QuitBtn" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="Panel/MainLayout/NewGameOptions/StartRunBtn" to="." method="_on_start_run_btn_pressed"]
+[connection signal="pressed" from="Panel/MainLayout/NewGameOptions/CharSelectBackBtn" to="." method="_on_char_select_back_btn_pressed"]

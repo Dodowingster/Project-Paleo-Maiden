@@ -7,14 +7,7 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_2gyk0"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="7_dgtof"]
 [ext_resource type="PackedScene" uid="uid://cmaruqqh7tfqu" path="res://Stages/Board/map_player.tscn" id="7_m0fca"]
-[ext_resource type="PackedScene" uid="uid://3tfudsg5f3v" path="res://UI/Menus/SetupChar.tscn" id="8_vuixs"]
-[ext_resource type="Script" uid="uid://boc53imrgb27h" path="res://Characters/generic/character_data.gd" id="9_mtjh2"]
-[ext_resource type="Resource" uid="uid://c2pi52jo2w0y8" path="res://Characters/ryoshu/ryoshu_data.tres" id="10_jsrvq"]
-[ext_resource type="Script" uid="uid://c0c4p57o71yio" path="res://Characters/generic/technique_data.gd" id="11_pc0al"]
-[ext_resource type="Resource" uid="uid://hrvfmlohrxj7" path="res://Characters/ryoshu/techniques/ryoshu_rush.tres" id="12_rirp8"]
-[ext_resource type="Resource" uid="uid://cp1vjeyka1tul" path="res://Characters/ryoshu/techniques/ryoshu_sideswitch.tres" id="13_n6t7k"]
-[ext_resource type="Resource" uid="uid://chfnndt3hm1wf" path="res://Characters/ryoshu/techniques/ryoshu_reversal.tres" id="14_eiku4"]
-[ext_resource type="Resource" uid="uid://dewv7utm7vt8c" path="res://Characters/ryoshu/techniques/ryoshu_super.tres" id="15_k03ew"]
+[ext_resource type="PackedScene" uid="uid://bjchkiijvphh7" path="res://UI/Menus/Reusables/CharDisplay.tscn" id="8_2gyk0"]
 
 [sub_resource type="Resource" id="Resource_pdnt0"]
 script = ExtResource("6_2gyk0")
@@ -177,32 +170,27 @@ text = "End Move"
 [node name="CharacterData" type="Control" parent="CanvasLayer" unique_id=1200690764]
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 3
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -400.0
-offset_top = -200.0
-offset_bottom = 200.0
-grow_horizontal = 0
-grow_vertical = 2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -400.0
+offset_right = 400.0
+grow_vertical = 0
 size_flags_vertical = 3
 
-[node name="SetupChar" parent="CanvasLayer/CharacterData" unique_id=617072385 instance=ExtResource("8_vuixs")]
+[node name="CharDisplay" parent="CanvasLayer/CharacterData" unique_id=125981305 instance=ExtResource("8_2gyk0")]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 2
 anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
+anchor_top = 1.0
+anchor_right = 0.0
 anchor_bottom = 1.0
 offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
+offset_top = -23.0
+offset_right = 90.0
 offset_bottom = 0.0
-charList = Array[ExtResource("9_mtjh2")]([ExtResource("10_jsrvq")])
-techniqueList = Array[ExtResource("11_pc0al")]([ExtResource("12_rirp8"), ExtResource("14_eiku4"), ExtResource("13_n6t7k"), ExtResource("15_k03ew")])
-headerLabelText = "Character Details"
+grow_horizontal = 1
+grow_vertical = 0
 
 [connection signal="pressed" from="CanvasLayer/UI/MiniMenu/ScoutButton" to="MapLogic" method="_on_scout_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/MiniMenu/EndMoveButton" to="MapLogic" method="_on_end_move_button_pressed"]

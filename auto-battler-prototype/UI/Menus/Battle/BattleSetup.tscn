@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://doy6qds7jr6o6"]
 
-[ext_resource type="Script" uid="uid://dojital3qpw7y" path="res://UI/Menus/battle_setup.gd" id="1_b6kka"]
+[ext_resource type="Script" uid="uid://dojital3qpw7y" path="res://UI/Menus/Battle/battle_setup.gd" id="1_b6kka"]
 [ext_resource type="Script" uid="uid://boc53imrgb27h" path="res://Characters/generic/character_data.gd" id="2_h7fae"]
 [ext_resource type="Resource" uid="uid://c2k2423pfb03h" path="res://Characters/don/don_data.tres" id="3_ysw65"]
 [ext_resource type="Resource" uid="uid://c2pi52jo2w0y8" path="res://Characters/ryoshu/ryoshu_data.tres" id="4_yc3jj"]
@@ -10,7 +10,7 @@
 [ext_resource type="Resource" uid="uid://hrvfmlohrxj7" path="res://Characters/ryoshu/techniques/ryoshu_rush.tres" id="7_ojtvw"]
 [ext_resource type="Resource" uid="uid://chfnndt3hm1wf" path="res://Characters/ryoshu/techniques/ryoshu_reversal.tres" id="8_m5m86"]
 [ext_resource type="Resource" uid="uid://cp1vjeyka1tul" path="res://Characters/ryoshu/techniques/ryoshu_sideswitch.tres" id="9_5hpsr"]
-[ext_resource type="PackedScene" uid="uid://3tfudsg5f3v" path="res://UI/Menus/SetupChar.tscn" id="10_l6cnn"]
+[ext_resource type="PackedScene" uid="uid://3tfudsg5f3v" path="res://UI/Menus/Battle/SetupChar.tscn" id="10_l6cnn"]
 [ext_resource type="Resource" uid="uid://dewv7utm7vt8c" path="res://Characters/ryoshu/techniques/ryoshu_super.tres" id="10_ojtvw"]
 [ext_resource type="Resource" uid="uid://bpva0q5o8rumj" path="res://Characters/jin/techniques/jin_projectile.tres" id="12_5hpsr"]
 

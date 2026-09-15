@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bjchkiijvphh7"]
+
+[ext_resource type="Script" uid="uid://c6x7rfgpppele" path="res://UI/Menus/Reusables/char_display.gd" id="1_wgnln"]
+
+[node name="CharDisplay" type="VBoxContainer" unique_id=125981305]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -11.5
+offset_right = 45.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wgnln")
+
+[node name="SelectedChar" type="HBoxContainer" parent="." unique_id=884866842]
+layout_mode = 2
+
+[node name="CharLabel" type="Label" parent="SelectedChar" unique_id=824979601]
+layout_mode = 2
+text = "Character: "
+
+[node name="SelectedCharLabel" type="Label" parent="SelectedChar" unique_id=995677794]
+unique_name_in_owner = true
+layout_mode = 2
