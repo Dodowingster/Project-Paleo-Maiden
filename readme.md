@@ -8,7 +8,9 @@ The gameplay loop is currently planned to take place in a board game setting, wi
 
 # Godot Project Files
 If you'd like to try running the game, the folder to open in Godot is auto-battler-prototype.
+
 To try out the WIP auto-battler concept, run BattleSetup.tscn, found under UI > Menus > Battle.
+
 To try out the WIP board game section, you can run MainMenu.tscn, found under UI > Menus > Main_Menu
 
 # Repo Cleanup Tasks
