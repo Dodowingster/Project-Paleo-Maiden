@@ -22,7 +22,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GlobalValues="*res://Mechanics/global_values.gd"
+GlobalValues="*res://Globals/global_values.gd"
 PhantomCameraManager="*uid://duq6jhf6unyis"
 SimpleSceneManager="*uid://f7wh4whqg2pk"
 VFXManager="*uid://bnib7hcjt4te8"
