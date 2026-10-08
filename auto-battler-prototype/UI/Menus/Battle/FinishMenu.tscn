@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://nq7dkflhqnbu"]
 
-[ext_resource type="Script" uid="uid://brnsf5px5qu0k" path="res://UI/Menus/finish_menu.gd" id="1_kqk8e"]
+[ext_resource type="Script" uid="uid://brnsf5px5qu0k" path="res://UI/Menus/Battle/finish_menu.gd" id="1_kqk8e"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bjeo5"]
 font_size = 50

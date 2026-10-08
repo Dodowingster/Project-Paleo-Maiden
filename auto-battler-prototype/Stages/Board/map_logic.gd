@@ -1,5 +1,7 @@
 extends Node
 
+signal mapTransition(event : GlobalValues.GLOBALEVENT)
+
 @export var min_scout_val = 1
 @export var max_scout_val = 6
 @export var player : MapPlayer
@@ -24,3 +26,4 @@ func update_scout_ui(value: int) -> void:
 
 func _on_end_move_button_pressed() -> void:
 	player.end_move()
+	%MapStateMachine.on_child_transition(%MapStateMachine.currentState, "Camp")

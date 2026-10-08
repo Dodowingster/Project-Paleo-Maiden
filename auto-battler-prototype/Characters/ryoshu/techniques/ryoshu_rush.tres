@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://djprxni5sqe65" path="res://Characters/generic/hitbox_data.gd" id="1_6ewsy"]
 [ext_resource type="Script" uid="uid://c0c4p57o71yio" path="res://Characters/generic/technique_data.gd" id="2_nm2s0"]
 [ext_resource type="Resource" uid="uid://dcaxpd8hdt2co" path="res://Characters/ryoshu/hitboxes/ryoshu_rushhitboxdata.tres" id="2_slwoj"]
+[ext_resource type="Script" uid="uid://dvmw6qlvblh7i" path="res://Characters/generic/hurtbox_data.gd" id="3_kpirc"]
 [ext_resource type="PackedScene" uid="uid://unt36v32v5nu" path="res://Characters/ryoshu/techniques/Ryoshu_Rush.tscn" id="3_nm2s0"]
 
 [resource]

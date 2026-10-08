@@ -10,6 +10,8 @@ enum DIRECTION {LEFT, RIGHT}
 
 enum MAPACTION {SCOUT, MOVE}
 
+enum GLOBALEVENT {MAP, CAMP, EVENT, BATTLE}
+
 func frameFreeze(timeScale, duration):
 	Engine.time_scale = timeScale
 	await get_tree().create_timer(duration * timeScale, true, true, true).timeout

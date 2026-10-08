@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://cuqyr28ih435l" path="res://Mechanics/hurtbox.gd" id="13_vgsr5"]
 [ext_resource type="Script" uid="uid://xhutnxqw7tsv" path="res://Characters/generic/shake_sprite.gd" id="14_atnpe"]
 [ext_resource type="Script" uid="uid://gsw3o2s1dbgk" path="res://Characters/States/state_manager.gd" id="15_uxxdo"]
-[ext_resource type="Script" uid="uid://whbif5ykrdmj" path="res://Characters/States/state_machine.gd" id="16_xhyo0"]
+[ext_resource type="Script" uid="uid://whbif5ykrdmj" path="res://Characters/States/char_state_machine.gd" id="16_xhyo0"]
 [ext_resource type="Script" uid="uid://bqw1eo83vcp4r" path="res://Characters/States/state_hitstun.gd" id="17_u1l1m"]
 [ext_resource type="Script" uid="uid://chhf2t5cm2eg4" path="res://Characters/States/state_blockstun.gd" id="18_7i57v"]
 [ext_resource type="Script" uid="uid://bibnpqp5otcvs" path="res://Characters/States/state_idle.gd" id="19_b8wd6"]

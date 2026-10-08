@@ -1,7 +1,7 @@
 extends Node
 class_name StateManager
 
-@export var stateMachine : StateMachine
+@export var stateMachine : CharStateMachine
 @export var character : Character
 @export var sideTracker : SideTracker
 @export var noActionGoalStates : Array[State]

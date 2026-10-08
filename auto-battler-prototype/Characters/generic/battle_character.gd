@@ -61,7 +61,7 @@ var hitknockbackY : float = 0.000
 var health : int = maxHP
 var loadout : Loadout
 var affMgr : AffinityManager
-var stateMachine : StateMachine
+var stateMachine : CharStateMachine
 var stateManager : StateManager
 
 ## Set opponent character here

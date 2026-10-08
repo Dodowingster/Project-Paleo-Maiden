@@ -1,5 +1,5 @@
 extends Node
-class_name StateMachine
+class_name CharStateMachine
 
 @export var initialState: State
 var currentState: State
