@@ -1,3 +1,19 @@
+STAT DESIGN PHILOSOPHY:
+- each main stat corresponds to a type of win condition:
+    - ATK (red) -> clash win, deal damage as a win condition
+    - DEF (yellow) -> surviving with more HP when timer runs out as a win condition
+    - SPD (green) -> enhances all other win conditions, but isn't a win condition itself
+    - STA (blue) -> increase attack frequency, avoiding clashes as a win condition
+
+- with this in mind, designing paleo maiden kits will be much easier?
+- Example:
+    - red rush skill would have less knockback, to encourage more clashing
+    - blue rush skill would have more knockback, reducing clash frequency and allowing more time to generate actions
+    - yellow rush skill would have armor, reducing damage taken during the ability
+    - green rush skill goes further and hits earlier, knockback is between red and blue
+
+
+
 Battle System:
 1) Character Stats:
 - HP
@@ -126,8 +142,4 @@ Justifications:
             - for example: Tyran Rex wants to win clashes to push opponent to corner
             while Fukuira wants to win clashes to earn space to use her base attack
         - (FG) this is the main mechanic for characters to manage stage control
-
-
-
-    
 
