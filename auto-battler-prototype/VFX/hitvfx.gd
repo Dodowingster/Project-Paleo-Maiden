@@ -8,6 +8,7 @@ func _ready() -> void:
 	animPlayer.play("play")
 
 func _physics_process(_delta: float) -> void:
+	pass
 	if freeze_frames > 0:
 		animPlayer.speed_scale = 0
 		freeze_frames -= 1

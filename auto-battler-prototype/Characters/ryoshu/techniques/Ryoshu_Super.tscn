@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://bvv84w67o4y8v" path="res://Mechanics/Effects/vfx_effect.gd" id="7_3npcg"]
 [ext_resource type="Script" uid="uid://b2o1c2gj8l2gj" path="res://Mechanics/Effects/zoomcamera_effect.gd" id="7_q0i3k"]
 [ext_resource type="PackedScene" uid="uid://bv1rq18v51k0o" path="res://Characters/ryoshu/vfx/ryoshu_vfx_1.tscn" id="8_3npcg"]
-[ext_resource type="PackedScene" uid="uid://boxhm4562qggs" path="res://Characters/ryoshu/vfx/ryoshu_vfx_2.tscn" id="9_f2if8"]
+[ext_resource type="PackedScene" uid="uid://ce1xj50o7jli" path="res://VFX/ryoshu_vfx_2.tscn" id="10_kudru"]
 
 [node name="RyoshuSuper" type="Node" unique_id=1484722612]
 script = ExtResource("1_e02yo")
@@ -17,7 +17,7 @@ script = ExtResource("1_e02yo")
 [node name="CooldownTrigger" type="Node" parent="." unique_id=1230323461]
 script = ExtResource("3_pg8d4")
 cooldown = 30.0
-startingCooldown = 30.0
+startingCooldown = 10.0
 metadata/_custom_type_script = "uid://cm2swp1i5yuvi"
 
 [node name="RangeTrigger" type="Node" parent="." unique_id=949961414]
@@ -58,6 +58,6 @@ metadata/_custom_type_script = "uid://bvv84w67o4y8v"
 
 [node name="VFXEffect2" type="Node" parent="." unique_id=228864856]
 script = ExtResource("7_3npcg")
-vfx = ExtResource("9_f2if8")
+vfx = ExtResource("10_kudru")
 applyFrame = 85
 metadata/_custom_type_script = "uid://bvv84w67o4y8v"
