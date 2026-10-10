@@ -20,7 +20,7 @@ func _ready() -> void:
 	charList.clear()
 	techniqueList.clear()
 	setup_character_list()
-	setup_technique_list()
+	setup_technique_list("")
 	setup_selection()
 
 func setup_character_list() -> void:
@@ -35,20 +35,21 @@ func setup_character_list() -> void:
 				charList.append(charData)
 			dir.change_dir("..")
 
-func setup_technique_list() -> void:
+func setup_technique_list(charFilter : String) -> void:
 	var dir = DirAccess.open("res://Characters")
 	if dir:
 		var charFolders = dir.get_directories()
 		for charFolder in charFolders:
-			dir.change_dir(charFolder + "/techniques")
-			if dir:
-				var techniqueFiles = dir.get_files()
-				if techniqueFiles.size() > 0:
-					for techniqueFile in techniqueFiles:
-						if ".tres" in techniqueFile and "_baseatk.tres" not in techniqueFile:
-							var techniqueData : TechniqueData = load(dir.get_current_dir() + "/" + techniqueFile)
-							techniqueList.append(techniqueData) 
-				dir.change_dir("../../")
+			if charFilter == "" or charFilter == charFolder:
+				dir.change_dir(charFolder + "/techniques")
+				if dir:
+					var techniqueFiles = dir.get_files()
+					if techniqueFiles.size() > 0:
+						for techniqueFile in techniqueFiles:
+							if ".tres" in techniqueFile and "_baseatk.tres" not in techniqueFile:
+								var techniqueData : TechniqueData = load(dir.get_current_dir() + "/" + techniqueFile)
+								techniqueList.append(techniqueData) 
+					dir.change_dir("../../")
 
 func setup_selection() -> void:
 	for character in charList:
@@ -72,6 +73,14 @@ func _on_char_list_item_selected(index: int) -> void:
 	selectedChar = charList[index].duplicate_deep()
 	selectedCharLabel.text = selectedChar.characterName
 	attributesList.character_selected(selectedChar)
+	techSelectList.deselect_all()
+	techSelectList.clear()
+	selectedTechList.clear()
+	selectedTech.clear()
+	techniqueList.clear()
+	setup_technique_list(selectedChar.characterName.to_lower())
+	for tech in techniqueList:
+		techSelectList.add_item(tech.techniqueName)
 
 func _on_technique_list_multi_selected(index: int, selected: bool) -> void:
 	if selected:
