@@ -2,7 +2,7 @@ extends Node
 
 
 func _on_rest_btn_pressed() -> void:
-	CurrentRunData.current_hp = CurrentRunData.char_data.maxHP
+	CurrentRunData.char_data.currentHP = CurrentRunData.char_data.maxHP
 	%MapStateMachine.on_child_transition(%MapStateMachine.currentState, "Map")
 
 

@@ -1,18 +1,12 @@
 extends Control
 class_name BattleSetup
 
-@export var charList : Array[CharacterData]
-@export var techniqueList : Array[TechniqueData]
-
 @export var setupChar1 : SetupChar
 @export var setupChar2 : SetupChar
 
 func _ready() -> void:
+	pass
 	#Dialogic.start("testtimeline")
-	setupChar1.charList = charList
-	setupChar1.techniqueList = techniqueList
-	setupChar2.charList = charList
-	setupChar2.techniqueList = techniqueList
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause_menu"):

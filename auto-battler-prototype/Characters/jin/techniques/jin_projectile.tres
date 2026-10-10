@@ -8,6 +8,6 @@
 [resource]
 script = ExtResource("3_ht862")
 technique = ExtResource("4_lwx1m")
-techniqueName = "JinProjectile"
+techniqueName = "J_Projectile"
 animName = "projectile"
 metadata/_custom_type_script = "uid://c0c4p57o71yio"

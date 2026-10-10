@@ -1,8 +1,8 @@
 extends VBoxContainer
 class_name SetupChar
 
-@export var charList : Array[CharacterData]
-@export var techniqueList : Array[TechniqueData]
+@onready var charList : Array[CharacterData]
+@onready var techniqueList : Array[TechniqueData]
 
 @export var headerLabelText : String
 @onready var selectedChar : CharacterData
@@ -17,7 +17,38 @@ class_name SetupChar
 @export var attributesList : AttributesList
 
 func _ready() -> void:
+	charList.clear()
+	techniqueList.clear()
+	setup_character_list()
+	setup_technique_list()
 	setup_selection()
+
+func setup_character_list() -> void:
+	var dir = DirAccess.open("res://Characters")
+	if dir:
+		var charFolders = dir.get_directories()
+		for charFolder in charFolders:
+			dir.change_dir(charFolder)
+			var charFiles = dir.get_files()
+			if charFiles.size() > 0 and "_data.tres" in charFiles[0]:
+				var charData : CharacterData = load(dir.get_current_dir() + "/" + charFiles[0])
+				charList.append(charData)
+			dir.change_dir("..")
+
+func setup_technique_list() -> void:
+	var dir = DirAccess.open("res://Characters")
+	if dir:
+		var charFolders = dir.get_directories()
+		for charFolder in charFolders:
+			dir.change_dir(charFolder + "/techniques")
+			if dir:
+				var techniqueFiles = dir.get_files()
+				if techniqueFiles.size() > 0:
+					for techniqueFile in techniqueFiles:
+						if ".tres" in techniqueFile and "_baseatk.tres" not in techniqueFile:
+							var techniqueData : TechniqueData = load(dir.get_current_dir() + "/" + techniqueFile)
+							techniqueList.append(techniqueData) 
+				dir.change_dir("../../")
 
 func setup_selection() -> void:
 	for character in charList:

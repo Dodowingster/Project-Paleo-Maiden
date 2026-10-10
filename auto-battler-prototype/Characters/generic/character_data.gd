@@ -21,3 +21,5 @@ class_name CharacterData
 @export var backwardDashMinDuration : float = 0.33
 @export var actionGoalTotal : int = 300
 @export var baseAtkData : TechniqueData
+
+@export var currentHP : int = 0

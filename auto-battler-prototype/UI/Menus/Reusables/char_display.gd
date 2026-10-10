@@ -14,7 +14,7 @@ func _ready() -> void:
 func update_ui() -> void:
 	if CurrentRunData.char_data:
 		selectedCharLabel.text = CurrentRunData.char_data.characterName
-		hpValueLabel.text = str(CurrentRunData.current_hp) + "/" + str(CurrentRunData.char_data.maxHP)
+		hpValueLabel.text = str(CurrentRunData.char_data.currentHP) + "/" + str(CurrentRunData.char_data.maxHP)
 		atkValueLabel.text = str(CurrentRunData.char_data.atk)
 		defValueLabel.text = str(CurrentRunData.char_data.def)
 		spdValueLabel.text = str(CurrentRunData.char_data.spd)

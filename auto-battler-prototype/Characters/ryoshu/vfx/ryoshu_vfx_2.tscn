@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ce1xj50o7jli"]
 
 [ext_resource type="Script" uid="uid://ck5hkeeclio7i" path="res://VFX/hitvfx.gd" id="1_1vgbx"]
-[ext_resource type="Shader" uid="uid://b4i11mq3m7wjf" path="res://VFX/ryoshu_vfx.gdshader" id="2_8yraw"]
+[ext_resource type="Shader" uid="uid://b4i11mq3m7wjf" path="res://Characters/ryoshu/vfx/ryoshu_vfx.gdshader" id="2_8yraw"]
 [ext_resource type="Texture2D" uid="uid://om18hcur1qt6" path="res://Characters/placeholder_sprites/NCorpRyoshu/skill3_20_e.png" id="2_uq8qb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_brnqi"]

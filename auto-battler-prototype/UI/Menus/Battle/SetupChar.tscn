@@ -1,15 +1,6 @@
 [gd_scene format=3 uid="uid://3tfudsg5f3v"]
 
 [ext_resource type="Script" uid="uid://wndh5diq72cg" path="res://UI/Menus/Battle/setup_char.gd" id="1_hdoat"]
-[ext_resource type="Script" uid="uid://boc53imrgb27h" path="res://Characters/generic/character_data.gd" id="2_0hg0a"]
-[ext_resource type="Resource" uid="uid://c2k2423pfb03h" path="res://Characters/don/don_data.tres" id="3_j7hqa"]
-[ext_resource type="Resource" uid="uid://c2pi52jo2w0y8" path="res://Characters/ryoshu/ryoshu_data.tres" id="4_w1o85"]
-[ext_resource type="Script" uid="uid://c0c4p57o71yio" path="res://Characters/generic/technique_data.gd" id="5_7pbdq"]
-[ext_resource type="Resource" uid="uid://bouom4lj25mga" path="res://Characters/don/techniques/don_rush.tres" id="6_p3pgw"]
-[ext_resource type="Resource" uid="uid://hrvfmlohrxj7" path="res://Characters/ryoshu/techniques/ryoshu_rush.tres" id="7_hguw3"]
-[ext_resource type="Resource" uid="uid://chfnndt3hm1wf" path="res://Characters/ryoshu/techniques/ryoshu_reversal.tres" id="8_t66uo"]
-[ext_resource type="Resource" uid="uid://cp1vjeyka1tul" path="res://Characters/ryoshu/techniques/ryoshu_sideswitch.tres" id="9_n3tgy"]
-[ext_resource type="Resource" uid="uid://dewv7utm7vt8c" path="res://Characters/ryoshu/techniques/ryoshu_super.tres" id="10_j7hqa"]
 [ext_resource type="Script" uid="uid://bbgs31gushkq" path="res://UI/Menus/Battle/attributes_list.gd" id="11_w1o85"]
 
 [node name="SetupChar" type="VBoxContainer" unique_id=617072385 node_paths=PackedStringArray("headerLabel", "selectedCharLabel", "charSelectList", "techOverallList", "techSelectList", "selectedTechList", "attributesList")]
@@ -27,8 +18,6 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_hdoat")
-charList = Array[ExtResource("2_0hg0a")]([ExtResource("3_j7hqa"), ExtResource("4_w1o85")])
-techniqueList = Array[ExtResource("5_7pbdq")]([ExtResource("6_p3pgw"), ExtResource("7_hguw3"), ExtResource("8_t66uo"), ExtResource("9_n3tgy"), ExtResource("10_j7hqa")])
 headerLabelText = "Test"
 headerLabel = NodePath("HeaderLabel")
 selectedCharLabel = NodePath("SelectedChar/SelectedCharLabel")
