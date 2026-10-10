@@ -21,6 +21,7 @@ func back_to_battle_setup(stage : Stage) -> void:
 	battleSetupNode.setupChar1.set_selection(p1CharData, p1LoadoutData)
 	battleSetupNode.setupChar2.set_selection(p2CharData, p2LoadoutData)
 
+# to be removed eventually
 func start_battle(setupChar1 : SetupChar, setupChar2 : SetupChar, stage : Stage) -> void:
 	if setupChar1.selectedChar != null and setupChar2.selectedChar != null:
 		setupChar1.attributesList.update_character_data(setupChar1.selectedChar)
@@ -30,4 +31,12 @@ func start_battle(setupChar1 : SetupChar, setupChar2 : SetupChar, stage : Stage)
 		runner.data2 = setupChar2.selectedChar
 		runner.loadout1 = setupChar1.selectedTech
 		runner.loadout2 = setupChar2.selectedTech
+	get_tree().change_scene_to_node(stage)
+
+func start_battle_2(character1: CharacterData, loadout1: Array[TechniqueData], character2: CharacterData, loadout2: Array[TechniqueData], stage: Stage) -> void:
+	var runner : Runner = stage.get_node("Runner")
+	runner.data1 = character1
+	runner.data2 = character2
+	runner.loadout1 = loadout1
+	runner.loadout2 = loadout2
 	get_tree().change_scene_to_node(stage)

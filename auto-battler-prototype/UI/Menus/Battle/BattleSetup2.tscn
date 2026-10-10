@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dufabyx65x8jd"]
+
+[ext_resource type="PackedScene" uid="uid://bixk3yvcc4fqv" path="res://UI/Menus/Battle/PreviewChar.tscn" id="1_p5jbj"]
+[ext_resource type="Script" uid="uid://c7f37nxafs5ri" path="res://UI/Menus/Battle/battle_setup_2.gd" id="1_wy2p3"]
+
+[node name="BattleSetup" type="Control" unique_id=1438093763]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_wy2p3")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1650663864]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=995813801]
+layout_mode = 2
+
+[node name="SetupMenu" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=1024489404]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PreviewChar" parent="PanelContainer/VBoxContainer/SetupMenu" unique_id=617072385 instance=ExtResource("1_p5jbj")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PreviewChar2" parent="PanelContainer/VBoxContainer/SetupMenu" unique_id=146642687 instance=ExtResource("1_p5jbj")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="StartBtn" type="Button" parent="PanelContainer/VBoxContainer" unique_id=286935302]
+layout_mode = 2
+text = "Start"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]

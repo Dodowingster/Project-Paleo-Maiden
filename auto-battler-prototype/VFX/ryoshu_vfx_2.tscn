@@ -6,11 +6,24 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_brnqi"]
 shader = ExtResource("2_8yraw")
-shader_parameter/progress = 0.0
+shader_parameter/progress = 1.0
 shader_parameter/edge_width = 0.0
+shader_parameter/opaqueness = 1.0
 
 [sub_resource type="Animation" id="Animation_uq8qb"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VFXSprite:material:shader_parameter/opaqueness")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_27ds2"]
 resource_name = "play"
@@ -27,6 +40,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VFXSprite:material:shader_parameter/opaqueness")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.25),
+"transitions": PackedFloat32Array(1, 1, 2.7320805),
+"update": 0,
+"values": [1.0, 1.0, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y3jcp"]
