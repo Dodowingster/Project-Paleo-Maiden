@@ -4,7 +4,10 @@ class_name MapPlayer
 signal broadcastScoutValue(value : int)
 
 @export var initialNode : MapNode
-@onready var currentNode : MapNode
+@onready var currentNode : MapNode : 
+	set(mapNode):
+		currentNode = mapNode
+		CurrentRunData.current_node = mapNode
 @onready var currentAction : GlobalValues.MAPACTION
 @onready var scout_value = 0 :
 	get:

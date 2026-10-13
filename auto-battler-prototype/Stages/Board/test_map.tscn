@@ -12,6 +12,8 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="7_dgtof"]
 [ext_resource type="PackedScene" uid="uid://cmaruqqh7tfqu" path="res://Stages/Board/map_player.tscn" id="7_m0fca"]
 [ext_resource type="PackedScene" uid="uid://bjchkiijvphh7" path="res://UI/Menus/Reusables/CharDisplay.tscn" id="8_2gyk0"]
+[ext_resource type="Script" uid="uid://ci4h7ee0n58en" path="res://Mechanics/Map/enemy_data.gd" id="11_oellc"]
+[ext_resource type="Resource" uid="uid://c2k2423pfb03h" path="res://Characters/don/don_data.tres" id="12_vuixs"]
 
 [sub_resource type="Resource" id="Resource_pdnt0"]
 script = ExtResource("6_2gyk0")
@@ -103,6 +105,16 @@ physics_quadrant_size = 64
 position = Vector2(96, 224)
 script = ExtResource("4_85idx")
 rightNode = NodePath("../MapNode1")
+
+[node name="EnemyData" type="Node" parent="MapComponents/MapNodes/InitialMapNode" unique_id=1990739010]
+script = ExtResource("11_oellc")
+baseCharacter = ExtResource("12_vuixs")
+def = 3
+spd = 12
+maxSta = 15
+maxHP = 120
+currentHP = 120
+metadata/_custom_type_script = "uid://ci4h7ee0n58en"
 
 [node name="MapNode1" type="Node2D" parent="MapComponents/MapNodes" unique_id=375970456 node_paths=PackedStringArray("leftNode", "rightNode", "downNode")]
 position = Vector2(352, 224)
