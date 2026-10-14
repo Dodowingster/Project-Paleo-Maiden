@@ -1,5 +1,6 @@
 extends Node
 
+# to be removed eventually
 func back_to_battle_setup(stage : Stage) -> void:
 	for node in get_tree().get_nodes_in_group("vfx"):
 		node.queue_free()
@@ -20,6 +21,8 @@ func back_to_battle_setup(stage : Stage) -> void:
 	await get_tree().scene_changed
 	battleSetupNode.setupChar1.set_selection(p1CharData, p1LoadoutData)
 	battleSetupNode.setupChar2.set_selection(p2CharData, p2LoadoutData)
+
+
 
 # to be removed eventually
 func start_battle(setupChar1 : SetupChar, setupChar2 : SetupChar, stage : Stage) -> void:

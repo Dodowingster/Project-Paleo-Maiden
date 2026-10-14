@@ -24,7 +24,7 @@ signal broadcastFin(winner: String)
 func _ready() -> void:
 	initialize()
 
-func initialize_char(charData : CharacterData, isP1 : bool, loadout : Array[TechniqueData]) -> Character:
+func initialize_char(charData : CharacterData, isP1 : bool) -> Character:
 	var charScene : PackedScene = load("res://Characters/generic/battle_character.tscn")
 	var charNode : Character = charScene.instantiate()
 	charNode.characterData = charData
@@ -40,38 +40,8 @@ func initialize_char(charData : CharacterData, isP1 : bool, loadout : Array[Tech
 	return charNode
 
 func initialize() -> void:
-	#char1 = load("res://Characters/generic/battle_character.tscn")
-	#char2 = load("res://Characters/generic/battle_character.tscn")
-	#if data1 != null and data2 != null:
-		#nodeP1 = char1.instantiate()
-		#nodeP2 = char2.instantiate()
-		#nodeP1.characterData = data1
-		#nodeP2.characterData = data2
-		#nodeP1.startFacingRight = true
-		#nodeP2.startFacingRight = false
-		#nodeP1.opponent = nodeP2
-		#nodeP2.opponent = nodeP1
-		#dataTracker.char1 = nodeP1
-		#dataTracker.char2 = nodeP2
-		#phanCam.follow_targets = [nodeP1, nodeP2]
-		#nodeP1.position = p1SpawnPosition
-		#nodeP2.position = p2SpawnPosition
-		#nodeP1.shakeCamera.connect(camera.add_trauma)
-		#nodeP2.shakeCamera.connect(camera.add_trauma)
-		#self.add_child(nodeP1)
-		#self.add_child(nodeP2)
-		#nodeP1.setup_loadout(loadout1)
-		#nodeP2.setup_loadout(loadout2)
-		#ui.P1 = nodeP1
-		#ui.P2 = nodeP2
-		#%LeftPopupSection.connect_to_character(nodeP1)
-		#%RightPopupSection.connect_to_character(nodeP2)
-		#ui.char_setup()
-#
-		#nodeP1.broadcastLose.connect(broadcast_fin.bind("P2"))
-		#nodeP2.broadcastLose.connect(broadcast_fin.bind("P1"))
-	nodeP1 = initialize_char(data1, true, loadout1)
-	nodeP2 = initialize_char(data2, false, loadout2)
+	nodeP1 = initialize_char(data1, true)
+	nodeP2 = initialize_char(data2, false)
 	nodeP1.opponent = nodeP2
 	nodeP2.opponent = nodeP1
 	phanCam.follow_targets = [nodeP1, nodeP2]
