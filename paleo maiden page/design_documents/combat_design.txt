@@ -5,6 +5,11 @@ STAT DESIGN PHILOSOPHY:
     - SPD (green) -> enhances all other win conditions, but isn't a win condition itself
     - STA (blue) -> increase attack frequency, avoiding clashes as a win condition
 
+- said win conditions form a rock paper scissors dynamic:
+    - def beats atk by outlasting the damage from clashes
+    - sta beats def by inherently outscaling def due to skills having an extra atk value on top of the atk stat
+    - atk beats sta by forcing more clashes and reducing how often skills can be casted
+
 - with this in mind, designing paleo maiden kits will be much easier?
 - Example:
     - red rush skill would have less knockback, to encourage more clashing
