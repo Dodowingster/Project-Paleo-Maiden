@@ -1,0 +1,99 @@
+<mxfile host="65bd71144e">
+    <diagram id="NFYC50m2QAOz_PgIQ1ka" name="Page-1">
+        <mxGraphModel dx="662" dy="575" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="qzNNZehi8l1C4XyjpL-o-21" edge="1" parent="1" source="qzNNZehi8l1C4XyjpL-o-1" style="edgeStyle=none;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="qzNNZehi8l1C4XyjpL-o-9">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="qzNNZehi8l1C4XyjpL-o-22" connectable="0" parent="qzNNZehi8l1C4XyjpL-o-21" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="pass HP&amp;nbsp;&lt;div&gt;changes back&lt;/div&gt;" vertex="1">
+                    <mxGeometry relative="1" x="0.1574" y="-1" as="geometry">
+                        <mxPoint x="11" y="2" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="qzNNZehi8l1C4XyjpL-o-1" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="Battle Scene" vertex="1">
+                    <mxGeometry height="80" width="80" x="560" y="360" as="geometry"/>
+                </mxCell>
+                <mxCell id="qzNNZehi8l1C4XyjpL-o-16" edge="1" parent="1" source="qzNNZehi8l1C4XyjpL-o-2" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=classic;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="qzNNZehi8l1C4XyjpL-o-1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="600" y="480"/>
+                        </Array>
+                        <mxPoint x="240" y="399.5" as="sourcePoint"/>
+                        <mxPoint x="520" y="399.5" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="qzNNZehi8l1C4XyjpL-o-17" connectable="0" parent="qzNNZehi8l1C4XyjpL-o-16" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="pass data to&amp;nbsp;&lt;div&gt;setup enemy&lt;/div&gt;" vertex="1">
+                    <mxGeometry relative="1" x="-0.0091" y="-1" as="geometry">
+                        <mxPoint x="61" y="-1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="qzNNZehi8l1C4XyjpL-o-2" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="Map Scene" vertex="1">
+                    <mxGeometry height="80" width="80" x="360" y="440" as="geometry"/>
+                </mxCell>
+                <mxCell id="qzNNZehi8l1C4XyjpL-o-34" edge="1" parent="1" source="qzNNZehi8l1C4XyjpL-o-3" style="edgeStyle=none;html=1;">
+                    <mxGeometry relative="1" x="-0.1429" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="240" y="560"/>
+                            <mxPoint x="120" y="560"/>
+                        </Array>
+                        <mxPoint x="120" y="440" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="qzNNZehi8l1C4XyjpL-o-3" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="Dialogue Scene" vertex="1">
+                    <mxGeometry height="80" width="80" x="200" y="600" as="geometry"/>
+                </mxCell>
+                <mxCell id="qzNNZehi8l1C4XyjpL-o-35" edge="1" parent="1" source="qzNNZehi8l1C4XyjpL-o-4" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="120" y="400" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="qzNNZehi8l1C4XyjpL-o-36" edge="1" parent="1" source="qzNNZehi8l1C4XyjpL-o-4" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="qzNNZehi8l1C4XyjpL-o-1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="120" y="720"/>
+                            <mxPoint x="600" y="720"/>
+                        </Array>
+                        <mxPoint x="400" y="720" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="qzNNZehi8l1C4XyjpL-o-4" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="Event Scene" vertex="1">
+                    <mxGeometry height="80" width="80" x="80" y="600" as="geometry"/>
+                </mxCell>
+                <mxCell id="qzNNZehi8l1C4XyjpL-o-32" edge="1" parent="1" source="qzNNZehi8l1C4XyjpL-o-5" style="html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="qzNNZehi8l1C4XyjpL-o-9">
+                    <mxGeometry relative="1" x="-0.9238" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="360" y="560"/>
+                            <mxPoint x="120" y="560"/>
+                            <mxPoint x="120" y="240"/>
+                        </Array>
+                        <mxPoint x="290" y="210" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="qzNNZehi8l1C4XyjpL-o-33" connectable="0" parent="qzNNZehi8l1C4XyjpL-o-32" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;scrollbar-color: rgba(168, 169, 170, 0.52) rgb(18, 19, 20); color: rgb(0, 0, 0);&quot;&gt;pass HP, technique&amp;nbsp;&lt;/span&gt;&lt;div style=&quot;scrollbar-color: rgba(168, 169, 170, 0.52) rgb(18, 19, 20); color: rgb(63, 63, 63);&quot;&gt;inv, loadout changes&lt;/div&gt;" vertex="1">
+                    <mxGeometry relative="1" x="0.6814" as="geometry">
+                        <mxPoint x="-96" y="120" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="qzNNZehi8l1C4XyjpL-o-5" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="Camp Scene" vertex="1">
+                    <mxGeometry height="80" width="80" x="320" y="600" as="geometry"/>
+                </mxCell>
+                <mxCell id="qzNNZehi8l1C4XyjpL-o-10" edge="1" parent="1" source="qzNNZehi8l1C4XyjpL-o-9" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" target="qzNNZehi8l1C4XyjpL-o-2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="qzNNZehi8l1C4XyjpL-o-14" edge="1" parent="1" source="qzNNZehi8l1C4XyjpL-o-9" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;endArrow=classic;endFill=1;" target="qzNNZehi8l1C4XyjpL-o-1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="qzNNZehi8l1C4XyjpL-o-18" connectable="0" parent="qzNNZehi8l1C4XyjpL-o-14" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="pass data to&lt;div&gt;setup character&lt;/div&gt;" vertex="1">
+                    <mxGeometry relative="1" x="-0.0314" as="geometry">
+                        <mxPoint x="-18" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="qzNNZehi8l1C4XyjpL-o-9" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="Current Run Data" vertex="1">
+                    <mxGeometry height="80" width="80" x="360" y="200" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

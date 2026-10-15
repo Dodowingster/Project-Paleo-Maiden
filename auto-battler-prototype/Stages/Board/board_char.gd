@@ -4,11 +4,11 @@ class_name MapPlayer
 signal broadcastScoutValue(value : int)
 
 @export var initialNode : MapNode
-@onready var currentNode : MapNode : 
-	set(mapNode):
-		currentNode = mapNode
-		CurrentRunData.current_node = mapNode
-@onready var currentAction : GlobalValues.MAPACTION
+#@onready var currentNode : MapNode : 
+	#set(mapNode):
+		#currentNode = mapNode
+		#CurrentRunData.current_node = mapNode
+#@onready var currentAction : GlobalValues.MAPACTION
 @onready var scout_value = 0 :
 	get:
 		return scout_value
@@ -20,52 +20,48 @@ signal broadcastScoutValue(value : int)
 
 func _ready() -> void:
 	position = initialNode.position
-	currentNode = initialNode
-	currentAction = GlobalValues.MAPACTION.SCOUT
+	CurrentRunData.current_node = initialNode
 
 
 func _process(_delta: float) -> void:
-	if currentAction == GlobalValues.MAPACTION.SCOUT:
-		pass
-	elif currentAction == GlobalValues.MAPACTION.MOVE:
+	if CurrentRunData.current_map_action == GlobalValues.MAPACTION.MOVE:
 		move()
 
 func move() -> void:
 	var moved : bool = false
 	if Input.is_action_just_pressed("ui_left"):
-		if currentNode.leftNode:
-			if is_move_valid(currentNode.leftNode):
-				currentNode = currentNode.leftNode
+		if CurrentRunData.current_node.leftNode:
+			if is_move_valid(CurrentRunData.current_node.leftNode):
+				CurrentRunData.current_node = CurrentRunData.current_node.leftNode
 				moved = true
 	elif Input.is_action_just_pressed("ui_down"):
-		if currentNode.downNode:
-			if is_move_valid(currentNode.downNode):
-				currentNode = currentNode.downNode
+		if CurrentRunData.current_node.downNode:
+			if is_move_valid(CurrentRunData.current_node.downNode):
+				CurrentRunData.current_node = CurrentRunData.current_node.downNode
 				moved = true
 	elif Input.is_action_just_pressed("ui_right"):
-		if currentNode.rightNode:
-			if is_move_valid(currentNode.rightNode):
-				currentNode = currentNode.rightNode
+		if CurrentRunData.current_node.rightNode:
+			if is_move_valid(CurrentRunData.current_node.rightNode):
+				CurrentRunData.current_node = CurrentRunData.current_node.rightNode
 				moved = true
 	elif Input.is_action_just_pressed("ui_up"):
-		if currentNode.upNode:
-			if is_move_valid(currentNode.upNode):
-				currentNode = currentNode.upNode
+		if CurrentRunData.current_node.upNode:
+			if is_move_valid(CurrentRunData.current_node.upNode):
+				CurrentRunData.current_node = CurrentRunData.current_node.upNode
 				moved = true
 	if moved:
-		position = currentNode.position
+		position = CurrentRunData.current_node.position
 		process_move()
 
 func scout_initialize_move(value : int) -> void:
-	currentAction = GlobalValues.MAPACTION.MOVE
 	scout_value = value
 	scout_path.clear()
-	scout_path.append(currentNode)
+	scout_path.append(CurrentRunData.current_node)
 
 func process_move() -> void:
-	var current_node_index = scout_path.find(currentNode)
+	var current_node_index = scout_path.find(CurrentRunData.current_node)
 	if current_node_index == -1:
-		scout_path.append(currentNode)
+		scout_path.append(CurrentRunData.current_node)
 		scout_value -= 1
 	else:
 		var popout_count = scout_path.size() - (current_node_index + 1)
@@ -83,6 +79,5 @@ func is_move_valid(mapNode : MapNode) -> bool:
 	return valid
 
 func end_move() -> void:
-	currentAction = GlobalValues.MAPACTION.SCOUT
 	scout_value = 0
 	scout_path.clear()

@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cm31alnnjcv62" path="res://Stages/Board/States/state_map.gd" id="2_dndn8"]
 [ext_resource type="Script" uid="uid://cu5gx1efofdm4" path="res://Stages/Board/States/state_camp.gd" id="3_t1qar"]
 [ext_resource type="Script" uid="uid://bawabgkmfpbgs" path="res://Stages/Board/map_node.gd" id="4_85idx"]
+[ext_resource type="Script" uid="uid://bmsmji3ipf1t" path="res://Stages/Board/States/state_move.gd" id="4_vuixs"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_m0fca"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_2gyk0"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="7_dgtof"]
@@ -40,6 +41,9 @@ script = ExtResource("2_dndn8")
 
 [node name="Camp" type="Node" parent="MapStateMachine" unique_id=232286838]
 script = ExtResource("3_t1qar")
+
+[node name="Move" type="Node" parent="MapStateMachine" unique_id=43081770]
+script = ExtResource("4_vuixs")
 
 [node name="MapLogic" type="Node" parent="." unique_id=840629623 node_paths=PackedStringArray("player", "scout_value_ui")]
 script = ExtResource("1_2gyk0")

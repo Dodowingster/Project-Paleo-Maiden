@@ -8,9 +8,9 @@ enum ACTION {ATTACK, CLASH, MOVE}
 
 enum DIRECTION {LEFT, RIGHT}
 
-enum MAPACTION {SCOUT, MOVE}
+enum MAPACTION {SCOUT, MOVE, CAMP}
 
-enum GLOBALEVENT {MAP, CAMP, EVENT, BATTLE}
+#enum GLOBALEVENT {MAP, CAMP, EVENT, BATTLE}
 
 func frameFreeze(timeScale, duration):
 	Engine.time_scale = timeScale

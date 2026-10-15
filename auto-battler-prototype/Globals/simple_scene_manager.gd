@@ -22,7 +22,7 @@ func back_to_battle_setup(stage : Stage) -> void:
 	battleSetupNode.setupChar1.set_selection(p1CharData, p1LoadoutData)
 	battleSetupNode.setupChar2.set_selection(p2CharData, p2LoadoutData)
 
-
+#func setup_map()
 
 # to be removed eventually
 func start_battle(setupChar1 : SetupChar, setupChar2 : SetupChar, stage : Stage) -> void:

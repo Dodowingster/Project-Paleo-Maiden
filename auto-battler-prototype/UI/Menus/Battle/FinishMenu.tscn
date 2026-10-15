@@ -53,4 +53,4 @@ unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../RematchBtn")
 focus_previous = NodePath("../RematchBtn")
-text = "Return To Setup"
+text = "Back To Setup"
