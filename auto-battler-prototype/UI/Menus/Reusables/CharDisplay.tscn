@@ -19,10 +19,10 @@ custom_minimum_size = Vector2(200, 200)
 offset_right = 200.0
 offset_bottom = 200.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_wgnln")
+script = ExtResource("1_wgnln")
 
 [node name="CharDisplay" type="VBoxContainer" parent="." unique_id=125981305]
 layout_mode = 2
-script = ExtResource("1_wgnln")
 
 [node name="SelectedChar" type="HBoxContainer" parent="CharDisplay" unique_id=884866842]
 layout_mode = 2

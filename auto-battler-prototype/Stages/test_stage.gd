@@ -1,7 +1,10 @@
 extends Node2D
 class_name Stage
 
+enum STAGEMODE {TEST, ENCOUNTER}
+
 var always_running_nodes : Array[Node] = []
+@onready var stage_mode : STAGEMODE = STAGEMODE.TEST
 
 func _ready() -> void:
 	StageManager.set_stage(self)
@@ -14,7 +17,6 @@ func _physics_process(_delta: float) -> void:
 			_on_resume_btn_pressed()
 		else:
 			pause_game()
-			%PauseMenu.resumeBtn.grab_focus.call_deferred()
 			%PauseMenu.visible = true
 
 func _on_resume_btn_pressed() -> void:
@@ -23,7 +25,35 @@ func _on_resume_btn_pressed() -> void:
 
 func _on_end_battle_btn_pressed() -> void:
 	get_tree().paused = false
-	SimpleSceneManager.back_to_battle_setup(self)
+	VFXManager.despawn_all_vfx()
+	if stage_mode == STAGEMODE.TEST:
+		SimpleSceneManager.back_to_battle_setup(self)
+	elif stage_mode == STAGEMODE.ENCOUNTER:
+		update_current_run_data()
+		unload_characters()
+		if CurrentRunData.current_map_action == GlobalValues.MAPACTION.CAMP:
+			SimpleSceneManager.setup_map()
+		else:
+			SimpleSceneManager.setup_map()
+	else:
+		SimpleSceneManager.back_to_battle_setup(self)
+
+func update_current_run_data() -> void:
+	var runner : Runner = get_node("Runner")
+	var p1Char : Character = runner.get_node("Character")
+	if p1Char != null:
+		CurrentRunData.char_data.currentHP = p1Char.health
+
+func unload_characters() -> void:
+	var runner : Runner = self.get_node("Runner")
+	var p1LoadoutData : Array[TechniqueData] = runner.loadout1
+	var p2LoadoutData : Array[TechniqueData] = runner.loadout2
+	# remove base attacks from loadout
+	p1LoadoutData.remove_at(-1)
+	p2LoadoutData.remove_at(-1)
+	for child in runner.get_children():
+		if child is Character:
+			child.unload_loadout()
 
 func get_always_running_nodes() -> void:
 	always_running_nodes = []
@@ -70,4 +100,3 @@ func finish_game(winner: String) -> void:
 	
 	pause_game()
 	%FinishMenu.visible = true
-	%FinishMenu.rematchBtn.grab_focus()

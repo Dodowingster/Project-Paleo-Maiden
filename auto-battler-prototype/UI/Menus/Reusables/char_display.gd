@@ -1,21 +1,21 @@
-extends VBoxContainer
+extends PanelContainer
 class_name CharDisplay
 
-@onready var selectedCharLabel : Label = %SelectedCharLabel
-@onready var hpValueLabel : Label = %HpValueLabel
-@onready var atkValueLabel : Label = %AtkValueLabel
-@onready var defValueLabel : Label = %DefValueLabel
-@onready var spdValueLabel : Label = %SpdValueLabel
-@onready var staValueLabel : Label = %StaValueLabel
+#@onready var selectedCharLabel : Label = %SelectedCharLabel
+#@onready var hpValueLabel : Label = %HpValueLabel
+#@onready var atkValueLabel : Label = %AtkValueLabel
+#@onready var defValueLabel : Label = %DefValueLabel
+#@onready var spdValueLabel : Label = %SpdValueLabel
+#@onready var staValueLabel : Label = %StaValueLabel
 
 func _ready() -> void:
 	update_ui()
 
 func update_ui() -> void:
 	if CurrentRunData.char_data:
-		selectedCharLabel.text = CurrentRunData.char_data.characterName
-		hpValueLabel.text = str(CurrentRunData.char_data.currentHP) + "/" + str(CurrentRunData.char_data.maxHP)
-		atkValueLabel.text = str(CurrentRunData.char_data.atk)
-		defValueLabel.text = str(CurrentRunData.char_data.def)
-		spdValueLabel.text = str(CurrentRunData.char_data.spd)
-		staValueLabel.text = str(CurrentRunData.char_data.minSta) + "-" + str(CurrentRunData.char_data.maxSta)
+		%SelectedCharLabel.text = CurrentRunData.char_data.characterName
+		%HpValueLabel.text = str(CurrentRunData.char_data.currentHP) + "/" + str(CurrentRunData.char_data.maxHP)
+		%AtkValueLabel.text = str(CurrentRunData.char_data.atk)
+		%DefValueLabel.text = str(CurrentRunData.char_data.def)
+		%SpdValueLabel.text = str(CurrentRunData.char_data.spd)
+		%StaValueLabel.text = str(CurrentRunData.char_data.minSta) + "-" + str(CurrentRunData.char_data.maxSta)

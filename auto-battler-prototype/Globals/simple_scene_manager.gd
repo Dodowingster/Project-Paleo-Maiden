@@ -2,8 +2,6 @@ extends Node
 
 # to be removed eventually
 func back_to_battle_setup(stage : Stage) -> void:
-	for node in get_tree().get_nodes_in_group("vfx"):
-		node.queue_free()
 	var battleSetup : PackedScene = load("res://UI/Menus/Battle/BattleSetup.tscn")
 	var battleSetupNode : BattleSetup = battleSetup.instantiate()
 	if stage != null:
@@ -26,7 +24,11 @@ func back_to_battle_setup(stage : Stage) -> void:
 		get_tree().change_scene_to_node(battleSetupNode)
 		await get_tree().scene_changed
 
-#func setup_map()
+func setup_map() -> void:
+	var mapPath : PackedScene = load("res://Stages/Board/test_map.tscn")
+	var mapNode : Node = mapPath.instantiate()
+	get_tree().change_scene_to_node(mapNode)
+	await get_tree().scene_changed
 
 # to be removed eventually
 func start_battle(setupChar1 : SetupChar, setupChar2 : SetupChar, stage : Stage) -> void:
@@ -40,10 +42,13 @@ func start_battle(setupChar1 : SetupChar, setupChar2 : SetupChar, stage : Stage)
 		runner.loadout2 = setupChar2.selectedTech
 	get_tree().change_scene_to_node(stage)
 
-func start_battle_2(character1: CharacterData, loadout1: Array[TechniqueData], character2: CharacterData, loadout2: Array[TechniqueData], stage: Stage) -> void:
+func start_battle_2(character1: CharacterData, loadout1: Array[TechniqueData], character2: CharacterData, 
+loadout2: Array[TechniqueData], stage: Stage, stageMode: Stage.STAGEMODE) -> void:
 	var runner : Runner = stage.get_node("Runner")
 	runner.data1 = character1
 	runner.data2 = character2
 	runner.loadout1 = loadout1
 	runner.loadout2 = loadout2
 	get_tree().change_scene_to_node(stage)
+	await get_tree().scene_changed
+	stage.stage_mode = stageMode

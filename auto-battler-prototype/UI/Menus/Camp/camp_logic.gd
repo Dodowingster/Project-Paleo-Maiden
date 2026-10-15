@@ -31,4 +31,3 @@ func _on_spar_btn_pressed() -> void:
 	#battleSetupNode.loadout2 = CurrentRunData.technique_loadout.duplicate_deep()
 	
 	get_tree().change_scene_to_node(battleSetupNode)
-	

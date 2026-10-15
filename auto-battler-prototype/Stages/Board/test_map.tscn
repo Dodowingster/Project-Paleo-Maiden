@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://b2ixl1h02b376"]
 
 [ext_resource type="Script" uid="uid://bqxa8p3capw3h" path="res://Stages/Board/map_logic.gd" id="1_2gyk0"]
+[ext_resource type="Script" uid="uid://cwk7lcn8ctyyy" path="res://Stages/Board/map.gd" id="1_mtjh2"]
 [ext_resource type="Script" uid="uid://borknkmfni3qn" path="res://Stages/Board/States/state_machine.gd" id="1_pdnt0"]
 [ext_resource type="TileSet" uid="uid://bq6sag61c0tcn" path="res://Stages/assets/new_tile_set.tres" id="1_swmh8"]
 [ext_resource type="Script" uid="uid://duq5qv0qtvtn0" path="res://UI/Menus/Camp/camp_logic.gd" id="2_dgtof"]
@@ -30,6 +31,7 @@ border_width_bottom = 5
 border_color = Color(0, 0, 0, 0.70980394)
 
 [node name="TestMap" type="Node2D" unique_id=1525044721]
+script = ExtResource("1_mtjh2")
 
 [node name="MapStateMachine" type="Node" parent="." unique_id=1996934378 node_paths=PackedStringArray("initialState")]
 unique_name_in_owner = true
@@ -176,6 +178,7 @@ downNode = NodePath("../MapNode6")
 metadata/_custom_type_script = "uid://bawabgkmfpbgs"
 
 [node name="MapPlayer" parent="MapComponents" unique_id=2095786576 node_paths=PackedStringArray("initialNode") instance=ExtResource("7_m0fca")]
+unique_name_in_owner = true
 position = Vector2(96, 336)
 initialNode = NodePath("../MapNodes/InitialMapNode")
 
