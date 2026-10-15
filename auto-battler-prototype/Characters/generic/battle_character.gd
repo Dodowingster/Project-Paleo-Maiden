@@ -106,7 +106,7 @@ func _enter_tree() -> void:
 	backwardDashSpdMult = characterData.backwardDashSpdMult
 	actionGoalTotal = characterData.actionGoalTotal
 	
-	health = maxHP
+	health = characterData.currentHP
 
 func _ready() -> void:
 	var dashFwdState : State = stateMachine.states.get("dashforward")

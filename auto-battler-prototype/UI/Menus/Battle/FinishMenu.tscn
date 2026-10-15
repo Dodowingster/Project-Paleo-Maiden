@@ -54,3 +54,6 @@ layout_mode = 2
 focus_neighbor_top = NodePath("../RematchBtn")
 focus_previous = NodePath("../RematchBtn")
 text = "Back To Setup"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/RematchBtn" to="." method="_on_rematch_btn_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/EndBattleBtn" to="." method="_on_end_battle_btn_pressed"]

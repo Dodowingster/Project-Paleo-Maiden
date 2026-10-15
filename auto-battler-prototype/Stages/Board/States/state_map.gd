@@ -7,6 +7,7 @@ func enter():
 	%MiniMenu.visible = true
 	%MiniMenu.get_node("EndMoveButton").visible = false
 	%MapComponents.visible = true
+	%CharDisplay.update_ui()
 
 func exit():
 	%MiniMenu.get_node("EndMoveButton").visible = true

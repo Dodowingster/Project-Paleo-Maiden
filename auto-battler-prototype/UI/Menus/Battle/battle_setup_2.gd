@@ -16,4 +16,4 @@ func _ready() -> void:
 func _on_start_btn_pressed() -> void:
 	var testStage : PackedScene = load("res://Stages/test_stage.tscn")
 	var testStageNode : Stage = testStage.instantiate()
-	SimpleSceneManager.start_battle_2(char1, loadout1, char2, loadout2, testStageNode)
+	SimpleSceneManager.start_battle_2(char1, loadout1, char2, loadout2, testStageNode, Stage.STAGEMODE.ENCOUNTER)

@@ -6,6 +6,7 @@ func enter():
 	CurrentRunData.current_map_action = GlobalValues.MAPACTION.CAMP
 	%CampOptionsPanel.visible = true
 	%CampOptionsPanel.get_node("CampOptions/SparBtn").disabled = !can_spar()
+	%CharDisplay.update_ui()
 
 func exit():
 	%CampOptionsPanel.visible = false

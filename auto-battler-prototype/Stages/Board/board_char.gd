@@ -19,8 +19,11 @@ signal broadcastScoutValue(value : int)
 
 
 func _ready() -> void:
-	position = initialNode.position
-	CurrentRunData.current_node = initialNode
+	if CurrentRunData.current_node != null:
+		position = CurrentRunData.current_node.position
+	else:
+		position = initialNode.position
+		CurrentRunData.current_node = initialNode
 
 
 func _process(_delta: float) -> void:
