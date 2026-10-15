@@ -6,21 +6,25 @@ func back_to_battle_setup(stage : Stage) -> void:
 		node.queue_free()
 	var battleSetup : PackedScene = load("res://UI/Menus/Battle/BattleSetup.tscn")
 	var battleSetupNode : BattleSetup = battleSetup.instantiate()
-	var runner : Runner = stage.get_node("Runner")
-	var p1CharData : CharacterData = runner.data1
-	var p2CharData : CharacterData = runner.data2
-	var p1LoadoutData : Array[TechniqueData] = runner.loadout1
-	var p2LoadoutData : Array[TechniqueData] = runner.loadout2
-	# remove base attacks from loadout
-	p1LoadoutData.remove_at(-1)
-	p2LoadoutData.remove_at(-1)
-	for child in runner.get_children():
-		if child is Character:
-			child.unload_loadout()
-	get_tree().change_scene_to_node(battleSetupNode)
-	await get_tree().scene_changed
-	battleSetupNode.setupChar1.set_selection(p1CharData, p1LoadoutData)
-	battleSetupNode.setupChar2.set_selection(p2CharData, p2LoadoutData)
+	if stage != null:
+		var runner : Runner = stage.get_node("Runner")
+		var p1CharData : CharacterData = runner.data1
+		var p2CharData : CharacterData = runner.data2
+		var p1LoadoutData : Array[TechniqueData] = runner.loadout1
+		var p2LoadoutData : Array[TechniqueData] = runner.loadout2
+		# remove base attacks from loadout
+		p1LoadoutData.remove_at(-1)
+		p2LoadoutData.remove_at(-1)
+		for child in runner.get_children():
+			if child is Character:
+				child.unload_loadout()
+		get_tree().change_scene_to_node(battleSetupNode)
+		await get_tree().scene_changed
+		battleSetupNode.setupChar1.set_selection(p1CharData, p1LoadoutData)
+		battleSetupNode.setupChar2.set_selection(p2CharData, p2LoadoutData)
+	else:
+		get_tree().change_scene_to_node(battleSetupNode)
+		await get_tree().scene_changed
 
 #func setup_map()
 
