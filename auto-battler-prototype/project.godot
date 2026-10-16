@@ -29,6 +29,7 @@ VFXManager="*uid://bnib7hcjt4te8"
 StageManager="*uid://c0v0rxqjkc0lk"
 Dialogic="*uid://ds2q0uclmolvu"
 CurrentRunData="*uid://d2ssakb7my6yg"
+RewardsManager="*uid://ptpoyneypqmq"
 
 [dialogic]
 
