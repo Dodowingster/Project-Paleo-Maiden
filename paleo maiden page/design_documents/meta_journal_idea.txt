@@ -1,0 +1,96 @@
+Core idea -> Since your paleo maiden's rivals do make up a big part of the game, what if we had 
+a journal that logged all the details you currently know about each encountered rival for that 
+specific run?
+
+However, just like you, your rivals will also grow stronger and change their loadout as they go
+through the motions. 
+
+How this fits the core pillars:
+- CHARACTERIZATION: allows us to better characterize enemies by playing to fill out the journal, allowing
+us to better prepare for fighs against them while learning more about their preferences. This way, we can
+justify more events with the enemies to learn more about them.
+- COOL: see something cool the rivals do? you can document them in the journal too, showing you potential
+synergies you can spec into.
+- FGC: the journal acts similarly to how fighting game players take notes to prepare for tournaments, 
+preparing for specific players that act as rivals in their stories.
+- NURTURE: we can design the rivals to be brought up based on which techniques work well together too.
+Players can use the knowledge from filling up the journal to learn ways to build their own maiden.
+
+How it should work:
+- everytime you meet a new potential rival, a new entry will appear in your journal
+- the initial entry will contain the rival's current class. stats and techniques will be empty for now.
+    - how will stats be filled?
+        - events give you partial info on stats
+        - fighting against them tells you all the stat values they currently have
+    - how will techniques be filled?
+        - events give you partial info on techniques
+        - fighting against them tells you all the techniques they have in their loadout
+
+How does the journal help you play?
+- knowing color -> knowing strategy
+- knowing stats -> knowing if you can beat someone at their own strategy
+- knowing techniques -> can counterpick techniques to beat opponent
+BUT:
+- journal data is based on past fights, not the current fight
+- opponent could have an adjusted loadout for the current fight, how can players prepare then?
+    - THIS IS THE BIGGEST STOPPER METHINKS
+
+How does this affect gameplay:
+- Camp options:
+    - Train -> -HP, +technique, +stat
+    - Cook -> -ing, +HP, +aff
+    - Rest -> +HP
+    - if there's a rival at camp:
+        - Spar -> -HP, +technique, +aff
+        - naturally +journal, how much is filled is based on your relationship with the rival:
+            - spar -> fully filled
+            - camp event (randomly happens but does not matter what option you chose in camp):
+                - before decision (battle or rest) -> partial fill
+                - after decision -> partial fill if didnt battle
+    - Takeaways:
+        - at high HP, always train
+        - at low HP, always cook/rest
+        - when there's a rival:
+            - at high HP:
+                - default is fight
+                - but if need stats then maybe better to train
+            - at low HP:
+                - training take less HP, can still consider training
+                - more likely to rest/cook
+- Map options:
+    - Locals
+        - one battle -> -HP, +technique, +aff
+        - characters at locals, should they be considered rivals? if yes then journal is filled too
+    - Arena
+        - one battle -> -HP, +technique, +aff
+        - get unique techniques
+        - only available if you applied
+    - Hazard
+        - usually -HP or some debuff
+    - Crossroads
+        - watch other maidens spar -> +technique, +journal
+    - Event
+        - literally anything can happen lmao
+    - Takeaways:
+        - always avoid hazard if possible, unless going thru hazard helps you reach somewhere on time
+            - to note, as long as on your path you pass thru a hazard during your turn, the hazard event will occur
+        - empty mapnode is also avoided as much as possible, unless you can avoid a hazard
+        - arena is always prioritized, so the plan is how to get strong enough in time for arena?
+            - take more battles -> risk being downed and not being able to reach the arena in time
+            - less battles -> not strong enough when you reach the arena?
+            - routing: probably just head to the general arena area first and find as many battles around the area
+            until arena day
+                - when is this not smart: if the techniques you can earn around the arena aren't helpful for you to
+                actually win the arena fight
+                - but you are more likely to encounter the arena fight as a regular rival event, which lets you get
+                info on their stats + loadout
+        - locals or crossroads?
+            - seems like always crossroads since you don't lose HP
+            - but locals should have a larger technique pool (more colors to choose from)
+                - but you have to get lucky with the color you want?
+                - you go to locals most times anyways
+            - now what if crossroads was a type of event, so you didnt know it was a crossroads?
+            - now you're choosing between guaranteed power and non-guaranteed but more power?
+        
+        
+    
