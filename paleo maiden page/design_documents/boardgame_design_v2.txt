@@ -48,11 +48,13 @@ Locals:
 - Discoverable by scouting
 - Lets you battle other maidens at the local for techniques based on their pool
 - each space lets you do battle once
+- duration is only one turn, but shows up frequently
 
 Arena:
 - Always visible on map
 - Not accessible until title match day
 - On title match day, participate in title match to get ex techniques based on their pool
+- must sign up for title match first, then be on the arena tile on the specified turn/day
 
 Hazard: 
 - Types:
@@ -98,10 +100,18 @@ Spar:
 
 
 --------------------------------------------------------------------------------
-END OF YEAR
+END OF YEAR (EOY)
 --------------------------------------------------------------------------------
 - if the player has won enough title matches to qualify, they can proceed to the end of year finals,
 otherwise they lose the run
 
 End of Year Finals:
 - single elim top 8 -> 3 fights
+
+
+--------------------------------------------------------------------------------
+LOSE CONDITIONS
+--------------------------------------------------------------------------------
+- you don't lose when reaching 0 HP in a fight before EOY. instead you are forced to skip a day (maybe 2?)
+before you can continue moving on the map
+- once youre at the EOY tournament, losing any fight here will count as a run ender
