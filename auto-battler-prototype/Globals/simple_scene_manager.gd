@@ -26,7 +26,8 @@ func back_to_battle_setup(stage : Stage) -> void:
 
 func setup_map() -> void:
 	var mapPath : PackedScene = load("res://Stages/Board/test_map.tscn")
-	var mapNode : Node = mapPath.instantiate()
+	var mapNode : Map = mapPath.instantiate()
+	mapNode.setup()
 	get_tree().change_scene_to_node(mapNode)
 	await get_tree().scene_changed
 

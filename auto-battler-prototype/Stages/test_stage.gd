@@ -8,8 +8,7 @@ var always_running_nodes : Array[Node] = []
 
 func _ready() -> void:
 	StageManager.set_stage(self)
-	var runner = get_node("Runner")
-	runner.connect("broadcastFin", finish_game)
+	%Runner.connect("broadcastFin", finish_game)
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause_menu") and not %FinishMenu.visible:
@@ -39,19 +38,20 @@ func _on_end_battle_btn_pressed() -> void:
 		SimpleSceneManager.back_to_battle_setup(self)
 
 func update_current_run_data() -> void:
-	var runner : Runner = get_node("Runner")
-	var p1Char : Character = runner.get_node("Character")
+	var p1Char : Character = %Runner.get_node("Character")
 	if p1Char != null:
 		CurrentRunData.char_data.currentHP = p1Char.health
+	#if %Runner.winningSide == "P1":
+		#RewardsManager.reward_technique(p1Char.characterName)
+	RewardsManager.reward_technique(p1Char.characterName)
 
 func unload_characters() -> void:
-	var runner : Runner = self.get_node("Runner")
-	var p1LoadoutData : Array[TechniqueData] = runner.loadout1
-	var p2LoadoutData : Array[TechniqueData] = runner.loadout2
+	var p1LoadoutData : Array[TechniqueData] = %Runner.loadout1
+	var p2LoadoutData : Array[TechniqueData] = %Runner.loadout2
 	# remove base attacks from loadout
 	p1LoadoutData.remove_at(-1)
 	p2LoadoutData.remove_at(-1)
-	for child in runner.get_children():
+	for child in %Runner.get_children():
 		if child is Character:
 			child.unload_loadout()
 
@@ -71,11 +71,10 @@ func pause_game() -> void:
 func restart_game() -> void:
 	always_running_nodes = []
 	VFXManager.despawn_all_vfx()
-	var runner : Runner = get_node("Runner")
-	var finTimer : Timer = runner.get_node("FinishTimer")
+	var finTimer : Timer = %Runner.get_node("FinishTimer")
 	%DataTracker.reset()
-	runner.reset()
-	runner.initialize()
+	%Runner.reset()
+	%Runner.initialize()
 	finTimer.stop()
 	StageManager.set_stage(self)
 	get_tree().paused = false
@@ -91,9 +90,8 @@ func resume_game() -> void:
 
 func finish_game(winner: String) -> void:
 	var finishLabel : Label = get_node("Runner/CanvasLayer/FinishMenu/PanelContainer/VBoxContainer/FinishLabel")
-	var runner : Runner = get_node("Runner")
 
-	if runner.nodeP1.health or runner.nodeP2.health:
+	if %Runner.nodeP1.health or %Runner.nodeP2.health:
 		finishLabel.text = winner + " WIN"
 	else:
 		finishLabel.text = "DRAW"

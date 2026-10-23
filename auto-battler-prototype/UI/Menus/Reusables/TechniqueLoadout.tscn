@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bb5plf6861od2"]
+
+[ext_resource type="Script" uid="uid://cn1l535nmid3k" path="res://UI/Menus/Reusables/technique_loadout.gd" id="1_pohfm"]
+[ext_resource type="Script" uid="uid://c0c4p57o71yio" path="res://Characters/generic/technique_data.gd" id="2_iex38"]
+[ext_resource type="Resource" uid="uid://hrvfmlohrxj7" path="res://Characters/ryoshu/techniques/ryoshu_rush.tres" id="3_bk5ne"]
+[ext_resource type="Resource" uid="uid://cp1vjeyka1tul" path="res://Characters/ryoshu/techniques/ryoshu_sideswitch.tres" id="4_6rs6h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbor1"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.3254902, 0.7529412, 0.36078432, 0.58431375)
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ao5kw"]
+bg_color = Color(0.7647059, 0.6, 0.20784314, 0.56078434)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="TechniqueLoadout" type="PanelContainer" unique_id=521485875]
+custom_minimum_size = Vector2(300, 0)
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 84.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hbor1")
+script = ExtResource("1_pohfm")
+starterList = Array[ExtResource("2_iex38")]([ExtResource("3_bk5ne"), ExtResource("4_6rs6h")])
+
+[node name="VerticalLayout" type="VBoxContainer" parent="." unique_id=1219379287]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Header" type="Label" parent="VerticalLayout" unique_id=249137717]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ao5kw")
+text = "Loadout"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EntryList" type="VBoxContainer" parent="VerticalLayout" unique_id=1939559916]
+unique_name_in_owner = true
+layout_mode = 2

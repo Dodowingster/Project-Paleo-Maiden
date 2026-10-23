@@ -17,4 +17,5 @@ func generate_reward_technique_pool(charName : String) -> Array[TechniqueData]:
 func reward_technique(charName : String):
 	var techniquePool : Array[TechniqueData] = generate_reward_technique_pool(charName)
 	var randomIndex : int = randi() % techniquePool.size()
-	CurrentRunData.technique_inventory.append(techniquePool[randomIndex])
+	if CurrentRunData.technique_inventory != null:
+		CurrentRunData.technique_inventory.add(techniquePool[randomIndex])

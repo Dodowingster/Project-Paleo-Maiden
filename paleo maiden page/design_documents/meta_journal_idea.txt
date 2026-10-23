@@ -24,7 +24,7 @@ How it should work:
         - fighting against them tells you all the stat values they currently have
     - how will techniques be filled?
         - events give you partial info on techniques
-        - fighting against them tells you all the techniques they have in their loadout
+        - losing a fight against them tells you all the techniques they have in their loadout
 
 How does the journal help you play?
 - knowing color -> knowing strategy
@@ -33,7 +33,7 @@ How does the journal help you play?
 BUT:
 - journal data is based on past fights, not the current fight
 - opponent could have an adjusted loadout for the current fight, how can players prepare then?
-    - THIS IS THE BIGGEST STOPPER METHINKS
+    - THIS IS THE BIGGEST PROBLEM METHINKS
 
 How does this affect gameplay:
 - Camp options:
@@ -43,7 +43,8 @@ How does this affect gameplay:
     - if there's a rival at camp:
         - Spar -> -HP, +technique, +aff
         - naturally +journal, how much is filled is based on your relationship with the rival:
-            - spar -> fully filled
+            - spar lose -> fully filled
+            - spar win -> only techniques filled or only stats filled?
             - camp event (randomly happens but does not matter what option you chose in camp):
                 - before decision (battle or rest) -> partial fill
                 - after decision -> partial fill if didnt battle

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://ggty4pykfu15"]
+
+[ext_resource type="Script" uid="uid://b5grhtpyf6r04" path="res://UI/Menus/Reusables/technique_inventory_ui.gd" id="1_bunys"]
+[ext_resource type="Script" uid="uid://c0c4p57o71yio" path="res://Characters/generic/technique_data.gd" id="2_80nvl"]
+[ext_resource type="Resource" uid="uid://cp1vjeyka1tul" path="res://Characters/ryoshu/techniques/ryoshu_sideswitch.tres" id="3_7iy50"]
+[ext_resource type="Resource" uid="uid://hrvfmlohrxj7" path="res://Characters/ryoshu/techniques/ryoshu_rush.tres" id="4_j4wma"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80nvl"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.6156863, 0.45490196, 0.23921569, 0.44705883)
+corner_radius_top_left = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7iy50"]
+bg_color = Color(0.6313726, 0.43529412, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="TechniqueInventory" type="PanelContainer" unique_id=959061173]
+custom_minimum_size = Vector2(300, 0)
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -95.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_80nvl")
+script = ExtResource("1_bunys")
+exampleList = Array[ExtResource("2_80nvl")]([ExtResource("3_7iy50"), ExtResource("4_j4wma")])
+
+[node name="VerticalLayout" type="VBoxContainer" parent="." unique_id=1748464278]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Header" type="Label" parent="VerticalLayout" unique_id=1287686490]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_7iy50")
+text = "Inventory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EntryList" type="VBoxContainer" parent="VerticalLayout" unique_id=1517624693]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10

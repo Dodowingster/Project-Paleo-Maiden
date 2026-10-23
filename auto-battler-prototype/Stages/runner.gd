@@ -19,6 +19,8 @@ class_name Runner
 @onready var phanCam : PhantomCamera2D = %PhanCam
 @export var camera : CustomCamera
 
+@onready var winningSide : String = ""
+
 signal broadcastFin(winner: String)
 
 func _ready() -> void:
@@ -69,6 +71,7 @@ func reset() -> void:
 	nodeP1.queue_free()
 	nodeP2.queue_free()
 	ui.clear()
+	winningSide = ""
 
 func broadcast_fin(winner: String) -> void:
 	var	finTimer: Timer = get_node("FinishTimer")
@@ -80,4 +83,6 @@ func broadcast_fin(winner: String) -> void:
 		# ^ would've been used for slowdown on fin but it breaks knockback physics
 		await finTimer.timeout
 		# Engine.time_scale = 1.0
+		if winningSide == "":
+			winningSide = winner   # not sure what happens on tie, either p1 or p2 will always win in the backend
 		broadcastFin.emit(winner)

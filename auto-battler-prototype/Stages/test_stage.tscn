@@ -37,6 +37,7 @@ process_mode = 3
 script = ExtResource("1_3gimc")
 
 [node name="Runner" type="Node" parent="." unique_id=2070498116 node_paths=PackedStringArray("camera")]
+unique_name_in_owner = true
 process_mode = 1
 script = ExtResource("2_84gnr")
 data1 = ExtResource("3_y2t8x")

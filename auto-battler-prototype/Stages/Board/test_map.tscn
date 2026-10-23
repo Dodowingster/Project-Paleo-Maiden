@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://bjchkiijvphh7" path="res://UI/Menus/Reusables/CharDisplay.tscn" id="8_2gyk0"]
 [ext_resource type="Script" uid="uid://ci4h7ee0n58en" path="res://Mechanics/Map/enemy_data.gd" id="11_oellc"]
 [ext_resource type="Resource" uid="uid://c2k2423pfb03h" path="res://Characters/don/don_data.tres" id="12_vuixs"]
+[ext_resource type="PackedScene" uid="uid://ggty4pykfu15" path="res://UI/Menus/Reusables/TechniqueInventory.tscn" id="17_pc0al"]
+[ext_resource type="Script" uid="uid://c0c4p57o71yio" path="res://Characters/generic/technique_data.gd" id="17_rirp8"]
+[ext_resource type="PackedScene" uid="uid://bb5plf6861od2" path="res://UI/Menus/Reusables/TechniqueLoadout.tscn" id="18_rirp8"]
 
 [sub_resource type="Resource" id="Resource_pdnt0"]
 script = ExtResource("6_2gyk0")
@@ -39,12 +42,15 @@ script = ExtResource("1_pdnt0")
 initialState = NodePath("Map")
 
 [node name="Map" type="Node" parent="MapStateMachine" unique_id=202710728]
+unique_name_in_owner = true
 script = ExtResource("2_dndn8")
 
 [node name="Camp" type="Node" parent="MapStateMachine" unique_id=232286838]
+unique_name_in_owner = true
 script = ExtResource("3_t1qar")
 
 [node name="Move" type="Node" parent="MapStateMachine" unique_id=43081770]
+unique_name_in_owner = true
 script = ExtResource("4_vuixs")
 
 [node name="MapLogic" type="Node" parent="." unique_id=840629623 node_paths=PackedStringArray("player", "scout_value_ui")]
@@ -105,14 +111,15 @@ rendering_quadrant_size = 64
 collision_enabled = false
 physics_quadrant_size = 64
 
-[node name="MapNodes" type="Node" parent="MapComponents" unique_id=1973786599]
+[node name="MapNodeCollection" type="Node" parent="MapComponents" unique_id=1973786599]
+unique_name_in_owner = true
 
-[node name="InitialMapNode" type="Node2D" parent="MapComponents/MapNodes" unique_id=1735152959 node_paths=PackedStringArray("rightNode")]
+[node name="InitialMapNode" type="Node2D" parent="MapComponents/MapNodeCollection" unique_id=1735152959 node_paths=PackedStringArray("rightNode")]
 position = Vector2(96, 224)
 script = ExtResource("4_85idx")
 rightNode = NodePath("../MapNode1")
 
-[node name="EnemyData" type="Node" parent="MapComponents/MapNodes/InitialMapNode" unique_id=1990739010]
+[node name="EnemyData" type="Node" parent="MapComponents/MapNodeCollection/InitialMapNode" unique_id=1990739010]
 script = ExtResource("11_oellc")
 baseCharacter = ExtResource("12_vuixs")
 def = 3
@@ -122,76 +129,82 @@ maxHP = 120
 currentHP = 120
 metadata/_custom_type_script = "uid://ci4h7ee0n58en"
 
-[node name="MapNode1" type="Node2D" parent="MapComponents/MapNodes" unique_id=375970456 node_paths=PackedStringArray("leftNode", "rightNode", "downNode")]
+[node name="MapNode1" type="Node2D" parent="MapComponents/MapNodeCollection" unique_id=375970456 node_paths=PackedStringArray("leftNode", "rightNode", "downNode")]
 position = Vector2(352, 224)
 script = ExtResource("4_85idx")
+nodeID = 1
 leftNode = NodePath("../InitialMapNode")
 rightNode = NodePath("../MapNode2")
 downNode = NodePath("../MapNode2")
 metadata/_custom_type_script = "uid://bawabgkmfpbgs"
 
-[node name="MapNode2" type="Node2D" parent="MapComponents/MapNodes" unique_id=571856908 node_paths=PackedStringArray("leftNode", "upNode", "rightNode", "downNode")]
+[node name="MapNode2" type="Node2D" parent="MapComponents/MapNodeCollection" unique_id=571856908 node_paths=PackedStringArray("leftNode", "upNode", "rightNode", "downNode")]
 position = Vector2(480, 352)
 script = ExtResource("4_85idx")
+nodeID = 2
 leftNode = NodePath("../MapNode1")
 upNode = NodePath("../MapNode1")
 rightNode = NodePath("../MapNode3")
 downNode = NodePath("../MapNode4")
 metadata/_custom_type_script = "uid://bawabgkmfpbgs"
 
-[node name="MapNode3" type="Node2D" parent="MapComponents/MapNodes" unique_id=358948792 node_paths=PackedStringArray("leftNode", "upNode", "downNode")]
+[node name="MapNode3" type="Node2D" parent="MapComponents/MapNodeCollection" unique_id=358948792 node_paths=PackedStringArray("leftNode", "upNode", "downNode")]
 position = Vector2(928, 416)
 script = ExtResource("4_85idx")
+nodeID = 3
 leftNode = NodePath("../MapNode2")
 upNode = NodePath("../MapNode2")
 downNode = NodePath("../MapNode4")
 metadata/_custom_type_script = "uid://bawabgkmfpbgs"
 
-[node name="MapNode4" type="Node2D" parent="MapComponents/MapNodes" unique_id=406202370 node_paths=PackedStringArray("leftNode", "upNode", "rightNode", "downNode")]
+[node name="MapNode4" type="Node2D" parent="MapComponents/MapNodeCollection" unique_id=406202370 node_paths=PackedStringArray("leftNode", "upNode", "rightNode", "downNode")]
 position = Vector2(480, 608)
 script = ExtResource("4_85idx")
+nodeID = 4
 leftNode = NodePath("../MapNode5")
 upNode = NodePath("../MapNode2")
 rightNode = NodePath("../MapNode3")
 downNode = NodePath("../MapNode6")
 metadata/_custom_type_script = "uid://bawabgkmfpbgs"
 
-[node name="MapNode5" type="Node2D" parent="MapComponents/MapNodes" unique_id=1005879647 node_paths=PackedStringArray("rightNode")]
+[node name="MapNode5" type="Node2D" parent="MapComponents/MapNodeCollection" unique_id=1005879647 node_paths=PackedStringArray("rightNode")]
 position = Vector2(224, 672)
 script = ExtResource("4_85idx")
+nodeID = 5
 rightNode = NodePath("../MapNode4")
 metadata/_custom_type_script = "uid://bawabgkmfpbgs"
 
-[node name="MapNode6" type="Node2D" parent="MapComponents/MapNodes" unique_id=54834745 node_paths=PackedStringArray("upNode", "rightNode")]
+[node name="MapNode6" type="Node2D" parent="MapComponents/MapNodeCollection" unique_id=54834745 node_paths=PackedStringArray("upNode", "rightNode")]
 position = Vector2(352, 864)
 script = ExtResource("4_85idx")
+nodeID = 6
 upNode = NodePath("../MapNode4")
 rightNode = NodePath("../MapNode7")
 metadata/_custom_type_script = "uid://bawabgkmfpbgs"
 
-[node name="MapNode7" type="Node2D" parent="MapComponents/MapNodes" unique_id=465542858 node_paths=PackedStringArray("leftNode", "upNode", "downNode")]
+[node name="MapNode7" type="Node2D" parent="MapComponents/MapNodeCollection" unique_id=465542858 node_paths=PackedStringArray("leftNode", "upNode", "downNode")]
 position = Vector2(800, 672)
 script = ExtResource("4_85idx")
+nodeID = 7
 leftNode = NodePath("../MapNode6")
 upNode = NodePath("../MapNode4")
 downNode = NodePath("../MapNode6")
 metadata/_custom_type_script = "uid://bawabgkmfpbgs"
 
 [node name="MapPlayer" parent="MapComponents" unique_id=2095786576 node_paths=PackedStringArray("initialNode") instance=ExtResource("7_m0fca")]
-unique_name_in_owner = true
 position = Vector2(96, 336)
-initialNode = NodePath("../MapNodes/InitialMapNode")
+initialNode = NodePath("../MapNodeCollection/InitialMapNode")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=569901503]
 
 [node name="UI" type="Control" parent="CanvasLayer" unique_id=2089427098]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 3
-anchors_preset = 11
-anchor_left = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 0
+grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -199,12 +212,14 @@ size_flags_vertical = 3
 [node name="MiniMenu" type="VBoxContainer" parent="CanvasLayer/UI" unique_id=1176460663]
 unique_name_in_owner = true
 visible = false
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -109.0
+offset_bottom = 93.0
+grow_horizontal = 0
 
 [node name="ScoutButton" type="Button" parent="CanvasLayer/UI/MiniMenu" unique_id=1297716063]
 layout_mode = 2
@@ -229,15 +244,17 @@ text = "End Move"
 [node name="CampOptionsPanel" type="PanelContainer" parent="CanvasLayer/UI" unique_id=1101417193]
 unique_name_in_owner = true
 visible = false
-custom_minimum_size = Vector2(0, 200)
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 1
-anchors_preset = 14
+anchors_preset = 6
+anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -150.0
-offset_bottom = 50.0
-grow_horizontal = 2
+offset_left = -68.0
+offset_top = -100.0
+offset_bottom = 100.0
+grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2gyk0")
 
@@ -262,7 +279,29 @@ text = "Train"
 layout_mode = 2
 text = "Spar"
 
-[node name="CharDisplay" parent="CanvasLayer/UI" unique_id=125981305 instance=ExtResource("8_2gyk0")]
+[node name="CharUI" type="Control" parent="CanvasLayer" unique_id=1767259662]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TechniqueInventory" parent="CanvasLayer/CharUI" unique_id=959061173 instance=ExtResource("17_pc0al")]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = -300.0
+exampleList = Array[ExtResource("17_rirp8")]([])
+
+[node name="TechniqueLoadout" parent="CanvasLayer/CharUI" unique_id=521485875 instance=ExtResource("18_rirp8")]
+unique_name_in_owner = true
+layout_mode = 1
+offset_right = 300.0
+starterList = Array[ExtResource("17_rirp8")]([])
+
+[node name="CharDisplay" parent="CanvasLayer/CharUI" unique_id=125981305 instance=ExtResource("8_2gyk0")]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7

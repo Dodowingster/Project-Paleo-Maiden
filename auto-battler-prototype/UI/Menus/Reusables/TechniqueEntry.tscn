@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://beiu28tbhro67"]
+
+[ext_resource type="Script" uid="uid://ctdyh4n3lyiwj" path="res://UI/Menus/Reusables/technique_entry.gd" id="1_1x0cv"]
+[ext_resource type="Resource" uid="uid://cp1vjeyka1tul" path="res://Characters/ryoshu/techniques/ryoshu_sideswitch.tres" id="2_1x0cv"]
+
+[node name="TechniqueEntry" type="HBoxContainer" unique_id=1248163370]
+clip_contents = true
+custom_minimum_size = Vector2(200, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -15.5
+offset_right = 120.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+script = ExtResource("1_1x0cv")
+technique = ExtResource("2_1x0cv")
+
+[node name="TechniqueName" type="Label" parent="." unique_id=609779775]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Example"
+
+[node name="Action" type="Button" parent="." unique_id=1338901748]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Remove"
+
+[node name="Weight" type="Label" parent="." unique_id=1094173647]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[connection signal="pressed" from="Action" to="." method="_on_action_pressed"]
