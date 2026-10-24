@@ -41,9 +41,8 @@ func update_current_run_data() -> void:
 	var p1Char : Character = %Runner.get_node("Character")
 	if p1Char != null:
 		CurrentRunData.char_data.currentHP = p1Char.health
-	#if %Runner.winningSide == "P1":
-		#RewardsManager.reward_technique(p1Char.characterName)
-	RewardsManager.reward_technique(p1Char.characterName)
+	if %Runner.winningSide == "P1":
+		RewardsManager.reward_technique(p1Char.characterName)
 
 func unload_characters() -> void:
 	var p1LoadoutData : Array[TechniqueData] = %Runner.loadout1

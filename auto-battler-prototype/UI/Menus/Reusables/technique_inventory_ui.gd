@@ -27,7 +27,7 @@ func populate(techniqueInv : TechniqueList) -> void:
 func populate_from_current() -> void:
 	for child in %EntryList.get_children():
 		child.queue_free()
-	for tech in CurrentRunData.get_list():
+	for tech in CurrentRunData.technique_inventory.get_list():
 		var techEntryNode : TechniqueEntry = techEntryScene.instantiate()
 		techEntryNode.technique = tech
 		techEntryNode.entryType = TechniqueEntry.EntryType.INVENTORY

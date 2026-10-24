@@ -319,4 +319,5 @@ grow_vertical = 0
 [connection signal="pressed" from="CanvasLayer/UI/MiniMenu/ScoutButton" to="MapLogic" method="_on_scout_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/MiniMenu/EndMoveButton" to="MapLogic" method="_on_end_move_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/CampOptionsPanel/CampOptions/RestBtn" to="CampLogic" method="_on_rest_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/CampOptionsPanel/CampOptions/TrainBtn" to="CampLogic" method="_on_train_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/CampOptionsPanel/CampOptions/SparBtn" to="CampLogic" method="_on_spar_btn_pressed"]

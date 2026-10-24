@@ -38,3 +38,8 @@ func _on_spar_btn_pressed() -> void:
 		get_tree().change_scene_to_node(battleSetupNode)
 	else:
 		print("Current node is null")
+
+
+func _on_train_btn_pressed() -> void:
+	RewardsManager.reward_technique(CurrentRunData.char_data.characterName)
+	%MapStateMachine.on_child_transition(%MapStateMachine.currentState, "Map")
