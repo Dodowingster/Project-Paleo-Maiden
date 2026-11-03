@@ -45,6 +45,40 @@ This time—I'll win.
 
 ---
 
+### Event: Articulation (happens early during 1st year)
+Description: This event is to showcase Allosa's fighting style and also discover her goal on why she wants to win the Championship.
+Type: Main Story
+
+[Scene: At Camp]
+
+Player: "Ughhh what time is it?"
+
+I glance at my watch at it shows me the time- its 6 in the morning. I shouldn't have slept too late preparing for Allosa's training regime. But since it's this early- I might as well make this day an early start.
+
+Player: "Hmm? What's that noise?"
+
+I peeked outside from my buggy and notice Allosa in her combat gear and she is in her combat stance facing the training dummy across the field. Such determination to train in such an early time- here I am thinking I was being productive. I leave the buggy to greet her-
+
+Player: "Yaaaawn. Good Morning Allosa~ Up for an early start today?"
+
+Allosa got completely caught off-guard by my presense, she bowed to me to apologize
+
+Allosa: "Ah ser, I am deeply sorry. I don't mean to wake you"
+
+Player: "Ahh no worries. I woke up on my own actually. But in any case- what interesting stance you have."
+
+I noticed that Allosa's stance is unlike any other maiden's I have seen. She seem to be well composed and fairly discipline in her breathing techniques and her distance with the dummy. Allosa replied my remark with a smile-
+
+Allosa: "...A conductor's form, ser. Or an attempt at one."
+
+She straightens up too quickly, a flash of frustration crossing her composed features before she forces a polite smile.
+
+Allosa: "Forgive me. It's just... standard repetition. If I am to conquer the Triassic League, being 'good' isn't enough. I need to be flawless, or I have no right wearing this uniform."
+
+Player: "If you don't mind me asking...Why do you wanted to join the expedition, Allosa?
+
+Allosa: "
+
 ### Event: Premiere (happens before joining a Title Match for the 1st time)
 Description: This event showcases a bit of Allosa's insecurities and her lack of confidence to face the challenges head on.
 Type: Optional Trigger
@@ -187,7 +221,7 @@ Player: "And there she goes..."
 
 Allosa: "What am I supposed to do with this seashell?"
 
-Allosa looked down at the seashell—confused—yet she pressed
+Allosa looked down at the seashell—confused—yet she leaned her head towards the it.
 
 Allosa: "Still nothing...Maybe that's what separates us, I wonder...."
 
