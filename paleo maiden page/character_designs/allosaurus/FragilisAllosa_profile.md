@@ -32,7 +32,7 @@ In a P-Magic duel, she fights with the elegance of a high-born fencer, treating 
 | **Birthdate** | September 12th |
 | **Birthplace** | Morrison Formation, Wyoming, USA |
 | **Likes** | Red Meat, Stylish Hats, Classical Music, Conducting |
-| **Dislikes** | Stairs, Slippery Floors, Spiked Tails |
+| **Dislikes** | Jagged surfaces |
 
 ## Relationships (Friends/Rivals)
 
@@ -75,6 +75,5 @@ In a P-Magic duel, she fights with the elegance of a high-born fencer, treating 
     9.  **Whole Note** (Vest buttons connecting to Natural Sign)
 * Her "Red Mage" design (feathered hat and cape) is a nod to the **lacrimal crests** (horns) above an Allosaurus's eyes, which are often depicted as red or colorful in paleo-art for display purposes.
 * The "Hatchet Waltz" signature move references the controversial **"Hatchet Bite" theory**, which suggested Allosaurus used its upper jaw like an axe to hack at prey.
-* Her conducting style is inspired by **Herbert von Karajan**, specifically his intense, eyes-closed focus. This symbolizes how she shuts out distractions to channel her P-Magic perfectly during her "Ballad of Big Al" signature move.
 * Her rivalry with **Ostromm Utahra** is based on Utah state legislation. **Allosaurus** was designated the **State Fossil of Utah** in 1988. However, in 2018, **Utahraptor** was designated the **State Dinosaur**, effectively splitting the title and creating a "turf war" over who is the true representative of the state.
 * As the **"Face of the Project,"** she is designed to be the most balanced and adaptable fighter (The "Ryu" or "Mario" archetype), making her the perfect entry point for new players (Trainers).

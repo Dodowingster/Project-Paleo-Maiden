@@ -79,4 +79,4 @@ The boy admired Ostromm Utahra, and seeing his hero feeling defeated, he offered
 
 * Her birthdate (February 18th) is a reference to the date in 2021 when the bill to make *Utahraptor* the Utah state dinosaur was officially signed.
 * Her design's "vampiric" flair is a nod to the *Dromaeosauridae* family's reputation as "nocturnal hunters" in early paleontological theories, blended with a modern, elegant "Alucard-esque" aesthetic.
-* Her rivalry with Kitadani Fukui is a thematic clash of dromaeosaurid-like dinosaurs: the largest "raptor" (Utahraptor) which commands the ground with devastating foot-claws, versus a megaraptoran (Fukuiraptor), whose power comes entirely from its hands.
+* Her rivalry with Kitadani Fukuira is a thematic clash of dromaeosaurid-like dinosaurs: the largest "raptor" (Utahraptor) which commands the ground with devastating foot-claws, versus a megaraptoran (Fukuiraptor), whose power comes entirely from its hands.
