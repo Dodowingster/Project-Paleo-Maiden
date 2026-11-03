@@ -77,6 +77,7 @@ var hurtboxes_hit: Array[Hurtbox] = []
 
 var velocity_x_before_wall : float = 0
 
+# initial code to run before children code
 func _enter_tree() -> void:
 	loadout = %Loadout
 	affMgr = %AffinityManager
@@ -108,6 +109,7 @@ func _enter_tree() -> void:
 	
 	health = characterData.currentHP
 
+# code to run after children are ready
 func _ready() -> void:
 	var dashFwdState : State = stateMachine.states.get("dashforward")
 	var dashBkwdState : State = stateMachine.states.get("dashbackward")
@@ -127,6 +129,9 @@ func _ready() -> void:
 
 
 ## SETUP functions
+# due to the current way we set up hitboxes and hurtboxes, we manually add them into animation tracks
+# for relevant moves before adding them to the character's loadout
+# TODO: find a better way to do this
 func setup_loadout(techniqueDataList : Array[TechniqueData]) -> void:
 	var resetAnim : Animation = %AnimationPlayer.get_animation(animLibName + "/RESET")
 	var hitstunAnim : Animation = %AnimationPlayer.get_animation(animLibName + "/hitstun")
@@ -246,6 +251,8 @@ func setup_loadout(techniqueDataList : Array[TechniqueData]) -> void:
 	loadout.setup_techniques()
 	%AnimationPlayer.play(animLibName + "/RESET")
 
+# to restore animation tracks to their original form, we remove anything we added before removing the
+# techniques from a character's loadout
 func unload_loadout() -> void:
 	var resetAnim : Animation = %AnimationPlayer.get_animation(animLibName + "/RESET")
 	var hitstunAnim : Animation = %AnimationPlayer.get_animation(animLibName + "/hitstun")
@@ -298,6 +305,7 @@ func unload_loadout() -> void:
 
 
 ## initial PHYSICS function
+# to be used in the state machine, to handle physics
 func set_char_velocity(_delta:float):
 	if not is_on_floor():
 		velocity.y += gravity
