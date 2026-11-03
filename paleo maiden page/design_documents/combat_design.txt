@@ -17,6 +17,9 @@ STAT DESIGN PHILOSOPHY:
     - yellow rush skill would have armor, reducing damage taken during the ability
     - green rush skill goes further and hits earlier, knockback is between red and blue
 
+TECHNIQUE DESIGN PHILOSOPHY:
+- techniques of a colour should be tuned to contribute more to that colour's win condition
+- green is the exception since SPD doesn't have a win condition
 
 
 Battle System:
