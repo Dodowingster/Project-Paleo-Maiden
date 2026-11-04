@@ -46,7 +46,7 @@ This time—I'll win.
 ---
 
 ### Event: Articulation (happens early during 1st year)
-Description: This event is to showcase Allosa's fighting style and also discover her goal on why she wants to win the Championship.
+Description: This event is to showcase Allosa's fighting style.
 Type: Main Story
 
 [Scene: At Camp]
@@ -75,9 +75,15 @@ She straightens up too quickly, a flash of frustration crossing her composed fea
 
 Allosa: "Forgive me. It's just... standard repetition. If I am to conquer the Triassic League, being 'good' isn't enough. I need to be flawless, or I have no right wearing this uniform."
 
+She said as she adjust her accessories around her garments. I noticed she has multiple musical notes on her outfit- Her battle style also reminds me of how a music conductor operates during a classical orchestra. I wonder what's the story behind that?
+
 Player: "If you don't mind me asking...Why do you wanted to join the expedition, Allosa?
 
-Allosa: "
+Allosa freezes for a fraction of a second, her hand halting mid-adjustment on her collar's musical-note pin. The rigid, polite smile snaps back onto her face a little too quickly.
+
+Allosa: "To fulfill my duties to the Institute, ser. Nothing more. Now... if you'll excuse me, I need to reset my tempo drills before the sun gets too high."
+
+She turns back to the dummy, leaving the question hanging heavy in the cool morning air. 
 
 ### Event: Premiere (happens before joining a Title Match for the 1st time)
 Description: This event showcases a bit of Allosa's insecurities and her lack of confidence to face the challenges head on.
@@ -163,7 +169,101 @@ Fragilis Allosa seems satisfied with her victory.
 
 ---
 
-### Event: Motteggiando (happens mid Year 1 finishes)
+### Event: Cadence (happens mid Year 1)
+Description: This event focuses on Allosa's backstory and her drive/main motivation to take on the expedition again for the 2nd time.
+Type: Main Story
+
+[Scene: Dreamlike State]
+
+Allosa is sitting on a stool, playing her violin in her tent. When suddenly the darkness engulfs every inch of the space of reality. It hums with a high-pitched, metallic screech of a violin string stretched to its absolute breaking point.
+
+???: "-So this is where the new instruments hide?"
+
+Allosa: "Who's there? Show yourself!"
+
+???: "Of course she's here. Where else does a broken instrument cral to when it wants to pretend it's a Maestro?"
+
+The strings of Allosa's violin begins to snap one by one. It tore apart as if the voices themselves commands the instrument to break itself. Allosa's breath catches. Out of the ink-black fog, towering, faceless silhouettes emerge—standing rigidly in identical, flawless combat stances. Eighteen identical specters.
+
+Allosa: "...!!!"
+
+Allosa summons her sabre from thin air and ready to strike as the entity approaches her.
+
+???: "Heh. After that miserable attempt at rewriting our score—you couldn't even survive the first movement last year. How utterly pathetic."
+
+The entity blew Allosa's weapon away from her grip, leaving the maiden defenseless.
+
+Allosa: "...."
+
+???: "Come now, don't be too harsh. We didn't clear the Apex Division either."
+
+???: "Shut it, 18! We all are the same. Failures among failures and she is no different."
+
+The voices bleed together into a deafening, cacophonous chord.
+
+???: "She's our 19th attempt in performing for the score yet she failed miserably just like the rest of us!"
+
+Allosa: "...I'm sorry...I tried to keep the tempo..."
+
+???: "This won't do, 19. Though... how amusing. You're attempting it twice. Chasing the crown like a ghost haunting its own grave. I suppose that makes you both 19... and 20."
+
+The eighteen silhouettes step forward in unison, their joints clicking like metronomes out of sync.
+
+Allosa: "..."
+
+???: "Tough luck kid....we're a cursed legacy and winning the crown was never meant for us."
+
+???: "You're no different than us. A failure is a failure. An apple does not fall far from the tree as they say."
+
+As they speak, black ink begins to drip from Allosa's eyes, staining her pristine uniform—drop by heavy drop, ticking like a clock counting down to zero.
+
+[Scene Change: Campsite]
+
+Allosa bolts upright in her cot, gasping for air as if she’s been holding it underwater. Her hands fly to her chest, clutching the blanket I wrapped around her as she fell asleep near the campfire. Her skin is drenched in cold sweat, and her breathing comes in ragged, un-conducted gasps. I am sitting at the field desk, having stayed up late reviewing our route maps.
+
+Player: "Ouh hey, you fell asleep by the campfire. I figured you were too tired so made sure you won't get cold."
+
+Allosa freezes, her eyes wide and unfocused in the dark before she forces her jaw to lock, quickly scrubbing the sweat from her forehead with a trembling hand. It must have been a bad dream to make her jolt like that. But knowing her- she wouldn't try to talk about it.
+
+Player: "Here- it's warm milk. I usually take these when I have problems sleeping. The warmth is very comforting"
+
+Allosa: "...thank you"
+
+Allosa took a sip of the warm milk- my specialty as I sat back to my desk and resume my paperwork.
+
+Allosa: "...mhm this is truly comforting"
+
+Player: "Glad to hear it!"
+
+Allosa: "...Ser...if I may be so bold-"
+
+Player: "?"
+
+Allosa: "Why did you become my lecturer? After hearing of my past failure last year, surely there are better options like the 1st year students?"
+
+Player: "Ah... I guess you didn't know. I applied to teach multiple 1st year students but got rejected, a lot. Hahaha."
+
+Allosa's eyes widened. Looking back at it now, it's kind of a miracle I get to even work with someone of Allosa's caliber.
+
+Player: "Of course it wasn't the students who rejected me but the supervisors deeming me as too unexperienced to handle the task."
+
+Allosa hears intently as I laughed nervously.
+
+Allosa: "Doesn't it hurt?"
+
+Player: "Hm?"
+
+Allosa: "To be rejected over and over again?"
+
+Player: "Ouh of course it does, but what matters is you keep trying no matter the results. That's how your former lecturer was able to get a hold of me in the first place"
+
+Upon hearing that, Allosa perked up a bit and she muttered
+
+Allosa: "Keep trying....huh...."
+
+---
+
+### Event: Motteggiando (happens late Year 1)
 Description: This event occurs during the Year 1 phase where Stenops Stegosa and Fragillis Allosa cross paths and had a banter on seeing each other again in the battlefield.
 Type: Main Story
 
