@@ -12,7 +12,7 @@
     - [Secret Event: Orchestrated Harmonious Symphony (Main Story/After 24th Turn on 1st Year/Conditional)](#secret-event-orchestrated-harmonious-symphony-main-storyafter-24th-turn-on-1st-yearconditional)
     - [Event: Premiere (Optional Trigger/After joining a Title Match for the 1st time)](#event-premiere-optional-triggerafter-joining-a-title-match-for-the-1st-time)
     - [Event: First Encore (Optional Trigger/After winning a Title Match for the 1st time)](#event-first-encore-optional-triggerafter-winning-a-title-match-for-the-1st-time)
-    - [Event: Adagio (Optional Trigger/After failing to win a Title Match)](#event-adagio-optional-triggerafter-failing-to-win-a-title-match)
+    - [Event: Adagio (Optional Trigger / After failing to win a Title Match)](#event-adagio-optional-trigger--after-failing-to-win-a-title-match)
   - [Year 2 - The Jurassic League](#year-2---the-jurassic-league)
     - [Event: Noise (Main Story/Turn 1 on 2nd Year)](#event-noise-main-storyturn-1-on-2nd-year)
   - [Year 3 - The Cretaceous League](#year-3---the-cretaceous-league)
@@ -382,13 +382,33 @@ Fragilis Allosa seems satisfied with her victory.
 
 ---
 
-### Event: Adagio (Optional Trigger/After failing to win a Title Match)
+### Event: Adagio (Optional Trigger / After failing to win a Title Match)
 
-`Description: Event occurs when players fail to let Allosa win a Title Match that they have scheduled`
+`Description: Event occurs when players fail to let Allosa win a Title Match that they have scheduled.`
 
-Crowds: "YEAAAAAAHHH!!!!'
+_[Scene: Stadium Arena]_
 
-Crowds: "DON'T MIND
+Crowds: "YEAAAAAAHHH!!!!"
+
+The roar of the stadium deafens the arena as the referee raises the new title holder's hand in victory. 
+
+Meanwhile, Allosa stands frozen in the center of the ring. Defeated. Her hands are shaking and her legs trembling—partly from the physical exhaustion of the grueling match, but mostly from the crushing wave of humiliation.
+
+Crowds: "DON'T MIND!! DON'T MIND!!!"
+
+Crowds: "YOU'LL GET IT NEXT TIME, ALLOSA!! KEEP YOUR HEAD UP!"
+
+To my surprise, the crowd isn't jeering. They loved her fierce performance enough to rally behind her, recognizing the sheer passion behind her conductor's form despite the loss.
+
+Player: "Great work out there and don't worry about not winning first try. Let's keep our heads up and try again"
+
+Allosa slowly lowers her gaze, her breathing ragged, but as she hears the supportive cheers echoing from the stands, a fraction of the suffocating tension leaves her shoulders. She offers a tight, fragile, but resolute nod.
+
+Allosa: "...It's clear as crystal that my instruments require more finnese."
+
+Allosa: "I see now what I lack in. Ser, let's head back and get back to training- and thank you for making me enter this Title Match"
+
+It seems that Allosa's desire to get stronger and learn more increased and she seems to trust me more now.
 
 ---
 
