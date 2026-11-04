@@ -1,3 +1,21 @@
+# Fragilis Allosa Ikusei Story
+
+- [Fragilis Allosa Ikusei Story](#fragilis-allosa-ikusei-story)
+  - [Intro](#intro)
+  - [Year 1 - The Triassic League](#year-1---the-triassic-league)
+    - [Event: Overture (Main Story/Turn 1 1st year)](#event-overture-main-storyturn-1-1st-year)
+    - [Event: Articulation (Main Story/Early 1st Year)](#event-articulation-main-storyearly-1st-year)
+    - [Event: Cadence (Main Story/Mid 1st Year)](#event-cadence-main-storymid-1st-year)
+    - [Event: Motteggiando (Main Story/Late 1st Year)](#event-motteggiando-main-storylate-1st-year)
+    - [Event: Caesura (Main Story/ Before the Triassic League)](#event-caesura-main-story-before-the-triassic-league)
+    - [Event: Harmonious Symphony (Main Story/After 24th Turn on 1st Year)](#event-harmonious-symphony-main-storyafter-24th-turn-on-1st-year)
+    - [Secret Event: Orchestrated Harmonious Symphony (Main Story/After 24th Turn on 1st Year/Conditional)](#secret-event-orchestrated-harmonious-symphony-main-storyafter-24th-turn-on-1st-yearconditional)
+    - [Event: Premiere (Optional Trigger/After joining a Title Match for the 1st time)](#event-premiere-optional-triggerafter-joining-a-title-match-for-the-1st-time)
+    - [Event: First Encore (Optional Trigger/After winning a title match for the 1st time)](#event-first-encore-optional-triggerafter-winning-a-title-match-for-the-1st-time)
+  - [Year 2 - The Jurassic League](#year-2---the-jurassic-league)
+    - [Event: Noise (Main Story/Turn 1 on 2nd Year)](#event-noise-main-storyturn-1-on-2nd-year)
+  - [Year 3 - The Cretaceous League](#year-3---the-cretaceous-league)
+
 ## Intro
 
 Fragilis Allosa is a veteran second-year student at the Stratum Institute—a prestigious figure who commands the room. During her first year, like every other Maiden, she set out on the grueling Great Expedition. But her march toward greatness was abruptly halted when she suffered a stunning defeat at the hands of another rising star of her generation: Stenops Stegosa.
@@ -10,9 +28,9 @@ At first, Allosa finds it painfully difficult to place her trust in a rookie for
 
 ## Year 1 - The Triassic League
 
-### Event: Overture (happens on Turn 1)
-Description: This event occurs on turn 1 of the 1st year to introduce Allosa her primary rival- Stenops Stegosa who once battled and became the victor against Allosa.
-Type: Main Story
+### Event: Overture (Main Story/Turn 1 1st year)
+
+`Description: This event occurs on turn 1 of the 1st year to introduce Allosa her primary rival- Stenops Stegosa who once battled and became the victor against Allosa.`
 
 We set off to The Great Expedition with our luggage, as we load the Buggy, I noticed that Allosa is distracted- setting her eyes on someone near the Stratum Docks. Someone that is quite well-known. Someone with a history with her.
 
@@ -45,11 +63,11 @@ This time—I'll win.
 
 ---
 
-### Event: Articulation (happens early during 1st year)
-Description: This event is to showcase Allosa's fighting style.
-Type: Main Story
+### Event: Articulation (Main Story/Early 1st Year)
 
-[Scene: At Camp]
+`Description: This event is to showcase Allosa's fighting style.`
+
+_[Scene: At Camp]_
 
 Player: "Ughhh what time is it?"
 
@@ -85,95 +103,13 @@ Allosa: "To fulfill my duties to the Institute, ser. Nothing more. Now... if you
 
 She turns back to the dummy, leaving the question hanging heavy in the cool morning air. 
 
-### Event: Premiere (happens before joining a Title Match for the 1st time)
-Description: This event showcases a bit of Allosa's insecurities and her lack of confidence to face the challenges head on.
-Type: Optional Trigger
-
-[Scene: In front of Arena]
-
-The [Title_Match_Name] Grade Cup. I figured it would be a good start and warm up for Allosa. Seeing her progession- it would be good to have a field test before the real deal.
-
-[Scene: Locker Room]
-
-Inside the Locker room, the atmosphere is tense. Allosa stands by the tall mirror, systematically adjusting the fit and testing the weight of her sabre with sharp, repetitive swings. Her movements are crisp, but her jaw is locked tight.
-
-Player: "How's the fit? It's been quite a long time since you're wearing it for this occasion."
-
-She pauses, her reflection locking onto mine in the glass before she turns around with a practiced, composed smirk.
-
-Allosa: "It has been a while. It's not a very pleasant memory to be reminded of, but in order for me to get better and stronger, I have to overcome this. By my own terms."
-
-Allosa looks determined. But I can't help but feel like she's feeling quite worried for her performance. 
-
-Crowds outside: "WOOOOOOOOO"
-
-Player: "The crowds sure are quite crazy today"
-
-Allosa: "Indeed. After all, it has been a full year since I last performed. The crowds must have been itching to see me in action again. My performance does merit a celebration to witness."
-
-Player: "You're right. But do keep in mind, we're here to test the waters, alright?"
-
-The smirk falters for a fraction of a second, replaced by a shadow of real unease in her eyes before she quickly masks it behind a dismissive toss of her head.
-
-Allosa: "Hmph. I am well aware of my duties, ser. I didn't come back for a second year just to stumble at the starting line. Sit back and enjoy the show. I'll show you what a proper debut looks like."
-
-She turns briskly toward the arena entrance, her cape snapping behind her—though I notice the slight tremor in her hand before she grips her weapon's hilt.
-
 ---
 
-### Event: First Encore (happens after winning a title match for the first time)
-Description: Event occurs after Allosa won her first title match. This even encapsulates her victorius triumph over her insecurities and reassures herself that she can continue on.
-Type: Optional Trigger
+### Event: Cadence (Main Story/Mid 1st Year)
 
-[Scene: Audience Ring]
+`Description: This event focuses on Allosa's backstory and her drive/main motivation to take on the expedition again for the 2nd time.`
 
-Crowds: "LETS GOOOOOOOOOO ALLOSA!!!"
-
-Crowds: "WOOOOOOO THAT'S MY GOAT!!!!"
-
-Announcer: "What an outsanding victory! The [Title_Match_Name] Title holder is now granted towards Fragilis Allosa! Will we see more of her performance in the future that is to come? This may be the start for a masterpiece of a tale! Stay tuned folks!"
-
-The announcer hypes Allosa up, with this title match won- I see her standing in the middle of the stage, for the first time- free of worries.
-
-[Scene change: Fighting Ring]
-
-Allosa: "Yes....I still got it!"
-
-I think it was the right decision to let her compete in this Title Match. If anything she seemed much more hopeful than last time. I best wait for her in the locker room to congratulate her.
-
-[Scene change: Locker Room]
-
-Player: "Great work out there!" 
-
-Allosa: "Many thanks, ser. It wouldn't be possible without your guidance. Of course I think there are always rooms for improvement."
-
-She then bowed with her hats off on her chest. 
-
-Allosa: "I apologize to you ser"
-
-Player: "E-eh? For what?"
-
-Allosa: "I have misjudged your character and think you but of a lower capability in guiding me—comparing you with my former Lecturer. My demeanor towards you was despicable and unjust. I shall mend my ways."
-
-Player: "Please, don't be! I am still learning as we speak. You did a great job out there! Together- we can achieve even greater!"
-
-Allosa: "Even greater? ....Together, huh....."
-
-Allosa stood up straight while gazing herself through the locker room mirror.
-
-Allosa: "Maybe even I can surpass her..."
-
-'Surpass her'- She must be visualizing her arch rival- Stenops Stegosa. I can see the fire in her eyes how she desperately wanted a rematch. And it is up to me to guide her to achieve that goal.
-
-Fragilis Allosa seems satisfied with her victory.
-
----
-
-### Event: Cadence (happens mid Year 1)
-Description: This event focuses on Allosa's backstory and her drive/main motivation to take on the expedition again for the 2nd time.
-Type: Main Story
-
-[Scene: Dreamlike State]
+_[Scene: Dreamlike State]_
 
 Allosa is sitting on a stool, playing her violin in her tent. When suddenly the darkness engulfs every inch of the space of reality. It hums with a high-pitched, metallic screech of a violin string stretched to its absolute breaking point.
 
@@ -263,11 +199,11 @@ Allosa: "Keep trying....huh...."
 
 ---
 
-### Event: Motteggiando (happens late Year 1)
-Description: This event occurs during the Year 1 phase where Stenops Stegosa and Fragillis Allosa cross paths and had a banter on seeing each other again in the battlefield.
-Type: Main Story
+### Event: Motteggiando (Main Story/Late 1st Year)
 
-[Scene: Campsite]
+`Description: This event occurs during the Year 1 phase where Stenops Stegosa and Fragillis Allosa cross paths and had a banter on seeing each other again in the battlefield.`
+
+_[Scene: Campsite]_
 
 As I am handling the campsite and cleaning up after Allosa's training, a familiar voice is heard.
 
@@ -327,11 +263,11 @@ Allosa: "Still nothing...Maybe that's what separates us, I wonder...."
 
 ---
 
-### Event: Caesura (Before the Triassic League)
-Description: This event occurs moments before the Triassic League. It focuses the nerveness of Allosa and her trying to understand her differences with Stenops Stegosa who just won her own round of Triassic League.
-Type: Main Story
+### Event: Caesura (Main Story/ Before the Triassic League)
 
-[Scene: Stadium Arena]
+`Description: This event occurs moments before the Triassic League. It focuses the nerveness of Allosa and her trying to understand her differences with Stenops Stegosa who just won her own round of Triassic League.`
+
+_[Scene: Stadium Arena]_
 
 Narrator: "Here it is folks!! The moment you are all waiting for!!! The Apex Division of Triassic League begins!! Who will come out on top?!"
 
@@ -349,26 +285,109 @@ Allosa: "I will ser. Enjoy the show as I perform my best performance yet"
 
 ---
 
-### Event: Harmonious Symphony (happens after final turn on Year 1)
-Description: This event occurs after succesfully qualifying for the Jurassic League. This event focuses on how Allosa and the player's bond managed to grow and made her accomplish one step forward to achieve her former lecturer's dream.
-Type: Main Story
+### Event: Harmonious Symphony (Main Story/After 24th Turn on 1st Year)
 
-
+`Description: This event occurs after succesfully qualifying for the Jurassic League. This event focuses on how Allosa and the player's bond managed to grow and made her accomplish one step forward to achieve her former lecturer's dream.`
 
 ---
 
-### Secret Event: Orchestrated Harmonious Symphony (happens after final turn on Year 1)
-Description: This event occurs after successfully qualifying for the Jurassic League while holding 3 different titles. This event focuses on how Allosa feels differently and more adjusted to the player's ways of teachings and is greatful for her former lecturer to believe in the player as the right candidate for her.
-Type: Conditional Main Story Trigger
+### Secret Event: Orchestrated Harmonious Symphony (Main Story/After 24th Turn on 1st Year/Conditional)
+
+`Description: This event occurs after successfully qualifying for the Jurassic League while holding 3 different titles. This event focuses on how Allosa feels differently and more adjusted to the player's ways of teachings and is greatful for her former lecturer to believe in the player as the right candidate for her.`
+
+---
+
+### Event: Premiere (Optional Trigger/After joining a Title Match for the 1st time)
+
+`Description: This event showcases a bit of Allosa's insecurities and her lack of confidence to face the challenges head on.`
+
+_[Scene: In front of Arena]_
+
+The [Title_Match_Name] Grade Cup. I figured it would be a good start and warm up for Allosa. Seeing her progession- it would be good to have a field test before the real deal.
+
+_[Scene: Locker Room]_
+
+Inside the Locker room, the atmosphere is tense. Allosa stands by the tall mirror, systematically adjusting the fit and testing the weight of her sabre with sharp, repetitive swings. Her movements are crisp, but her jaw is locked tight.
+
+Player: "How's the fit? It's been quite a long time since you're wearing it for this occasion."
+
+She pauses, her reflection locking onto mine in the glass before she turns around with a practiced, composed smirk.
+
+Allosa: "It has been a while. It's not a very pleasant memory to be reminded of, but in order for me to get better and stronger, I have to overcome this. By my own terms."
+
+Allosa looks determined. But I can't help but feel like she's feeling quite worried for her performance. 
+
+Crowds outside: "WOOOOOOOOO"
+
+Player: "The crowds sure are quite crazy today"
+
+Allosa: "Indeed. After all, it has been a full year since I last performed. The crowds must have been itching to see me in action again. My performance does merit a celebration to witness."
+
+Player: "You're right. But do keep in mind, we're here to test the waters, alright?"
+
+The smirk falters for a fraction of a second, replaced by a shadow of real unease in her eyes before she quickly masks it behind a dismissive toss of her head.
+
+Allosa: "Hmph. I am well aware of my duties, ser. I didn't come back for a second year just to stumble at the starting line. Sit back and enjoy the show. I'll show you what a proper debut looks like."
+
+She turns briskly toward the arena entrance, her cape snapping behind her—though I notice the slight tremor in her hand before she grips her weapon's hilt.
+
+---
+
+### Event: First Encore (Optional Trigger/After winning a title match for the 1st time)
+
+`Description: Event occurs after Allosa won her first title match. This even encapsulates her victorius triumph over her insecurities and reassures herself that she can continue on.`
+
+_[Scene: Audience Ring]_
+
+Crowds: "LETS GOOOOOOOOOO ALLOSA!!!"
+
+Crowds: "WOOOOOOO THAT'S MY GOAT!!!!"
+
+Announcer: "What an outsanding victory! The [Title_Match_Name] Title holder is now granted towards Fragilis Allosa! Will we see more of her performance in the future that is to come? This may be the start for a masterpiece of a tale! Stay tuned folks!"
+
+The announcer hypes Allosa up, with this title match won- I see her standing in the middle of the stage, for the first time- free of worries.
+
+_[Scene change: Fighting Ring]_
+
+Allosa: "Yes....I still got it!"
+
+I think it was the right decision to let her compete in this Title Match. If anything she seemed much more hopeful than last time. I best wait for her in the locker room to congratulate her.
+
+_[Scene change: Locker Room]_
+
+Player: "Great work out there!"
+
+Allosa: "Many thanks, ser. It wouldn't be possible without your guidance. Of course I think there are always rooms for improvement."
+
+She then bowed with her hats off on her chest.
+
+Allosa: "I apologize to you ser"
+
+Player: "E-eh? For what?"
+
+Allosa: "I have misjudged your character and think you but of a lower capability in guiding me—comparing you with my former Lecturer. My demeanor towards you was despicable and unjust. I shall mend my ways."
+
+Player: "Please, don't be! I am still learning as we speak. You did a great job out there! Together- we can achieve even greater!"
+
+Allosa: "Even greater? ....Together, huh....."
+
+Allosa stood up straight while gazing herself through the locker room mirror.
+
+Allosa: "Maybe even I can surpass her..."
+
+'Surpass her'- She must be visualizing her arch rival- Stenops Stegosa. I can see the fire in her eyes how she desperately wanted a rematch. And it is up to me to guide her to achieve that goal.
+
+Fragilis Allosa seems satisfied with her victory.
 
 ---
 
 ## Year 2 - The Jurassic League
 
-Event: Noise (Turn 1)
-Description: This event occurs on turn 1 of the 2nd year to introduce Allosa her secondary rival- Ostromm Utahra who challenges her title as the champion of Utah.
-Type: Main Story
+### Event: Noise (Main Story/Turn 1 on 2nd Year)
 
-Following her recent success during the Triassic League, the State of Utah has granted Allosa the title "Champion of Utah". It garnered a lot of attention and has left Allosa quite busy these past few days. However, the attention is beginning to also attract another potential rival out of her massive popularity surge. 
+`Description: This event occurs on turn 1 of the 2nd year to introduce Allosa her secondary rival- Ostromm Utahra who challenges her title as the champion of Utah.`
+
+Following her recent success during the Triassic League, the State of Utah has granted Allosa the title "Champion of Utah". It garnered a lot of attention and has left Allosa quite busy these past few days. However, the attention is beginning to also attract another potential rival out of her massive popularity surge.
 
 ## Year 3 - The Cretaceous League
+
