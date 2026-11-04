@@ -11,7 +11,8 @@
     - [Event: Harmonious Symphony (Main Story/After 24th Turn on 1st Year)](#event-harmonious-symphony-main-storyafter-24th-turn-on-1st-year)
     - [Secret Event: Orchestrated Harmonious Symphony (Main Story/After 24th Turn on 1st Year/Conditional)](#secret-event-orchestrated-harmonious-symphony-main-storyafter-24th-turn-on-1st-yearconditional)
     - [Event: Premiere (Optional Trigger/After joining a Title Match for the 1st time)](#event-premiere-optional-triggerafter-joining-a-title-match-for-the-1st-time)
-    - [Event: First Encore (Optional Trigger/After winning a title match for the 1st time)](#event-first-encore-optional-triggerafter-winning-a-title-match-for-the-1st-time)
+    - [Event: First Encore (Optional Trigger/After winning a Title Match for the 1st time)](#event-first-encore-optional-triggerafter-winning-a-title-match-for-the-1st-time)
+    - [Event: Adagio (Optional Trigger/After failing to win a Title Match)](#event-adagio-optional-triggerafter-failing-to-win-a-title-match)
   - [Year 2 - The Jurassic League](#year-2---the-jurassic-league)
     - [Event: Noise (Main Story/Turn 1 on 2nd Year)](#event-noise-main-storyturn-1-on-2nd-year)
   - [Year 3 - The Cretaceous League](#year-3---the-cretaceous-league)
@@ -333,7 +334,7 @@ She turns briskly toward the arena entrance, her cape snapping behind her—thou
 
 ---
 
-### Event: First Encore (Optional Trigger/After winning a title match for the 1st time)
+### Event: First Encore (Optional Trigger/After winning a Title Match for the 1st time)
 
 `Description: Event occurs after Allosa won her first title match. This even encapsulates her victorius triumph over her insecurities and reassures herself that she can continue on.`
 
@@ -378,6 +379,16 @@ Allosa: "Maybe even I can surpass her..."
 'Surpass her'- She must be visualizing her arch rival- Stenops Stegosa. I can see the fire in her eyes how she desperately wanted a rematch. And it is up to me to guide her to achieve that goal.
 
 Fragilis Allosa seems satisfied with her victory.
+
+---
+
+### Event: Adagio (Optional Trigger/After failing to win a Title Match)
+
+`Description: Event occurs when players fail to let Allosa win a Title Match that they have scheduled`
+
+Crowds: "YEAAAAAAHHH!!!!'
+
+Crowds: "DON'T MIND
 
 ---
 
