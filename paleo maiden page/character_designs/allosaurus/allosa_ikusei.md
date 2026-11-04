@@ -290,6 +290,8 @@ Allosa: "I will ser. Enjoy the show as I perform my best performance yet"
 
 `Description: This event occurs after succesfully qualifying for the Jurassic League. This event focuses on how Allosa and the player's bond managed to grow and made her accomplish one step forward to achieve her former lecturer's dream.`
 
+
+
 ---
 
 ### Secret Event: Orchestrated Harmonious Symphony (Main Story/After 24th Turn on 1st Year/Conditional)
