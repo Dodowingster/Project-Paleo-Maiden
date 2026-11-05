@@ -1,6 +1,5 @@
-# Fragilis Allosa Ikusei Story
-
-- [Fragilis Allosa Ikusei Story](#fragilis-allosa-ikusei-story)
+# Fragilis Allosa Ikusei Story - Symphony of the Different
+- [Fragilis Allosa Ikusei Story - Symphony of the Different](#fragilis-allosa-ikusei-story---symphony-of-the-different)
   - [Intro](#intro)
   - [Year 1 - The Triassic League](#year-1---the-triassic-league)
     - [Event: Overture (Main Story/Turn 1 1st year)](#event-overture-main-storyturn-1-1st-year)
@@ -16,6 +15,7 @@
   - [Year 2 - The Jurassic League](#year-2---the-jurassic-league)
     - [Event: Noise (Main Story/Turn 1 on 2nd Year)](#event-noise-main-storyturn-1-on-2nd-year)
   - [Year 3 - The Cretaceous League](#year-3---the-cretaceous-league)
+  - [PLANNED EVENTS](#planned-events)
 
 ## Intro
 
@@ -330,6 +330,15 @@ Stegosa: "Hahaha, who knows? The luck of the draw is funny sometimes. I wonder w
 
 _[Scene change: Stadium Infirmary]_
 
+I woke up in the infirmary surrounded by white curtains, beside my bed is Fragilis Allosa looking worried sick. She's as pale as a ghost. 
+
+Allosa: "Oh- you're finally awoken, ser. My apologies for getting too excited before"
+
+Player: "Hahaha, don't worry about it. In fact I have never seen you getting that excited before. It did caught me off guard"
+
+Embarassed by the fact that she got over excited, she hides her flushed red face. 
+
+
 ---
 
 ### Secret Event: Orchestrated Harmonious Symphony (Main Story/After 24th Turn on 1st Year/Conditional) WIP
@@ -526,3 +535,44 @@ I am happy to hear that she is just as excited as her opponent for the challenge
 
 ## Year 3 - The Cretaceous League
 
+
+## PLANNED EVENTS
+
+Cooking Events
+  - [ ] Great Cooking
+  - [ ] Ok Cooking
+  - [ ] Horrible Cooking
+
+Random Events
+  - [ ] Desert Biome
+  - [ ] Volcanic Biome
+  - [ ] Tundra Biome
+  - [ ] Forest Biome
+  - [ ] Field Biome
+  - [ ] Rival Sightings
+
+Rival Events
+  - [ ] Optional Spar Stenops Stegosa
+  - [ ] Optional Spar Ostromm Utahra
+
+Main Story
+  Year 2
+  - [ ] Ostromm Utahra Rival Visit
+  - [ ] Ostromm Utahra Confrontation Before Jurassic League (I am different idea!)
+  - [ ] Victory in Jurassic League
+  - [ ] Perfect Victory in Jurassic League
+  - [ ] Losing in Jurassic League
+
+  Year 3
+  - [ ] Stenops Stegosa Rival Visit
+  - [ ] Stenops Stegosa Confrontation Before Cretaceous League (corruption from Ornith card)
+  - [ ] Victory in Creataceous League
+  - [ ] Perfect Victory in Cretaceous League
+  - [ ] Losing in Cretaceous League
+
+  World Cup Championship
+  - [ ] Before World Cup Championship 
+  - [ ] After World Cup Championship
+  - [ ] ??? Appearance
+  - [ ] ??? Confrontation
+  - [ ] Cycle Ending/Fragilis Allosa Ending
