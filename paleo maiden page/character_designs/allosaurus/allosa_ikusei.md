@@ -8,8 +8,8 @@
     - [Event: Cadence (Main Story/Mid 1st Year)](#event-cadence-main-storymid-1st-year)
     - [Event: Motteggiando (Main Story/Late 1st Year)](#event-motteggiando-main-storylate-1st-year)
     - [Event: Caesura (Main Story/ Before the Triassic League)](#event-caesura-main-story-before-the-triassic-league)
-    - [Event: Harmonious Symphony (Main Story/After 24th Turn on 1st Year)](#event-harmonious-symphony-main-storyafter-24th-turn-on-1st-year)
-    - [Secret Event: Orchestrated Harmonious Symphony (Main Story/After 24th Turn on 1st Year/Conditional)](#secret-event-orchestrated-harmonious-symphony-main-storyafter-24th-turn-on-1st-yearconditional)
+    - [Event: Harmonious Symphony (Main Story/After 24th Turn on 1st Year) WIP](#event-harmonious-symphony-main-storyafter-24th-turn-on-1st-year-wip)
+    - [Secret Event: Orchestrated Harmonious Symphony (Main Story/After 24th Turn on 1st Year/Conditional) WIP](#secret-event-orchestrated-harmonious-symphony-main-storyafter-24th-turn-on-1st-yearconditional-wip)
     - [Event: Premiere (Optional Trigger/After joining a Title Match for the 1st time)](#event-premiere-optional-triggerafter-joining-a-title-match-for-the-1st-time)
     - [Event: First Encore (Optional Trigger/After winning a Title Match for the 1st time)](#event-first-encore-optional-triggerafter-winning-a-title-match-for-the-1st-time)
     - [Event: Adagio (Optional Trigger / After failing to win a Title Match)](#event-adagio-optional-trigger--after-failing-to-win-a-title-match)
@@ -19,11 +19,13 @@
 
 ## Intro
 
-Fragilis Allosa is a veteran second-year student at the Stratum Institute—a prestigious figure who commands the room. During her first year, like every other Maiden, she set out on the grueling Great Expedition. But her march toward greatness was abruptly halted when she suffered a stunning defeat at the hands of another rising star of her generation: Stenops Stegosa.
+Fragilis Allosa is a veteran second-year student at the Stratum Institute—a prestigious figure who commands the room. Originally born and raised in Wyoming, Allosa like her previous family members managed to secure the enrollment at the Stratrum Institute thanks to the prestigious Utah State Scholarship. However, her recent slump have caused much disturbance regarding this scholarship that she has been gifted to.
+
+During her first year, like every other Maiden, she set out on the grueling Great Expedition. But her march toward greatness was abruptly halted when she suffered a stunning defeat at the hands of another rising star of her generation: Stenops Stegosa.
 
 What drove Allosa absolutely furious, however, wasn't just losing—it was discovering that Stegosa later abandoned the expedition entirely, cutting her journey short due to an injury. That sudden departure left Allosa with a lingering taste of bitterness and jealousy. To make matters worse, the veteran lecturer who had guided her, the man who dreamed of seeing Allosa crowned World Champion, retired before he could ever witness his vision realized. That unfulfilled promise left a heavy shadow over her.
 
-Before stepping down, however, that same lecturer left behind a recommendation: a newcomer, fresh and inexperienced, who happened to be the old mentor’s trusted mentee—you, the player.
+Before stepping down, however, that same lecturer left behind a recommendation: a newcomer, fresh and inexperienced- you, the player.
 
 At first, Allosa finds it painfully difficult to place her trust in a rookie for her second shot at the expedition. But because of the deep faith she holds in her former teacher, she ultimately chooses to accept you as her new guide, taking her first hesitant step into the next chapter of her journey.
 
@@ -132,7 +134,7 @@ The entity blew Allosa's weapon away from her grip, leaving the maiden defensele
 
 Allosa: "...."
 
-???: "Come now, don't be too harsh. We didn't clear the Apex Division either."
+???: "Come now, don't be too harsh on 19. Perhaps this is simply the curse of our bloodline."
 
 ???: "Shut it, 18! We all are the same. Failures among failures and she is no different."
 
@@ -270,9 +272,9 @@ Allosa: "Still nothing...Maybe that's what separates us, I wonder...."
 
 _[Scene: Stadium Arena]_
 
-Narrator: "Here it is folks!! The moment you are all waiting for!!! The Apex Division of Triassic League begins!! Who will come out on top?!"
+Narrator: "Here it is folks!! The moment you are all waiting for!!! The Carnian Division of Triassic League begins!! Who will come out on top?!"
 
-This is it. The qualifier for the Jurassic League is here. The Alpha Division has already concluded and seems like Stenops Stegosa already won the league and proceeding to next league. This time though, I want to make sure that Allosa would be there to fight her again. No matter what it takes.
+This is it. The qualifier for the Jurassic League is here. The Ladinian Division has already concluded and seems like Stenops Stegosa already won the league and proceeding to next league. This time though, I want to make sure that Allosa would be there to fight her again. No matter what it takes.
 
 In the corridor towards the ring, Allosa stood there gazing elsewhere. She pressed the seashell—the one Stegosa had given her.
 
@@ -286,15 +288,51 @@ Allosa: "I will ser. Enjoy the show as I perform my best performance yet"
 
 ---
 
-### Event: Harmonious Symphony (Main Story/After 24th Turn on 1st Year)
+### Event: Harmonious Symphony (Main Story/After 24th Turn on 1st Year) WIP
 
 `Description: This event occurs after succesfully qualifying for the Jurassic League. This event focuses on how Allosa and the player's bond managed to grow and made her accomplish one step forward to achieve her former lecturer's dream.`
 
+_[Scene: Stadium]_
 
+Narrator: "And with that, all schedules for the Carnian District have concluded, folks! And... the one who pushed through is Fragilis Allosa! She has brilliantly seized her ticket to the Jurassic League! What a performance! Get ready for the curtain to rise on next year's Jurassic League—don't miss it!!"
+
+Allosa: "Huff huff...I did it!"
+
+Allosa: "huff...huff...I won!"
+
+Allosa gasps for air, unable to distinguish the adrenaline and raw excitement surging through her veins. She scans the stadium, searching through the roaring crowd until our eyes lock onto one another.
+
+Allosa: "Lecturer!! I WON!!"
+
+She waves frantically as I stand up, clapping with a slightly teary-eyed smile. A deep wave of pride washes over me—the exact feeling of a proud mentor watching their student conquer her first true mountain. Allosa sprints across the arena floor, bounding toward the barrier near the audience seats.
+
+THUD—she launches herself upward, tackling me before I have even a second to brace.
+
+Allosa: "I DID IT, SER!! I DID IT!!!"
+
+I try to reply, but words fail me as this absolute powerhouse of a Jurassic Maiden shakes me back and forth with uncontainable joy. It's as if she's a completely different person now that the crushing weight of her expectations has finally shattered.
+
+She suddenly notices my face turning a healthy shade of blue and instantly releases her grip, stepping back with wide eyes.
+
+Allosa: "Ah! I AM SORRY SER! I GOT WAY TOO EXCITED"
+
+I fainted.
+
+_[Scene change: Stadium Audience area]_
+
+Stegosa's Lecturer: "She's done well. She's grown stronger than before, don't you think?"
+
+Stegosa: "Yeaaah! She sure did. I can't wait to know what sound she hears from the seashell!"
+
+Stegosa's Lecturer: "Y-yea. You do realize that you might end up facing against her right?"
+
+Stegosa: "Hahaha, who knows? The luck of the draw is funny sometimes. I wonder which side would luck have it for her."
+
+_[Scene change: Stadium Infirmary]_
 
 ---
 
-### Secret Event: Orchestrated Harmonious Symphony (Main Story/After 24th Turn on 1st Year/Conditional)
+### Secret Event: Orchestrated Harmonious Symphony (Main Story/After 24th Turn on 1st Year/Conditional) WIP
 
 `Description: This event occurs after successfully qualifying for the Jurassic League while holding 3 different titles. This event focuses on how Allosa feels differently and more adjusted to the player's ways of teachings and is greatful for her former lecturer to believe in the player as the right candidate for her.`
 
@@ -376,7 +414,7 @@ Allosa: "Even greater? ....Together, huh....."
 
 Allosa stood up straight while gazing herself through the locker room mirror.
 
-Allosa: "Maybe even I can surpass her..."
+Allosa: "Maybe with your guidance, even I can surpass her..."
 
 'Surpass her'- She must be visualizing her arch rival- Stenops Stegosa. I can see the fire in her eyes how she desperately wanted a rematch. And it is up to me to guide her to achieve that goal.
 
@@ -420,7 +458,71 @@ It seems that Allosa's desire to get stronger and learn more increased and she s
 
 `Description: This event occurs on turn 1 of the 2nd year to introduce Allosa her secondary rival- Ostromm Utahra who challenges her title as the champion of Utah.`
 
-Following her recent success during the Triassic League, the State of Utah has granted Allosa the title "Champion of Utah". It garnered a lot of attention and has left Allosa quite busy these past few days. However, the attention is beginning to also attract another potential rival out of her massive popularity surge.
+_[Scene: Campsite]_
+
+Allosa is deeply focused on her rhythm and footwork as she prepares herself for the next training session. After we managed to be qualified for the Jurassic League- her Scholarship enroller from Utah visited her days before.
+
+_[Scene Change: Flashback, Stadium]_
+
+Utah Representative: "Congratulations on securing your qualification for the Jurassic League, Allosa. The committee has been following your matches closely."
+
+Allosa: "Many thanks, ser. I've hoped you enjoyed my performance today. I strive to honor the trust the state has placed in me."
+
+Utah Representative: "It was marvelous! Truly a stellar display. I am looking forward to seeing your movements in the premier blocks. However..."
+
+The representative pauses, offering a strained, apologetic smile as he shifts his weight.
+
+Utah Representative: "...I am afraid administrative winds blow swiftly in Utah. I hate to be the bearer of heavy news."
+
+Allosa: "...You don't have to sneak up on us."
+
+???: "As expected of you, Fragilis Allosa..."
+
+A regal maiden glides into the conversation. Where did she come from? I didn't even notice her approach. I best not let my guard down around her. It's amazing that Allosa managed to detect her in the first place too. These maidens are built different I suppose.
+
+Utah Representative: "Ah—allow me to introduce Ostromm Utahra, the premier champion from the Rhaetian Division of the Triassic League."
+
+Ostromm Utahra... a famous Paleo Maiden from the House of Cedar. What is a high-profile figure backed by such heavy political clout doing here?
+
+Allosa: "My- what an honor to meet you, Utahra and congratulations on dominating the Rhaetian Division. As expected of a candidate bearing the pedigree of the House of Cedar."
+
+Utahra: "The honor is entirely mine as well, Allosa. I've heard much from the Institute's most prized Maestro."
+
+Utahra's smile is sharp, carrying an unmistakable edge. The representative clears his throat, looking slightly uncomfortable before cutting straight to the bureaucratic heart of the matter.
+
+Utah Representative: "Let us not mince words. The regional committee's funding grants are strictly finite. Given the shifting political priorities and the mounting appeals from local councils... the scholarship currently backing your enrollment, Allosa, is facing a severe audit."
+
+Allosa: "An audit? But that means—"
+
+Utah Representative: "Indeed. And Lady Utahra here has formally petitioned the committee to reallocate that sponsorship to her own syndicate."
+
+Despite the bad news, Allosa seems pretty calm and more composed than ever. Perhaps the training we have done and the countless victories during the Triassic League has boosted her esteem way more compared to her initial state before the expedition. In any case, Knowing how institute politics work, a sponsorship dispute of this scale can only be settled one way.
+
+Utahra: "We have to battle it out. A direct performance review, so to speak. Whoever dominates our upcoming block in the Jurassic League secures the scholarship's full backing. The other... well, walks away empty-handed."
+
+Utahra: "Think of it as a challenge, Allosa. My schythe againt your sabre. A sight to behold, no?"
+
+Allosa: "Indeed... How delightfully transparent. Rest assured, Utahra, I shall prepare my proudest piece yet. My goal hasn't changed regardless of your petition—and if anything, the more eyes on the stage, the grander my performance shall be."
+
+Utahra smiles sharply, turning on her heel with a wave.
+
+Utahra: "Then I expect a marvelous performance on stage, Allosa. I do look forward for our bout."
+
+_[Scene Change: Present Campsite]_
+
+The flashback fades, leaving me back at the present campsite. Allosa is still swinging her sabre with blinding speed, her movements sharper, heavier, and dangerously focused.
+
+Allosa stops mid-swing, exhaling a sharp, controlled breath as she looks down at her weapon. Surprisingly, she took out the seashell that Stegosa gave her and pressed it onto her ear.
+
+Allosa: "hmmm I still hear nothing...I wonder what does Ostromm Utahra hears if she were to listen to it..."
+
+Player: "There's only one way to find out."
+
+Allosa smiles and nods at me fully understanding what I imply.
+
+Allosa: "You're completely right and I can't wait"
+
+I am happy to hear that she is just as excited as her opponent for the challenge. She seems much more confident and our hardwork has bore fruit.
 
 ## Year 3 - The Cretaceous League
 

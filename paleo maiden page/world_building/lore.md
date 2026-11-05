@@ -21,7 +21,8 @@
     -   [Structure and Curriculum](#structure-and-curriculum)
 3.  [The Paleo Maiden Union and the Paleo World Championship](#the-paleo-maiden-union-and-the-paleo-world-championship)
     -   [The Paleo World Championship (World Cup)](#the-paleo-world-championship-world-cup)
-    -   [Different Leagues for Different Maidens](#different-leagues-for-different-maidens)
+    -   [League Divisions and Tournament Format](#league-divisions-and-tournament-format)
+    -   [Deprecated: Former Professional Leagues Plan](#deprecated-former-professional-leagues-plan)
 4.  [The World](#the-world)
     -   [The Modern World](#the-modern-world)
     -   [The Primeval Continents](#the-primeval-continents)
@@ -201,7 +202,7 @@ A Maiden's career at the Stratum Institute spans a total of four years, meticulo
 
 *   **The Great Expedition (3 Years):** This is the "world tour" itself—the core gameplay run where Maidens and their lecturers travel across the Primeval Continents. The expedition is divided into three 12-month journeys, each represented by a 24-turn campaign on the game board that culminates in a league championship (Triassic, Jurassic, and Cretaceous). Between each grueling year, Maidens return to the Institute for a crucial **2-Month Semester Break** to recuperate, reflect on their progress, and prepare for the challenges ahead.
 
-*   **Post-Expedition Campus Semester (4 Months):** After completing the three-year expedition, Maidens return to the institute for a final semester of reflection, advanced studies, and preparation for their professional careers in the Apex or Bulwark leagues.
+*   **Post-Expedition Campus Semester (4 Months):** After completing the three-year expedition, Maidens return to the institute for a final semester of reflection and advanced studies before graduating from the university circuit.
 
 ## The Paleo Maiden Union and the Paleo World Championship
 
@@ -215,19 +216,29 @@ The pinnacle of the university circuit is the **The Paleo World Championship (Wo
 *   **Year 2: The Jurassic League (World Cup Semi-Finals)**
 *   **Year 3: The Cretaceous League (World Cup Grand Finals)**
 
+### League Divisions and Tournament Format
+
+The championship follows a knockout progression of **64 → 32 → 16 → 8** competitors. The leagues are divided according to their geologic periods:
+
+*   **Triassic League:** Eight divisions—**Induan**, **Olenekian**, **Anisian**, **Ladinian**, **Carnian**, **Norian I**, **Norian II**, and **Rhaetian**.
+*   **Jurassic League:** Four divisions—**Hettangian**, **Toarcian**, **Callovian**, and **Tithonian**.
+*   **Cretaceous League:** Two divisions—**Senonian** and **Neocomian**.
+
 These championships are far more than academic qualifiers; they are global cultural phenomena. The general public celebrates competing Paleo Maidens as world-renowned athletes, with millions of fans passionately supporting their favorite champions. The tournaments are broadcast live across the globe with insane production value, combining the prestige of the Olympics with the passionate, high-stakes rivalries of professional sports. This public adoration turns successful Maidens into household names and inspirational figures for a generation.
 
-### Different Leagues for Different Maidens
+### Deprecated: Former Professional Leagues Plan
 
-While the World Cup is the pinnacle of university-level achievement, true global recognition is earned in the professional circuits. After graduating, a champion's path is defined by which of the two most prestigious pro leagues she chooses to enter. This decision is deeply personal, driven by the Maiden's innate discipline, personal philosophy, and ultimate goals.
+The following professional-league plan is deprecated and retained only as historical reference:
 
-*   **The Apex League:** This professional league is the premier stage for decisive, spectacular combat. It champions the philosophies of ending a fight with overwhelming force or a single, perfect strike. As such, it is the natural home for Maidens of the **Power (Red)** and **Focus (Blue)** disciplines.
+<del>After graduating, a champion's path was defined by which of the two most prestigious professional leagues she chose to enter. This decision was deeply personal, driven by the Maiden's innate discipline, personal philosophy, and ultimate goals.</del>
 
-*   **The Bulwark League:** In contrast, this league celebrates endurance, strategy, and relentless pressure. It is the ideal circuit for Maidens who master the disciplines of **Flow (Green)** and **Control (Yellow)**, excelling in battles of attrition and tactical maneuvering.
+*   <del>**The Apex League:** This professional league was the premier stage for decisive, spectacular combat. It championed the philosophies of ending a fight with overwhelming force or a single, perfect strike. It was the natural home for Maidens of the **Power (Red)** and **Focus (Blue)** disciplines.</del>
 
-Winning the championship of both the Apex and Bulwark leagues in the same post-graduate year is a legendary feat known as the "Professional Crown," cementing a Maiden's status as an all-time great.
+*   <del>**The Bulwark League:** In contrast, this league celebrated endurance, strategy, and relentless pressure. It was the ideal circuit for Maidens who mastered the disciplines of **Flow (Green)** and **Control (Yellow)**, excelling in battles of attrition and tactical maneuvering.</del>
 
-However, some Maidens choose to defy expectations. A Maiden like **Sastrei Taurus**, despite her natural affinity for the **Flow (Green)** discipline, might choose to enter the **Apex League**. For her, it is the ultimate challenge: to prove that her philosophy of speed and technique can triumph in the very arena dedicated to raw power, turning her journey into a rebellious quest for validation.
+<del>Winning the championship of both the Apex and Bulwark leagues in the same post-graduate year was a legendary feat known as the "Professional Crown," cementing a Maiden's status as an all-time great.</del>
+
+<del>However, some Maidens chose to defy expectations. A Maiden like **Sastrei Taurus**, despite her natural affinity for the **Flow (Green)** discipline, might choose to enter the **Apex League**. For her, it was the ultimate challenge: to prove that her philosophy of speed and technique could triumph in the very arena dedicated to raw power, turning her journey into a rebellious quest for validation.</del>
 
 ## The World
 
@@ -251,7 +262,7 @@ To support the rigorous training regimens, the PMU has established multiple temp
 
 The player takes on the role of a **Lecturer** at the Stratum Institute, selecting a Paleo Maiden Champion (e.g., Tyran Rex, Sastrei Taurus) to mentor. The three-year training program is structured as a **world tour**, where the lecturer and their Maiden travel across the vast and dangerous Primeval Continents. This journey serves as a rigorous, hands-on curriculum to prepare them for the ultimate prize: the Paleo-Maiden Championship.
 
-For those who achieve victory in the World Cup, an even greater challenge awaits: the player guides their graduated champion into one of the elite professional leagues—either the **Apex League** or the **Bulwark League**, depending on the Maiden's personal quest—to aim for the ultimate "Professional Crown."
+The World Cup is the culmination of the player's three-year mentorship. Graduating champions leave the university circuit with their achievements recognized across the world.
 
 While managing their Champion's training schedule and travel itinerary, players are not alone. The institute's faculty is staffed by renowned paleontologist-professors who provide invaluable insights.
 
