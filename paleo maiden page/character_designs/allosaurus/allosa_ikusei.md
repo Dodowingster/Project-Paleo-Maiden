@@ -292,6 +292,46 @@ Allosa: "I will ser. Enjoy the show as I perform my best performance yet"
 
 `Description: This event occurs after succesfully qualifying for the Jurassic League. This event focuses on how Allosa and the player's bond managed to grow and made her accomplish one step forward to achieve her former lecturer's dream.`
 
+_[Scene: Stadium]_
+
+Narrator: "And with that, all schedules for the Carnian District have concluded, folks! And... the one who pushed through is Fragilis Allosa! She has brilliantly seized her ticket to the Jurassic League! What a performance! Get ready for the curtain to rise on next year's Jurassic League—don't miss it!!"
+
+Allosa: "Huff huff...I did it!"
+
+Allosa: "huff...huff...I won!"
+
+Allosa gasps for air, unable to distinguish the adrenaline and raw excitement surging through her veins. She scans the stadium, searching through the roaring crowd until our eyes lock onto one another.
+
+Allosa: "Lecturer!! I WON!!"
+
+She waves frantically as I stand up, clapping with a slightly teary-eyed smile. A deep wave of pride washes over me—the exact feeling of a proud mentor watching their student conquer her first true mountain. Allosa sprints across the arena floor, bounding toward the barrier near the audience seats.
+
+THUD—she launches herself upward, tackling me before I have even a second to brace.
+
+Allosa: "I DID IT, SER!! I DID IT!!!"
+
+I try to reply, but words fail me as this absolute powerhouse of a Jurassic Maiden shakes me back and forth with uncontainable joy. It's as if she's a completely different person now that the crushing weight of her expectations has finally shattered.
+
+She suddenly notices my face turning a healthy shade of blue and instantly releases her grip, stepping back with wide eyes.
+
+Allosa: "Ah! I AM SORRY SER! I GOT WAY TOO EXCITED"
+
+I fainted.
+
+_[Scene change: Stadium Audience area]_
+
+Stegosa's Lecturer: "She's done well. She's grown stronger than before, don't you think?"
+
+Stegosa: "Yeaaah! She sure did. I can't wait to know what sound she hears from the seashell!"
+
+Stegosa's Lecturer: "Y-yea. You do realize that you might end up facing against her right?"
+
+Stegosa: "Hahaha, who knows? The luck of the draw is funny sometimes. I wonder which side would luck have it for her. Either way, the heart of the cards is what I never fail to hear. If the cards willed it- then facing her would be quite an interesting combination"
+
+_[Scene change: Other side of the Stadium area]_
+
+
+
 ---
 
 ### Secret Event: Orchestrated Harmonious Symphony (Main Story/After 24th Turn on 1st Year/Conditional) WIP
