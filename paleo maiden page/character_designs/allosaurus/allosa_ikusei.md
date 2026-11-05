@@ -458,13 +458,11 @@ Allosa: "An audit? But that means—"
 
 Utah Representative: "Indeed. And Lady Utahra here has formally petitioned the committee to reallocate that sponsorship to her own syndicate."
 
-I noticed Allosa clenches her fists yet her expression remain calm. Knowing how institute politics work, a sponsorship dispute of this scale can only be settled one way.
+Despite the bad news, Allosa seems pretty calm and more composed than ever. Perhaps the training we have done and the countless victories during the Triassic League has boosted her esteem way more compared to her initial state before the expedition. In any case, Knowing how institute politics work, a sponsorship dispute of this scale can only be settled one way.
 
 Utahra: "We have to battle it out. A direct performance review, so to speak. Whoever dominates our upcoming block in the Jurassic League secures the scholarship's full backing. The other... well, walks away empty-handed."
 
 Utahra: "Think of it as a challenge, Allosa. My schythe againt your sabre. A sight to behold, no?"
-
-Allosa’s breath catches, though her expression remains frozen in a polite, razor-thin smile.
 
 Allosa: "Indeed... How delightfully transparent. Rest assured, Utahra, I shall prepare my proudest piece yet. My goal hasn't changed regardless of your petition—and if anything, the more eyes on the stage, the grander my performance shall be."
 
@@ -474,11 +472,19 @@ Utahra: "Then I expect a marvelous performance on stage, Allosa. I do look forwa
 
 _[Scene Change: Present Campsite]_
 
-The flashback fades, leaving me back at the present campsite. Allosa is still swinging her sabre with blinding speed, her movements sharper, heavier, and dangerously focused. The rhythm of her footwork has completely changed—no longer just practicing, but sharpening her blade for a war over her very right to exist on this circuit.
+The flashback fades, leaving me back at the present campsite. Allosa is still swinging her sabre with blinding speed, her movements sharper, heavier, and dangerously focused.
 
 Allosa stops mid-swing, exhaling a sharp, controlled breath as she looks down at her weapon. Surprisingly, she took out the seashell that Stegosa gave her and pressed it onto her ear.
 
 Allosa: "hmmm I still hear nothing...I wonder what does Ostromm Utahra hears if she were to listen to it..."
+
+Player: "There's only one way to find out."
+
+Allosa smiles and nods at me fully understanding what I imply.
+
+Allosa: "You're completely right and I can't wait"
+
+I am happy to hear that she is just as excited as her opponent for the challenge. She seems much more confident and our hardwork has bore fruit.
 
 ## Year 3 - The Cretaceous League
 
