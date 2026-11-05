@@ -326,11 +326,9 @@ Stegosa: "Yeaaah! She sure did. I can't wait to know what sound she hears from t
 
 Stegosa's Lecturer: "Y-yea. You do realize that you might end up facing against her right?"
 
-Stegosa: "Hahaha, who knows? The luck of the draw is funny sometimes. I wonder which side would luck have it for her. Either way, the heart of the cards is what I never fail to hear. If the cards willed it- then facing her would be quite an interesting combination"
+Stegosa: "Hahaha, who knows? The luck of the draw is funny sometimes. I wonder which side would luck have it for her."
 
-_[Scene change: Other side of the Stadium area]_
-
-
+_[Scene change: Stadium Infirmary]_
 
 ---
 
