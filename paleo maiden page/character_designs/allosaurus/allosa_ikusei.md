@@ -132,7 +132,7 @@ The entity blew Allosa's weapon away from her grip, leaving the maiden defensele
 
 Allosa: "...."
 
-???: "Come now, don't be too harsh. We didn't clear the Apex Division either."
+???: "Come now, don't be too harsh on 19. Perhaps this is simply the curse of our bloodline."
 
 ???: "Shut it, 18! We all are the same. Failures among failures and she is no different."
 
@@ -270,9 +270,9 @@ Allosa: "Still nothing...Maybe that's what separates us, I wonder...."
 
 _[Scene: Stadium Arena]_
 
-Narrator: "Here it is folks!! The moment you are all waiting for!!! The Apex Division of Triassic League begins!! Who will come out on top?!"
+Narrator: "Here it is folks!! The moment you are all waiting for!!! The Carnian Division of Triassic League begins!! Who will come out on top?!"
 
-This is it. The qualifier for the Jurassic League is here. The Alpha Division has already concluded and seems like Stenops Stegosa already won the league and proceeding to next league. This time though, I want to make sure that Allosa would be there to fight her again. No matter what it takes.
+This is it. The qualifier for the Jurassic League is here. The Ladinian Division has already concluded and seems like Stenops Stegosa already won the league and proceeding to next league. This time though, I want to make sure that Allosa would be there to fight her again. No matter what it takes.
 
 In the corridor towards the ring, Allosa stood there gazing elsewhere. She pressed the seashell—the one Stegosa had given her.
 
@@ -376,7 +376,7 @@ Allosa: "Even greater? ....Together, huh....."
 
 Allosa stood up straight while gazing herself through the locker room mirror.
 
-Allosa: "Maybe even I can surpass her..."
+Allosa: "Maybe with your guidance, even I can surpass her..."
 
 'Surpass her'- She must be visualizing her arch rival- Stenops Stegosa. I can see the fire in her eyes how she desperately wanted a rematch. And it is up to me to guide her to achieve that goal.
 
