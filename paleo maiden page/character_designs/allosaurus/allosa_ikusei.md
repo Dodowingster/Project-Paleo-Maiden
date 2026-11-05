@@ -330,14 +330,29 @@ Stegosa: "Hahaha, who knows? The luck of the draw is funny sometimes. I wonder w
 
 _[Scene change: Stadium Infirmary]_
 
-I woke up in the infirmary surrounded by white curtains, beside my bed is Fragilis Allosa looking worried sick. She's as pale as a ghost. 
+I woke up in the infirmary surrounded by white curtains. Beside my bed is Fragilis Allosa, looking worried sick. She's as pale as a ghost. 
 
-Allosa: "Oh- you're finally awoken, ser. My apologies for getting too excited before"
+Allosa: "Oh—you're finally awake, ser. My apologies for getting too excited before..."
 
-Player: "Hahaha, don't worry about it. In fact I have never seen you getting that excited before. It did caught me off guard"
+Player: "Hahaha, don't worry about it. In fact, I have never seen you get that excited before. It definitely caught me off guard."
 
-Embarassed by the fact that she got over excited, she hides her flushed red face. 
+Embarrassed by the fact that she got so carried away she literally put her lecturer in the infirmary, Allosa hides her flushed red face behind her hands, letting out a rare, unpolished groan of mortification.
 
+Allosa: "Ugh... please don't remind me. I spent months practicing my posture, my stage presence, my composure... and then I tackle my own lecturer into next week. How unseemly of me."
+
+For a moment, her aristocratic diction completely slips away, replaced by genuine, flustered panic. She nervously fidgets with the hem of her uniform jacket—no sabre in hand, no stage to perform on, just raw, honest vulnerability.
+
+Allosa: "I... I was just so overwhelmed. When I saw you standing there, clapping... it felt like time had frozen and you were the only one in my sights. For the first time, I felt differently. I can't put it into words, but I just felt... alive."
+
+She lowers her hands, her cheeks still bright pink, but her eyes meet mine with a soft, sincere warmth. 
+
+Allosa: "Thank you, ser. For staying in my corner, guiding me to the path I am on now. I couldn't have reached this stage without you."
+
+Player: "Hey... that's what a lecturer is here for. Besides, your performance out there? Absolutely worth getting tackled for."
+
+Allosa lets out a soft chuckle free of any hidden tension, completely at peace. I find it very refreshing and quite a surprise to discover Allosa has this side of herself tucked away from the general gaze.
+
+Allosa: "Rest well, ser. Tomorrow, the path to the Jurassic League awaits us. And I promise... next time I celebrate, I will stick to a much more appropriate method celebration."
 
 ---
 
