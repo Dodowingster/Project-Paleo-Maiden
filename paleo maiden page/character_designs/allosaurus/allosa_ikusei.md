@@ -7,8 +7,8 @@
     - [Event: Cadence (Main Story/Mid 1st Year)](#event-cadence-main-storymid-1st-year)
     - [Event: Motteggiando (Main Story/Late 1st Year)](#event-motteggiando-main-storylate-1st-year)
     - [Event: Caesura (Main Story/ Before the Triassic League)](#event-caesura-main-story-before-the-triassic-league)
-    - [Event: Harmonious Symphony (Main Story/After 24th Turn on 1st Year) WIP](#event-harmonious-symphony-main-storyafter-24th-turn-on-1st-year-wip)
-    - [Secret Event: Orchestrated Harmonious Symphony (Main Story/After 24th Turn on 1st Year/Conditional) WIP](#secret-event-orchestrated-harmonious-symphony-main-storyafter-24th-turn-on-1st-yearconditional-wip)
+    - [Event: Harmony (Main Story/After 24th Turn on 1st Year)](#event-harmony-main-storyafter-24th-turn-on-1st-year)
+    - [Event: Calando (Main Story/After 24th Turn on 1st Year but failing to qualify for Jurassic League)](#event-calando-main-storyafter-24th-turn-on-1st-year-but-failing-to-qualify-for-jurassic-league)
     - [Event: Premiere (Optional Trigger/After joining a Title Match for the 1st time)](#event-premiere-optional-triggerafter-joining-a-title-match-for-the-1st-time)
     - [Event: First Encore (Optional Trigger/After winning a Title Match for the 1st time)](#event-first-encore-optional-triggerafter-winning-a-title-match-for-the-1st-time)
     - [Event: Adagio (Optional Trigger / After failing to win a Title Match)](#event-adagio-optional-trigger--after-failing-to-win-a-title-match)
@@ -288,7 +288,7 @@ Allosa: "I will ser. Enjoy the show as I perform my best performance yet"
 
 ---
 
-### Event: Harmonious Symphony (Main Story/After 24th Turn on 1st Year) WIP
+### Event: Harmony (Main Story/After 24th Turn on 1st Year)
 
 `Description: This event occurs after succesfully qualifying for the Jurassic League. This event focuses on how Allosa and the player's bond managed to grow and made her accomplish one step forward to achieve her former lecturer's dream.`
 
@@ -356,9 +356,9 @@ Allosa: "Rest well, ser. Tomorrow, the path to the Jurassic League awaits us. An
 
 ---
 
-### Secret Event: Orchestrated Harmonious Symphony (Main Story/After 24th Turn on 1st Year/Conditional) WIP
+### Event: Calando (Main Story/After 24th Turn on 1st Year but failing to qualify for Jurassic League)
 
-`Description: This event occurs after successfully qualifying for the Jurassic League while holding 3 different titles. This event focuses on how Allosa feels differently and more adjusted to the player's ways of teachings and is greatful for her former lecturer to believe in the player as the right candidate for her.`
+`Description: This event is to show Allosa's fate as she fails to overcome her hurdle in winning the World Championship that results in a game over. Allosa retires from the Insititute due to her scholarship being taken away and moved back to Wyoming for a quiet life`
 
 ---
 
@@ -565,10 +565,20 @@ Random Events
   - [ ] Forest Biome
   - [ ] Field Biome
   - [ ] Rival Sightings
+  - [ ] Random Maiden Rivalry events (pulled from other Maiden Rival Visits)
 
 Rival Events
   - [ ] Optional Spar Stenops Stegosa
   - [ ] Optional Spar Ostromm Utahra
+
+Affinity Events
+  - [ ] 15% Affinity Event
+  - [ ] 50% Affinity Event
+  - [ ] 70% Affinity Event
+  - [ ] MAX Affinity Event
+
+Vocation Shift Events (pre-requisite 50% Affinity)
+  - [ ] Vocation Shift Event
 
 Main Story
   Year 2
@@ -580,13 +590,13 @@ Main Story
 
   Year 3
   - [ ] Stenops Stegosa Rival Visit
-  - [ ] Stenops Stegosa Confrontation Before Cretaceous League (corruption from Ornith card)
-  - [ ] Victory in Creataceous League
+  - [ ] Stenops Stegosa Confrontation Before Cretaceous League (corruption from higher power)
+  - [ ] Victory in Cretaceous League
   - [ ] Perfect Victory in Cretaceous League
   - [ ] Losing in Cretaceous League
 
   World Cup Championship
-  - [ ] Before World Cup Championship 
+  - [ ] Before World Cup Championship
   - [ ] After World Cup Championship
   - [ ] ??? Appearance
   - [ ] ??? Confrontation
