@@ -520,7 +520,7 @@ Allosa: "An audit? But that means—"
 
 Utah Representative: "Indeed. And Lady Utahra here has formally petitioned the committee to reallocate that sponsorship to her own syndicate."
 
-Despite the bad news, Allosa seems pretty calm and more composed than ever. Perhaps the training we have done and the countless victories during the Triassic League has boosted her esteem way more compared to her initial state before the expedition. In any case, Knowing how institute politics work, a sponsorship dispute of this scale can only be settled one way.
+Upon hearing the bad news, I noticed Allosa's demeanor shifted a bit from her usual professional and rigid facade. She looks a tad bit more worried after hearing whatthe Utah Representative had to say. However, she glanced her look at me and catches my eye. She took a measured breath and starts to gain back her tempo. victories during the Triassic League has boosted her esteem way more compared to her initial state before the expedition. In any case, Knowing how institute politics work, a sponsorship dispute of this scale can only be settled one way.
 
 Utahra: "We have to battle it out. A direct performance review, so to speak. Whoever dominates our upcoming block in the Jurassic League secures the scholarship's full backing. The other... well, walks away empty-handed."
 
