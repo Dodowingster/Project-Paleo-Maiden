@@ -1,31 +1,31 @@
-extends DashState
 class_name StateDashFwd
+extends DashState
 
+var anim_list : PackedStringArray = []
+var anim_name : String
+var backup_anim : String
 
-@onready var animPlayer : AnimationPlayer = %AnimationPlayer
-var animList : PackedStringArray = []
-var animName : String
-var backupAnim : String
+@onready var anim_player : AnimationPlayer = %AnimationPlayer
 
 func _ready():
-	animList = animPlayer.get_animation_list()
-	animName = owner.animLibName + "/dashforward"
-	backupAnim = owner.animLibName + "/moveforward"
-	
+	anim_list = anim_player.get_animation_list()
+	anim_name = owner.anim_lib_name + "/dashforward"
+	backup_anim = owner.anim_lib_name + "/moveforward"
+
 
 func enter():
 	super.enter()
-	if animName in animList:
-		animPlayer.play(animName)
+	if anim_name in anim_list:
+		anim_player.play(anim_name)
 	else:
-		if backupAnim in animList:
-			animPlayer.play(backupAnim)
+		if backup_anim in anim_list:
+			anim_player.play(backup_anim)
 	var vfx_pos : Vector2 = owner.global_position
-	VFXManager.spawn_vfx(VFXManager.VFX_TYPE.DASH, vfx_pos, owner.get_side())
+	VFXManager.spawn_vfx(VFXManager.VFXType.DASH, vfx_pos, owner.get_side())
 
 
 func exit():
-	animPlayer.play(owner.animLibName + "/RESET")
+	anim_player.play(owner.anim_lib_name + "/RESET")
 
 
 func update(_delta: float):
@@ -33,4 +33,4 @@ func update(_delta: float):
 
 
 func physics_update(_delta: float):
-	owner.velocity.x = owner.spd * owner.forwardDashSpdMult * %SideTracker.side
+	owner.velocity.x = owner.spd * owner.forward_dash_spd_mult * %SideTracker.side

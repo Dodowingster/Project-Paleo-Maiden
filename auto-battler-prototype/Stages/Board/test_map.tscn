@@ -36,10 +36,10 @@ border_color = Color(0, 0, 0, 0.70980394)
 [node name="TestMap" type="Node2D" unique_id=1525044721]
 script = ExtResource("1_mtjh2")
 
-[node name="MapStateMachine" type="Node" parent="." unique_id=1996934378 node_paths=PackedStringArray("initialState")]
+[node name="MapStateMachine" type="Node" parent="." unique_id=1996934378 node_paths=PackedStringArray("initial_state")]
 unique_name_in_owner = true
 script = ExtResource("1_pdnt0")
-initialState = NodePath("Map")
+initial_state = NodePath("Map")
 
 [node name="Map" type="Node" parent="MapStateMachine" unique_id=202710728]
 unique_name_in_owner = true
@@ -121,12 +121,12 @@ rightNode = NodePath("../MapNode1")
 
 [node name="EnemyData" type="Node" parent="MapComponents/MapNodeCollection/InitialMapNode" unique_id=1990739010]
 script = ExtResource("11_oellc")
-baseCharacter = ExtResource("12_vuixs")
+base_character = ExtResource("12_vuixs")
 def = 3
 spd = 12
-maxSta = 15
-maxHP = 120
-currentHP = 120
+max_sta = 15
+max_hp = 120
+current_hp = 120
 metadata/_custom_type_script = "uid://ci4h7ee0n58en"
 
 [node name="MapNode1" type="Node2D" parent="MapComponents/MapNodeCollection" unique_id=375970456 node_paths=PackedStringArray("leftNode", "rightNode", "downNode")]

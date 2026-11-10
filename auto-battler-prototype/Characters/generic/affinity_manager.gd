@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 			aff_bonus.execute_effects(delta)
 			var character = self.get_parent()
 			if character is Character:
-				character.popupAffinity.emit(aff_bonus.affEffectName)
+				character.popup_affinity.emit(aff_bonus.aff_effect_name)
 
 func check_event_bonuses() -> void:
 	for aff_bonus in aff_bonuses:
@@ -30,4 +30,4 @@ func check_event_bonuses() -> void:
 			aff_bonus.execute_effects(0)
 			var character = self.get_parent()
 			if character is Character:
-				character.popupAffinity.emit(aff_bonus.affEffectName)
+				character.popup_affinity.emit(aff_bonus.aff_effect_name)

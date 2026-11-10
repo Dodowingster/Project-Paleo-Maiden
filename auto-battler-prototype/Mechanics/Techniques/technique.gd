@@ -1,29 +1,29 @@
 @abstract
-extends Node
 class_name Technique
+extends Node
 ## Technique class used to create techniques that are used in loadouts
 
-signal executionStatusChanged(technique: Technique, status: bool)
+signal execution_status_changed(technique: Technique, status: bool)
 
 ## Technique class used to create techniques that are used in loadouts
-enum TECHNIQUE_TYPE { RUSH, REVERSAL, SHORT_RANGE, MID_RANGE, LONG_RANGE, PROJECTILE }
+enum TechniqueType { RUSH, REVERSAL, SHORT_RANGE, MID_RANGE, LONG_RANGE, PROJECTILE }
 
 # Debug vars
 ## Reference to character name (mostly for debugging)
-var characterName: String
+var character_name: String
 ## Reference to technique name (mostly for debugging)
-var techniqueName: String
-var animName: String
+var technique_name: String
+var anim_name: String
 
 # Var meat
 ## Array of triggers attached to the technique
 var triggers: Array[Trigger]
 ## Array of effects attached to the technique
 var effects: Array[Effect]
-@onready var canExecute : bool = false
+@onready var can_execute : bool = false
 ## Type of technique used for easier sorting/assignment of arrays
-@onready var techniqueType : TECHNIQUE_TYPE
-@onready var slotPriority : int = 0
+@onready var technique_type : TechniqueType
+@onready var slot_priority : int = 0
 
 func _ready() -> void:
 	# Initialize triggers array
@@ -36,15 +36,15 @@ func _ready() -> void:
 		if child is Effect:
 			effects.append(child)
 
-func setup_priority(slotPriorityVal: int) -> void:
-	slotPriority = slotPriorityVal
+func setup_priority(slot_priority_val: int) -> void:
+	slot_priority = slot_priority_val
 
 ## Initializes trigger and effect properties (if needed)
 func setup_triggers_and_effects(character: Character) -> void:
 	# Initialize character name (for debugging and potentially screen effects)
-	self.characterName = character.characterName
-	print(characterName)
-	print(" Trigger setup for " + techniqueName)
+	self.character_name = character.character_name
+	print(character_name)
+	print(" Trigger setup for " + technique_name)
 
 	for trigger in triggers:
 		# if trigger is ActionGoalTrigger or trigger is HpTrigger or trigger is RangeTrigger \
@@ -52,9 +52,9 @@ func setup_triggers_and_effects(character: Character) -> void:
 		trigger.character = character
 		# print("character side: " + str(trigger.character.get_side()))
 		print("  " + trigger.name + " trigger initialized")
-	
-	print(" Effect setup for " + techniqueName)
-	
+
+	print(" Effect setup for " + technique_name)
+
 	for effect in effects:
 		#if effect is MoveEffect or effect is SideSwitchEffect:
 		print("  " + effect.name + " effect initialized")
@@ -68,9 +68,9 @@ func trigger_check() -> bool:
 			conditions_met = false
 			break
 
-	if conditions_met != canExecute:
-		executionStatusChanged.emit(self, conditions_met)
-	canExecute = conditions_met
+	if conditions_met != can_execute:
+		execution_status_changed.emit(self, conditions_met)
+	can_execute = conditions_met
 	return conditions_met
 
 ## The stuff that happens when trigger_check returns true

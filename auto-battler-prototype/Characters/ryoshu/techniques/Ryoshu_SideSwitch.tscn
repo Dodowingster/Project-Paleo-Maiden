@@ -11,23 +11,23 @@ script = ExtResource("1_qgmx4")
 
 [node name="RangeTrigger" type="Node" parent="." unique_id=316414984]
 script = ExtResource("2_cd0w0")
-maxRange = 180.0
+max_range = 180.0
 metadata/_custom_type_script = "uid://vvpc8qlg01o"
 
 [node name="MoveEffect" type="Node" parent="." unique_id=1357346883]
 script = ExtResource("3_l8y2l")
 velocity = Vector2(3500, 0)
-applyFrame = 25
+apply_frame = 25
 metadata/_custom_type_script = "uid://dcjcx6dhuwnr4"
 
 [node name="CooldownTrigger" type="Node" parent="." unique_id=1893210529]
 script = ExtResource("4_l8y2l")
 cooldown = 12.0
-startingCooldown = 12.0
+starting_cooldown = 12.0
 metadata/_custom_type_script = "uid://cm2swp1i5yuvi"
 
 [node name="SideSwitchEffect" type="Node" parent="." unique_id=723464475]
 script = ExtResource("5_b4407")
-applyFrame = 24
-revertFrame = 40
+apply_frame = 24
+revert_frame = 40
 metadata/_custom_type_script = "uid://bovg4o7ytl6si"

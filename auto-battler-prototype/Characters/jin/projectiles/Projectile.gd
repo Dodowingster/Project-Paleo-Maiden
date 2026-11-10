@@ -1,49 +1,52 @@
-extends Node2D
 class_name Projectile
+extends Node2D
 
-@export var speedX = 1500
+@export var speed_x = 1500
 @export var lifetime : float = 1
-@onready var timeleft = 0
-@onready var animPlayer : AnimationPlayer = %AnimationPlayer
-@onready var waveSprite : Sprite2D = %WaveSprite
+@export var despawn_on_hit : bool = false
+
+@onready var anim_player : AnimationPlayer = %AnimationPlayer
+
+@onready var wave_sprite : Sprite2D = %WaveSprite
 @onready var hitbox : HitBox = %WaveHitbox
-@export var despawnOnHit : bool = false
+
+@onready var time_left = 0
 @onready var side
-@onready var projectileOwner : Character
+@onready var projectile_owner : Character
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	timeleft = lifetime
-	waveSprite.scale.x = waveSprite.scale.x * side
-	var hitboxAreas = hitbox.get_children()
-	for hitboxArea in hitboxAreas:
-		hitboxArea.position.x = hitboxArea.position.x * side
-		hitbox.hitDetected.connect(on_hit)
-	
-	animPlayer.play("launch")
-	
+	time_left = lifetime
+	wave_sprite.scale.x = wave_sprite.scale.x * side
+	var hitbox_areas = hitbox.get_children()
+	for hitbox_area in hitbox_areas:
+		hitbox_area.position.x = hitbox_area.position.x * side
+		hitbox.hit_detected.connect(on_hit)
 
-func setParams(sideVal:int):
-	side = sideVal
+	anim_player.play("launch")
+
+
+func set_params(side_val: int):
+	side = side_val
 
 
 func on_hit() -> void:
-	if despawnOnHit:
-		animPlayer.play("despawn")
+	if despawn_on_hit:
+		anim_player.play("despawn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if !animPlayer.is_playing():
-		animPlayer.play("travel")
-	if timeleft > 0:
-		timeleft -= delta
-	
-	if timeleft <= 0:
-		animPlayer.play("despawn")
+	if !anim_player.is_playing():
+		anim_player.play("travel")
+	if time_left > 0:
+		time_left -= delta
+
+	if time_left <= 0:
+		anim_player.play("despawn")
 
 func _physics_process(delta):
-	if animPlayer.current_animation != "launch":
-		position.x += speedX * delta * side
+	if anim_player.current_animation != "launch":
+		position.x += speed_x * delta * side
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

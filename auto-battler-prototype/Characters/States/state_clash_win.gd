@@ -1,25 +1,24 @@
-extends State
 class_name StateClashWin
+extends State
 
-
-@onready var animPlayer : AnimationPlayer = %AnimationPlayer
-var animList : PackedStringArray = []
-var animName : String
+var anim_list : PackedStringArray = []
+var anim_name : String
+@onready var anim_player : AnimationPlayer = %AnimationPlayer
 
 func _ready():
-	animList = animPlayer.get_animation_list()
-	animName = owner.animLibName + "/clashwin"
+	anim_list = anim_player.get_animation_list()
+	anim_name = owner.anim_lib_name + "/clashwin"
 
 func enter():
-	owner.canClash = false
-	if animName in animList:
-		animPlayer.play(animName)
+	owner.can_clash = false
+	if anim_name in anim_list:
+		anim_player.play(anim_name)
 	var vfx_pos : Vector2 = owner.opponent.global_position
-	VFXManager.spawn_vfx(VFXManager.VFX_TYPE.CLASHWIN, vfx_pos, owner.get_side())
+	VFXManager.spawn_vfx(VFXManager.VFXType.CLASHWIN, vfx_pos, owner.get_side())
 
 
 func exit():
-	animPlayer.stop()
+	anim_player.stop()
 
 
 func update(_delta: float):
@@ -33,6 +32,6 @@ func physics_update(_delta: float):
 	pass
 
 
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == animName:
+func _on_animation_player_animation_finished(animation_name: StringName) -> void:
+	if animation_name == anim_name:
 		transition.emit(self, "Idle")

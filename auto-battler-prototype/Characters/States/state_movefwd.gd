@@ -1,23 +1,23 @@
-extends ActionableState
 class_name StateMoveFwd
+extends ActionableState
 
+var anim_list : PackedStringArray = []
+var anim_name : String
 
-@onready var animPlayer : AnimationPlayer = %AnimationPlayer
-var animList : PackedStringArray = []
-var animName : String
+@onready var anim_player : AnimationPlayer = %AnimationPlayer
 
 func _ready():
-	animList = animPlayer.get_animation_list()
-	animName = owner.animLibName + "/moveforward"
+	anim_list = anim_player.get_animation_list()
+	anim_name = owner.anim_lib_name + "/moveforward"
 
 func enter():
 	super.enter()
-	if animName in animList:
-		animPlayer.play(animName)
+	if anim_name in anim_list:
+		anim_player.play(anim_name)
 
 
 func exit():
-	animPlayer.play(owner.animLibName + "/RESET")
+	anim_player.play(owner.anim_lib_name + "/RESET")
 
 
 func update(_delta: float):
@@ -25,4 +25,4 @@ func update(_delta: float):
 
 
 func physics_update(_delta: float):
-	owner.velocity.x = owner.spd * owner.forwardSpdMult * %SideTracker.side
+	owner.velocity.x = owner.spd * owner.forward_spd_mult * %SideTracker.side

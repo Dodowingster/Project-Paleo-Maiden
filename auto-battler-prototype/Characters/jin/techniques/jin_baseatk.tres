@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource("3_w2by1")
 technique = ExtResource("4_prahd")
-techniqueName = "BaseAtk"
-animName = "baseattack"
+technique_name = "BaseAtk"
+anim_name = "baseattack"
 hitboxes = Array[ExtResource("1_vpsa3")]([ExtResource("2_w2by1")])
 metadata/_custom_type_script = "uid://c0c4p57o71yio"

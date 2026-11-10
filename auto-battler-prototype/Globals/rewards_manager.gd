@@ -1,21 +1,21 @@
 extends Node
 
-func generate_reward_technique_pool(charName : String) -> Array[TechniqueData]:
-	var techniquePool : Array[TechniqueData] = []
-	var directoryName : String = "res://Characters/" + charName.to_lower() + "/techniques"
-	var dir = DirAccess.open(directoryName)
+func generate_reward_technique_pool(char_name : String) -> Array[TechniqueData]:
+	var technique_pool : Array[TechniqueData] = []
+	var directory_name : String = "res://Characters/" + char_name.to_lower() + "/techniques"
+	var dir = DirAccess.open(directory_name)
 	if dir:
-		var techniqueFiles = dir.get_files()
-		if techniqueFiles.size() > 0:
-			for techniqueFile in techniqueFiles:
-				if ".tres" in techniqueFile and "_baseatk.tres" not in techniqueFile:
-					var loadedFile = load(directoryName + "/" + techniqueFile)
+		var technique_files = dir.get_files()
+		if technique_files.size() > 0:
+			for technique_file in technique_files:
+				if ".tres" in technique_file and "_baseatk.tres" not in technique_file:
+					var loadedFile = load(directory_name + "/" + technique_file)
 					if loadedFile is TechniqueData:
-						techniquePool.append(loadedFile)
-	return techniquePool
+						technique_pool.append(loadedFile)
+	return technique_pool
 
-func reward_technique(charName : String):
-	var techniquePool : Array[TechniqueData] = generate_reward_technique_pool(charName)
-	var randomIndex : int = randi() % techniquePool.size()
+func reward_technique(char_name : String):
+	var technique_pool : Array[TechniqueData] = generate_reward_technique_pool(char_name)
+	var random_index : int = randi() % technique_pool.size()
 	if CurrentRunData.technique_inventory != null:
-		CurrentRunData.technique_inventory.add(techniquePool[randomIndex])
+		CurrentRunData.technique_inventory.add(technique_pool[random_index])

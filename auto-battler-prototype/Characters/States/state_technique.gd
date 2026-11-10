@@ -1,57 +1,58 @@
-extends State
 class_name StateTechnique
+extends State
 
-
-@onready var animPlayer : AnimationPlayer = %AnimationPlayer
-var animList : PackedStringArray = []
-var animName : String
-var lastTick : int = 0
-var chosenTechnique : Technique
+var anim_list : PackedStringArray = []
+var anim_name : String
+var last_tick : int = 0
+var chosen_technique : Technique
 #var spriteOGCoordinates : Vector2 = Vector2.ZERO
 
+@onready var anim_player : AnimationPlayer = %AnimationPlayer
+
+
 func _ready():
-	animList = animPlayer.get_animation_list()
+	anim_list = anim_player.get_animation_list()
 
 func enter():
-	owner.canClash = false
-	owner.opponent.opponentIsAttacking = true
-	chosenTechnique = %Loadout.techniqueToExecute
-	animName = owner.animLibName + "/" + chosenTechnique.animName
-	for trigger in chosenTechnique.triggers:
+	owner.can_clash = false
+	owner.opponent.opponent_is_attacking = true
+	chosen_technique = %Loadout.technique_to_execute
+	anim_name = owner.anim_lib_name + "/" + chosen_technique.anim_name
+	for trigger in chosen_technique.triggers:
 		if trigger is CooldownTrigger:
 			trigger.reset()
 		if trigger is ActionStockTrigger:
-			owner.currentActionStock -= 1
-	if animName in animList:
-		animPlayer.play(animName)
+			owner.current_action_stock -= 1
+	if anim_name in anim_list:
+		anim_player.play(anim_name)
 
 
 func exit():
-	for effect in chosenTechnique.effects:
+	for effect in chosen_technique.effects:
 		effect.reset()
-	animPlayer.play(owner.animLibName + "/RESET")
+	anim_player.play(owner.anim_lib_name + "/RESET")
 
 
 func update(_delta: float):
-	for effect in chosenTechnique.effects:
+	for effect in chosen_technique.effects:
 		effect.execute_effect(_delta)
 
 
 func physics_update(_delta: float):
-	for effect in chosenTechnique.effects:
+	for effect in chosen_technique.effects:
 		effect.execute_physics_effect(_delta)
-	
+
 	if owner.hitstop_frames > 0:
 		if not owner.was_in_hitstop:
 			owner.stored_velocity = owner.velocity
 			owner.was_in_hitstop = true
-			animPlayer.speed_scale = 0
+			anim_player.speed_scale = 0
 		owner.velocity = Vector2.ZERO
 	else:
 		if owner.was_in_hitstop:
 			owner.velocity = owner.stored_velocity
 			owner.was_in_hitstop = false
-			animPlayer.speed_scale = 1
+			anim_player.speed_scale = 1
 	if owner.hitstop_frames > 0:
 		#shake_sprite(owner.hitstop_frames, 2)
 		owner.hitstop_frames -= 1
@@ -67,6 +68,6 @@ func physics_update(_delta: float):
 	#else:
 		#%Sprite.position.x = spriteOGCoordinates.x
 
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == animName:
+func _on_animation_player_animation_finished(animation_name: StringName) -> void:
+	if animation_name == anim_name:
 		transition.emit(self, "Idle")

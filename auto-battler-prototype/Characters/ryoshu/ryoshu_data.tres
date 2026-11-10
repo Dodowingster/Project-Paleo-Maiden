@@ -6,21 +6,19 @@
 
 [resource]
 script = ExtResource("1_c8uxx")
-characterName = "Ryoshu"
-animLib = ExtResource("1_uyfw6")
-animLibName = "ryoshu"
+character_name = "Ryoshu"
+anim_lib = ExtResource("1_uyfw6")
+anim_lib_name = "ryoshu"
 atk = 7
-maxSta = 14
-maxHP = 150
+max_sta = 14
+max_hp = 150
 strategy = 1
-minDistance = 70
-maxDistance = 150
-forwardSpdMult = 17.5
-backwardSpdMult = 8.75
-forwardDashSpdMult = 35.0
-forwardDashMinDuration = 0.28
-backwardDashSpdMult = 17.5
-backwardDashMinDuration = 0.31
-actionGoalTotal = 600
-baseAtkData = ExtResource("2_om7tl")
+min_distance = 70
+max_distance = 150
+forward_spd_mult = 17.5
+backward_spd_mult = 8.75
+forward_dash_spd_mult = 35.0
+backward_dash_spd_mult = 17.5
+action_goal_total = 600
+base_atk_data = ExtResource("2_om7tl")
 metadata/_custom_type_script = "uid://boc53imrgb27h"

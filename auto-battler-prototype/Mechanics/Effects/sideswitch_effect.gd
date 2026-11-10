@@ -1,31 +1,32 @@
-extends Effect
 class_name SideSwitchEffect
+extends Effect
+
+@export var apply_frame : int
+@export var revert_frame : int
 
 @onready var character : Character
-@export var applyFrame : int
-@export var revertFrame : int
-@onready var timeElapsed : float = 0
-@onready var colDisabled : bool = false
-@onready var effectDone : bool = false
+@onready var time_elapsed : float = 0
+@onready var col_disabled : bool = false
+@onready var effect_done : bool = false
 
 func execute_effect(delta: float) -> void:
-	if not effectDone:
-		if not colDisabled:
-			if timeElapsed > (applyFrame / 60.0):
+	if not effect_done:
+		if not col_disabled:
+			if time_elapsed > (apply_frame / 60.0):
 				character.toggle_collision(false)
-				colDisabled = true
+				col_disabled = true
 		else:
-			if timeElapsed > (revertFrame / 60.0):
+			if time_elapsed > (revert_frame / 60.0):
 				character.toggle_collision(true)
-				colDisabled = false
-				effectDone = true
-		timeElapsed += delta
+				col_disabled = false
+				effect_done = true
+		time_elapsed += delta
 
-func execute_physics_effect(delta: float) -> void:
+func execute_physics_effect(_delta: float) -> void:
 	pass
 
 func reset() -> void:
 	character.toggle_collision(true)
-	timeElapsed = 0
-	colDisabled = false
-	effectDone = false
+	time_elapsed = 0
+	col_disabled = false
+	effect_done = false

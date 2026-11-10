@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource("2_4mfan")
 technique = ExtResource("3_4mfan")
-techniqueName = "R_Reversal"
-animName = "reversal"
+technique_name = "R_Reversal"
+anim_name = "reversal"
 hitboxes = Array[ExtResource("1_mc8pt")]([ExtResource("2_ukb23")])
 metadata/_custom_type_script = "uid://c0c4p57o71yio"

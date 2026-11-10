@@ -1,10 +1,10 @@
 extends Node2D
 class_name Stage
 
-enum STAGEMODE {TEST, ENCOUNTER}
+enum StageMode {TEST, ENCOUNTER}
 
 var always_running_nodes : Array[Node] = []
-@onready var stage_mode : STAGEMODE = STAGEMODE.TEST
+@onready var stage_mode : StageMode = StageMode.TEST
 
 func _ready() -> void:
 	StageManager.set_stage(self)
@@ -25,12 +25,12 @@ func _on_resume_btn_pressed() -> void:
 func _on_end_battle_btn_pressed() -> void:
 	get_tree().paused = false
 	VFXManager.despawn_all_vfx()
-	if stage_mode == STAGEMODE.TEST:
+	if stage_mode == StageMode.TEST:
 		SimpleSceneManager.back_to_battle_setup(self)
-	elif stage_mode == STAGEMODE.ENCOUNTER:
+	elif stage_mode == StageMode.ENCOUNTER:
 		update_current_run_data()
 		unload_characters()
-		if CurrentRunData.current_map_action == GlobalValues.MAPACTION.CAMP:
+		if CurrentRunData.current_map_action == GlobalValues.MapAction.CAMP:
 			SimpleSceneManager.setup_map()
 		else:
 			SimpleSceneManager.setup_map()
@@ -40,9 +40,9 @@ func _on_end_battle_btn_pressed() -> void:
 func update_current_run_data() -> void:
 	var p1Char : Character = %Runner.get_node("Character")
 	if p1Char != null:
-		CurrentRunData.char_data.currentHP = p1Char.health
+		CurrentRunData.char_data.current_hp = p1Char.health
 	if %Runner.winningSide == "P1":
-		RewardsManager.reward_technique(p1Char.characterName)
+		RewardsManager.reward_technique(p1Char.character_name)
 
 func unload_characters() -> void:
 	var p1LoadoutData : Array[TechniqueData] = %Runner.loadout1

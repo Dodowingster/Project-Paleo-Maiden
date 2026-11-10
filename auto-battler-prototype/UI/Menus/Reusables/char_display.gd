@@ -1,7 +1,7 @@
 extends PanelContainer
 class_name CharDisplay
 
-#@onready var selectedCharLabel : Label = %SelectedCharLabel
+#@onready var selected_char_label : Label = %SelectedCharLabel
 #@onready var hpValueLabel : Label = %HpValueLabel
 #@onready var atkValueLabel : Label = %AtkValueLabel
 #@onready var defValueLabel : Label = %DefValueLabel
@@ -13,9 +13,9 @@ func _ready() -> void:
 
 func update_ui() -> void:
 	if CurrentRunData.char_data:
-		%SelectedCharLabel.text = CurrentRunData.char_data.characterName
-		%HpValueLabel.text = str(CurrentRunData.char_data.currentHP) + "/" + str(CurrentRunData.char_data.maxHP)
+		%SelectedCharLabel.text = CurrentRunData.char_data.character_name
+		%HpValueLabel.text = str(CurrentRunData.char_data.current_hp) + "/" + str(CurrentRunData.char_data.max_hp)
 		%AtkValueLabel.text = str(CurrentRunData.char_data.atk)
 		%DefValueLabel.text = str(CurrentRunData.char_data.def)
 		%SpdValueLabel.text = str(CurrentRunData.char_data.spd)
-		%StaValueLabel.text = str(CurrentRunData.char_data.minSta) + "-" + str(CurrentRunData.char_data.maxSta)
+		%StaValueLabel.text = str(CurrentRunData.char_data.min_sta) + "-" + str(CurrentRunData.char_data.max_sta)

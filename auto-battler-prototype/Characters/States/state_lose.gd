@@ -1,32 +1,34 @@
-extends StunState
 class_name StateLose
+extends StunState
 
-@onready var animPlayer : AnimationPlayer = %AnimationPlayer
-var animList : PackedStringArray = []
-var animName : String
-var lastTick : int = 0
-var initialDistance : float = 0
-var spriteOGCoordinates : Vector2 = Vector2.ZERO
+var anim_list : PackedStringArray = []
+var anim_name : String
+var last_tick : int = 0
+var initial_distance : float = 0
+var sprite_og_coordinates : Vector2 = Vector2.ZERO
+
+@onready var anim_player : AnimationPlayer = %AnimationPlayer
+
 
 func _ready():
-	animList = animPlayer.get_animation_list()
-	animName = owner.animLibName + "/lose"
-	spriteOGCoordinates = %Sprite.position
+	anim_list = anim_player.get_animation_list()
+	anim_name = owner.anim_lib_name + "/lose"
+	sprite_og_coordinates = %Sprite.position
 
 func enter():
-	owner.canClash = false
-	spriteOGCoordinates = %Sprite.position
-	initialDistance = owner.distance
-	owner.broadcastLose.emit()
-	if animName in animList:
-		animPlayer.play(animName)
+	owner.can_clash = false
+	sprite_og_coordinates = %Sprite.position
+	initial_distance = owner.distance
+	owner.broadcast_lose.emit()
+	if anim_name in anim_list:
+		anim_player.play(anim_name)
 
 func exit():
-	%Sprite.position = spriteOGCoordinates
-	var finalDistance : float = owner.distance
-	var knockbackDistance : float = finalDistance - initialDistance
-	print("Knockback distance: " + str(knockbackDistance))
-	animPlayer.stop()
+	%Sprite.position = sprite_og_coordinates
+	var final_distance : float = owner.distance
+	var knockback_distance : float = final_distance - initial_distance
+	print("Knockback distance: " + str(knockback_distance))
+	anim_player.stop()
 
 func update(_delta: float):
 	pass
@@ -41,7 +43,7 @@ func physics_update(_delta: float):
 			owner.stored_velocity = owner.velocity
 			owner.was_in_hitstop = true
 			impact_just_applied = false
-			animPlayer.speed_scale = 0
+			anim_player.speed_scale = 0
 		owner.velocity = Vector2.ZERO
 
 	# not in hitstop
@@ -51,10 +53,9 @@ func physics_update(_delta: float):
 			owner.velocity = owner.stored_velocity
 			owner.was_in_hitstop = false
 			impact_just_applied = true
-			animPlayer.speed_scale = 1
+			anim_player.speed_scale = 1
 		else:
 			impact_just_applied = true
-	
+
 	if owner.hitstop_frames > 0:
 		owner.hitstop_frames -= 1
-	pass

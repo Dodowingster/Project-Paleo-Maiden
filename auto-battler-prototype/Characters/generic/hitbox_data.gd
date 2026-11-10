@@ -1,17 +1,17 @@
-extends Resource
 class_name HitboxData
+extends Resource
 
 @export var damage : int
 @export var hitstun : float
 @export var blockstun : float
-@export var knockbackX : int
-@export var knockbackY : int
-@export var blockbackX : int
-@export var blockbackY : int
-@export var hitstopFrames : int
-@export var isMultiHit : bool
-@export var groupName : String
-@export var hitboxShape : Shape2D
+@export var knockback_x : int
+@export var knockback_y : int
+@export var blockback_x : int
+@export var blockback_y : int
+@export var hitstop_frames : int
+@export var is_multi_hit : bool
+@export var group_name : String
+@export var hitbox_shape : Shape2D
 
 @export var startup : int
 @export var active : int

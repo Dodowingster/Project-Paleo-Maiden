@@ -8,12 +8,12 @@
 
 [node name="MaxActionGoalBonus" type="Node" unique_id=1050982167]
 script = ExtResource("1_rr463")
-affEffectName = "Instant Action!"
+aff_effect_name = "Instant Action!"
 metadata/_custom_type_script = "uid://da0owk4ok5ydx"
 
 [node name="AffinityTrigger" type="Node" parent="." unique_id=1177072335]
 script = ExtResource("2_y6h3e")
-chanceMod = 0.02
+chance_mod = 0.02
 metadata/_custom_type_script = "uid://bbjt57et5iesw"
 
 [node name="NoActionGoalTrigger" type="Node" parent="." unique_id=1915241691]
@@ -23,7 +23,7 @@ metadata/_custom_type_script = "uid://bbt5ka554cde7"
 [node name="CooldownTrigger" type="Node" parent="." unique_id=2040609918]
 script = ExtResource("4_plimo")
 cooldown = 10.0
-startingCooldown = 5.0
+starting_cooldown = 5.0
 metadata/_custom_type_script = "uid://cm2swp1i5yuvi"
 
 [node name="MaxActionGoalEffect" type="Node" parent="." unique_id=953202435]

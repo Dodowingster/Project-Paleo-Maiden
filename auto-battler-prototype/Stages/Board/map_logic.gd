@@ -15,7 +15,7 @@ func scout_roll() -> int:
 
 
 func _on_scout_button_pressed() -> void:
-	%MapStateMachine.on_child_transition(%MapStateMachine.currentState, "Move")
+	%MapStateMachine.on_child_transition(%MapStateMachine.current_state, "Move")
 	player.scout_initialize_move(scout_roll())
 
 
@@ -25,4 +25,4 @@ func update_scout_ui(value: int) -> void:
 
 func _on_end_move_button_pressed() -> void:
 	player.end_move()
-	%MapStateMachine.on_child_transition(%MapStateMachine.currentState, "Camp")
+	%MapStateMachine.on_child_transition(%MapStateMachine.current_state, "Camp")

@@ -2,11 +2,11 @@ extends Sprite2D
 
 @export var decay : float = 0.8
 @export var max_offset : Vector2 = Vector2(400, 400)
+@export var trauma_power : int = 2
+
 @onready var noise : FastNoiseLite = FastNoiseLite.new()
 @onready var noise_y : int = 0
-
 @onready var trauma : float = 0.0
-@export var trauma_power : int = 2
 
 func _ready() -> void:
 	randomize()
@@ -14,7 +14,7 @@ func _ready() -> void:
 	noise.noise_type = FastNoiseLite.TYPE_SIMPLEX
 	noise.frequency = 4
 	noise.fractal_octaves = 2
-	
+
 func add_trauma(amount : float) -> void:
 	trauma = min(trauma + amount, 1.0)
 

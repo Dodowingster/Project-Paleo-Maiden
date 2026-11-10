@@ -275,8 +275,8 @@ script = ExtResource("3_fm3kf")
 damage = 15
 hitstun = 0.7
 blockstun = 0.3
-knockbackX = 1000
-blockbackX = 500
+knockback_x = 1000
+blockback_x = 500
 
 [node name="Hitbox" type="CollisionShape2D" parent="WaveHitbox" unique_id=471658037]
 visible = false

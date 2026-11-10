@@ -27,8 +27,8 @@ func _on_char_select_back_btn_pressed() -> void:
 
 
 func _on_start_run_btn_pressed() -> void:
-	CurrentRunData.char_data = charSelect.selectedChar
-	CurrentRunData.char_data.currentHP = CurrentRunData.char_data.maxHP
+	CurrentRunData.char_data = charSelect.selected_char
+	CurrentRunData.char_data.current_hp = CurrentRunData.char_data.max_hp
 	var testMapScene : PackedScene = load(testMapNodePath)
 	var testMapNode : Node2D = testMapScene.instantiate()
 	get_tree().change_scene_to_node(testMapNode)
