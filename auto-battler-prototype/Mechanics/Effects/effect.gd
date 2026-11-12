@@ -1,6 +1,6 @@
 @abstract
-extends Node
 class_name Effect
+extends Node
 
 ## Executes the effect
 @abstract

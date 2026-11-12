@@ -1,35 +1,38 @@
-extends Effect
 class_name ProjectileEffect
+extends Effect
+
+@export var spawn_frame : int
+@export var spawn_velocity : Vector2
+@export var spawn_location : Vector2
+@export var duration : float
+@export var projectile : PackedScene
 
 @onready var character : Character
-@export var spawnFrame : int
-@export var spawnVelocity : Vector2
-@export var spawnLocation : Vector2
-@export var duration : float
-@onready var timeElapsed : float = 0
+@onready var time_elapsed : float = 0
 @onready var triggered : bool = false
-@export var projectile : PackedScene
+
 
 func execute_effect(delta: float) -> void:
 	if not triggered:
-		if timeElapsed > (spawnFrame / 60.0):
-			var spawnNode = projectile.instantiate()
-			if spawnNode is Projectile:
-				spawnNode.projectileOwner = character
-				spawnNode.speedX = spawnVelocity.x
-				spawnNode.lifetime = duration
-				spawnNode.side = character.get_side()
-				# what is wrong with my character's global position bruh 
-				spawnNode.global_position = character.global_position + Vector2(spawnLocation.x * spawnNode.side, spawnLocation.y)
+		if time_elapsed > (spawn_frame / 60.0):
+			var spawn_node = projectile.instantiate()
+			if spawn_node is Projectile:
+				spawn_node.projectile_owner = character
+				spawn_node.speed_x = spawn_velocity.x
+				spawn_node.lifetime = duration
+				spawn_node.side = character.get_side()
+				# what is wrong with my character's global position bruh
+				spawn_node.global_position = character.global_position + \
+				Vector2(spawn_location.x * spawn_node.side, spawn_location.y)
 				print(character.global_position)
-			get_tree().current_scene.add_child(spawnNode)
-			print(spawnNode.global_position)
+			get_tree().current_scene.add_child(spawn_node)
+			print(spawn_node.global_position)
 			triggered = true
-		timeElapsed += delta
+		time_elapsed += delta
 
-func execute_physics_effect(delta: float) -> void:
+func execute_physics_effect(_delta: float) -> void:
 	pass
 
 func reset() -> void:
-	timeElapsed = 0
+	time_elapsed = 0
 	triggered = false

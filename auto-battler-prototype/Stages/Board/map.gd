@@ -9,12 +9,12 @@ func _ready() -> void:
 
 
 func setup():
-	if CurrentRunData.current_map_action == GlobalValues.MAPACTION.CAMP:
-		%MapStateMachine.initialState = %Camp
-	elif CurrentRunData.current_map_action == GlobalValues.MAPACTION.SCOUT:
-		%MapStateMachine.initialState = %Map
-	elif CurrentRunData.current_map_action == GlobalValues.MAPACTION.MOVE:
-		%MapStateMachine.initialState = %Move
+	if CurrentRunData.current_map_action == GlobalValues.MapAction.CAMP:
+		%MapStateMachine.initial_state = %Camp
+	elif CurrentRunData.current_map_action == GlobalValues.MapAction.SCOUT:
+		%MapStateMachine.initial_state = %Map
+	elif CurrentRunData.current_map_action == GlobalValues.MapAction.MOVE:
+		%MapStateMachine.initial_state = %Move
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause_menu"):

@@ -17,47 +17,47 @@ script = ExtResource("1_e02yo")
 [node name="CooldownTrigger" type="Node" parent="." unique_id=1230323461]
 script = ExtResource("3_pg8d4")
 cooldown = 30.0
-startingCooldown = 10.0
+starting_cooldown = 10.0
 metadata/_custom_type_script = "uid://cm2swp1i5yuvi"
 
 [node name="RangeTrigger" type="Node" parent="." unique_id=949961414]
 script = ExtResource("4_q0i3k")
-maxRange = 150.0
+max_range = 150.0
 metadata/_custom_type_script = "uid://vvpc8qlg01o"
 
 [node name="InvulEffect" type="Node" parent="." unique_id=2126055198]
 script = ExtResource("4_kudru")
-revertFrame = 90
+revert_frame = 90
 metadata/_custom_type_script = "uid://cuwtyksi0gpac"
 
 [node name="FreezeScreenEffect" type="Node" parent="." unique_id=818517468]
 script = ExtResource("5_3npcg")
-applyFrame = 5
-revertFrame = 85
+apply_frame = 5
+revert_frame = 85
 metadata/_custom_type_script = "uid://j5gvlgjyc1n2"
 
 [node name="FocusCameraEffect" type="Node" parent="." unique_id=260932258]
 script = ExtResource("6_pg8d4")
-applyFrame = 5
-revertFrame = 85
+apply_frame = 5
+revert_frame = 85
 metadata/_custom_type_script = "uid://def02s2coydwo"
 
 [node name="ZoomCameraEffect" type="Node" parent="." unique_id=1526906510]
 script = ExtResource("7_q0i3k")
-applyFrame = 5
-revertFrame = 85
+apply_frame = 5
+revert_frame = 85
 zoom = Vector2(1.3, 1.3)
 metadata/_custom_type_script = "uid://b2o1c2gj8l2gj"
 
 [node name="VFXEffect" type="Node" parent="." unique_id=868154837]
 script = ExtResource("7_3npcg")
 vfx = ExtResource("8_3npcg")
-localPos = Vector2(20, -30)
-applyFrame = 79
+local_pos = Vector2(20, -30)
+apply_frame = 79
 metadata/_custom_type_script = "uid://bvv84w67o4y8v"
 
 [node name="VFXEffect2" type="Node" parent="." unique_id=228864856]
 script = ExtResource("7_3npcg")
 vfx = ExtResource("10_kudru")
-applyFrame = 85
+apply_frame = 85
 metadata/_custom_type_script = "uid://bvv84w67o4y8v"

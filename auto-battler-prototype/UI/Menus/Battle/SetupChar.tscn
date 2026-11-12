@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://wndh5diq72cg" path="res://UI/Menus/Battle/setup_char.gd" id="1_hdoat"]
 [ext_resource type="Script" uid="uid://bbgs31gushkq" path="res://UI/Menus/Battle/attributes_list.gd" id="11_w1o85"]
 
-[node name="SetupChar" type="VBoxContainer" unique_id=617072385 node_paths=PackedStringArray("headerLabel", "selectedCharLabel", "charSelectList", "techOverallList", "techSelectList", "selectedTechList", "attributesList")]
+[node name="SetupChar" type="VBoxContainer" unique_id=617072385 node_paths=PackedStringArray("header_label", "selected_char_label", "char_select_list", "tech_overall_list", "tech_select_list", "selected_tech_list", "attributes_list")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -18,14 +18,14 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_hdoat")
-headerLabelText = "Test"
-headerLabel = NodePath("HeaderLabel")
-selectedCharLabel = NodePath("SelectedChar/SelectedCharLabel")
-charSelectList = NodePath("CharList")
-techOverallList = NodePath("TabContainer/Techniques")
-techSelectList = NodePath("TabContainer/Techniques/TechniqueList")
-selectedTechList = NodePath("TabContainer/Techniques/SelectedTechList")
-attributesList = NodePath("TabContainer/Attributes")
+header_label_text = "Test"
+header_label = NodePath("HeaderLabel")
+selected_char_label = NodePath("SelectedChar/SelectedCharLabel")
+char_select_list = NodePath("CharList")
+tech_overall_list = NodePath("TabContainer/Techniques")
+tech_select_list = NodePath("TabContainer/Techniques/TechniqueList")
+selected_tech_list = NodePath("TabContainer/Techniques/SelectedTechList")
+attributes_list = NodePath("TabContainer/Attributes")
 
 [node name="HeaderLabel" type="Label" parent="." unique_id=309494882]
 layout_mode = 2

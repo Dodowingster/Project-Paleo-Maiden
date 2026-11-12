@@ -16,7 +16,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uwnji")
-charList = Array[ExtResource("2_p8sxv")]([ExtResource("3_f7xfu"), ExtResource("4_ulcn6"), ExtResource("5_h1nbx")])
+char_list = Array[ExtResource("2_p8sxv")]([ExtResource("3_f7xfu"), ExtResource("4_ulcn6"), ExtResource("5_h1nbx")])
 
 [node name="SelectedChar" type="HBoxContainer" parent="." unique_id=891117170]
 layout_mode = 2

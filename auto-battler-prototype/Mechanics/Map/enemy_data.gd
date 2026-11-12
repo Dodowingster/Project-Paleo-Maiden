@@ -1,23 +1,23 @@
 @tool
-extends Node
 class_name EnemyData
+extends Node
 
-@export var baseCharacter : CharacterData :
+@export var base_character : CharacterData :
 	set(char_data):
-		baseCharacter = char_data
+		base_character = char_data
 		atk = char_data.atk
 		def = char_data.def
 		spd = char_data.spd
-		minSta = char_data.minSta
-		maxSta = char_data.maxSta
-		maxHP = char_data.maxHP
-		currentHP = char_data.maxHP
+		min_sta = char_data.min_sta
+		max_sta = char_data.max_sta
+		max_hp = char_data.max_hp
+		current_hp = char_data.max_hp
 @export var atk : int = 5
 @export var def : int = 5
 @export var spd : int = 10
-@export var minSta : int = 1
-@export var maxSta : int = 10
-@export var maxHP : int = 100
+@export var min_sta : int = 1
+@export var max_sta : int = 10
+@export var max_hp : int = 100
 
-@export var currentHP : int = 0
+@export var current_hp : int = 0
 @export var loadout : Array[TechniqueData] = []

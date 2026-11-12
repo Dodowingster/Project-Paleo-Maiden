@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource("2_1x1u5")
 technique = ExtResource("3_1x1u5")
-techniqueName = "R_SideSwitch"
-animName = "sideswitch"
+technique_name = "R_SideSwitch"
+anim_name = "sideswitch"
 hitboxes = Array[ExtResource("1_vyhvs")]([ExtResource("2_88kye")])
 metadata/_custom_type_script = "uid://c0c4p57o71yio"

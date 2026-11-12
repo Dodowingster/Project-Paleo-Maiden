@@ -13,6 +13,6 @@ metadata/_custom_type_script = "uid://davbi37fiwm0b"
 
 [node name="RangeTrigger" type="Node" parent="." unique_id=1936879058]
 script = ExtResource("3_bev6k")
-minRange = 70.0
-maxRange = 140.0
+min_range = 70.0
+max_range = 140.0
 metadata/_custom_type_script = "uid://vvpc8qlg01o"

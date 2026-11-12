@@ -1,24 +1,24 @@
 extends Node
 
+enum VFXType { HIT, BLOCK, CLASHWIN, DASH }
+
 @onready var hit_vfx : PackedScene = preload("res://VFX/GenericHit.tscn")
 @onready var block_vfx : PackedScene = preload("res://VFX/GenericBlock.tscn")
 @onready var clashwin_vfx : PackedScene = preload("res://VFX/GenericClashWin.tscn")
 @onready var clash_vfx : PackedScene = preload("res://VFX/GenericClashing.tscn")
 @onready var dash_vfx : PackedScene = preload("res://VFX/GenericDash.tscn")
-@onready var bothClash : bool = false
+@onready var both_clash : bool = false
 
-enum VFX_TYPE { HIT, BLOCK, CLASHWIN, DASH }
-
-func spawn_vfx(vfx_type : VFX_TYPE, vfx_position : Vector2, scale_x_mod : int = 1) -> VFX:
+func spawn_vfx(vfx_type : VFXType, vfx_position : Vector2, scale_x_mod : int = 1) -> VFX:
 	var vfx_node : VFX
 	match vfx_type:
-		VFX_TYPE.HIT:
+		VFXType.HIT:
 			vfx_node = hit_vfx.instantiate()
-		VFX_TYPE.BLOCK:
+		VFXType.BLOCK:
 			vfx_node = block_vfx.instantiate()
-		VFX_TYPE.CLASHWIN:
+		VFXType.CLASHWIN:
 			vfx_node = clashwin_vfx.instantiate()
-		VFX_TYPE.DASH:
+		VFXType.DASH:
 			vfx_node = dash_vfx.instantiate()
 		_:
 			push_error("VFX doesn't exist.")
@@ -37,19 +37,18 @@ func spawn_specified_vfx(vfx : VFX, vfx_position : Vector2, scale_x_mod : int = 
 
 func spawn_clash_vfx(char1 : Character, char2 : Character) -> Node2D:
 	# method needs to be called twice to spawn the vfx
-	if !bothClash:
-		bothClash = true
+	if !both_clash:
+		both_clash = true
 		return null
-	else:
-		var clash_node : Node2D = clash_vfx.instantiate()
-		var vfx_position : Vector2 = (char1.global_position + char2.global_position) / 2.0
-		clash_node.global_position = vfx_position
-		clash_node.add_to_group("vfx", false)
-		get_tree().root.add_child(clash_node)
-		return clash_node
+	var clash_node : Node2D = clash_vfx.instantiate()
+	var vfx_position : Vector2 = (char1.global_position + char2.global_position) / 2.0
+	clash_node.global_position = vfx_position
+	clash_node.add_to_group("vfx", false)
+	get_tree().root.add_child(clash_node)
+	return clash_node
 
 func despawn_clash_vfx(clash_node : Node2D) -> void:
-	bothClash = false
+	both_clash = false
 	clash_node.queue_free()
 
 func despawn_all_vfx() -> void:

@@ -1,12 +1,12 @@
 extends Control
 
 func _on_rematch_btn_pressed() -> void:
-	var rootNode = get_tree().current_scene
-	if rootNode is Stage:
-		rootNode.restart_game()
+	var root_node = get_tree().current_scene
+	if root_node is Stage:
+		root_node.restart_game()
 
 
 func _on_end_battle_btn_pressed() -> void:
-	var rootNode = get_tree().current_scene
-	if rootNode is Stage:
-		rootNode._on_end_battle_btn_pressed()
+	var root_node = get_tree().current_scene
+	if root_node is Stage:
+		root_node._on_end_battle_btn_pressed()

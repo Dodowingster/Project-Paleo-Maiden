@@ -1,5 +1,5 @@
-extends Node
 class_name State
+extends Node
 
 signal transition()
 
@@ -11,6 +11,6 @@ func exit():
 
 func update(_delta: float):
 	pass
-	
+
 func physics_update(_delta: float):
 	pass

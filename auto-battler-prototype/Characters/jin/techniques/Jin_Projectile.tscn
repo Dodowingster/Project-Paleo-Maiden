@@ -16,21 +16,21 @@ metadata/_custom_type_script = "uid://davbi37fiwm0b"
 
 [node name="RangeTrigger" type="Node" parent="." unique_id=1390656216]
 script = ExtResource("3_ibsxw")
-minRange = 100.0
-maxRange = 300.0
+min_range = 100.0
+max_range = 300.0
 metadata/_custom_type_script = "uid://vvpc8qlg01o"
 
 [node name="CooldownTrigger" type="Node" parent="." unique_id=1010755523]
 script = ExtResource("4_ibsxw")
 cooldown = 10.0
-startWithCooldown = false
+start_with_cooldown = false
 metadata/_custom_type_script = "uid://cm2swp1i5yuvi"
 
 [node name="ProjectileEffect" type="Node" parent="." unique_id=61283919]
 script = ExtResource("5_kntqi")
-spawnFrame = 37
-spawnVelocity = Vector2(1500, 0)
-spawnLocation = Vector2(120, 80)
+spawn_frame = 37
+spawn_velocity = Vector2(1500, 0)
+spawn_location = Vector2(120, 80)
 duration = 0.4
 projectile = ExtResource("6_ugcig")
 metadata/_custom_type_script = "uid://brv4doelwgn1w"

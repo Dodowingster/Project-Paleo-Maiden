@@ -32,7 +32,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if can_move and CurrentRunData.current_map_action == GlobalValues.MAPACTION.MOVE:
+	if can_move and CurrentRunData.current_map_action == GlobalValues.MapAction.MOVE:
 		move()
 
 func move() -> void:

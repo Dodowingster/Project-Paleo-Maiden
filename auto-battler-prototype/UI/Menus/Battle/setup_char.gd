@@ -1,24 +1,24 @@
-extends VBoxContainer
 class_name SetupChar
+extends VBoxContainer
 
-@onready var charList : Array[CharacterData]
-@onready var techniqueList : Array[TechniqueData]
+@export var header_label_text : String
+@export var header_label : Label
+@export var selected_char_label : Label
+@export var char_select_list : ItemList
+@export var tech_overall_list : VBoxContainer
+@export var tech_select_list : ItemList
+@export var selected_tech_list : ItemList
+@export var attributes_list : AttributesList
 
-@export var headerLabelText : String
-@onready var selectedChar : CharacterData
-@onready var selectedTech : Array[TechniqueData]
+@onready var char_list : Array[CharacterData]
+@onready var technique_list : Array[TechniqueData]
 
-@export var headerLabel : Label
-@export var selectedCharLabel : Label
-@export var charSelectList : ItemList
-@export var techOverallList : VBoxContainer
-@export var techSelectList : ItemList
-@export var selectedTechList : ItemList
-@export var attributesList : AttributesList
+@onready var selected_char : CharacterData
+@onready var selected_tech : Array[TechniqueData]
 
 func _ready() -> void:
-	charList.clear()
-	techniqueList.clear()
+	char_list.clear()
+	technique_list.clear()
 	setup_character_list()
 	setup_technique_list("")
 	setup_selection()
@@ -26,75 +26,74 @@ func _ready() -> void:
 func setup_character_list() -> void:
 	var dir = DirAccess.open("res://Characters")
 	if dir:
-		var charFolders = dir.get_directories()
-		for charFolder in charFolders:
-			dir.change_dir(charFolder)
-			var charFiles = dir.get_files()
-			if charFiles.size() > 0 and "_data.tres" in charFiles[0]:
-				var charData : CharacterData = load(dir.get_current_dir() + "/" + charFiles[0])
-				charList.append(charData)
+		var char_folders = dir.get_directories()
+		for char_folder in char_folders:
+			dir.change_dir(char_folder)
+			var char_files = dir.get_files()
+			if char_files.size() > 0 and "_data.tres" in char_files[0]:
+				var charData : CharacterData = load(dir.get_current_dir() + "/" + char_files[0])
+				char_list.append(charData)
 			dir.change_dir("..")
 
-func setup_technique_list(charFilter : String) -> void:
+func setup_technique_list(char_filter : String) -> void:
 	var dir = DirAccess.open("res://Characters")
 	if dir:
-		var charFolders = dir.get_directories()
-		for charFolder in charFolders:
-			if charFilter == "" or charFilter == charFolder:
-				dir.change_dir(charFolder + "/techniques")
+		var char_folders = dir.get_directories()
+		for char_folder in char_folders:
+			if char_filter == "" or char_filter == char_folder:
+				dir.change_dir(char_folder + "/techniques")
 				if dir:
-					var techniqueFiles = dir.get_files()
-					if techniqueFiles.size() > 0:
-						for techniqueFile in techniqueFiles:
-							if ".tres" in techniqueFile and "_baseatk.tres" not in techniqueFile:
-								var techniqueData : TechniqueData = load(dir.get_current_dir() + "/" + techniqueFile)
-								techniqueList.append(techniqueData) 
+					var technique_files = dir.get_files()
+					if technique_files.size() > 0:
+						for technique_file in technique_files:
+							if ".tres" in technique_file and "_baseatk.tres" not in technique_file:
+								var technique_data : TechniqueData = load(dir.get_current_dir() + "/" + technique_file)
+								technique_list.append(technique_data)
 					dir.change_dir("../../")
 
 func setup_selection() -> void:
-	for character in charList:
-		charSelectList.add_item(character.characterName)
-	for tech in techniqueList:
-		techSelectList.add_item(tech.techniqueName)
-	headerLabel.text = headerLabelText
+	for character in char_list:
+		char_select_list.add_item(character.character_name)
+	for tech in technique_list:
+		tech_select_list.add_item(tech.technique_name)
+	header_label.text = header_label_text
 
-func set_selection(prevChar : CharacterData, prevTech : Array[TechniqueData]) -> void:
-	charSelectList.deselect_all()
-	techSelectList.deselect_all()
-	var ogIndex : int = find_original_index(prevChar)
-	charSelectList.select(ogIndex)
-	_on_char_list_item_selected(ogIndex)
-	attributesList.character_selected(prevChar) # override original data after 1st battle
-	for tech in prevTech:
-		techSelectList.select(techniqueList.find(tech), false)
-		_on_technique_list_multi_selected(techniqueList.find(tech), true)
+func set_selection(prev_char : CharacterData, prev_tech : Array[TechniqueData]) -> void:
+	char_select_list.deselect_all()
+	tech_select_list.deselect_all()
+	var og_index : int = find_original_index(prev_char)
+	char_select_list.select(og_index)
+	_on_char_list_item_selected(og_index)
+	attributes_list.character_selected(prev_char) # override original data after 1st battle
+	for tech in prev_tech:
+		tech_select_list.select(technique_list.find(tech), false)
+		_on_technique_list_multi_selected(technique_list.find(tech), true)
 
 func _on_char_list_item_selected(index: int) -> void:
-	selectedChar = charList[index].duplicate_deep()
-	selectedCharLabel.text = selectedChar.characterName
-	attributesList.character_selected(selectedChar)
-	techSelectList.deselect_all()
-	techSelectList.clear()
-	selectedTechList.clear()
-	selectedTech.clear()
-	techniqueList.clear()
-	setup_technique_list(selectedChar.characterName.to_lower())
-	for tech in techniqueList:
-		techSelectList.add_item(tech.techniqueName)
+	selected_char = char_list[index].duplicate_deep()
+	selected_char_label.text = selected_char.character_name
+	attributes_list.character_selected(selected_char)
+	tech_select_list.deselect_all()
+	tech_select_list.clear()
+	selected_tech_list.clear()
+	selected_tech.clear()
+	technique_list.clear()
+	setup_technique_list(selected_char.character_name.to_lower())
+	for tech in technique_list:
+		tech_select_list.add_item(tech.technique_name)
 
 func _on_technique_list_multi_selected(index: int, selected: bool) -> void:
 	if selected:
-		selectedTech.append(techniqueList[index])
-		selectedTechList.add_item(techniqueList[index].techniqueName)
+		selected_tech.append(technique_list[index])
+		selected_tech_list.add_item(technique_list[index].technique_name)
 	else:
-		selectedTechList.remove_item(selectedTech.find(techniqueList[index]))
-		selectedTech.remove_at(selectedTech.find(techniqueList[index]))
+		selected_tech_list.remove_item(selected_tech.find(technique_list[index]))
+		selected_tech.remove_at(selected_tech.find(technique_list[index]))
 
 func find_original_index(copied_data : CharacterData) -> int:
-	var foundValue : int = -1
-	for data in charList:
-		if data is CharacterData and data.characterName == copied_data.characterName:
-			foundValue = charList.find(data)
-	
-	return foundValue
-			
+	var found_value : int = -1
+	for data in char_list:
+		if data is CharacterData and data.character_name == copied_data.character_name:
+			found_value = char_list.find(data)
+
+	return found_value

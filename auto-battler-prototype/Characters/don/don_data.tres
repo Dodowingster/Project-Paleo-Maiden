@@ -6,19 +6,19 @@
 
 [resource]
 script = ExtResource("1_tsipi")
-characterName = "Don"
-animLib = ExtResource("1_d05c3")
-animLibName = "don"
+character_name = "Don"
+anim_lib = ExtResource("1_d05c3")
+anim_lib_name = "don"
 def = 3
 spd = 12
-maxSta = 15
-maxHP = 120
+max_sta = 15
+max_hp = 120
 strategy = 3
-minDistance = 70
-forwardSpdMult = 20.0
-backwardSpdMult = 10.0
-forwardDashSpdMult = 40.0
-backwardDashSpdMult = 20.0
-actionGoalTotal = 600
-baseAtkData = ExtResource("2_brx57")
+min_distance = 70
+forward_spd_mult = 20.0
+backward_spd_mult = 10.0
+forward_dash_spd_mult = 40.0
+backward_dash_spd_mult = 20.0
+action_goal_total = 600
+base_atk_data = ExtResource("2_brx57")
 metadata/_custom_type_script = "uid://boc53imrgb27h"

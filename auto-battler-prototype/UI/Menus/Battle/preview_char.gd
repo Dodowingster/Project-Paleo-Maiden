@@ -1,18 +1,18 @@
 extends VBoxContainer
 class_name PreviewChar
 
-@export var headerLabelText : String
+@export var header_label_text : String
 
-@onready var selectedChar : CharacterData:
+@onready var selected_char : CharacterData:
 	set(value):
-		%SelectedCharLabel.text = value.characterName
-		selectedChar = value
+		%SelectedCharLabel.text = value.character_name
+		selected_char = value
 		%Attributes.character_selected(value)
 @onready var selectedLoadout : Array[TechniqueData] = [] :
 	set(loadout):
 		for technique in loadout:
-			%SelectedTechList.add_item(technique.techniqueName)
+			%SelectedTechList.add_item(technique.technique_name)
 			selectedLoadout = loadout
 
 func _ready() -> void:
-	%HeaderLabel.text = headerLabelText
+	%HeaderLabel.text = header_label_text

@@ -16,7 +16,7 @@ func _ready() -> void:
 	else:
 		%Action.text = "Remove"
 	if technique:
-		%TechniqueName.text = technique.techniqueName
+		%TechniqueName.text = technique.technique_name
 
 func set_active(active : bool):
 	%Action.disabled = !active

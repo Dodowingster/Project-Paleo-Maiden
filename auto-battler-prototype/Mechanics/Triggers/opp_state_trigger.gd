@@ -1,8 +1,7 @@
-extends Trigger
 class_name OppStateTrigger
+extends Trigger
 
 @onready var character : Character
 
 func check_condition() -> bool:
-	return character.opponentIsAttacking
-		
+	return character.opponent_is_attacking

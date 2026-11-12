@@ -7,12 +7,12 @@
 
 [node name="ClashGoodBonus" type="Node" unique_id=582828383]
 script = ExtResource("1_1jxuj")
-affEffectName = "No Losing!"
+aff_effect_name = "No Losing!"
 metadata/_custom_type_script = "uid://cuhe3xmw2vmk5"
 
 [node name="AffinityTrigger" type="Node" parent="." unique_id=426509467]
 script = ExtResource("2_eu22f")
-chanceMod = 2.0
+chance_mod = 2.0
 metadata/_custom_type_script = "uid://bbjt57et5iesw"
 
 [node name="ClashingTrigger" type="Node" parent="." unique_id=358705982]
