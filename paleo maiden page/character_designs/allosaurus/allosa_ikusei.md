@@ -1,4 +1,5 @@
 # Fragilis Allosa Ikusei Story - Symphony of the Different
+
 - [Fragilis Allosa Ikusei Story - Symphony of the Different](#fragilis-allosa-ikusei-story---symphony-of-the-different)
   - [Intro](#intro)
   - [Year 1 - The Triassic League](#year-1---the-triassic-league)
@@ -104,7 +105,7 @@ Allosa freezes for a fraction of a second, her hand halting mid-adjustment on he
 
 Allosa: "To fulfill my duties to the Institute, ser. Nothing more. Now... if you'll excuse me, I need to reset my tempo drills before the sun gets too high."
 
-She turns back to the dummy, leaving the question hanging heavy in the cool morning air. 
+She turns back to the dummy, leaving the question hanging heavy in the cool morning air.
 
 ---
 
@@ -330,7 +331,7 @@ Stegosa: "Hahaha, who knows? The luck of the draw is funny sometimes. I wonder w
 
 _[Scene change: Stadium Infirmary]_
 
-I woke up in the infirmary surrounded by white curtains. Beside my bed is Fragilis Allosa, looking worried sick. She's as pale as a ghost. 
+I woke up in the infirmary surrounded by white curtains. Beside my bed is Fragilis Allosa, looking worried sick. She's as pale as a ghost.
 
 Allosa: "Oh—you're finally awake, ser. My apologies for getting too excited before..."
 
@@ -344,7 +345,7 @@ For a moment, her aristocratic diction completely slips away, replaced by genuin
 
 Allosa: "I... I was just so overwhelmed. When I saw you standing there, clapping... it felt like time had frozen and you were the only one in my sights. For the first time, I felt differently. I can't put it into words, but I just felt... alive."
 
-She lowers her hands, her cheeks still bright pink, but her eyes meet mine with a soft, sincere warmth. 
+She lowers her hands, her cheeks still bright pink, but her eyes meet mine with a soft, sincere warmth.
 
 Allosa: "Thank you, ser. For staying in my corner, guiding me to the path I am on now. I couldn't have reached this stage without you."
 
@@ -359,6 +360,18 @@ Allosa: "Rest well, ser. Tomorrow, the path to the Jurassic League awaits us. An
 ### Event: Calando (Main Story/After 24th Turn on 1st Year but failing to qualify for Jurassic League)
 
 `Description: This event is to show Allosa's fate as she fails to overcome her hurdle in winning the World Championship that results in a game over. Allosa retires from the Insititute due to her scholarship being taken away and moved back to Wyoming for a quiet life`
+
+_[Scene: Audience Ring]_
+
+Crowds: "WOOOOOOAH!!!"
+
+Narrator: "We have ourselves a Jurassic League candidate, ladies and gentlemen and this fighter has prove us she's no pushover! I can't wait to see what she has in store for us!"
+
+As the crowd cheer for the winner, at the middle of the arena, is a fallen Maiden...my maiden...that I have failed...Fragilis Allosa battered on the flow after her defeat in this league.
+
+_[Scene: Stadium Arena]_
+
+
 
 ---
 
@@ -380,7 +393,7 @@ She pauses, her reflection locking onto mine in the glass before she turns aroun
 
 Allosa: "It has been a while. It's not a very pleasant memory to be reminded of, but in order for me to get better and stronger, I have to overcome this. By my own terms."
 
-Allosa looks determined. But I can't help but feel like she's feeling quite worried for her performance. 
+Allosa looks determined. But I can't help but feel like she's feeling quite worried for her performance.
 
 Crowds outside: "WOOOOOOOOO"
 
@@ -454,7 +467,7 @@ _[Scene: Stadium Arena]_
 
 Crowds: "YEAAAAAAHHH!!!!"
 
-The roar of the stadium deafens the arena as the referee raises the new title holder's hand in victory. 
+The roar of the stadium deafens the arena as the referee raises the new title holder's hand in victory.
 
 Meanwhile, Allosa stands frozen in the center of the ring. Defeated. Her hands are shaking and her legs trembling—partly from the physical exhaustion of the grueling match, but mostly from the crushing wave of humiliation.
 
@@ -550,15 +563,14 @@ I am happy to hear that she is just as excited as her opponent for the challenge
 
 ## Year 3 - The Cretaceous League
 
-
 ## PLANNED EVENTS
 
-Cooking Events
+- [ ] Cooking Events
   - [ ] Great Cooking
   - [ ] Ok Cooking
   - [ ] Horrible Cooking
 
-Random Events
+- [ ]Random Events
   - [ ] Desert Biome
   - [ ] Volcanic Biome
   - [ ] Tundra Biome
@@ -567,35 +579,36 @@ Random Events
   - [ ] Rival Sightings
   - [ ] Random Maiden Rivalry events (pulled from other Maiden Rival Visits)
 
-Rival Events
+- [ ] Rival Events
   - [ ] Optional Spar Stenops Stegosa
   - [ ] Optional Spar Ostromm Utahra
 
-Affinity Events
+- [ ] Affinity Events
   - [ ] 15% Affinity Event
   - [ ] 50% Affinity Event
   - [ ] 70% Affinity Event
   - [ ] MAX Affinity Event
 
-Vocation Shift Events (pre-requisite 50% Affinity)
+- [ ] Vocation Shift Events (pre-requisite 50% Affinity)
   - [ ] Vocation Shift Event
 
 Main Story
-  Year 2
+  
+- [ ] Year 2
   - [ ] Ostromm Utahra Rival Visit
   - [ ] Ostromm Utahra Confrontation Before Jurassic League (I am different idea!)
   - [ ] Victory in Jurassic League
   - [ ] Perfect Victory in Jurassic League
   - [ ] Losing in Jurassic League
 
-  Year 3
+- [ ] Year 3
   - [ ] Stenops Stegosa Rival Visit
   - [ ] Stenops Stegosa Confrontation Before Cretaceous League (corruption from higher power)
   - [ ] Victory in Cretaceous League
   - [ ] Perfect Victory in Cretaceous League
   - [ ] Losing in Cretaceous League
 
-  World Cup Championship
+- [ ] World Cup Championship
   - [ ] Before World Cup Championship
   - [ ] After World Cup Championship
   - [ ] ??? Appearance
