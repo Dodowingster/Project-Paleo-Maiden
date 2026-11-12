@@ -9,7 +9,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://boalcp78pqj5n" path="res://Characters/don/anims/don.res" id="9_u1ssa"]
 [ext_resource type="AnimationLibrary" uid="uid://c7xkr5d1qyx2t" path="res://Characters/jin/anims/jin.res" id="10_8yoqf"]
 [ext_resource type="AnimationLibrary" uid="uid://dkhtxnpfpt0ey" path="res://Characters/ryoshu/anims/ryoshu.res" id="11_cvx6o"]
-[ext_resource type="Texture2D" uid="uid://cuskt27lt6cex" path="res://Characters/placeholder_sprites/NCorpRyoshu/skill3_2_#9181.png" id="12_h2n87"]
+[ext_resource type="Texture2D" uid="uid://5jcbr3afia2g" path="res://Characters/placeholder_sprites/A_CinqEastDon/skill2_1 #1462.png" id="12_3bj0f"]
 [ext_resource type="Script" uid="uid://colufoqxh8nwm" path="res://Characters/generic/side_tracker.gd" id="12_vrqku"]
 [ext_resource type="Script" uid="uid://cuqyr28ih435l" path="res://Mechanics/hurtbox.gd" id="13_vgsr5"]
 [ext_resource type="Script" uid="uid://xhutnxqw7tsv" path="res://Characters/generic/shake_sprite.gd" id="14_atnpe"]
@@ -30,7 +30,9 @@
 [ext_resource type="Script" uid="uid://dd3dfa5mjk32y" path="res://Characters/States/state_clash_lose.gd" id="29_ywb05"]
 [ext_resource type="Script" uid="uid://nqsoppuuytas" path="res://Characters/States/state_technique.gd" id="30_x7y8t"]
 [ext_resource type="PackedScene" uid="uid://wa1rn1pd2gkc" path="res://Mechanics/Loadout/Loadout.tscn" id="31_qj7xg"]
+[ext_resource type="Script" uid="uid://c5iy1u4i4afjs" path="res://Characters/generic/stat_manager.gd" id="32_3bj0f"]
 [ext_resource type="Script" uid="uid://cyexs8siijqaw" path="res://Characters/generic/attack_viewer.gd" id="32_ityis"]
+[ext_resource type="Script" uid="uid://maltkrlfhboo" path="res://Characters/generic/hp.gd" id="33_2hlpk"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w4xc1"]
 
@@ -74,9 +76,9 @@ debug_color = Color(0, 0.6, 0, 0.41960785)
 
 [node name="Sprite" type="Sprite2D" parent="SideTracker" unique_id=1654816590]
 unique_name_in_owner = true
-position = Vector2(41, -4)
+position = Vector2(0, 20)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("12_h2n87")
+texture = ExtResource("12_3bj0f")
 region_rect = Rect2(0, 88, 256, 401)
 script = ExtResource("14_atnpe")
 
@@ -150,6 +152,20 @@ unique_name_in_owner = true
 
 [node name="AttackViewer" type="Node2D" parent="." unique_id=112814914]
 script = ExtResource("32_ityis")
+
+[node name="StatManager" type="Node" parent="." unique_id=1467625681]
+script = ExtResource("32_3bj0f")
+
+[node name="HP" type="Node" parent="StatManager" unique_id=768715584]
+script = ExtResource("33_2hlpk")
+
+[node name="ATK" type="Node" parent="StatManager" unique_id=1561888907]
+
+[node name="DEF" type="Node" parent="StatManager" unique_id=467079972]
+
+[node name="STA" type="Node" parent="StatManager" unique_id=1010511551]
+
+[node name="SPD" type="Node" parent="StatManager" unique_id=1841697818]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/BaseAttack" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/ClashWin" method="_on_animation_player_animation_finished"]
