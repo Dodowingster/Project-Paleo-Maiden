@@ -10,6 +10,7 @@
     - [Event: Caesura (Main Story/ Before the Triassic League)](#event-caesura-main-story-before-the-triassic-league)
     - [Event: Harmony (Main Story/After 24th Turn on 1st Year)](#event-harmony-main-storyafter-24th-turn-on-1st-year)
     - [Event: Calando (Main Story/After 24th Turn on 1st Year but failing to qualify for Jurassic League)](#event-calando-main-storyafter-24th-turn-on-1st-year-but-failing-to-qualify-for-jurassic-league)
+  - [`[GAME OVER: The final curtain falls on Fragilis Allosa's expedition.]`](#game-over-the-final-curtain-falls-on-fragilis-allosas-expedition)
     - [Event: Premiere (Optional Trigger/After joining a Title Match for the 1st time)](#event-premiere-optional-triggerafter-joining-a-title-match-for-the-1st-time)
     - [Event: First Encore (Optional Trigger/After winning a Title Match for the 1st time)](#event-first-encore-optional-triggerafter-winning-a-title-match-for-the-1st-time)
     - [Event: Adagio (Optional Trigger / After failing to win a Title Match)](#event-adagio-optional-trigger--after-failing-to-win-a-title-match)
@@ -359,20 +360,85 @@ Allosa: "Rest well, ser. Tomorrow, the path to the Jurassic League awaits us. An
 
 ### Event: Calando (Main Story/After 24th Turn on 1st Year but failing to qualify for Jurassic League)
 
-`Description: This event is to show Allosa's fate as she fails to overcome her hurdle in winning the World Championship that results in a game over. Allosa retires from the Insititute due to her scholarship being taken away and moved back to Wyoming for a quiet life`
+`Description: This event is to show Allosa's fate as she fails to overcome her hurdle in winning the World Championship that results in a game over. Allosa retires from the Institute due to her scholarship being taken away and moved back to Wyoming for a quiet life.`
 
 _[Scene: Audience Ring]_
 
 Crowds: "WOOOOOOAH!!!"
 
-Narrator: "We have ourselves a Jurassic League candidate, ladies and gentlemen and this fighter has prove us she's no pushover! I can't wait to see what she has in store for us!"
+Narrator: "We have ourselves a Jurassic League candidate, ladies and gentlemen, and this fighter has proven to us she's no pushover! I can't wait to see what she has in store for us!"
 
-As the crowd cheer for the winner, at the middle of the arena, is a fallen Maiden...my maiden...that I have failed...Fragilis Allosa battered on the flow after her defeat in this league.
+As the crowd cheers for the winner, in the middle of the arena lies a fallen Maiden... my maiden... whom I have failed. Fragilis Allosa is battered on the floor after her defeat in this league.
 
 _[Scene: Stadium Arena]_
 
+Allosa: "Ugh..."
 
+Even from this angle in the audience area—farther from the stadium arena—I can see Allosa's frustration and feel her disappointment at failing to qualify even in this first hurdle of her journey. If only I had done more for her, this wouldn't have happened.
 
+_[Scene: Locker Room]_
+
+Allosa: "I am sorry... ser."
+
+Player: "...Huh?"
+
+Allosa: "I have failed you. Despite everything you have done for me... I have failed you and everyone who believed in me..."
+
+Player: "...No—it's all my fault. I didn't guide you well enough..."
+
+Allosa looks downward, avoiding eye contact. It is as if she knew this would happen all along.
+
+Allosa: "Please, ser, you are not to be blamed... I have always known that I wasn't fit for the Great Expedition."
+
+Allosa: "My failure the first time around should have prepared me for this... but perhaps it was just wishful thinking."
+
+No... it was due to my shortcomings that she didn't manage to win this bout. But before I can encourage Allosa to try again, she quietly walks away toward the exit.
+
+_[Scene: The Docks]_
+
+It's been a few days since the Triassic League, and I am at the docks waiting for Allosa's departure to Wyoming—her hometown. However, I overhear a conversation passing by.
+
+Person A: "Whoa! Stenops Stegosa is progressing pretty well throughout the Expedition, huh? I think she's more than ready to take on the Jurassic League!"
+
+Person B: "Well, I'm not so sure about that. I've heard that Ostromm Utahra is joining the same league, and my money's on her."
+
+Ostromm Utahra... a famous Paleo Maiden from the House of Cedar. Even she is advancing up the leagues... It's a shame we couldn't face her in the Jurassic League. But Allosa has made her decision, and I have to respect it.
+
+Allosa: "My apologies for the wait, ser."
+
+I turn toward the greeting, and there she stands—
+
+Player: "Ah, Allosa... you're here. Are you ready to get going?"
+
+Allosa: "I have made sure that all the preparations are in order, ser."
+
+Player: "That's good to hear."
+
+Allosa: "Of course! I've only learned from the best."
+
+Player: "?!"
+
+Even now, she remembers my lessons from our training regiments... I'm so sorry, Allosa. If only I'd worked twice as hard...
+
+Player: "I... I'm sorry, Allosa. I truly have failed you. If only I—"
+
+Before I can finish my sentence, Allosa gently shakes her head.
+
+Allosa: "It is fine, ser. You already did your best. My departure away from the Institute is of my own choosing."
+
+Player: "I know, but..."
+
+Allosa: "You have done more than enough for the likes of me, ser. It has been a while since I last returned to Wyoming anyway."
+
+Allosa: "And who knows? Perhaps a quiet life suits me better."
+
+She offers a sad, fragile grin, turns toward the boat, and pauses just before boarding to look back one last time.
+
+Allosa: "Farewell, ser. Thank you for your service, and I pray for your future endeavors."
+
+She waves her hand as the boat departs, slowly fading into the horizon.
+
+`[GAME OVER: The final curtain falls on Fragilis Allosa's expedition.]`
 ---
 
 ### Event: Premiere (Optional Trigger/After joining a Title Match for the 1st time)
@@ -485,7 +551,7 @@ Allosa: "...It's clear as crystal that my instruments require more finnese."
 
 Allosa: "I see now what I lack in. Ser, let's head back and get back to training- and thank you for making me enter this Title Match"
 
-It seems that Allosa's desire to get stronger and learn more increased and she seems to trust me more now.
+It seems that Allosa's desire to get stronger and learn more and she seems to trust me more now.
 
 ---
 
