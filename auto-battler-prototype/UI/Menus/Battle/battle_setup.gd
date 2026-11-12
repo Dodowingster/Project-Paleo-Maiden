@@ -1,8 +1,8 @@
-extends Control
 class_name BattleSetup
+extends Control
 
-@export var setupChar1 : SetupChar
-@export var setupChar2 : SetupChar
+@export var setup_char1 : SetupChar
+@export var setup_char2 : SetupChar
 
 func _ready() -> void:
 	pass
@@ -13,6 +13,6 @@ func _process(_delta: float) -> void:
 		_on_start_btn_pressed()
 
 func _on_start_btn_pressed() -> void:
-	var testStage : PackedScene = load("res://Stages/test_stage.tscn")
-	var testStageNode : Stage = testStage.instantiate()
-	SimpleSceneManager.start_battle(setupChar1, setupChar2, testStageNode)
+	var test_stage : PackedScene = load("res://Stages/test_stage.tscn")
+	var test_stage_node : Stage = test_stage.instantiate()
+	SimpleSceneManager.start_battle(setup_char1, setup_char2, test_stage_node)

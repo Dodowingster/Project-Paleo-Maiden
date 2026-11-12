@@ -12,8 +12,8 @@ func _ready() -> void:
 		populate(techInv)
 	else:
 		populate(CurrentRunData.technique_inventory)
-	CurrentRunData.technique_inventory.listChanged.connect(populate_from_current)
-	CurrentRunData.technique_loadout.listChanged.connect(update_entries)
+	CurrentRunData.technique_inventory.list_changed.connect(populate_from_current)
+	CurrentRunData.technique_loadout.list_changed.connect(update_entries)
 
 func populate(techniqueInv : TechniqueList) -> void:
 	for child in %EntryList.get_children():

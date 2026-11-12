@@ -1,5 +1,5 @@
-extends Trigger
 class_name CooldownAvailableTrigger
+extends Trigger
 
 @onready var character : Character
 
@@ -8,14 +8,14 @@ func check_condition() -> bool:
 	var techniques : Array = character.loadout.get_children()
 	for technique in techniques:
 		if technique is Technique:
-			var trigsEffs = technique.get_children()
-			var hasCooldown : bool = false
-			for trigEff in trigsEffs:
-				if trigEff is CooldownTrigger:
-					if trigEff.currentTimer > 0:
-						hasCooldown = true
+			var trigs_effs = technique.get_children()
+			var has_cooldown : bool = false
+			for trig_eff in trigs_effs:
+				if trig_eff is CooldownTrigger:
+					if trig_eff.current_timer > 0:
+						has_cooldown = true
 						break
-			if hasCooldown:
+			if has_cooldown:
 				condition_met = true
 				break
 	return condition_met

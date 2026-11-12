@@ -2,8 +2,8 @@ extends Node
 
 
 func _on_rest_btn_pressed() -> void:
-	CurrentRunData.char_data.currentHP = CurrentRunData.char_data.maxHP
-	%MapStateMachine.on_child_transition(%MapStateMachine.currentState, "Map")
+	CurrentRunData.char_data.current_hp = CurrentRunData.char_data.max_hp
+	%MapStateMachine.on_child_transition(%MapStateMachine.current_state, "Map")
 
 
 func _on_spar_btn_pressed() -> void:
@@ -25,14 +25,14 @@ func _on_spar_btn_pressed() -> void:
 		if mapNodeChildren.size() >= 1:
 			for child in mapNodeChildren:
 				if child is EnemyData:
-					battleSetupNode.char2 = child.baseCharacter.duplicate_deep()
+					battleSetupNode.char2 = child.base_character.duplicate_deep()
 					battleSetupNode.char2.atk = child.atk
 					battleSetupNode.char2.def = child.def
 					battleSetupNode.char2.spd = child.spd
-					battleSetupNode.char2.minSta = child.minSta
-					battleSetupNode.char2.maxSta = child.maxSta
-					battleSetupNode.char2.maxHP = child.maxHP
-					battleSetupNode.char2.currentHP = child.currentHP
+					battleSetupNode.char2.min_sta = child.min_sta
+					battleSetupNode.char2.max_sta = child.max_sta
+					battleSetupNode.char2.max_hp = child.max_hp
+					battleSetupNode.char2.current_hp = child.current_hp
 					battleSetupNode.loadout2 = child.loadout.duplicate_deep()
 	
 		get_tree().change_scene_to_node(battleSetupNode)
@@ -41,5 +41,5 @@ func _on_spar_btn_pressed() -> void:
 
 
 func _on_train_btn_pressed() -> void:
-	RewardsManager.reward_technique(CurrentRunData.char_data.characterName)
-	%MapStateMachine.on_child_transition(%MapStateMachine.currentState, "Map")
+	RewardsManager.reward_technique(CurrentRunData.char_data.character_name)
+	%MapStateMachine.on_child_transition(%MapStateMachine.current_state, "Map")

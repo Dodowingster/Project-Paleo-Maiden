@@ -28,21 +28,21 @@ func _ready() -> void:
 
 
 func char_setup() -> void:
-	P1ActionGoalTotalLabelValue.text = "/ " + str(P1.actionGoalTotal)
-	P1HealthTotal.text = "/ " + str(P1.maxHP)
-	var techniqueList = P1.loadout.get_children()
-	P1.loadout.updateTriggerStatus.connect(updateTechniqueStatusP1)
-	for technique in techniqueList:
+	P1ActionGoalTotalLabelValue.text = "/ " + str(P1.action_goal_total)
+	P1HealthTotal.text = "/ " + str(P1.max_hp)
+	var technique_list = P1.loadout.get_children()
+	P1.loadout.update_trigger_status.connect(updateTechniqueStatusP1)
+	for technique in technique_list:
 		if technique is Technique:
 			var techniqueLabel : Label = Label.new()
 			techniqueLabel.text = technique.name
 			P1TechniqueList.add_child(techniqueLabel)
 	
-	P2ActionGoalTotalLabelValue.text = "/ " + str(P2.actionGoalTotal)
-	P2HealthTotal.text = "/ " + str(P2.maxHP)
-	techniqueList = P2.loadout.get_children()
-	P2.loadout.updateTriggerStatus.connect(updateTechniqueStatusP2)
-	for technique in techniqueList:
+	P2ActionGoalTotalLabelValue.text = "/ " + str(P2.action_goal_total)
+	P2HealthTotal.text = "/ " + str(P2.max_hp)
+	technique_list = P2.loadout.get_children()
+	P2.loadout.update_trigger_status.connect(updateTechniqueStatusP2)
+	for technique in technique_list:
 		if technique is Technique:
 			var techniqueLabel : Label = Label.new()
 			techniqueLabel.text = technique.name
@@ -58,15 +58,15 @@ func clear() -> void:
 			child.queue_free()
 
 func _process(_delta: float) -> void:
-	tickLabelValue.text = str(dataTracker.tickCount)
+	tickLabelValue.text = str(dataTracker.tick_count)
 	timerLabelValue.text = str(snapped(dataTracker.timer, 0.001)) + "s"
 	distanceLabelValue.text = str(snapped(dataTracker.distance, 0.001))
 	
-	P1ActionGoalValueLabelValue.text = str(P1.currentActionGoal)
-	P1ActionStockValue.text = str(P1.currentActionStock)
+	P1ActionGoalValueLabelValue.text = str(P1.current_action_goal)
+	P1ActionStockValue.text = str(P1.current_action_stock)
 	P1HealthValue.text = str(P1.health)
-	P2ActionGoalValueLabelValue.text = str(P2.currentActionGoal)
-	P2ActionStockValue.text = str(P2.currentActionStock)
+	P2ActionGoalValueLabelValue.text = str(P2.current_action_goal)
+	P2ActionStockValue.text = str(P2.current_action_stock)
 	P2HealthValue.text = str(P2.health)
 
 func updateTechniqueStatusP1(index: int, canExecute: bool) -> void:

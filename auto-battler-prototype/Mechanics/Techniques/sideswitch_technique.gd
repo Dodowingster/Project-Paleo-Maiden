@@ -2,8 +2,8 @@ extends Technique
 
 func _ready() -> void:
 	super()
-	techniqueName = "SIDESWITCH"
-	animName = "sideswitch"
+	technique_name = "SIDESWITCH"
+	anim_name = "sideswitch"
 
 func execute_technique() -> void:
-	print(characterName + " used SIDESWITCH!")
+	print(character_name + " used SIDESWITCH!")

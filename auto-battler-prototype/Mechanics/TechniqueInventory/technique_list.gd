@@ -1,26 +1,25 @@
-extends Node
 class_name TechniqueList
+extends Node
 
-signal listChanged()
+signal list_changed()
 
-@onready var _techList : Array[TechniqueData]
+@onready var _tech_list : Array[TechniqueData]
 
 func get_list() -> Array[TechniqueData]:
-	return _techList
+	return _tech_list
 
 func get_at_index(index : int) -> TechniqueData:
-	if index >= 0 and index < _techList.size():
-		return _techList[index]
-	else:
-		return null
+	if index >= 0 and index < _tech_list.size():
+		return _tech_list[index]
+	return null
 
-func add(techData : TechniqueData):
-	if techData not in _techList:
-		_techList.append(techData)
-		listChanged.emit()
+func add(tech_data : TechniqueData):
+	if tech_data not in _tech_list:
+		_tech_list.append(tech_data)
+		list_changed.emit()
 
-func remove(techData : TechniqueData):
-	var index : int = _techList.find(techData)
+func remove(tech_data : TechniqueData):
+	var index : int = _tech_list.find(tech_data)
 	if index != -1:
-		_techList.remove_at(index)
-		listChanged.emit()
+		_tech_list.remove_at(index)
+		list_changed.emit()

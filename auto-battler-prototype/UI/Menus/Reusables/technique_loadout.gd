@@ -9,7 +9,7 @@ func _ready() -> void:
 		populate(starterList)
 	else:
 		populate(CurrentRunData.technique_loadout.get_list())
-	CurrentRunData.technique_loadout.listChanged.connect(populate_from_current)
+	CurrentRunData.technique_loadout.list_changed.connect(populate_from_current)
 
 func populate(techList : Array[TechniqueData]) -> void:
 	for child in %EntryList.get_children():

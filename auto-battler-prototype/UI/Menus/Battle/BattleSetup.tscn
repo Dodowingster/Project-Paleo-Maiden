@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dojital3qpw7y" path="res://UI/Menus/Battle/battle_setup.gd" id="1_b6kka"]
 [ext_resource type="PackedScene" uid="uid://3tfudsg5f3v" path="res://UI/Menus/Battle/SetupChar.tscn" id="10_l6cnn"]
 
-[node name="BattleSetup" type="Control" unique_id=1438093763 node_paths=PackedStringArray("setupChar1", "setupChar2")]
+[node name="BattleSetup" type="Control" unique_id=1438093763 node_paths=PackedStringArray("setup_char1", "setup_char2")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,8 +13,8 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_b6kka")
-setupChar1 = NodePath("PanelContainer/VBoxContainer/SetupMenu/SetupChar")
-setupChar2 = NodePath("PanelContainer/VBoxContainer/SetupMenu/SetupChar2")
+setup_char1 = NodePath("PanelContainer/VBoxContainer/SetupMenu/SetupChar")
+setup_char2 = NodePath("PanelContainer/VBoxContainer/SetupMenu/SetupChar2")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1650663864]
 layout_mode = 1
@@ -33,11 +33,11 @@ size_flags_vertical = 3
 
 [node name="SetupChar" parent="PanelContainer/VBoxContainer/SetupMenu" unique_id=617072385 instance=ExtResource("10_l6cnn")]
 layout_mode = 2
-headerLabelText = "P1"
+header_label_text = "P1"
 
 [node name="SetupChar2" parent="PanelContainer/VBoxContainer/SetupMenu" unique_id=807929390 instance=ExtResource("10_l6cnn")]
 layout_mode = 2
-headerLabelText = "P2"
+header_label_text = "P2"
 
 [node name="StartBtn" type="Button" parent="PanelContainer/VBoxContainer" unique_id=286935302]
 layout_mode = 2

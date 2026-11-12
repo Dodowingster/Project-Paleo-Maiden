@@ -1,45 +1,46 @@
-extends StunState
 class_name StateBlockstun
+extends StunState
 
+var anim_list : PackedStringArray = []
+var anim_name : String
+var last_tick : int = 0
+var initial_distance : float = 0
 
-@onready var animPlayer : AnimationPlayer = %AnimationPlayer
-var animList : PackedStringArray = []
-var animName : String
-var lastTick : int = 0
-var initialDistance : float = 0
+@onready var anim_player : AnimationPlayer = %AnimationPlayer
+
 
 func _ready():
-	animList = animPlayer.get_animation_list()
-	animName = owner.animLibName + "/blockstun"
+	anim_list = anim_player.get_animation_list()
+	anim_name = owner.anim_lib_name + "/blockstun"
 
 func enter():
-	owner.canClash = false
-	owner.currentActionStock -= 1
+	owner.can_clash = false
+	owner.current_action_stock -= 1
 	owner.face_opponent()
-	initialDistance = owner.distance
-	if animName in animList:
-		animPlayer.play(animName)
+	initial_distance = owner.distance
+	if anim_name in anim_list:
+		anim_player.play(anim_name)
 
 
 func exit():
-	var finalDistance : float = owner.distance
-	var knockbackDistance : float = finalDistance - initialDistance
-	print("Block knockback distance: " + str(knockbackDistance))
-	animPlayer.play(owner.animLibName + "/RESET")
+	var final_distance : float = owner.distance
+	var knockback_distance : float = final_distance - initial_distance
+	print("Block knockback distance: " + str(knockback_distance))
+	anim_player.play(owner.anim_lib_name + "/RESET")
 
 
 func update(_delta: float):
 	# if hitstop frames finished
 	if owner.hitstop_frames <= 0:
-		var chosenState = ""
+		var chosen_state = ""
 		owner.hitstun -= _delta
 		#var currentHitStun = owner.hitstun
 		if owner.hitstun < 0:
 			owner.hitstun = 0
-			chosenState = "Idle"
-		
-		if chosenState != "":
-			transition.emit(self, chosenState)
+			chosen_state = "Idle"
+
+		if chosen_state != "":
+			transition.emit(self, chosen_state)
 
 
 func physics_update(_delta: float):
@@ -52,7 +53,7 @@ func physics_update(_delta: float):
 			owner.stored_velocity = owner.velocity
 			owner.was_in_hitstop = true
 			impact_just_applied = false
-			animPlayer.speed_scale = 0
+			anim_player.speed_scale = 0
 		owner.velocity = Vector2.ZERO
 
 	# not in hitstop
@@ -62,9 +63,9 @@ func physics_update(_delta: float):
 			owner.velocity = owner.stored_velocity
 			owner.was_in_hitstop = false
 			impact_just_applied = true
-			animPlayer.speed_scale = 1
+			anim_player.speed_scale = 1
 		else:
 			impact_just_applied = true
-	
+
 	if owner.hitstop_frames > 0:
 		owner.hitstop_frames -= 1

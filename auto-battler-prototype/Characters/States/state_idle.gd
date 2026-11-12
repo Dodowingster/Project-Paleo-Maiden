@@ -1,30 +1,29 @@
-extends ActionableState
 class_name StateIdle
+extends ActionableState
 
+#var last_tick : int = 0
+var anim_list : PackedStringArray = []
+var anim_name : String
 
-@onready var animPlayer : AnimationPlayer = %AnimationPlayer
-#var lastTick : int = 0
-var animList : PackedStringArray = []
-var animName : String
+@onready var anim_player : AnimationPlayer = %AnimationPlayer
 
 func _ready():
-	animList = animPlayer.get_animation_list()
-	animName = owner.animLibName + "/idle"
+	anim_list = anim_player.get_animation_list()
+	anim_name = owner.anim_lib_name + "/idle"
 
 
 func enter():
 	super.enter()
-	if animName in animList:
-		animPlayer.play(animName)
+	if anim_name in anim_list:
+		anim_player.play(anim_name)
 
 
 func exit():
-	animPlayer.play(owner.animLibName + "/RESET")
+	anim_player.play(owner.anim_lib_name + "/RESET")
 
 
 func update(_delta: float):
 	super.update(_delta)
-	
 
 
 func physics_update(_delta: float):

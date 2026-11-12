@@ -1,9 +1,9 @@
-extends Trigger
 class_name RangeTrigger
+extends Trigger
 
+@export var min_range : float
+@export var max_range : float
 @onready var character : Character
-@export var minRange : float
-@export var maxRange : float
 
 func check_condition() -> bool:
-	return character.distance >= minRange and character.distance <= maxRange
+	return character.distance >= min_range and character.distance <= max_range

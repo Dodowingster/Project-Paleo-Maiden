@@ -7,19 +7,19 @@
 
 [node name="SurviveBonus" type="Node" unique_id=1266581918]
 script = ExtResource("1_1p0tg")
-affEffectName = "One More Chance!"
+aff_effect_name = "One More Chance!"
 triggerLimit = 1
 metadata/_custom_type_script = "uid://cuhe3xmw2vmk5"
 
 [node name="AffinityTrigger" type="Node" parent="." unique_id=1437390748]
 script = ExtResource("2_hyfdl")
-chanceMod = 1.0
+chance_mod = 1.0
 metadata/_custom_type_script = "uid://bbjt57et5iesw"
 
 [node name="HpTrigger" type="Node" parent="." unique_id=1887836624]
 script = ExtResource("3_7rafb")
-hpCriteriaUpper = 0.0
-hpCriteriaLower = 0.0
+hp_criteria_upper = 0.0
+hp_criteria_lower = 0.0
 metadata/_custom_type_script = "uid://ca0greousgvam"
 
 [node name="SurviveEffect" type="Node" parent="." unique_id=1949358381]

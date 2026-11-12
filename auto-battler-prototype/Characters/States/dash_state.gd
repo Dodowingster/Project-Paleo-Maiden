@@ -1,20 +1,20 @@
-extends State
 class_name DashState
+extends State
 
-@export var timeTillActionable: float = 0.0
-@onready var currentTimeInState: float = 0.0
-@onready var canAct: bool = true
+@export var time_till_actionable: float = 0.0
+@onready var current_time_in_state: float = 0.0
+@onready var can_act: bool = true
 
 func enter() -> void:
-	owner.canClash = false
-	currentTimeInState = 0.0
-	if timeTillActionable > 0:
-		canAct = false
+	owner.can_clash = false
+	current_time_in_state = 0.0
+	if time_till_actionable > 0:
+		can_act = false
 	else:
-		canAct = true
+		can_act = true
 
 func update(_delta: float):
-	if !canAct:
-		currentTimeInState += _delta
-		if currentTimeInState >= timeTillActionable:
-			canAct = true
+	if !can_act:
+		current_time_in_state += _delta
+		if current_time_in_state >= time_till_actionable:
+			can_act = true

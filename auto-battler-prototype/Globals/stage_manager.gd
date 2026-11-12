@@ -1,46 +1,46 @@
 extends Node
 
-signal changeCameraFocus(targets : Array)
-signal restoreOriginalFocus()
+signal change_camera_focus(targets : Array)
+signal restore_original_focus()
 
-signal changeCameraZoom(value : Vector2)
-signal restoreCameraZoom()
+signal change_camera_zoom(value : Vector2)
+signal restore_camera_zoom()
 
-@onready var currentStage : Stage
-@onready var originalTargets : Array
+@onready var current_stage : Stage
+@onready var original_targets : Array
 
 
 func _ready() -> void:
-	changeCameraFocus.connect(_on_camera_focus_change)
-	restoreOriginalFocus.connect(_on_camera_focus_reverted)
-	changeCameraZoom.connect(_on_camera_zoom_set)
-	restoreCameraZoom.connect(_on_camera_zoom_restored)
+	change_camera_focus.connect(_on_camera_focus_change)
+	restore_original_focus.connect(_on_camera_focus_reverted)
+	change_camera_zoom.connect(_on_camera_zoom_set)
+	restore_camera_zoom.connect(_on_camera_zoom_restored)
 
 func set_stage(stage : Stage) -> void:
-	currentStage = stage
-	var phanCam : PhantomCamera2D = currentStage.get_node("PhanCam")
-	originalTargets = phanCam.follow_targets
+	current_stage = stage
+	var phan_cam : PhantomCamera2D = current_stage.get_node("PhanCam")
+	original_targets = phan_cam.follow_targets
 
 func _on_camera_focus_change(targets : Array) -> void:
-	var phanCam : PhantomCamera2D = currentStage.get_node("PhanCam")
-	var setTargets : Array[Node2D] = []
+	var phan_cam : PhantomCamera2D = current_stage.get_node("PhanCam")
+	var set_targets : Array[Node2D] = []
 	for target in targets:
 		if target is Node2D:
-			setTargets.append(target)
-	phanCam.set_follow_targets(setTargets)
+			set_targets.append(target)
+	phan_cam.set_follow_targets(set_targets)
 
 func _on_camera_focus_reverted() -> void:
-	var phanCam : PhantomCamera2D = currentStage.get_node("PhanCam")
-	phanCam.set_follow_targets(originalTargets)
+	var phan_cam : PhantomCamera2D = current_stage.get_node("PhanCam")
+	phan_cam.set_follow_targets(original_targets)
 
 func _on_camera_zoom_set(value : Vector2) -> void:
-	var phanCam : PhantomCamera2D = currentStage.get_node("PhanCam")
-	phanCam.auto_zoom = false
-	var zoomTween : Tween = create_tween()
-	zoomTween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
-	zoomTween.tween_property(currentStage.get_node("Runner/Camera"), "zoom", value, 0.1)
-	phanCam.set_zoom(value)
+	var phan_cam : PhantomCamera2D = current_stage.get_node("PhanCam")
+	phan_cam.auto_zoom = false
+	var zoom_tween : Tween = create_tween()
+	zoom_tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	zoom_tween.tween_property(current_stage.get_node("Runner/Camera"), "zoom", value, 0.1)
+	phan_cam.set_zoom(value)
 
 func _on_camera_zoom_restored() -> void:
-	var phanCam : PhantomCamera2D = currentStage.get_node("PhanCam")
-	phanCam.auto_zoom = true
+	var phan_cam : PhantomCamera2D = current_stage.get_node("PhanCam")
+	phan_cam.auto_zoom = true

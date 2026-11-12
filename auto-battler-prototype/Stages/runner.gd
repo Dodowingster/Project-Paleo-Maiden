@@ -16,7 +16,7 @@ class_name Runner
 @onready var nodeP2 : Character
 @onready var dataTracker : DataTracker = %DataTracker
 @onready var ui : Control = %UI
-@onready var phanCam : PhantomCamera2D = %PhanCam
+@onready var phan_cam : PhantomCamera2D = %PhanCam
 @export var camera : CustomCamera
 
 @onready var winningSide : String = ""
@@ -29,15 +29,15 @@ func _ready() -> void:
 func initialize_char(charData : CharacterData, isP1 : bool) -> Character:
 	var charScene : PackedScene = load("res://Characters/generic/battle_character.tscn")
 	var charNode : Character = charScene.instantiate()
-	charNode.characterData = charData
-	charNode.startFacingRight = isP1
+	charNode.character_data = charData
+	charNode.start_facing_right = isP1
 	if isP1:
 		dataTracker.char1 = charNode
 		charNode.position = p1SpawnPosition
 	else:
 		dataTracker.char2 = charNode
 		charNode.position = p2SpawnPosition
-	charNode.shakeCamera.connect(camera.add_trauma)
+	charNode.shake_camera.connect(camera.add_trauma)
 	
 	return charNode
 
@@ -46,7 +46,7 @@ func initialize() -> void:
 	nodeP2 = initialize_char(data2, false)
 	nodeP1.opponent = nodeP2
 	nodeP2.opponent = nodeP1
-	phanCam.follow_targets = [nodeP1, nodeP2]
+	phan_cam.follow_targets = [nodeP1, nodeP2]
 	self.add_child(nodeP1)
 	self.add_child(nodeP2)
 	nodeP1.setup_loadout(loadout1)
@@ -57,17 +57,17 @@ func initialize() -> void:
 	%RightPopupSection.connect_to_character(nodeP2)
 	ui.char_setup()
 
-	nodeP1.broadcastLose.connect(broadcast_fin.bind("P2"))
-	nodeP2.broadcastLose.connect(broadcast_fin.bind("P1"))
+	nodeP1.broadcast_lose.connect(broadcast_fin.bind("P2"))
+	nodeP2.broadcast_lose.connect(broadcast_fin.bind("P1"))
 
 func reset() -> void:
 	nodeP1.unload_loadout()
 	loadout1.remove_at(-1)
 	nodeP2.unload_loadout()
 	loadout2.remove_at(-1)
-	nodeP1.shakeCamera.disconnect(camera.add_trauma)
-	nodeP2.shakeCamera.disconnect(camera.add_trauma)
-	phanCam.follow_targets = []
+	nodeP1.shake_camera.disconnect(camera.add_trauma)
+	nodeP2.shake_camera.disconnect(camera.add_trauma)
+	phan_cam.follow_targets = []
 	nodeP1.queue_free()
 	nodeP2.queue_free()
 	ui.clear()

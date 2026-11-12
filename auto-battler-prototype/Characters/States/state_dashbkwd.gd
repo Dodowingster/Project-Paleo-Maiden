@@ -1,29 +1,30 @@
-extends DashState
 class_name StateDashBkwd
+extends DashState
 
+var anim_list : PackedStringArray = []
+var anim_name : String
+var backup_anim : String
 
-@onready var animPlayer : AnimationPlayer = %AnimationPlayer
-var animList : PackedStringArray = []
-var animName : String
-var backupAnim : String
+@onready var anim_player : AnimationPlayer = %AnimationPlayer
+
 
 func _ready():
-	animList = animPlayer.get_animation_list()
-	animName = owner.animLibName + "/dashbackward"
-	backupAnim = owner.animLibName + "/movebackward"
+	anim_list = anim_player.get_animation_list()
+	anim_name = owner.anim_lib_name + "/dashbackward"
+	backup_anim = owner.anim_lib_name + "/movebackward"
 
 
 func enter():
 	super.enter()
-	if animName in animList:
-		animPlayer.play(animName)
+	if anim_name in anim_list:
+		anim_player.play(anim_name)
 	else:
-		if backupAnim in animList:
-			animPlayer.play(backupAnim)
+		if backup_anim in anim_list:
+			anim_player.play(backup_anim)
 
 
 func exit():
-	animPlayer.play(owner.animLibName + "/RESET")
+	anim_player.play(owner.anim_lib_name + "/RESET")
 
 
 func update(_delta: float):
@@ -31,4 +32,4 @@ func update(_delta: float):
 
 
 func physics_update(_delta: float):
-	owner.velocity.x = -(owner.spd * owner.backwardDashSpdMult * %SideTracker.side)
+	owner.velocity.x = -(owner.spd * owner.backward_dash_spd_mult * %SideTracker.side)

@@ -1,5 +1,5 @@
-extends State
 class_name ActionableState
+extends State
 
 func enter() -> void:
-	owner.canClash = true
+	owner.can_clash = true

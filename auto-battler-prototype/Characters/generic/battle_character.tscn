@@ -1,16 +1,15 @@
 [gd_scene format=3 uid="uid://c0n8jl8cb30ey"]
 
 [ext_resource type="Script" uid="uid://f081btviug4u" path="res://Characters/generic/battle_character.gd" id="1_3bj0f"]
-[ext_resource type="Resource" uid="uid://c2k2423pfb03h" path="res://Characters/don/don_data.tres" id="2_2hlpk"]
 [ext_resource type="PackedScene" uid="uid://d3iu0sin4j6fq" path="res://Mechanics/AffinityBonus/MaxActionGoalBonus.tscn" id="3_1qdq6"]
 [ext_resource type="PackedScene" uid="uid://bmvlkv53mb3cn" path="res://Mechanics/AffinityBonus/SurviveBonus.tscn" id="4_wmjtw"]
 [ext_resource type="PackedScene" uid="uid://0ikbyqukpbpo" path="res://Mechanics/AffinityBonus/ClashGoodBonus.tscn" id="5_a1acq"]
 [ext_resource type="PackedScene" uid="uid://t5ijh4ht3g7r" path="res://Mechanics/AffinityBonus/ResetCooldownBonus.tscn" id="6_no482"]
 [ext_resource type="Script" uid="uid://s0ees7w47yw6" path="res://Characters/generic/affinity_manager.gd" id="7_cqpbk"]
-[ext_resource type="Texture2D" uid="uid://tuyj15q4u60r" path="res://Characters/placeholder_sprites/Jin Sprites/jn430_01.png" id="8_obnbw"]
 [ext_resource type="AnimationLibrary" uid="uid://boalcp78pqj5n" path="res://Characters/don/anims/don.res" id="9_u1ssa"]
 [ext_resource type="AnimationLibrary" uid="uid://c7xkr5d1qyx2t" path="res://Characters/jin/anims/jin.res" id="10_8yoqf"]
 [ext_resource type="AnimationLibrary" uid="uid://dkhtxnpfpt0ey" path="res://Characters/ryoshu/anims/ryoshu.res" id="11_cvx6o"]
+[ext_resource type="Texture2D" uid="uid://cuskt27lt6cex" path="res://Characters/placeholder_sprites/NCorpRyoshu/skill3_2_#9181.png" id="12_h2n87"]
 [ext_resource type="Script" uid="uid://colufoqxh8nwm" path="res://Characters/generic/side_tracker.gd" id="12_vrqku"]
 [ext_resource type="Script" uid="uid://cuqyr28ih435l" path="res://Mechanics/hurtbox.gd" id="13_vgsr5"]
 [ext_resource type="Script" uid="uid://xhutnxqw7tsv" path="res://Characters/generic/shake_sprite.gd" id="14_atnpe"]
@@ -33,37 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://wa1rn1pd2gkc" path="res://Mechanics/Loadout/Loadout.tscn" id="31_qj7xg"]
 [ext_resource type="Script" uid="uid://cyexs8siijqaw" path="res://Characters/generic/attack_viewer.gd" id="32_ityis"]
 
-[sub_resource type="Animation" id="Animation_xyuli"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SideTracker/Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("8_obnbw")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SideTracker/Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(16, -6)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w4xc1"]
-_data = {
-&"RESET": SubResource("Animation_xyuli")
-}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xudx"]
 size = Vector2(48, 128)
@@ -74,13 +43,12 @@ size = Vector2(48, 128)
 [node name="Character" type="CharacterBody2D" unique_id=216433586]
 collision_mask = 49
 script = ExtResource("1_3bj0f")
-characterData = ExtResource("2_2hlpk")
-affinityBonuses = Array[PackedScene]([ExtResource("3_1qdq6"), ExtResource("4_wmjtw"), ExtResource("5_a1acq"), ExtResource("6_no482")])
+affinity_bonuses = Array[PackedScene]([ExtResource("3_1qdq6"), ExtResource("4_wmjtw"), ExtResource("5_a1acq"), ExtResource("6_no482")])
 
 [node name="AffinityManager" type="Node" parent="." unique_id=1817413589]
 unique_name_in_owner = true
 script = ExtResource("7_cqpbk")
-affLvl = 5
+aff_lvl = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=599901854]
 unique_name_in_owner = true
@@ -106,28 +74,28 @@ debug_color = Color(0, 0.6, 0, 0.41960785)
 
 [node name="Sprite" type="Sprite2D" parent="SideTracker" unique_id=1654816590]
 unique_name_in_owner = true
-position = Vector2(16, -6)
+position = Vector2(41, -4)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("8_obnbw")
+texture = ExtResource("12_h2n87")
 region_rect = Rect2(0, 88, 256, 401)
 script = ExtResource("14_atnpe")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=504018138]
 shape = SubResource("RectangleShape2D_acr0g")
 
-[node name="StateManager" type="Node" parent="." unique_id=1093992849 node_paths=PackedStringArray("stateMachine", "character", "sideTracker", "noActionGoalStates", "canBlockStates")]
+[node name="StateManager" type="Node" parent="." unique_id=1093992849 node_paths=PackedStringArray("state_machine", "character", "side_tracker", "no_action_goal_states", "can_block_states")]
 unique_name_in_owner = true
 script = ExtResource("15_uxxdo")
-stateMachine = NodePath("../StateMachine")
+state_machine = NodePath("../StateMachine")
 character = NodePath("..")
-sideTracker = NodePath("../SideTracker")
-noActionGoalStates = [NodePath("../StateMachine/Hitstun"), NodePath("../StateMachine/Blockstun"), NodePath("../StateMachine/BaseAttack"), NodePath("../StateMachine/Technique"), NodePath("../StateMachine/Win"), NodePath("../StateMachine/Lose"), NodePath("../StateMachine/Clashing"), NodePath("../StateMachine/ClashLose")]
-canBlockStates = [NodePath("../StateMachine/Idle"), NodePath("../StateMachine/Blockstun"), NodePath("../StateMachine/MoveForward"), NodePath("../StateMachine/MoveBackward")]
+side_tracker = NodePath("../SideTracker")
+no_action_goal_states = [NodePath("../StateMachine/Hitstun"), NodePath("../StateMachine/Blockstun"), NodePath("../StateMachine/BaseAttack"), NodePath("../StateMachine/Technique"), NodePath("../StateMachine/Win"), NodePath("../StateMachine/Lose"), NodePath("../StateMachine/Clashing"), NodePath("../StateMachine/ClashLose")]
+can_block_states = [NodePath("../StateMachine/Idle"), NodePath("../StateMachine/Blockstun"), NodePath("../StateMachine/MoveForward"), NodePath("../StateMachine/MoveBackward")]
 
-[node name="StateMachine" type="Node" parent="." unique_id=842694158 node_paths=PackedStringArray("initialState")]
+[node name="StateMachine" type="Node" parent="." unique_id=842694158 node_paths=PackedStringArray("initial_state")]
 unique_name_in_owner = true
 script = ExtResource("16_xhyo0")
-initialState = NodePath("Idle")
+initial_state = NodePath("Idle")
 
 [node name="Hitstun" type="Node" parent="StateMachine" unique_id=739731566]
 script = ExtResource("17_u1l1m")
@@ -143,12 +111,12 @@ script = ExtResource("20_gqivm")
 
 [node name="DashForward" type="Node" parent="StateMachine" unique_id=1051682112]
 script = ExtResource("21_lbw3x")
-timeTillActionable = 0.3
+time_till_actionable = 0.3
 metadata/_custom_type_script = "uid://c0a4y3qqqfiu3"
 
 [node name="DashBackward" type="Node" parent="StateMachine" unique_id=1150037753]
 script = ExtResource("22_livxf")
-timeTillActionable = 0.33
+time_till_actionable = 0.33
 metadata/_custom_type_script = "uid://piba5udqmidg"
 
 [node name="MoveBackward" type="Node" parent="StateMachine" unique_id=992213530]

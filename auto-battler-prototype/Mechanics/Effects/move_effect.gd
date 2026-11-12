@@ -1,22 +1,23 @@
-extends Effect
 class_name MoveEffect
+extends Effect
+
+@export var velocity : Vector2
+@export var apply_frame : int
 
 @onready var character : Character
-@export var velocity : Vector2
-@export var applyFrame : int
-@onready var timeElapsed : float = 0
+@onready var time_elapsed : float = 0
 @onready var triggered : bool = false
 
-func execute_effect(delta: float) -> void:
+func execute_effect(_delta: float) -> void:
 	pass
 
 func execute_physics_effect(delta: float) -> void:
 	if not triggered:
-		if timeElapsed > (applyFrame / 60.0):
+		if time_elapsed > (apply_frame / 60.0):
 			character.velocity += velocity * character.get_side()
 			triggered = true
-		timeElapsed += delta
+		time_elapsed += delta
 
 func reset() -> void:
-	timeElapsed = 0
+	time_elapsed = 0
 	triggered = false

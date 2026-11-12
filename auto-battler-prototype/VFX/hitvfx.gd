@@ -1,19 +1,18 @@
-extends Node2D
 class_name VFX
+extends Node2D
 
-@onready var animPlayer : AnimationPlayer = %AnimationPlayer
+@onready var anim_player : AnimationPlayer = %AnimationPlayer
 @onready var freeze_frames : int = 0
 
 func _ready() -> void:
-	animPlayer.play("play")
+	anim_player.play("play")
 
 func _physics_process(_delta: float) -> void:
-	pass
 	if freeze_frames > 0:
-		animPlayer.speed_scale = 0
+		anim_player.speed_scale = 0
 		freeze_frames -= 1
 	else:
-		animPlayer.speed_scale = 1
+		anim_player.speed_scale = 1
 
 func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 	queue_free()

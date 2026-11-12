@@ -1,30 +1,31 @@
-extends Effect
 class_name ZoomCameraEffect
+extends Effect
+
+@export var apply_frame : int
+@export var revert_frame : int
+@export var zoom : Vector2 = Vector2(1, 1)
 
 @onready var character : Character
-@export var applyFrame : int
-@export var revertFrame : int
-@export var zoom : Vector2 = Vector2(1, 1)
-@onready var timeElapsed : float = 0
-@onready var cameraZoomChanged : bool = false
-@onready var effectDone : bool = false
+@onready var time_elapsed : float = 0
+@onready var camera_zoom_changed : bool = false
+@onready var effect_done : bool = false
 
 func execute_effect(delta: float) -> void:
-	if not effectDone:
-		if not cameraZoomChanged:
-			if timeElapsed > (applyFrame / 60.0):
-				StageManager.changeCameraZoom.emit(zoom)
-				cameraZoomChanged = true
+	if not effect_done:
+		if not camera_zoom_changed:
+			if time_elapsed > (apply_frame / 60.0):
+				StageManager.change_camera_zoom.emit(zoom)
+				camera_zoom_changed = true
 		else:
-			if timeElapsed > (revertFrame / 60.0):
-				StageManager.restoreCameraZoom.emit()
-				effectDone = true
-		timeElapsed += delta
+			if time_elapsed > (revert_frame / 60.0):
+				StageManager.restore_camera_zoom.emit()
+				effect_done = true
+		time_elapsed += delta
 
-func execute_physics_effect(delta: float) -> void:
+func execute_physics_effect(_delta: float) -> void:
 	pass
 
 func reset() -> void:
-	timeElapsed = 0
-	cameraZoomChanged = false
-	effectDone = false
+	time_elapsed = 0
+	camera_zoom_changed = false
+	effect_done = false

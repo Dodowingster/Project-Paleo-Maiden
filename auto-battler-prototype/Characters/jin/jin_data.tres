@@ -6,22 +6,20 @@
 
 [resource]
 script = ExtResource("1_5eh5q")
-characterName = "Jin"
-animLib = ExtResource("1_m0c2w")
-animLibName = "jin"
+character_name = "Jin"
+anim_lib = ExtResource("1_m0c2w")
+anim_lib_name = "jin"
 atk = 7
 spd = 8
-maxSta = 14
-maxHP = 150
+max_sta = 14
+max_hp = 150
 strategy = 1
-minDistance = 70
-maxDistance = 140
-forwardSpdMult = 25.0
-backwardSpdMult = 12.5
-forwardDashSpdMult = 40.0
-forwardDashMinDuration = 0.25
-backwardDashSpdMult = 20.0
-backwardDashMinDuration = 0.28
-actionGoalTotal = 600
-baseAtkData = ExtResource("2_c5yf4")
+min_distance = 70
+max_distance = 140
+forward_spd_mult = 25.0
+backward_spd_mult = 12.5
+forward_dash_spd_mult = 40.0
+backward_dash_spd_mult = 20.0
+action_goal_total = 600
+base_atk_data = ExtResource("2_c5yf4")
 metadata/_custom_type_script = "uid://boc53imrgb27h"
