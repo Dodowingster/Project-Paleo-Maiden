@@ -60,7 +60,7 @@ However, due to her obssessiveness towards the purity of her own P-Magic concent
 
 | **Phone Wallpaper** | A photo of a single, flawless Sakura bloom. |
 
-| **Hygience Obsession** | She would take extremely long time taking a shower or cleaning herself after any activities. |
+| **Hygiene Obsession** | She would take extremely long time taking a shower or cleaning herself after any activities. |
 
 | **Titles** | The Honorable Robber, The Sakura Steel |
 
