@@ -12,8 +12,6 @@
 
 The planet is called **Earth**. A faint ring of rocks circles it closer to the planet than Saturn's rings. From the ground, the ring appears small, and its fragments seem to float in the sky. They are not rocks, however, but enormous floating islands: the home of the **United Clades of Metazoa**, a civilization representing the animal kingdom, including the Mammalias, Reptilias, and other clades.
 
-The timeline's intended course follows the history familiar to us: the dinosaurs become extinct, and the United Clades of Metazoa flourish in the world that follows. The Paleo Maidens, as living manifestations of the Deinos, are an anomaly in that timeline: they survive into an age in which the Deinos were meant to be gone. Their continued existence prevents the United Clades from fully manifesting and claiming Earth as their own.
-
 The United Clades seek solid ground on Earth, targeting specifically the **Primeval Continents**, sacred to the Deinos. The Modern Continents lie outside the impact zone and would survive the initial catastrophe. To correct the timeline, the floating islands will join into a single, colossal mass and descend like a meteor, destroying the Primeval Continents and eradicating the Paleo Maidens. This invasion and impact are called **the Great Extinction**.
 
 ## Gideon's Discovery and Owen's Preparations
@@ -39,3 +37,10 @@ The **True Ending** breaks that pattern. Parallel timelines in which different M
 In our real world, Dr. Gideon Mantell discovered the *Iguanodon* and shared his findings, but **Sir Richard Owen**—known for coining the word *"Dinosauria"* and founding major public institutions—was often dismissive and took credit for the work of his rivals.
 
 This world-building reflects that historical dynamic: Dr. Owen is portrayed as a pragmatic, dismissive, and politically calculating figure who suppressed Dr. Gideon's research on The Great Extinction to prevent public panic. However, just like the real Richard Owen, Dr. Owen's public-facing legacy as the founder of the Stratum Institute and the master of the World Cup makes him far more famous and familiar to the public than Dr. Gideon, who passed away in obscurity. This tension between Gideon's empathetic vision and Owen's cold pragmatism drives the hidden conspiracies and historical foundations of *Project Paleo Maiden*.
+
+The United Clades of Metazoa is inspired by the Animal Kingdom. The timeline's intended course follows the history familiar to us: the dinosaurs become extinct, and the United Clades of Metazoa flourish in the world that follows. The Paleo Maidens, as living manifestations of the Deinos, are an anomaly in the timeline: they survive into an age in which the Deinos were meant to be gone. Their continued existence prevents the United Clades from fully manifesting and claiming Earth as their own.
+
+Pros:
+- Sequel Bait
+- Conflict in world that directly pays homage to our real world
+- 
