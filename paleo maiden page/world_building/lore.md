@@ -6,27 +6,29 @@
 ---
 
 ## Table of Contents
-1.  [The Paleo Maidens](#the-paleo-maidens)
-    -   [Origins](#origins)
-    -   [The First Maidens: Sauris and Ornith](#the-first-maidens-sauris-and-ornith)
-    -   [Characteristics and Lifestyle](#characteristics-and-lifestyle)
-    -   [Lifespan](#lifespan)
-    -   [Family Clades](#family-clades)
-    -   [The Unresolvable Anomaly (Nomen Dubium)](#the-unresolvable-anomaly-nomen-dubium)
-    -   [Paleo-Magic (P-Magic)](#paleo-magic-p-magic)
-    -   [Retirement and the Second Life](#retirement-and-the-second-life)
-    -   [Paleo Arts and Magic Discplines](#paleo-arts-and-magic-discplines)
-2.  [Origin of the Stratum Institute, University of Paleo Maidens](#origin-of-the-stratum-institute-university-of-paleo-maidens)
-    -   [Founding and Philosophy](#founding-and-philosophy)
-    -   [Structure and Curriculum](#structure-and-curriculum)
-3.  [The Paleo Maiden Union and the Paleo World Championship](#the-paleo-maiden-union-and-the-paleo-world-championship)
-    -   [The Paleo World Championship (World Cup)](#the-paleo-world-championship-world-cup)
-    -   [League Divisions and Tournament Format](#league-divisions-and-tournament-format)
-    -   [Deprecated: Former Professional Leagues Plan](#deprecated-former-professional-leagues-plan)
-4.  [The World](#the-world)
-    -   [The Modern World](#the-modern-world)
-    -   [The Primeval Continents](#the-primeval-continents)
-5.  [Role of the Player](#role-of-the-player)
+- [Project Paleo Maiden: World Lore](#project-paleo-maiden-world-lore)
+  - [Table of Contents](#table-of-contents)
+  - [The Paleo Maidens](#the-paleo-maidens)
+    - [Origins](#origins)
+    - [The First Maidens: Sauris and Ornith](#the-first-maidens-sauris-and-ornith)
+    - [Characteristics and Lifestyle](#characteristics-and-lifestyle)
+    - [Lifespan](#lifespan)
+    - [Family Clades](#family-clades)
+    - [Lineage and Legacy Naming](#lineage-and-legacy-naming)
+    - [The Unresolvable Anomaly (Nomen Dubium)](#the-unresolvable-anomaly-nomen-dubium)
+    - [Paleo-Magic (P-Magic)](#paleo-magic-p-magic)
+    - [Paleo Arts and Magic Discplines](#paleo-arts-and-magic-discplines)
+  - [Origin of the Stratum Institute, University of Paleo Maidens](#origin-of-the-stratum-institute-university-of-paleo-maidens)
+    - [Founding and Philosophy](#founding-and-philosophy)
+    - [Structure and Curriculum](#structure-and-curriculum)
+  - [The Paleo Maiden Union and the Paleo World Championship](#the-paleo-maiden-union-and-the-paleo-world-championship)
+    - [The Paleo World Championship (World Cup)](#the-paleo-world-championship-world-cup)
+    - [League Divisions and Tournament Format](#league-divisions-and-tournament-format)
+    - [Deprecated: Former Professional Leagues Plan](#deprecated-former-professional-leagues-plan)
+  - [The World](#the-world)
+    - [The Modern World](#the-modern-world)
+    - [The Primeval Continents](#the-primeval-continents)
+  - [Role of the Player](#role-of-the-player)
 ---
 
 ## The Paleo Maidens
@@ -249,8 +251,6 @@ The geography of this world is one of profound duality, with a planet roughly tw
 The Modern World is where the vast majority of humanity resides, in nations and cities that mirror our own. It is a world of familiar technology, culture, and civilization. Most Paleo Maidens are born into this world, their extraordinary abilities first emerging within its familiar cities and towns.
 
 However, the "Truth" whispered by anomalies suggests that this world proceeds linearly only because of a recurring loop. While humanity sees only a continuous history, those who face the Truth Trial learn of a "million shattered pasts" and "forgotten tomorrows" that define the current era.
-
-### The Primeval Continents
 
 ### The Primeval Continents
 
