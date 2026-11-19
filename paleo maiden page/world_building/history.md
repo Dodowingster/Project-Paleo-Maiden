@@ -14,9 +14,21 @@ The planet is called **Earth**. A faint ring of rocks circles it closer to the p
 
 The United Clades seek solid ground on Earth, targeting specifically the **Primeval Continents**, sacred to the Deinos. The Modern Continents lie outside the impact zone and would survive the initial catastrophe. To correct the timeline, the floating islands will join into a single, colossal mass and descend like a meteor, destroying the Primeval Continents and eradicating the Paleo Maidens. This invasion and impact are called **the Great Extinction**.
 
+## The Origins of Sauris and Ornith, and the Arrival of Saurophaganax
+
+In this world, Deinos is the ancient progenitor of two Paleo Maidens: Sauris and Ornith, who reside in the Primeval Continents. Sauris is lively and driven by raw passion, while Ornith is reserved and guided by keen insight. The two Maidens are constant rivals, disagreeing and fighting one another whenever their convictions collide.
+
+Their disputes are said to cause natural disasters such as tsunamis, earthquakes, and tornadoes, for their power is immense. Every clash ends in a draw, with neither gaining victory over the other. Even so, the Maidens take a certain enjoyment in their battles.
+
+Eventually, they tire of their unending clashes and agree to settle their dispute once and for all. They arrange a final bout in which they will fight with everything they have until neither can continue. During the battle, their opposing power tears reality apart, causing fossils and dinosaur skeletons to appear throughout the Primeval Continents.
+
+Just as they prepare to release their ultimate attacks, they are interrupted by a creature shaped like another child of Deinos—but unlike them, it is not a Maiden, but a man. The creature introduces himself as **Saurophaganax Maximus**.
+
+Saurophaganax strikes Ornith and shatters her defenses. Sauris interprets the blow as an act of disrespect and declares the outsider hostile. Saurophaganax then summons asteroids into the world and reveals them as a countdown: a time bomb for the Great Extinction.
+
 ## Gideon's Discovery and Owen's Preparations
 
-Before the Stratum Institute was built, **Dr. Gideon** found a tablet while researching on a Primeval Continent. Gideon interpreted it as a warning of the Great Extinction: the children of Deinos were not meant to survive the coming correction of the timeline, and the United Clades of Metazoa were destined to rule Earth. The tablet also led him to believe that Paleo Maidens could face extinction within years of the Institute's founding.
+Before the Stratum Institute was built, **Dr. Gideon** found an ancient tablet while researching on a Primeval Continent—a relic left behind long ago by the original progenitors, **Sauris and Ornith**. Gideon interpreted it as a warning of the Great Extinction: the children of Deinos were not meant to survive the coming correction of the timeline, and the United Clades of Metazoa were destined to rule Earth. The tablet also led him to believe that Paleo Maidens could face extinction within years of the Institute's founding.
 
 Gideon shared his findings with **Dr. Owen**, founder of the PMU. Owen rejected the research publicly, fearing that disclosure would cause panic and provoke a preemptive war. Humans might fear that Maidens were connected to the apocalypse; Maidens might fight humanity over the Modern Continents as a refuge. Owen believed either conflict could fracture the cooperation needed to face the actual threat.
 
@@ -38,9 +50,4 @@ In our real world, Dr. Gideon Mantell discovered the *Iguanodon* and shared his 
 
 This world-building reflects that historical dynamic: Dr. Owen is portrayed as a pragmatic, dismissive, and politically calculating figure who suppressed Dr. Gideon's research on The Great Extinction to prevent public panic. However, just like the real Richard Owen, Dr. Owen's public-facing legacy as the founder of the Stratum Institute and the master of the World Cup makes him far more famous and familiar to the public than Dr. Gideon, who passed away in obscurity. This tension between Gideon's empathetic vision and Owen's cold pragmatism drives the hidden conspiracies and historical foundations of *Project Paleo Maiden*.
 
-The United Clades of Metazoa is inspired by the Animal Kingdom. The timeline's intended course follows the history familiar to us: the dinosaurs become extinct, and the United Clades of Metazoa flourish in the world that follows. The Paleo Maidens, as living manifestations of the Deinos, are an anomaly in the timeline: they survive into an age in which the Deinos were meant to be gone. Their continued existence prevents the United Clades from fully manifesting and claiming Earth as their own.
-
-Pros:
-- Sequel Bait
-- Conflict in world that directly pays homage to our real world
-- 
+The United Clades of Metazoa is inspired by the Animal Kingdom. The timeline's intended course follows the history familiar to us: the dinosaurs become extinct, and the Mammals and Reptiles flourish in the world that follows. The Paleo Maidens, as living manifestations of the Deinos, are an anomaly in this world: they survive into an age in which the Deinos were meant to be gone. Their continued existence prevents the United Clades from fully manifesting and claiming Earth as their own.
