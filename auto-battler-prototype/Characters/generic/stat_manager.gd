@@ -11,10 +11,6 @@ extends Node
 @onready var min_sta: int
 ## Maximum stamina roll to add to action goal
 @onready var max_sta: int
-## Maximum HP
-@onready var max_hp: int
-## Current HP
-var cur_hp: int
 
 ## Modifies base forward movement speed
 @onready var forward_spd_mult: float
@@ -39,8 +35,10 @@ func setup_stats() -> void:
 	spd = char_node.character_data.spd
 	min_sta = char_node.character_data.min_sta
 	max_sta = char_node.character_data.max_sta
-	max_hp = char_node.character_data.max_hp
-	cur_hp = max_hp
+	if $HP:
+		print("HP Component attached to " + owner.character_name)
+	else:
+		push_warning("No HP component in " + owner.character_name)
 
 	# Static stats
 	forward_spd_mult = char_node.character_data.forward_spd_mult
