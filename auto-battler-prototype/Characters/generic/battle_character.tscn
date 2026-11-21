@@ -156,8 +156,10 @@ script = ExtResource("32_ityis")
 [node name="StatManager" type="Node" parent="." unique_id=1467625681]
 script = ExtResource("32_3bj0f")
 
-[node name="HP" type="Node" parent="StatManager" unique_id=768715584]
+[node name="HP" type="Node" parent="StatManager" unique_id=551306375 node_paths=PackedStringArray("stat_manager")]
 script = ExtResource("33_2hlpk")
+stat_manager = NodePath("..")
+metadata/_custom_type_script = "uid://maltkrlfhboo"
 
 [node name="ATK" type="Node" parent="StatManager" unique_id=1561888907]
 

@@ -29,7 +29,7 @@ func _ready() -> void:
 
 func char_setup() -> void:
 	P1ActionGoalTotalLabelValue.text = "/ " + str(P1.action_goal_total)
-	P1HealthTotal.text = "/ " + str(P1.max_hp)
+	P1HealthTotal.text = "/ " + str(P1.stat_manager.hp_component.max_hp)
 	var technique_list = P1.loadout.get_children()
 	P1.loadout.update_trigger_status.connect(updateTechniqueStatusP1)
 	for technique in technique_list:
@@ -39,7 +39,7 @@ func char_setup() -> void:
 			P1TechniqueList.add_child(techniqueLabel)
 	
 	P2ActionGoalTotalLabelValue.text = "/ " + str(P2.action_goal_total)
-	P2HealthTotal.text = "/ " + str(P2.max_hp)
+	P2HealthTotal.text = "/ " + str(P2.stat_manager.hp_component.max_hp)
 	technique_list = P2.loadout.get_children()
 	P2.loadout.update_trigger_status.connect(updateTechniqueStatusP2)
 	for technique in technique_list:
@@ -64,10 +64,10 @@ func _process(_delta: float) -> void:
 	
 	P1ActionGoalValueLabelValue.text = str(P1.current_action_goal)
 	P1ActionStockValue.text = str(P1.current_action_stock)
-	P1HealthValue.text = str(P1.health)
+	P1HealthValue.text = str(P1.stat_manager.hp_component.current_hp)
 	P2ActionGoalValueLabelValue.text = str(P2.current_action_goal)
 	P2ActionStockValue.text = str(P2.current_action_stock)
-	P2HealthValue.text = str(P2.health)
+	P2HealthValue.text = str(P2.stat_manager.hp_component.current_hp)
 
 func updateTechniqueStatusP1(index: int, canExecute: bool) -> void:
 	var techniqueLabel : Label = P1TechniqueList.get_child(index)

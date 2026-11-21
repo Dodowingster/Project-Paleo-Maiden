@@ -77,7 +77,7 @@ func broadcast_fin(winner: String) -> void:
 	var	finTimer: Timer = get_node("FinishTimer")
 
 	# Make double sure at least one player's health is fully depleted
-	if not (nodeP1.health and nodeP2.health):
+	if not (nodeP1.stat_manager.hp_component.current_hp and nodeP2.stat_manager.hp_component.current_hp):
 		finTimer.start()
 		# Engine.time_scale = 0.3
 		# ^ would've been used for slowdown on fin but it breaks knockback physics

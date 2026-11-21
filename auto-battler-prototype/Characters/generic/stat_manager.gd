@@ -21,6 +21,8 @@ extends Node
 ## Modifies dash backward movement speed
 @onready var backward_dash_spd_mult: float
 
+var hp_component: StatCompHp
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	setup_stats()
@@ -36,6 +38,7 @@ func setup_stats() -> void:
 	min_sta = char_node.character_data.min_sta
 	max_sta = char_node.character_data.max_sta
 	if $HP:
+		hp_component = $HP.setup_component(char_node)
 		print("HP Component attached to " + owner.character_name)
 	else:
 		push_warning("No HP component in " + owner.character_name)

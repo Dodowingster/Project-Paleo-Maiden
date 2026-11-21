@@ -90,7 +90,7 @@ func resume_game() -> void:
 func finish_game(winner: String) -> void:
 	var finishLabel : Label = get_node("Runner/CanvasLayer/FinishMenu/PanelContainer/VBoxContainer/FinishLabel")
 
-	if %Runner.nodeP1.health or %Runner.nodeP2.health:
+	if %Runner.nodeP1.stat_manager.hp_component.current_hp or %Runner.nodeP2.stat_manager.hp_component.current_hp:
 		finishLabel.text = winner + " WIN"
 	else:
 		finishLabel.text = "DRAW"

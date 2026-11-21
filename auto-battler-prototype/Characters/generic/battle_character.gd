@@ -30,7 +30,6 @@ var opp_clash_result : bool = false
 var hitstun : float = 0
 var hit_knockback_x : float = 0.000
 var hit_knockback_y : float = 0.000
-var health : int = max_hp
 var loadout : Loadout
 var aff_mgr : AffinityManager
 var state_machine : CharStateMachine
@@ -47,6 +46,8 @@ var velocity_x_before_wall : float = 0
 ## Mainly for debugging and identification
 @onready var character_name : String
 @onready var anim_lib_name : String
+
+@onready var stat_manager := $StatManager
 ## Base stat to calculate attack damage from
 @onready var atk: int  # currently unused
 ## Base stat to calculate damage taken
@@ -57,8 +58,6 @@ var velocity_x_before_wall : float = 0
 @onready var min_sta: int
 ## Maximum stamina roll to add to action goal
 @onready var max_sta: int
-## Maximum HP
-@onready var max_hp: int
 
 @onready var strategy: GlobalValues.Strategy
 
@@ -102,7 +101,6 @@ func _enter_tree() -> void:
 	spd = character_data.spd
 	min_sta = character_data.min_sta
 	max_sta = character_data.max_sta
-	max_hp = character_data.max_hp
 	strategy = character_data.strategy
 	min_distance = character_data.min_distance
 	max_distance = character_data.max_distance
@@ -112,7 +110,6 @@ func _enter_tree() -> void:
 	backward_dash_spd_mult = character_data.backward_dash_spd_mult
 	action_goal_total = character_data.action_goal_total
 
-	health = character_data.current_hp
 
 # code to run after children are ready
 func _ready() -> void:
@@ -378,7 +375,7 @@ func check_win():
 		# Happens during 2nd char check during double down, opponent_is_attacking
 		# no longer true but current health is already set to 0. So current
 		# char should lose
-		if health == 0:
+		if stat_manager.hp_component.current_hp == 0:
 			return
 
 	# stop doing stuff
@@ -444,13 +441,15 @@ func get_hit_logic(hitbox: HitBox, hurtbox: Hurtbox):
 	str(hitbox.damage) + ", groupname = " + hitbox.group_name)
 
 	vfx_type = VFXManager.VFXType.HIT
-	var output_health = health
 	final_hitstop = max(hitstop_frames, hitbox.hitstop_frames)
 	final_hitstop_owner = max(parent.hitstop_frames, hitbox.hitstop_frames)
 	hitstun = hitbox.hitstun
 	hit_knockback_x = hitbox.knockback_x * knockback_direction_mod
 	hit_knockback_y = hitbox.knockback_y
-	output_health = take_damage_hit(parent.calc_initial_damage(hitbox.damage))
+	stat_manager.hp_component.take_damage(
+		parent.calc_initial_damage(hitbox.damage),
+		StatCompHp.DamageMode.HIT
+	)
 
 	# vfx, hitstop, camera and sprite shake handling
 	hitstop_frames = final_hitstop
@@ -463,7 +462,6 @@ func get_hit_logic(hitbox: HitBox, hurtbox: Hurtbox):
 	%Sprite.add_trauma((hitstop_frames * 1.0/5) * 0.2)
 
 	# final outcome
-	health = output_health
 	opponent_is_attacking = false
 
 func get_block_logic(hitbox: HitBox, hurtbox: Hurtbox):
@@ -493,7 +491,10 @@ func get_block_logic(hitbox: HitBox, hurtbox: Hurtbox):
 		hit_knockback_x = hitbox.blockback_x * knockback_direction_mod
 		hit_knockback_y = hitbox.blockback_y
 		# Check for KO (no chip kill)
-		var output_health = take_damage_block(parent.calc_initial_damage(hitbox.damage))
+		stat_manager.hp_component.take_damage(
+			parent.calc_initial_damage(hitbox.damage),
+			StatCompHp.DamageMode.BLOCK
+		)
 
 		# vfx, hitstop, camera and sprite shake handling
 		hitstop_frames = final_hitstop
@@ -506,14 +507,13 @@ func get_block_logic(hitbox: HitBox, hurtbox: Hurtbox):
 		%Sprite.add_trauma((hitstop_frames * 1.0/5) * 0.2)
 
 		# final outcome
-		health = output_health
 		opponent_is_attacking = false
 
 func get_attacked_outcome() -> String:
 	var outcome_state = ""
 	aff_mgr.check_event_bonuses()
-	if health <= 0:
-		health = 0
+	if stat_manager.hp_component.current_hp <= 0:
+		stat_manager.hp_component.set_hp(0)
 		outcome_state = "Lose"
 	return outcome_state
 
@@ -521,24 +521,6 @@ func get_attacked_outcome() -> String:
 ## DAMAGE calc functions
 func calc_initial_damage(value : int) -> int:
 	return value + atk
-
-func take_damage_hit(value : int) -> int:
-	var output_health = health
-	var actual_damage : int = value - def
-	output_health -= actual_damage
-	if output_health < 0:
-		output_health = 0
-	return output_health
-
-func take_damage_block(value : int) -> int:
-	var output_health = health
-	@warning_ignore("narrowing_conversion")
-	var actual_damage : int = (value - def) * 0.3
-	output_health -= actual_damage
-	if output_health <= 0:
-		output_health = 1
-	return output_health
-
 
 ## HELPER functions
 func get_side() -> int:
